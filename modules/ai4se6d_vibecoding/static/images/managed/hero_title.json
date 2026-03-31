@@ -1,0 +1,18 @@
+{
+  "name": "hero_title",
+  "version": 1,
+  "timestamp": "2026-03-31T16:34:53.478792+00:00",
+  "source_type": "ai_generated",
+  "original_path": "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_vibecoding/static/images/ai/dd1716abd2fe5c31.png",
+  "prompt": "Minimalist digital illustration on a pure dark background (#1A1A2E). Flat vector style with soft gradients. Limited color palette: electric blue (#7AB8F5), teal (#2EC4B6), amber (#F39C12), white (#FFFFFF). Clean geometric shapes, no text, no watermarks, no photorealism. Ample negative space. Professional and modern aesthetic, suitable for tech conference projection. A split-screen composition: left side shows a human hand casually waving at a glowing code editor, right side shows the same code editor with structured blueprints and test tubes. Electric blue and teal energy flows connect both sides through an amber bridge. Symbolizes the spectrum from casual to disciplined AI coding. No text, no letters, no words, no labels, no watermarks. 16:9 aspect ratio. Dark background #1A1A2E.",
+  "provider": "openai",
+  "model": "gpt-image-1",
+  "size": "1536x1024",
+  "quality": "auto",
+  "base_image": null,
+  "revised_prompt": null,
+  "display_zoom": 50,
+  "display_width": null,
+  "display_height": null,
+  "display_keep_ratio": true
+}

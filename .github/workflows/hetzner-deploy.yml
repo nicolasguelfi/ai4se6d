@@ -64,7 +64,8 @@ jobs:
           cat > /tmp/services.json << 'SERVICES'
           {
             "ai4se6d-collection":   {"folder": "modules/ai4se6d_collection",   "uuid": "ilkmnoz457cta2j1z3k8ax8m"},
-            "ai4se6d-genai-intro":  {"folder": "modules/ai4se6d_genai_intro",  "uuid": "x45el0zeq6eqhhv1vo99mz20"}
+            "ai4se6d-genai-intro":  {"folder": "modules/ai4se6d_genai_intro",  "uuid": "x45el0zeq6eqhhv1vo99mz20"},
+            "ai4se6d-vibecoding":   {"folder": "modules/ai4se6d_vibecoding",   "uuid": "TODO-SET-COOLIFY-UUID"}
           }
           SERVICES
 

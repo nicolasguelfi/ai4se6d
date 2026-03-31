@@ -5,11 +5,12 @@ from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
+from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_LANDSCAPE as _SUFFIX
 
 
 # Viewport-filling container: content centered, fills 85vh
 _page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
+    "display:flex;flex-direction:column;justify-content:center;"
     "align-items:center;min-height:85vh;gap:1.5rem;",
     "title_page_fill",
 )
@@ -18,7 +19,7 @@ _page_fill = ns(
 class BlockStyles:
     """Slide: Title — maximize-viewport archetype: image-dominant."""
     title = Style.create(
-        s.Huge + s.bold + s.center_txt + s.text.colors.white
+        s.Huge + s.bold + s.center_txt + s.project.colors.primary
         + ns("line-height:1.1;", "intro_title_lh"),
         "intro_title",
     )
@@ -33,14 +34,6 @@ class BlockStyles:
 bs = BlockStyles
 
 # Master prompt components (from plan)
-_PREFIX = (
-    "Minimalist digital illustration on a pure dark background (#1A1A2E). "
-    "Flat vector style with soft gradients. Limited color palette: electric blue (#7AB8F5), "
-    "teal (#2EC4B6), amber (#F39C12), white (#FFFFFF). Clean geometric shapes, no text, "
-    "no watermarks, no photorealism. Ample negative space. Professional and modern aesthetic, "
-    "suitable for tech conference projection."
-)
-_SUFFIX = "No text, no letters, no words, no labels, no watermarks. 16:9 aspect ratio. Dark background #1A1A2E."
 
 HERO_PROMPT = (
     f"{_PREFIX} A luminous brain made of interconnected circuit nodes and neural pathways, "

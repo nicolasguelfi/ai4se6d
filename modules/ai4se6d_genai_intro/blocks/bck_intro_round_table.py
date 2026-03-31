@@ -16,9 +16,7 @@ _page_fill = ns(
 
 # Cell style: semi-transparent bordered (table-roadmap pattern)
 _cell = Style.create(
-    ns("background-color: rgba(122, 184, 245, 0.08); "
-       "border: 1px solid rgba(122, 184, 245, 0.3); "
-       "border-radius: 10px; padding: 12px 16px;", "round_table_cell_bg")
+    s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md
     + s.container.layouts.vertical_center_layout
     + s.center_txt,
     "round_table_cell",

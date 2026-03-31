@@ -18,9 +18,7 @@ _IMG = "_SHARED/bck_trainer_ts"
 
 # Cell style for the profile grid (table-roadmap pattern)
 _cell = Style.create(
-    ns("background-color: rgba(122, 184, 245, 0.08); "
-       "border: 1px solid rgba(122, 184, 245, 0.3); "
-       "border-radius: 10px; padding: 12px 16px;", "trainer_ts_cell_bg")
+    s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md
     + s.container.layouts.vertical_center_layout
     + s.center_txt,
     "trainer_ts_cell",
@@ -57,9 +55,10 @@ def build():
     # -- Slide 1: Title + Photo + Name --
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Who?", tag=t.div, toc_lvl="1")
+            st_write(bs.heading, "Who? — Tiago", tag=t.div, toc_lvl="1")
+            st_space("v", "10vh")
 
-            st_image(s.none, uri=f"{_IMG}/image1.png", width="200px", height="200px")
+            st_image(s.none, uri=f"{_IMG}/image1.png", width="400px", height="400px")
 
             st_write(bs.name, "Tiago Sousa")
             st_write(bs.role, "Right-On-Skill")

@@ -16,12 +16,7 @@ _page_fill = ns(
 
 # Header cell: accent background + bold
 _header_cell = Style.create(
-    ns(
-        "background-color: rgba(46, 196, 182, 0.2);"
-        "border: 1px solid rgba(46, 196, 182, 0.5);"
-        "border-radius: 10px;padding: 8px 12px;",
-        "header_cell_bg",
-    )
+    s.project.containers.cell_accent_bg + s.project.containers.cell_pad_sm
     + s.container.layouts.vertical_center_layout
     + s.center_txt,
     "llm_header_cell",
@@ -29,12 +24,7 @@ _header_cell = Style.create(
 
 # Normal cell: semi-transparent bordered
 _normal_cell = Style.create(
-    ns(
-        "background-color: rgba(122, 184, 245, 0.08);"
-        "border: 1px solid rgba(122, 184, 245, 0.3);"
-        "border-radius: 10px;padding: 8px 12px;",
-        "llm_normal_cell_bg",
-    )
+    s.project.containers.cell_primary_bg + s.project.containers.cell_pad_sm
     + s.container.layouts.vertical_center_layout
     + s.center_txt,
     "llm_normal_cell",

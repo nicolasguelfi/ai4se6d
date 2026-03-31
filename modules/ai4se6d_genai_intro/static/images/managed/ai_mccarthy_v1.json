@@ -1,0 +1,18 @@
+{
+  "name": "ai_mccarthy",
+  "version": 1,
+  "timestamp": "2026-03-30T12:47:07.605906+00:00",
+  "source_type": "ai_generated",
+  "original_path": "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/AI4SE-NG/static/images/ai/e760c64c356e0dc3.png",
+  "prompt": "Minimalist digital illustration on a pure dark background (#1A1A2E). Flat vector style with soft gradients. Limited color palette: electric blue (#7AB8F5), teal (#2EC4B6), amber (#F39C12), white (#FFFFFF). Clean geometric shapes, no text, no watermarks, no photorealism. Ample negative space. Professional and modern aesthetic, suitable for tech conference projection. Two abstract heads facing each other in profile. Left head is organic with smooth curves in teal. Right head is geometric with circuit patterns in electric blue. A subtle amber bridge of light connects them at eye level. Symbolizes human vs artificial intelligence. No text, no letters, no words, no labels, no watermarks. 16:9 aspect ratio. Dark background #1A1A2E.",
+  "provider": "openai",
+  "model": "gpt-image-1",
+  "size": "1536x1024",
+  "quality": "auto",
+  "base_image": null,
+  "revised_prompt": null,
+  "display_zoom": null,
+  "display_width": null,
+  "display_height": null,
+  "display_keep_ratio": true
+}

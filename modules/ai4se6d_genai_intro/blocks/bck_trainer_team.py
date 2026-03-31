@@ -56,7 +56,7 @@ def build():
                 # Trainer 1 — Nicolas Guelfi
                 with st_block(s.center_txt):
                     with st_block(bs.photo_placeholder):
-                        st_write(s.giant + s.center_txt + s.text.colors.white, "NG")
+                        st_write(s.giant + s.center_txt + s.project.colors.primary, "NG")
                     st_space("v", 1)
                     st_write(bs.name, "Dr. Prof. Nicolas Guelfi")
                     st_space("v", 0.5)
@@ -66,7 +66,7 @@ def build():
                 # Trainer 2 — Tiago Sousa
                 with st_block(s.center_txt):
                     with st_block(bs.photo_placeholder):
-                        st_write(s.giant + s.center_txt + s.text.colors.white, "TS")
+                        st_write(s.giant + s.center_txt + s.project.colors.primary, "TS")
                     st_space("v", 1)
                     st_write(bs.name, "Tiago Sousa")
                     st_space("v", 0.5)

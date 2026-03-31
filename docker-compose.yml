@@ -21,3 +21,12 @@ services:
       - FOLDER=modules/ai4se6d_genai_intro
     # Without Docker:
     #   cd modules/ai4se6d_genai_intro && uv run streamlit run book.py --server.port 8502
+
+  vibecoding:
+    build: .
+    ports:
+      - "8503:8501"
+    environment:
+      - FOLDER=modules/ai4se6d_vibecoding
+    # Without Docker:
+    #   cd modules/ai4se6d_vibecoding && uv run streamlit run book.py --server.port 8503

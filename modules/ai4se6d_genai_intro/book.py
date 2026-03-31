@@ -87,6 +87,19 @@ marker_config = MarkerConfig(
     collapsible=True,
 )
 
+# ── Unwired blocks (present in blocks/ but not in the slide sequence) ─
+# bck_title            — template: generic title (from project init)
+# bck_conclusion       — template: generic conclusion (from project init)
+# bck_features         — template: feature showcase (from project init)
+# bck_grid_demo        — demo: responsive grid patterns
+# bck_lists_demo       — demo: list rendering patterns
+# bck_trainer_team     — deprecated: replaced by bck_trainer_ng + bck_trainer_ts
+# bck_same_tools       — planned: "Same Tools, Different Discipline" slide
+# bck_llm_tokens       — planned: token visualization (complement to tokenization)
+# bck_llm_next_token   — planned: next-token prediction detail
+# bck_llm_layers       — planned: network layers visualization
+# bck_llm_training     — planned: training process overview
+
 # ── Orchestrate slides ───────────────────────────────────────────────
 st_book(
     [
@@ -143,6 +156,8 @@ st_book(
         # Fundamentals — Cross-cutting
         blocks.bck_ai_ethics,
         blocks.bck_genai_takeaways,
+        # Reference
+        blocks.bck_glossary,
     ],
     toc_config=toc,
     marker_config=marker_config,
@@ -165,9 +180,14 @@ st_book(
             filename="ai4se-session1",
             timestamp=True,
             pdf=PdfConfig(
-                format="A4", landscape=True,
-                margin_top="0", margin_bottom="0",
-                margin_left="0", margin_right="0",
+                format="16:10",
+                landscape=True,
+                print_background=True,
+                page_numbers=True,
+                scale=0.8,
+                content_width=90,
+                margin_top="0mm", margin_bottom="0mm",
+                margin_left="0mm", margin_right="0mm",
             ),
         ),
     ],

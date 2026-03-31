@@ -13,3 +13,11 @@ emoji = "\U0001F9E0"
 button_label = "Open"
 project_url = "https://ai4se6d-genai-intro.streamtex.org"
 order = 1
+
+[projects.vibecoding]
+title = "VibeCoding & VibeEngineering"
+description = "Discovering intent-driven development and engineering discipline with AI"
+emoji = "\U0001F680"
+button_label = "Open"
+project_url = "https://ai4se6d-vibecoding.streamtex.org"
+order = 2

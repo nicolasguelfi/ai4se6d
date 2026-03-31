@@ -5,6 +5,7 @@ from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
+from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 
 # Viewport-filling container
@@ -36,14 +37,6 @@ bs = BlockStyles
 
 
 # Master prompt components
-_PREFIX = (
-    "Minimalist digital illustration on a pure dark background (#1A1A2E). "
-    "Flat vector style with soft gradients. Limited color palette: electric blue (#7AB8F5), "
-    "teal (#2EC4B6), amber (#F39C12), white (#FFFFFF). Clean geometric shapes, no text, "
-    "no watermarks, no photorealism. Ample negative space. Professional and modern aesthetic, "
-    "suitable for tech conference projection."
-)
-_SUFFIX = "No text, no letters, no words, no labels, no watermarks. 2:3 portrait aspect ratio. Dark background #1A1A2E."
 
 _PROMPT = (
     f"{_PREFIX} Layered horizontal rows of interconnected circles forming a deep neural "

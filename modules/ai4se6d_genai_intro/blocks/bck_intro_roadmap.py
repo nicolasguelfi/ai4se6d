@@ -16,17 +16,13 @@ _page_fill = ns(
 
 # Cell style: background + border + vertical/horizontal centering
 _today_cell_style = Style.create(
-    ns("background-color: rgba(243, 156, 18, 0.15); "
-       "border: 2px solid #F39C12; border-radius: 10px; "
-       "padding: 8px 12px;", "today_cell_bg")
+    s.project.containers.cell_active_bg + s.project.containers.cell_pad_sm
     + s.container.layouts.vertical_center_layout
     + s.center_txt,
     "today_cell",
 )
 _normal_cell_style = Style.create(
-    ns("background-color: rgba(122, 184, 245, 0.08); "
-       "border: 1px solid rgba(122, 184, 245, 0.3); border-radius: 10px; "
-       "padding: 8px 12px;", "normal_cell_bg")
+    s.project.containers.cell_primary_bg + s.project.containers.cell_pad_sm
     + s.container.layouts.vertical_center_layout
     + s.center_txt,
     "normal_cell",
@@ -94,6 +90,7 @@ def build():
             with st_block(s.center_txt):
                 lvl = "1" if idx == 0 else "2"
                 st_write(bs.heading, "6-Day Journey", tag=t.div, toc_lvl=lvl)
+                st_space("v", "10vh")
 
                 _render_day(*day_a)
                 st_space("v", 4)
