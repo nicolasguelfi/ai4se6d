@@ -61,12 +61,10 @@ jobs:
         id: changed
         run: |
           # Service mapping: name → folder → Coolify UUID
-          # TODO: Replace placeholder UUIDs with actual Coolify service UUIDs
-          #       after creating services on Coolify (see DEPLOY.md)
           cat > /tmp/services.json << 'SERVICES'
           {
-            "ai4se6d-collection":   {"folder": "modules/ai4se6d_collection",   "uuid": "PLACEHOLDER_COLLECTION_UUID"},
-            "ai4se6d-genai-intro":  {"folder": "modules/ai4se6d_genai_intro",  "uuid": "PLACEHOLDER_GENAI_INTRO_UUID"}
+            "ai4se6d-collection":   {"folder": "modules/ai4se6d_collection",   "uuid": "ilkmnoz457cta2j1z3k8ax8m"},
+            "ai4se6d-genai-intro":  {"folder": "modules/ai4se6d_genai_intro",  "uuid": "x45el0zeq6eqhhv1vo99mz20"}
           }
           SERVICES
 

@@ -44,15 +44,14 @@ For each module, create a service on Coolify (https://coolify.streamtex.org):
 - **Domain**: `ai4se6d-genai-intro.streamtex.org`
 - **Port**: 8501
 
-### 3. Update the workflow UUIDs
+### 3. Coolify UUIDs (already configured)
 
-After creating services, get each UUID from Coolify and update
-`.github/workflows/hetzner-deploy.yml`:
+The workflow UUIDs in `.github/workflows/hetzner-deploy.yml` are:
 
 ```json
 {
-  "ai4se6d-collection":   {"folder": "modules/ai4se6d_collection",   "uuid": "<paste UUID>"},
-  "ai4se6d-genai-intro":  {"folder": "modules/ai4se6d_genai_intro",  "uuid": "<paste UUID>"}
+  "ai4se6d-collection":   {"uuid": "ilkmnoz457cta2j1z3k8ax8m"},
+  "ai4se6d-genai-intro":  {"uuid": "x45el0zeq6eqhhv1vo99mz20"}
 }
 ```
 
