@@ -1,0 +1,18 @@
+{
+  "name": "ai_era_dl",
+  "version": 1,
+  "timestamp": "2026-03-30T14:50:12.931741+00:00",
+  "source_type": "ai_generated",
+  "original_path": "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/AI4SE-NG/static/images/ai/1c7c18c7300ea5cb.png",
+  "prompt": "Minimalist digital illustration on a pure dark background (#1A1A2E). Flat vector style with soft gradients. Limited color palette: electric blue (#7AB8F5), teal (#2EC4B6), amber (#F39C12), white (#FFFFFF). Clean geometric shapes, no text, no watermarks, no photorealism. Ample negative space. Professional and modern aesthetic, suitable for tech conference projection. Layered horizontal rows of interconnected circles forming a deep neural network. Input layer in teal, hidden layers in electric blue with increasing glow intensity, output layer in amber. Connections shown as thin white lines. No text, no letters, no words, no labels, no watermarks. 2:3 portrait aspect ratio. Dark background #1A1A2E.",
+  "provider": "openai",
+  "model": "gpt-image-1",
+  "size": "1024x1536",
+  "quality": "auto",
+  "base_image": null,
+  "revised_prompt": null,
+  "display_zoom": null,
+  "display_width": null,
+  "display_height": null,
+  "display_keep_ratio": true
+}

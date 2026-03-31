@@ -1,0 +1,18 @@
+{
+  "name": "genai_landscape",
+  "version": 2,
+  "timestamp": "2026-03-30T14:52:34.621388+00:00",
+  "source_type": "ai_generated",
+  "original_path": "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/AI4SE-NG/static/images/ai/54c02fd11dedf0ab.png",
+  "prompt": "Minimalist digital illustration on a pure dark background (#1A1A2E). Flat vector style with soft gradients. Limited color palette: electric blue (#7AB8F5), teal (#2EC4B6), amber (#F39C12), white (#FFFFFF). Clean geometric shapes, no text, no watermarks, no photorealism. Ample negative space. Professional and modern aesthetic, suitable for tech conference projection. A network constellation of interconnected glowing nodes arranged in four clusters. Each cluster is a different color: electric blue cluster (top-left), teal cluster (top-right), amber cluster (bottom-left), white cluster (bottom-right). Thin luminous lines connect nodes within and between clusters. Central hub node slightly larger, connecting all four clusters. No text, no letters, no words, no labels, no watermarks. 2:3 portrait aspect ratio. Dark background #1A1A2E.",
+  "provider": "openai",
+  "model": "gpt-image-1",
+  "size": "1024x1536",
+  "quality": "auto",
+  "base_image": null,
+  "revised_prompt": null,
+  "display_zoom": null,
+  "display_width": null,
+  "display_height": null,
+  "display_keep_ratio": true
+}

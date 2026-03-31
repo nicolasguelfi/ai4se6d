@@ -1,0 +1,18 @@
+{
+  "name": "ai_era_symbolic",
+  "version": 3,
+  "timestamp": "2026-03-30T14:23:18.050746+00:00",
+  "source_type": "ai_generated",
+  "original_path": "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/AI4SE-NG/static/images/ai/d8f0fe73404c80b3.png",
+  "prompt": "Minimalist digital illustration on a pure dark background (#1A1A2E). Flat vector style with soft gradients. Limited color palette: electric blue (#7AB8F5), teal (#2EC4B6), amber (#F39C12), white (#FFFFFF). Clean geometric shapes, no text, no watermarks, no photorealism. Ample negative space. Professional and modern aesthetic, suitable for tech conference projection. A vintage-styled terminal screen outline with rigid if-then decision tree branches inside, drawn in geometric electric blue lines. Small amber nodes at each decision point. Represents rule-based expert systems of early AI. No text, no letters, no words, no labels, no watermarks. 16:9 aspect ratio. Dark background #1A1A2E.",
+  "provider": "google",
+  "model": "imagen-4.0-generate-001",
+  "size": "1024x1536",
+  "quality": "standard",
+  "base_image": null,
+  "revised_prompt": null,
+  "display_zoom": null,
+  "display_width": null,
+  "display_height": null,
+  "display_keep_ratio": true
+}

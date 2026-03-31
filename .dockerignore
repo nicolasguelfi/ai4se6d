@@ -10,3 +10,4 @@ _tmp/
 docs/
 exports/
 .ruff_cache/
+notes.txt
