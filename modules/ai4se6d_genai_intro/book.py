@@ -1,3 +1,5 @@
+import setup  # noqa: F401 — configure sys.path for shared-blocks
+
 import streamlit as st
 import streamtex as stx
 from streamtex import (

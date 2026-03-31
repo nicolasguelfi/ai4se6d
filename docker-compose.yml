@@ -1,0 +1,23 @@
+# Local development — run all modules simultaneously.
+# Usage: docker compose up --build
+# Or without Docker: see comments below each service.
+
+services:
+  collection:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - FOLDER=modules/ai4se6d_collection
+      - STX_URL_GENAI_INTRO=http://localhost:8502
+    # Without Docker:
+    #   cd modules/ai4se6d_collection && uv run streamlit run book.py --server.port 8501
+
+  genai-intro:
+    build: .
+    ports:
+      - "8502:8501"
+    environment:
+      - FOLDER=modules/ai4se6d_genai_intro
+    # Without Docker:
+    #   cd modules/ai4se6d_genai_intro && uv run streamlit run book.py --server.port 8502

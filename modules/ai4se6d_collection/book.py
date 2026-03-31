@@ -3,7 +3,6 @@
 import streamlit as st
 from custom.themes import dark
 
-import streamtex as stx
 import streamtex.styles as sts
 from streamtex import TOCConfig, NumberingMode, st_book, ViewMode
 

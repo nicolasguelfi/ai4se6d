@@ -10,4 +10,9 @@ _tmp/
 docs/
 exports/
 .ruff_cache/
+.github/
+docker-compose.yml
+CLAUDE.md
+settings.local.json
+*.bak-*
 notes.txt
