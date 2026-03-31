@@ -1,0 +1,15 @@
+# AI4SE 6D — Training Collection
+# Adding a module = add a [projects.xxx] section here + set STX_URL_XXX env var in Coolify
+
+[collection]
+title = "AI for Software Engineering 6D"
+description = "Formation en ingenierie logicielle augmentee par IA"
+cards_per_row = 3
+
+[projects.genai-intro]
+title = "GenAI Introduction"
+description = "Fundamentals of AI, Generative AI, and Large Language Models"
+emoji = "\U0001F9E0"
+button_label = "Open"
+project_url = "https://ai4se6d-genai-intro.streamtex.org"
+order = 1

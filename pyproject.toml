@@ -1,0 +1,21 @@
+[project]
+name = "ai4se6d"
+version = "0.1.0"
+description = "AI4SE 6D — Training Collection (StreamTeX)"
+requires-python = ">=3.11"
+dependencies = [
+    "streamtex[pdf,ai,inspector]>=0.3.0",
+    "streamlit>=1.54.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=7.0", "ruff>=0.4.0", "pre-commit>=3.0"]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.uv.sources]
+streamtex = { path = "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex", editable = true }
+
+[tool.ruff.lint]
+ignore = ["F403", "F405", "E701", "E741"]
