@@ -60,12 +60,14 @@ jobs:
       - name: Detect changed files and select services
         id: changed
         run: |
-          # Service mapping: name → folder → Coolify UUID
+          # Service mapping: name → folder → Coolify UUID(s)
+          # "replicas" lists additional container UUIDs sharing the same FQDN.
+          # All UUIDs (primary + replicas) are deployed together.
           cat > /tmp/services.json << 'SERVICES'
           {
-            "ai4se6d-collection":   {"folder": "modules/ai4se6d_collection",   "uuid": "ilkmnoz457cta2j1z3k8ax8m"},
-            "ai4se6d-genai-intro":  {"folder": "modules/ai4se6d_genai_intro",  "uuid": "x45el0zeq6eqhhv1vo99mz20"},
-            "ai4se6d-vibecoding":   {"folder": "modules/ai4se6d_vibecoding",   "uuid": "TODO-SET-COOLIFY-UUID"}
+            "ai4se6d-collection":   {"folder": "modules/ai4se6d_collection",   "uuid": "ilkmnoz457cta2j1z3k8ax8m", "replicas": []},
+            "ai4se6d-genai-intro":  {"folder": "modules/ai4se6d_genai_intro",  "uuid": "x45el0zeq6eqhhv1vo99mz20", "replicas": []},
+            "ai4se6d-vibecoding":   {"folder": "modules/ai4se6d_vibecoding",   "uuid": "s7mmmshyobzfo23wkylwa43r", "replicas": []}
           }
           SERVICES
 
@@ -107,6 +109,8 @@ jobs:
               for name, info in services.items():
                   if f.startswith(info['folder'] + '/'):
                       to_deploy.add(info['uuid'])
+                      for r in info.get('replicas', []):
+                          to_deploy.add(r)
           print(' '.join(sorted(to_deploy)))
           ")
           echo "UUIDs to deploy: ${uuids:-none}"
@@ -125,7 +129,14 @@ jobs:
           DEPLOY_ALL="${{ steps.changed.outputs.deploy_all }}"
 
           if [ "$DEPLOY_ALL" = "true" ]; then
-            uuids=$(python3 -c "import json; services=json.load(open('/tmp/services.json')); print(' '.join(s['uuid'] for s in services.values()))")
+            uuids=$(python3 -c "
+          import json; services=json.load(open('/tmp/services.json'))
+          all_uuids = []
+          for s in services.values():
+              all_uuids.append(s['uuid'])
+              all_uuids.extend(s.get('replicas', []))
+          print(' '.join(all_uuids))
+          ")
           else
             uuids="${{ steps.changed.outputs.uuids }}"
           fi
