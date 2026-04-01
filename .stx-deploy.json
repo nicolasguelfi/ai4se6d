@@ -1,0 +1,61 @@
+{
+  "version": "2.0",
+  "infrastructure": {
+    "server": {
+      "name": "streamtex-prod",
+      "id": 124306026,
+      "type": "cax21",
+      "location": "fsn1",
+      "image": "ubuntu-24.04",
+      "ipv4": "138.199.148.59",
+      "ssh_key_path": "~/.ssh/hetzner_streamtex",
+      "ssh_key_name": "streamtex-deploy"
+    },
+    "domain": {
+      "base": "streamtex.org",
+      "registrar": "ovh",
+      "wildcard_dns": "*.streamtex.org -> 138.199.148.59"
+    },
+    "coolify": {
+      "url": "https://coolify.streamtex.org",
+      "server_uuid": "i60ye92omrbeo4rbsfkw3ntb",
+      "project_uuid": "up0fchdmaze1m7wxozt7y7cu",
+      "environment": "production"
+    }
+  },
+  "phases_completed": {
+    "deploy": "2026-03-31T21:00:00Z"
+  },
+  "applications": [
+    {
+      "name": "ai4se6d",
+      "uuid": "ilkmnoz457cta2j1z3k8ax8m",
+      "subdomain": "ai4se6d",
+      "url": "https://ai4se6d.streamtex.org",
+      "folder": "modules/ai4se6d_collection",
+      "github_repo": "nicolasguelfi/ai4se6d",
+      "branch": "main",
+      "serve_mode": "streamlit-only"
+    },
+    {
+      "name": "ai4se6d-genai-intro",
+      "uuid": "x45el0zeq6eqhhv1vo99mz20",
+      "subdomain": "ai4se6d-genai-intro",
+      "url": "https://ai4se6d-genai-intro.streamtex.org",
+      "folder": "modules/ai4se6d_genai_intro",
+      "github_repo": "nicolasguelfi/ai4se6d",
+      "branch": "main",
+      "serve_mode": "streamlit-only"
+    },
+    {
+      "name": "ai4se6d-vibecoding",
+      "uuid": "s7mmmshyobzfo23wkylwa43r",
+      "subdomain": "ai4se6d-vibecoding",
+      "url": "https://ai4se6d-vibecoding.streamtex.org",
+      "folder": "modules/ai4se6d_vibecoding",
+      "github_repo": "nicolasguelfi/ai4se6d",
+      "branch": "main",
+      "serve_mode": "streamlit-only"
+    }
+  ]
+}
