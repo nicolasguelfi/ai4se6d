@@ -1,7 +1,9 @@
 import setup  # noqa: F401 — configure sys.path for shared-blocks
 
+import tomllib
 import streamlit as st
 import streamtex as stx
+from pathlib import Path
 from streamtex import (
     st_book, TOCConfig, NumberingMode, MarkerConfig, BannerConfig,
     PresentationConfig, set_presentation_config,
@@ -14,6 +16,8 @@ from pathlib import Path
 from custom.styles import Styles as s
 from custom.themes import dark
 from custom.config import IS_EXPORTABLE
+
+_doc_version = tomllib.loads((Path(__file__).parent.parent.parent / "pyproject.toml").read_text()).get("project", {}).get("version", "?")
 import streamtex.styles as sts
 import blocks
 
@@ -191,4 +195,5 @@ st_book(
             ),
         ),
     ],
+    doc_version=_doc_version,
 )

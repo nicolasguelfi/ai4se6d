@@ -1,12 +1,16 @@
 """AI4SE 6D — Training Collection Hub."""
 
+import tomllib
 import streamlit as st
+from pathlib import Path
 from custom.themes import dark
 
 import streamtex.styles as sts
 from streamtex import TOCConfig, NumberingMode, st_book, ViewMode
 
 import blocks
+
+_doc_version = tomllib.loads((Path(__file__).parent.parent.parent / "pyproject.toml").read_text()).get("project", {}).get("version", "?")
 
 st.set_page_config(
     page_title="AI4SE 6D — Training Collection",
@@ -27,4 +31,5 @@ st_book(
     ),
     paginate=False,
     view_modes=[ViewMode.CONTINUOUS],
+    doc_version=_doc_version,
 )
