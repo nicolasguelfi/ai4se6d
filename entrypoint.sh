@@ -6,12 +6,12 @@
 #
 # Env vars:
 #   FOLDER          module to serve (e.g. modules/ai4se6d_genai_intro)
-#   STX_SERVE_MODE  dual | static-only | streamlit-only (default: streamlit-only)
+#   STX_SERVE_MODE  dual | static-only | streamlit-only (default: dual)
 
 set -e
 
 FOLDER="${FOLDER:-modules/ai4se6d_collection}"
-MODE="${STX_SERVE_MODE:-streamlit-only}"
+MODE="${STX_SERVE_MODE:-dual}"
 
 cd /app/${FOLDER}
 

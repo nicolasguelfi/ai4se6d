@@ -26,7 +26,8 @@ ARG SOURCE_COMMIT=unknown
 # Then strip the sources section so "uv run" won't try to re-resolve the local path
 COPY .stx-version pyproject.toml uv.lock ./
 RUN uv sync --no-sources --no-dev --upgrade-package streamtex && \
-    sed -i '/^\[tool\.uv\.sources\]/,/^$/d' pyproject.toml
+    sed -i '/^\[tool\.uv\.sources\]/,/^$/d' pyproject.toml && \
+    uv pip install rich jinja2
 
 # Fail the build if the installed streamtex version is older than required.
 # Uses importlib.metadata (package registry) — NOT streamtex.__version__
@@ -59,10 +60,10 @@ RUN for dir in modules/ai4se6d_*/; do \
     done
 
 # STX_SERVE_MODE controls which services start (set at runtime by Coolify)
-#   streamlit-only = Streamlit (:8501) only — default for ai4se6d (backwards compat)
-#   dual           = Nginx (:80) + Streamlit (:8501) — static fallback on error
+#   dual           = Nginx (:80) + Streamlit (:8501) — default
 #   static-only    = Nginx (:80) only — no interactivity
-ENV STX_SERVE_MODE="streamlit-only"
+#   streamlit-only = Streamlit (:8501) only — legacy
+ENV STX_SERVE_MODE="dual"
 
 EXPOSE 80 8501
 
