@@ -28,21 +28,17 @@ if [ "$MODE" != "static-only" ]; then
     uv run stx cache warmup . 2>/dev/null || true
 fi
 
-# Generate static HTML export (only in dual/static-only modes)
-if [ "$MODE" != "streamlit-only" ]; then
-    echo "[entrypoint] Generating static HTML..."
-    uv run stx export html --output /app/static-html/ . 2>/dev/null || true
+# Generate static HTML export — clean first to remove stale exports
+rm -rf /app/static-html/*
+echo "[entrypoint] Generating static HTML..."
+uv run stx export html --output /app/static-html/ . 2>/dev/null || true
 
-    # Create a simple index.html redirect if the export didn't produce one
-    if [ ! -f /app/static-html/index.html ]; then
-        HTML_FILE=$(find /app/static-html/ -name "*.html" -maxdepth 2 | head -1)
-        if [ -n "$HTML_FILE" ]; then
-            REL_PATH="${HTML_FILE#/app/static-html/}"
-            echo "<meta http-equiv=\"refresh\" content=\"0;url=${REL_PATH}\">" \
-                > /app/static-html/index.html
-        fi
-    fi
-fi
+# Derive base_name (same as export CLI: basename of cwd)
+BASE_NAME=$(basename "$(pwd)")
+TARGET="${BASE_NAME}/${BASE_NAME}.html"
+echo "[entrypoint] Static HTML: /html/ → ${TARGET}"
+# Nginx snippet: 302 redirect from /html/ to the correct exported file
+echo "return 302 /html/${TARGET};" > /app/static-html/.nginx-redirect.conf
 
 # --- Start services based on mode ---
 

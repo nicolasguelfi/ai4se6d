@@ -53,6 +53,10 @@ RUN chmod +x /app/entrypoint.sh
 # FOLDER is set at runtime by Coolify env var (default: collection hub)
 ENV FOLDER="modules/ai4se6d_collection"
 
+# Default nginx redirect snippet (entrypoint regenerates at runtime)
+RUN mkdir -p /app/static-html && \
+    echo 'return 302 /html/;' > /app/static-html/.nginx-redirect.conf
+
 # Pre-warm the page cache for every module so the first visitor loads instantly.
 RUN for dir in modules/ai4se6d_*/; do \
         echo "Warming up cache for $dir ..." && \
@@ -67,9 +71,9 @@ ENV STX_SERVE_MODE="dual"
 
 EXPOSE 80 8501
 
-# Health check: try Nginx first (dual/static-only), then Streamlit (streamlit-only)
-HEALTHCHECK CMD curl --fail http://localhost:80/html/ 2>/dev/null \
-    || curl --fail http://localhost:8501/_stcore/health
+# Health check: Streamlit first, then Nginx static
+HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health 2>/dev/null \
+    || curl -fsL http://localhost:80/html/ -o /dev/null
 
 # Entrypoint handles mode selection, cache refresh, and HTML re-generation
 ENTRYPOINT ["/app/entrypoint.sh"]
