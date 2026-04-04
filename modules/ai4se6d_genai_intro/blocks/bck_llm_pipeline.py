@@ -8,7 +8,7 @@ from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_LANDSCAPE as _SUFFIX
 
 
-# Viewport-filling container
+# Override: flex-start + align-items:center combo not in centralized styles
 _page_fill = ns(
     "display:flex;flex-direction:column;justify-content:flex-start;"
     "align-items:center;min-height:85vh;gap:1.5rem;",

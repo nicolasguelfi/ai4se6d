@@ -1,19 +1,15 @@
 """Slide — Historical analogy: LLM as the new compiler?"""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 
-# Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_vc_analogy",
-)
+# Viewport-filling containers
+_page_fill = s.project.containers.page_fill_top
+_page_fill_center = s.project.containers.page_fill_center
 
 # Cell centering for grid
 _cell = Style.create(
@@ -66,23 +62,23 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with g.cell():
+                with st_zoom(130),g.cell():
                     st_write(
                         bs.body,
-                        (bs.keyword, "1960s: "),
+                        (s.project.colors.highlight + s.LARGE + s.bold, "1960s: "),
                         (bs.body, "High-level languages replaced assembly."),
                     )
                     st_space("v", 1)
                     st_write(
                         bs.body,
-                        (bs.keyword, "The compiler "),
-                        (bs.body, "became the trusted intermediary \u2014 "
+                        (s.project.colors.muted,
+                         "The compiler became the trusted intermediary \u2014 "
                          "programmers stopped writing machine code."),
                     )
                     st_space("v", 1)
                     st_write(
                         bs.body,
-                        (bs.keyword, "2025: "),
+                        (s.project.colors.highlight + s.LARGE + s.bold, "2025: "),
                         (bs.body, "LLMs generate code from natural language. "
                          "Are we seeing the same shift?"),
                     )
@@ -90,9 +86,9 @@ def build():
     st_slide_break()
 
     # Sub-slide 2: Critical difference
-    with st_block(_page_fill):
+    with st_zoom(130),st_block(_page_fill_center):
         with st_block(s.center_txt):
-            st_write(bs.subheading, "The Critical Difference", tag=t.div)
+            st_write(bs.subheading, "The Critical Difference", tag=t.div, toc_lvl="2")
             st_space("v", 1)
             st_write(
                 bs.body,

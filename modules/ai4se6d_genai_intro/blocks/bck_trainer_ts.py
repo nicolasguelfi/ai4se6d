@@ -1,17 +1,11 @@
 """Trainer profile — Tiago Sousa (imported from HTML)."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
-# Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "trainer_ts_page_fill",
-)
+_page_fill = s.project.containers.page_fill_top
 
 # Shared image path
 _IMG = "_SHARED/bck_trainer_ts"

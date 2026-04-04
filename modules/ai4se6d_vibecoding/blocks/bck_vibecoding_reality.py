@@ -1,67 +1,120 @@
-"""Slide — Reality check: stats and bridge to VibeEngineering."""
+"""Slide — Reality check: Anthropic finding, Bain study, gala dinner pivot."""
 # @guideline: maximize-viewport
+# @pattern: stat-hero
 from streamtex import *
+from streamtex.bib import cite
 from streamtex.styles import Style as ns
-from streamtex.enums import Tags as t, ListTypes as lt
+from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
-# Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_vc_reality",
-)
+# Stat-hero centered container
+_page_fill = s.project.containers.page_fill_center
 
-# Billboard centered
-_page_fill_center = ns(
+# Override: vertically centered but NOT horizontally centered (no align-items:center),
+# with wider gap — intentional for content-heavy pivot slide layout.
+_page_fill_content = ns(
     "display:flex;flex-direction:column;justify-content:center;"
-    "align-items:center;min-height:85vh;gap:1.5rem;",
-    "page_fill_vc_reality_center",
+    "min-height:85vh;gap:2rem;",
+    "page_fill_vc_reality_content",
 )
 
 
 class BlockStyles:
-    """VibeCoding reality check slide styles."""
+    """Reality check slide styles."""
     heading = s.project.titles.section_title + s.center_txt
-    body = s.project.titles.body
-    keyword = s.bold + s.project.colors.primary
-    stat = Style.create(
-        s.Large + s.bold + s.project.colors.highlight,
-        "vc_reality_stat",
+    stat_big = Style.create(
+        s.GIANT + s.bold + s.project.colors.primary + s.center_txt,
+        "vc_reality_stat_big",
     )
-    source = s.project.titles.caption
-    transition = Style.create(
-        s.Giant + s.bold + s.center_txt + s.project.colors.accent,
-        "vc_reality_transition",
+    stat_warn = Style.create(
+        s.GIANT + s.bold + s.project.colors.highlight + s.center_txt,
+        "vc_reality_stat_warn",
+    )
+    body = s.project.titles.body + s.center_txt
+    source = s.project.titles.caption + s.center_txt
+    keyword_ok = s.bold + s.project.colors.accent
+    keyword_warn = s.bold + s.project.colors.highlight
+    emphasis = Style.create(
+        s.Large + s.bold + s.italic + s.project.colors.highlight + s.center_txt,
+        "vc_reality_emphasis",
     )
 bs = BlockStyles
 
 
 def build():
-    # Sub-slide 1: Stats
+    # Slide 27 — Anthropic Finding
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Reality Check", tag=t.div, toc_lvl="1")
-
-            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "Anthropic finding: "), (bs.stat, "60%"), " integrable, ", (bs.stat, "0\u201320%"), " fully delegable")
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "Bain: "), (bs.stat, "10%"), " gains without process change vs ", (bs.stat, "25\u201330%"), " with end-to-end redesign")
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "Impact varies: "), "juniors ", (bs.stat, "+27\u201339%"), ", seniors ", (bs.stat, "+8\u201313%"), " (or slower)")
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "Naive VibeCoding has its place"), " \u2014 prototypes, demos, learning")
-                with l.item():
-                    st_write(bs.body, (bs.stat, "NOT"), " production systems")
+            st_write(bs.heading, "What Can Actually Be Delegated?", tag=t.div, toc_lvl="1")
+            st_space("v", 1)
+            st_write(
+                bs.body,
+                (bs.stat_big, "60% "),
+                "integrable",
+            )
+            st_space("v", 1)
+            st_write(
+                bs.body,
+                (bs.stat_warn, "0\u201320% "),
+                "fully delegable",
+            )
+            st_space("v", 2)
+            st_write(
+                bs.body,
+                "Most work still needs human judgment, review, and direction.",
+            )
+            # REF: https://www.anthropic.com/research/impact-software-development
+            st_write(bs.source, cite("anthropic2025impact"))
 
     st_slide_break()
 
-    # Sub-slide 2: Bridge question
-    with st_block(_page_fill_center):
-        st_write(
-            bs.transition,
-            "Speed AND Quality?",
-            tag=t.div,
-        )
+    # Slide 28 — Bain Study
+    with st_block(_page_fill):
+        with st_block(s.center_txt):
+            st_write(bs.heading, "Process > Tools", tag=t.div, toc_lvl="2")
+            st_space("v", 1)
+            st_write(
+                bs.body,
+                (bs.stat_warn, "10% "),
+                "gains without process change",
+            )
+            st_space("v", 1)
+            st_write(
+                bs.body,
+                (bs.stat_big, "25\u201330% "),
+                "with end-to-end process redesign",
+            )
+            st_space("v", 2)
+            st_write(
+                bs.body,
+                "Tools alone are not enough.",
+            )
+            # REF: https://www.bain.com/insights/topics/technology-report/
+            st_write(bs.source, cite("bain2025techreport"))
+
+    st_slide_break()
+
+    # Slide 29 — Naive VibeCoding Has Its Place (gala dinner pivot)
+    with st_block(_page_fill_content):
+        with st_block(s.center_txt):
+            st_write(bs.heading, "It Has Its Place", tag=t.div, toc_lvl="2")
+            st_space("v", 1)
+            st_write(
+                bs.body,
+                (bs.keyword_ok, "At home: "),
+                "personal prototypes, throwaway demos, learning, exploring ideas.",
+            )
+            st_space("v", 1)
+            st_write(
+                bs.body,
+                (bs.keyword_warn, "Not for: "),
+                "production, enterprise, regulated environments, shared code.",
+            )
+            st_space("v", 2)
+            st_write(
+                bs.emphasis,
+                "Now imagine your restaurant hosts a gala dinner for 200 guests. "
+                "Individual dietary requirements. Press in attendance. "
+                "Would you cook the same way?",
+            )

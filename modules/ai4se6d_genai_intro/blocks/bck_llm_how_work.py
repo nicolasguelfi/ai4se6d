@@ -1,17 +1,11 @@
 """Slide 6 — Transition: How does a machine generate text?"""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
-# Viewport-filling container: centered vertically
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:center;"
-    "align-items:center;min-height:85vh;gap:1.5rem;",
-    "page_fill_how_llms",
-)
+_page_fill = s.project.containers.page_fill_center
 
 
 class BlockStyles:

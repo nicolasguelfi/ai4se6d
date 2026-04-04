@@ -7,7 +7,7 @@ from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
-# P1: viewport-filling container
+# Override: non-standard gap:0.8rem
 _page_fill = ns(
     "display:flex;flex-direction:column;justify-content:flex-start;"
     "min-height:85vh;gap:0.8rem;",

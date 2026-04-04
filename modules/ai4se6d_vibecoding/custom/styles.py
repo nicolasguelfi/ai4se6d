@@ -97,6 +97,23 @@ class ContainerStylesCustom:
     cell_pad_sm = Style("padding: 8px 12px;", "cell_pad_sm")
     cell_pad_md = Style("padding: 12px 16px;", "cell_pad_md")
 
+    # Viewport-filling page layouts (shared across all blocks)
+    page_fill_top = Style(
+        "display:flex;flex-direction:column;justify-content:flex-start;"
+        "min-height:85vh;gap:1.5rem;",
+        "page_fill_top",
+    )
+    page_fill_center = Style(
+        "display:flex;flex-direction:column;justify-content:center;"
+        "align-items:center;min-height:85vh;gap:1.5rem;",
+        "page_fill_center",
+    )
+    page_fill_center_wide = Style(
+        "display:flex;flex-direction:column;justify-content:center;"
+        "align-items:center;min-height:85vh;gap:2rem;",
+        "page_fill_center_wide",
+    )
+
 
 class Custom:
     """Aggregation class for all presentation-specific styles."""

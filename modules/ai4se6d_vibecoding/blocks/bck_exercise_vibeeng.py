@@ -1,7 +1,6 @@
 """Slide — Exercise 3: Redo with Discipline (8 min)."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
@@ -9,17 +8,8 @@ from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_LANDSCAPE as _SUFFIX
 
 
 # Viewport-filling containers
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_ex_vibeeng",
-)
-
-_page_fill_center = ns(
-    "display:flex;flex-direction:column;justify-content:center;"
-    "align-items:center;min-height:85vh;gap:1.5rem;",
-    "page_fill_ex_vibeeng_center",
-)
+_page_fill = s.project.containers.page_fill_top
+_page_fill_center = s.project.containers.page_fill_center
 
 
 class BlockStyles:
@@ -78,14 +68,14 @@ def build():
 
     # Sub-slide 2: Timer
     with st_block(_page_fill_center):
-        st_write(bs.timer, "8:00", tag=t.div)
+        st_write(bs.timer, "8:00", tag=t.div, toc_lvl="2")
 
     st_slide_break()
 
     # Sub-slide 3: Debrief
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.subheading, "Compare Both Approaches", tag=t.div)
+            st_write(bs.subheading, "Compare Both Approaches", tag=t.div, toc_lvl="2")
             st_space("v", 1)
 
             with st_list(l_style=bs.debrief_q, li_style=bs.debrief_q, list_type=lt.unordered) as l:

@@ -1,17 +1,12 @@
 """Slide — Transition: What Practices Remain Essential?"""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
 # Billboard centered containers
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:center;"
-    "align-items:center;min-height:85vh;gap:1.5rem;",
-    "page_fill_vibeeng_transition",
-)
+_page_fill = s.project.containers.page_fill_center
 
 
 class BlockStyles:
@@ -45,4 +40,10 @@ def build():
             bs.affirmation,
             "Exactly \u2014 That\u2019s VibeEngineering",
             tag=t.div,
+            toc_lvl="2",
+        )
+        st_space("v", 2)
+        st_write(
+            Style.create(s.Large + s.italic + s.project.colors.muted + s.center_txt, "ve_trans_subtitle"),
+            "What separates the home cook from the starred chef.",
         )

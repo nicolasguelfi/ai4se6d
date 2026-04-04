@@ -1,12 +1,13 @@
 """Glossary — Key terms and abbreviations used in this presentation."""
 # @guideline: maximize-viewport
 from streamtex import *
+from streamtex.bib import st_bibliography
 from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
-# Viewport-filling container
+# Override: non-standard gap:1rem
 _page_fill = ns(
     "display:flex;flex-direction:column;justify-content:flex-start;"
     "min-height:85vh;gap:1rem;",
@@ -64,3 +65,11 @@ def build():
                 (bs.definition, definition.split(" — ", 1)[1] if " — " in definition else definition),
             )
             st_space("v", 0.5)
+
+        st_bibliography(
+            title="References",
+            title_style=bs.heading,
+            entry_style=bs.definition,
+            toc_lvl="1",
+            only_cited=True,
+        )

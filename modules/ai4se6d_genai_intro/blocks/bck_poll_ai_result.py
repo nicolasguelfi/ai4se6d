@@ -1,6 +1,7 @@
 """Slide — You're Not Alone: AI adoption stats with image."""
 # @guideline: maximize-viewport
 from streamtex import *
+from streamtex.bib import cite
 from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
@@ -8,12 +9,7 @@ from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 
-# Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_poll_ai_result",
-)
+_page_fill = s.project.containers.page_fill_top
 
 # Cell centering for grid
 _cell = Style.create(
@@ -104,4 +100,5 @@ def build():
                                 (bs.body, " will use AI assistants by 2028"),
                             )
                     st_space("v", 0.5)
-                    st_write(bs.source, "Stack Overflow 2025 · JetBrains · Gartner")
+                    # REF: https://survey.stackoverflow.co/2024/ai
+                    st_write(bs.source, cite("stackoverflow2024survey"))

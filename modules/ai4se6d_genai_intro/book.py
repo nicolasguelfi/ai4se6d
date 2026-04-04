@@ -11,6 +11,7 @@ from streamtex import (
     set_ai_image_config, AIImageConfig,
     SlideBreakConfig, SlideBreakMode, set_slide_break_config,
 )
+from streamtex.bib import BibConfig, BibFormat, CitationStyle, set_bib_config
 from pathlib import Path
 
 from custom.styles import Styles as s
@@ -104,6 +105,15 @@ marker_config = MarkerConfig(
 # bck_llm_layers       — planned: network layers visualization
 # bck_llm_training     — planned: training process overview
 
+# ── Bibliography ─────────────────────────────────────────────────────
+set_bib_config(BibConfig(
+    format=BibFormat.APA,
+    citation_style=CitationStyle.AUTHOR_YEAR,
+    hover_enabled=True,
+    hover_show_abstract=True,
+    sort_by="author",
+))
+
 # ── Orchestrate slides ───────────────────────────────────────────────
 st_book(
     [
@@ -169,6 +179,7 @@ st_book(
     banner=BannerConfig.hidden(),
     page_width=90,
     zoom=90,
+    bib_sources=[str(_module_dir / "static" / "references.bib")],
     exports=[
         ExportConfig(
             format="html",

@@ -7,18 +7,10 @@ from custom.styles import Styles as s
 
 
 # Billboard centered container
-_page_fill_billboard = ns(
-    "display:flex;flex-direction:column;justify-content:center;"
-    "align-items:center;min-height:85vh;gap:1.5rem;",
-    "page_fill_review_habits_billboard",
-)
+_page_fill_billboard = s.project.containers.page_fill_center
 
 # Standard top-aligned container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_review_habits",
-)
+_page_fill = s.project.containers.page_fill_top
 
 # Spectrum bar styles
 _spectrum_bar_1 = ns(
@@ -70,13 +62,14 @@ def build():
             tag=t.div,
             toc_lvl="1",
         )
+    st_space("v", "30vh")
 
     st_slide_break()
 
     # Sub-slide 2: AI usage spectrum
-    with st_block(_page_fill):
+    with st_zoom(160),st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Your AI Usage Today", tag=t.div)
+            st_write(bs.heading, "Your AI Usage Today", tag=t.div, toc_lvl="2")
             st_space("v", 2)
 
             with st_block(_spectrum_bar_1):
@@ -103,13 +96,14 @@ def build():
             bs.question,
             "Do You Review AI-Generated Code?",
             tag=t.div,
+            toc_lvl="2",
         )
     st_space("v", "5vh")
 
     st_slide_break()
 
     # Sub-slide 4: Review spectrum
-    with st_block(_page_fill):
+    with  st_zoom(140),st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "The Review Spectrum", tag=t.div)
             st_space("v", 2)

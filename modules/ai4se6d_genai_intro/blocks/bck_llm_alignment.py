@@ -1,19 +1,14 @@
 """Slide — Phase 3: Alignment (RLHF): balanced image + key points."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
+from streamtex.bib import cite
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 
-# Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_llm_alignment",
-)
+_page_fill = s.project.containers.page_fill_top
 
 # Cell centering for grid
 _cell = Style.create(
@@ -33,6 +28,7 @@ class BlockStyles:
         s.Large + s.bold + s.project.colors.primary + s.text.wrap.hyphens,
         "llm_alignment_keyword",
     )
+    source = s.project.titles.caption + s.center_txt
 bs = BlockStyles
 
 
@@ -96,3 +92,5 @@ def build():
                                 (bs.keyword, "Constitutional AI"),
                                 (bs.body, " — Anthropic's principle-based self-critique"),
                             )
+                    # REF: https://arxiv.org/abs/2212.08073
+                    st_write(bs.source, cite("bai2022constitutional"))

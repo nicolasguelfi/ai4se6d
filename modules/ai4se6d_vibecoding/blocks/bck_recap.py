@@ -1,23 +1,13 @@
 """Slide — Closing recap: GenAI + VibeCoding takeaways, roadmap, key message."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 
 
 # Viewport-filling containers
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_recap",
-)
-
-_page_fill_center = ns(
-    "display:flex;flex-direction:column;justify-content:center;"
-    "align-items:center;min-height:85vh;gap:1.5rem;",
-    "page_fill_recap_center",
-)
+_page_fill = s.project.containers.page_fill_top
+_page_fill_center = s.project.containers.page_fill_center
 
 
 class BlockStyles:
@@ -55,7 +45,7 @@ def build():
     # Sub-slide 2: Recap VibeCoding to VibeEngineering
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Recap: VibeCoding \u2192 VibeEngineering", tag=t.div)
+            st_write(bs.heading, "Recap: VibeCoding \u2192 VibeEngineering", tag=t.div, toc_lvl="2")
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item(): st_write(bs.body, (bs.keyword, "VibeCoding = fast"), " \u2014 describe, generate, ship")
@@ -68,7 +58,7 @@ def build():
     # Sub-slide 3: The Road Ahead
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.heading, "The Road Ahead", tag=t.div)
+            st_write(bs.heading, "The Road Ahead", tag=t.div, toc_lvl="2")
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item(): st_write(bs.body, (bs.keyword, "Day 1\u20132"), " \u2014 Fundamentals + VibeCoding/VibeEngineering + Cursor")
@@ -93,10 +83,16 @@ def build():
 
     st_slide_break()
 
-    # Sub-slide 4: Key message centered
+    # Sub-slide 4: Key message centered (kitchen metaphor closing)
     with st_block(_page_fill_center):
         st_write(
             bs.keymsg,
-            "Same Tools, Different Discipline",
+            "Same Kitchen, Different Discipline",
             tag=t.div,
+            toc_lvl="2",
+        )
+        st_space("v", 2)
+        st_write(
+            Style.create(s.Large + s.italic + s.center_txt + s.project.colors.muted, "recap_closing_sub"),
+            "Same ingredients. Same utensils. The difference: the discipline of the chef.",
         )

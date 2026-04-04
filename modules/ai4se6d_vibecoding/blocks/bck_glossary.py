@@ -1,17 +1,14 @@
 """Glossary — Key terms and abbreviations used in this presentation."""
 # @guideline: maximize-viewport
 from streamtex import *
+from streamtex.bib import st_bibliography
 from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
-# Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1rem;",
-    "page_fill_vc_glossary",
-)
+# Override: tighter gap (1rem instead of 1.5rem) for dense glossary layout.
+_page_fill = s.project.containers.page_fill_top + ns("gap:1rem;", "glossary_gap")
 
 
 class BlockStyles:
@@ -71,3 +68,13 @@ def build():
                 (bs.definition, definition),
             )
             st_space("v", 0.5)
+
+    st_slide_break()
+
+    st_bibliography(
+        title="References",
+        title_style=bs.heading,
+        entry_style=s.large,
+        toc_lvl="1",
+        only_cited=True,
+    )

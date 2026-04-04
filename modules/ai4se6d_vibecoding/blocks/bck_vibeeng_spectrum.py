@@ -2,17 +2,13 @@
 # @guideline: maximize-viewport
 # @pattern: table-roadmap
 from streamtex import *
-from streamtex.styles import Style as ns
+from streamtex.bib import cite
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
 # Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_vibeeng_spectrum",
-)
+_page_fill = s.project.containers.page_fill_top
 
 # Cell styles
 _normal_cell = Style.create(
@@ -109,5 +105,7 @@ def build():
                         st_write(bs.cell_text, best_for)
 
             st_space("v", 1)
+            # REF: https://arxiv.org/abs/2403.15852
+            st_write(bs.source, cite("qian2024soen101"))
             st_write(bs.evidence, "FlowGen: 15% fewer code smells with structured processes")
             st_write(bs.source, "80/20 rule: 80% effort in planning/review, 20% in execution")

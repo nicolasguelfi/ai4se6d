@@ -2,17 +2,12 @@
 # @guideline: maximize-viewport
 # @pattern: table-roadmap
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 
 
 # Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_ide_ecosystem",
-)
+_page_fill = s.project.containers.page_fill_top
 
 # Cell styles for comparison table
 _header_cell = Style.create(
@@ -93,7 +88,7 @@ def build():
     # Sub-slide 2: Cursor
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.subheading, "Cursor", tag=t.div)
+            st_write(bs.subheading, "Cursor", tag=t.div, toc_lvl="2")
             st_space("v", 1)
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
@@ -108,7 +103,7 @@ def build():
     # Sub-slide 3: Claude Code
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.subheading, "Claude Code", tag=t.div)
+            st_write(bs.subheading, "Claude Code", tag=t.div, toc_lvl="2")
             st_space("v", 1)
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
@@ -122,7 +117,7 @@ def build():
     # Sub-slide 4: Windsurf + Copilot
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.subheading, "Other Notable Tools", tag=t.div)
+            st_write(bs.subheading, "Other Notable Tools", tag=t.div, toc_lvl="2")
             st_space("v", 1)
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
@@ -134,7 +129,7 @@ def build():
     # Sub-slide 5: Comparison matrix
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.subheading, "Comparison", tag=t.div)
+            st_write(bs.subheading, "Comparison", tag=t.div, toc_lvl="2")
 
             # Header row
             with st_grid(

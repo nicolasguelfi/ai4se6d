@@ -1,0 +1,196 @@
+
+--------------
+--------------
+--------------
+
+Voici le context :
+- Le document latex principal situé ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/lu.uni.sage.publications.2025/ng.aiday.policy/ul-ai-4-se
+
+C'Est un document qui collecte des informations Scientifiques et techniques Sur le domaine du génie logiciel et de l'intelligence artificielle générative.
+
+Ce document doit être la source qui alimentera toutes les différentes formations que je vais donner sur le sujet dans différents contextes. La source risque d'évoluer et donc il faut toujours se coordonner avec elle à chaque cycle complet.
+
+- La première formations que je vais préparer a son programme décrit dans le document suivant :
+ul-ai-4-se/refs/program/ROS_AI4SE_Training_Information_Form-EN-MAIN.md
+
+- pour l'instant il y a les éléments suivants dans le dossier des modules: 
+ai4se6d_collection
+ai4se6d_genai_intro
+ai4se6d_vibecoding
+shared-blocks
+
+- le modules suivants sont en version beta:
+ai4se6d_genai_intro 
+ 
+- je suis en train de travailler sur le module:
+ai4se6d_vibecoding
+
+
+
+
+OBJECTIF:
+
+Appliquer le processus stx-ce Pour cette première session .
+
+Je souhaite utiliser une conception des présentations avec des slides minimaliste les plus graphiques possible avec des images d'illustration qui véhicule l'idée ou l'idées principales.
+
+Je souhaite aussi que dans le processus nous déterminons toujours la liste exacte des slides et l'ordonnancement avec une description abstraite du contenu avant la production.
+
+
+--------------
+--------------
+--------------
+--------------
+--------------
+pour le module ai4se6d_vibecoding :
+
+--------------
+pour le module ai4se6d_vibecoding :
+
+--------------
+pour le module ai4se6d_vibecoding :
+
+--------------
+pour le module ai4se6d_vibecoding :
+
+--------------
+pour le module ai4se6d_vibecoding :
+
+--------------
+pour le module ai4se6d_vibecoding :
+
+--------------
+pour le module ai4se6d_vibecoding :
+
+--------------
+pour le module ai4se6d_vibecoding :
+
+--------------
+--------------
+--------------
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+- peux-tu ajouter un espace vertical de 10vh après le titre "6-Day Journey" pour chacune des sections où il apparaît.
+
+- remplace
+Today's Objectives
+Part 1 (45 min) — Understand what Generative AI is and how LLMs work
+Part 2 (45 min) — Discover VibeCoding and the VibeEngineering discipline
+
+par 
+Today's Objectives
+
+2 columns table
+-> LEFT 
+Title = Morning
+Training Group Discovery
+Training Content
+Understand what Generative AI is and how LLMs work
+Break
+Discover VibeCoding and the VibeEngineering discipline
+GenAI Tools ecosystem
+-> RIGHT
+Title = Afternoon
+Dev env setup
+Project - Naive prototype - Part 1
+Break
+Project - Naive prototype - Part 2
+Debrief & Discussion
+
+Pour la table utilise le modèle dans les guidelines avec des couleurs alternée et certains MOTS CLEFS, en couleur différente.
+
+
+Assure-toi de toujours aligner le projet streamtex et le plan stx-ce disponible ici :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_genai_intro/docs/plans/2026-03-27-001-C-session1-plan.md
+
+
+--------------
+pour le projet streamtex AI4SE-NG
+
+Ton but est de transférer un document en version HTML dans un document streamtex intégré dans la présentation actuelle avec le design graphique de la présentation actuelle.
+
+Peux-tu concevoir un bloc en plusieurs sections séparées par des slide_break pour la présentation pour le contenu de ce fichier html.
+
+tu dois mettre les resources (images, videos, sons,...) éventuelles ici dans les bons dossiers:
+projects/AI4SE-NG/static/_SHARED
+
+Tu trouveras le source du fichier HTML, avec toutes les ressources à cet endroit :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/github/aiai/utils/trainings/tools/import_gdocs/exports/html/bck_trainer_ng
+
+----
+
+Peux-tu faire la même chose pour le second formateur avec les sources qui se trouvent ici :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/github/aiai/utils/trainings/tools/import_gdocs/exports/html/bck_trainer_ts
+
+--------------
+pour le projet streamtex AI4SE-NG
+
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/AI4SE-NG/static/_SHARED
+--------------
+pour le projet streamtex AI4SE-NG
+
+Voici le context :
+- Le document latex principal situé ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/lu.uni.sage.publications.2025/ng.aiday.policy/ul-ai-4-se
+
+C'Est un document qui collecte des informations Scientifique et techniques Sur le domaine du génie logiciel et de l'intelligence artificielle générative.
+
+Ce document doit être la source qui alimentera toutes les différentes formations que je vais donner sur le sujet dans différents contextes. La source risque d'évoluer et donc il faut toujours se coordonner avec elle à chaque cycle complet.
+
+- La première formations que je vais préparer a son programme décrit dans le document suivant :
+ul-ai-4-se/refs/program/ROS_AI4SE_Training_Information_Form-EN-MAIN.md
+
+- La session que je dois produire doit couvrir :
+
+-- Introduction to the fundamentals of generative AI (45 minutes)
+Definition of AI and generative AI
+Overview of available generative AI tools
+How language models work (OpenAI, Gemini, Anthropic, etc.)
+Limitations, capabilities, and ethics of generative AI
+
+-- Discovering the VibeCoding / VibeEngineering (45 minutes)
+Concepts
+Philosophy
+
+
+OBJECTIF:
+
+Appliquer le processus stx-ce Pour cette première session .
+
+Je souhaite utiliser une conception des présentations avec des slides minimaliste les plus graphiques possible avec des images d'illustration qui véhicule l'idée ou l'idées principales.
+
+Je souhaite aussi que dans le processus nous déterminons toujours la liste exacte des slides et l'ordonnancement avec une description abstraite du contenu avant la production.
+
+

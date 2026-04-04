@@ -1,7 +1,7 @@
 """Slide — Dangers of naive VibeCoding."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
+from streamtex.bib import cite
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
@@ -9,11 +9,7 @@ from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 
 # Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_vc_dangers",
-)
+_page_fill = s.project.containers.page_fill_top
 
 # Cell centering for grid
 _cell = Style.create(
@@ -68,13 +64,17 @@ def build():
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
                             st_write(bs.body, (bs.stat, "12\u201365%"), " vulnerability rates in AI-generated code")
-                            st_write(bs.source, "(Tihanyi et al.)")
+                            # REF: https://arxiv.org/abs/2404.18353
+                            st_write(bs.source, cite("tihanyi2024formai"))
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Hallucinated dependencies: "), (bs.stat, "5.2%"), " (commercial) to ", (bs.stat, "21.7%"), " (open-source)")
-                            st_write(bs.source, "Supply-chain attack vectors")
+                            # REF: https://arxiv.org/abs/2406.10279
+                            st_write(bs.source, cite("spracklen2024packages"))
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Technical debt iceberg"))
-                            st_write(bs.source, "\u201CAny fool can write code a computer can understand.\u201D \u2014 Fowler")
+                            # REF: https://martinfowler.com/bliki/TechnicalDebt.html
+                            st_write(bs.body, "\u201CAny fool can write code a computer can understand.\u201D")
+                            st_write(bs.source, cite("fowler1999refactoring"))
                         with l.item():
                             st_write(bs.body, (bs.keyword, "AI paradox: "), (bs.stat, "7 hours/week"), " lost to AI-related inefficiencies")
                         with l.item():

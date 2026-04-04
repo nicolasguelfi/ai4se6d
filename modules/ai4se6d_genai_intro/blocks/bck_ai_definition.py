@@ -1,17 +1,11 @@
 """Slide — Transition: What is Artificial Intelligence?"""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
-# Viewport-filling container: content centered, fills 85vh
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:center;"
-    "align-items:center;min-height:85vh;gap:1.5rem;",
-    "page_fill_what_is_ai",
-)
+_page_fill = s.project.containers.page_fill_center
 
 
 class BlockStyles:

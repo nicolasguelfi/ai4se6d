@@ -1,19 +1,13 @@
 """Slide — 2010s Deep Learning: balanced image + key points."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 
-# Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_ai_era_dl",
-)
+_page_fill = s.project.containers.page_fill_top
 
 # Cell centering for grid
 _cell = Style.create(

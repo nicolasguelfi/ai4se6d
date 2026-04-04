@@ -2,17 +2,11 @@
 # @guideline: maximize-viewport
 # @pattern: table-roadmap
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
-# Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_intro_objective",
-)
+_page_fill = s.project.containers.page_fill_top
 
 # Cell styles — alternating rows
 _cell_primary = Style.create(

@@ -1,17 +1,12 @@
 """Slide — 4 Principles of VibeCoding."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 
 
 # Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_vc_principles",
-)
+_page_fill = s.project.containers.page_fill_top
 
 
 class BlockStyles:

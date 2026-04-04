@@ -9,11 +9,7 @@ from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_LANDSCAPE as _SUFFIX
 
 
 # Viewport-filling container: billboard centered
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:center;"
-    "align-items:center;min-height:85vh;gap:1.5rem;",
-    "page_fill_vc_title",
-)
+_page_fill = s.project.containers.page_fill_center
 
 
 class BlockStyles:

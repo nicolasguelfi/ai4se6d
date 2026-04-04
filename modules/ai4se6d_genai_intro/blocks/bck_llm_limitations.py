@@ -1,17 +1,11 @@
 """Slide 11 — What GenAI Cannot Do: five limitations with amber keywords."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 
 
-# Viewport-filling container: space-between distribution
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_limitations",
-)
+_page_fill = s.project.containers.page_fill_top
 
 
 class BlockStyles:

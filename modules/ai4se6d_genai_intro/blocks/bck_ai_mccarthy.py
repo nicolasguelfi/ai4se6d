@@ -1,19 +1,14 @@
 """Slide — Artificial Intelligence: John McCarthy's 1955 definition."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
+from streamtex.bib import cite
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 
-# Viewport-filling container
-_page_fill = ns(
-    "display:flex;flex-direction:column;justify-content:flex-start;"
-    "min-height:85vh;gap:1.5rem;",
-    "page_fill_ai_mccarthy",
-)
+_page_fill = s.project.containers.page_fill_top
 
 # Cell centering for grid
 _cell = Style.create(
@@ -75,8 +70,5 @@ def build():
                          "that a machine can be made to simulate it.\u201D"),
                     )
                     st_space("h", "1.5rem")
-                    st_write(
-                        bs.attribution,
-                        (bs.attribution, "\u2014 John McCarthy et al., "
-                         "Dartmouth Proposal (1955)"),
-                    )
+                    # REF: https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/1904
+                    st_write(bs.attribution, cite("mccarthy1955dartmouth"))

@@ -10,6 +10,7 @@ from streamtex import (
     set_ai_image_config, AIImageConfig,
     SlideBreakConfig, SlideBreakMode, set_slide_break_config,
 )
+from streamtex.bib import BibConfig, BibFormat, CitationStyle, set_bib_config
 from pathlib import Path
 
 from custom.styles import Styles as s
@@ -90,32 +91,74 @@ marker_config = MarkerConfig(
     collapsible=True,
 )
 
+# ── Bibliography ─────────────────────────────────────────────────────
+set_bib_config(BibConfig(
+    format=BibFormat.APA,
+    citation_style=CitationStyle.AUTHOR_YEAR,
+    hover_enabled=True,
+    hover_show_abstract=True,
+    sort_by="author",
+))
+
 # Orchestrate slides
 st_book(
     [
-        # Opening
-        blocks.bck_title,
-        blocks.bck_intro_review_habits,
-        # VibeCoding — The Concept
-        blocks.bck_vibecoding_origin,
-        blocks.bck_vibecoding_principles,
-        blocks.bck_vibecoding_analogy,
-        # Exercise 2 — Pure VibeCoding
-        blocks.bck_exercise_vibecoding,
-        # Dangers of Naive VibeCoding
-        blocks.bck_vibecoding_dangers,
-        blocks.bck_vibecoding_reality,
-        # VibeEngineering — The Discipline
-        blocks.bck_vibeeng_transition,
-        blocks.bck_vibeeng_principles,
-        blocks.bck_vibeeng_spectrum,
-        # Exercise 3 — VibeEngineering in Practice
-        blocks.bck_exercise_vibeeng,
-        # IDE Ecosystem
-        blocks.bck_ide_ecosystem,
-        # Closing
-        blocks.bck_recap,
-        blocks.bck_glossary,
+        # --- OPENING ---
+        blocks.bck_title,                        # Block 1
+        blocks.bck_intro_review_habits,          # Block 2
+
+        # --- ACT I: VIBECODING — THE CONCEPT ---
+        blocks.bck_vibecoding_origin,            # Block 3  — Karpathy quotes
+        blocks.bck_vibecoding_definition,        # Block 4  — Formal definition
+        blocks.bck_vibecoding_paradigm,          # Block 5  — From Cook to Customer
+        blocks.bck_vibecoding_intent,            # Block 6  — Principle 1
+        blocks.bck_vibecoding_trust,             # Block 7  — Principle 2
+        blocks.bck_vibecoding_conversation,      # Block 8  — Principle 3
+        blocks.bck_vibecoding_low_barrier,       # Block 9  — Principle 4
+        blocks.bck_vibecoding_analogy,           # Block 10 — Historical analogy
+
+        # --- EXERCISE 2: PURE VIBECODING ---
+        blocks.bck_exercise_vibecoding,          # Block 11
+
+        # --- ACT II: THE REALITY CHECK ---
+        blocks.bck_vibecoding_danger_intro,      # Block 12 — Billboard pivot
+        blocks.bck_vibecoding_danger_vuln,       # Block 13 — 12-65% vulnerabilities
+        blocks.bck_vibecoding_danger_halluc,     # Block 14 — Hallucinated deps
+        blocks.bck_vibecoding_danger_debt,       # Block 15 — Tech debt iceberg
+        blocks.bck_vibecoding_danger_paradox,    # Block 16 — AI Paradox 7h/week
+        blocks.bck_vibecoding_danger_demo_prod,  # Block 17 — Demo vs Production
+        blocks.bck_vibecoding_reality,           # Block 18 — Stats + gala pivot
+        blocks.bck_vibecoding_bridge,            # Block 19 — Speed AND Quality?
+
+        # --- ACT III: VIBEENGINEERING — THE DISCIPLINE ---
+        blocks.bck_vibeeng_transition,           # Block 20 — Q5: What practices?
+        blocks.bck_vibeeng_rebranding,           # Block 21 — Coding → Engineering
+        blocks.bck_vibeeng_p_requirements,       # Block 22 — P1: Requirements
+        blocks.bck_vibeeng_p_tdd,                # Block 23 — P2: TDD
+        blocks.bck_vibeeng_p_architecture,       # Block 24 — P3: Architecture
+        blocks.bck_vibeeng_p_iteration,          # Block 25 — P4: Iteration
+        blocks.bck_vibeeng_p_review,             # Block 26 — P5: Review
+        blocks.bck_vibeeng_p_context,            # Block 27 — P6: Context Eng.
+        blocks.bck_vibeeng_spectrum,             # Block 28 — 4-level spectrum
+        blocks.bck_vibeeng_evidence,             # Block 29 — FlowGen 15%
+
+        # --- EXERCISE 3: REDO WITH DISCIPLINE ---
+        blocks.bck_exercise_vibeeng,             # Block 30
+
+        # --- ACT IV: TOOL ECOSYSTEM ---
+        blocks.bck_ide_overview,                 # Block 31 — Section billboard
+        blocks.bck_ide_autonomy,                 # Block 32 — 5 levels + agentic turn
+        blocks.bck_ide_cursor,                   # Block 33 — Cursor detailed
+        blocks.bck_ide_claude_code,              # Block 34 — Claude Code detailed
+        blocks.bck_ide_others,                   # Block 35 — Windsurf + Copilot
+        blocks.bck_ide_comparison,               # Block 36 — Comparison matrix
+        blocks.bck_ide_mcp,                      # Block 37 — MCP protocol
+        blocks.bck_ide_cursor_choice,            # Block 38 — Why Cursor
+
+        # --- CLOSING ---
+        blocks.bck_recap,                        # Block 39
+        blocks.bck_closing,                      # Block 40 — Questions?
+        blocks.bck_glossary,                     # Block 41
     ],
     toc_config=toc,
     marker_config=marker_config,
@@ -123,6 +166,7 @@ st_book(
     banner=BannerConfig.hidden(),
     page_width=90,
     zoom=90,
+    bib_sources=[str(_module_dir / "static" / "references.bib")],
     exports=[
         ExportConfig(
             format="html",

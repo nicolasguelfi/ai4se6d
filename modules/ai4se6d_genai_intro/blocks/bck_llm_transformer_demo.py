@@ -7,7 +7,7 @@ from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 
 
-# Viewport-filling container
+# Override: non-standard gap:0.5rem
 _page_fill = ns(
     "display:flex;flex-direction:column;justify-content:flex-start;"
     "min-height:85vh;gap:0.5rem;",

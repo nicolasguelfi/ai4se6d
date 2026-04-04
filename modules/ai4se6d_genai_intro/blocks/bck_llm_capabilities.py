@@ -6,7 +6,7 @@ from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 
 
-# Viewport-filling container: space-between distribution
+# Override: non-standard justify-content:top
 _page_fill = ns(
     "display:flex;flex-direction:column;justify-content:top;"
     "min-height:85vh;gap:1.5rem;",

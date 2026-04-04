@@ -27,7 +27,7 @@ dev = [
 requires-dist = [
     { name = "python-dotenv", specifier = ">=1.0.0" },
     { name = "streamlit", specifier = ">=1.54.0" },
-    { name = "streamtex", extras = ["cli", "pdf", "ai", "inspector"], specifier = ">=0.3.0" },
+    { name = "streamtex", extras = ["cli", "pdf", "ai", "inspector"], editable = "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex" },
 ]
 
 [package.metadata.requires-dev]
@@ -2167,7 +2167,7 @@ wheels = [
 [[package]]
 name = "streamtex"
 version = "0.6.4"
-source = { registry = "https://pypi.org/simple" }
+source = { editable = "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex" }
 dependencies = [
     { name = "beautifulsoup4" },
     { name = "graphviz" },
@@ -2178,10 +2178,6 @@ dependencies = [
     { name = "streamlit" },
     { name = "streamlit-mermaid" },
     { name = "watchdog" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/25/f1/17d1634b982b51ed2d1ef414878c44c6f6a58e5416e55be97841f2d7118d/streamtex-0.6.4.tar.gz", hash = "sha256:f53a1272d0f597cc1a59c279c9852419458b30cccfbbe25fe304b30279e3b37f", size = 1428792, upload-time = "2026-04-01T20:26:46.216Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/45/7c/b48cf965761c57470fbb3eeba4fccd0a1500c3378b50513e80990f036e87/streamtex-0.6.4-py3-none-any.whl", hash = "sha256:8a69feefaf4a4c974de824ea9511d2c743d23ae2329a740788da2a3c07eec9bd", size = 1457505, upload-time = "2026-04-01T20:26:44.558Z" },
 ]
 
 [package.optional-dependencies]
@@ -2202,6 +2198,52 @@ inspector = [
 ]
 pdf = [
     { name = "playwright" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "beautifulsoup4", specifier = ">=4.10.0" },
+    { name = "click", marker = "extra == 'cli'", specifier = ">=8.0" },
+    { name = "fal-client", marker = "extra == 'ai'", specifier = ">=0.5" },
+    { name = "fal-client", marker = "extra == 'ai-fal'", specifier = ">=0.5" },
+    { name = "google-genai", marker = "extra == 'ai'", specifier = ">=1.0" },
+    { name = "google-genai", marker = "extra == 'ai-google'", specifier = ">=1.0" },
+    { name = "graphviz", specifier = ">=0.21" },
+    { name = "jinja2", marker = "extra == 'cli'", specifier = ">=3.0" },
+    { name = "matplotlib", specifier = ">=3.10.8" },
+    { name = "mermaid-py", specifier = ">=0.5.0" },
+    { name = "openai", marker = "extra == 'ai'", specifier = ">=1.0" },
+    { name = "openai", marker = "extra == 'ai-openai'", specifier = ">=1.0" },
+    { name = "pillow", marker = "extra == 'ai'", specifier = ">=10.0" },
+    { name = "pillow", marker = "extra == 'ai-fal'", specifier = ">=10.0" },
+    { name = "pillow", marker = "extra == 'ai-google'", specifier = ">=10.0" },
+    { name = "pillow", marker = "extra == 'ai-openai'", specifier = ">=10.0" },
+    { name = "playwright", marker = "extra == 'cli'", specifier = ">=1.40" },
+    { name = "playwright", marker = "extra == 'pdf'", specifier = ">=1.40" },
+    { name = "python-dotenv", specifier = ">=1.2.1" },
+    { name = "requests", specifier = ">=2.28.0" },
+    { name = "rich", marker = "extra == 'cli'", specifier = ">=13.0" },
+    { name = "streamlit", specifier = ">=1.54.0" },
+    { name = "streamlit-ace", marker = "extra == 'inspector'", specifier = ">=0.1.1" },
+    { name = "streamlit-mermaid", specifier = ">=0.3.0" },
+    { name = "watchdog" },
+]
+provides-extras = ["inspector", "cli", "pdf", "ai", "ai-openai", "ai-google", "ai-fal"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "build", specifier = ">=1.4.0" },
+    { name = "click", specifier = ">=8.0" },
+    { name = "fal-client", specifier = ">=0.13.1" },
+    { name = "google-genai", specifier = ">=1.66.0" },
+    { name = "jinja2", specifier = ">=3.0" },
+    { name = "openai", specifier = ">=2.26.0" },
+    { name = "playwright", specifier = ">=1.58.0" },
+    { name = "pre-commit", specifier = ">=3.0" },
+    { name = "pytest", specifier = ">=7.0" },
+    { name = "rich", specifier = ">=13.0" },
+    { name = "ruff", specifier = ">=0.4.0" },
+    { name = "twine", specifier = ">=6.2.0" },
 ]
 
 [[package]]

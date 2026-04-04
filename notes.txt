@@ -1,4 +1,9 @@
 
+Peux-tu analyser le projet et regarder s'il serait possible que les images générés par IA Soit sauvegardé en local, uniquement au format webp Avec la même résolution, et avec une qualité de 90%.
+Analyse, fais des propositions, ne touche pas le code.
+  
+  
+  auto_generate=True
 --------------
 --------------
 --------------
@@ -32,37 +37,99 @@ Je souhaite aussi que dans le processus nous déterminons toujours la liste exac
 --------------
 --------------
 --------------
-pour le projet streamtex AI4SE-NG
+--------------
+pour le module ai4se6d_vibecoding :
 
 --------------
-pour le projet streamtex AI4SE-NG
+pour le module ai4se6d_vibecoding :
 
 --------------
-pour le projet streamtex AI4SE-NG
+pour le module ai4se6d_vibecoding :
 
 --------------
-pour le projet streamtex AI4SE-NG
+pour le module ai4se6d_vibecoding :
 
 --------------
-pour le projet streamtex AI4SE-NG
+pour le module ai4se6d_vibecoding :
 
 --------------
-pour le projet streamtex AI4SE-NG
+pour le module ai4se6d_vibecoding :
 
 --------------
-pour le projet streamtex AI4SE-NG
+pour le module ai4se6d_vibecoding :
 
 --------------
-pour le projet streamtex AI4SE-NG
+pour le module ai4se6d_vibecoding :
 
 --------------
-pour le projet streamtex AI4SE-NG
+--------------
+--------------
+--------------
+pour le module ai4se6d_genai_intro :
 
 --------------
-pour le projet streamtex AI4SE-NG
+pour le module ai4se6d_genai_intro :
 
 --------------
-pour le projet streamtex AI4SE-NG
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+--------------
+pour le module ai4se6d_genai_intro :
+
+- peux-tu ajouter un espace vertical de 10vh après le titre "6-Day Journey" pour chacune des sections où il apparaît.
+
+- remplace
+Today's Objectives
+Part 1 (45 min) — Understand what Generative AI is and how LLMs work
+Part 2 (45 min) — Discover VibeCoding and the VibeEngineering discipline
+
+par 
+Today's Objectives
+
+2 columns table
+-> LEFT 
+Title = Morning
+Training Group Discovery
+Training Content
+Understand what Generative AI is and how LLMs work
+Break
+Discover VibeCoding and the VibeEngineering discipline
+GenAI Tools ecosystem
+-> RIGHT
+Title = Afternoon
+Dev env setup
+Project - Naive prototype - Part 1
+Break
+Project - Naive prototype - Part 2
+Debrief & Discussion
+
+Pour la table utilise le modèle dans les guidelines avec des couleurs alternée et certains MOTS CLEFS, en couleur différente.
+
+
+Assure-toi de toujours aligner le projet streamtex et le plan stx-ce disponible ici :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_genai_intro/docs/plans/2026-03-27-001-C-session1-plan.md
+
 
 --------------
 pour le projet streamtex AI4SE-NG

@@ -1,11 +1,11 @@
-# ai4se6d-genai-intro — Claude Code Rules
+# ai4se6d — Claude Code Rules
 
 ## Identity
 You are a **StreamTeX Expert**. You NEVER write standard Streamlit code for content rendering.
 You ALWAYS use the `streamtex` library (`stx.*` functions) instead of raw `st.*` calls.
 
 ## Terminology
-When the user says **"stream"**, **"la librairie"**, **"st"**, or **"stx"**, they always mean **StreamTeX**.
+When the user says **"stream"**, **"the library"**, **"st"**, or **"stx"**, they always mean **StreamTeX**.
 
 ## Environment (MANDATORY)
 This project uses **uv** for dependency management. You MUST:
@@ -70,7 +70,7 @@ stx run
 
 ## Project Structure
 ```
-ai4se6d-genai-intro/
+ai4se6d/
 ├── book.py                 # Entry point
 ├── blocks/                 # Block files (bck_*.py)
 │   ├── __init__.py         # ProjectBlockRegistry
