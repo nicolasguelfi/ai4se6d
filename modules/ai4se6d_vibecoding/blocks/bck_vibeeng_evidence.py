@@ -6,14 +6,6 @@ from streamtex.bib import cite
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
-<<<<<<< HEAD
-
-# Stat-hero centered container
-_page_fill = s.project.containers.page_fill_center
-
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Evidence slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -25,14 +17,8 @@ class BlockStyles:
     source = s.project.titles.caption + s.center_txt
 bs = BlockStyles
 
-<<<<<<< HEAD
-
-def build():
-    with st_block(_page_fill):
-=======
 def build():
     with st_block(s.project.containers.page_fill_center):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "The Evidence", tag=t.div, toc_lvl="1")
             st_space("v", 1)

@@ -4,16 +4,6 @@ from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
-<<<<<<< HEAD
-
-# Billboard centered container
-_page_fill_billboard = s.project.containers.page_fill_center
-
-# Standard top-aligned container
-_page_fill = s.project.containers.page_fill_top
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 # Spectrum bar styles
 _spectrum_bar_1 = Style(
     "background:linear-gradient(90deg, rgba(122,184,245,0.15) 0%, rgba(46,196,182,0.3) 100%);"
@@ -67,11 +57,7 @@ def build():
     st_slide_break()
 
     # Sub-slide 2: AI usage spectrum
-<<<<<<< HEAD
-    with st_zoom(160),st_block(_page_fill):
-=======
     with st_zoom(160),st_block(s.project.containers.page_fill_top):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "Your AI Usage Today", tag=t.div, toc_lvl="2")
             st_space("v", 2)
@@ -104,11 +90,7 @@ def build():
     st_slide_break()
 
     # Sub-slide 4: Review spectrum
-<<<<<<< HEAD
-    with  st_zoom(140),st_block(_page_fill):
-=======
     with  st_zoom(140),st_block(s.project.containers.page_fill_top):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "The Review Spectrum", tag=t.div)
             st_space("v", 2)

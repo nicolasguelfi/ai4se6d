@@ -3,29 +3,9 @@
 # @pattern: stat-hero
 from streamtex import *
 from streamtex.bib import cite
-<<<<<<< HEAD
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
-
-# Stat-hero centered container
-_page_fill = s.project.containers.page_fill_center
-
-# Override: vertically centered but NOT horizontally centered (no align-items:center),
-# with wider gap — intentional for content-heavy pivot slide layout.
-_page_fill_content = ns(
-    "display:flex;flex-direction:column;justify-content:center;"
-    "min-height:85vh;gap:2rem;",
-    "page_fill_vc_reality_content",
-)
-
-
-=======
-from streamtex.enums import Tags as t
-from custom.styles import Styles as s
-
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Reality check slide styles."""
     heading = s.project.titles.section_title + s.center_txt
@@ -49,11 +29,7 @@ bs = BlockStyles
 
 def build():
     # Slide 27 — Anthropic Finding
-<<<<<<< HEAD
-    with st_block(_page_fill):
-=======
     with st_block(s.project.containers.page_fill_center):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "What Can Actually Be Delegated?", tag=t.div, toc_lvl="1")
             st_space("v", 1)
@@ -79,11 +55,7 @@ def build():
     st_slide_break()
 
     # Slide 28 — Bain Study
-<<<<<<< HEAD
-    with st_block(_page_fill):
-=======
     with st_block(s.project.containers.page_fill_center):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "Process > Tools", tag=t.div, toc_lvl="2")
             st_space("v", 1)
@@ -109,11 +81,7 @@ def build():
     st_slide_break()
 
     # Slide 29 — Naive VibeCoding Has Its Place (gala dinner pivot)
-<<<<<<< HEAD
-    with st_block(_page_fill_content):
-=======
     with st_block(s.project.containers.page_fill_center_noalign):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "It Has Its Place", tag=t.div, toc_lvl="2")
             st_space("v", 1)

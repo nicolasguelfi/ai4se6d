@@ -6,15 +6,6 @@ from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_LANDSCAPE as _SUFFIX
 
-<<<<<<< HEAD
-
-# Viewport-filling containers
-_page_fill = s.project.containers.page_fill_top
-_page_fill_center = s.project.containers.page_fill_center
-
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Exercise VibeEngineering slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -68,11 +59,7 @@ def build():
     st_slide_break()
 
     # Sub-slide 2: Timer
-<<<<<<< HEAD
-    with st_block(_page_fill_center):
-=======
     with st_block(s.project.containers.page_fill_center):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         st_write(bs.timer, "8:00", tag=t.div, toc_lvl="2")
 
     st_slide_break()

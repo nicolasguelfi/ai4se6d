@@ -6,21 +6,6 @@ from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
-<<<<<<< HEAD
-
-# Viewport-filling containers
-_page_fill = s.project.containers.page_fill_top
-_page_fill_center = s.project.containers.page_fill_center
-
-# Cell centering for grid
-_cell = Style.create(
-    s.container.layouts.vertical_center_layout + s.center_txt,
-    "vc_analogy_cell",
-)
-
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """VibeCoding analogy slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -87,11 +72,7 @@ def build():
     st_slide_break()
 
     # Sub-slide 2: Critical difference
-<<<<<<< HEAD
-    with st_zoom(130),st_block(_page_fill_center):
-=======
     with st_zoom(130),st_block(s.project.containers.page_fill_center):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.subheading, "The Critical Difference", tag=t.div, toc_lvl="2")
             st_space("v", 1)

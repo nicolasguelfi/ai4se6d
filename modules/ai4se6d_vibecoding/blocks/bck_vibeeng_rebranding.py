@@ -1,27 +1,12 @@
 """Slide — From Coding to Engineering (skippable)."""
 # @guideline: maximize-viewport
 from streamtex import *
-<<<<<<< HEAD
-=======
 from streamtex.bib import cite
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
-<<<<<<< HEAD
-
-_page_fill = s.project.containers.page_fill_top
-
-_cell = Style.create(
-    s.container.layouts.vertical_center_layout + s.center_txt,
-    "ve_rebrand_cell",
-)
-
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Rebranding slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -29,40 +14,24 @@ class BlockStyles:
     keyword = s.bold + s.project.colors.primary
     accent = s.bold + s.project.colors.accent
     highlight = s.bold + s.project.colors.highlight
-<<<<<<< HEAD
-bs = BlockStyles
-
-
-=======
     source = s.project.titles.caption
 bs = BlockStyles
 
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 _PROMPT = (
     f"{_PREFIX} A loose fluid shape in teal morphing into a precise structured "
     "geometric form in electric blue. An amber arrow shows the transformation "
     f"direction. {_SUFFIX}"
 )
 
-<<<<<<< HEAD
-
-def build():
-    with st_block(_page_fill):
-=======
 def build():
     with st_block(s.project.containers.page_fill_top):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "From Coding to Engineering", tag=t.div, toc_lvl="1")
 
             with st_grid(
                 cols="2fr 3fr",
                 gap="24px",
-<<<<<<< HEAD
-                cell_styles=_cell,
-=======
                 cell_styles=s.project.containers.grid_cell_centered,
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
             ) as g:
                 with g.cell():
                     st_image(
@@ -89,11 +58,7 @@ def build():
                     st_space("v", 1)
                     st_write(
                         bs.body,
-<<<<<<< HEAD
-                        "By early 2026, Karpathy's term evolved into ",
-=======
                         "Karpathy's term has been evolving toward ",
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
                         (bs.highlight, '"agentic engineering"'),
                         " — AI agents executing, humans steering.",
                     )
@@ -103,9 +68,6 @@ def build():
                         (s.project.colors.muted, "The kitchen upgrades its tools — "
                          "but the chef still designs the menu."),
                     )
-<<<<<<< HEAD
-=======
                     st_space("v", 1)
                     # REF: beck2025-augmented-coding
                     st_write(bs.source, cite("beck2025-augmented-coding"))
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)

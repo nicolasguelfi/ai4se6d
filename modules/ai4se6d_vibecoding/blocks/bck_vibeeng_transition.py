@@ -4,14 +4,6 @@ from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
-<<<<<<< HEAD
-
-# Billboard centered containers
-_page_fill = s.project.containers.page_fill_center
-
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Transition slide styles."""
     question = Style.create(
@@ -50,10 +42,6 @@ def build():
         )
         st_space("v", 2)
         st_write(
-<<<<<<< HEAD
-            Style.create(s.Large + s.italic + s.project.colors.muted + s.center_txt, "ve_trans_subtitle"),
-=======
             bs.subtitle,
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
             "What separates the home cook from the starred chef.",
         )

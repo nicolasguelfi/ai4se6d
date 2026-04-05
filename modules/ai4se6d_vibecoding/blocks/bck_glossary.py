@@ -1,21 +1,10 @@
 """Glossary — Key terms and abbreviations used in this presentation."""
 # @guideline: maximize-viewport
 from streamtex import *
-<<<<<<< HEAD
-from streamtex.bib import st_bibliography
-from streamtex.styles import Style as ns
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
-<<<<<<< HEAD
-# Override: tighter gap (1rem instead of 1.5rem) for dense glossary layout.
-_page_fill = s.project.containers.page_fill_top + ns("gap:1rem;", "glossary_gap")
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 
 class BlockStyles:
     """Glossary slide styles."""

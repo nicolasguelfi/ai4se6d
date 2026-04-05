@@ -115,8 +115,6 @@ class ContainerStylesCustom:
     cell_pad_sm = Style("padding: 8px 12px;", "cell_pad_sm")
     cell_pad_md = Style("padding: 12px 16px;", "cell_pad_md")
 
-<<<<<<< HEAD
-=======
     # Grid cell centering (shared across all balanced/grid blocks)
     grid_cell_centered = Style.create(
         Container.layouts.vertical_center_layout + StxStyles.center_txt,
@@ -140,7 +138,6 @@ class ContainerStylesCustom:
         "table_active_cell",
     )
 
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
     # Viewport-filling page layouts (shared across all blocks)
     page_fill_top = Style(
         "display:flex;flex-direction:column;justify-content:flex-start;"
@@ -157,14 +154,11 @@ class ContainerStylesCustom:
         "align-items:center;min-height:85vh;gap:2rem;",
         "page_fill_center_wide",
     )
-<<<<<<< HEAD
-=======
     page_fill_center_noalign = Style(
         "display:flex;flex-direction:column;justify-content:center;"
         "min-height:85vh;gap:2rem;",
         "page_fill_center_noalign",
     )
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 
 
 class Custom:

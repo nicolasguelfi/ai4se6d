@@ -1,22 +1,10 @@
 """Slide — Closing recap: GenAI + VibeCoding takeaways, roadmap, key message."""
 # @guideline: maximize-viewport
 from streamtex import *
-<<<<<<< HEAD
-from streamtex.enums import Tags as t, ListTypes as lt
-from custom.styles import Styles as s
-
-
-# Viewport-filling containers
-_page_fill = s.project.containers.page_fill_top
-_page_fill_center = s.project.containers.page_fill_center
-
-
-=======
 from streamtex.bib import cite
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Recap slide styles."""
     heading = s.project.titles.section_title + s.center_txt
@@ -98,11 +86,7 @@ def build():
     st_slide_break()
 
     # Sub-slide 4: Key message centered (kitchen metaphor closing)
-<<<<<<< HEAD
-    with st_block(_page_fill_center):
-=======
     with st_block(s.project.containers.page_fill_center):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         st_write(
             bs.keymsg,
             "Same Kitchen, Different Discipline",
@@ -111,10 +95,6 @@ def build():
         )
         st_space("v", 2)
         st_write(
-<<<<<<< HEAD
-            Style.create(s.Large + s.italic + s.center_txt + s.project.colors.muted, "recap_closing_sub"),
-=======
             bs.closing_sub,
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
             "Same ingredients. Same utensils. The difference: the discipline of the chef.",
         )

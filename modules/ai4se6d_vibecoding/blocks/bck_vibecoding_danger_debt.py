@@ -7,18 +7,6 @@ from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
-<<<<<<< HEAD
-
-_page_fill = s.project.containers.page_fill_top
-
-_cell = Style.create(
-    s.container.layouts.vertical_center_layout + s.center_txt,
-    "vc_danger_debt_cell",
-)
-
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Tech debt iceberg slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -32,10 +20,6 @@ class BlockStyles:
     source = s.project.titles.caption
 bs = BlockStyles
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 _PROMPT = (
     f"{_PREFIX} An iceberg: small clean tip visible above a waterline in electric blue. "
     "Massive hidden mass below the surface in teal with amber cracks running through "
@@ -43,25 +27,15 @@ _PROMPT = (
     f"is chaotic with broken connections and warning symbols. {_SUFFIX}"
 )
 
-<<<<<<< HEAD
-
-def build():
-    with st_block(_page_fill):
-=======
 def build():
     with st_block(s.project.containers.page_fill_top):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "The Iceberg", tag=t.div, toc_lvl="1")
 
             with st_grid(
                 cols="2fr 3fr",
                 gap="24px",
-<<<<<<< HEAD
-                cell_styles=_cell,
-=======
                 cell_styles=s.project.containers.grid_cell_centered,
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
             ) as g:
                 with g.cell():
                     st_image(
@@ -94,10 +68,5 @@ def build():
                         "may face \u2018long-term catastrophe\u2019 from accumulated "
                         "technical debt in AI-generated code.\u201D",
                     )
-<<<<<<< HEAD
-                    # REF: https://martinfowler.com/bliki/TechnicalDebt.html
-                    st_write(bs.source, cite("fowler1999refactoring"))
-=======
                     # REF: https://martinfowler.com/articles/exploring-gen-ai.html
                     st_write(bs.source, cite("fowler-genai2025"))
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)

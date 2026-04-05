@@ -6,14 +6,6 @@ from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_LANDSCAPE as _SUFFIX
 
-<<<<<<< HEAD
-
-# Viewport-filling container: billboard centered
-_page_fill = s.project.containers.page_fill_center
-
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Title slide styles."""
     title = Style.create(

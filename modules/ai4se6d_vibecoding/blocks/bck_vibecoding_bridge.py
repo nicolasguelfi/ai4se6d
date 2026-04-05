@@ -4,14 +4,6 @@ from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
-<<<<<<< HEAD
-
-# Billboard centered container
-_page_fill = s.project.containers.page_fill_center_wide
-
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Bridge billboard styles."""
     question = Style.create(
@@ -24,14 +16,8 @@ class BlockStyles:
     )
 bs = BlockStyles
 
-<<<<<<< HEAD
-
-def build():
-    with st_block(_page_fill):
-=======
 def build():
     with st_block(s.project.containers.page_fill_center_wide):
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(
                 bs.question,

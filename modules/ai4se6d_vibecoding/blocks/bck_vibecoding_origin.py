@@ -7,20 +7,6 @@ from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
-<<<<<<< HEAD
-
-# Viewport-filling containers
-_page_fill = s.project.containers.page_fill_top
-
-# Cell centering for grid
-_cell = Style.create(
-    s.container.layouts.vertical_center_layout + s.center_txt,
-    "vc_origin_cell",
-)
-
-
-=======
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """VibeCoding origin slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -30,11 +16,7 @@ class BlockStyles:
         "vc_origin_quote",
     )
     quote_part1 = Style.create(
-<<<<<<< HEAD
-        s.Large + s.italic + Style("color:#B0B0B0;", "vc_origin_grey"),
-=======
         s.Large + s.italic + s.project.colors.muted,
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         "vc_origin_quote_p1",
     )
     quote_part2 = Style.create(
@@ -42,19 +24,11 @@ class BlockStyles:
         "vc_origin_quote_p2",
     )
     quote_part3 = Style.create(
-<<<<<<< HEAD
-        s.Large + s.italic + Style("color:#FFFFFF;", "vc_origin_white"),
-        "vc_origin_quote_p3",
-    )
-    attribution_orange = Style.create(
-        s.medium + s.italic + s.project.colors.highlight,
-=======
         s.Large + s.italic,
         "vc_origin_quote_p3",
     )
     attribution_orange = Style.create(
         s.large + s.italic + s.project.colors.highlight,
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         "vc_origin_attr_orange",
     )
     attribution = Style.create(
