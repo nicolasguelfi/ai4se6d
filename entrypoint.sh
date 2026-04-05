@@ -28,16 +28,23 @@ if [ "$MODE" != "static-only" ]; then
     uv run stx cache warmup . 2>/dev/null || true
 fi
 
-# Generate static HTML export — clean first to remove stale exports
+# Generate static HTML export — clean first to remove stale exports from other FOLDERs
 rm -rf /app/static-html/*
 echo "[entrypoint] Generating static HTML..."
 uv run stx export html --output /app/static-html/ . 2>/dev/null || true
 
-# Derive base_name (same as export CLI: basename of cwd)
-BASE_NAME=$(basename "$(pwd)")
+# Derive base_name the same way the export CLI does:
+#   basename of FOLDER, with "ai4se6d_" prefix stripped
+BASE_NAME=$(basename "${FOLDER}" | sed 's/^ai4se6d_//')
 TARGET="${BASE_NAME}/${BASE_NAME}.html"
-echo "[entrypoint] Static HTML: /html/ → ${TARGET}"
-# Nginx snippet: 302 redirect from /html/ to the correct exported file
+
+if [ -f "/app/static-html/${TARGET}" ]; then
+    echo "[entrypoint] Static HTML: /html/ → ${TARGET}"
+else
+    echo "[entrypoint] Warning: expected ${TARGET} not found, using fallback"
+fi
+# Nginx snippet: 302 redirect from /html/ to the correct exported file.
+# Nginx includes this before starting (see nginx.conf location = /html/).
 echo "return 302 /html/${TARGET};" > /app/static-html/.nginx-redirect.conf
 
 # --- Start services based on mode ---
@@ -54,6 +61,7 @@ case "$MODE" in
         ;;
     dual|*)
         echo "[entrypoint] Starting Nginx + Streamlit (dual mode)..."
+        # Nginx in background, Streamlit as PID 1 (receives signals)
         nginx
         exec uv run streamlit run book.py \
             --server.port=8501 --server.address=0.0.0.0

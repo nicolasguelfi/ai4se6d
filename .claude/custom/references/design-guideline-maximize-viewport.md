@@ -7,8 +7,6 @@ Shared guideline for all ai4se6d modules optimized for auditorium projection.
 - 16:9 ratio, dark theme
 - Professional training audience: software developers
 
-<<<<<<< HEAD
-=======
 ## Font Size Hierarchy
 
 ### Named sizes (primary)
@@ -33,7 +31,6 @@ inline labels), use any `s.text.sizes.pt<N>` value. Common intermediates:
 
 The minimum projection-safe size remains **24pt** (`s.big`).
 
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 ## Layout Rules
 
 ### justify-content by slide type

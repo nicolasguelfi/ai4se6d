@@ -58,9 +58,20 @@ RUN mkdir -p /app/static-html && \
     echo 'return 302 /html/;' > /app/static-html/.nginx-redirect.conf
 
 # Pre-warm the page cache for every module so the first visitor loads instantly.
+# Each module gets its own .stx_cache/page_cache.json with the correct hash.
 RUN for dir in modules/ai4se6d_*/; do \
         echo "Warming up cache for $dir ..." && \
         (cd "$dir" && uv run stx cache warmup .) || true; \
+    done
+
+# Pre-generate static HTML for every module (served by Nginx on /html/).
+# The entrypoint will clean and regenerate for the active FOLDER at runtime.
+# This build-time export speeds up first cold-start.
+RUN mkdir -p /app/static-html && \
+    echo 'return 302 /html/;' > /app/static-html/.nginx-redirect.conf && \
+    for dir in modules/ai4se6d_*/; do \
+        echo "Exporting HTML for $dir ..." && \
+        (cd "$dir" && uv run stx export html --output /app/static-html/ .) || true; \
     done
 
 # STX_SERVE_MODE controls which services start (set at runtime by Coolify)
