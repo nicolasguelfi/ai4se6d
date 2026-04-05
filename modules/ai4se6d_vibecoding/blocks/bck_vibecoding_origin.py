@@ -1,4 +1,4 @@
-"""Slide — VibeCoding origin: Karpathy quote, definition, role shift."""
+"""Slide — VibeCoding origin: Karpathy quotes."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.bib import cite
@@ -7,6 +7,7 @@ from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
+<<<<<<< HEAD
 
 # Viewport-filling containers
 _page_fill = s.project.containers.page_fill_top
@@ -18,6 +19,8 @@ _cell = Style.create(
 )
 
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """VibeCoding origin slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -27,7 +30,11 @@ class BlockStyles:
         "vc_origin_quote",
     )
     quote_part1 = Style.create(
+<<<<<<< HEAD
         s.Large + s.italic + Style("color:#B0B0B0;", "vc_origin_grey"),
+=======
+        s.Large + s.italic + s.project.colors.muted,
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         "vc_origin_quote_p1",
     )
     quote_part2 = Style.create(
@@ -35,26 +42,29 @@ class BlockStyles:
         "vc_origin_quote_p2",
     )
     quote_part3 = Style.create(
+<<<<<<< HEAD
         s.Large + s.italic + Style("color:#FFFFFF;", "vc_origin_white"),
         "vc_origin_quote_p3",
     )
     attribution_orange = Style.create(
         s.medium + s.italic + s.project.colors.highlight,
+=======
+        s.Large + s.italic,
+        "vc_origin_quote_p3",
+    )
+    attribution_orange = Style.create(
+        s.large + s.italic + s.project.colors.highlight,
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         "vc_origin_attr_orange",
     )
     attribution = Style.create(
         s.project.titles.caption,
         "vc_origin_attribution",
     )
-    badge = Style.create(
-        s.Large + s.bold + s.project.colors.highlight,
-        "vc_origin_badge",
-    )
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.primary
     keyword_accent = s.bold + s.project.colors.accent
 bs = BlockStyles
-
 
 _PROMPT = (
     f"{_PREFIX} A relaxed developer lounging on a beanbag with headphones and a laptop, "
@@ -66,17 +76,16 @@ _PROMPT = (
     f"Captures the essence of conversational programming and vibe coding. {_SUFFIX}"
 )
 
-
 def build():
     # Sub-slide 1: Karpathy quote + Collins badge
-    with st_block(_page_fill):
+    with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "The Birth of VibeCoding", tag=t.div, toc_lvl="1")
 
             with st_grid(
                 cols="2fr 3fr",
                 gap="24px",
-                cell_styles=_cell,
+                cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
                     st_image(

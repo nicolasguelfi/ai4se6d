@@ -7,6 +7,33 @@ Shared guideline for all ai4se6d modules optimized for auditorium projection.
 - 16:9 ratio, dark theme
 - Professional training audience: software developers
 
+<<<<<<< HEAD
+=======
+## Font Size Hierarchy
+
+### Named sizes (primary)
+| Name | Size | Usage |
+|------|------|-------|
+| GIANT | 196pt | Decorative stats, billboard numbers |
+| Giant | 128pt | Key messages, closing statements |
+| Huge | 96pt | Slide title |
+| huge | 80pt | Section title |
+| Large | 48pt | Body text, subtitles, table cells |
+| large | 32pt | Captions, secondary text, sources |
+| big | 24pt | Minimum projection-safe size |
+
+### Intermediate sizes
+When a named size doesn't fit the visual context (e.g., dense table cells,
+inline labels), use any `s.text.sizes.pt<N>` value. Common intermediates:
+
+| Size | Typical usage |
+|------|---------------|
+| pt36 | Dense table cells (between large 32pt and Large 48pt) |
+| s.LARGE (~64pt) | Emphasized inline labels (between Large 48pt and huge 80pt) |
+
+The minimum projection-safe size remains **24pt** (`s.big`).
+
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 ## Layout Rules
 
 ### justify-content by slide type

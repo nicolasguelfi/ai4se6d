@@ -1,12 +1,16 @@
 """Glossary — Key terms and abbreviations used in this presentation."""
 # @guideline: maximize-viewport
 from streamtex import *
+<<<<<<< HEAD
 from streamtex.bib import st_bibliography
 from streamtex.styles import Style as ns
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
+<<<<<<< HEAD
 # Override: non-standard gap:1rem
 _page_fill = ns(
     "display:flex;flex-direction:column;justify-content:flex-start;"
@@ -15,6 +19,8 @@ _page_fill = ns(
 )
 
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Glossary slide styles."""
     heading = s.project.titles.section_title + s.center_txt
@@ -51,11 +57,11 @@ _ENTRIES = [
 
 
 def build():
-    with st_block(_page_fill):
-        with st_block(s.center_txt):
-            st_write(bs.heading, "Glossary", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+    with st_block(s.center_txt):
+        st_write(bs.heading, "Glossary", tag=t.div, toc_lvl="1")
+        st_space("v", 1)
 
+<<<<<<< HEAD
     with st_block(_page_fill):
         for term, definition in _ENTRIES:
             st_write(
@@ -73,3 +79,13 @@ def build():
             toc_lvl="1",
             only_cited=True,
         )
+=======
+    for term, definition in _ENTRIES:
+        st_write(
+            bs.definition,
+            (bs.term, term),
+            (bs.separator, " — "),
+            (bs.definition, definition.split(" — ", 1)[1] if " — " in definition else definition),
+        )
+        st_space("v", 0.5)
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)

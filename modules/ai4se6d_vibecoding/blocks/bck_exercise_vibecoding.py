@@ -6,12 +6,15 @@ from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_LANDSCAPE as _SUFFIX
 
+<<<<<<< HEAD
 
 # Viewport-filling containers
 _page_fill = s.project.containers.page_fill_top
 _page_fill_center = s.project.containers.page_fill_center
 
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Exercise VibeCoding slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -29,7 +32,6 @@ class BlockStyles:
     )
 bs = BlockStyles
 
-
 _PROMPT = (
     f"{_PREFIX} A person sitting at a desk with a glowing laptop, hands off the keyboard, "
     "speaking to the screen. Code streams flow from the screen autonomously. The person's "
@@ -37,10 +39,9 @@ _PROMPT = (
     f"bubbles. Symbolizes hands-off coding by conversation. {_SUFFIX}"
 )
 
-
 def build():
     # Sub-slide 1: Exercise instructions
-    with st_block(_page_fill):
+    with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "Exercise 2: Pure VibeCoding", tag=t.div, toc_lvl="1")
             st_write(bs.body, (bs.keyword_warn, "10 minutes"), tag=t.div)
@@ -65,13 +66,17 @@ def build():
     st_slide_break()
 
     # Sub-slide 2: Timer
+<<<<<<< HEAD
     with st_block(_page_fill_center):
+=======
+    with st_block(s.project.containers.page_fill_center):
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         st_write(bs.timer, "10:00", tag=t.div, toc_lvl="2")
 
     st_slide_break()
 
     # Sub-slide 3: Debrief
-    with st_block(_page_fill):
+    with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.subheading, "Debrief", tag=t.div, toc_lvl="2")
             st_space("v", 1)

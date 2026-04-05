@@ -105,7 +105,12 @@ st_book(
     [
         # --- OPENING ---
         blocks.bck_title,                        # Block 1
+<<<<<<< HEAD
         blocks.bck_intro_review_habits,          # Block 2
+=======
+        blocks.bck_objectives,                   # Block 2  — Learning objectives
+        blocks.bck_intro_review_habits,          # Block 3
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 
         # --- ACT I: VIBECODING — THE CONCEPT ---
         blocks.bck_vibecoding_origin,            # Block 3  — Karpathy quotes
@@ -159,6 +164,10 @@ st_book(
         blocks.bck_recap,                        # Block 39
         blocks.bck_closing,                      # Block 40 — Questions?
         blocks.bck_glossary,                     # Block 41
+<<<<<<< HEAD
+=======
+        blocks.bck_references,                   # Block 42 — Bibliography
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
     ],
     toc_config=toc,
     marker_config=marker_config,

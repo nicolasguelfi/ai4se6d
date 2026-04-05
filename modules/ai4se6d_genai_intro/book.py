@@ -172,6 +172,7 @@ st_book(
         blocks.bck_genai_takeaways,
         # Reference
         blocks.bck_glossary,
+        blocks.bck_references,
     ],
     toc_config=toc,
     marker_config=marker_config,

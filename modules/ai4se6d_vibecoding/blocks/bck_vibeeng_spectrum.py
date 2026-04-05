@@ -6,6 +6,7 @@ from streamtex.bib import cite
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
+<<<<<<< HEAD
 
 # Viewport-filling container
 _page_fill = s.project.containers.page_fill_top
@@ -33,32 +34,21 @@ _header_cell = Style.create(
 )
 
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Spectrum slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
-    header_text = Style.create(
-        s.text.sizes.pt36 + s.bold + s.project.colors.accent + s.text.wrap.hyphens,
-        "spectrum_header_text",
-    )
-    cell_text = Style.create(
-        s.text.sizes.pt36 + s.text.wrap.hyphens,
-        "spectrum_cell_text",
-    )
-    level_name = Style.create(
-        s.text.sizes.pt36 + s.bold + s.project.colors.primary + s.text.wrap.hyphens,
-        "spectrum_level_name",
-    )
-    level_active = Style.create(
-        s.text.sizes.pt36 + s.bold + s.project.colors.highlight + s.text.wrap.hyphens,
-        "spectrum_level_active",
-    )
+    header_text = s.project.titles.table_header
+    cell_text = s.project.titles.table_cell
+    level_name = s.project.titles.table_label
+    level_active = s.project.titles.table_label_active
     evidence = Style.create(
         s.project.titles.body_accent + s.center_txt,
         "spectrum_evidence",
     )
     source = s.project.titles.caption + s.center_txt
 bs = BlockStyles
-
 
 # Table data: (Level, Name, Characteristics, Best For, is_active)
 _HEADERS = ("Level", "Name", "Characteristics", "Best For")
@@ -70,9 +60,8 @@ _ROWS = [
     ("4", "VibeEngineering", "Full requirements, TDD, architecture, CI/CD, systematic review", "Production", True),
 ]
 
-
 def build():
-    with st_block(_page_fill):
+    with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "The Spectrum", tag=t.div, toc_lvl="1")
 
@@ -80,7 +69,7 @@ def build():
             with st_grid(
                 cols="8% 22% 40% 30%",
                 gap="8px",
-                cell_styles=_header_cell,
+                cell_styles=s.project.containers.table_header_cell,
             ) as g:
                 for header in _HEADERS:
                     with g.cell():
@@ -88,7 +77,7 @@ def build():
 
             # Data rows
             for level, name, characteristics, best_for, is_active in _ROWS:
-                cell = _active_cell if is_active else _normal_cell
+                cell = s.project.containers.table_active_cell if is_active else s.project.containers.table_normal_cell
                 name_style = bs.level_active if is_active else bs.level_name
                 with st_grid(
                     cols="8% 22% 40% 30%",
@@ -108,4 +97,6 @@ def build():
             # REF: https://arxiv.org/abs/2403.15852
             st_write(bs.source, cite("qian2024soen101"))
             st_write(bs.evidence, "FlowGen: 15% fewer code smells with structured processes")
-            st_write(bs.source, "80/20 rule: 80% effort in planning/review, 20% in execution")
+            st_write(bs.source, "Planning/review 80% — execution 20%")
+            # REF: xiao-longitudinal2025 (observation), compound-engineering (prescription)
+            st_write(bs.source, cite("xiao-longitudinal2025"))

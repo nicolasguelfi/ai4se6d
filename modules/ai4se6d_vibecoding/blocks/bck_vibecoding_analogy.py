@@ -6,6 +6,7 @@ from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
+<<<<<<< HEAD
 
 # Viewport-filling containers
 _page_fill = s.project.containers.page_fill_top
@@ -18,6 +19,8 @@ _cell = Style.create(
 )
 
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """VibeCoding analogy slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -31,7 +34,6 @@ class BlockStyles:
     )
 bs = BlockStyles
 
-
 _PROMPT = (
     f"{_PREFIX} A vintage punch-card machine morphing into a modern AI brain. Left side "
     "shows rigid geometric assembly patterns in muted blue. Right side shows fluid neural "
@@ -39,17 +41,16 @@ _PROMPT = (
     f"Symbolizes the evolution from assembly to AI-generated code. {_SUFFIX}"
 )
 
-
 def build():
     # Sub-slide 1: Historical parallel
-    with st_block(_page_fill):
+    with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "LLM = The New Compiler?", tag=t.div, toc_lvl="1")
 
             with st_grid(
                 cols="2fr 3fr",
                 gap="24px",
-                cell_styles=_cell,
+                cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
                     st_image(
@@ -86,7 +87,11 @@ def build():
     st_slide_break()
 
     # Sub-slide 2: Critical difference
+<<<<<<< HEAD
     with st_zoom(130),st_block(_page_fill_center):
+=======
+    with st_zoom(130),st_block(s.project.containers.page_fill_center):
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.subheading, "The Critical Difference", tag=t.div, toc_lvl="2")
             st_space("v", 1)

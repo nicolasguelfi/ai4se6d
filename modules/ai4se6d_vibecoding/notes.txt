@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/plans/2026-03-27-001-C-session1-plan.md
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 --------------
 --------------
 --------------
@@ -45,6 +49,45 @@ Je souhaite aussi que dans le processus nous déterminons toujours la liste exac
 --------------
 pour le module ai4se6d_vibecoding :
 
+<<<<<<< HEAD
+=======
+Voici le context :
+- Le document latex principal situé ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/lu.uni.sage.publications.2025/ng.aiday.policy/ul-ai-4-se
+
+C'Est un document qui collecte des informations Scientifiques et techniques Sur le domaine du génie logiciel et de l'intelligence artificielle générative.
+
+Ce document doit être la source qui alimentera toutes les différentes formations que je vais donner sur le sujet dans différents contextes. La source risque d'évoluer et donc il faut toujours se coordonner avec elle à chaque cycle complet.
+
+- La première formations que je vais préparer a son programme décrit dans le document suivant :
+ul-ai-4-se/refs/program/ROS_AI4SE_Training_Information_Form-EN-MAIN.md
+
+- pour l'instant il y a les éléments suivants dans le dossier des modules: 
+ai4se6d_collection
+ai4se6d_genai_intro
+ai4se6d_vibecoding
+shared-blocks
+
+- le modules suivants sont en version beta:
+ai4se6d_genai_intro 
+ 
+- je suis en train de travailler sur le module:
+ai4se6d_vibecoding
+
+OBJECTIF:
+
+Le plan initial se trouve ici :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/plans/2026-03-27-001-C-session1-plan.md
+
+Peux-tu faire un état des lieux de ce plan qui n'est pas à jour par rapport à l'état des deux modules qui ont été développés jusqu'ici et me faire une nouvelle version dans un nouveau fichier du plan uniquement pour le module
+ai4se6d_vibecoding
+
+
+Tu peux déposer le fichier ici :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_vibecoding/docs/plans
+
+
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 --------------
 pour le module ai4se6d_vibecoding :
 
@@ -99,6 +142,31 @@ pour le module ai4se6d_genai_intro :
 --------------
 pour le module ai4se6d_genai_intro :
 
+<<<<<<< HEAD
+=======
+
+- pour la partie qui présente tiago sousa:
+-> 
+Activities:
+Research / Development
+Education / Training
+
+Software Engineering:
+Software Architecture
+Full-Stack Development
+
+Artificial Intelligence:
+Generative AI
+Deep Learning
+Data Engineering
+
+Contexts:
+PhD Researcher University of Luxembourg
+Co-Founder/CTO Right-On-Skill
+
+
+
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 --------------
 pour le module ai4se6d_genai_intro :
 

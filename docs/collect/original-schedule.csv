@@ -1,0 +1,124 @@
+Session,Step,Content,Start time,Duration,TIMER,Date
+1,1,Training Group Discovery,9:00 AM,45,45,12/5/2025
+1,2,Training Content,9:45 AM,15,60,12/5/2025
+1,3,Introduction to the fundamentals of generative AI,10:00 AM,45,105,12/5/2025
+1,4,Break,10:45 AM,15,120,12/5/2025
+1,5,Discovering the VibeCoding / VibeEngineering,11:00 AM,45,165,12/5/2025
+1,6,Tools ecosystem,11:45 AM,45,210,12/5/2025
+1,7,,12:30 PM,,210,12/5/2025
+1,8,LUNCH,12:30 PM,60,270,12/5/2025
+2,1,Installation and configuration of the environment,1:30 PM,60,60,12/5/2025
+2,2,"Workshop : ""FreeSelfApp"" Project - Naive prototype
+Part 1",2:30 PM,60,120,12/5/2025
+2,3,Break,3:30 PM,15,135,12/5/2025
+2,4,"Workshop : ""FreeSelfApp"" Project - Naive prototype
+Part 2",3:45 PM,45,180,12/5/2025
+2,5,Debrief & Discussion,4:30 PM,30,210,12/5/2025
+2,6,,5:00 PM,0,210,12/5/2025
+2,7,,5:00 PM,0,210,12/5/2025
+2,8,SESSION END,5:00 PM,0,210,12/5/2025
+3,1,WELCOME,9:00 AM,15,15,12/12/2025
+3,2,"Advanced Cursor Guided Demos
+Project structure",9:15 AM,90,105,12/12/2025
+3,3,Break,10:45 AM,15,120,12/12/2025
+3,4,"Workshop: Technical Planning
+Presentation",11:00 AM,30,150,12/12/2025
+3,5,"CalcApp v0.1 Project
+Part 1",11:30 AM,45,195,12/12/2025
+3,6,,12:15 PM,0,195,12/12/2025
+3,7,,12:15 PM,0,195,12/12/2025
+3,8,LUNCH,12:15 PM,60,255,12/12/2025
+4,1,"CalcApp v0.2 Project
+Part 2",1:15 PM,45,45,12/12/2025
+4,2,"AI-assisted code review
+& Living documentation
+Intro",2:00 PM,45,90,12/12/2025
+4,3,Break,2:45 PM,15,105,12/12/2025
+4,4,AI-assisted code review & Living documentation  - Practice,3:00 PM,60,165,12/12/2025
+4,5,Introduction to Git,4:00 PM,45,210,12/12/2025
+4,6,SESSION END,4:45 PM,15,225,12/12/2025
+4,7,,5:00 PM,0,225,12/12/2025
+4,8,,5:00 PM,0,225,12/12/2025
+4,9,,5:00 PM,0,225,12/12/2025
+5,1,WELCOME,9:00 AM,15,15,12/19/2025
+5,2,"Software Engineering Concepts
+-
+Defining your GenSEM -  Generative Software Engineering Methods",9:15 AM,60,75,12/19/2025
+5,3,"Practice on CalcApp v0.3
+- VibeTesting",10:15 AM,45,120,12/19/2025
+5,4,Break,11:00 AM,15,135,12/19/2025
+5,5,Requirements elicitation methods,11:15 AM,45,180,12/19/2025
+5,6,"Workshop: Drafting Functional Requirements
+CalcApp v0.3",12:00 PM,45,225,12/19/2025
+5,7,,12:45 PM,0,225,12/19/2025
+5,8,LUNCH,12:45 PM,60,285,12/19/2025
+6,1,"Non-functional requirements (NFR)
+- Theory",1:45 PM,45,45,12/19/2025
+6,2,"Practice on CalcApp - VibeNFRs 
+CalcApp v0.3 ",2:30 PM,45,90,12/19/2025
+6,3,Break,3:15 PM,15,105,12/19/2025
+6,4,Verification and validation requirement,3:30 PM,30,135,12/19/2025
+6,5,"Practice on CalcApp - V&V 
+CalcApp v0.3 ",4:00 PM,45,180,12/19/2025
+6,6,,4:45 PM,0,180,12/19/2025
+6,7,,4:45 PM,0,180,12/19/2025
+6,8,,4:45 PM,0,180,12/19/2025
+6,9,SESSION END,4:45 PM,0,180,12/19/2025
+7,1,WELCOME,9:00 AM,15,15,12/26/2025
+7,2,CalcApp Next Version Objectives,9:15 AM,30,45,12/26/2025
+7,3,"CalcApp Next Version Iteration
+v0.4
+Part 1",9:45 AM,60,105,12/26/2025
+7,4,Break,10:45 AM,15,120,12/26/2025
+7,5,"CalcApp Next Version Iteration
+Part 1",11:00 AM,90,210,12/26/2025
+7,6,,12:30 PM,,210,12/26/2025
+7,7,,12:30 PM,0,210,12/26/2025
+7,8,LUNCH,12:30 PM,60,270,12/26/2025
+8,1,CalcApp Next Version Objectives,1:30 PM,30,30,12/26/2025
+8,2,"CalcApp Next Version Iteration
+Part 1
+v0.5",2:00 PM,60,90,12/26/2025
+8,3,Break,3:00 PM,15,105,12/26/2025
+8,4,"CalcApp Next Version Iteration
+Part 1",3:15 PM,90,195,12/26/2025
+8,5,DEBRIEF,4:45 PM,15,210,12/26/2025
+8,6,,5:00 PM,0,210,12/26/2025
+8,7,,5:00 PM,0,210,12/26/2025
+8,8,,5:00 PM,0,210,12/26/2025
+8,9,SESSION END,5:00 PM,0,210,12/26/2025
+9,1,WELCOME,9:00 AM,15,15,1/2/2026
+9,2,"Professional mini-project
+Presentation & start",9:15 AM,90,105,1/2/2026
+9,3,,10:45 AM,0,105,1/2/2026
+9,4,Break,10:45 AM,15,120,1/2/2026
+9,5,,11:00 AM,0,120,1/2/2026
+9,6,Professional mini-project - ctnd,11:00 AM,90,210,1/2/2026
+9,7,,12:30 PM,0,210,1/2/2026
+9,8,LUNCH,12:30 PM,60,270,1/2/2026
+10,1,,1:30 PM,15,15,1/2/2026
+10,2,Professional mini-project - ctnd,1:45 PM,90,105,1/2/2026
+10,3,,3:15 PM,0,105,1/2/2026
+10,4,Break,3:15 PM,15,120,1/2/2026
+10,5,,3:30 PM,0,120,1/2/2026
+10,6,Professional mini-project - ctnd,3:30 PM,90,210,1/2/2026
+10,7,,5:00 PM,0,210,1/2/2026
+10,8,,5:00 PM,60,270,1/2/2026
+10,9,SESSION END,6:00 PM,0,270,1/2/2026
+11,1,WELCOME,9:00 AM,15,15,1/9/2026
+11,2,Professional mini-project - ctnd,9:15 AM,90,105,1/9/2026
+11,3,,10:45 AM,0,105,1/9/2026
+11,4,Break,10:45 AM,15,120,1/9/2026
+11,5,,11:00 AM,0,120,1/9/2026
+11,6,Professional mini-project - ctnd,11:00 AM,90,210,1/9/2026
+11,7,,12:30 PM,0,210,1/9/2026
+11,8,LUNCH,12:30 PM,60,270,1/9/2026
+12,1,,1:30 PM,15,15,1/9/2026
+12,2,Professional mini-project - ctnd,1:45 PM,90,105,1/9/2026
+12,3,,3:15 PM,0,105,1/9/2026
+12,4,Break,3:15 PM,15,120,1/9/2026
+12,5,,3:30 PM,0,120,1/9/2026
+12,6,DEMO OF  ADVANCED SE WITH CLAUDE,3:30 PM,60,180,1/9/2026
+12,7,,4:30 PM,0,180,1/9/2026
+12,8,TRAINING CLOSURE,4:30 PM,30,210,1/9/2026
+12,9,TRAINING END,5:00 PM,0,210,1/9/2026

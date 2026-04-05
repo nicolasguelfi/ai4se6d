@@ -1,11 +1,16 @@
 """Slide 37 — Model Context Protocol: the open standard."""
 # @guideline: maximize-viewport
 from streamtex import *
+<<<<<<< HEAD
+=======
+from streamtex.bib import cite
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
+<<<<<<< HEAD
 
 # Viewport-filling container
 _page_fill = s.project.containers.page_fill_top
@@ -17,6 +22,8 @@ _cell = Style.create(
 )
 
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """MCP slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -28,25 +35,40 @@ class BlockStyles:
         s.Large + s.italic + s.project.colors.accent + s.center_txt,
         "ide_mcp_emphasis",
     )
+<<<<<<< HEAD
 bs = BlockStyles
 
 
+=======
+    source = s.project.titles.caption
+bs = BlockStyles
+
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 _PROMPT = (
     f"{_PREFIX} Central hub circle in amber with six spokes to peripheral circles "
     "in electric blue and teal with different icons. "
     f"{_SUFFIX}"
 )
 
+<<<<<<< HEAD
 
 def build():
     with st_block(_page_fill):
+=======
+def build():
+    with st_block(s.project.containers.page_fill_top):
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "Model Context Protocol", tag=t.div, toc_lvl="1")
 
             with st_grid(
                 cols="2fr 3fr",
                 gap="24px",
+<<<<<<< HEAD
                 cell_styles=_cell,
+=======
+                cell_styles=s.project.containers.grid_cell_centered,
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
             ) as g:
                 with g.cell():
                     st_image(
@@ -63,6 +85,10 @@ def build():
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Open protocol"), " \u2014 standardized tool-to-model communication")
+<<<<<<< HEAD
+=======
+                        # REF: mcp-registry2025
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
                         with l.item():
                             st_write(bs.body, (bs.keyword_warn, "16,670+ servers"), " \u2014 rapidly growing ecosystem")
                         with l.item():
@@ -75,3 +101,8 @@ def build():
                         bs.emphasis,
                         "Your certified suppliers \u2014 vetted, traceable, always available.",
                     )
+<<<<<<< HEAD
+=======
+
+            st_write(bs.source, cite("mcp-registry2025"))
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)

@@ -1,15 +1,21 @@
 """Glossary — Key terms and abbreviations used in this presentation."""
 # @guideline: maximize-viewport
 from streamtex import *
+<<<<<<< HEAD
 from streamtex.bib import st_bibliography
 from streamtex.styles import Style as ns
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 
+<<<<<<< HEAD
 # Override: tighter gap (1rem instead of 1.5rem) for dense glossary layout.
 _page_fill = s.project.containers.page_fill_top + ns("gap:1rem;", "glossary_gap")
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 
 class BlockStyles:
     """Glossary slide styles."""
@@ -41,7 +47,7 @@ _ENTRIES = [
     ("DALL-E", "OpenAI\u2019s image generation model"),
     ("RAG", "Retrieval-Augmented Generation"),
     ("Foundation model", "Model pretrained on very large datasets"),
-    ("VibeCoding", "Intent-driven development with AI as pair programmer"),
+    ("VibeCoding", "Development where developers describe intent to AI and accept generated code without closely reviewing it"),
     ("VibeEngineering", "Engineering discipline integrating AI across the full SDLC"),
     ("TDD", "Test-Driven Development"),
     ("BDD", "Behavior-Driven Development"),
@@ -54,13 +60,11 @@ _ENTRIES = [
 
 
 def build():
-    with st_block(_page_fill):
-        with st_block(s.center_txt):
-            st_write(bs.heading, "Glossary", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+    with st_block(s.center_txt):
+        st_write(bs.heading, "Glossary", tag=t.div, toc_lvl="1")
+        st_space("v", 1)
 
-    with st_block(_page_fill):
-        for term, definition in _ENTRIES:
+    for term, definition in _ENTRIES:
             st_write(
                 bs.definition,
                 (bs.term, term),

@@ -1,12 +1,16 @@
 """Slide — Paradigm shift: from cook to customer (kitchen metaphor seeding)."""
 # @guideline: maximize-viewport
 from streamtex import *
+<<<<<<< HEAD
 from streamtex.styles import Style as ns
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
+<<<<<<< HEAD
 
 # Viewport-filling containers
 _page_fill = s.project.containers.page_fill_top
@@ -25,6 +29,8 @@ _cell = Style.create(
     "vc_paradigm_cell",
 )
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 # Table cell for Changes/Stays
 _table_cell = Style.create(
     s.project.containers.cell_primary_bg
@@ -34,7 +40,10 @@ _table_cell = Style.create(
     "vc_paradigm_table_cell",
 )
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Paradigm shift slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -49,7 +58,10 @@ class BlockStyles:
     )
 bs = BlockStyles
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 _PROMPT = (
     f"{_PREFIX} Split composition: left side shows a figure cooking at a stove, "
     "hands busy, surrounded by ingredients in teal tones. Right side shows a figure "
@@ -58,17 +70,27 @@ _PROMPT = (
     f"Symbolizes the shift from doing the work to delegating it. {_SUFFIX}"
 )
 
+<<<<<<< HEAD
 
 def build():
     # Sub-slide 1: From Cook to Customer
     with st_block(_page_fill):
+=======
+def build():
+    # Sub-slide 1: From Cook to Customer
+    with st_block(s.project.containers.page_fill_top):
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "From Cook to Customer", tag=t.div, toc_lvl="1")
 
             with st_grid(
                 cols="2fr 3fr",
                 gap="24px",
+<<<<<<< HEAD
                 cell_styles=_cell,
+=======
+                cell_styles=s.project.containers.grid_cell_centered,
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
             ) as g:
                 with g.cell():
                     st_image(
@@ -104,7 +126,11 @@ def build():
     st_slide_break()
 
     # Sub-slide 2: What Changes, What Stays
+<<<<<<< HEAD
     with st_zoom(130),st_block(_page_fill_center):
+=======
+    with st_zoom(130),st_block(s.project.containers.page_fill_center_noalign):
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.subheading, "What Changes, What Stays", tag=t.div, toc_lvl="2")
             st_space("v", 3)

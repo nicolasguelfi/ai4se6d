@@ -1,6 +1,7 @@
 """Slide — Closing recap: GenAI + VibeCoding takeaways, roadmap, key message."""
 # @guideline: maximize-viewport
 from streamtex import *
+<<<<<<< HEAD
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 
@@ -10,6 +11,12 @@ _page_fill = s.project.containers.page_fill_top
 _page_fill_center = s.project.containers.page_fill_center
 
 
+=======
+from streamtex.bib import cite
+from streamtex.enums import Tags as t, ListTypes as lt
+from custom.styles import Styles as s
+
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 class BlockStyles:
     """Recap slide styles."""
     heading = s.project.titles.section_title + s.center_txt
@@ -17,6 +24,7 @@ class BlockStyles:
     keyword = s.bold + s.project.colors.primary
     keyword_accent = s.bold + s.project.colors.accent
     keyword_warn = s.bold + s.project.colors.highlight
+    source = s.project.titles.caption
     transition = Style.create(
         s.Large + s.project.colors.accent + s.center_txt,
         "recap_transition",
@@ -25,12 +33,15 @@ class BlockStyles:
         s.Giant + s.bold + s.center_txt + s.project.colors.primary,
         "recap_keymsg",
     )
+    closing_sub = Style.create(
+        s.Large + s.italic + s.center_txt + s.project.colors.muted,
+        "recap_closing_sub",
+    )
 bs = BlockStyles
-
 
 def build():
     # Sub-slide 1: Recap GenAI
-    with st_block(_page_fill):
+    with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "Recap: Generative AI", tag=t.div, toc_lvl="1")
 
@@ -38,12 +49,15 @@ def build():
                 with l.item(): st_write(bs.body, (bs.keyword, "GenAI = next-token prediction"), " at massive scale")
                 with l.item(): st_write(bs.body, (bs.keyword, "Powerful"), " \u2014 code, text, images, reasoning")
                 with l.item(): st_write(bs.body, (bs.keyword_warn, "Limited"), " \u2014 hallucinations, no real understanding")
-                with l.item(): st_write(bs.body, (bs.keyword_accent, "84% adoption"), " among developers (Stack Overflow 2024)")
+                with l.item():
+                    st_write(bs.body, (bs.keyword_accent, "84% adoption"), " among developers")
+                    # REF: stackoverflow-survey2025
+                    st_write(bs.source, cite("stackoverflow-survey2025"))
 
     st_slide_break()
 
     # Sub-slide 2: Recap VibeCoding to VibeEngineering
-    with st_block(_page_fill):
+    with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "Recap: VibeCoding \u2192 VibeEngineering", tag=t.div, toc_lvl="2")
 
@@ -56,7 +70,7 @@ def build():
     st_slide_break()
 
     # Sub-slide 3: The Road Ahead
-    with st_block(_page_fill):
+    with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "The Road Ahead", tag=t.div, toc_lvl="2")
 
@@ -84,7 +98,11 @@ def build():
     st_slide_break()
 
     # Sub-slide 4: Key message centered (kitchen metaphor closing)
+<<<<<<< HEAD
     with st_block(_page_fill_center):
+=======
+    with st_block(s.project.containers.page_fill_center):
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         st_write(
             bs.keymsg,
             "Same Kitchen, Different Discipline",
@@ -93,6 +111,10 @@ def build():
         )
         st_space("v", 2)
         st_write(
+<<<<<<< HEAD
             Style.create(s.Large + s.italic + s.center_txt + s.project.colors.muted, "recap_closing_sub"),
+=======
+            bs.closing_sub,
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
             "Same ingredients. Same utensils. The difference: the discipline of the chef.",
         )

@@ -1,10 +1,10 @@
 """Slide — How much AI-generated code? + Do you review it? Interactive questions."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
+<<<<<<< HEAD
 
 # Billboard centered container
 _page_fill_billboard = s.project.containers.page_fill_center
@@ -12,19 +12,20 @@ _page_fill_billboard = s.project.containers.page_fill_center
 # Standard top-aligned container
 _page_fill = s.project.containers.page_fill_top
 
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 # Spectrum bar styles
-_spectrum_bar_1 = ns(
+_spectrum_bar_1 = Style(
     "background:linear-gradient(90deg, rgba(122,184,245,0.15) 0%, rgba(46,196,182,0.3) 100%);"
     "border-radius:12px;padding:16px 32px;",
     "ai_usage_spectrum_bar",
 )
 
-_spectrum_bar_2 = ns(
+_spectrum_bar_2 = Style(
     "background:linear-gradient(90deg, rgba(243,156,18,0.3) 0%, rgba(46,196,182,0.3) 100%);"
     "border-radius:12px;padding:16px 32px;",
     "review_spectrum_bar",
 )
-
 
 class BlockStyles:
     """Review habits slide styles."""
@@ -52,10 +53,9 @@ class BlockStyles:
     )
 bs = BlockStyles
 
-
 def build():
     # Sub-slide 1: Billboard question — AI usage
-    with st_block(_page_fill_billboard):
+    with st_block(s.project.containers.page_fill_center):
         st_write(
             bs.question,
             "How Much of Your Code Is AI-Generated?",
@@ -67,7 +67,11 @@ def build():
     st_slide_break()
 
     # Sub-slide 2: AI usage spectrum
+<<<<<<< HEAD
     with st_zoom(160),st_block(_page_fill):
+=======
+    with st_zoom(160),st_block(s.project.containers.page_fill_top):
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "Your AI Usage Today", tag=t.div, toc_lvl="2")
             st_space("v", 2)
@@ -89,21 +93,22 @@ def build():
     st_slide_break()
 
     # Sub-slide 3: Billboard question — review habits
-    st_space("v", "5vh")
-
-    with st_block(_page_fill_billboard):
+    with st_block(s.project.containers.page_fill_center):
         st_write(
             bs.question,
             "Do You Review AI-Generated Code?",
             tag=t.div,
             toc_lvl="2",
         )
-    st_space("v", "5vh")
 
     st_slide_break()
 
     # Sub-slide 4: Review spectrum
+<<<<<<< HEAD
     with  st_zoom(140),st_block(_page_fill):
+=======
+    with  st_zoom(140),st_block(s.project.containers.page_fill_top):
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
         with st_block(s.center_txt):
             st_write(bs.heading, "The Review Spectrum", tag=t.div)
             st_space("v", 2)
@@ -119,6 +124,6 @@ def build():
             st_space("v", 2)
             st_write(
                 bs.explanation,
-                "Where you land on this spectrum  <br>defines your relationship with AI-generated code <br>\u2014 <br> and that's exactly what we'll explore next.",
+                "This spectrum defines your relationship with AI-generated code.",
             )
             

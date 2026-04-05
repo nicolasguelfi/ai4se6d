@@ -2166,7 +2166,11 @@ wheels = [
 
 [[package]]
 name = "streamtex"
+<<<<<<< HEAD
 version = "0.6.4"
+=======
+version = "0.6.6"
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 source = { editable = "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex" }
 dependencies = [
     { name = "beautifulsoup4" },
@@ -2189,8 +2193,6 @@ ai = [
 ]
 cli = [
     { name = "click" },
-    { name = "jinja2" },
-    { name = "playwright" },
     { name = "rich" },
 ]
 inspector = [
@@ -2209,7 +2211,10 @@ requires-dist = [
     { name = "google-genai", marker = "extra == 'ai'", specifier = ">=1.0" },
     { name = "google-genai", marker = "extra == 'ai-google'", specifier = ">=1.0" },
     { name = "graphviz", specifier = ">=0.21" },
+<<<<<<< HEAD
     { name = "jinja2", marker = "extra == 'cli'", specifier = ">=3.0" },
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
     { name = "matplotlib", specifier = ">=3.10.8" },
     { name = "mermaid-py", specifier = ">=0.5.0" },
     { name = "openai", marker = "extra == 'ai'", specifier = ">=1.0" },
@@ -2218,7 +2223,10 @@ requires-dist = [
     { name = "pillow", marker = "extra == 'ai-fal'", specifier = ">=10.0" },
     { name = "pillow", marker = "extra == 'ai-google'", specifier = ">=10.0" },
     { name = "pillow", marker = "extra == 'ai-openai'", specifier = ">=10.0" },
+<<<<<<< HEAD
     { name = "playwright", marker = "extra == 'cli'", specifier = ">=1.40" },
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
     { name = "playwright", marker = "extra == 'pdf'", specifier = ">=1.40" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "requests", specifier = ">=2.28.0" },
@@ -2236,7 +2244,10 @@ dev = [
     { name = "click", specifier = ">=8.0" },
     { name = "fal-client", specifier = ">=0.13.1" },
     { name = "google-genai", specifier = ">=1.66.0" },
+<<<<<<< HEAD
     { name = "jinja2", specifier = ">=3.0" },
+=======
+>>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
     { name = "openai", specifier = ">=2.26.0" },
     { name = "playwright", specifier = ">=1.58.0" },
     { name = "pre-commit", specifier = ">=3.0" },
