@@ -86,7 +86,7 @@ def build():
                                 bs.body,
                                 (bs.keyword, "Breakthrough"),
                                 (bs.body, " — Transformer architecture "),
-                                (bs.body, cite("vaswani2017attention")),
+                                (s.project.citation + s.Large, cite("vaswani2017attention")),
                             )
                         with l.item():
                             st_write(

@@ -22,7 +22,7 @@ bs = BlockStyles
 
 
 def build():
-    with st_block(_page_fill):
+    with st_zoom(160),st_block(_page_fill):
         st_write(
             bs.heading,
             "One Token at a Time...",

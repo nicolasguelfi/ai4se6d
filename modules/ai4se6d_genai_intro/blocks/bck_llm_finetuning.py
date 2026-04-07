@@ -61,25 +61,26 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Curated data"),
-                                (bs.body, " — High-quality instruction-response pairs"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Specialization"),
-                                (bs.body, " — Adapt base model to specific tasks"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Efficient"),
-                                (bs.body, " — Smaller dataset, targeted improvement"),
-                            )
+                    with st_zoom(160):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Curated data"),
+                                    (bs.body, " — High-quality instruction-response pairs"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Specialization"),
+                                    (bs.body, " — Adapt base model to specific tasks"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Efficient"),
+                                    (bs.body, " — Smaller dataset, targeted improvement"),
+                                )

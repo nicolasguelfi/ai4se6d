@@ -13,7 +13,7 @@ class BlockStyles:
     keyword = s.project.titles.keyword
     stat = s.project.titles.stat
     label = s.project.titles.label
-    source = s.project.titles.source
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 

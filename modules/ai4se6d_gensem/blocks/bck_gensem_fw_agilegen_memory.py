@@ -16,7 +16,7 @@ class BlockStyles:
         s.Large + s.bold + s.project.colors.highlight,
         "gs_agm_callout_title",
     )
-    source = s.project.titles.source
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 

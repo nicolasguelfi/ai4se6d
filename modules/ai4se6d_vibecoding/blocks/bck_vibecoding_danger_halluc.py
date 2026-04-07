@@ -17,7 +17,7 @@ class BlockStyles:
     )
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.highlight
-    source = s.project.titles.caption + s.center_txt
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 _PROMPT = (

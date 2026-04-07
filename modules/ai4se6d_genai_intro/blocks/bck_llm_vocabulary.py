@@ -30,7 +30,8 @@ def build():
             toc_lvl="1",
         )
         st_space("v", 1)
-        st_write(bs.heading + s.text.sizes.pt52 + s.project.colors.accent, "tokens in a LLM vocabulary.", tag=t.div)
-        st_space("v", 1)
-        st_write(bs.body, "Rare words = more tokens,", tag=t.div)
-        st_write(bs.body, "common words = fewer.", tag=t.div)
+        with st_zoom(160):
+            st_write(bs.heading + s.text.sizes.pt52 + s.project.colors.accent, "tokens in a LLM vocabulary.", tag=t.div)
+            st_space("v", 1)
+            st_write(bs.body, "Rare words = more tokens,", tag=t.div)
+            st_write(bs.body, "common words = fewer.", tag=t.div)

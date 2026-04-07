@@ -34,10 +34,7 @@ class BlockStyles:
         s.Large + s.bold + s.project.colors.highlight + s.text.wrap.hyphens,
         "poll_ai_result_keyword",
     )
-    source = Style.create(
-        s.project.titles.caption + s.center_txt,
-        "poll_ai_result_source",
-    )
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 

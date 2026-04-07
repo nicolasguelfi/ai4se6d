@@ -23,7 +23,9 @@ def build():
         with st_block(s.center_txt):
             st_write(bs.heading, "What GenAI Cannot Do", tag=t.div, toc_lvl="1")
 
-            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+            st_space("v", "10vh")
+
+            with st_zoom(130), st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item(): st_write(bs.body, (bs.keyword, "Guarantee truth"), " — hallucinations are real")
                 with l.item(): st_write(bs.body, (bs.keyword, "Replace judgment"), " — no domain expertise")
                 with l.item(): st_write(bs.body, (bs.keyword, "Access real-time data"), " — training cutoff date")

@@ -1,0 +1,37 @@
+
+
+--------------
+--------------
+--------------
+
+-  Slide "LLM Comparison"
+Ajouter un warning en dessous du titre qui indique que cette table sera possiblement obsolète dans les semaines à venir…
+Ajouter une référence bibliographique vers ce site :
+https://artificialanalysis.ai/models
+
+Mettre à jour les contenus des cellules du tableau, en fonction des valeurs du site et sur base de références bibliographique récentes et à indiquer en dessous du tableau.
+Eviter de mettre des claims discutables
+
+Tu as été plus spécifique alors que je t'ai demandé d'être plus générique. Pas de modèle particulier, pas de valeur de contexte spécifique. Le but est plutôt d'indiquer les grandes lignes des tâches pour lesquelles les modèles phares des trois fournisseurs sont principalement réputés ou principalement utilisés.
+
+Par ailleurs, tu dois utiliser le mécanisme des ref biographique homogène qui est utilisé partout chaque fois que tu utilises, et que tu fournis une référence.
+
+--------------
+
+--------------
+
+--------------
+
+--------------
+
+--------------
+
+--------------
+
+--------------
+
+--------------
+
+--------------
+--------------
+--------------

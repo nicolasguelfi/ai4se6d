@@ -15,7 +15,7 @@ class BlockStyles:
         "gs_adev_callout_title",
     )
     callout_body = s.project.titles.body
-    source = s.project.titles.caption + s.center_txt
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 def build():

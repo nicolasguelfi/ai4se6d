@@ -14,7 +14,7 @@ class BlockStyles:
     keyword = s.bold + s.project.colors.primary
     accent = s.bold + s.project.colors.accent
     highlight = s.bold + s.project.colors.highlight
-    source = s.project.titles.caption
+    source = s.project.citation + s.large
 bs = BlockStyles
 
 _PROMPT = (

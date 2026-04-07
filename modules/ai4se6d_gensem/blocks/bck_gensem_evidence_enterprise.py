@@ -26,7 +26,7 @@ class BlockStyles:
         s.Large + s.bold + s.project.colors.success + s.center_txt,
         "gs_ev_ent_lbl_ok",
     )
-    source = s.project.titles.caption + s.center_txt
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 

@@ -62,25 +62,26 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Loop"),
-                                (bs.body, " — Predict → append → repeat"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Speed"),
-                                (bs.body, " — Response time proportional to length"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Cost"),
-                                (bs.body, " — Each token = one full forward pass"),
-                            )
+                    with st_zoom(160):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Loop"),
+                                    (bs.body, " — Predict → append → repeat"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Speed"),
+                                    (bs.body, " — Response time proportional to length"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Cost"),
+                                    (bs.body, " — Each token = one full forward pass"),
+                                )

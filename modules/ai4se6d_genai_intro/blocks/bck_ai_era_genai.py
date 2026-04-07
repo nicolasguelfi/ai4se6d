@@ -86,7 +86,7 @@ def build():
                                 bs.body,
                                 (bs.keyword, "Explosion"),
                                 (bs.body, " — ChatGPT: 100M users in 2 months "),
-                                (bs.body, cite("altman2022chatgpt")),
+                                (s.project.citation + s.Large, cite("altman2022chatgpt")),
                             )
                         with l.item():
                             st_write(

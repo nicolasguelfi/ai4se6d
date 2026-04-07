@@ -11,7 +11,7 @@ class BlockStyles:
     keyword = s.bold + s.project.colors.accent
     stat = s.bold + s.project.colors.highlight
     source_name = s.bold + s.project.colors.primary
-    source = s.project.titles.caption + s.center_txt
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 def build():

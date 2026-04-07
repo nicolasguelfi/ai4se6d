@@ -50,9 +50,11 @@ def build():
                         provider="openai",
                         ai_size="1024x1536",
                     )
+
                 with g.cell():
-                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                        with l.item(): st_write(bs.body, (bs.keyword, "Bias"), " — models reflect training data biases")
-                        with l.item(): st_write(bs.body, (bs.keyword, "Privacy"), " — sensitive data in prompts leaks")
-                        with l.item(): st_write(bs.body, (bs.keyword, "Copyright"), " — who owns AI-generated content?")
-                        with l.item(): st_write(bs.body, (bs.keyword, "Transparency"), " — always disclose AI usage")
+                    with st_zoom(130):
+                        with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                            with l.item(): st_write(bs.body, (bs.keyword, "Bias"), " — models reflect training data biases")
+                            with l.item(): st_write(bs.body, (bs.keyword, "Privacy"), " — sensitive data in prompts leaks")
+                            with l.item(): st_write(bs.body, (bs.keyword, "Copyright"), " — who owns AI-generated content?")
+                            with l.item(): st_write(bs.body, (bs.keyword, "Transparency"), " — always disclose AI usage")

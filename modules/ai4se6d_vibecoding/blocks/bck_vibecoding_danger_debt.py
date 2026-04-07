@@ -17,7 +17,7 @@ class BlockStyles:
         s.Large + s.italic + s.project.colors.primary,
         "vc_danger_debt_quote",
     )
-    source = s.project.titles.caption
+    source = s.project.citation + s.large
 bs = BlockStyles
 
 _PROMPT = (

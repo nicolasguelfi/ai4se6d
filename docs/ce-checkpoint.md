@@ -1,91 +1,91 @@
-# CE Checkpoint — ai4se6d
+# CE Checkpoint — ai4se6d_gensem
 
-**Date**: 2026-04-05
-**Session**: Review cycle (review → fix → compound → integrate) + lib evolution + deployment
+**Date**: 2026-04-07
+**Project**: ai4se6d_gensem (Generative Software Engineering Methods)
+**Current plan**: `docs/plans/2026-04-06-002-C-gensem-plan-v2.md`
+**Phase**: PRODUCE complete → REVIEW v2 complete → FIX pending
 
-## Cycle State
+---
 
-```
-COLLECT ✓ → ASSESS (skipped) → PLAN ✓ → PRODUCE ✓ → REVIEW ✓ → FIX ✓ → COMPOUND ✓ → INTEGRATE (partial)
-```
+## Session Metadata
 
-## Completed This Session
+| Field | Value |
+|-------|-------|
+| Plan | v2 (7 parts, ~131 blocks, ~180 min / 3h) |
+| Blocks in book.py | 131 |
+| Block files on disk | 132 (1 orphan: `bck_gensem_poll_method.py` — removed from book.py) |
+| Reviews | v1 (`2026-04-06-gensem-review.md`) + v2 (`2026-04-06-gensem-v2-review.md`) |
+| SOTA coverage | Excellent — no CRITICAL gaps (audit 2026-04-06) |
+| Ruff | All checks passed |
+| Runtime test | 132 blocks imported, build() validated, Streamlit starts cleanly |
+| Bib entries | 32 defined, 25 used |
+| AI image blocks | 6 (title, ce_title, ce_five_phases, fw_vbounce, sdlc_human, method_title) |
 
-### CE Fix — Phases 1-3 (35 findings resolved)
-- Phase 1: Content accuracy (learning objectives, colors, Fowler attribution, glossary, cite refs)
-- Phase 2: Visual/technical (breaks param in lib, zoom, grid_cell_centered refactoring, helpers, table styles)
-- Phase 3: Polish (Act IV REFs + visible cite(), zoom, spacing, emoji, aliases, imports, pricing dates)
-- Phase 4 (QCM exercises): **DEFERRED** — to be done when conceptual content is finalized
+---
 
-### CE Compound — 8 solutions capitalized
-- `docs/solutions/process/` — 3 solutions (interactive fix, lib evolution, multi-source context)
-- `docs/solutions/style/` — 2 solutions (factorize styles, no page_fill aliases)
-- `docs/solutions/guidelines/` — 2 solutions (intermediate font sizes, visible references)
-- `docs/solutions/content/` — 1 solution (separate glossary/references)
+## Current Phase: FIX (pending)
 
-### StreamTeX lib evolution
-- `st_write(breaks=True)` — newlines preserved by default. Committed, tested (1889 passed), published PyPI 0.6.7.
+The module has been through 2 review cycles. The v2 review identified 3 CRITICAL, 9 MAJOR, 10 MINOR findings. A 3-phase fix plan was proposed but NOT yet executed.
 
-### CE INTEGRATE phase — designed and implemented
-- New `/stx-ce:integrate` command + skill (streamtex-claude)
-- Updated: ce-fix (interactive default), ce-go (9 steps), ce-compound (next steps), CLAUDE.md.j2, cheatsheet, solution template
-- CE manual block `bck_ce_integrate` added (streamtex-docs)
-- All 3 repos committed and pushed
+### Fix Phase 1 — Critical + quick wins (NOT DONE)
+- [ ] CR1: Fix Forrester text in `bck_gensem_roadmap.py` ("at least one org" not "50% of enterprises")
+- [ ] CR2: Qualify "90%+" in `bck_gensem_plugin_demo_compound.py` (add "in our experience" or remove)
+- [ ] MJ6: Add cite() to `bck_gensem_fw_se30.py`, `bck_gensem_fw_vbounce.py`, `bck_gensem_fw_agilegen.py`
+- [ ] MJ7: Fix synthesis table labels in `bck_gensem_fw_synthesis.py` (replace opaque symbols with descriptive labels)
+- [ ] m1: Fix METR +20% → +24% in `bck_gensem_evidence_perception.py`
+- [ ] m6: Standardize GenSE → GenSEM in `bck_gensem_calcapp_v03_traceability.py`, `bck_gensem_calcapp_v03_prompts.py`
 
-### Deployment
-- All 12 Coolify services redeployed on Hetzner
-- Dockerfile aligned with docs pattern (pre-export HTML, entrypoint verification)
-- `.stx-version` bumped to 0.6.7
-- Merge conflict incident resolved (172 markers in 45 files)
+### Fix Phase 2 — Style factoring (NOT DONE)
+- [ ] MJ2-MJ5: Factor `closing`, `card_title`, `dont/do_callout`, `stat_hero` into custom/styles.py
+- [ ] CR3: Update all 15+ v1 blocks to use factored styles (`s.project.titles.heading`, `.keyword`, `.label`, `.stat`, `.source`) instead of local BlockStyles duplicates
+- [ ] m3-m5: Remove `callout_body` alias (9 blocks), fix vbounce_diagram pt48 duplication, factor `message` style (6 blocks)
 
-## Pending / Open
+### Fix Phase 3 — Content additions (NOT DONE)
+- [ ] MJ9: Add cross-tool terminology block (how concepts map across Claude Code / Cursor / Copilot)
+- [ ] MJ1: Differentiate the 2 Fowler blocks (human_fowler vs evidence_fowler — same quote)
+- [ ] m7: Remove `bck_gensem_fw_multiagent.py` (v1 compact) from book.py — superseded by v2 detail blocks
+- [ ] m9: Enrich `bck_gensem_risks_overview.py` with ethics detail (EU AI Act, responsibility gap, environmental cost)
+- [ ] m8: Remove duplicate junior/senior stats from `bck_gensem_sdlc_human.py` (now covered by `human_junior_senior.py`)
 
-### Phase 4 — QCM Exercises
-- Replace `bck_exercise_vibecoding` and `bck_exercise_vibeeng` with QCM quiz blocks
-- Define `qcm-slide` pattern in design guideline
-- Add QCM check-ins between acts
-- **When**: after conceptual content is finalized
+---
 
-### Review Suggestions (S1-S10)
-- Revisit opening questions in recap
-- Move historical analogy earlier
-- Kitchen metaphor intro + threading into Act IV
-- Expand HACCP, enrich glossary, smoother transitions
-- Add pricing column to comparison table
+## Decisions Log
 
-### Context Findings
-- CTX-1: Module ~70 min exceeds 45-min slot — Act IV skippable recovers ~12 min, remaining tightening needed
-- CTX-2: Act IV duplicates Tiago's deck — accepted risk (skippable)
+1. **Plan v1 → v2**: Extended from 63 slides/105 min to ~131 blocks/180 min after feedback "rajouter du contenu, pas juste diluer"
+2. **7 parts instead of 5**: Added Part 2 (Evidence empirique, 14 blocks) and restructured Part 1 (15 tasks, 15 concepts, human factor)
+3. **Substantive new content**: 72 blocks added exploiting SOTA depth (3 RCTs, Daniotti 160K, multi-agent taxonomy, CE artifacts/anti-patterns, specialization as research platform)
+4. **Font sizes fixed**: body = explicit 48pt, caption = explicit 32pt via `_pt48`/`_pt32` in styles.py — no longer reliant on CSS variable defaults
+5. **Styles factored**: heading, keyword, label, stat, source, critical added to custom/styles.py — but v1 blocks NOT yet updated (technical debt)
+6. **Glossary expanded**: 9 → 36 terms (including CHOP, ACI, Agent Mode, Hooks, SOP, etc.) + shared glossary created in shared-blocks
+7. **LOT 1 applied**: session_map generic ("3-Parts Journey" no dates), poll removed, SDLC/codegen tables transposed, RE title reduced
+8. **g.cell(style=) bug fixed**: 13 files corrected (GridController.cell() takes no arguments — use st_block() inside cell)
+9. **Bib enriched**: 19 → 32 entries, gitlab key renamed, duplicates removed, Cui/Daniotti/MetaGPT/ChatDev/OpenHands added
+10. **v1 fixes deferred**: Forrester text, "90%+" claim, missing cite() calls, synthesis labels, style factoring — all identified but not yet applied
 
-### INTEGRATE execution
-- 8 solutions written but **not yet integrated** (no `/stx-ce:integrate` run)
-- The INTEGRATE skill is implemented but hasn't been used yet on this project
+---
 
-## Key Decisions Made
+## Pending Issues
 
-1. **Act IV**: keep but skippable at presentation time
-2. **Exercises**: QCM quizzes (no numbering), practicals deferred
-3. **`<br>` in st_write**: resolved by lib evolution (`breaks=True`), not per-block fixes
-4. **Font sizes**: all StreamTeX sizes valid, guideline documents intermediates
-5. **Style factoring**: any style in 2+ blocks → `custom/styles.py`
-6. **No local aliases**: use `s.project.containers.*` directly
-7. **Visible references**: all external sources get `cite()` visible, not just `# REF:`
-8. **Interactive fix**: default mode for `/stx-ce:fix`, `--batch` opt-in
+| # | Issue | Impact | Effort |
+|---|-------|--------|--------|
+| 1 | v1 review fixes not applied (CR1, CR2, MJ6, MJ7) | Credibility risk on 4 slides | 15 min |
+| 2 | Style duplication in 15+ v1 blocks | Maintenance debt, visual inconsistency | 30 min |
+| 3 | Duplicate Fowler content (2 blocks) | Audience sees same quote twice | 10 min |
+| 4 | v1 compact multiagent block redundant | Redundant slide after 6 detailed ones | 2 min |
+| 5 | Cross-tool terminology block missing | SOTA gap (Appendix B not covered) | 20 min |
+| 6 | Ethics section thin | EU AI Act, responsibility gap missing | 15 min |
+| 7 | Orphan file `bck_gensem_poll_method.py` on disk | No impact (not in book.py) | 1 min |
 
-## Files Modified (summary)
+---
 
-- **ai4se6d**: ~45 blocks modified, 2 created (objectives, references), 4 orphans deleted, custom/styles.py enriched, book.py updated, 4 bib entries added, Dockerfile + entrypoint aligned, .stx-version bumped
-- **streamtex**: write.py (breaks param), v0.6.7 on PyPI
-- **streamtex-claude**: 2 files created (ce-integrate skill + command), 7 files updated
-- **streamtex-docs**: 1 block created (bck_ce_integrate), 2 files updated
+## Context for Next Session
 
-## Resume With
+The module is **functionally complete** — 131 blocks compile and render, SOTA coverage is excellent, the narrative flow is validated. What remains is **polish**: applying the review fixes (text corrections, style consistency, deduplication) and a few content additions (cross-tool terminology, ethics enrichment).
 
-```
-/stx-ce:continue
-```
+**Recommended next actions**:
+1. Run `/stx-ce:fix` to apply the 3-phase fix plan from the v2 review
+2. Remove orphan `bck_gensem_poll_method.py` from disk
+3. After fixes: run `/stx-ce:review --quick` to verify
+4. Then `/stx-ce:compound` to capitalize learnings
 
-Priority proposals for next session:
-1. Run `/stx-ce:integrate` on the 8 pending solutions
-2. Design QCM quiz blocks (Phase 4)
-3. Tighten Acts I-III for 45-min slot (CTX-1)
+**The module is ready for visual review** — the trainer can open `stx run --port 8585` and navigate through all 131 slides to provide visual feedback (LOT 2+).

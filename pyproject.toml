@@ -7,6 +7,7 @@ dependencies = [
     "streamtex[cli,pdf,ai,inspector]>=0.3.0",
     "streamlit>=1.54.0",
     "python-dotenv>=1.0.0",
+    "plotly>=6.6.0",
 ]
 
 [dependency-groups]

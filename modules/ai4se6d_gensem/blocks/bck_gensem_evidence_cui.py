@@ -16,7 +16,7 @@ class BlockStyles:
     body = s.project.titles.body
     keyword = s.project.titles.keyword
     label = s.project.titles.label
-    source = s.project.titles.caption + s.center_txt
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 

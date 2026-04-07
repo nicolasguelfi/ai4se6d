@@ -27,7 +27,7 @@ class BlockStyles:
         s.Large + s.bold + s.project.colors.primary,
         "vc_dangers_stat",
     )
-    source = s.project.titles.caption
+    source = s.project.citation + s.large
 bs = BlockStyles
 
 

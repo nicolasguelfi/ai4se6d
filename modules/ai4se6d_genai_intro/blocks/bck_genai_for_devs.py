@@ -61,7 +61,7 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with g.cell():
+                with st_zoom(120),g.cell():
                     with st_list(
                         list_type=lt.unordered,
                         li_style=bs.body,

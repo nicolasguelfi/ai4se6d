@@ -18,7 +18,7 @@ class BlockStyles:
         s.Large + s.italic + s.project.colors.accent + s.center_txt,
         "ide_mcp_emphasis",
     )
-    source = s.project.titles.caption
+    source = s.project.citation + s.large
 bs = BlockStyles
 
 _PROMPT = (

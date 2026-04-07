@@ -27,12 +27,8 @@ class BlockStyles:
         s.Large + s.italic,
         "vc_origin_quote_p3",
     )
-    attribution_orange = Style.create(
-        s.large + s.italic + s.project.colors.highlight,
-        "vc_origin_attr_orange",
-    )
     attribution = Style.create(
-        s.project.titles.caption,
+        s.project.citation + s.large,
         "vc_origin_attribution",
     )
     body = s.project.titles.body
@@ -80,7 +76,7 @@ def build():
                         "\u201CThe hottest new programming language is English\u201D",
                     )
                     # REF: https://x.com/karpathy/status/1617979122625712128
-                    st_write(bs.attribution_orange, cite("karpathy2023english"))
+                    st_write(bs.attribution, cite("karpathy2023english"))
 
                     st_space("h", "1.5rem")
 
@@ -98,7 +94,7 @@ def build():
                          "and copy paste stuff, and it mostly works.\u201D"),
                     )
                     # REF: https://x.com/karpathy/status/1886192184808149383
-                    st_write(bs.attribution_orange, cite("karpathy2025vibecoding"))
+                    st_write(bs.attribution, cite("karpathy2025vibecoding"))
 
     # Definition and paradigm shift are now in separate blocks:
     # bck_vibecoding_definition and bck_vibecoding_paradigm

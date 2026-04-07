@@ -28,7 +28,7 @@ class BlockStyles:
         s.Large + s.bold + s.project.colors.primary + s.text.wrap.hyphens,
         "llm_alignment_keyword",
     )
-    source = s.project.titles.caption + s.center_txt
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 
@@ -45,7 +45,7 @@ _PROMPT = (
 def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Phase 3: Alignment (RLHF)", tag=t.div, toc_lvl="1")
+            st_write(bs.heading, "Phase 3: Alignment (RLHF/RLAIF)", tag=t.div, toc_lvl="1")
 
             with st_grid(
                 cols="2fr 3fr",
@@ -64,33 +64,34 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Human feedback"),
-                                (bs.body, " — Evaluators rank model outputs"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Reward model"),
-                                (bs.body, " — Guides LLM toward preferred responses"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "HHH"),
-                                (bs.body, " — Helpful, Harmless, Honest"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Constitutional AI"),
-                                (bs.body, " — Anthropic's principle-based self-critique"),
-                            )
-                    # REF: https://arxiv.org/abs/2212.08073
-                    st_write(bs.source, cite("bai2022constitutional"))
+                    with st_zoom(140):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "HHH"),
+                                    (bs.body, " — Helpful, Harmless, Honest"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Reward model"),
+                                    (bs.body, " — Guides LLM toward preferred responses"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Human feedback"),
+                                    (bs.body, " — Evaluators rank model outputs (RLHF)"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Constitutional AI"),
+                                    (bs.body, " — Anthropic's principle-based self-critique (RLAIF)"),
+                                )
+                        # REF: https://arxiv.org/abs/2212.08073
+                        st_write(bs.source, cite("bai2022constitutional"))

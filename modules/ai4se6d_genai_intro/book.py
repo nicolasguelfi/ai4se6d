@@ -155,15 +155,16 @@ st_book(
         blocks.bck_llm_attention,
         blocks.bck_llm_attention_viz,
         blocks.bck_llm_prediction,
-        blocks.bck_llm_context_window,
         blocks.bck_llm_autoregressive,
+        blocks.bck_llm_context_window,
+        blocks.bck_llm_context_benchmark,
         # Sequence 3B — How LLMs Are Built (engineering)
         blocks.bck_llm_how_built,
         blocks.bck_llm_pretraining,
         blocks.bck_llm_finetuning,
         blocks.bck_llm_alignment,
         # Synthesis
-        blocks.bck_llm_summary,
+        #blocks.bck_llm_summary,
         # Capabilities & Limitations
         blocks.bck_llm_capabilities,
         blocks.bck_llm_limitations,

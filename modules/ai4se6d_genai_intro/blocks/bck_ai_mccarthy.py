@@ -25,7 +25,7 @@ class BlockStyles:
         "ai_mccarthy_quote",
     )
     attribution = Style.create(
-        s.project.titles.caption,
+        s.project.citation + s.large,
         "ai_mccarthy_attribution",
     )
 bs = BlockStyles

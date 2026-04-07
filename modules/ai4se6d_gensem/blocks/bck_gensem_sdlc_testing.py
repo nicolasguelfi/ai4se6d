@@ -17,7 +17,7 @@ class BlockStyles:
         "gs_test_hero",
     )
     hero_label = s.project.titles.body + s.center_txt
-    source = s.project.titles.source
+    source = s.project.citation + s.large + s.center_txt
 
 bs = BlockStyles
 

@@ -12,7 +12,7 @@ class BlockStyles:
     keyword = s.bold + s.project.colors.primary
     keyword_accent = s.bold + s.project.colors.accent
     keyword_warn = s.bold + s.project.colors.highlight
-    source = s.project.titles.caption
+    source = s.project.citation + s.large
     transition = Style.create(
         s.Large + s.project.colors.accent + s.center_txt,
         "recap_transition",

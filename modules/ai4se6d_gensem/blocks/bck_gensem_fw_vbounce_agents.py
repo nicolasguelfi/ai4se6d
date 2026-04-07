@@ -14,7 +14,7 @@ class BlockStyles:
     label = s.project.titles.label
     callout_body = s.project.titles.body
     stat = s.project.titles.stat
-    source = s.project.titles.source
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 

@@ -21,7 +21,7 @@ class BlockStyles:
         s.project.titles.body_accent + s.center_txt,
         "gs_pwc_message",
     )
-    source = s.project.titles.source
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 

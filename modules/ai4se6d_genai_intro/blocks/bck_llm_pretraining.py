@@ -62,31 +62,32 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Data"),
-                                (bs.body, " — Trillions of tokens from internet, books, code"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Compute"),
-                                (bs.body, " — Thousands of GPUs running for weeks"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Result"),
-                                (bs.body, " — A base model with broad knowledge"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Emergent"),
-                                (bs.body, " — Capabilities appear above parameter thresholds"),
-                            )
+                    with st_zoom(140):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Data"),
+                                    (bs.body, " — Trillions of tokens from internet, books, code"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Compute"),
+                                    (bs.body, " — Thousands of GPUs running for weeks"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Result"),
+                                    (bs.body, " — A base model with broad knowledge"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Capabilities"),
+                                    (bs.body, " — shaped by scale, data, compute, and architecture"),
+                                )

@@ -28,8 +28,9 @@ def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "What GenAI Can Do", tag=t.div, toc_lvl="1")
+            st_space("v", "10vh")
 
-            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+            with st_zoom(130), st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item(): st_write(bs.body, (bs.keyword, "Generate code"), " — from natural language descriptions")
                 with l.item(): st_write(bs.body, (bs.keyword, "Write & summarize"), " — documents, emails, reports")
                 with l.item(): st_write(bs.body, (bs.keyword, "Analyze data"), " — patterns, trends, anomalies")

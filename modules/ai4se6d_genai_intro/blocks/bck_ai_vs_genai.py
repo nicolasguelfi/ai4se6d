@@ -101,5 +101,5 @@ def build():
                                 (bs.quote_highlight, " — \u201CToday we launched ChatGPT. "
                                  "Try talking to it at "
                                  "https://chat.openai.com\u201D "),
-                                (bs.body, cite("altman2022chatgpt")),
+                                (s.project.citation + s.Large, cite("altman2022chatgpt")),
                             )

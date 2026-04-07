@@ -66,31 +66,32 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Working memory"),
-                                (bs.body, " — Everything the model 'sees' at once"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Early models"),
-                                (bs.body, " — 2,048-4,096 tokens"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Current models"),
-                                (bs.body, " — 128,000 to over 1,000,000 tokens"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Boundary"),
-                                (bs.body, " — Defines what the model 'knows' per conversation"),
-                            )
+                    with st_zoom(130):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Working memory"),
+                                    (bs.body, " — Everything the model 'sees' at once"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Early models"),
+                                    (bs.body, " — 2,048-4,096 tokens"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Current models"),
+                                    (bs.body, " — 128,000 to 10,000,000 tokens"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Boundary"),
+                                    (bs.body, " — Defines what the model 'knows' per conversation"),
+                                )

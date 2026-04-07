@@ -14,7 +14,7 @@ class BlockStyles:
         "vibeeng_evidence_stat",
     )
     body = s.project.titles.body + s.center_txt
-    source = s.project.titles.caption + s.center_txt
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 def build():

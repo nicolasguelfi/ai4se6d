@@ -11,7 +11,7 @@ class BlockStyles:
     header = s.project.titles.table_header
     cell = s.project.titles.table_cell
     label = s.project.titles.table_label
-    source = s.project.titles.caption + s.center_txt
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
 _SURVEYS = [
