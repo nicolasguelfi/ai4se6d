@@ -33,9 +33,8 @@ rm -rf /app/static-html/*
 echo "[entrypoint] Generating static HTML..."
 uv run stx export html --output /app/static-html/ . 2>/dev/null || true
 
-# Derive base_name the same way the export CLI does:
-#   basename of FOLDER, with "ai4se6d_" prefix stripped
-BASE_NAME=$(basename "${FOLDER}" | sed 's/^ai4se6d_//')
+# Derive base_name: the export CLI uses the full basename of FOLDER
+BASE_NAME=$(basename "${FOLDER}")
 TARGET="${BASE_NAME}/${BASE_NAME}.html"
 
 if [ -f "/app/static-html/${TARGET}" ]; then
