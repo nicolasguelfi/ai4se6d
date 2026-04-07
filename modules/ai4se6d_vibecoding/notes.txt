@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-
-=======
 /Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/plans/2026-03-27-001-C-session1-plan.md
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 --------------
 --------------
 --------------
@@ -49,8 +45,6 @@ Je souhaite aussi que dans le processus nous déterminons toujours la liste exac
 --------------
 pour le module ai4se6d_vibecoding :
 
-<<<<<<< HEAD
-=======
 Voici le context :
 - Le document latex principal situé ici:
 /Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/lu.uni.sage.publications.2025/ng.aiday.policy/ul-ai-4-se
@@ -87,7 +81,6 @@ Tu peux déposer le fichier ici :
 /Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_vibecoding/docs/plans
 
 
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 --------------
 pour le module ai4se6d_vibecoding :
 
@@ -142,11 +135,12 @@ pour le module ai4se6d_genai_intro :
 --------------
 pour le module ai4se6d_genai_intro :
 
-<<<<<<< HEAD
-=======
+- mettre un st_zoom 200% pour les deux slides qui redirigent sur linkedin
 
 - pour la partie qui présente tiago sousa:
 -> 
+même design graphique que Nicolas 
++ 
 Activities:
 Research / Development
 Education / Training
@@ -166,7 +160,6 @@ Co-Founder/CTO Right-On-Skill
 
 
 
->>>>>>> a1435b5 (feat: vibecoding review fixes + CE integrate + style refactoring)
 --------------
 pour le module ai4se6d_genai_intro :
 

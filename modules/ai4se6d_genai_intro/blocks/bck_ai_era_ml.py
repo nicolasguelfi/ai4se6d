@@ -81,5 +81,6 @@ def build():
                             st_write(
                                 bs.body,
                                 (bs.keyword, "Limitation"),
-                                (bs.body, " — Requires hand-crafted features"),
+                                (bs.body, " — Classical methods need manual feature engineering;"
+                                 " neural networks lack compute to scale"),
                             )

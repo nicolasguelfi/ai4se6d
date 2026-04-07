@@ -1,6 +1,7 @@
 """Slide — AI vs Generative AI: balanced image + key points."""
 # @guideline: maximize-viewport
 from streamtex import *
+from streamtex.bib import cite
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
@@ -26,6 +27,10 @@ class BlockStyles:
     keyword = Style.create(
         s.Large + s.bold + s.project.colors.primary + s.text.wrap.hyphens,
         "ai_vs_genai_keyword",
+    )
+    quote_highlight = Style.create(
+        s.Large + s.italic + s.project.colors.highlight + s.text.wrap.hyphens,
+        "ai_vs_genai_quote",
     )
 bs = BlockStyles
 
@@ -70,23 +75,31 @@ def build():
                             st_write(
                                 bs.body,
                                 (bs.keyword, "Traditional AI"),
-                                (bs.body, " — rules, classification, prediction"),
+                                (bs.body, " — discriminative: classifies inputs "
+                                 "into predefined categories"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
                                 (bs.keyword, "Generative AI"),
-                                (bs.body, " — creates new content (text, code, images)"),
+                                (bs.body, " — autoregressive: predicts the next "
+                                 "token across the full vocabulary, "
+                                 "iteratively producing new content"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "Key difference"),
-                                (bs.body, " — pattern recognition vs content creation"),
+                                (bs.keyword, "Key insight"),
+                                (bs.body, " — both classify, but generative AI "
+                                 "classifies over language itself, turning "
+                                 "prediction into creation"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "Since 2022"),
-                                (bs.body, " — GPT-3.5 sparked the revolution"),
+                                (bs.keyword, "Revolution sparked"),
+                                (bs.quote_highlight, " — \u201CToday we launched ChatGPT. "
+                                 "Try talking to it at "
+                                 "https://chat.openai.com\u201D "),
+                                (bs.body, cite("altman2022chatgpt")),
                             )

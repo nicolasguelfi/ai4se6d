@@ -1,6 +1,7 @@
 """Slide — 2022+ Generative AI: balanced image + key points."""
 # @guideline: maximize-viewport
 from streamtex import *
+from streamtex.bib import cite
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
@@ -69,24 +70,28 @@ def build():
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "Creates content"),
-                                (bs.body, " — Text, code, images, audio, video"),
+                                (bs.keyword, "Definition"),
+                                (bs.body, " — AI that generates new content "
+                                 "(text, code, images, audio)"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "For developers"),
-                                (bs.body, " — Source code, docs, tests from descriptions"),
+                                (bs.keyword, "Scale"),
+                                (bs.body, " — Billions of parameters, trained "
+                                 "on internet-scale data"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "Foundation models"),
-                                (bs.body, " — Models pretrained on very large datasets, adapted to many tasks"),
+                                (bs.keyword, "Explosion"),
+                                (bs.body, " — ChatGPT: 100M users in 2 months "),
+                                (bs.body, cite("altman2022chatgpt")),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "Paradigm shift"),
-                                (bs.body, " — Not just classify — generate new data"),
+                                (bs.keyword, "Impact"),
+                                (bs.body, " — Transforms how we write, code, "
+                                 "create, and reason"),
                             )

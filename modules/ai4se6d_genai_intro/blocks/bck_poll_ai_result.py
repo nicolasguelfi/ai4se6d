@@ -44,7 +44,7 @@ bs = BlockStyles
 # Master prompt components
 
 _PROMPT = (
-    f"{_PREFIX} A large circular progress chart at 84%, rendered as a glowing electric "
+    f"{_PREFIX} A large circular progress chart at 76%, rendered as a glowing electric "
     "blue arc on dark background. Inside the circle, a simple developer silhouette icon "
     f"in teal. Amber accent dot marks the percentage endpoint. {_SUFFIX}"
 )
@@ -52,7 +52,7 @@ _PROMPT = (
 
 def build():
     with st_block(_page_fill):
-        with st_block(s.center_txt):
+        with st_zoom(130),st_block(s.center_txt):
             st_write(bs.heading, "You're Not Alone", tag=t.div, toc_lvl="1")
 
             with st_grid(
@@ -72,25 +72,25 @@ def build():
                     )
 
                 with g.cell():
-                    st_write(bs.stat_hero, "84%")
+                    st_write(bs.stat_hero, "76%")
                     st_space("v", 0.5)
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "84%"),
+                                (bs.keyword, "76%"),
                                 (bs.body, " use or plan to use AI tools"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "51%"),
+                                (bs.keyword, "63%"),
                                 (bs.body, " use AI tools daily"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "85%"),
+                                (bs.keyword, "82%"),
                                 (bs.body, " regularly use AI for coding"),
                             )
                         with l.item():
@@ -100,5 +100,9 @@ def build():
                                 (bs.body, " will use AI assistants by 2028"),
                             )
                     st_space("v", 0.5)
-                    # REF: https://survey.stackoverflow.co/2024/ai
-                    st_write(bs.source, cite("stackoverflow2024survey"))
+                    st_write(
+                        bs.source,
+                        cite("stackoverflow2024survey"),
+                        " ",
+                        cite("gartner2025aiassistants"),
+                    )

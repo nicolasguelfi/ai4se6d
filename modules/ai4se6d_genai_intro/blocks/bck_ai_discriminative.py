@@ -76,7 +76,7 @@ def build():
                             st_write(
                                 bs.body,
                                 (bs.keyword, "Probability"),
-                                (bs.body, " — Model P(y|x): what class does this belong to?"),
+                                (bs.body, " — P(y|x): probability of class y given input x"),
                             )
                         with l.item():
                             st_write(

@@ -76,7 +76,8 @@ def build():
                             st_write(
                                 bs.body,
                                 (bs.keyword, "Probability"),
-                                (bs.body, " — Model P(x,y): what would plausible output look like?"),
+                                (bs.body, " — P(next | context): probability "
+                                 "of next token given previous tokens"),
                             )
                         with l.item():
                             st_write(

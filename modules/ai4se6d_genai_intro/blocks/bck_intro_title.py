@@ -67,6 +67,5 @@ def build():
             st_space("v", 0.5)
             st_write(
                 bs.info,
-                (s.project.colors.muted, "Session 1 — Day 1, April 9, 2026"),
-                (s.project.colors.muted, "  ·  DLH Luxembourg"),
+                (s.project.colors.muted, "Session 1 — DLH Luxembourg"),
             )

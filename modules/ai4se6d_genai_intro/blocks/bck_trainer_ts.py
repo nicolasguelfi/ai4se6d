@@ -59,36 +59,41 @@ def build():
 
     st_slide_break()
 
-    # -- Slide 2: Profile grid --
+    # -- Slide 2: Profile grid (2x2) --
     with st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "Profile", tag=t.div, toc_lvl="2")
 
-            # Row 1: Expertise Domains
+            # Row 1: Activities | Software Engineering
             with st_grid(
                 cols="repeat(auto-fit, minmax(350px, 1fr))",
                 gap="12px",
                 cell_styles=_cell,
             ) as g:
                 with g.cell():
+                    st_write(bs.category_title, "Activities")
+                    st_space("v", 0.5)
+                    st_write(bs.category_item, "Research / Development")
+                    st_write(bs.category_item, "Education / Training")
+                with g.cell():
                     st_write(bs.category_title, "Software Engineering")
-                with g.cell():
-                    st_write(bs.category_title, "Artificial Intelligence")
-                with g.cell():
-                    st_write(bs.category_title, "Sustainability")
+                    st_space("v", 0.5)
+                    st_write(bs.category_item, "Software Architecture")
+                    st_write(bs.category_item, "Full-Stack Development")
 
             st_space("v", 0.5)
 
-            # Row 2: Context + Logos
+            # Row 2: Contexts | Artificial Intelligence
             with st_grid(
                 cols="repeat(auto-fit, minmax(350px, 1fr))",
                 gap="12px",
                 cell_styles=_cell,
             ) as g:
                 with g.cell():
-                    st_write(bs.category_title, "Context")
+                    st_write(bs.category_title, "Contexts")
                     st_space("v", 0.5)
-                    st_write(bs.category_item, "Right-On-Skill sarl")
+                    st_write(bs.category_item, "PhD Researcher University of Luxembourg")
+                    st_write(bs.category_item, "Co-Founder/CTO Right-On-Skill")
                     with st_grid(cols="repeat(auto-fit, minmax(60px, 1fr))", gap="8px") as lg:
                         with lg.cell():
                             st_image(s.none, uri=f"{_IMG}/image2.png", width="5vw")
@@ -96,11 +101,17 @@ def build():
                             st_image(s.none, uri=f"{_IMG}/image3.png", width="5vw")
                         with lg.cell():
                             st_image(s.none, uri=f"{_IMG}/image4.png", width="5vw")
+                with g.cell():
+                    st_write(bs.category_title, "Artificial Intelligence")
+                    st_space("v", 0.5)
+                    st_write(bs.category_item, "Generative AI")
+                    st_write(bs.category_item, "Deep Learning")
+                    st_write(bs.category_item, "Data Engineering")
 
     st_slide_break()
 
     # -- Slide 3: More information + LinkedIn --
-    with st_block(_page_fill):
+    with st_zoom(200), st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "More Information", tag=t.div)
             st_image(s.none, uri=f"{_IMG}/image5.png", width="200px")

@@ -11,17 +11,23 @@ Analyse, fais des propositions, ne touche pas le code.
 pour le projet streamtex AI4SE-NG
 
 Voici le context :
-- Le document latex principal situé ici:
-/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/lu.uni.sage.publications.2025/ng.aiday.policy/ul-ai-4-se
 
-C'Est un document qui collecte des informations Scientifique et techniques Sur le domaine du génie logiciel et de l'intelligence artificielle générative.
+- Le programme complet de la formation est décrit dans le document suivant :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/collect/complete-program.md
+
+- Le schedule complet de la formation est ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/collect/original-schedule.csv
+
+- Le document latex principal qui collecte des informations Scientifique et techniques Sur le domaine du génie logiciel et de l'intelligence artificielle générative est situé ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/lu.uni.sage.publications.2025/ng.aiday.policy/ul-ai-4-se
 
 Ce document doit être la source qui alimentera toutes les différentes formations que je vais donner sur le sujet dans différents contextes. La source risque d'évoluer et donc il faut toujours se coordonner avec elle à chaque cycle complet.
 
-- La première formations que je vais préparer a son programme décrit dans le document suivant :
-ul-ai-4-se/refs/program/ROS_AI4SE_Training_Information_Form-EN-MAIN.md
+- Les slides de toutes les parties sur les outils et les exercices pratiques effectuées par le second formateurs sont ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/collect/practicals
 
-- La session que je dois produire doit couvrir :
+- L'étude de cas qui sera prise pour tous les travaux pratiques de la première phase sont ici dans différentges branches:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/calcapp
 
 
 OBJECTIF:

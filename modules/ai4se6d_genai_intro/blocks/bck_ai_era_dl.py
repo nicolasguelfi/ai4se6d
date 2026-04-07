@@ -1,6 +1,7 @@
 """Slide — 2010s Deep Learning: balanced image + key points."""
 # @guideline: maximize-viewport
 from streamtex import *
+from streamtex.bib import cite
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
@@ -69,24 +70,28 @@ def build():
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "Neural networks"),
-                                (bs.body, " — Many layers learn features automatically"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Breakthroughs"),
-                                (bs.body, " — Image recognition, speech, NLU"),
+                                (bs.keyword, "Definition"),
+                                (bs.body, " — Neural networks learn features "
+                                 "automatically from raw data"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
                                 (bs.keyword, "Enablers"),
-                                (bs.body, " — Massive datasets + GPU power"),
+                                (bs.body, " — ReLU + GPU power + massive "
+                                 "datasets + embeddings"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "Superhuman"),
-                                (bs.body, " — Beat humans on specific benchmarks"),
+                                (bs.keyword, "Breakthrough"),
+                                (bs.body, " — Transformer architecture "),
+                                (bs.body, cite("vaswani2017attention")),
+                            )
+                        with l.item():
+                            st_write(
+                                bs.body,
+                                (bs.keyword, "Limitation"),
+                                (bs.body, " — Requires massive compute and "
+                                 "data; models are black boxes"),
                             )

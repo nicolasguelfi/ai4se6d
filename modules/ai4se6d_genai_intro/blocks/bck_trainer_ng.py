@@ -123,7 +123,7 @@ def build():
     st_slide_break()
 
     # ── Slide 3: More information + LinkedIn QR ──
-    with st_block(_page_fill):
+    with st_zoom(200), st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "More Information", tag=t.div)
             st_image(s.none, uri=f"{_IMG}/image1.png", width="200px")

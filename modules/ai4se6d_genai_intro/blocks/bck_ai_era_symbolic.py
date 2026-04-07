@@ -87,6 +87,6 @@ def build():
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "Brittle"),
-                                (bs.body, " — Failed on real-world ambiguity"),
+                                (bs.keyword, "Rigid"),
+                                (bs.body, " — Handled exceptions and complex cases poorly"),
                             )

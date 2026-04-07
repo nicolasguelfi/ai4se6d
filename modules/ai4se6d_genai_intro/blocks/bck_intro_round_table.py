@@ -44,8 +44,10 @@ def build():
         with st_block(s.center_txt):
             st_write(bs.heading, "Participant(s)", tag=t.div, toc_lvl="1")
             st_write(bs.subtitle, "Individual presentations", tag=t.div)
+            
+            st_space("v", "10vh")
 
-            with st_grid(
+            with st_zoom(130),st_grid(
                 cols="1fr 1fr",
                 gap="16px",
                 cell_styles=_cell,
