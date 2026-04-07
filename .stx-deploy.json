@@ -35,7 +35,7 @@
       "folder": "modules/ai4se6d_collection",
       "github_repo": "nicolasguelfi/ai4se6d",
       "branch": "main",
-      "serve_mode": "streamlit-only"
+      "serve_mode": "dual"
     },
     {
       "name": "ai4se6d-genai-intro",
@@ -45,7 +45,7 @@
       "folder": "modules/ai4se6d_genai_intro",
       "github_repo": "nicolasguelfi/ai4se6d",
       "branch": "main",
-      "serve_mode": "streamlit-only"
+      "serve_mode": "dual"
     },
     {
       "name": "ai4se6d-vibecoding",
@@ -55,7 +55,17 @@
       "folder": "modules/ai4se6d_vibecoding",
       "github_repo": "nicolasguelfi/ai4se6d",
       "branch": "main",
-      "serve_mode": "streamlit-only"
+      "serve_mode": "dual"
+    },
+    {
+      "name": "ai4se6d-gensem",
+      "uuid": "d10dhnoelag1sb4lsnls4gp1",
+      "subdomain": "ai4se6d-gensem",
+      "url": "https://ai4se6d-gensem.streamtex.org",
+      "folder": "modules/ai4se6d_gensem",
+      "github_repo": "nicolasguelfi/ai4se6d",
+      "branch": "main",
+      "serve_mode": "dual"
     }
   ]
 }

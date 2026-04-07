@@ -21,3 +21,11 @@ emoji = "\U0001F680"
 button_label = "Open"
 project_url = "https://ai4se6d-vibecoding.streamtex.org"
 order = 2
+
+[projects.gensem]
+title = "GenSEM — Generative SE Methods"
+description = "Frameworks, evidence, and methodology for generative software engineering"
+emoji = "\U0001F4DA"
+button_label = "Open"
+project_url = "https://ai4se6d-gensem.streamtex.org"
+order = 3
