@@ -1,4 +1,123 @@
-/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/plans/2026-03-27-001-C-session1-plan.md
+
+--------------
+--------------
+--------------
+Pour le module ai4se6d_vibecoding, peux-tu effectuer les modifications ci-dessous :
+
+--
+pour les bloc/slide suivants: 
+Transformers in 60 Seconds
+
+multiplie par 3 la taille de "The engine behind every LLM
+" 
+
+idem pour :
+slide: 
+texte: 
+idem pour :
+slide: 
+texte: 
+
+idem pour :
+slide: 
+texte: 
+
+idem pour :
+slide: 
+texte: 
+
+
+--
+pour les bloc/slide suivants: 
+Artificial Intelligence
+
+Ajoute un facteur de Zoom 120 % pour la cellule de texte à droite de l'image
+
+
+--
+bloc/slide :
+Context Performance Benchmark
+
+ajoute un overlay st_hover_tooltip pour donner des explications claires, complètes et simples du tests MRCR 8 needles
+
+--
+bloc/slide :
+
+remplace :
+
+par:
+
+
+--
+bloc/slide :
+
+remplace :
+
+par:
+
+
+--
+bloc/slide :
+
+remplace :
+
+par:
+
+
+--
+bloc/slide :
+
+remplace :
+
+par:
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+
+--------------
+
+--------------
+
+--------------
+--------------
+--------------
+
+--
+bloc/slide :
+
+remplace :
+
+par:
+
 
 
 

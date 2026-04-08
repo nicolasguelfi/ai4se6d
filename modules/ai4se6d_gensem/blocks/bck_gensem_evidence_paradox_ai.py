@@ -9,10 +9,7 @@ from custom.styles import Styles as s
 
 class BlockStyles:
     heading = s.project.titles.slide_title + s.center_txt
-    stat = Style.create(
-        s.GIANT + s.bold + s.project.colors.highlight + s.center_txt,
-        "gs_ev_paradox_ai_stat",
-    )
+    stat = s.project.titles.stat_hero
     body = s.project.titles.body
     keyword = s.project.titles.keyword
     source = s.project.citation + s.large + s.center_txt

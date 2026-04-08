@@ -62,31 +62,32 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Definition"),
-                                (bs.body, " — Learn to distinguish between categories"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Probability"),
-                                (bs.body, " — P(y|x): probability of class y given input x"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Approach"),
-                                (bs.body, " — Map inputs to labels, not generate new data"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Examples"),
-                                (bs.body, " — Spam detection, image classification, sentiment"),
-                            )
+                    with st_zoom(120):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Definition"),
+                                    (bs.body, " — Learn to distinguish between categories"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Probability"),
+                                    (bs.body, " — P(y|x): probability of class y given input x"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Approach"),
+                                    (bs.body, " — Map inputs to labels, not generate new data"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Examples"),
+                                    (bs.body, " — Spam detection, image classification, sentiment"),
+                                )

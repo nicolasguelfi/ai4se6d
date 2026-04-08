@@ -46,8 +46,9 @@ def build():
             )
             st_space("v", 1)
 
-            st_write(
-                bs.subtitle,
-                "Session 1 \u2014 Part 2 \u00b7 AI for Software Engineering",
-                tag=t.div,
-            )
+            with st_zoom(140):
+                st_write(
+                    bs.subtitle,
+                    "Session 1 \u2014 Part 2 \u00b7 \n AI for Software Engineering",
+                    tag=t.div,
+                )

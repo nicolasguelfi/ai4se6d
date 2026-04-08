@@ -53,12 +53,12 @@ bs = BlockStyles
 
 # Day data: (day, morning_label, afternoon_label, is_today)
 DAYS = [
-    (1, "GenAI Fundamentals · VibeCoding", "Workshop: FreeSelfApp Prototype", True),
+    (1, "GenAI Fundamentals · VibeCoding · VibeEngineering", "Workshop: FreeSelfApp Prototype", True),
     (2, "Mastering Cursor · Planning", "CalcApp v0.1 · Code Review · Git", False),
     (3, "SE Concepts · GenSEM · VibeTesting", "Requirements · NFR · V&V", False),
     (4, "CalcApp v0.2–v0.5 Iterations", "Refactoring · Quality · Deployment", False),
     (5, "Professional Mini-Project (Part 1)", "Professional Mini-Project (Part 2)", False),
-    (6, "Professional Mini-Project (Part 3)", "Ethics · Presentations · Closure", False),
+    (6, "Professional Mini-Project (Part 3)", "Presentations · Ethics · Closure", False),
 ]
 
 # Pairs for each section

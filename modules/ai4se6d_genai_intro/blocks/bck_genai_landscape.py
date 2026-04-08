@@ -62,32 +62,33 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(120),g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Chat"),
-                                (bs.body, " — ChatGPT, Claude, Gemini"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Code"),
-                                (bs.body, " — GitHub Copilot, Cursor, Claude Code"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Image"),
-                                (bs.body, " — DALL-E, Midjourney, Stable Diffusion"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Enterprise"),
-                                (bs.body, " — Microsoft 365 Copilot, Google Workspace AI"),
-                            )
+                with g.cell():
+                    with st_zoom(130):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Chat"),
+                                    (bs.body, " — ChatGPT, Claude, Gemini"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Code"),
+                                    (bs.body, " — GitHub Copilot, Cursor, Claude Code"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Image"),
+                                    (bs.body, " — DALL-E, Midjourney, Stable Diffusion"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Enterprise"),
+                                    (bs.body, " — Microsoft 365 Copilot, Google Workspace AI"),
+                                )

@@ -41,6 +41,40 @@ Wait for explicit validation before applying. Never batch multiple fixes.
 
 Every `/stx-ce:fix` session, regardless of finding count. The user explicitly rejected batch mode even for MINOR fixes.
 
+## Update 2026-04-08: Structured presentation format
+
+The interactive fix format was refined to present each finding as a structured decision:
+
+```
+## Finding XX — Description
+
+### Problem
+Description of the specific issue.
+
+### Elements concerned
+1. File path and line — what is wrong
+2. File path and line — related element
+
+### Alternatives (max 3)
+
+| # | Solution | Advantages | Disadvantages |
+|---|----------|-----------|---------------|
+| A (recommended) | ... | ... | ... |
+| B | ... | ... | ... |
+
+### Recommended modifications (Solution A)
+- File X, line Y: old → new
+- File Z, line W: old → new
+
+Which solution? (A / B / other)
+```
+
+Key additions:
+- **Always present 1-3 alternatives** with pros/cons — never a single "I'll do this"
+- **List precise modifications** for the recommended solution before applying
+- **Distinguish pedagogical decisions (SKIPPED)** from technical fixes
+- **Never apply without explicit user authorization**
+
 ## Updates
 
 Supersedes the suggestion in `2026-04-01-interactive-ce-modes.md` that batch mode is acceptable for MINOR fixes. Per user preference: always interactive, no exceptions.

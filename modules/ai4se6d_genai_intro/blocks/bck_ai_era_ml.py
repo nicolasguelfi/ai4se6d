@@ -61,26 +61,27 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Data-driven"),
-                                (bs.body, " — Algorithms learn from examples, not rules"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Paradigms"),
-                                (bs.body, " — Supervised, unsupervised, reinforcement"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Limitation"),
-                                (bs.body, " — Classical methods need manual feature engineering;"
-                                 " neural networks lack compute to scale"),
-                            )
+                    with st_zoom(120):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Data-driven"),
+                                    (bs.body, " — Algorithms learn from examples, not rules"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Paradigms"),
+                                    (bs.body, " — Supervised, unsupervised, reinforcement"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Limitation"),
+                                    (bs.body, " — Classical methods need manual feature engineering;"
+                                    " neural networks lack compute to scale"),
+                                )

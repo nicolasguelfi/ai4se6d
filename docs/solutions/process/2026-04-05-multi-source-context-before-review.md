@@ -37,6 +37,28 @@ The review agents should receive this context to:
 - Identify duplication with co-trainer materials
 - Assess exercises against the full-day schedule (not just this module)
 
+## Update 2026-04-08: Cross-module 5-axis review methodology
+
+The context analysis approach was extended into a full **5-axis cross-module review**:
+
+1. **Inter-module coherence** — common terms defined consistently across modules (glossary, definitions)
+2. **KBSCI alignment** — stats, definitions, bibkeys match the reference SOTA document
+3. **Co-trainer alignment** — overlaps with practical slides identified and classified
+4. **Temporal coherence** — content fits allocated time slots in the schedule
+5. **Program completeness** — all program items covered by at least one module
+
+### Method
+
+- Launch parallel agents to inventory each module (blocks, terms, stats, exercises) and each source (KBSCI, co-trainer slides)
+- Cross-reference definitions, stats, and bibkeys across all inventories
+- Produce a unified review report with findings by axis, severity, and effort
+- Create an errata registry for reference document errors (`docs/reviews/YYYY-MM-DD-kbsci-errata.md`)
+
+### Reference
+
+- `docs/reviews/2026-04-08-cross-module-review.md` (review report)
+- `docs/reviews/2026-04-08-kbsci-errata.md` (errata registry)
+
 ## Applies when
 
 Any module that is part of a multi-trainer, multi-day training program. Single-module standalone presentations can skip this.

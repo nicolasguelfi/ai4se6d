@@ -81,6 +81,23 @@ class TextStylesCustom:
         "stat"
     )
 
+    # Stat-hero variants — giant centered stats for keynote/billboard slides
+    stat_hero = Style.create(
+        Text.sizes.GIANT_size + Text.weights.bold_weight
+        + ColorsCustom.highlight + StxStyles.center_txt,
+        "stat_hero",
+    )
+    stat_hero_primary = Style.create(
+        Text.sizes.GIANT_size + Text.weights.bold_weight
+        + ColorsCustom.primary + StxStyles.center_txt,
+        "stat_hero_primary",
+    )
+    stat_hero_critical = Style.create(
+        Text.sizes.GIANT_size + Text.weights.bold_weight
+        + ColorsCustom.critical + StxStyles.center_txt,
+        "stat_hero_critical",
+    )
+
     # Table-roadmap text styles (shared across comparison/spectrum tables)
     table_header = Style.create(
         Text.sizes.pt36 + Text.weights.bold_weight + ColorsCustom.accent + Text.wrap.hyphens,

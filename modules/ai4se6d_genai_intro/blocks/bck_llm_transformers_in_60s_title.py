@@ -52,8 +52,9 @@ def build():
                 ai_size="1536x1024",
             )
 
-            st_write(
-                bs.caption,
-                "The engine behind every LLM",
-                tag=t.div,
-            )
+            with st_zoom(400):
+                st_write(
+                    bs.caption,
+                    "The engine behind every LLM",
+                    tag=t.div,
+                )

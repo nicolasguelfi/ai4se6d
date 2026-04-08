@@ -59,25 +59,26 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with g.cell():
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Traditional SE: "),
-                        "You are the cook \u2014 you choose ingredients, "
-                        "follow the recipe, control every step.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.keyword_accent, "VibeCoding: "),
-                        "You become the customer \u2014 you describe what you want, "
-                        "the kitchen prepares it, you taste the result.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "The implementation stays behind the kitchen door.",
-                    )
+                with st_zoom(120):
+                    with g.cell():
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Traditional SE: "),
+                            "You are the cook \u2014 you choose ingredients, "
+                            "follow the recipe, control every step.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (bs.keyword_accent, "VibeCoding: "),
+                            "You become the customer \u2014 you describe what you want, "
+                            "the kitchen prepares it, you taste the result.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body+s.project.colors.muted,
+                            "The implementation stays behind the kitchen door.",
+                        )
 
     st_slide_break()
 

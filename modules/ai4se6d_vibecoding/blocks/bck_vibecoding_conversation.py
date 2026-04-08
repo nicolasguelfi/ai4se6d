@@ -45,7 +45,7 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130), g.cell():
+                with st_zoom(115), g.cell():
                     st_write(bs.number, "3")
                     st_space("v", 1)
                     st_write(

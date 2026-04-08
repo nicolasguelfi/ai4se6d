@@ -142,6 +142,7 @@ st_book(
         blocks.bck_genai_landscape,
         # Fundamentals — LLMs
         blocks.bck_llm_comparison,
+        blocks.bck_llm_benchmarks,
         blocks.bck_llm_how_work,
         blocks.bck_llm_transformers_in_60s_title,
         blocks.bck_llm_teaser,

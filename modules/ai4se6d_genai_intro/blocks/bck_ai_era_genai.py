@@ -63,35 +63,36 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Definition"),
-                                (bs.body, " — AI that generates new content "
-                                 "(text, code, images, audio)"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Scale"),
-                                (bs.body, " — Billions of parameters, trained "
-                                 "on internet-scale data"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Explosion"),
-                                (bs.body, " — ChatGPT: 100M users in 2 months "),
-                                (s.project.citation + s.Large, cite("altman2022chatgpt")),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Impact"),
-                                (bs.body, " — Transforms how we write, code, "
-                                 "create, and reason"),
-                            )
+                    with st_zoom(120):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Definition"),
+                                    (bs.body, " — AI that generates new content "
+                                    "(text, code, images, audio)"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Scale"),
+                                    (bs.body, " — Billions of parameters, trained "
+                                    "on internet-scale data"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Explosion"),
+                                    (bs.body, " — ChatGPT: 100M users in 2 months "),
+                                    (s.project.citation + s.Large, cite("altman2022chatgpt")),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Impact"),
+                                    (bs.body, " — Transforms how we write, code, "
+                                    "create, and reason"),
+                                )

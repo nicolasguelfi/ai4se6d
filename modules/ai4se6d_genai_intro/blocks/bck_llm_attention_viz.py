@@ -51,8 +51,9 @@ def build():
                 ai_size="1536x1024",
             )
 
-            st_write(
-                bs.caption,
-                "Every token computes how much to attend to every other token",
-                tag=t.div,
-            )
+            with st_zoom(200):
+                st_write(
+                    bs.caption,
+                    "Every token computes how much to attend to every other token",
+                    tag=t.div,
+                )

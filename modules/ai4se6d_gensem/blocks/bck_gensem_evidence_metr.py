@@ -9,10 +9,7 @@ from custom.styles import Styles as s
 
 class BlockStyles:
     heading = s.project.titles.slide_title + s.center_txt
-    stat = Style.create(
-        s.GIANT + s.bold + s.project.colors.critical + s.center_txt,
-        "gs_ev_metr_stat",
-    )
+    stat = s.project.titles.stat_hero_critical
     body = s.project.titles.body
     source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles

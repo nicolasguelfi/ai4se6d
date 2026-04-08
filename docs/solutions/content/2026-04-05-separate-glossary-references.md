@@ -48,6 +48,33 @@ def build():
     )
 ```
 
+## Update 2026-04-08: Centralized shared bibliography
+
+The separation pattern was extended to full centralization across modules:
+
+### Shared glossary
+- Single `shared-blocks/blocks/bck_shared_glossary.py` (37 terms)
+- Each module's `book.py` references `blocks.bck_shared_glossary` (resolved via chained registry)
+- Local `bck_glossary.py` files removed from all modules
+
+### Shared bibliography
+- Single `shared-blocks/static/references.bib` (48 entries)
+- Each module's `book.py` uses `bib_sources=[str(_shared_static / "references.bib")]`
+- Local `.bib` files deleted from all 3 modules
+
+### Fusion procedure
+1. **Inventory** all `.bib` files across modules (count entries per module)
+2. **Detect identical entries** — same bibkey in multiple modules (keep the most complete version)
+3. **Detect equivalent entries** — same source, different bibkeys (e.g., `gartner2025aiassistants` vs `gartner-aidev2027`). Choose one bibkey (prefer KBSCI convention).
+4. **Rename `cite()` calls** in all block files that used the deprecated bibkeys
+5. **Update `bib_sources`** in all `book.py` files
+6. **Delete local `.bib` files**
+7. **Verify**: grep for orphaned `cite()` keys not in the central `.bib`
+
+### Bibkey naming convention
+Align with KBSCI document: `author-topic-year` (e.g., `tihanyi-secure2024`, `spracklen-packages2025`).
+For web sources consulted recently: use consultation year (e.g., `stackoverflow-survey2026`).
+
 ## Updates
 
 Refines `2026-04-01-glossary-block-pattern.md` which established the glossary pattern but included bibliography inline.

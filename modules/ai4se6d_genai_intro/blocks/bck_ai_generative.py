@@ -62,32 +62,33 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Definition"),
-                                (bs.body, " — Learn to produce new data from training distribution"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Probability"),
-                                (bs.body, " — P(next | context): probability "
-                                 "of next token given previous tokens"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Approach"),
-                                (bs.body, " — Generate new content, not just classify existing"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Examples"),
-                                (bs.body, " — Code generation, text creation, image synthesis"),
-                            )
+                    with st_zoom(120):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Definition"),
+                                    (bs.body, " — Learn to produce new data from training distribution"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Probability"),
+                                    (bs.body, " — P(next | context): probability "
+                                    "of next token given previous tokens"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Approach"),
+                                    (bs.body, " — Generate new content, not just classify existing"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Examples"),
+                                    (bs.body, " — Code generation, text creation, image synthesis"),
+                                )

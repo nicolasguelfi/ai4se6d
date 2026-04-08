@@ -17,7 +17,7 @@ def build():
             st_write(bs.heading, "Learning Objectives", tag=t.div, toc_lvl="1")
             st_space("v", 2)
 
-            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
+            with st_zoom(150),st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
                 with l.item():
                     st_write(bs.body, (bs.verb, "Define"), " VibeCoding and its 4 principles")
                 with l.item():

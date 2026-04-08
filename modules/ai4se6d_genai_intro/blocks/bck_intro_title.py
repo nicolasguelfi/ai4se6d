@@ -54,18 +54,19 @@ def build():
                 ai_size="1536x1024",
             )
 
-            st_write(
-                bs.subtitle,
-                "VibeEngineering: The Future of Software",
-                tag=t.div,
-            )
-            st_write(
-                bs.subtitle,
-                "Development with Generative AI",
-                tag=t.div,
-            )
-            st_space("v", 0.5)
-            st_write(
-                bs.info,
-                (s.project.colors.muted, "Session 1 — DLH Luxembourg"),
-            )
+            with st_zoom(150):
+                st_write(
+                    bs.subtitle,
+                    "VibeEngineering: The Future of Software",
+                    tag=t.div,
+                )
+                st_write(
+                    bs.subtitle,
+                    "Development with Generative AI",
+                    tag=t.div,
+                )
+                st_space("v", 0.5)
+                st_write(
+                    bs.info,
+                    (s.project.colors.muted, "Session 1 — DLH Luxembourg"),
+                )

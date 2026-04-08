@@ -33,7 +33,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "This Afternoon: Pure VibeCoding", tag=t.div, toc_lvl="1")
-            st_write(bs.body, (bs.keyword, "FreeSelfApp Workshop"), " \u2014 1h45 with Tiago", tag=t.div)
+            st_write(bs.body, "FreeSelfApp Workshop", tag=t.div)
 
             st_image(
                 s.none,
@@ -47,22 +47,6 @@ def build():
 
             st_write(
                 bs.body,
-                "This afternoon, you will experience pure VibeCoding first-hand. "
+                "This afternoon, you will practice self-generated code with VibeCoding first-hand. "
                 "You'll describe a project in natural language and let Cursor generate everything.",
-            )
-            st_space("v", 1)
-
-            st_write(bs.body, (bs.keyword_warn, "What to Watch For"), tag=t.div)
-            st_space("v", 0.5)
-            with st_list(l_style=bs.watch_q, li_style=bs.watch_q, list_type=lt.ordered) as l:
-                with l.item(): st_write(bs.watch_q, "Does the result actually work?")
-                with l.item(): st_write(bs.watch_q, "Do you trust code you haven't read?")
-                with l.item(): st_write(bs.watch_q, "Would you ship this to production?")
-                with l.item(): st_write(bs.watch_q, "What risks are hiding in the generated code?")
-                with l.item(): st_write(bs.watch_q, "How does it feel to give up control?")
-
-            st_space("v", 1)
-            st_write(
-                bs.transition,
-                "Keep these questions in mind \u2014 we'll debrief at 4:30 PM",
             )

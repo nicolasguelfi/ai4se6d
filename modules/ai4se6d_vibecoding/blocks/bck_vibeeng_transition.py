@@ -29,19 +29,20 @@ def build():
             tag=t.div,
             toc_lvl="1",
         )
-
+    st_space("v", "20vh")
     st_slide_break()
 
     # Sub-slide 2: Affirmation
     with st_block(s.project.containers.page_fill_center):
-        st_write(
-            bs.affirmation,
-            "Exactly \u2014 That\u2019s VibeEngineering",
-            tag=t.div,
-            toc_lvl="2",
-        )
-        st_space("v", 2)
-        st_write(
-            bs.subtitle,
-            "What separates the home cook from the starred chef.",
-        )
+        with st_block(s.center_txt):
+            st_write(
+                bs.affirmation,
+                "Exactly \u2014 That\u2019s VibeEngineering",
+                tag=t.div,
+                toc_lvl="2",
+            )
+            st_space("v", 2)
+            st_write(
+                bs.subtitle,
+                "What separates the home cook from the starred chef.",
+            )

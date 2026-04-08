@@ -3,18 +3,145 @@
 --------------
 --------------
 --------------
+Pour le module d'introduction, peux-tu effectuer les modifications ci-dessous :
 
--  Slide "LLM Comparison"
-Ajouter un warning en dessous du titre qui indique que cette table sera possiblement obsolète dans les semaines à venir…
-Ajouter une référence bibliographique vers ce site :
-https://artificialanalysis.ai/models
+--
+bloc/slide :
+Transformers in 60 Seconds
 
-Mettre à jour les contenus des cellules du tableau, en fonction des valeurs du site et sur base de références bibliographique récentes et à indiquer en dessous du tableau.
-Eviter de mettre des claims discutables
+multiplie la taille de "The engine behind every LLM
+" par 4
 
-Tu as été plus spécifique alors que je t'ai demandé d'être plus générique. Pas de modèle particulier, pas de valeur de contexte spécifique. Le but est plutôt d'indiquer les grandes lignes des tâches pour lesquelles les modèles phares des trois fournisseurs sont principalement réputés ou principalement utilisés.
+idem pour :
+slide: Attention in Action
+texte: Every token computes how much to attend to every other token
 
-Par ailleurs, tu dois utiliser le mécanisme des ref biographique homogène qui est utilisé partout chaque fois que tu utilises, et que tu fournis une référence.
+idem pour :
+slide: 
+texte: 
+
+idem pour :
+slide: 
+texte: 
+
+idem pour :
+slide: 
+texte: 
+
+
+--
+pour les bloc/slide suivants: 
+Artificial Intelligence
+
+Ajoute un facteur de Zoom 120 % pour la cellule de texte à droite de l'image
+
+
+--
+bloc/slide :
+Context Performance Benchmark
+
+ajoute un overlay st_hover_tooltip pour donner des explications claires, complètes et simples du tests MRCR 8 needles
+
+--
+bloc/slide :
+
+remplace :
+
+par:
+
+
+--
+bloc/slide :
+
+remplace :
+
+par:
+
+
+--
+bloc/slide :
+
+remplace :
+
+par:
+
+
+--
+bloc/slide :
+
+remplace :
+
+par:
+
+--------------
+
+Dans le slide:
+Discriminative Models
+
+Edit Image
+
+Definition — Learn to distinguish between categories
+Probability — P(y|x): probability of class y given input x
+Approach — Map inputs to labels, not generate new data
+Examples — Spam detection, image classification, sentiment
+
+Question:
+Est-ce que ce sont vraiment des probabilités conditionnelles ?
+
+--------------
+Dans le slide:
+
+1990s — Machine Learning
+
+Edit Image
+
+Data-driven — Algorithms learn from examples, not rules
+Paradigms — Supervised, unsupervised, reinforcement
+Limitation — Classical methods need manual feature engineering; neural networks lack compute to scale
+
+--------------
+Dans le slide:
+
+Semantic Proximity
+
+Edit Image
+
+Neighbors — 'function' and 'method' are close vectors
+Distant — 'bank' (finance) vs 'bank' (river) are far apart
+Scale — Learned from billions of text examples
+
+Question:
+quel est le sens du mot scale ?
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+Dans le slide:
+
+Question:
+
+--------------
+Dans le slide:
+
+Question:
 
 --------------
 
@@ -23,15 +150,12 @@ Par ailleurs, tu dois utiliser le mécanisme des ref biographique homogène qui es
 --------------
 
 --------------
-
 --------------
-
 --------------
 
---------------
+--
+bloc/slide :
 
---------------
+remplace :
 
---------------
---------------
---------------
+par:

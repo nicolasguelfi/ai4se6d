@@ -7,14 +7,12 @@ from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
+from shared_widgets import st_hover_tooltip
 
 class BlockStyles:
     """AI Paradox stat-hero styles."""
     heading = s.project.titles.slide_title + s.center_txt
-    stat = Style.create(
-        s.GIANT + s.bold + s.project.colors.highlight + s.center_txt,
-        "vc_danger_paradox_stat",
-    )
+    stat = s.project.titles.stat_hero
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.highlight
     source = s.project.citation + s.large + s.center_txt
@@ -49,7 +47,47 @@ def build():
                     )
 
                 with g.cell():
-                    st_write(bs.stat, "7 hours")
+                    with st_grid(
+                        cols="95fr 5fr",
+                        gap="0px",
+                        cell_styles=s.project.containers.grid_cell_centered,
+                    ) as sg:
+                        with sg.cell():
+                            st_write(bs.stat, "7 hours")
+                        with sg.cell():
+                            st_hover_tooltip(
+                                title="About this statistic",
+                                entries=[
+                                    (
+                                        "7 hours/week",
+                                        "Time lost per team member to AI-related "
+                                        "inefficiencies \u2014 nearly a full workday "
+                                        "every week.",
+                                    ),
+                                    (
+                                        "3,266 professionals",
+                                        "DevSecOps professionals surveyed (IT ops, "
+                                        "security, development). Harris Poll for "
+                                        "GitLab, 2025.",
+                                    ),
+                                    (
+                                        "The paradox",
+                                        "AI accelerates coding, but fragmented "
+                                        "toolchains and new compliance complexity "
+                                        "create bottlenecks that offset the speed "
+                                        "gains.",
+                                    ),
+                                    (
+                                        "Tool sprawl",
+                                        "60% use more than 5 dev tools; 49% use "
+                                        "more than 5 AI tools. Integration overhead "
+                                        "eats productivity.",
+                                    ),
+                                ],
+                                scale="2.2vw",
+                                width="70vw",
+                                position="left",
+                            )
                     st_space("v", 1)
                     st_write(
                         bs.body,

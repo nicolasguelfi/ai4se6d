@@ -10,6 +10,7 @@ from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 _page_fill = s.project.containers.page_fill_top
@@ -137,6 +138,36 @@ def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "Context Performance Benchmark", tag=t.div, toc_lvl="1")
+            st_hover_tooltip(
+                title="MRCR 8 Needles — What this test measures",
+                entries=[
+                    (
+                        "MRCR",
+                        "Multi-Round Coreference Resolution. The model must track "
+                        "entities across multiple conversation turns — like remembering "
+                        "who 'he' or 'it' refers to after many exchanges.",
+                    ),
+                    (
+                        "8 Needles",
+                        "8 specific facts are hidden ('needles') inside a long context "
+                        "('haystack'). The model must retrieve all 8 correctly. "
+                        "Tests real information retrieval, not just text generation.",
+                    ),
+                    (
+                        "Context sizes",
+                        "Each model is tested at 8k, 16k, 32k, 64k, 128k, 256k, 512k, "
+                        "and 1M tokens. A score drop at larger sizes means the model "
+                        "'forgets' information buried deep in its context window.",
+                    ),
+                    (
+                        "Score",
+                        "Percentage of needles correctly retrieved (0-100%). "
+                        "A perfect model scores 100% at all context sizes.",
+                    ),
+                ],
+                scale="1.5vw",
+                width="50vw",
+            )
 
         fig = _build_chart()
         fig_html = fig.to_html(

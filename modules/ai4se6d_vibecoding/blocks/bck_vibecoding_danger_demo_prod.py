@@ -47,21 +47,22 @@ def build():
                     )
 
                 with g.cell():
-                    st_write(
-                        bs.body,
-                        (bs.keyword_ok, "The demo works."),
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.keyword_warn, "Production requires: "),
-                        "security, scalability, maintainability, monitoring, "
-                        "error handling, edge cases, compliance.",
-                    )
-                    st_space("v", 2)
-                    st_write(
-                        bs.emphasis,
-                        "The gap between \u201Cit works\u201D and "
-                        "\u201Cit\u2019s production-ready\u201D "
-                        "is where engineering lives.",
-                    )
+                    with st_zoom(120):
+                        st_write(
+                            bs.body,
+                            (bs.keyword_ok, "The demo works."),
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (bs.keyword_warn, "Production requires: "),
+                            "security, scalability, maintainability, monitoring, "
+                            "error handling, edge cases, compliance.",
+                        )
+                        st_space("v", 2)
+                        st_write(
+                            bs.emphasis,
+                            "The gap between \u201Cit works\u201D and "
+                            "\u201Cit\u2019s production-ready\u201D "
+                            "is where engineering lives.",
+                        )

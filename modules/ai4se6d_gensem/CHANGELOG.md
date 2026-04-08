@@ -2,6 +2,14 @@
 
 GenSEM module — Generative Software Engineering Methods.
 
+## [0.2.0] — 2026-04-08
+
+### Changed
+- Switched to centralized bibliography (`shared-blocks/static/references.bib`)
+- Harmonized bibkeys to KBSCI convention (`stackoverflow-survey2026`, `bain2025`)
+- Factorized `stat_hero` styles into `shared_styles.py`
+- Chained registry in `__init__.py` for shared block resolution
+
 ## [0.1.0] — 2026-04-07
 
 ### Added

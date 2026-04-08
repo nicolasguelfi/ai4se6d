@@ -37,6 +37,41 @@ def build():
 - `ai4se6d_genai_intro/blocks/bck_poll_ai_result.py`
 - `ai4se6d_vibecoding/blocks/bck_vibecoding_reality.py`
 
+## Variant: stat-hero with perception gap (2026-04-08)
+
+For counter-intuitive statistics where perception contradicts reality, use a **2-column layout**:
+
+### Layout
+
+- Left column: Giant stat + factual context (N, tool, task, source)
+- Right column: "Perception vs Reality" narrative (what people expected, what actually happened, why the gap exists)
+
+### Code skeleton
+
+```python
+def build():
+    with st_block(_page_fill):
+        st_write(bs.heading, "The METR Paradox", tag=t.div, toc_lvl="1")
+        with st_grid(cols="2fr 3fr", gap="24px", cell_styles=_cell) as g:
+            with g.cell():
+                st_write(bs.stat, "-19%")
+                st_write(bs.body, "Experienced devs completed tasks 19% slower with AI")
+                st_write(bs.source, cite("metr2025"))
+            with g.cell():
+                st_write(bs.body, "Before: predicted ", (bs.keyword, "+24%"), " speedup")
+                st_write(bs.body, "After: ", (bs.keyword_warn, "still believed"), " +20% faster")
+                st_write(bs.body, "Reality: <44% of generations accepted")
+```
+
+### When to use
+
+Whenever presenting data that contradicts common assumptions (paradoxes, declining trends, surprising study results). More effective than a simple stat-hero for engaging critical thinking.
+
+### Reference blocks
+
+- `ai4se6d_vibecoding/blocks/bck_vibecoding_danger_metr.py`
+- `ai4se6d_vibecoding/blocks/bck_vibecoding_danger_trust.py`
+
 ## Applicability
 
 Any presentation with impactful statistics. Should be a standard blueprint.

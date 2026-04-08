@@ -5,8 +5,8 @@
 | Field | Value |
 |-------|-------|
 | Created | 2026-04-01 |
-| Last updated | 2026-04-01 |
-| Projects count | 2 (ai4se6d_genai_intro, ai4se6d_vibecoding) |
+| Last updated | 2026-04-08 |
+| Projects count | 3 (ai4se6d_genai_intro, ai4se6d_vibecoding, ai4se6d_gensem) |
 
 ## Document Types
 
@@ -34,6 +34,8 @@
 - **No hardcoded black/white**: never use `s.text.colors.white` or `s.text.colors.black` — use `s.project.colors.*` instead. Breaks theme compatibility and violates design system separation. Common temptation: white text on dark backgrounds, initials on colored circles.
 - **No inline RGBA values**: extract to `custom/styles.py` as composable styles when used in 3+ blocks.
 - **No duplicated prompt strings**: extract to `custom/prompts.py` when 5+ blocks share the same graphic line.
+- **Never define VibeCoding as "pair programming"**: in SE, pair programming has a precise meaning (two developers, one keyboard). VibeCoding is about describing intent and accepting code without review — completely different concept.
+- **Never use unverified statistics**: always check the source website before citing numbers. The reference document (KBSCI) may contain transcription errors.
 
 ## Pedagogical Patterns
 
@@ -44,5 +46,10 @@
 ## Content Conventions
 
 - Glossary block at end of each module (not inline definitions)
+- Shared glossary and bibliography centralized in `shared-blocks/` (single source of truth)
+- Bibkey convention aligned with KBSCI document (`author-topic-year`)
 - Terminology convention established by glossary, not enforced in titles
 - Cross-module solutions stored at collection root (`docs/solutions/`)
+- Repetition of content between trainers/modules is deliberate pedagogical choice — never auto-remove
+- Exercises that overlap with workshops: transform to teasers (1 slide) instead of full 3-phase flow
+- Always present fix alternatives (1-3) before applying — never batch

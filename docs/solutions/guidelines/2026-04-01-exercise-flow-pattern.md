@@ -57,6 +57,45 @@ def build():
 - `ai4se6d_vibecoding/blocks/bck_exercise_vibecoding.py`
 - `ai4se6d_vibecoding/blocks/bck_exercise_vibeeng.py`
 
+## Variant: exercise-as-teaser (2026-04-08)
+
+When a short exercise (8-10 min) is redundant with a longer workshop the same day or the next day, transform it into a **teaser** instead:
+
+### Layout (single slide, no timer, no sub-slides)
+
+- Title: "This Afternoon: [theme]" or "Tomorrow: [theme]"
+- Subtitle: "[Workshop name] — [duration] with [trainer]"
+- AI image (reuse from original exercise)
+- Intro text: 2 sentences framing what participants will experience
+- Section "What to Watch For": 5 observation questions (reformulated from the original debrief)
+- Transition line: "Keep these questions in mind — we'll debrief at [time]"
+
+### Code skeleton
+
+```python
+def build():
+    with st_block(_page_fill):
+        st_write(bs.heading, "This Afternoon: Pure VibeCoding", tag=t.div, toc_lvl="1")
+        st_write(bs.body, (bs.keyword, "FreeSelfApp Workshop"), " — 1h45 with Tiago")
+        st_image(...)
+        st_write(bs.body, "This afternoon, you will experience...")
+        st_write(bs.body, (bs.keyword_warn, "What to Watch For"))
+        with st_list(list_type=lt.ordered) as l:
+            with l.item(): st_write(bs.watch_q, "Does the result work?")
+            # ...
+        st_write(bs.transition, "Keep these questions in mind — we'll debrief at 4:30 PM")
+```
+
+### When to use
+
+- Exercise duration < 15 min AND a longer workshop covers the same goal the same day
+- Time savings: ~10 min per exercise transformed (from 3 sub-slides to 1)
+
+### Reference blocks
+
+- `ai4se6d_vibecoding/blocks/bck_exercise_vibecoding.py` (teaser for FreeSelfApp PM)
+- `ai4se6d_vibecoding/blocks/bck_exercise_vibeeng.py` (teaser for CalcApp Day 2)
+
 ## Applicability
 
 Any training module with hands-on exercises. Should be a standard blueprint.

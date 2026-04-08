@@ -62,31 +62,32 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Rules"),
-                                (bs.body, " — Hand-crafted if-then logic programming"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Expert systems"),
-                                (bs.body, " — Encoded human knowledge explicitly"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Narrow domains"),
-                                (bs.body, " — Medical diagnosis, chess"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Rigid"),
-                                (bs.body, " — Handled exceptions and complex cases poorly"),
-                            )
+                    with st_zoom(120):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Rules"),
+                                    (bs.body, " — Hand-crafted if-then logic programming"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Expert systems"),
+                                    (bs.body, " — Encoded human knowledge explicitly"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Narrow domains"),
+                                    (bs.body, " — Medical diagnosis, chess"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Rigid"),
+                                    (bs.body, " — Handled exceptions and complex cases poorly"),
+                                )

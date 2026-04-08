@@ -2,6 +2,33 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.0] — 2026-04-08
+
+### Added
+- Cross-module coherence review (5-axis: inter-module, KBSCI, co-trainer, temporal, completeness)
+- 4 new empirical blocks in vibecoding (METR paradox, Trust crisis, Copilot RCT, Experience Gap)
+- Shared hover tooltip widget (`shared_widgets.py`) with scale, position, and CSS hover
+- AI Intelligence Index benchmarks (4 slides) in genai_intro
+- OpenAI Codex coverage in vibecoding tool ecosystem
+- KBSCI errata registry (`docs/reviews/2026-04-08-kbsci-errata.md`)
+- Capitalization solutions (8 new/enriched) from CE compound phase
+
+### Changed
+- Centralized glossary via `shared-blocks/blocks/bck_shared_glossary.py` (chained registry)
+- Centralized bibliography in `shared-blocks/static/references.bib` (48 entries, single source)
+- Harmonized all bibkeys to KBSCI convention across 3 modules
+- Factorized `stat_hero` styles into `shared_styles.py` (3 variants: highlight, primary, critical)
+- Exercises 2+3 reframed as teasers (FreeSelfApp PM / CalcApp Day 2)
+- Corrected StackOverflow stats (76%/63%/82%, verified on site)
+- Roadmap Day 1: added VibeEngineering; Day 6: reordered Presentations/Ethics/Closure
+
+### Fixed
+- VibeCoding definition inconsistency across modules ("pair programmer" → KBSCI-aligned)
+- Statistics contradiction (84% vs 76%) resolved
+- Collins Dictionary Word of Year 2025 added to VibeCoding origin
+- `st_space` negative values now use `margin-top`/`margin-left` (lib fix)
+- Multiple text centering issues in vibecoding blocks
+
 ## [0.1.0] — 2026-04-07
 
 ### Added

@@ -49,24 +49,25 @@ def build():
                     )
 
                 with g.cell():
-                    st_write(
-                        bs.body,
-                        (bs.keyword_ok, "What you see: "),
-                        "working prototype.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "What\u2019s hidden: "),
-                        "unmaintainable code, missing error handling, "
-                        "no tests, brittle architecture.",
-                    )
-                    st_space("v", 2)
-                    st_write(
-                        bs.quote,
-                        "\u201COrganizations chasing short-term productivity gains "
-                        "may face \u2018long-term catastrophe\u2019 from accumulated "
-                        "technical debt in AI-generated code.\u201D",
-                    )
-                    # REF: https://martinfowler.com/articles/exploring-gen-ai.html
-                    st_write(bs.source, cite("fowler-genai2025"))
+                    with st_zoom(120):
+                        st_write(
+                            bs.body,
+                            (bs.keyword_ok, "What you see: "),
+                            "working prototype.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "What\u2019s hidden: "),
+                            "unmaintainable code, missing error handling, "
+                            "no tests, brittle architecture.",
+                        )
+                        st_space("v", 2)
+                        st_write(
+                            bs.quote,
+                            "\u201COrganizations chasing short-term productivity gains "
+                            "may face \u2018long-term catastrophe\u2019 from accumulated "
+                            "technical debt in AI-generated code.\u201D",
+                        )
+                        # REF: https://martinfowler.com/articles/exploring-gen-ai.html
+                        st_write(bs.source, cite("fowler-genai2025"))

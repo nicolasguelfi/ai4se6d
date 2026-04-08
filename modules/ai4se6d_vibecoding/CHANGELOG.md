@@ -2,6 +2,28 @@
 
 VibeCoding & VibeEngineering module — Intent-driven development and engineering discipline with AI.
 
+## [0.2.0] — 2026-04-08
+
+### Added
+- 4 new empirical blocks: METR paradox (-19%), Trust crisis (29%), Copilot RCT (+55.8%), Experience Gap (junior/senior)
+- Hover tooltips on stat-hero slides (Security, Phantom, Paradox, METR, Trust, Delegation, Process)
+- OpenAI Codex sub-slide in tool ecosystem
+- Collins Dictionary Word of Year 2025 on VibeCoding origin slide
+- AI image + tooltip for Trust Crisis slide
+- Shared glossary via `bck_shared_glossary`
+
+### Changed
+- Exercises 2+3 reframed as teasers (FreeSelfApp PM / CalcApp Day 2)
+- Switched to centralized bibliography (`shared-blocks/static/references.bib`)
+- Harmonized all bibkeys to KBSCI convention
+- Factorized `stat_hero` styles (3 variants) into `shared_styles.py`
+- METR slide reformulated for clarity (perception gap narrative)
+- Delegation/Process slides: zoom 50% stats, zoom 170% text, tooltips
+
+### Fixed
+- Recap stat corrected: 84% → 76% (verified on StackOverflow site)
+- Text centering in VibeEngineering transition slide
+
 ## [0.1.0] — 2026-04-07
 
 ### Added

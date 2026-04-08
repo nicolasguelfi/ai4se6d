@@ -63,35 +63,36 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
-                        list_type=lt.unordered,
-                        li_style=bs.body,
-                    ) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Definition"),
-                                (bs.body, " — Neural networks learn features "
-                                 "automatically from raw data"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Enablers"),
-                                (bs.body, " — ReLU + GPU power + massive "
-                                 "datasets + embeddings"),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Breakthrough"),
-                                (bs.body, " — Transformer architecture "),
-                                (s.project.citation + s.Large, cite("vaswani2017attention")),
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "Limitation"),
-                                (bs.body, " — Requires massive compute and "
-                                 "data; models are black boxes"),
-                            )
+                    with st_zoom(120):
+                        with st_list(
+                            list_type=lt.unordered,
+                            li_style=bs.body,
+                        ) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Definition"),
+                                    (bs.body, " — Neural networks learn features "
+                                    "automatically from raw data"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Enablers"),
+                                    (bs.body, " — ReLU + GPU power + massive "
+                                    "datasets + embeddings"),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Breakthrough"),
+                                    (bs.body, " — Transformer architecture "),
+                                    (s.project.citation + s.Large, cite("vaswani2017attention")),
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "Limitation"),
+                                    (bs.body, " — Requires massive compute and "
+                                    "data; models are black boxes"),
+                                )

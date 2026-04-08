@@ -63,26 +63,27 @@ def build():
                     )
 
                 with g.cell():
-                    st_write(
-                        bs.quote,
-                        "\u201CCan machines think?\u201D",
-                    )
-                    st_write(bs.attribution, cite("turing1950computing"))
+                    with st_zoom(120):
+                        st_write(
+                            bs.quote,
+                            "\u201CCan machines think?\u201D",
+                        )
+                        st_write(bs.attribution, cite("turing1950computing"))
 
-                    st_space("v", 1.5)
+                        st_space("v", 1.5)
 
-                    st_write(
-                        bs.quote,
-                        "\u201CThe science and engineering of making "
-                        "intelligent machines.\u201D",
-                    )
-                    st_write(bs.attribution, cite("mccarthy1955dartmouth"))
+                        st_write(
+                            bs.quote,
+                            "\u201CThe science and engineering of making "
+                            "intelligent machines.\u201D",
+                        )
+                        st_write(bs.attribution, cite("mccarthy1955dartmouth"))
 
-                    st_space("v", 1.5)
+                        st_space("v", 1.5)
 
-                    st_write(
-                        bs.quote,
-                        "\u201CThe science of making machines do things that "
-                        "would require intelligence if done by men.\u201D",
-                    )
-                    st_write(bs.attribution, cite("minsky1968semantic"))
+                        st_write(
+                            bs.quote,
+                            "\u201CThe science of making machines do things that "
+                            "would require intelligence if done by men.\u201D",
+                        )
+                        st_write(bs.attribution, cite("minsky1968semantic"))

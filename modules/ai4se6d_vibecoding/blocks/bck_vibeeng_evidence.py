@@ -9,10 +9,7 @@ from custom.styles import Styles as s
 class BlockStyles:
     """Evidence slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
-    stat = Style.create(
-        s.GIANT + s.bold + s.project.colors.highlight + s.center_txt,
-        "vibeeng_evidence_stat",
-    )
+    stat = s.project.titles.stat_hero
     body = s.project.titles.body + s.center_txt
     source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
