@@ -2,24 +2,40 @@
 --
 
 --
+Your 3-Day Journey
+->
+remplace par Your 3-Parts Journey
+remaplce les Day par Part 1 , 2 , 3 sans les jours. 
+tout doit toujours resté générique pour être réutilisable dans d'autres contextes quand c'est possuble
+enlève le mot part dans la colonne content
+pour l'ancien day 5 met dans content mini project with GenSEMOne
+pour l'ancien Day 6 mets mini projet witrh GenSEMOne ctnd + Advanced GenSEM demo 
 
+-- 
+supprime le slides quick poll
 
 --
 GenAI Impact Across SDLC Phases
 inverse l'orientation lignes/colonnes de la table
 
 --
+Requirements Engineering Transformed
+réduit la taille du titre de 1/3
+déplace 238 articles analyzed sur la ligne de la référence en mettant la taille de font normale--
 
+--
+Three Paradigms of Code Generation
+inverse l'orientation lignes/colonnes de la table
+
+--
+vérifie la complétude du gloassaire , il me semble très succint 
+d'ailleurs on ferati bien d'avoir le même bloc glossaire en shared bloc de tous les modules et qui inclu tous les termes de tous les modules et qui soit inséré à la fin de chaque module.
+
+vérifie CHOP entre autre 
 --
 
 --
-
---
-
---
-
---
-
+Peux-tu inspecter le déploiement des manuels utilisateurs de Librairie car j'ai ajouté l'installation du paquet latex je voudrais être sûre qu'il a installé une seule fois, car tous les manuels apparemment utilisent la même copie du container. Vérifie, fais-moi un rapport, ne touche rien.
 --
 
 --

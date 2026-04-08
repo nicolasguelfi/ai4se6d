@@ -1,18 +1,35 @@
 /Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/plans/2026-03-27-001-C-session1-plan.md
+
+
+
+
 --------------
 --------------
 --------------
+
+pour le projet streamtex AI4SE-NG
 
 Voici le context :
-- Le document latex principal situé ici:
-/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/lu.uni.sage.publications.2025/ng.aiday.policy/ul-ai-4-se
 
-C'Est un document qui collecte des informations Scientifiques et techniques Sur le domaine du génie logiciel et de l'intelligence artificielle générative.
+- la dernière analyse du contexte est ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/collect/2026-04-04-training-context-analysis.md
+
+- Le programme complet de la formation est décrit dans le document suivant :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/collect/complete-program.md
+
+- Le schedule complet de la formation est ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/collect/original-schedule.csv
+
+- Le document latex principal nommé KBSCI qui collecte des informations Scientifique et techniques Sur le domaine du génie logiciel et de l'intelligence artificielle générative est situé ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/lu.uni.sage.publications.2025/ng.aiday.policy/ul-ai-4-se
 
 Ce document doit être la source qui alimentera toutes les différentes formations que je vais donner sur le sujet dans différents contextes. La source risque d'évoluer et donc il faut toujours se coordonner avec elle à chaque cycle complet.
 
-- La première formations que je vais préparer a son programme décrit dans le document suivant :
-ul-ai-4-se/refs/program/ROS_AI4SE_Training_Information_Form-EN-MAIN.md
+- Les slides, nommés TIAGOSLIDES, de toutes les parties sur les outils et les exercices pratiques effectuées par le second formateurs sont ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/collect/practicals
+
+- L'étude de cas qui sera prise pour tous les travaux pratiques de la première phase sont ici dans différentges branches:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/calcapp
 
 - pour l'instant il y a les éléments suivants dans le dossier des modules: 
 ai4se6d_collection
@@ -20,14 +37,11 @@ ai4se6d_genai_intro
 ai4se6d_vibecoding
 shared-blocks
 
-- le modules suivants sont en version beta:
-ai4se6d_genai_intro 
- 
-- je suis en train de travailler sur le module:
-ai4se6d_vibecoding
-
-
-
+--------------
+--------------
+--------------
+--------------
+--------------
 
 OBJECTIF:
 
@@ -38,49 +52,33 @@ Je souhaite utiliser une conception des présentations avec des slides minimalis
 Je souhaite aussi que dans le processus nous déterminons toujours la liste exacte des slides et l'ordonnancement avec une description abstraite du contenu avant la production.
 
 
+
 --------------
---------------
---------------
---------------
---------------
-pour le module ai4se6d_vibecoding :
-
-Voici le context :
-- Le document latex principal situé ici:
-/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/lu.uni.sage.publications.2025/ng.aiday.policy/ul-ai-4-se
-
-C'Est un document qui collecte des informations Scientifiques et techniques Sur le domaine du génie logiciel et de l'intelligence artificielle générative.
-
-Ce document doit être la source qui alimentera toutes les différentes formations que je vais donner sur le sujet dans différents contextes. La source risque d'évoluer et donc il faut toujours se coordonner avec elle à chaque cycle complet.
-
-- La première formations que je vais préparer a son programme décrit dans le document suivant :
-ul-ai-4-se/refs/program/ROS_AI4SE_Training_Information_Form-EN-MAIN.md
-
-- pour l'instant il y a les éléments suivants dans le dossier des modules: 
-ai4se6d_collection
-ai4se6d_genai_intro
-ai4se6d_vibecoding
-shared-blocks
-
-- le modules suivants sont en version beta:
-ai4se6d_genai_intro 
- 
-- je suis en train de travailler sur le module:
-ai4se6d_vibecoding
-
 OBJECTIF:
+Je souhaite que tu me prépares une proposition de plan pour le nouveau module :
+ai4se6d_gensem qui va introduire aux méthodes de génie logiciel appliquées à l'ingénierie logicielle générative.
 
-Le plan initial se trouve ici :
-/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/plans/2026-03-27-001-C-session1-plan.md
+Son contenu doit avoir les parties suivantes :
 
-Peux-tu faire un état des lieux de ce plan qui n'est pas à jour par rapport à l'état des deux modules qui ont été développés jusqu'ici et me faire une nouvelle version dans un nouveau fichier du plan uniquement pour le module
-ai4se6d_vibecoding
+1) état de l'art, des méthodologies de développement adaptézq à l'intelligence artificielle générative. Dans cette partie, il faut que les participants :
+-- comprennent comment les processus de développement doivent et peuvent changer connaissant les capacités de l'intelligence artificielle générative et son développement actuel et futur.
+-- soient informés des propositions les plus importantes et les plus pratiquées en ce qui concerne les méthodes ou les processus de développement adaptés à l'utilisation de l'intelligence artificielle générative.
+
+2) Présentation détaillée et illustrée d'une approche agile de generative sofware engineering la plus appliquée ou prometteuse en contexte professionnel 
+-> tu dois la choisir sur base du document scientifique de référence et concevoir tout le contenu détaillé de sa présentation
+
+3) Présentation détaillée et illustrée du plugin compound engineering.
+-> tu dois la choisir sur base du document scientifique de référence et concevoir tout le contenu détaillé de sa présentation
+
+4) présentation  des éléments/taches/activités d'ingéniérie logicielle générative qui seront testées et découvertes à travers l'itération 0.3 de calcapp
+-> tu dois la créer sur base des documents sur la formation et sur calcapp de référence disponibles et concevoir tout le contenu détaillé de sa présentation
+
+4) Présentation d'un méthode "light" adaptée à cette formation et qui sera à appliquée sur l'étude de cas professionnel des deux derniers jours. Attention cette méthode "GenSEMOne" doit utiliser uniquement cursor tel que présenté au début de la formation (cf. context) et ses capacités dans nécessiter de plugin.
+-> tu dois la créer sur base des documents sur la formation et sur calcapp de référence disponibles et concevoir tout le contenu détaillé de sa présentation
 
 
-Tu peux déposer le fichier ici :
-/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_vibecoding/docs/plans
 
-
+Je m'
 --------------
 pour le module ai4se6d_vibecoding :
 
@@ -100,9 +98,6 @@ pour le module ai4se6d_vibecoding :
 pour le module ai4se6d_vibecoding :
 
 --------------
-pour le module ai4se6d_vibecoding :
-
---------------
 --------------
 --------------
 --------------
@@ -129,8 +124,21 @@ pour le module ai4se6d_genai_intro :
 --------------
 pour le module ai4se6d_genai_intro :
 
+Slide: AI vs Generative AI
+  
+J'ai un problème avec ta dichotomie, car lia générative se passe sur les transformeurs qui ont faite font une classification d'une liste de token en entrée pour classifier cette liste en utilisant les classes du langage de Token disponible. Ainsi, par exemple on peut voir que si on donne en entrée à un transformer "to be or not to" il va associer cette séquence de mots et donc en fait de token Token "be" et cette classification est utilisée pour déterminer la génération.
+
+Qu'en penses-tu ?
+
+Ne touche à rien
+  
 --------------
 pour le module ai4se6d_genai_intro :
+
+les nombres sont incorrects dans "you are not alone" 
+par exemple sur le site il y a 76% et pas 84%
+76% of all respondents are using or are planning to use AI tools
+Peux tu vérifier tous les nombres
 
 --------------
 pour le module ai4se6d_genai_intro :

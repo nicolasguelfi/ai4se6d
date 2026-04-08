@@ -1,0 +1,18 @@
+{
+  "name": "vc_danger_metr",
+  "version": 2,
+  "timestamp": "2026-04-08T08:26:38.668002+00:00",
+  "source_type": "ai_generated",
+  "original_path": "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_vibecoding/static/images/ai/138ce27dcb23e2e3.webp",
+  "prompt": "Minimalist digital illustration on a pure dark background (#1A1A2E). Flat vector style with soft gradients. Limited color palette: electric blue (#7AB8F5), teal (#2EC4B6), amber (#F39C12), white (#FFFFFF). Clean geometric shapes, no text, no watermarks, no photorealism. Ample negative space. Professional and modern aesthetic, suitable for tech conference projection. A brain split in two halves: left half is bright and optimistic with upward arrows in electric blue. Right half confronts a stopwatch showing delay in amber. A teal mirror between them reflects the disconnect. Symbolizes the gap between perceived and actual AI productivity. No text, no letters, no words, no labels, no watermarks. 2:3 portrait aspect ratio. Dark background #1A1A2E.",
+  "provider": "openai",
+  "model": null,
+  "size": "1024x1536",
+  "quality": "standard",
+  "base_image": null,
+  "revised_prompt": null,
+  "display_zoom": null,
+  "display_width": null,
+  "display_height": null,
+  "display_keep_ratio": true
+}
