@@ -65,4 +65,4 @@ def build():
                     )
                     st_space("v", 1)
                     # REF: https://about.gitlab.com/developer-survey/
-                    st_write(bs.source, cite("gitlab2024devsecops"))
+                    st_write(bs.source, cite("gitlab-devsecops2025"))

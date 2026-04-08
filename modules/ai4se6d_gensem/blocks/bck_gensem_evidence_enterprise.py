@@ -65,6 +65,6 @@ def build():
         st_space("v", 1)
         st_write(
             bs.source,
-            cite("bain-aiproductivity2025"), ", ",
+            cite("bain2025"), ", ",
             cite("mckinsey-aieng2025"),
         )

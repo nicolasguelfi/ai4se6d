@@ -57,7 +57,7 @@ def build():
                     )
                     st_space("v", 1)
                     # REF: https://arxiv.org/abs/2404.18353
-                    st_write(bs.source, cite("tihanyi2024formai"))
+                    st_write(bs.source, cite("tihanyi-secure2024"))
                     st_write(
                         bs.body,
                         "At least 62.07% of generated C programs "

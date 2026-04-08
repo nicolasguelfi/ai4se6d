@@ -37,13 +37,13 @@ def build():
                 with l.item():
                     st_write(bs.body, (bs.keyword_accent, "Acquired by Cognition"), " \u2014 merged with Devin AI team")
 
-            st_write(bs.source, cite("windsurf-cascade2025"), " \u00b7 ", cite("copilot-plans2025"))
+            st_write(bs.source, cite("windsurf-cascade2025"))
 
     st_slide_break()
 
     # Slide 2 — GitHub Copilot
     with st_block(s.project.containers.page_fill_top):
-        with st_block(s.center_txt):
+        with st_zoom(90), st_block(s.center_txt):
             st_write(bs.heading, "GitHub Copilot", tag=t.div, toc_lvl="1")
             st_space("v", 1)
 
@@ -60,4 +60,24 @@ def build():
                 with l.item():
                     st_write(bs.body, (bs.keyword_warn, "IP indemnity"), " \u2014 Microsoft legal protection for enterprise customers")
 
-            st_write(bs.source, cite("windsurf-cascade2025"), " \u00b7 ", cite("copilot-plans2025"))
+            st_write(bs.source, cite("copilot-plans2025"))
+
+    st_slide_break()
+
+    # Slide 3 — OpenAI Codex
+    with st_block(s.project.containers.page_fill_top):
+        with st_zoom(90), st_block(s.center_txt):
+            st_write(bs.heading, "OpenAI Codex", tag=t.div, toc_lvl="1")
+            st_space("v", 1)
+
+            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                with l.item():
+                    st_write(bs.body, (bs.keyword_accent, "Async coding agent"), " \u2014 runs in a cloud sandbox inside ChatGPT")
+                with l.item():
+                    st_write(bs.body, (bs.keyword, "Full repo access"), " \u2014 reads entire codebases, writes multi-file changes")
+                with l.item():
+                    st_write(bs.body, (bs.keyword_warn, "Launched May 2025"), " \u2014 successor to the original Codex API (2021)")
+                with l.item():
+                    st_write(bs.body, (bs.keyword, "codex-mini model"), " \u2014 optimized for code with fast response times")
+                with l.item():
+                    st_write(bs.body, (bs.keyword_accent, "ChatGPT Pro/Team/Enterprise"), " \u2014 not available on free tier")

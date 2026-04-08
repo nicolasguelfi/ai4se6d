@@ -65,11 +65,11 @@ def build():
                         with l.item():
                             st_write(bs.body, (bs.stat, "12\u201365%"), " vulnerability rates in AI-generated code")
                             # REF: https://arxiv.org/abs/2404.18353
-                            st_write(bs.source, cite("tihanyi2024formai"))
+                            st_write(bs.source, cite("tihanyi-secure2024"))
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Hallucinated dependencies: "), (bs.stat, "5.2%"), " (commercial) to ", (bs.stat, "21.7%"), " (open-source)")
                             # REF: https://arxiv.org/abs/2406.10279
-                            st_write(bs.source, cite("spracklen2024packages"))
+                            st_write(bs.source, cite("spracklen-packages2025"))
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Technical debt iceberg"))
                             # REF: https://martinfowler.com/bliki/TechnicalDebt.html

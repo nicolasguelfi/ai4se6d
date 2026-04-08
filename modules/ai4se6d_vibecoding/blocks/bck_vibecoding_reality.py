@@ -50,7 +50,7 @@ def build():
                 "Most work still needs human judgment, review, and direction.",
             )
             # REF: https://www.anthropic.com/research/impact-software-development
-            st_write(bs.source, cite("anthropic2025impact"))
+            st_write(bs.source, cite("anthropic-agentic2026"))
 
     st_slide_break()
 
@@ -76,7 +76,7 @@ def build():
                 "Tools alone are not enough.",
             )
             # REF: https://www.bain.com/insights/topics/technology-report/
-            st_write(bs.source, cite("bain2025techreport"))
+            st_write(bs.source, cite("bain2025"))
 
     st_slide_break()
 

@@ -316,7 +316,7 @@ st_book(
     banner=BannerConfig.hidden(),
     page_width=90,
     zoom=90,
-    bib_sources=[str(_module_dir / "static" / "references.bib")],
+    bib_sources=[str(_shared_static / "references.bib")],
     exports=[
         ExportConfig(
             format="html",

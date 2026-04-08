@@ -60,4 +60,4 @@ def build():
             )
 
         st_space("v", 1)
-        st_write(bs.source, cite("metr2025"), ", ", cite("stackoverflow-survey2025"))
+        st_write(bs.source, cite("metr2025"), ", ", cite("stackoverflow-survey2026"))

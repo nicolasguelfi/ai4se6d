@@ -99,7 +99,7 @@ def build():
                     st_space("v", 0.5)
                     st_write(
                         bs.source,
-                        cite("stackoverflow2024survey"),
+                        cite("stackoverflow-survey2026"),
                         " ",
-                        cite("gartner2025aiassistants"),
+                        cite("gartner-se2025"),
                     )

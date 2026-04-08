@@ -38,9 +38,9 @@ def build():
                 with l.item(): st_write(bs.body, (bs.keyword, "Powerful"), " \u2014 code, text, images, reasoning")
                 with l.item(): st_write(bs.body, (bs.keyword_warn, "Limited"), " \u2014 hallucinations, no real understanding")
                 with l.item():
-                    st_write(bs.body, (bs.keyword_accent, "84% adoption"), " among developers")
-                    # REF: stackoverflow-survey2025
-                    st_write(bs.source, cite("stackoverflow-survey2025"))
+                    st_write(bs.body, (bs.keyword_accent, "76% adoption"), " among developers")
+                    # REF: stackoverflow-survey2026
+                    st_write(bs.source, cite("stackoverflow-survey2026"))
 
     st_slide_break()
 

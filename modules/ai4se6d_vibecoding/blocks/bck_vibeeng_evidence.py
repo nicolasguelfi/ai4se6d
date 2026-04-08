@@ -32,4 +32,4 @@ def build():
             st_write(bs.body, "FlowGen experiment — structured processes beat ad-hoc coding")
             st_space("v", 2)
             # REF: https://arxiv.org/abs/2403.15852
-            st_write(bs.source, cite("qian2024soen101"))
+            st_write(bs.source, cite("soen101-2024"))

@@ -65,7 +65,7 @@ def build():
 
             st_space("v", 1)
             # REF: https://arxiv.org/abs/2403.15852
-            st_write(bs.source, cite("qian2024soen101"))
+            st_write(bs.source, cite("soen101-2024"))
             st_write(bs.evidence, "FlowGen: 15% fewer code smells with structured processes")
             st_write(bs.source, "Planning/review 80% — execution 20%")
             # REF: xiao-longitudinal2025 (observation), compound-engineering (prescription)

@@ -65,5 +65,5 @@ def build():
                     )
                     st_space("v", 1)
                     # REF: https://arxiv.org/abs/2406.10279
-                    st_write(bs.source, cite("spracklen2024packages"))
+                    st_write(bs.source, cite("spracklen-packages2025"))
                     st_write(bs.body, "Commercial vs open-source models.")

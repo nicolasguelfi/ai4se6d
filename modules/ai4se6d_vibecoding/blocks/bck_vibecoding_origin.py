@@ -96,5 +96,12 @@ def build():
                     # REF: https://x.com/karpathy/status/1886192184808149383
                     st_write(bs.attribution, cite("karpathy2025vibecoding"))
 
+                    st_space("h", "1.5rem")
+                    st_write(
+                        bs.body,
+                        (bs.keyword_accent, "Collins English Dictionary"),
+                        " \u2014 Word of the Year 2025",
+                    )
+
     # Definition and paradigm shift are now in separate blocks:
     # bck_vibecoding_definition and bck_vibecoding_paradigm

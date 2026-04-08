@@ -172,7 +172,7 @@ st_book(
         blocks.bck_ai_ethics,
         blocks.bck_genai_takeaways,
         # Reference
-        blocks.bck_glossary,
+        blocks.bck_shared_glossary,
         blocks.bck_references,
     ],
     toc_config=toc,
@@ -181,7 +181,7 @@ st_book(
     banner=BannerConfig.hidden(),
     page_width=90,
     zoom=90,
-    bib_sources=[str(_module_dir / "static" / "references.bib")],
+    bib_sources=[str(_shared_static / "references.bib")],
     exports=[
         ExportConfig(
             format="html",

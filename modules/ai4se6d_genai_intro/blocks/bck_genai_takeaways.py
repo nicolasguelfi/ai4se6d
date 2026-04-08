@@ -35,6 +35,6 @@ def build():
                 st_space("h", "2rem")
                 st_write(
                     bs.transition,
-                    "Next: VibeCoding — AI as your pair programmer",
+                    "Next: VibeCoding — from intent to code",
                     tag=t.div,
                 )
