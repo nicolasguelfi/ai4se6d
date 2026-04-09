@@ -17,12 +17,14 @@ def build():
             st_write(bs.heading, "Learning Objectives", tag=t.div, toc_lvl="1")
             st_space("v", 2)
 
-            with st_zoom(150),st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
+            with st_zoom(130),st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
                 with l.item():
-                    st_write(bs.body, (bs.verb, "Define"), " VibeCoding and its 4 principles")
+                    st_write(bs.body, (bs.verb, "Define"), " VibeCoding and its core principles")
                 with l.item():
-                    st_write(bs.body, (bs.verb, "Identify"), " 5 dangers of naive AI-assisted development")
+                    st_write(bs.body, (bs.verb, "Identify"), " key dangers and limitations of naive AI-assisted development")
                 with l.item():
                     st_write(bs.body, (bs.verb, "Distinguish"), " VibeCoding from VibeEngineering")
                 with l.item():
-                    st_write(bs.body, (bs.verb, "Apply"), " the 6 VibeEngineering principles to structure AI-assisted work")
+                    st_write(bs.body, (bs.verb, "Learn"), " the VibeEngineering principles to structure AI-assisted work")
+
+

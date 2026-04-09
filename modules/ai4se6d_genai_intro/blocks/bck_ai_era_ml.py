@@ -27,6 +27,10 @@ class BlockStyles:
         s.Large + s.bold + s.project.colors.primary + s.text.wrap.hyphens,
         "ai_era_ml_keyword",
     )
+    keyword_orange = Style.create(
+        s.Large + s.bold + s.project.colors.highlight + s.text.wrap.hyphens,
+        "ai_era_ml_keyword_orange",
+    )
 bs = BlockStyles
 
 
@@ -82,6 +86,7 @@ def build():
                                 st_write(
                                     bs.body,
                                     (bs.keyword, "Limitation"),
-                                    (bs.body, " — Classical methods need manual feature engineering;"
-                                    " neural networks lack compute to scale"),
+                                    (bs.body, " — Classical methods need "),
+                                    (bs.keyword_orange, "manual feature engineering"),
+                                    (bs.body, "; neural networks lack compute to scale"),
                                 )

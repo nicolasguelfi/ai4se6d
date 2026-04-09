@@ -8,7 +8,7 @@ from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 class BlockStyles:
     """P5 slide styles."""
-    heading = s.project.titles.slide_title + s.center_txt
+    heading = s.project.titles.section_title + s.center_txt
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.primary
     number = Style.create(
@@ -44,22 +44,25 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130), g.cell():
+                with g.cell():
                     st_write(bs.number, "5")
                     st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "Review ",
-                        (bs.keyword, "architectural decisions"),
-                        ", ",
-                        (bs.keyword, "security-critical code"),
-                        ", and ",
-                        (bs.keyword, "integration points"),
-                        ".",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (s.project.colors.muted, "HACCP — control at critical points, "
-                         "not on every gesture."),
-                    )
+                    with st_zoom(110):
+                        st_write(
+                            bs.body,
+                            "Review ",
+                            (bs.keyword, "architectural decisions"),
+                            ", ",
+                            (bs.keyword, "security-critical code"),
+                            ", ",
+                            (bs.keyword, "integration points"),
+                            ", and ",
+                            (bs.keyword, "validation results"),
+                            ".",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (s.project.colors.muted, "Quality control at critical "
+                            "checkpoints, not on every line."),
+                        )

@@ -95,6 +95,7 @@ def build():
                 _render_day(*day_a)
                 st_space("v", 4)
                 _render_day(*day_b)
+                st_space("v", "40vh")
 
         if idx < len(_SECTIONS) - 1:
             st_slide_break()

@@ -48,7 +48,7 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130),g.cell():
+                with st_zoom(110),g.cell():
                     st_write(
                         bs.body,
                         (s.project.colors.highlight + s.LARGE + s.bold, "1960s: "),
@@ -72,8 +72,9 @@ def build():
     st_slide_break()
 
     # Sub-slide 2: Critical difference
-    with st_zoom(130),st_block(s.project.containers.page_fill_center):
+    with st_zoom(130),st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
+            st_space("v", "5vh")
             st_write(bs.subheading, "The Critical Difference", tag=t.div, toc_lvl="2")
             st_space("v", 1)
             st_write(

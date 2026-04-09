@@ -57,6 +57,8 @@ def build():
             st_write(bs.name, "Tiago Sousa")
             st_write(bs.role, "Right-On-Skill")
 
+    st_space("v", "30vh")
+
     st_slide_break()
 
     # -- Slide 2: Profile grid (2x2) --
@@ -108,6 +110,7 @@ def build():
                     st_write(bs.category_item, "Deep Learning")
                     st_write(bs.category_item, "Data Engineering")
 
+    st_space("v", "20vh")
     st_slide_break()
 
     # -- Slide 3: More information + LinkedIn --

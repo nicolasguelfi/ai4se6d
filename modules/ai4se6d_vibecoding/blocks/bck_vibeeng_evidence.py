@@ -19,14 +19,14 @@ def build():
         with st_block(s.center_txt):
             st_write(bs.heading, "The Evidence", tag=t.div, toc_lvl="1")
             st_space("v", 1)
-            st_write(bs.stat, "15%")
+            with st_zoom(80):
+                st_write(bs.stat, "15%")
             st_space("v", 1)
-            st_write(
-                bs.body,
-                "fewer code smells when incorporating design and code review activities",
-            )
-            st_space("v", 1)
-            st_write(bs.body, "FlowGen experiment — structured processes beat ad-hoc coding")
-            st_space("v", 2)
-            # REF: https://arxiv.org/abs/2403.15852
-            st_write(bs.source, cite("soen101-2024"))
+            with st_zoom(130):
+                st_write(
+                    bs.body,
+                    "fewer code smells when incorporating design and code review activities",
+                )
+                st_write(bs.body, "FlowGen experiment — structured processes beat ad-hoc coding")
+                # REF: https://arxiv.org/abs/2403.15852
+                st_write(bs.source, cite("soen101-2024"))

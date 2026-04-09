@@ -69,39 +69,40 @@ def build():
                     )
 
                 with g.cell():
-                    # Quote 1: "The hottest new programming language is English"
-                    # Tweet: Jan 24, 2023
-                    st_write(
-                        bs.quote_part3,
-                        "\u201CThe hottest new programming language is English\u201D",
-                    )
-                    # REF: https://x.com/karpathy/status/1617979122625712128
-                    st_write(bs.attribution, cite("karpathy2023english"))
+                    with st_zoom(85):
+                        # Quote 1: "The hottest new programming language is English"
+                        # Tweet: Jan 24, 2023
+                        st_write(
+                            bs.quote_part3,
+                            "\u201CThe hottest new programming language is English\u201D",
+                        )
+                        # REF: https://x.com/karpathy/status/1617979122625712128
+                        st_write(bs.attribution, cite("karpathy2023english"))
 
-                    st_space("h", "1.5rem")
+                        st_space("h", "1.5rem")
 
-                    # Quote 2: "Vibe coding" definition
-                    # Tweet: Feb 3, 2025
-                    st_write(
-                        bs.quote,
-                        (bs.quote_part1,
-                         "\u201CThere\u2019s a new kind of coding<br/>"
-                         "I call \u201Cvibe coding\u201D, "
-                         "where you fully give in to the vibes (\u2026) "
-                         "and forget that the code even exists."),
-                        (bs.quote_part2,
-                         " (\u2026) I just see stuff, say stuff, run stuff, "
-                         "and copy paste stuff, and it mostly works.\u201D"),
-                    )
-                    # REF: https://x.com/karpathy/status/1886192184808149383
-                    st_write(bs.attribution, cite("karpathy2025vibecoding"))
+                        # Quote 2: "Vibe coding" definition
+                        # Tweet: Feb 3, 2025
+                        st_write(
+                            bs.quote,
+                            (bs.quote_part1,
+                            "\u201CThere\u2019s a new kind of coding<br/>"
+                            "I call \u201Cvibe coding\u201D, "
+                            "where you fully give in to the vibes (\u2026) "
+                            "and forget that the code even exists."),
+                            (bs.quote_part2,
+                            " (\u2026) I just see stuff, say stuff, run stuff, "
+                            "and copy paste stuff, and it mostly works.\u201D"),
+                        )
+                        # REF: https://x.com/karpathy/status/1886192184808149383
+                        st_write(bs.attribution, cite("karpathy2025vibecoding"))
 
-                    st_space("h", "1.5rem")
-                    st_write(
-                        bs.body,
-                        (bs.keyword_accent, "Collins English Dictionary"),
-                        " \u2014 Word of the Year 2025",
-                    )
+                        st_space("h", "1.5rem")
+                        st_write(
+                            bs.body,
+                            (bs.keyword_accent, "Collins English Dictionary"),
+                            " \u2014 Word of the Year 2025",
+                        )
 
     # Definition and paradigm shift are now in separate blocks:
     # bck_vibecoding_definition and bck_vibecoding_paradigm

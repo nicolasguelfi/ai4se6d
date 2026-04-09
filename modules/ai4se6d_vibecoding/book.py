@@ -136,7 +136,8 @@ st_book(
         # --- ACT III: VIBEENGINEERING — THE DISCIPLINE ---
         blocks.bck_vibeeng_transition,           # Block 20 — Q5: What practices?
         blocks.bck_vibeeng_rebranding,           # Block 21 — Coding → Engineering
-        blocks.bck_vibeeng_p_requirements,       # Block 22 — P1: Requirements
+        blocks.bck_vibeeng_principles,           # Block 22 — 6 Principles overview
+        blocks.bck_vibeeng_p_requirements,       # Block 23 — P1: Requirements
         blocks.bck_vibeeng_p_tdd,                # Block 23 — P2: TDD
         blocks.bck_vibeeng_p_architecture,       # Block 24 — P3: Architecture
         blocks.bck_vibeeng_p_iteration,          # Block 25 — P4: Iteration
@@ -151,17 +152,17 @@ st_book(
         blocks.bck_exercise_vibeeng,             # Block 30
 
         # --- ACT IV: TOOL ECOSYSTEM ---
-        blocks.bck_ide_overview,                 # Block 31 — Section billboard
-        blocks.bck_ide_autonomy,                 # Block 32 — 5 levels + agentic turn
-        blocks.bck_ide_cursor,                   # Block 33 — Cursor detailed
-        blocks.bck_ide_claude_code,              # Block 34 — Claude Code detailed
-        blocks.bck_ide_others,                   # Block 35 — Windsurf + Copilot
-        blocks.bck_ide_comparison,               # Block 36 — Comparison matrix
-        blocks.bck_ide_mcp,                      # Block 37 — MCP protocol
-        blocks.bck_ide_cursor_choice,            # Block 38 — Why Cursor
+        # blocks.bck_ide_overview,                 # Block 31 — Section billboard
+        # blocks.bck_ide_autonomy,                 # Block 32 — 5 levels + agentic turn
+        # blocks.bck_ide_cursor,                   # Block 33 — Cursor detailed
+        # blocks.bck_ide_claude_code,              # Block 34 — Claude Code detailed
+        # blocks.bck_ide_others,                   # Block 35 — Windsurf + Copilot
+        # blocks.bck_ide_comparison,               # Block 36 — Comparison matrix
+        # blocks.bck_ide_mcp,                      # Block 37 — MCP protocol
+        # blocks.bck_ide_cursor_choice,            # Block 38 — Why Cursor
 
         # --- CLOSING ---
-        blocks.bck_recap,                        # Block 39
+        #blocks.bck_recap,                        # Block 39
         blocks.bck_closing,                      # Block 40 — Questions?
         blocks.bck_shared_glossary,               # Block 41 — shared glossary
         blocks.bck_references,                   # Block 42 — Bibliography

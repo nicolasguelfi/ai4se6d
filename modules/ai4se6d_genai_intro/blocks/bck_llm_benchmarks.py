@@ -61,12 +61,14 @@ def build():
                         position="center",
                     )
 
-                st_image(
-                    s.none,
-                    uri=f"_SHARED/images/{filename}",
-                    width="100%",
-                )
+                with st_zoom(100):
+                        st_image(
+                        s.none,
+                        uri=f"_SHARED/images/{filename}",
+                        width="100%",
+                    )
                 st_write(bs.source, cite("artificialanalysis2026"))
 
         if idx < len(_BENCHMARKS) - 1:
+            st_space("v", "30vh")
             st_slide_break()

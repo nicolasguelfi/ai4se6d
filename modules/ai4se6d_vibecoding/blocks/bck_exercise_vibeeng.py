@@ -49,7 +49,7 @@ def build():
             st_write(
                 bs.body,
                 "Tomorrow, you'll apply these 6 principles to a real project. "
-                "Requirements first, tests before code, architecture declared.",
+                "Requirements first, acceptance criteria before generation, architecture declared.",
             )
             st_space("v", 1)
 

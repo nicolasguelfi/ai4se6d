@@ -29,7 +29,7 @@ def build():
             st_write(bs.heading, "From Coding to Engineering", tag=t.div, toc_lvl="1")
 
             with st_grid(
-                cols="2fr 3fr",
+                cols="1.5fr 3.5fr",
                 gap="24px",
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
@@ -44,30 +44,31 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130), g.cell():
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Kent Beck"),
-                        " drew the line: ",
-                        (bs.accent, '"vibe coding"'),
-                        " is when you don't read the code. ",
-                        "Engineering is when you ",
-                        (bs.keyword, "own"),
-                        " every decision.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "Karpathy's term has been evolving toward ",
-                        (bs.highlight, '"agentic engineering"'),
-                        " — AI agents executing, humans steering.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (s.project.colors.muted, "The kitchen upgrades its tools — "
-                         "but the chef still designs the menu."),
-                    )
-                    st_space("v", 1)
-                    # REF: beck2025-augmented-coding
-                    st_write(bs.source, cite("beck2025-augmented-coding"))
+                with g.cell():
+                    with st_zoom(110):
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Kent Beck"),
+                            " drew the line: ",
+                            (bs.accent, '"vibe coding"'),
+                            " is when you don't read the code. ",
+                            "Engineering is when you ",
+                            (bs.keyword, "own"),
+                            " every decision.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            "Karpathy's term has been evolving toward ",
+                            (bs.highlight, '"agentic engineering"'),
+                            " — AI agents executing, humans steering.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (s.project.colors.muted, "The kitchen upgrades its tools — "
+                            "but the chef still designs and serves the menu."),
+                        )
+                        st_space("v", 1)
+                        # REF: beck2025-augmented-coding
+                        st_write(bs.source, cite("beck2025-augmented-coding"))

@@ -9,7 +9,7 @@ class BlockStyles:
     heading = s.project.titles.section_title + s.center_txt
     body = s.project.titles.body + s.center_txt
     highlight = Style.create(
-        s.Huge + s.bold + s.project.colors.highlight + s.center_txt,
+        s.huge + s.bold + s.project.colors.highlight + s.center_txt,
         "vc_def_highlight",
     )
 bs = BlockStyles

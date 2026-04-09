@@ -45,24 +45,25 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(115), g.cell():
+                with g.cell():
                     st_write(bs.number, "3")
                     st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Bug? Describe the symptom. "),
-                        "The AI fixes it.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (s.project.colors.muted,
-                         "Errors are addressed by describing the problem back "
-                         "to the LLM rather than by reading and debugging "
-                         "the code directly."),
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "No need to understand the implementation.",
-                    )
+                    with st_zoom(90):
+
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Bug? Describe the symptom.\nThe AI fixes it."),
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (s.project.colors.muted,
+                            "Errors are addressed by describing the problem back "
+                            "to the LLM rather than by reading and debugging "
+                            "the code directly."),
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            "No need to understand the implementation.",
+                        )

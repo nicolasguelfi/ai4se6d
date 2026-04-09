@@ -63,7 +63,7 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(120):
+                    with st_zoom(110):
                         with st_list(
                             list_type=lt.unordered,
                             li_style=bs.body,

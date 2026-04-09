@@ -59,7 +59,7 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(120):
+                with st_zoom(100):
                     with g.cell():
                         st_write(
                             bs.body,
@@ -79,32 +79,36 @@ def build():
                             bs.body+s.project.colors.muted,
                             "The implementation stays behind the kitchen door.",
                         )
-
+    st_space("v", "20vh")
     st_slide_break()
 
     # Sub-slide 2: What Changes, What Stays
-    with st_zoom(130),st_block(s.project.containers.page_fill_center_noalign):
+    #s.project.containers.page_fill_center_noalign
+    _page_fill = s.project.containers.page_fill_top
+    with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.subheading, "What Changes, What Stays", tag=t.div, toc_lvl="2")
-            st_space("v", 3)
+            with st_zoom(130):
+                st_write(bs.subheading, "What Changes, What Stays", tag=t.div, toc_lvl="2")
+                st_space("v", 3)
 
-            with st_grid(
-                cols="1fr 3fr",
-                gap="12px",
-                cell_styles=_table_cell,
-            ) as g:
-                with g.cell():
-                    #st_write(bs.body, (bs.keyword, "Changes:"))
-                    st_write(bs.body+bs.keyword, "Changes: ")
-                with g.cell():
-                    st_write(bs.body, "you stop writing every line.<br>You express intent.")
-                with g.cell():
-                    st_write(bs.body+bs.keyword_accent, "Stays:")
-                with g.cell():
-                    st_write(bs.body, "you\u2019re still responsible for the result.")
-            st_space("v", 2)
-            st_write(
-                bs.emphasis,
-                "A customer who gets food poisoning doesn\u2019t blame themselves "
-                "\u2014 but a professional who serves it does.",
-            )
+                with st_grid(
+                    cols="1fr 3fr",
+                    gap="12px",
+                    cell_styles=_table_cell,
+                ) as g:
+                    with g.cell():
+                        #st_write(bs.body, (bs.keyword, "Changes:"))
+                        st_write(bs.body+bs.keyword, "Changes: ")
+                    with g.cell():
+                        st_write(bs.body, "you stop writing every line.<br>You express intent.")
+                    with g.cell():
+                        st_write(bs.body+bs.keyword_accent, "Stays:")
+                    with g.cell():
+                        st_write(bs.body, "you\u2019re still responsible for the result.")
+                st_space("v", 2)
+                st_write(
+                    bs.emphasis,
+                    "You order the dish — but you're the one who serves it to your guests.",
+                )
+            st_space("v", "20vh")
+

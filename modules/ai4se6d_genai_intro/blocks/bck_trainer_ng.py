@@ -58,6 +58,7 @@ def build():
                      link="https://drive.google.com/file/d/1FaGAxN4-zK2YUBeXsYJsxj3BWA3eJUas/view")
             st_write(bs.role, "University of Luxembourg  ·  Right-On-Skill")
 
+    st_space("v", "30vh")
     st_slide_break()
 
     # ── Slide 2: Profile grid (2x2) ──
@@ -120,6 +121,7 @@ def build():
                     st_write(bs.category_item, "Deep Learning")
                     st_write(bs.category_item, "Expert systems")
 
+    st_space("v", "20vh")
     st_slide_break()
 
     # ── Slide 3: More information + LinkedIn QR ──

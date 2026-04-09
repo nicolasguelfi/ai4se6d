@@ -49,7 +49,7 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(120):
+                    with st_zoom(100):
                         st_write(
                             bs.body,
                             (bs.keyword_ok, "What you see: "),

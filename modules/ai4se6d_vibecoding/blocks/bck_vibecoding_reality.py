@@ -26,7 +26,7 @@ def build():
     # Slide 27 — Anthropic Finding
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
-            with st_zoom(120):
+            with st_zoom(105):
                 st_write(bs.heading, "What Can Actually Be Delegated?", tag=t.div, toc_lvl="1")
             st_space("v", 4)
             with st_grid(
@@ -90,7 +90,7 @@ def build():
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
             with st_zoom(120):
-                st_write(bs.heading, "Process > Tools", tag=t.div, toc_lvl="2")
+                st_write(bs.heading, "New Tools -> New Processes", tag=t.div, toc_lvl="2")
             st_space("v", 4)
             with st_grid(
                 cols="95fr 5fr",
@@ -98,7 +98,7 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as sg:
                 with sg.cell():
-                    with st_zoom(50):
+                    with st_zoom(40):
                         st_write(
                             bs.body,
                             (bs.stat_warn, "10% gains without process change"),
@@ -131,7 +131,7 @@ def build():
                         width="70vw",
                         position="left",
                     )
-            with st_zoom(50):
+            with st_zoom(40):
                 st_write(
                     bs.body,
                     (bs.stat_big, "25\u201330% with end-to-end process redesign"),
@@ -146,11 +146,12 @@ def build():
                 # REF: https://www.bain.com/insights/topics/technology-report/
                 st_write(bs.source, cite("bain2025"))
 
+    st_space("v", "20vh")
     st_slide_break()
 
     # Slide 29 — Naive VibeCoding Has Its Place (gala dinner pivot)
     with st_block(s.project.containers.page_fill_center_noalign):
-        with st_zoom(140):
+        with st_zoom(110):
             with st_block(s.center_txt):
                 st_write(bs.heading, "It Has Its Place", tag=t.div, toc_lvl="2")
                 st_space("v", 1)

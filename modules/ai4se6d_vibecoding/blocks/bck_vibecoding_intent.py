@@ -45,17 +45,18 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130),g.cell():
+                with g.cell():
                     st_write(bs.number, "1")
                     st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Describe WHAT you want,<br> "),
-                        "not HOW to build it.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (s.project.colors.muted, "You specify the goal. The AI determines the implementation."),
-                        "<br>The shift: from writing code to expressing intent.",
-                    )
+                    with st_zoom(110):
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Describe WHAT you want,<br> "),
+                            "not HOW to build it.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (s.project.colors.muted, "You specify the goal. The AI determines the implementation."),
+                            "<br>The shift: from writing code to expressing intent.",
+                        )

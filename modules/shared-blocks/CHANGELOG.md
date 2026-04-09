@@ -2,6 +2,11 @@
 
 Shared blocks and styles used across all ai4se6d modules.
 
+## [0.2.1] — 2026-04-09
+
+### Changed
+- TDD glossary definition expanded with GenAI context (acceptance criteria)
+
 ## [0.2.0] — 2026-04-08
 
 ### Added

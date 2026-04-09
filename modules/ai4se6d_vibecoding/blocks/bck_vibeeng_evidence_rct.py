@@ -26,6 +26,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "The Copilot Effect", tag=t.div, toc_lvl="1")
+            st_space("v", 2)
 
             with st_grid(
                 cols="1fr 1fr",
@@ -37,54 +38,34 @@ def build():
                     st_space("v", 0.5)
                     st_write(
                         bs.body,
-                        "Faster task completion with GitHub Copilot.",
+                        "faster on ",
+                        (bs.keyword, "simple tasks"),
                     )
-                    st_space("v", 0.5)
-                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                        with l.item():
-                            st_write(bs.body, (bs.keyword, "95"), " professional programmers")
-                        with l.item():
-                            st_write(bs.body, "Task: HTTP server in JavaScript")
-                        with l.item():
-                            st_write(bs.body, "95% CI: 21%\u201389%, p=0.0017")
                     st_space("v", 0.5)
                     # REF: Peng et al. 2023, arXiv 2302.06590
                     st_write(bs.source, cite("peng-copilot2023"))
 
                 with g.cell():
-                    st_write(
-                        bs.body,
-                        (bs.keyword_warn, "But:"),
-                        " single task, controlled environment.",
-                    )
+                    st_write(bs.stat, "\u221219%")
                     st_space("v", 0.5)
                     st_write(
                         bs.body,
-                        "METR study (real projects): ",
-                        (bs.keyword_warn, "\u221219%"),
-                        " slower.",
+                        "slower on ",
+                        (bs.keyword_warn, "real projects"),
                     )
                     st_space("v", 0.5)
-                    st_write(
-                        bs.body,
-                        "The difference?",
-                    )
-                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                        with l.item():
-                            st_write(bs.body, (bs.keyword_accent, "Complexity"), " \u2014 toy task vs. mature codebase")
-                        with l.item():
-                            st_write(bs.body, (bs.keyword_accent, "Familiarity"), " \u2014 new project vs. 5+ years experience")
-                        with l.item():
-                            st_write(bs.body, (bs.keyword_accent, "Discipline"), " \u2014 structured process vs. ad hoc")
-                    st_space("v", 0.5)
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Simple tasks = AI shines."),
-                    )
-                    st_write(
-                        bs.body,
-                        (bs.keyword_warn, "Complex real-world = discipline required."),
-                    )
+                    # REF: METR 2025
+                    st_write(bs.source, cite("metr-aitools2025"))
 
+            st_space("v", 2)
+            with st_zoom(150):
+                st_write(
+                    bs.body,
+                    "The difference? ",
+                    (bs.keyword_accent, "Complexity"),
+                    " and ",
+                    (bs.keyword_accent, "discipline"),
+                    ".",
+                )
             st_space("v", 1)
             st_write(bs.transition, "Who benefits the most? \u2192")

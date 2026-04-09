@@ -52,7 +52,7 @@ def build():
                 ai_size="1536x1024",
             )
 
-            with st_zoom(400):
+            with st_zoom(300):
                 st_write(
                     bs.caption,
                     "The engine behind every LLM",

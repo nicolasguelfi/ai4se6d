@@ -22,13 +22,14 @@ bs = BlockStyles
 
 def build():
     # Sub-slide 1: Question
-    with st_block(s.project.containers.page_fill_center):
-        st_write(
-            bs.question,
-            "What Practices Remain Essential?",
-            tag=t.div,
-            toc_lvl="1",
-        )
+    with st_block(s.project.containers.page_fill_top):
+        with st_block(s.center_txt):
+                st_write(
+                    bs.question,
+                    "What Practices Remain Essential?",
+                    tag=t.div,
+                    toc_lvl="1",
+                )
     st_space("v", "20vh")
     st_slide_break()
 

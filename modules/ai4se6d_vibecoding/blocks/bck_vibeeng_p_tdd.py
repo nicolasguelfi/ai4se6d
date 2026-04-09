@@ -8,7 +8,7 @@ from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 class BlockStyles:
     """P2 slide styles."""
-    heading = s.project.titles.slide_title + s.center_txt
+    heading = s.project.titles.section_title + s.center_txt
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.primary
     number = Style.create(
@@ -44,21 +44,22 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130), g.cell():
+                with g.cell():
                     st_write(bs.number, "2")
                     st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "Tests written ",
-                        (bs.keyword, "BEFORE"),
-                        " implementation.<br>",
-                        "Tests define the ",
-                        (bs.keyword, "contract"),
-                        ". AI generates code that must pass.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (s.project.colors.muted, "Taste at every step, not just "
-                         "when the plate is served."),
-                    )
+                    with st_zoom(110):
+                        st_write(
+                            bs.body,
+                            "Tests defined ",
+                            (bs.keyword, "BEFORE"),
+                            " implementation.<br>",
+                            "Tests define the ",
+                            (bs.keyword, "contract"),
+                            ". AI generates code that must pass.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (s.project.colors.muted, "Taste at every step, not just "
+                            "when the plate is served."),
+                        )

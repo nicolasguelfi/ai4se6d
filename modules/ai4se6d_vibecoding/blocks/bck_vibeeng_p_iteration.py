@@ -8,7 +8,7 @@ from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 class BlockStyles:
     """P4 slide styles."""
-    heading = s.project.titles.slide_title + s.center_txt
+    heading = s.project.titles.section_title + s.center_txt
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.primary
     number = Style.create(
@@ -44,28 +44,29 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130), g.cell():
+                with g.cell():
                     st_write(bs.number, "4")
                     st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Planned iterations"),
-                        " with defined scope, ",
-                        (bs.keyword, "acceptance criteria"),
-                        ", and review gates.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "Not ",
-                        (s.project.colors.muted, '"generate everything at once"'),
-                        " — each cycle delivers a ",
-                        (bs.keyword, "validated increment"),
-                        ".",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (s.project.colors.muted, "A tasting menu — each course refined "
-                         "before the next is plated."),
-                    )
+                    with st_zoom(100):
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Planned iterations"),
+                            " with defined scope, ",
+                            (bs.keyword, "acceptance criteria"),
+                            ", and review gates.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            "Not ",
+                            (s.project.colors.muted, '"generate everything at once"'),
+                            " — each cycle delivers a ",
+                            (bs.keyword, "validated increment"),
+                            ".",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (s.project.colors.muted, "A tasting menu — each course refined "
+                            "before the next is plated."),
+                        )

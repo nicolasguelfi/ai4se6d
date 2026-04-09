@@ -47,7 +47,7 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(120):
+                    with st_zoom(110):
                         st_write(
                             bs.body,
                             (bs.keyword_ok, "The demo works."),

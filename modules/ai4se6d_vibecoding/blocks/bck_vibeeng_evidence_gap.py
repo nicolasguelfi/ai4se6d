@@ -10,11 +10,11 @@ class BlockStyles:
     """Experience Gap stat-hero styles."""
     heading = s.project.titles.slide_title + s.center_txt
     stat_junior = Style.create(
-        s.GIANT + s.bold + s.project.colors.primary + s.center_txt,
+        s.giant + s.bold + s.project.colors.primary + s.center_txt,
         "ve_evidence_gap_junior",
     )
     stat_senior = Style.create(
-        s.GIANT + s.bold + s.project.colors.muted + s.center_txt,
+        s.giant + s.bold + s.project.colors.muted + s.center_txt,
         "ve_evidence_gap_senior",
     )
     label = Style.create(
@@ -36,7 +36,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "The Experience Gap", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+            st_space("v", 2)
 
             with st_grid(
                 cols="1fr 1fr",
@@ -52,47 +52,18 @@ def build():
                     st_write(bs.label, "Senior developers")
 
             st_space("v", 1)
-            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                with l.item():
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "4,867"),
-                        " developers across Microsoft, Accenture, Fortune 100",
-                    )
-                with l.item():
-                    st_write(
-                        bs.body,
-                        "3 independent field experiments combined",
-                    )
-                with l.item():
-                    st_write(
-                        bs.body,
-                        "Overall: ",
-                        (bs.keyword, "+26%"),
-                        " increase in completed tasks",
-                    )
+            with st_zoom(130):
+                st_write(
+                    bs.body,
+                    (bs.keyword, "4,867"),
+                    " developers \u2014 3 field experiments ",
+                )
+                # REF: Cui et al. 2024, SSRN 4945566
+                st_write(bs.source, cite("cui-fieldexperiments2024"))
 
-            st_space("v", 0.5)
-            # REF: Cui et al. 2024, SSRN 4945566
-            st_write(bs.source, cite("cui-fieldexperiments2024"))
-            st_space("v", 1)
-
-            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                with l.item():
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Juniors benefit most"),
-                        " \u2014 AI compensates for missing experience",
-                    )
-                with l.item():
-                    st_write(
-                        bs.body,
-                        (bs.keyword_accent, "Seniors gain less"),
-                        " \u2014 their expertise is harder to replicate",
-                    )
-
-            st_space("v", 1)
-            st_write(
-                bs.closing,
-                "This is why VibeEngineering matters: structure what AI can\u2019t infer",
-            )
+            st_space("v", 2)
+            with st_zoom(150):
+                st_write(
+                    bs.closing,
+                    "AI compensates for missing experience \u2014 but cannot replace expert judgment.",
+                )

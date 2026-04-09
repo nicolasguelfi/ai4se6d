@@ -37,7 +37,7 @@ _VISIBLE_SLUGS = {
 }
 
 # ── Chart dimensions & scaling ───────────────────────────────────────
-_HEIGHT = 1300   # chart height in pixels (width auto-fills iframe)
+_HEIGHT = 1100   # chart height in pixels (width auto-fills iframe)
 _SCALE_FONT = 1.5  # font/stroke scale inside Plotly
 
 # Base font/stroke values (at _SCALE_FONT = 1.0) — sized for fullwidth chart
@@ -174,7 +174,7 @@ def build():
             include_plotlyjs="cdn", full_html=True,
             config={"scrollZoom": True},
         )
-        stx.st_html(fig_html, height=_HEIGHT + 50)
+        stx.st_html(fig_html, height=_HEIGHT)
 
         with st_block(s.center_txt):
             st_write(bs.source, cite("contextarena2026"))

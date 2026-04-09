@@ -8,7 +8,7 @@ from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 class BlockStyles:
     """P3 slide styles."""
-    heading = s.project.titles.slide_title + s.center_txt
+    heading = s.project.titles.section_title + s.center_txt
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.primary
     accent = s.bold + s.project.colors.accent
@@ -45,28 +45,27 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130), g.cell():
+                with g.cell():
                     st_write(bs.number, "3")
                     st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.accent, ".cursorrules"),
-                        ", ",
-                        (bs.accent, "CLAUDE.md"),
-                        ", ",
-                        (bs.accent, "AGENTS.md"),
-                        " constrain AI decisions.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "The architecture is ",
-                        (bs.keyword, "declared"),
-                        ", not discovered after the fact.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (s.project.colors.muted, "Your recipe book — the kitchen "
-                         "follows it."),
-                    )
+                    with st_zoom(100):
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Design decisions BEFORE generation"),
+                            " \u2014 patterns, components, boundaries.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            "Context files (",
+                            (bs.accent, ".cursorrules"),
+                            ", ",
+                            (bs.accent, "CLAUDE.md"),
+                            ") communicate these constraints to the AI.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (s.project.colors.muted, "The menu is designed before "
+                            "the kitchen opens."),
+                        )

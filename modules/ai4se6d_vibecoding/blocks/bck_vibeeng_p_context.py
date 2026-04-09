@@ -8,7 +8,7 @@ from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 class BlockStyles:
     """P6 slide styles."""
-    heading = s.project.titles.slide_title + s.center_txt
+    heading = s.project.titles.section_title + s.center_txt
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.primary
     accent = s.bold + s.project.colors.accent
@@ -30,7 +30,7 @@ def build():
             st_write(bs.heading, "P6 — Context Engineering", tag=t.div, toc_lvl="1")
 
             with st_grid(
-                cols="2fr 3fr",
+                cols="1.5fr 3.5fr",
                 gap="24px",
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
@@ -45,35 +45,39 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130), g.cell():
+                with g.cell():
                     st_write(bs.number, "6")
                     st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "Designing the ",
-                        (bs.keyword, "optimal information environment"),
-                        " for AI agents.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "Not prompt engineering — ",
-                        (bs.keyword, "the entire information environment"),
-                        " that shapes AI behavior.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.accent, "Project rules"),
-                        ", ",
-                        (bs.accent, "MCP servers"),
-                        ", ",
-                        (bs.accent, "memory systems"),
-                        " — the agent sees what you curate.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (s.project.colors.muted, "Your mise en place — everything "
-                         "prepared before the first flame."),
-                    )
+                    with st_zoom(90):
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Systematically managing"),
+                            " the information fed to AI agents.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            "Not clever prompting \u2014 structured ",
+                            (bs.keyword, "project rules"),
+                            ", ",
+                            (bs.keyword, "memory"),
+                            ", and ",
+                            (bs.keyword, "tool configurations"),
+                            ".",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (bs.accent, "Project rules"),
+                            ", ",
+                            (bs.accent, "MCP servers"),
+                            ", ",
+                            (bs.accent, "memory systems"),
+                            " \u2014 the agent sees what you curate.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (s.project.colors.muted, "Your pantry, your prep, your standards "
+                            "\u2014 maintained every day, not just on opening night."),
+                        )

@@ -2,6 +2,16 @@
 
 GenAI Introduction module — Fundamentals of AI, Generative AI, and LLMs.
 
+## [0.2.1] — 2026-04-09
+
+### Changed
+- Orange highlight on "manual feature engineering" (ML era slide)
+- Zoom adjustments across 8+ slides (alignment, pretraining, finetuning, context window, comparison, benchmarks, transformers)
+- Context benchmark chart height reduced (1300→1100px)
+- GPT-3.5 → GPT-3 correction on GenAI revolution caption
+- Trainer slides: bottom spacing before slide breaks
+- Roadmap: bottom spacing added on each section page
+
 ## [0.2.0] — 2026-04-08
 
 ### Added

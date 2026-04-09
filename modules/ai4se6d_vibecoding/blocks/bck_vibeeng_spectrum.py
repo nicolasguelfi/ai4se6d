@@ -27,7 +27,7 @@ _ROWS = [
     ("1", "Naive VibeCoding", "No requirements, no tests, no review", "Personal prototypes only", False),
     ("2", "Guided VibeCoding", "Informal requirements, manual evaluation", "Internal tools", False),
     ("3", "Structured VibeCoding", "Written requirements, some tests, review of critical paths", "Team projects", False),
-    ("4", "VibeEngineering", "Full requirements, TDD, architecture, CI/CD, systematic review", "Production", True),
+    ("4", "VibeEngineering", "Full requirements, test-driven generation, architecture, CI/CD, systematic review", "Production", True),
 ]
 
 def build():
@@ -49,24 +49,19 @@ def build():
             for level, name, characteristics, best_for, is_active in _ROWS:
                 cell = s.project.containers.table_active_cell if is_active else s.project.containers.table_normal_cell
                 name_style = bs.level_active if is_active else bs.level_name
-                with st_grid(
-                    cols="8% 22% 40% 30%",
-                    gap="8px",
-                    cell_styles=cell,
-                ) as g:
-                    with g.cell():
-                        st_write(name_style, level)
-                    with g.cell():
-                        st_write(name_style, name)
-                    with g.cell():
-                        st_write(bs.cell_text, characteristics)
-                    with g.cell():
-                        st_write(bs.cell_text, best_for)
+                with st_zoom(110):
+                    with st_grid(
+                        cols="8% 22% 40% 30%",
+                        gap="8px",
+                        cell_styles=cell,
+                    ) as g:
+                        with g.cell():
+                            st_write(name_style, level)
+                        with g.cell():
+                            st_write(name_style, name)
+                        with g.cell():
+                            st_write(bs.cell_text, characteristics)
+                        with g.cell():
+                            st_write(bs.cell_text, best_for)
 
             st_space("v", 1)
-            # REF: https://arxiv.org/abs/2403.15852
-            st_write(bs.source, cite("soen101-2024"))
-            st_write(bs.evidence, "FlowGen: 15% fewer code smells with structured processes")
-            st_write(bs.source, "Planning/review 80% — execution 20%")
-            # REF: xiao-longitudinal2025 (observation), compound-engineering (prescription)
-            st_write(bs.source, cite("xiao-longitudinal2025"))

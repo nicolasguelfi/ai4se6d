@@ -8,11 +8,11 @@ from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
 
 class BlockStyles:
     """P1 slide styles."""
-    heading = s.project.titles.slide_title + s.center_txt
+    heading = s.project.titles.section_title + s.center_txt
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.primary
     number = Style.create(
-        s.Giant + s.bold + s.project.colors.highlight + s.center_txt,
+        s.giant + s.bold + s.project.colors.highlight + s.center_txt,
         "ve_p1_number",
     )
 bs = BlockStyles
@@ -44,19 +44,20 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130), g.cell():
+                with g.cell():
                     st_write(bs.number, "1")
                     st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Functional and non-functional requirements"),
-                        " are explicitly defined ",
-                        (bs.keyword, "before"),
-                        " engaging the AI agent.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (s.project.colors.muted, "The client's order — allergies, "
-                         "preferences, occasion — before the kitchen starts."),
-                    )
+                    with st_zoom(110):
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Functional and non-functional requirements"),
+                            " are explicitly defined ",
+                            (bs.keyword, "before"),
+                            " engaging the AI agent.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (s.project.colors.muted, "The client's order — allergies, "
+                            "preferences, occasion — before the kitchen starts."),
+                        )

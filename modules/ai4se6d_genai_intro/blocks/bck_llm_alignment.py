@@ -48,7 +48,7 @@ def build():
             st_write(bs.heading, "Phase 3: Alignment (RLHF/RLAIF)", tag=t.div, toc_lvl="1")
 
             with st_grid(
-                cols="2fr 3fr",
+                cols="1.5fr 3.5fr",
                 gap="24px",
                 cell_styles=_cell,
             ) as g:
@@ -64,7 +64,7 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(140):
+                    with st_zoom(120):
                         with st_list(
                             list_type=lt.unordered,
                             li_style=bs.body,

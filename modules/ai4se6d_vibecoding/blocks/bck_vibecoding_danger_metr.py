@@ -55,7 +55,7 @@ def build():
                         cell_styles=s.project.containers.grid_cell_centered,
                     ) as sg:
                         with sg.cell():
-                            with st_zoom(80):
+                            with st_zoom(60):
                                 st_write(bs.stat, "+19%")
                         with sg.cell():
                             st_hover_tooltip(
@@ -101,9 +101,7 @@ def build():
                     st_space("v", 0.5)
                     st_write(
                         bs.body,
-                        "Experienced developers took ",
-                        (bs.keyword_warn, "19% longer"),
-                        " with AI tools on real projects they knew well.",
+                        "Experienced developers on well known projects.",
                     )
                     st_space("v", 0.5)
                     st_write(bs.body, (bs.keyword, "The perception gap:"))
@@ -115,14 +113,12 @@ def build():
                     )
                     st_write(
                         bs.body,
-                        "After the study, they ",
                         (bs.keyword_warn, "still believed"),
-                        " they were 20% faster.",
-                    )
+                        "@post they were 20% faster.")
                     st_space("v", 0.5)
                     st_write(
                         bs.body,
-                        "Why? Over half of AI-generated code was ",
+                        ">50% of AI-generated code ",
                         (bs.keyword_warn, "rejected after review"),
                         " \u2014 the time spent prompting, reviewing, and discarding "
                         "exceeded the time saved.",

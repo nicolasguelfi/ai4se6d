@@ -53,7 +53,8 @@ def build():
                         cell_styles=s.project.containers.grid_cell_centered,
                     ) as sg:
                         with sg.cell():
-                            st_write(bs.stat, "7 hours")
+                            with st_zoom(60):
+                                st_write(bs.stat, "7 hours")
                         with sg.cell():
                             st_hover_tooltip(
                                 title="About this statistic",

@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.1] — 2026-04-09
+
+### Changed
+- genai_intro: zoom/layout refinements across 8+ slides, orange highlight on "manual feature engineering"
+- genai_intro: context benchmark chart height reduced (1300→1100px), GPT-3.5→GPT-3 correction
+- vibecoding: major style/layout refactoring across 30+ blocks, TDD→acceptance criteria terminology
+- vibecoding: book restructured (principles overview before requirements, IDE section deferred)
+- shared-blocks: TDD glossary definition expanded with GenAI context
+
+### Fixed
+- `.stx-version` aligned to PyPI latest (0.3.3) — was 0.6.8, causing Docker build failures
+- Added gensem service to CI/CD deploy workflow (was missing from `hetzner-deploy.yml`)
+- Trainer slides spacing improvements (bottom padding before slide breaks)
+
 ## [0.2.0] — 2026-04-08
 
 ### Added

@@ -38,7 +38,7 @@ _ENTRIES = [
     ("Foundation model", "Model pretrained on very large datasets"),
     ("VibeCoding", "Development where developers describe intent to AI and accept generated code without closely reviewing it"),
     ("VibeEngineering", "Engineering discipline integrating AI across the full SDLC"),
-    ("TDD", "Test-Driven Development"),
+    ("TDD", "Test-Driven Development \u2014 specify expected behavior before code; in GenAI context, define acceptance criteria that guide AI generation"),
     ("BDD", "Behavior-Driven Development"),
     ("CI/CD", "Continuous Integration / Continuous Deployment"),
     ("Context Engineering", "Systematic management of information fed to AI tools, beyond clever prompting"),

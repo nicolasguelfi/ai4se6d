@@ -57,16 +57,17 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
-                        with l.item():
-                            st_write(bs.body, (bs.keyword, "Requirements Before Prompts"), " \u2014 define WHAT and WHY first")
-                        with l.item():
-                            st_write(bs.body, (bs.keyword, "Test-Driven Generation"), " \u2014 tests BEFORE implementation (TDD/BDD)")
-                        with l.item():
-                            st_write(bs.body, (bs.keyword, "Architectural Intent"), " \u2014 .cursorrules, CLAUDE.md constrain AI")
-                        with l.item():
-                            st_write(bs.body, (bs.keyword, "Iterative Refinement"), " \u2014 planned iterations with review gates")
-                        with l.item():
-                            st_write(bs.body, (bs.keyword, "Human Review at Boundaries"), " \u2014 review at critical points, not every line")
-                        with l.item():
-                            st_write(bs.body, (bs.keyword_accent, "Context Engineering"), " \u2014 systematic info management, not clever prompting")
+                    with st_zoom(120):
+                        with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
+                            with l.item():
+                                st_write(bs.body, (bs.keyword, "Requirements Before Prompts"))
+                            with l.item():
+                                st_write(bs.body, (bs.keyword, "Test-Driven Generation"))
+                            with l.item():
+                                st_write(bs.body, (bs.keyword, "Architectural Intent"))
+                            with l.item():
+                                st_write(bs.body, (bs.keyword, "Iterative Refinement"))
+                            with l.item():
+                                st_write(bs.body, (bs.keyword, "Human Review at Boundaries"))
+                            with l.item():
+                                st_write(bs.body, (bs.keyword_accent, "Context Engineering"))

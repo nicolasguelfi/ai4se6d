@@ -96,7 +96,7 @@ def build():
 
             # Data rows
             for provider, known_for, use_cases in _ROWS:
-                with st_zoom(120),st_grid(
+                with st_zoom(105),st_grid(
                     cols="20% 40% 40%",
                     gap="12px",
                     cell_styles=_normal_cell,

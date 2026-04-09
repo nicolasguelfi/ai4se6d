@@ -56,6 +56,6 @@ def build():
             with st_zoom(160):
                 st_write(
                     bs.caption,
-                    "From GPT-3.5 (2022) to multimodal agents (2026) — the fastest technology adoption in history",
+                    "From GPT-3 (2022) to multimodal agents (2026) — the fastest technology adoption in history",
                     tag=t.div,
                 )

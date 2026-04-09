@@ -2,6 +2,16 @@
 
 VibeCoding & VibeEngineering module — Intent-driven development and engineering discipline with AI.
 
+## [0.2.1] — 2026-04-09
+
+### Changed
+- Major style/layout refactoring across 30+ blocks (spacing, zoom, grid proportions)
+- Book structure: principles overview moved before requirements, IDE section + recap deferred
+- TDD terminology updated to "acceptance criteria" in GenAI context
+- Evidence gap and RCT blocks simplified and restructured
+- Glossary: TDD definition expanded with GenAI context
+- Notes updated with session planning
+
 ## [0.2.0] — 2026-04-08
 
 ### Added

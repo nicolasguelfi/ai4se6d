@@ -45,22 +45,23 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with st_zoom(130), g.cell():
-                    st_write(bs.number, "2")
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "If it works = good enough."),
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "The developer accepts generated code based on whether "
-                        "the application works, not on whether the code is correct, "
-                        "efficient, or maintainable.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "The code itself is not read.",
-                    )
+                with g.cell():
+                    with st_zoom(90):
+                        st_write(bs.number, "2")
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "If it works = good enough."),
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            "The developer accepts generated code based on whether "
+                            "the application works, not on whether the code is correct, "
+                            "efficient, or maintainable.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            "The code itself is not read.",
+                        )

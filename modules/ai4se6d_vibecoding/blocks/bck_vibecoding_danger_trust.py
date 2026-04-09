@@ -64,7 +64,7 @@ def build():
                         cell_styles=s.project.containers.grid_cell_centered,
                     ) as sg:
                         with sg.cell():
-                            with st_zoom(80):
+                            with st_zoom(60):
                                 st_write(bs.stat, "29%")
                         with sg.cell():
                             st_hover_tooltip(
