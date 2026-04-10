@@ -1,0 +1,44 @@
+flowchart TB
+    RECV["tool_call: **Agent** x3<br/>Spawn 3 analysts in parallel"]
+    RECV --> SA_A & SA_B & SA_C
+
+    subgraph SA_A["🤖 SUB-AGENT A — Functional Analyst (Haiku)"]
+        A1["WebSearch: food e-commerce features"]
+        A2["Deliverables:<br/>• Product catalog (allergen filters, organic, gluten-free)<br/>• Shopping cart (EUR, multi-currency)<br/>• Payment (Stripe, Bancontact)<br/>• Delivery (express cold / standard dry)<br/>• Lot traceability<br/>• Age verification (wine)<br/>• Loyalty program"]
+    end
+
+    subgraph SA_B["🤖 SUB-AGENT B — Non-Functional Analyst (Haiku)"]
+        B1["WebSearch: e-commerce NFR standards"]
+        B2["Deliverables:<br/>• Performance: TTFB < 800ms, LCP < 2s<br/>• Security: GDPR, PCI-DSS<br/>• Availability: 99.9% SLA<br/>• Accessibility: WCAG 2.1 AA<br/>• SEO: multilingual FR/NL<br/>• Capacity: 2000 concurrent users"]
+    end
+
+    subgraph SA_C["🤖 SUB-AGENT C — Cloud Architect (Opus)"]
+        C_RECV["Needs data from 2 sources"]
+        C_RECV --> C1 & C2
+
+        subgraph C1["🤖 Sub-sub-agent C1 — Volumetry"]
+            C1_Q["MCP Odoo: get business data"]
+            C1_R["→ 150 orders/day × peak ×3 = 450<br/>→ 2000 sessions, ~50 req/s<br/>→ Needs: 4 vCPU, 8GB RAM, 100GB SSD"]
+        end
+
+        subgraph C2["🤖 Sub-sub-agent C2 — Pricing"]
+            C2_Q["MCP Hetzner API: get server specs"]
+            C2_R["→ CPX31: 4vCPU, 8GB — 9.29€/mo<br/>→ Load Balancer: 5.49€/mo<br/>→ Volume 100GB: 4.40€/mo<br/>→ Bandwidth: 20TB included"]
+        end
+
+        C1 & C2 --> C_JOIN["Join → Architecture proposal<br/>2× CPX31 + LB + Object Storage<br/>≈ 25€/mo cruise · 45€/mo peak"]
+    end
+
+    SA_A -->|"functional requirements"| JOIN
+    SA_B -->|"non-functional requirements"| JOIN
+    SA_C -->|"infrastructure + budget"| JOIN
+
+    JOIN["**Join all 3 results**<br/>Assemble into document sections"]
+    JOIN --> DOC["📄 Requirements Document<br/>§1 Context · §2 Functional<br/>§3 Non-Functional · §4 Infrastructure<br/>§5 Budget Estimate"]
+
+    style SA_A fill:#EFF6FF,stroke:#2563EB,color:#1a1a2e
+    style SA_B fill:#FFFBEB,stroke:#D97706,color:#1a1a2e
+    style SA_C fill:#F0FDFA,stroke:#0D9488,color:#1a1a2e
+    style C1 fill:#CCFBF1,stroke:#0D9488,color:#1a1a2e
+    style C2 fill:#CCFBF1,stroke:#0D9488,color:#1a1a2e
+    style DOC fill:#D1FAE5,stroke:#059669,color:#1a1a2e

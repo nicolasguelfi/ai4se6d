@@ -1,0 +1,85 @@
+sequenceDiagram
+    actor User as 👤 Utilisateur
+    participant Agent as 🤖 Agent Principal
+    participant LLM as ☁️ Service LLM<br/>(stateless)
+    participant Tools as 🔧 Outils Built-in
+    participant MCP as 🔌 MCP Client
+    participant MCPs as 📡 MCP Servers<br/>(GitHub, DB, Slack...)
+    participant SubA as 🤖 Sous-Agent A
+    participant SubB as 🤖 Sous-Agent B
+
+    User->>Agent: prompt: "Refactore le module auth"
+
+    Note over Agent: Charge CLAUDE.md + mémoire<br/>Découvre outils MCP (tools/list)
+    Agent->>MCPs: JSON-RPC: tools/list
+    MCPs-->>Agent: [{name, description, schema}, ...]
+    Note over Agent: Fusionne built-in + MCP tools<br/>dans le schéma envoyé au LLM
+
+    Note over Agent,LLM: Tour 1 — Compréhension
+    Agent->>LLM: LLM call #1 (contexte + tools[built-in + MCP])
+    LLM-->>Agent: tool_call: Read("/src/auth.ts")
+    Note over Agent: ⚡ Hook pre-tool
+    Agent->>Tools: syscall open+read
+    Tools-->>Agent: contenu du fichier
+    Note over Agent: ⚡ Hook post-tool
+
+    Note over Agent,LLM: Tour 2 — Recherche parallèle via sous-agents
+    Agent->>LLM: LLM call #2 (contexte enrichi)
+    LLM-->>Agent: tool_call: Agent x2
+
+    par Exécution parallèle
+        Agent->>SubA: fork — "Trouve les usages + PRs liées"
+        Note over SubA: Boucle autonome (son propre contexte)
+        SubA->>LLM: LLM call A.1
+        LLM-->>SubA: tool_call: Grep("auth")
+        SubA->>Tools: ripgrep
+        Tools-->>SubA: résultats
+        SubA->>LLM: LLM call A.2
+        LLM-->>SubA: tool_call: mcp__github__search_code
+        SubA->>MCP: dispatch MCP
+        MCP->>MCPs: JSON-RPC tools/call (stdio)
+        MCPs-->>MCP: résultats PRs
+        MCP-->>SubA: résultats
+        SubA-->>Agent: return result_A
+    and
+        Agent->>SubB: fork — "Vérifie tests + crée issue"
+        Note over SubB: Boucle autonome (modèle différent possible)
+        SubB->>LLM: LLM call B.1
+        LLM-->>SubB: tool_call: Glob("**/auth*.test.*")
+        SubB->>Tools: glob
+        Tools-->>SubB: fichiers tests
+        SubB->>LLM: LLM call B.2
+        LLM-->>SubB: tool_call: mcp__github__create_issue
+        SubB->>MCP: dispatch MCP
+        MCP->>MCPs: JSON-RPC tools/call (stdio)
+        MCPs-->>MCP: issue #42 créée
+        MCP-->>SubB: confirmation
+        SubB-->>Agent: return result_B
+    end
+
+    Note over Agent: join(A, B)
+
+    Note over Agent,LLM: Tour 3 — Édition avec permission
+    Agent->>LLM: LLM call #3 (contexte complet)
+    LLM-->>Agent: tool_call: Edit("/src/auth.ts", ...)
+
+    Note over Agent,Tools: 🔐 Permission Gate — action destructive
+    Agent->>User: Demande confirmation
+    User-->>Agent: ✅ Approuvé
+    Agent->>Tools: syscall write
+    Tools-->>Agent: OK
+
+    Note over Agent,LLM: Tour 4 — Notification externe via MCP
+    Agent->>LLM: LLM call #4 (résultat edit)
+    LLM-->>Agent: tool_call: mcp__slack__send_message
+    Agent->>MCP: dispatch MCP
+    MCP->>MCPs: JSON-RPC tools/call (SSE distant)
+    MCPs-->>MCP: message envoyé #dev-backend
+    MCP-->>Agent: confirmation
+
+    Note over Agent,LLM: Tour 5 — Conclusion
+    Agent->>LLM: LLM call #5
+    LLM-->>Agent: texte final
+    Agent->>User: 📄 "Refactoring terminé, issue #42 créée, équipe notifiée"
+
+    Note over Agent: 💾 Sauvegarde mémoire si pertinent

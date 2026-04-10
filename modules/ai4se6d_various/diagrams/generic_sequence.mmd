@@ -1,0 +1,58 @@
+sequenceDiagram
+    actor User
+    participant Agent as Agent
+    participant LLM as LLM (stateless)
+    participant Tools as Built-in Tools
+    participant MCP as MCP Servers
+    participant Subs as Sub-Agents
+
+    User->>Agent: prompt
+
+    Note over Agent: Load project rules + memory
+    Agent->>MCP: tools/list (discover MCP tools)
+    MCP-->>Agent: [{name, schema}, ...]
+    Note over Agent: Merge built-in + MCP tools
+
+    Note over Agent,LLM: Turn 1 — Understand
+    Agent->>LLM: call #1 (context + all tool schemas)
+    LLM-->>Agent: tool_call: Read(file)
+    Agent->>Tools: Read (syscall open+read)
+    Tools-->>Agent: file contents
+
+    Note over Agent,LLM: Turn 2 — Research (parallel sub-agents)
+    Agent->>LLM: call #2 (enriched context)
+    LLM-->>Agent: tool_call: Agent x2
+
+    par Parallel execution
+        Agent->>Subs: fork Sub-Agent A
+        Subs->>LLM: own LLM calls
+        Subs->>Tools: Grep, Read...
+        Subs->>MCP: mcp__github__search
+        Subs-->>Agent: result A
+    and
+        Agent->>Subs: fork Sub-Agent B
+        Subs->>LLM: own LLM calls
+        Subs->>Tools: Glob, Read...
+        Subs-->>Agent: result B
+    end
+    Note over Agent: join(A, B)
+
+    Note over Agent,LLM: Turn 3 — Act (with permission)
+    Agent->>LLM: call #3 (full context)
+    LLM-->>Agent: tool_call: Edit(file)
+    Agent->>User: Permission gate — confirm?
+    User-->>Agent: Approved
+    Agent->>Tools: Edit (syscall write)
+    Tools-->>Agent: OK
+
+    Note over Agent,LLM: Turn 4 — Notify (remote MCP)
+    Agent->>LLM: call #4
+    LLM-->>Agent: tool_call: mcp__slack__send
+    Agent->>MCP: JSON-RPC tools/call (SSE)
+    MCP-->>Agent: message sent
+
+    Note over Agent,LLM: Turn 5 — Conclude
+    Agent->>LLM: call #5
+    LLM-->>Agent: final text
+    Agent->>User: Display result
+    Note over Agent: Save memory if relevant

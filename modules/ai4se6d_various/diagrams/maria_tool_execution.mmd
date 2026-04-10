@@ -1,0 +1,45 @@
+flowchart TB
+    RECV["tool_call received"]
+    PERM{"🔐 **Permission Gate**"}
+    RECV --> PERM
+    PERM -->|"sensitive data"| CONFIRM["Ask Maria's confirmation<br/>(Odoo access, send email)"]
+    PERM -->|"safe"| PRE
+    CONFIRM -->|"approved"| PRE
+    PRE["⚡ Hook pre-tool"] --> ROUTER
+
+    ROUTER{"**Router**"}
+    ROUTER -->|"built-in"| BUILTIN
+    ROUTER -->|"mcp__*"| MCP
+
+    subgraph BUILTIN["① BUILT-IN TOOLS"]
+        direction LR
+        READ["📂 **Read**<br/>requirements template"]
+        WRITE_T["📂 **Write**<br/>document sections"]
+        WS["🌐 **WebSearch**<br/>food e-commerce regulations<br/>GDPR · cold chain · alcohol"]
+        BASH_T["⚡ **Bash**<br/>validate document structure"]
+    end
+
+    subgraph MCP["③ MCP TOOLS"]
+        direction TB
+        subgraph LOCAL_MCP["📡 Local — Odoo ERP (stdio)"]
+            ODOO_ORDERS["orders/day: 150 avg, 400 peak"]
+            ODOO_CATALOG["catalog: 1200 products"]
+            ODOO_REVENUE["revenue: 45K€/month"]
+            ODOO_WEIGHT["avg order weight: 3.2kg"]
+        end
+        subgraph REMOTE_MCP["📡 Remote (SSE/HTTP)"]
+            HETZNER["☁️ **Hetzner API**<br/>server types · pricing<br/>load balancers · volumes"]
+            GMAIL["📧 **Gmail**<br/>send draft to Maria"]
+            GCAL["📅 **Calendar**<br/>schedule review meeting"]
+        end
+    end
+
+    BUILTIN --> RESULT["result string"]
+    MCP --> RESULT
+    RESULT --> POST["⚡ Hook post-tool<br/>check document structure"]
+    POST --> REINJECT["🔄 Reinject into context"]
+
+    style BUILTIN fill:#EFF6FF,stroke:#2563EB,color:#1a1a2e
+    style MCP fill:#FEF2F2,stroke:#DC2626,color:#1a1a2e
+    style LOCAL_MCP fill:#FECACA,stroke:#DC2626,color:#1a1a2e
+    style REMOTE_MCP fill:#FECACA,stroke:#DC2626,color:#1a1a2e

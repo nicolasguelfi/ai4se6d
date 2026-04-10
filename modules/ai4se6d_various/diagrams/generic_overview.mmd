@@ -1,0 +1,34 @@
+flowchart LR
+    USER(("👤 User"))
+
+    subgraph LOCAL["LOCAL MACHINE"]
+        direction TB
+        subgraph AGENT["AGENT PROCESS"]
+            direction TB
+            LOOP["🔄 **Agent Loop**<br/>context → LLM call → response → dispatch<br/>_see detail diagram_"]
+            TOOLS["🔧 **Built-in Tools**<br/>Filesystem · Bash · Web · Code<br/>_see detail diagram_"]
+            MCPC["🔌 **MCP Client**<br/>JSON-RPC 2.0 dispatcher"]
+            SUBS["🤖 **Sub-Agents**<br/>parallel · recursive · multi-model<br/>_see detail diagram_"]
+            MEM["💾 **Memory**<br/>Project Rules · Memory Files"]
+        end
+        MCPL["📡 **Local MCP Servers** (stdio)<br/>GitHub · Database · Browser · Custom"]
+        RES["📁 **Local Resources**<br/>Filesystem · Git · Processes"]
+    end
+
+    subgraph REMOTE["REMOTE SERVICES"]
+        direction TB
+        LLM["🧠 **LLM API** (stateless)<br/>token-by-token inference<br/>⚠ no state · no side effects"]
+        MCPR["📡 **Remote MCP Servers** (SSE/HTTP)<br/>Slack · Jira · Gmail · Calendar · Cloud"]
+        APIs["🌐 **External APIs**<br/>REST · Search engines"]
+    end
+
+    USER <--> LOOP
+    LOOP <-->|"HTTPS"| LLM
+    LOOP --> TOOLS
+    LOOP --> MCPC
+    LOOP --> SUBS
+    SUBS -.->|"own loop + LLM calls"| LLM
+    TOOLS --> RES
+    TOOLS -->|"HTTP"| APIs
+    MCPC <-->|"stdio pipe"| MCPL
+    MCPC <-->|"SSE / HTTP"| MCPR

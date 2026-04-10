@@ -1,0 +1,142 @@
+flowchart TB
+    subgraph LOCAL["🖥️ MACHINE LOCALE"]
+        subgraph AGENT["PROCESSUS AGENT PRINCIPAL (PID 1000)"]
+            subgraph LOOP["BOUCLE AGENT (event loop)"]
+                CTX["📋 CONTEXTE\n• system prompt\n• history (messages[])\n• tool schemas (built-in + MCP)\n• tool results\n• memory"]
+                LLM_CALL["📡 APPEL LLM (HTTP POST)\n{messages[], tools[], model}\napi.anthropic.com"]
+                RESP["📨 RÉPONSE LLM\n3 cas possibles"]
+                CTX -->|"construit requête"| LLM_CALL
+                LLM_CALL -->|"HTTPS"| LLM_SERVICE
+                LLM_SERVICE -->|"stream/réponse"| RESP
+            end
+
+            RESP -->|"A) texte"| FIN["✅ FIN — Affichage user"]
+            RESP -->|"B) tool_call"| DISPATCH
+            RESP -->|"C) agent spawn"| SUBAGENTS
+
+            subgraph DISPATCH["DISPATCH TOOL_CALL"]
+                TOOL_RECV["tool_call reçu\n{name, params}"]
+                PERM{"🔐 Permission Gate\nAuto-allow?"}
+                TOOL_RECV --> PERM
+                PERM -->|"NON"| USER_CONFIRM["Demande\nconfirmation"]
+                PERM -->|"OUI"| ROUTER
+                USER_CONFIRM -->|"approuvé"| ROUTER
+
+                HOOKS_PRE["⚡ Hook pre-tool\n(shell command)"]
+                ROUTER{"Router\nbuilt-in ou MCP?"}
+                HOOKS_PRE --> ROUTER
+            end
+
+            ROUTER -->|"built-in"| TOOLS
+            ROUTER -->|"mcp__*"| MCP_CLIENT
+
+            subgraph TOOLS["① OUTILS BUILT-IN"]
+                subgraph FS_TOOLS["📂 Filesystem"]
+                    READ["Read\nopen+read"]
+                    WRITE_T["Write\nopen+write"]
+                    GLOB["Glob\nfind patterns"]
+                    GREP_T["Grep\nripgrep"]
+                    EDIT_T["Edit\nstring replace"]
+                end
+                subgraph PROC_TOOLS["⚡ Processus"]
+                    BASH_T["Bash\nfork/exec"]
+                end
+                subgraph WEB_TOOLS["🌐 Web"]
+                    WEB_SEARCH["WebSearch\nrecherche web"]
+                    WEB_FETCH["WebFetch\nHTTP GET"]
+                end
+                subgraph CODE_TOOLS["🔧 Code Intelligence"]
+                    NOTEBOOK["NotebookEdit\nJupyter"]
+                end
+            end
+
+            subgraph MCP_CLIENT["③ CLIENT MCP"]
+                MCP_DISPATCH["Dispatch JSON-RPC\n{method: tools/call,\nparams: {name, arguments}}"]
+                MCP_DISPATCH -->|"stdio (pipe)"| MCP_LOCAL
+                MCP_DISPATCH -->|"SSE / HTTP"| MCP_REMOTE
+            end
+
+            TOOLS --> RESULT["result (string)"]
+            MCP_CLIENT --> RESULT
+            RESULT --> HOOKS_POST["⚡ Hook post-tool"]
+            HOOKS_POST --> REINJECT["Réinjection dans le contexte"]
+            REINJECT -->|"retour boucle"| CTX
+
+            subgraph SUBAGENTS["② SPAWN SOUS-AGENTS"]
+                SA_RECV["tool_call: Agent\n{prompt, type, model, background}"]
+                SA_RECV -->|"fork"| SA_A & SA_B
+                subgraph SA_A["SOUS-AGENT A"]
+                    SA_A_LOOP["Sa propre boucle complète\nSon contexte isolé\nSes outils (built-in + MCP)\nSes appels LLM (N tours)\nPeut spawner récursivement"]
+                end
+                subgraph SA_B["SOUS-AGENT B"]
+                    SA_B_LOOP["Sa propre boucle complète\nSon contexte isolé\nSes outils (built-in + MCP)\nSes appels LLM (M tours)\nModèle potentiellement différent"]
+                end
+                SA_A & SA_B -->|"return result"| JOIN["waitpid / join"]
+                JOIN --> REINJECT2["Réinjection contexte parent"]
+            end
+            REINJECT2 -->|"retour boucle"| CTX
+
+            subgraph MEMORY["💾 MÉMOIRE PERSISTANTE"]
+                MEM_FILES["Fichiers mémoire\n(.claude/memory/)"]
+                CLAUDE_MD["CLAUDE.md\n(instructions projet)"]
+            end
+        end
+
+        subgraph MCP_LOCAL["SERVEURS MCP LOCAUX (stdio)"]
+            MCP_GH["🐙 GitHub MCP\ncreate_pr, list_issues\nread_file, search_code"]
+            MCP_DB["🗄️ Database MCP\nquery, schema\ninsert, update"]
+            MCP_BROWSER["🌐 Browser MCP\nnavigate, screenshot\nclick, fill_form"]
+            MCP_CUSTOM["🔌 Custom MCP\noutils spécifiques\nau projet"]
+        end
+
+        subgraph RESOURCES["RESSOURCES LOCALES"]
+            FS["📁 Filesystem"]
+            PROC["🖥️ Processus (PIDs)"]
+            NET["🌐 Réseau (sockets)"]
+            PERIPH["🔌 Clipboard, stdin"]
+            GIT["📦 Git (dépôt local)"]
+        end
+    end
+
+    subgraph REMOTE["☁️ SERVICES DISTANTS"]
+        subgraph LLM_SERVICE["SERVICE LLM (stateless)"]
+            INPUT["Input: {messages[], tools[], system_prompt, model}"]
+            INFERENCE["🧠 INFÉRENCE\nGénération token par token (autorégressif)\nGPU cluster — calcul matriciel\n⚠ AUCUN état entre appels\n⚠ AUCUN accès filesystem/réseau\n⚠ Ne fait QUE prédire tokens"]
+            OUTPUT["Output: {text} | {tool_call: name + params}"]
+            INPUT --> INFERENCE --> OUTPUT
+        end
+
+        subgraph MCP_REMOTE["SERVEURS MCP DISTANTS (SSE/HTTP)"]
+            MCP_SLACK["💬 Slack MCP\nsend_message, search"]
+            MCP_JIRA["📋 Jira MCP\ncreate_issue, transition"]
+            MCP_CLOUD["☁️ Cloud MCP\nAWS, GCP, Azure"]
+            MCP_GMAIL["📧 Gmail MCP\nsearch, read, draft"]
+            MCP_GCAL["📅 Calendar MCP\nlist_events, create"]
+        end
+
+        subgraph EXT_APIS["APIs EXTERNES"]
+            API_REST["REST / GraphQL"]
+            API_SEARCH["Moteurs de recherche"]
+        end
+    end
+
+    style LOCAL fill:#1a1a2e,stroke:#7AB8F5,stroke-width:2px,color:#fafafa
+    style AGENT fill:#16213e,stroke:#2EC4B6,stroke-width:2px,color:#fafafa
+    style LOOP fill:#0f3460,stroke:#7AB8F5,stroke-width:1px,color:#fafafa
+    style DISPATCH fill:#1a1a2e,stroke:#e94560,stroke-width:1px,color:#fafafa
+    style TOOLS fill:#1a1a2e,stroke:#7AB8F5,stroke-width:1px,color:#fafafa
+    style MCP_CLIENT fill:#1a1a2e,stroke:#ff6b6b,stroke-width:2px,color:#fafafa
+    style MCP_LOCAL fill:#1a1a2e,stroke:#ff6b6b,stroke-width:2px,color:#fafafa
+    style MCP_REMOTE fill:#161b22,stroke:#ff6b6b,stroke-width:2px,color:#fafafa
+    style SUBAGENTS fill:#1a1a2e,stroke:#2EC4B6,stroke-width:1px,color:#fafafa
+    style REMOTE fill:#0d1117,stroke:#e94560,stroke-width:2px,color:#fafafa
+    style LLM_SERVICE fill:#161b22,stroke:#e94560,stroke-width:1px,color:#fafafa
+    style RESOURCES fill:#1a1a2e,stroke:#555,stroke-width:1px,color:#fafafa
+    style MEMORY fill:#1a1a2e,stroke:#ffd93d,stroke-width:1px,color:#fafafa
+    style FS_TOOLS fill:#0f3460,stroke:#7AB8F5,stroke-width:1px,color:#fafafa
+    style PROC_TOOLS fill:#0f3460,stroke:#7AB8F5,stroke-width:1px,color:#fafafa
+    style WEB_TOOLS fill:#0f3460,stroke:#7AB8F5,stroke-width:1px,color:#fafafa
+    style CODE_TOOLS fill:#0f3460,stroke:#7AB8F5,stroke-width:1px,color:#fafafa
+    style EXT_APIS fill:#161b22,stroke:#555,stroke-width:1px,color:#fafafa
+    style SA_A fill:#0f3460,stroke:#2EC4B6,stroke-width:1px,color:#fafafa
+    style SA_B fill:#0f3460,stroke:#2EC4B6,stroke-width:1px,color:#fafafa

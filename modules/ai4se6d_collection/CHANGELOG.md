@@ -2,6 +2,11 @@
 
 Collection hub for AI4SE 6D training modules.
 
+## [0.2.0] — 2026-04-10
+
+### Added
+- Q&A Companion module card (order 4, emoji: question mark)
+
 ## [0.1.0] — 2026-04-07
 
 ### Added

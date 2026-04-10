@@ -1,0 +1,56 @@
+flowchart TB
+    RECV["tool_call received<br/>{name, params}"]
+
+    PERM{"🔐 **Permission Gate**<br/>Auto-allow?"}
+    RECV --> PERM
+    PERM -->|"NO"| CONFIRM["Ask user confirmation"]
+    PERM -->|"YES"| PRE
+    CONFIRM -->|"approved"| PRE
+
+    PRE["⚡ **Hook pre-tool**<br/>shell command trigger"]
+    PRE --> ROUTER
+
+    ROUTER{"**Router**<br/>built-in or MCP?"}
+
+    ROUTER -->|"built-in"| BUILTIN
+    ROUTER -->|"mcp__*"| MCP
+
+    subgraph BUILTIN["① BUILT-IN TOOLS"]
+        direction LR
+        subgraph FS["📂 Filesystem"]
+            READ["Read"]
+            WRITE_T["Write"]
+            EDIT_T["Edit"]
+            GLOB["Glob"]
+            GREP_T["Grep"]
+        end
+        subgraph PROC["⚡ Process"]
+            BASH["Bash<br/>fork/exec"]
+        end
+        subgraph WEB["🌐 Web"]
+            SEARCH["WebSearch"]
+            FETCH["WebFetch"]
+        end
+        subgraph CODE["🔧 Code"]
+            NB["NotebookEdit"]
+        end
+    end
+
+    subgraph MCP["③ MCP CLIENT (JSON-RPC 2.0)"]
+        direction TB
+        DISPATCH_MCP["Dispatch<br/>{method: tools/call}"]
+        DISPATCH_MCP -->|"stdio (pipe)"| LOCAL_MCP["📡 Local MCP Servers<br/>GitHub · Database<br/>Browser · Custom"]
+        DISPATCH_MCP -->|"SSE / HTTP"| REMOTE_MCP["📡 Remote MCP Servers<br/>Slack · Jira · Gmail<br/>Calendar · Cloud"]
+    end
+
+    BUILTIN --> RESULT["result (string)"]
+    MCP --> RESULT
+    RESULT --> POST["⚡ **Hook post-tool**<br/>shell command trigger"]
+    POST --> REINJECT["🔄 Reinject into context<br/>→ next loop iteration"]
+
+    style BUILTIN fill:#EFF6FF,stroke:#2563EB,color:#1a1a2e
+    style MCP fill:#FEF2F2,stroke:#DC2626,color:#1a1a2e
+    style FS fill:#DBEAFE,stroke:#2563EB,color:#1a1a2e
+    style PROC fill:#DBEAFE,stroke:#2563EB,color:#1a1a2e
+    style WEB fill:#DBEAFE,stroke:#2563EB,color:#1a1a2e
+    style CODE fill:#DBEAFE,stroke:#2563EB,color:#1a1a2e

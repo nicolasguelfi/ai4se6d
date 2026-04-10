@@ -1,6 +1,6 @@
 {
   "name": "ve_p1_requirements",
-  "version": 3,
+  "version": 1,
   "timestamp": "2026-04-03T21:20:33.587657+00:00",
   "source_type": "ai_generated",
   "original_path": "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_vibecoding/static/images/ai/f0d2a14d8518c3cd.webp",
@@ -11,7 +11,7 @@
   "quality": "standard",
   "base_image": null,
   "revised_prompt": null,
-  "display_zoom": 55,
+  "display_zoom": null,
   "display_width": null,
   "display_height": null,
   "display_keep_ratio": true

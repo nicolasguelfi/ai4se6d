@@ -1,0 +1,24 @@
+flowchart TB
+    subgraph LOOP["AGENT LOOP (event loop)"]
+        CTX["📋 **CONTEXT**<br/>• system prompt + project rules<br/>• conversation history (messages[])<br/>• tool schemas (built-in + MCP)<br/>• previous tool results<br/>• memory files"]
+
+        CALL["📡 **LLM CALL** (HTTP POST)<br/>{messages[], tools[], model}<br/>Streaming response"]
+
+        RESP{"📨 **LLM RESPONSE**<br/>3 possible outcomes"}
+
+        CTX -->|"build request"| CALL
+        CALL -->|"HTTPS to LLM API"| RESP
+    end
+
+    RESP -->|"A) text"| FIN["✅ **DONE** — display to user"]
+    RESP -->|"B) tool_call"| DISPATCH["⚙️ Tool Dispatch<br/>→ permission gate<br/>→ hooks<br/>→ execution"]
+    RESP -->|"C) agent spawn"| SPAWN["🤖 Sub-Agent Spawn<br/>→ fork new process<br/>→ own loop + context"]
+
+    DISPATCH -->|"result string"| REINJECT["🔄 Reinject result into context"]
+    SPAWN -->|"result string"| REINJECT
+    REINJECT -->|"next iteration"| CTX
+
+    style LOOP fill:#DBEAFE,stroke:#2563EB,color:#1a1a2e
+    style FIN fill:#D1FAE5,stroke:#059669,color:#1a1a2e
+    style DISPATCH fill:#FEF2F2,stroke:#DC2626,color:#1a1a2e
+    style SPAWN fill:#F0FDFA,stroke:#0D9488,color:#1a1a2e

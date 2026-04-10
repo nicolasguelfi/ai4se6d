@@ -1,0 +1,24 @@
+flowchart TB
+    subgraph LOOP["AGENT LOOP — Maria's Requirements Document"]
+        CTX["📋 **CONTEXT**<br/>• Maria's prompt: Italian webshop, FR+BE, 2000 users, Hetzner<br/>• Odoo data: 150 orders/day, 1200 products, 45K€/month<br/>• Requirements template structure<br/>• Sub-agent results (functional + non-functional + cloud)<br/>• Memory: Maria's profile"]
+
+        CALL["📡 **LLM CALL**<br/>Model: Opus (main agent)<br/>{messages[], tools[built-in + Odoo + Hetzner + Gmail + Calendar]}"]
+
+        RESP{"📨 **LLM RESPONSE**"}
+
+        CTX -->|"build request"| CALL
+        CALL -->|"HTTPS"| RESP
+    end
+
+    RESP -->|"A) text"| FIN["✅ Document section written<br/>or clarification question to Maria"]
+    RESP -->|"B) tool_call"| DISPATCH["⚙️ Tool Dispatch<br/>Read template · Write section<br/>WebSearch regulations<br/>MCP Odoo · MCP Hetzner · MCP Gmail"]
+    RESP -->|"C) agent spawn"| SPAWN["🤖 Spawn analysts<br/>Functional · Non-Functional · Cloud Architect"]
+
+    DISPATCH -->|"result"| REINJECT["🔄 Reinject → next iteration"]
+    SPAWN -->|"results"| REINJECT
+    REINJECT --> CTX
+
+    style LOOP fill:#DBEAFE,stroke:#2563EB,color:#1a1a2e
+    style FIN fill:#D1FAE5,stroke:#059669,color:#1a1a2e
+    style DISPATCH fill:#FEF2F2,stroke:#DC2626,color:#1a1a2e
+    style SPAWN fill:#F0FDFA,stroke:#0D9488,color:#1a1a2e

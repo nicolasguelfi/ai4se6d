@@ -1,0 +1,69 @@
+sequenceDiagram
+    actor Maria
+    participant Agent as Agent (Opus)
+    participant LLM as LLM API
+    participant Tools as Built-in Tools
+    participant MCP as MCP (Odoo / Hetzner / Gmail / Cal)
+    participant Subs as Sub-Agents
+
+    Maria->>Agent: "Requirements doc for my Italian webshop,<br/>FR+BE, 2000 users, Hetzner, use my Odoo data"
+
+    Note over Agent: Load memory + discover MCP tools<br/>(Odoo local, Hetzner/Gmail/Calendar remote)
+
+    Note over Agent,LLM: Turn 1 — Understand
+    Agent->>LLM: call #1 (prompt + tool schemas)
+    LLM-->>Agent: tool_call: Read("templates/requirements.md")
+    Agent->>Tools: Read template
+    Tools-->>Agent: template structure
+
+    Note over Agent,LLM: Turn 2 — Collect business data
+    Agent->>LLM: call #2
+    LLM-->>Agent: tool_call: mcp__odoo__get_metrics
+    Agent->>Maria: Permission gate (sensitive business data)
+    Maria-->>Agent: Approved
+    Agent->>MCP: Odoo: orders, catalog, revenue, peaks
+    MCP-->>Agent: 150 orders/day, 1200 products, 45K€/mo, peak ×3 Dec
+
+    Note over Agent,LLM: Turn 3 — Parallel research (3 sub-agents)
+    Agent->>LLM: call #3
+    LLM-->>Agent: tool_call: Agent x3
+
+    par Functional Analyst (Haiku)
+        Agent->>Subs: "Find functional requirements for food e-commerce"
+        Subs->>LLM: WebSearch food regulations, payment, delivery
+        Subs-->>Agent: 32 functional requirements
+    and Non-Functional Analyst (Haiku)
+        Agent->>Subs: "Find NFR for 2000-user e-commerce"
+        Subs->>LLM: WebSearch performance, GDPR, accessibility
+        Subs-->>Agent: 15 non-functional requirements
+    and Cloud Architect (Opus → spawns C1 + C2)
+        Agent->>Subs: "Size Hetzner infra for 2000 users with Odoo data"
+        Subs->>MCP: C1: Odoo volumetry → 50 req/s, 4vCPU needed
+        Subs->>MCP: C2: Hetzner API → CPX31 9.29€, LB 5.49€
+        Subs-->>Agent: 2×CPX31 + LB ≈ 25-45€/mo
+    end
+
+    Note over Agent,LLM: Turn 4 — Write document
+    Agent->>LLM: call #4 (all results assembled)
+    LLM-->>Agent: tool_call: Write("output/requirements.md")
+    Agent->>Tools: Write 5 sections, 47 requirements
+    Tools-->>Agent: OK
+
+    Note over Agent,LLM: Turn 5 — Validate structure
+    Agent->>Tools: Bash: validate-doc-structure.sh
+    Tools-->>Agent: All sections present, requirements numbered
+
+    Note over Agent,LLM: Turn 6 — Distribute
+    Agent->>LLM: call #6
+    LLM-->>Agent: tool_calls: mcp__gmail + mcp__calendar
+    Agent->>Maria: Permission gate (send email + create event)
+    Maria-->>Agent: Approved
+    Agent->>MCP: Gmail: send draft to maria@bottega.it
+    Agent->>MCP: Calendar: Tuesday 2pm review with tech partner
+    MCP-->>Agent: email sent + event created
+
+    Note over Agent,LLM: Turn 7 — Conclude
+    Agent->>LLM: call #7
+    LLM-->>Agent: final summary
+    Agent->>Maria: "Done: 5 sections, 47 requirements,<br/>Hetzner 2×CPX31+LB ≈25-45€/mo,<br/>sent by email, review Tuesday 2pm"
+    Note over Agent: Save memory: Maria's project profile

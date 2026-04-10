@@ -1,0 +1,38 @@
+flowchart TB
+    RECV["tool_call: **Agent**<br/>{prompt, type, model, background}"]
+
+    RECV -->|"fork/spawn"| SA_A & SA_B
+
+    subgraph SA_A["🤖 SUB-AGENT A"]
+        direction TB
+        A_LOOP["Own agent loop<br/>• isolated context<br/>• built-in + MCP tools<br/>• N LLM calls<br/>• can use different model"]
+        A_RECURSE["Can spawn<br/>sub-sub-agents<br/>(recursive)"]
+        A_LOOP --> A_RECURSE
+    end
+
+    subgraph SA_B["🤖 SUB-AGENT B (background)"]
+        direction TB
+        B_LOOP["Own agent loop<br/>• isolated context<br/>• built-in + MCP tools<br/>• M LLM calls<br/>• runs in background"]
+    end
+
+    SA_A -->|"return result_A"| JOIN
+    SA_B -->|"return result_B"| JOIN
+
+    JOIN["**waitpid / join**<br/>Collect all results"]
+    JOIN --> REINJECT["🔄 Reinject into parent context<br/>→ parent resumes its loop"]
+
+    subgraph TREE["PROCESS TREE (pstree)"]
+        direction LR
+        P["Agent (PID 1000)"]
+        C1["Sub-Agent A (PID 2000)"]
+        C2["Sub-Agent B (PID 3000)"]
+        G1["Sub-Sub-Agent (PID 4000)"]
+        P --- C1
+        P --- C2
+        C1 --- G1
+    end
+
+    style SA_A fill:#F0FDFA,stroke:#0D9488,color:#1a1a2e
+    style SA_B fill:#F0FDFA,stroke:#0D9488,color:#1a1a2e
+    style TREE fill:#F8FAFC,stroke:#94A3B8,color:#1a1a2e
+    style JOIN fill:#FFFBEB,stroke:#D97706,color:#1a1a2e
