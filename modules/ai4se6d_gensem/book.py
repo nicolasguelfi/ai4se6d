@@ -70,10 +70,9 @@ set_presentation_config(PresentationConfig(
 set_slide_break_config(SlideBreakConfig(
     mode=SlideBreakMode.FULL,
     space="1vh",
-    space_before="30vh",
     rule_margin_top="1vh",
     rule_margin_bottom="1vh",
-    marker_hidden=False,
+    marker=True,
 ))
 
 # Table of Contents
