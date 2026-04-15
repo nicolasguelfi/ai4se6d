@@ -1,5 +1,5 @@
-# Theme overrides for dark mode (projection-optimised).
-# Keys are style_ids, values are replacement CSS strings.
+"""Dark theme overrides for projection (10-20 m viewing distance)."""
+
 dark = {
     "primary": "color: #7AB8F5;",
     "slide_title": "color: #7AB8F5; font-weight: bold; font-size: 96pt;",

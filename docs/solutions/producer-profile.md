@@ -5,8 +5,8 @@
 | Field | Value |
 |-------|-------|
 | Created | 2026-04-01 |
-| Last updated | 2026-04-08 |
-| Projects count | 3 (ai4se6d_genai_intro, ai4se6d_vibecoding, ai4se6d_gensem) |
+| Last updated | 2026-04-14 |
+| Projects count | 4 (ai4se6d_genai_intro, ai4se6d_vibecoding, ai4se6d_gensem_v01, ai4se6d_gensem) |
 
 ## Document Types
 
@@ -36,6 +36,10 @@
 - **No duplicated prompt strings**: extract to `custom/prompts.py` when 5+ blocks share the same graphic line.
 - **Never define VibeCoding as "pair programming"**: in SE, pair programming has a precise meaning (two developers, one keyboard). VibeCoding is about describing intent and accepting code without review — completely different concept.
 - **Never use unverified statistics**: always check the source website before citing numbers. The reference document (KBSCI) may contain transcription errors.
+- **Never abuse stat_hero**: `stat_hero` / `GIANT` is ONLY for impactful numeric statistics. Status labels max `s.huge` (80pt). Body text `s.Large` (48pt). Discovered in ai4se6d_gensem — status labels rendered at 450pt.
+- **Always create design guideline first**: `custom/design-guideline.md` must exist before any block is produced. Every visual decision (fonts, grids, tooltips, centering) must be governed by the guideline.
+- **Always center standalone images**: wrap in `st_block(s.center_txt)` — `st_image(s.center_txt, ...)` does NOT center the image.
+- **Tooltips default to center**: `position="center"` and `width≤50vw`. Never `position="left"` unless icon is at far right edge.
 
 ## Pedagogical Patterns
 

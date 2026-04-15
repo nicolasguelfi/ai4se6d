@@ -24,7 +24,7 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.keyword, "CE is not a tool \u2014 it's a discipline."), " The plugin enforces it, but the value comes from the methodology itself.")
             with l.item():
-                st_write(bs.body, (bs.keyword, "Start with individual phases,"), " graduate to /lfg orchestration as you build confidence in each step.")
+                st_write(bs.body, (bs.keyword, "Start with individual phases,"), " graduate to /gse:go orchestration as you build confidence in each step.")
             with l.item():
                 st_write(bs.body, (bs.keyword, "The compound phase is what creates exponential improvement."), " Without it, you get linear productivity; with it, each cycle amplifies the next.")
 

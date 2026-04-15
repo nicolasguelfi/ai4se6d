@@ -31,6 +31,7 @@ def st_hover_tooltip(
     width: str = "40vw",
     height: str = "auto",
     position: str = "center",
+    direction: str = "down",
     bg_color: str = "rgba(17,17,17,0.94)",
 ):
     """Render an inline icon that reveals a tooltip panel on hover.
@@ -46,6 +47,7 @@ def st_hover_tooltip(
         width: CSS width of the tooltip panel (e.g. "40vw", "520px").
         height: CSS height of the tooltip panel (e.g. "auto", "30vh").
         position: Horizontal alignment — "right" | "left" | "center".
+        direction: Vertical direction — "down" (opens below icon) | "up" (opens above icon).
         bg_color: CSS background color of the tooltip panel.
     """
     # Compute styles from scale (explicit style wins if provided)
@@ -62,15 +64,23 @@ def st_hover_tooltip(
     uid = hashlib.md5(f"{title}_{icon}_{len(entries)}".encode()).hexdigest()[:8]
     cls = f"stx-tt-{uid}"
 
-    # Position CSS for the panel
+    # Horizontal position CSS for the panel
     # "left" = panel opens toward the left (anchored right)
     # "right" = panel opens toward the right (anchored left)
     if position == "left":
-        pos_css = "right: 0;"
+        pos_h_css = "right: 0;"
     elif position == "center":
-        pos_css = "left: 50%; transform: translateX(-50%);"
+        pos_h_css = "left: 50%; transform: translateX(-50%);"
     else:
-        pos_css = "left: 0;"
+        pos_h_css = "left: 0;"
+
+    # Vertical direction CSS for the panel
+    # "down" = panel opens below icon (default)
+    # "up" = panel opens above icon
+    if direction == "up":
+        pos_v_css = "bottom: 2.2rem;"
+    else:
+        pos_v_css = "top: 2.2rem;"
 
     # Build entries HTML
     entries_html = ""
@@ -100,8 +110,8 @@ def st_hover_tooltip(
     .{cls} .{cls}-body {{
         display: none;
         position: absolute;
-        top: 2.2rem;
-        {pos_css}
+        {pos_v_css}
+        {pos_h_css}
         z-index: 100;
         width: {width};
         height: {height};

@@ -12,6 +12,7 @@ bs = BlockStyles
 
 
 def build():
+    st_marker("References")
     st_bibliography(
         title="References",
         title_style=bs.heading,

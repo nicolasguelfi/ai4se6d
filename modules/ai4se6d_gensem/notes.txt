@@ -1,100 +1,267 @@
+--------
+--------
+La méthode GSE est ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/github/gensem
 
---
+Le plan de formation pour le module est ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/plans/2026-04-14-004-C-gensem-plan-v4.md
 
---
-Your 3-Day Journey
-->
-remplace par Your 3-Parts Journey
-remaplce les Day par Part 1 , 2 , 3 sans les jours. 
-tout doit toujours resté générique pour être réutilisable dans d'autres contextes quand c'est possuble
-enlève le mot part dans la colonne content
-pour l'ancien day 5 met dans content mini project with GenSEMOne
-pour l'ancien Day 6 mets mini projet witrh GenSEMOne ctnd + Advanced GenSEM demo 
+Le module de formation est ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_gensem
 
--- 
-supprime le slides quick poll
+Peux tu me faire une inspection et analyse croisée puis me faire des recommendation d'amélioration du module de formation.
 
---
-GenAI Impact Across SDLC Phases
-inverse l'orientation lignes/colonnes de la table
+Analyse, fais des propositions avec des alternatives si nécessaire et pour chaque proposition indique les avantages et inconvénients.
 
---
-Requirements Engineering Transformed
-réduit la taille du titre de 1/3
-déplace 238 articles analyzed sur la ligne de la référence en mettant la taille de font normale--
+Ne touche à rien.
 
---
-Three Paradigms of Code Generation
-inverse l'orientation lignes/colonnes de la table
+--------
 
---
-vérifie la complétude du gloassaire , il me semble très succint 
-d'ailleurs on ferati bien d'avoir le même bloc glossaire en shared bloc de tous les modules et qui inclu tous les termes de tous les modules et qui soit inséré à la fin de chaque module.
+on travaille sur le module :
+ai4se6d_gensem
 
-vérifie CHOP entre autre 
---
+La Spécifications de la méthodologie GSE Est ici :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/github/gensem/gse-one-spec.md 
 
---
-Peux-tu inspecter le déploiement des manuels utilisateurs de Librairie car j'ai ajouté l'installation du paquet latex je voudrais être sûre qu'il a installé une seule fois, car tous les manuels apparemment utilisent la même copie du container. Vérifie, fais-moi un rapport, ne touche rien.
---
 
---
+On va traiter les propositions une par une.
+Pour chaque proposition:
+- rappel le problème
+- donne ta ou tes propositions si nécessaire et pour chaque proposition tu donnes:
+- la description
+- les avantages 
+- les inconvénients éventuels
 
---
+Tu demandes confirmation ou tu proposes de répondre à des questions si souhaité.
 
---
+Ne touche à rien.
 
---
 
---
 
---
+--------
+dans le bloc Design Philosophy, Peux-tu vérifier et m'expliquer ce point ::
+Artifact-Driven Composition
+5 independent phases, composable not sequential
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+--------
 
---
+The Methodological Landscape
 
---
+--------
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_gensem,*.py
 
---
+--------
 
---
+--------
+15% Pass@1 improvement with FlowGen structured process
+Peux-tu faire une recherche sur Internet pour regarder dans le contenu de cet article si ces informations sont scientifiquement correctes
 
---
+--------
 
---
+--------
+Je retrouve beaucoup de redondance dans toutes ces sections
 
---
+    2.7 Requirements Engineering: Transformed
+    2.8 Testing: Structured Process Matters
+    2.9 3 Paradigms of Code Generation
+    2.10 RCT 1 — Peng et al. (2023)
+    2.11 RCT 2 — Cui et al. (2024)
+    2.12 RCT 3 — METR (2025)
+    2.13 The Productivity Paradox
+    2.14 The Perception-Reality Gap
+    2.15 Five Developer Surveys
+    2.16 The AI Paradox
+    2.17 The 160,000-Developer Study
+    2.18 Why Process Matters
+    2.19 Fowler's Warning
+    2.20 Junior vs Senior: The Contradictions
+    2.21 Evidence Synthesis
+    2.22 The Homogenization Effect
+    
 
---
+À mon avis, tu peux supprimer les block suivants
+   2.10 RCT 1 — Peng et al. (2023)
+    2.11 RCT 2 — Cui et al. (2024)
+    2.12 RCT 3 — METR (2025)
+    
+Par ailleurs, fais en sorte que les titres de niveau un et deux apparaissent dans la liste des marqueurs
 
---
+
+    
+--------
+ vérifie que tous les tooltip ont cette phrase en début plus le reste si utile
+--------
+
+Tu peux les supprimer et éventuellement tu peux mettre le logo bouclier GTS INLINE devant T1, T2 ,... pour indiquer quelles sont spécifiquement adaptées à l'ingéniérie générative.
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_gensem/static/images/managed/GSE/images/logo-gse-shield-icon.webp
+
+Ce n'est pas possible de mettre une image inline alors tu trouves un émoticône adapté.
+
+
+Pour info, la solution pour ne pas avoir le scroll automatique, c'est une des deux suivantes, les deux fonctionnent:
+
+
+A)
+
+def build():
+    # First sub-slide: needs trailing space to prevent auto-scroll
+    toc_lvl = "1"
+    st_slide_break(marker_label="GenAI Critical Tasks")
+
+    # Remaining sub-slides
+    for task in _TASKS[0:]:
+        _render_task(task, toc_lvl="+1")
+        st_slide_break()
+
+
+def build():
+    # First sub-slide: needs trailing space to prevent auto-scroll
+    toc_lvl = "1"
+    
+    st_write(
+        bs.heading,
+        "GenAI Critical Tasks",
+        tag=t.div,
+        toc_lvl=toc_lvl,
+        marker=True,
+    )
+
+    # Remaining sub-slides
+    for task in _TASKS[0:]:
+        _render_task(task, toc_lvl="+1")
+        st_slide_break()
+        
+
+--------
+
+
+
+--------
+Pourquoi as-tu choisi de faire un slide spécifique pour les éléments
+T1, T2,T5,T13,T14 et pas pour les autres ?
+
+    toc_lvl = "1"
+    st_slide_break()
+    st_write(
+        bs.heading,
+        "GenAI Critical Tasks",
+        tag=t.div,
+        toc_lvl=toc_lvl,
+        marker=True,
+    )
+
+
+--------
+def build():
+    # First sub-slide: needs trailing space to prevent auto-scroll
+    toc_lvl = "1"
+    _render_task(_TASKS[0], toc_lvl=toc_lvl)
+    st_space("v", "30vh")
+    st_slide_break()
+
+    # Remaining sub-slides
+    for task in _TASKS[1:]:
+        _render_task(task, toc_lvl="+1")
+        st_slide_break()
+
+
+--------
+Pourquoi as-tu défini un style 64pt html alors que je t'ai dit d'utiliser les styles de la Librairie Streamtex qui possède déjà tous les styles pour toutes les tailles de POLICE.
+
+--------
+Peux-tu donner la taille de :
+GSE-One — Built by AI. Governed by Humans.
+
+--------
+Tu n'as pas résolu le problème du scroll automatique. Ça ça passe toujours de T1 à T2 au lieu de rester sur T1.
+
+--------
+Tu n'as pas diviser par deux, la taille du rectangle pour l'affichage de la vidéo !
+--------
+Attention, tu n'as pas résolu le problème de scroll automatique.
+Par exemple, pour le bloc qui commence "T1 — Intent Specification" 
+Il y a un scroll direct qui va jusqu'à "T2 — Context Engineering"
+
+Par exemple, tu veux consulter dans le module "ai4se6d_vibecoding"
+Le bloc qui commence par "How Much of Your Code Is AI-Generated?" et dans le bloc, cela ne scroll pas au deuxième Slide break.
+--------
+Pour chacune des cellules des "Core Tasks"
+Tu peux la décomposé en deux lignes avec la première ligne, le titre, et la deuxième la description, par exemple  cette cellule :
+
+"
+T1 Intent Specification — Formulate WHAT to build, not HOW
+"
+
+Devrait décomposer en une cellule sur deux lignes :
+Première ligne, avec un fond d'une couleur, un peu différente :
+T1 Intent Specification
+Seconde ligne avec :
+Formulate WHAT to build, not HOW
+
+Bien entendu avec une conception qui assure une visibilité lorsqu'on réduit la largeur de la fenêtre.
+
+--------
+Oui, mais je ne suis pas d'accord avec ta décomposition pour enlever les slide break dans les blocs. Regarde dans les autres modules, mais j'avais trouvé la solution. Sinon on va se retrouver avec des centaines de blocs alors que justement le but c'est de regrouper des slides qui seront toujours groupés ensemble dans un bloc et de les séparer par des slide break.
+
+
+--------
+
+Avec l'approche de la Librairie Streamtex il est justement prévu d'utiliser des guidelines pour s'assurer d'une cohérence dans la conception des slides.
+Tous les modules ont leur fichier et normalement ils doivent être cohérents entre eux.
+Par exemple, il y a celui-ci :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_genai_intro/custom/design-guideline.md
+
+Peux-tu inspecter tous les fichiers de guidelines des différents modules et m'expliquer pourquoi tu n'en as pas fait un pour ce module ? Ensuite propose-moi donc qu'on se voir et réaliser un qui soit cohérent et complet par rapport aux modules existants.
+
+--------
+
+- diminue la video et la taille du titre du madule de 50%
+- mets la video en play start automatic + loop play
+- mets les 15 core tasks sur  3 slides avec 1 groupe par slides 
+chaque intent sur une seule ligne 
+tu as mis 1,2,13,14 de la même couleur donc si cela forme un groupe 
+donne le nom en sous titre su slide,TRANSFORMED)
+- pourquoi as tu pris une fonte de 450pt pour "NEW — PRIMARY SKILL" et les autres,
+tu dois avoir conscience du rendru visuel de tes choix et ne pas faire ce type d'abération
+- l'image de 'Implementer → Orchestrator" doit être centrée.
+Ici aussi c'est une règle de conception graphique de base quant un slide contient uniquement une image bien entendu qu'il faut la centrer. Tu devrais avoir des guides de conception graphique STANDARD et universel, que tu devrais appliquer par défaut, sans que j'ai besoin de te le dire.
+
+- attention, nous avons le problème que chaque fois que tu commences un bloc, il y a un scroll automatique vers le deuxième slide break.
+Regarde dans les autres modules, nous avions résolu le problème. Par exemple quand je passe du marqueur de la section  2 "T14 — Knowledge Curation", 
+Il affiche la section     2.3 Implementer → Orchestrator une seule seconde avant de scroller automatiquement vers la section  2.4 What This Changes For You, alors qu'il ne devrait pas scroller automatiquement.
+idem pour le passage à "Requirements Engineering: Transformed" 
+- pour 
+"238 papers" ici aussi tu fais le mauvais choix de communication, afficher le nombre d'articles, mais pas forcément l'information clé sur le contenu de cette étude, par ailleurs tu as tendance à mettre en caractère énorme des informations peu significatives. De plus, le tout le tooltype "RE & GenAI (Cheng et al.)" N'est pas bien positionné, il est encore coupé sur la droite. Regarde dans l'autre module. Nous avions résolu ce problème.
+
+- encore une taille énorme pour ce texte "+15% quality" je ne comprends pas pourquoi, tu utilises à si souvent cette taille qui est catastrophique d'un point de vue visuel, il faut vraiment l'utiliser très très très rarement et uniquement pour des choses fondamentales.
+
+- en ce qui concerne tooltip ils doivent contenir une information permettant de déduire et d'avoir un lien réfléchi avec le slide. Par exemple pour le "Testing: Transformed" nulle part, ni dans le contenu du slide, ni dans le hoover du toot" on ne voit la relation avec le testing et le pourcentage explicitement.
 

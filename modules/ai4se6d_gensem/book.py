@@ -17,7 +17,9 @@ from custom.styles import Styles as s
 from custom.themes import dark
 from custom.config import IS_EXPORTABLE
 
-_doc_version = tomllib.loads((Path(__file__).parent.parent.parent / "pyproject.toml").read_text()).get("project", {}).get("version", "?")
+_doc_version = tomllib.loads(
+    (Path(__file__).parent.parent.parent / "pyproject.toml").read_text()
+).get("project", {}).get("version", "?")
 import streamtex.styles as sts
 import blocks
 
@@ -31,7 +33,7 @@ stx.set_static_sources([
 
 # Page configuration
 st.set_page_config(
-    page_title="GenSEM — Generative Software Engineering Methods",
+    page_title="GSE-One — Generative Software Engineering",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -56,7 +58,7 @@ set_ai_image_config(AIImageConfig(
 
 # Presentation mode (fullscreen 16/9)
 set_presentation_config(PresentationConfig(
-    title="GenSEM — Generative Software Engineering Methods",
+    title="GSE-One — Generative Software Engineering",
     aspect_ratio="16/9",
     footer=True,
     center_content=False,
@@ -66,10 +68,12 @@ set_presentation_config(PresentationConfig(
 
 # Slide breaks
 set_slide_break_config(SlideBreakConfig(
-    mode=SlideBreakMode.HIDDEN,
+    mode=SlideBreakMode.FULL,
     space="1vh",
+    space_before="30vh",
     rule_margin_top="1vh",
     rule_margin_bottom="1vh",
+    marker_hidden=False,
 ))
 
 # Table of Contents
@@ -84,14 +88,14 @@ toc = TOCConfig(
 
 # Navigation
 marker_config = MarkerConfig(
-    auto_marker_on_toc=1,
+    auto_marker_on_toc=0,
     next_keys=["PageDown", "ArrowRight"],
     prev_keys=["PageUp", "ArrowLeft"],
     draggable=True,
     collapsible=True,
 )
 
-# ── Bibliography ─────────────────────────────────────────────────────
+# Bibliography
 set_bib_config(BibConfig(
     format=BibFormat.APA,
     citation_style=CitationStyle.AUTHOR_YEAR,
@@ -100,222 +104,173 @@ set_bib_config(BibConfig(
     sort_by="author",
 ))
 
-# Orchestrate slides — v2 (~132 blocks, ~150 slides, ~3h)
+# ── Orchestrate slides ──────────────────────────────────────────────
 st_book(
     [
         # ═══════════════════════════════════════════════════════════════
-        # OPENING (4 blocks)
-        # ═══════════════════════════════════════════════════════════════
-        blocks.bck_gensem_title,
-        blocks.bck_gensem_session_map,              # 3-parts journey overview
-        blocks.bck_gensem_objectives,
-        blocks.bck_gensem_day1_recall,               # Days 1-2 recap
-
-        # ═══════════════════════════════════════════════════════════════
-        # PART 1 — LE MÉTIER DU GENERATIVE SE (25 blocks)
+        # SESSION 1 — "Why a method? From chaos to discipline"
         # ═══════════════════════════════════════════════════════════════
 
-        # Sequence 1.1: Comment le SDLC change
-        blocks.bck_gensem_sdlc_title,
-        blocks.bck_gensem_sdlc_gravity,              # NEW — shifting center of gravity
-        blocks.bck_gensem_sdlc_15tasks,              # NEW — 15 core tasks taxonomy
-        blocks.bck_gensem_sdlc_re,                   # NEW — RE transformed (238 articles)
-        blocks.bck_gensem_sdlc_phases,               # v1 enriched — 6 SDLC phases impact
-        blocks.bck_gensem_sdlc_codegen,              # NEW — 3 paradigms (CHOP/VC/VE)
-        blocks.bck_gensem_sdlc_testing,              # NEW — 102 studies, FlowGen
-        blocks.bck_gensem_sdlc_spectrum,             # v1 — 4-level spectrum
-        blocks.bck_gensem_sdlc_evidence,             # v1 — tool alone vs tool+process
+        # ── Opening ─────────────────────────────────────────────────
+        blocks.bck_gensem_title,                    # Module hero title
+        blocks.bck_gensem_objectives,               # 5 learning objectives (Bloom)
+        blocks.bck_gensem_day1_recall,              # Days 1-2 recall bridge
 
-        # Sequence 1.2: 15 concepts fondamentaux
-        blocks.bck_gensem_concepts_title,            # NEW — section title
-        blocks.bck_gensem_concepts_interaction,      # NEW — Layer 1 (C1-C3)
-        blocks.bck_gensem_concepts_knowledge,        # NEW — Layer 2 (C4-C8)
-        blocks.bck_gensem_concepts_execution,        # NEW — Layer 3 (C9-C14)
-        blocks.bck_gensem_concepts_ecosystem,        # NEW — Layer 4 (C15)
-        blocks.bck_gensem_concepts_insight,          # NEW — process insight
-        blocks.bck_gensem_concepts_community,        # NEW — 9K+/800+/16.6K+ stats
-        blocks.bck_gensem_concepts_convergence,      # NEW — universal convergence
+        # ── T1 Séq 1.1 — The SDLC Transformed ─────────────────────
+        blocks.bck_gensem_sdlc_title,               # GSE-One promo video
+        ## ── P1 — Practice: Free Discovery of GSE-One ──────────────
+        blocks.bck_gensem_practice_p1,              # Briefing + Timer + Debrief (3 slides)
+        blocks.bck_gensem_sdlc_gravity,             # Shifting Center of Gravity
+        blocks.bck_gensem_sdlc_15tasks,             # NEW / ELEVATED / TRANSFORMED (4 slides)
+        blocks.bck_gensem_sdlc_spectrum,            # 4 levels: VibeCoding → VibeEngineering
+        blocks.bck_gensem_sdlc_orchestrator,        # Implementer → Orchestrator + 3 pillars
+        blocks.bck_gensem_sdlc_paradigms,           # RE + Testing + 3 Paradigms → GSE-One
+        blocks.bck_gensem_sdlc_phases,              # 6 SDLC phases × GenAI impact
+        blocks.bck_gensem_sdlc_evidence,            # Tool alone vs Tool + Process
 
-        # Sequence 1.3: Le facteur humain
-        blocks.bck_gensem_human_title,               # NEW — section title
-        blocks.bck_gensem_human_11types,             # NEW — 11 interaction types
-        blocks.bck_gensem_sdlc_human,                # v1 — roles evolution
-        blocks.bck_gensem_human_junior_senior,       # NEW — Cui vs METR vs Daniotti
-        blocks.bck_gensem_human_creativity,          # NEW — homogenization
-        blocks.bck_gensem_human_fowler,              # NEW — Fowler warning
-        blocks.bck_gensem_human_discussion,          # NEW — discussion moment
+        # ── T1 Séq 1.2 — Empirical Evidence ───────────────────────
+        blocks.bck_gensem_evidence_rcts,            # The Productivity Paradox (synthesis image)
+        blocks.bck_gensem_evidence_perception,      # Perception vs Reality gap
+        blocks.bck_gensem_evidence_enterprise,      # 10%/25-30% + Fowler + Junior/Senior (3 slides)
+        #blocks.bck_gensem_evidence_synthesis,        # 3 takeaways + Homogenization (2 slides)
 
-        # ═══════════════════════════════════════════════════════════════
-        # PART 2 — L'ÉVIDENCE EMPIRIQUE (14 blocks)
-        # ═══════════════════════════════════════════════════════════════
-        blocks.bck_gensem_evidence_title,            # NEW
-        blocks.bck_gensem_evidence_peng,             # NEW — RCT 1: +55.8%
-        blocks.bck_gensem_evidence_cui,              # NEW — RCT 2: 4,867 devs
-        blocks.bck_gensem_evidence_metr,             # NEW — RCT 3: -19%
-        blocks.bck_gensem_evidence_paradox,          # NEW — Cui vs METR
-        blocks.bck_gensem_evidence_perception,       # NEW — perception-reality gap
-        blocks.bck_gensem_evidence_surveys,          # NEW — 5 developer surveys
-        blocks.bck_gensem_evidence_daniotti,         # NEW — 160K GitHub devs
-        blocks.bck_gensem_evidence_paradox_ai,       # NEW — 7h/week AI paradox
-        blocks.bck_gensem_evidence_enterprise,       # NEW — 10% vs 25-30%
-        blocks.bck_gensem_evidence_fowler,           # NEW — Fowler quote
-        blocks.bck_gensem_evidence_synthesis,        # NEW — 3 takeaways
-        blocks.bck_gensem_evidence_discussion,       # NEW — discussion
-        blocks.bck_gensem_evidence_transition,       # NEW — transition
+        # ── T1 Séq 1.3 — Risks ────────────────────────────────────
+        blocks.bck_gensem_risks,                    # 6 risk cards + More AI ≠ fix + Gap (3 slides)
+
+        # ── T1 Séq 1.4 — Methodological Frameworks ────────────────
+        blocks.bck_gensem_fw_landscape,             # 3 categories overview
+        blocks.bck_gensem_fw_agilegen,              # AgileGen (Zhang 2025)
+        blocks.bck_gensem_fw_agenticdevops,         # Agentic DevOps (Microsoft)
+        blocks.bck_gensem_fw_se30,                  # SE 3.0 (Hassan) — 5 characteristics
+        blocks.bck_gensem_fw_vbounce,               # V-Bounce (Hymel 2024)
+        blocks.bck_gensem_fw_promptware,            # Promptware Engineering (Chen 2025)
+        blocks.bck_gensem_fw_synthesis,             # Comparison table (8 frameworks)
+        blocks.bck_gensem_roadmap,                  # Enterprise roadmap 2025-2030
+        blocks.bck_gensem_sota_takeaway,            # 3 takeaways → GSE-One transition
+
+        # ── P1 — Practice: Free Discovery of GSE-One ──────────────
+        blocks.bck_gensem_practice_p1,              # Briefing + Timer + Debrief (3 slides)
 
         # ═══════════════════════════════════════════════════════════════
-        # PART 3 — FRAMEWORKS MÉTHODOLOGIQUES (30 blocks)
+        # SESSION 2 — "Discover and plan before building"
         # ═══════════════════════════════════════════════════════════════
-        blocks.bck_gensem_frameworks_title,
-        blocks.bck_gensem_fw_landscape,              # NEW — 3-category landscape
-        blocks.bck_gensem_fw_overview,               # v1 — overview table
 
-        # AgileGen (3 slides)
-        blocks.bck_gensem_fw_agilegen,               # v1 — concept + Gherkin
-        blocks.bck_gensem_fw_agilegen_memory,        # NEW — memory pool + frustrations
-        blocks.bck_gensem_fw_agilegen_roadmap,       # NEW — research roadmap
+        # ── T2 Séq 2.1 — Philosophy & 80/20 ───────────────────────
+        blocks.bck_gensem_ce_philosophy,            # 80/20 rule + artifact-driven composition
+        blocks.bck_gensem_ce_8020_example,          # FreeSelfApp Day 1 recall
+        blocks.bck_gensem_method_vs_vibecoding,     # GSE-One vs VibeCoding comparison
 
-        # Agentic DevOps (1 slide)
-        blocks.bck_gensem_fw_agenticdevops,          # v1 — Microsoft vision
+        blocks.bck_gensem_t2_agile_bridge,         # Agile → GSE-One concept mapping
 
-        # SE 3.0 (3 slides)
-        blocks.bck_gensem_fw_se30,                   # v1 — overview + 5 characteristics
-        blocks.bck_gensem_fw_se30_intent,            # NEW — intent + conversation
-        blocks.bck_gensem_fw_se30_adaptive,          # NEW — adaptive + multi-objective
+        # ── T2 Séq 2.2 — Lifecycle & HUG ──────────────────────────
+        blocks.bck_gensem_t2_philosophy,            # 6 Principles + Lifecycle + HUG + 3 Modes + GPS/Map (6 slides)
+        blocks.bck_gensem_ce_five_phases,           # 5-phase CE lifecycle hero image
 
-        # V-Bounce (3 slides)
-        blocks.bck_gensem_fw_vbounce,                # v1 — concept
-        blocks.bck_gensem_fw_vbounce_diagram,        # NEW — V diagram annotated
-        blocks.bck_gensem_fw_vbounce_agents,         # NEW — 4 agent roles
+        # ── T2 Séq 2.3 — Commands & Agents ────────────────────────
+        blocks.bck_gensem_t2_commands,              # 23 commands + 9 agents + .gse/ + Session (4 slides)
+        blocks.bck_gensem_t2_cmd_status,            # /gse:status — Where Am I?
+        blocks.bck_gensem_t2_cmd_pause_resume,      # /gse:pause + /gse:resume — Session continuity
+        blocks.bck_gensem_t2_cmd_task,              # /gse:task — Ad-hoc work & spikes
+        blocks.bck_gensem_t2_cmd_backlog,           # /gse:backlog — Unified work items
 
-        # Promptware Engineering (2 slides)
-        blocks.bck_gensem_fw_promptware,             # v1 — concept
-        blocks.bck_gensem_fw_promptware_crisis,      # NEW — promptware crisis parallel
+        # ── P2 — Debriefing + Exploration .gse/ ───────────────────
+        blocks.bck_gensem_practice_p2,
 
-        # Multi-Agent SE (6 slides)
-        blocks.bck_gensem_fw_multiagent_title,       # NEW — section title
-        blocks.bck_gensem_fw_multiagent_sop,         # NEW — Category 1: SOP-Driven
-        blocks.bck_gensem_fw_multiagent_conv,        # NEW — Category 2: Conversational
-        blocks.bck_gensem_fw_multiagent_aci,         # NEW — Category 3: ACI
-        blocks.bck_gensem_fw_multiagent_ide,         # NEW — Category 4: Integrated IDEs
-        blocks.bck_gensem_fw_multiagent_insight,     # NEW — process discipline insight
+        # ── T3 Séq 3.1-3.2 — COLLECT + ASSESS ────────────────────
+        blocks.bck_gensem_t3_discovery,             # COLLECT + ASSESS + PLAN + Worktrees (4 slides)
 
-        # Synthesis + Risks + Roadmaps (5 slides)
-        blocks.bck_gensem_fw_synthesis,              # v1 — comparison table (fix labels)
-        blocks.bck_gensem_risks_overview,            # NEW — 6 risk categories
-        blocks.bck_gensem_roadmap,                   # v1 — enterprise forecasts
-        blocks.bck_gensem_fw_multiagent,             # v1 — compact overview (optional)
-        blocks.bck_gensem_sota_takeaway,             # v1 — 3 takeaways
+        # ── T3 Séq 3.3 — PLAN deep-dive ───────────────────────────
+        blocks.bck_gensem_ce_brainstorm_plan,       # Brainstorm & Plan phases detail
+        blocks.bck_gensem_ce_plan_antipattern,      # Plan = contract DON'T/DO
+        blocks.bck_gensem_ce_plan_artifact,         # plan.md example with tasks
+        blocks.bck_gensem_t3_frontmatter,           # YAML frontmatter: traceability in practice
 
-        # ═══════════════════════════════════════════════════════════════
-        # PART 4 — COMPOUND ENGINEERING (35 blocks)
-        # ═══════════════════════════════════════════════════════════════
-        blocks.bck_gensem_ce_title,
+        # ── T3 Séq 3.4 — Worktrees & Git ──────────────────────────
+        blocks.bck_gensem_ce_git_profiles,          # 3 Git workflow profiles
+        blocks.bck_gensem_ce_git_mapping,           # Phase → git operation mapping
 
-        # Philosophy (3 slides)
-        blocks.bck_gensem_ce_philosophy,
-        blocks.bck_gensem_ce_8020_example,           # NEW — FreeSelfApp contrast
-        blocks.bck_gensem_ce_five_phases,
+        # ── P3 — Sprint Planning on CalcApp ────────────────────────
+        blocks.bck_gensem_practice_p3,
 
-        # Brainstorm (3 slides)
-        blocks.bck_gensem_ce_brainstorm_plan,        # v1 — concept
-        blocks.bck_gensem_ce_brainstorm_artifact,    # NEW — example output
-        blocks.bck_gensem_ce_brainstorm_antipattern, # NEW — DON'T/DO
+        # ── T4 — Decisions, Risks & AI Integrity ──────────────────
+        blocks.bck_gensem_t4_decisions,             # P7 + P8 + P11 + P15-P16 + P4 + P13 (6 slides)
 
-        # Plan (3 slides)
-        blocks.bck_gensem_ce_plan_artifact,          # NEW — example plan
-        blocks.bck_gensem_ce_plan_antipattern,       # NEW — vague plan anti-pattern
-
-        # Work (2 slides)
-        blocks.bck_gensem_ce_work_review,            # v1 — concept
-        blocks.bck_gensem_ce_work_guardrails,        # NEW — 3 guardrails
-
-        # Review (2 slides)
-        blocks.bck_gensem_ce_review_nversion,        # NEW — n-version verification
-
-        # Compound (3 slides)
-        blocks.bck_gensem_ce_compound,               # v1 — 4 outputs
-        blocks.bck_gensem_ce_compound_flywheel,      # NEW — knowledge flywheel
-
-        # Architecture + Git (4 slides)
-        blocks.bck_gensem_ce_toolsupport,
-        blocks.bck_gensem_ce_git_profiles,
-        blocks.bck_gensem_ce_git_mapping,            # NEW — phase-to-Git table
-
-        # Specialization (4 slides)
-        blocks.bck_gensem_ce_specialization,
-        blocks.bck_gensem_ce_spec_5types,            # NEW — 5 types
-        blocks.bck_gensem_ce_spec_research,          # NEW — CE as research platform
-
-        # Orchestration + Preview (2 slides)
-        blocks.bck_gensem_ce_demo_preview,
-
-        # Exercise + Transition (3 slides)
-        blocks.bck_gensem_ce_exercise_compound,      # NEW — hands-on exercise
-        blocks.bck_gensem_ce_transition,
+        # ── P4 — Decision Classification ───────────────────────────
+        blocks.bck_gensem_practice_p4,
 
         # ═══════════════════════════════════════════════════════════════
-        # PART 5 — CALCAPP v0.3 ACTIVITIES (10 blocks)
+        # SESSION 3 — "Build with discipline"
         # ═══════════════════════════════════════════════════════════════
-        blocks.bck_gensem_calcapp_title,
-        blocks.bck_gensem_calcapp_recap,
-        blocks.bck_gensem_calcapp_v03_overview,
-        blocks.bck_gensem_calcapp_fr_example,        # NEW — FR-001 full example
-        blocks.bck_gensem_calcapp_nfr_example,       # NEW — NFR-002 full example
-        blocks.bck_gensem_calcapp_v03_ce_mapping,
-        blocks.bck_gensem_calcapp_v03_traceability,
-        blocks.bck_gensem_calcapp_v03_prompts,
-        blocks.bck_gensem_calcapp_discussion,        # NEW — discussion before practice
-        blocks.bck_gensem_calcapp_v03_handover,
+
+        # # ── T5 Séq 5.1 — Requirements ─────────────────────────────
+        # blocks.bck_gensem_t5_requirements,          # REQS + DESIGN + PREVIEW + Traceability (3 slides)
+        # blocks.bck_gensem_calcapp_fr_example,       # FR-001 full Given/When/Then example
+        # blocks.bck_gensem_calcapp_nfr_example,      # NFR-002 WCAG accessibility example
+
+        # # ── T5 Séq 5.2 — Preview ──────────────────────────────────
+        # blocks.bck_gensem_t5_cmd_preview,           # /gse:preview — See before building
+
+        # # ── T5 Séq 5.4 — Traceability ─────────────────────────────
+        # blocks.bck_gensem_calcapp_v03_traceability, # Traceability chain + 78 tests
+        # blocks.bck_gensem_calcapp_v03_prompts,      # Good vs Bad prompting strategy
+
+        # # ── P5 — Requirements & Design on CalcApp ──────────────────
+        # blocks.bck_gensem_practice_p5,
+
+        # # ── T6 Séq 6.1-6.2 — PRODUCE + TESTS ─────────────────────
+        # blocks.bck_gensem_t6_engineering,           # PRODUCE + TESTS + REVIEW + FIX (5 slides)
+        # blocks.bck_gensem_ce_work_guardrails,       # Scope enforcement + test-first
+
+        # # ── T6 Séq 6.3 — REVIEW ───────────────────────────────────
+        # blocks.bck_gensem_ce_review_nversion,       # N-version verification analogy
+
+        # # ── P6 — Produce + Test + Review on CalcApp ────────────────
+        # blocks.bck_gensem_practice_p6,
 
         # ═══════════════════════════════════════════════════════════════
-        # PART 6 — GENSEMONE METHOD (Day 5, 15 blocks)
+        # SESSION 4 — "Deliver, capitalize and master"
         # ═══════════════════════════════════════════════════════════════
-        blocks.bck_gensem_day5_bridge,               # NEW — Day 5 re-entry
-        blocks.bck_gensem_method_title,
-        blocks.bck_gensem_method_why,
-        blocks.bck_gensem_method_overview,
-        blocks.bck_gensem_method_step0,
-        blocks.bck_gensem_method_step0_filled,       # NEW — filled example
-        blocks.bck_gensem_method_step1,
-        blocks.bck_gensem_method_step1_output,       # NEW — output example
-        blocks.bck_gensem_method_step2,
-        blocks.bck_gensem_method_step3,
-        blocks.bck_gensem_method_step4_5,
-        blocks.bck_gensem_method_timeline,
-        blocks.bck_gensem_method_vs_vibecoding,
-        blocks.bck_gensem_method_adapt,              # NEW — customization exercise
-        blocks.bck_gensem_method_fallback,           # NEW — Plan B
-        blocks.bck_gensem_method_checklist,
 
-        # ═══════════════════════════════════════════════════════════════
-        # PART 7 — CE PLUGIN DEMO (Day 6, 12 blocks)
-        # ═══════════════════════════════════════════════════════════════
-        blocks.bck_gensem_plugin_title,
-        blocks.bck_gensem_plugin_architecture,
-        blocks.bck_gensem_plugin_demo_brainstorm,
-        blocks.bck_gensem_plugin_demo_plan,
-        blocks.bck_gensem_plugin_demo_work,
-        blocks.bck_gensem_plugin_demo_review,
-        blocks.bck_gensem_plugin_demo_compound,
-        blocks.bck_gensem_plugin_lfg,
-        blocks.bck_gensem_plugin_cursor,
-        blocks.bck_gensem_plugin_sync,
-        blocks.bck_gensem_plugin_exercise,           # NEW — micro-exercise
-        blocks.bck_gensem_plugin_takeaway,
+        # # ── T7 Séq 7.1-7.2 — DELIVER + COMPOUND ───────────────────
+        # blocks.bck_gensem_t7_delivery,              # DELIVER + COMPOUND + INTEGRATE (3 slides)
+        # blocks.bck_gensem_t7_cmd_health,            # /gse:health — 8-dimension dashboard
+        # blocks.bck_gensem_ce_compound,              # 4 compound outputs detail
+        # blocks.bck_gensem_ce_compound_flywheel,     # Knowledge flywheel progression
+        # blocks.bck_gensem_t7_cmd_deploy,            # /gse:deploy — From zero to live
 
-        # ═══════════════════════════════════════════════════════════════
-        # CLOSING (2 blocks)
-        # ═══════════════════════════════════════════════════════════════
-        blocks.bck_gensem_glossary,
-        blocks.bck_gensem_references,
+        # # ── P7 — Full Cycle on CalcApp ─────────────────────────────
+        # blocks.bck_gensem_practice_p7,
+
+        # # ── T8 Séq 8.1 — Plugin & Cross-Tool ──────────────────────
+        # blocks.bck_gensem_t8_advanced,              # Cross-tool + Learning + Project prep (3 slides)
+        # blocks.bck_gensem_t8_cmd_learn,             # /gse:learn — 3 modes + competency map (2 slides)
+        # blocks.bck_gensem_plugin_architecture,      # Plugin structure + 4 components
+        # blocks.bck_gensem_plugin_cursor,            # Claude Code vs Cursor comparison
+
+        # # ── T8 Séq 8.2 — Specializations ──────────────────────────
+        # blocks.bck_gensem_ce_specialization,        # Making GSE-One your own
+        # blocks.bck_gensem_ce_spec_5types,           # 5 types of specialization
+
+        # # ── T8 Séq 8.3 — Frameworks positioning ───────────────────
+        # blocks.bck_gensem_frameworks,               # Gaps + Comparison + Roadmap + Takeaways (5 slides)
+
+        # # ── T8 Séq 8.4 — Project Preparation ──────────────────────
+        # blocks.bck_gensem_t8_modes,                 # 3 modes comparison table (Micro/Lightweight/Full)
+
+        # # ── P8 — Autonomous Sprint ─────────────────────────────────
+        # blocks.bck_gensem_practice_p8,              # Feature selection + Go! (2 slides)
+
+        # # ── Closing ────────────────────────────────────────────────
+        # blocks.bck_gensem_method_checklist,         # Quick reference checklist
+        # blocks.bck_gensem_glossary,                 # 37+ terms glossary
+        # blocks.bck_gensem_references,               # Auto bibliography
     ],
     toc_config=toc,
     marker_config=marker_config,
     paginate=True,
     banner=BannerConfig.hidden(),
     page_width=90,
-    zoom=90,
+    zoom=80,
     bib_sources=[str(_shared_static / "references.bib")],
     exports=[
         ExportConfig(

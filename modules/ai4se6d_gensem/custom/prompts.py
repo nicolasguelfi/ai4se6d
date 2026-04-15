@@ -1,4 +1,4 @@
-"""Shared AI image generation prompts — graphic line for the project."""
+"""AI image generation prompt templates — consistent palette for GSE-One module."""
 
 AI_PREFIX = (
     "Minimalist digital illustration on a pure dark background (#1A1A2E). "

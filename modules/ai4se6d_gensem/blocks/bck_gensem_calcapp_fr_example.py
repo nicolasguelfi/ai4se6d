@@ -1,8 +1,9 @@
 """Slide — Example: FR-001 in Full Detail."""
-# @guideline: maximize-viewport
+# @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -37,11 +38,23 @@ so that I can correct mistakes.
 
 
 def build():
+    st_marker("FR-001: Given/When/Then")
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Example: FR-001 in Full Detail", tag=t.div, toc_lvl="1")
+        st_write(bs.heading, "Example: FR-001 in Full Detail", tag=t.div, toc_lvl="+1")
+        st_hover_tooltip(
+            title="FR-001 and GSE-One Principles",
+            entries=[
+                ("GSE-One principle", "Structured requirements with acceptance criteria -- output of /gse:assess."),
+                ("Traceability", "Each FR links to user story, acceptance criteria, priority, and test file."),
+                ("Given/When/Then", "Acceptance criteria use BDD format for unambiguous verification."),
+                ("MoSCoW priority", "Prioritization ensures the /gse:plan phase sequences work correctly."),
+            ],
+            scale="2vw", width="70vw", position="center",
+        )
         st_space("v", 0.5)
 
-        st_write(bs.body, (bs.label, "Complete functional requirement"), " with traceability:")
-        st_space("v", 0.5)
+        with st_zoom(120):
+            st_write(bs.body, (bs.label, "Complete functional requirement"), " with traceability:")
+            st_space("v", 0.5)
 
-        st_code(s.none, code=_FR001, language="markdown")
+            st_code(s.none, code=_FR001, language="markdown")

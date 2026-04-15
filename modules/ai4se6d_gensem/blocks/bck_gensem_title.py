@@ -1,10 +1,11 @@
 """Title slide — Generative Software Engineering Methods."""
-# @guideline: maximize-viewport
+# @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_LANDSCAPE as _SUFFIX
+from shared_widgets import st_hover_tooltip
 
 class BlockStyles:
     """Title slide styles."""
@@ -31,9 +32,19 @@ HERO_PROMPT = (
 )
 
 def build():
+    st_marker("GSE-One — Generative SE Methods")
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
             st_write(bs.title, "Generative Software Engineering Methods", tag=t.div, toc_lvl="1")
+            st_hover_tooltip(
+                title="Generative Software Engineering",
+                entries=[
+                    ("Generative SE", "Generative Software Engineering is the emerging discipline where AI agents generate artifacts while humans specify, orchestrate, validate, and capitalize."),
+                    ("GSE-One", "GSE-One is one methodology for this discipline \u2014 16 principles, 4 lifecycle stages, 23 commands, 9 agents. It illustrates the discipline and equips you to adapt to others."),
+                    ("4 Sessions", "This training teaches the discipline through GSE-One across 4 sessions of 3 hours each."),
+                ],
+                scale="2vw", width="70vw", position="center",
+            )
             st_image(
                 s.none,
                 width="80%",
@@ -44,5 +55,5 @@ def build():
                 ai_size="1536x1024",
             )
             st_space("v", 1)
-            st_write(bs.subtitle, "GenSEM \u2014 From VibeCoding to Disciplined Generative Engineering", tag=t.div)
-            st_write(bs.info, "Session 3 \u00b7 AI for Software Engineering", tag=t.div)
+            st_write(bs.subtitle, "GSE-One \u2014 From VibeCoding to Disciplined Generative Engineering", tag=t.div)
+            st_write(bs.info, "AI for Software Engineering \u2014 4 Sessions \u00d7 3h", tag=t.div)

@@ -1,8 +1,9 @@
-"""Slide — GenSEMOne vs Pure VibeCoding comparison."""
-# @guideline: maximize-viewport
+"""Slide — GSE-One vs Pure VibeCoding comparison."""
+# @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -16,7 +17,7 @@ class BlockStyles:
 bs = BlockStyles
 
 _ROWS = [
-    ("Requirements", '"Make me an app..."', "5\u20138 FRs with Given/When/Then"),
+    ("Requirements", '"Make me an app..."', "10++ FRs with Given/When/Then"),
     ("Planning", "None", "Architecture + todo list"),
     ("Testing", '"Does it look right?"', "Automated tests per FR"),
     ("Iteration", "Big bang", "One FR per cycle"),
@@ -27,40 +28,58 @@ _ROWS = [
 
 
 def build():
+    st_marker("GSE-One vs VibeCoding")
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "GenSEMOne vs Pure VibeCoding", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
-
         with st_grid(
-            cols="25% 37.5% 37.5%",
-            gap="8px",
-            cell_styles=s.project.containers.cell_pad_sm,
+            cols="95% 5%",
+            gap="0px",
+            cell_styles=s.project.containers.grid_cell_centered,
         ) as g:
-            # Header row
             with g.cell():
-                with st_block(s.project.containers.table_header_cell):
-                    st_write(s.project.titles.table_header, "Aspect")
+                st_write(bs.heading, "GSE-One vs Pure VibeCoding", tag=t.div, toc_lvl="+1")
             with g.cell():
-                with st_block(s.project.containers.table_header_cell):
-                    st_write(s.project.titles.table_header, "VibeCoding (Day 1)")
-            with g.cell():
-                with st_block(s.project.containers.table_header_cell):
-                    st_write(s.project.titles.table_header, "GenSEMOne (Day 5\u20136)")
+                st_hover_tooltip(
+                    title="GSE-One vs VibeCoding",
+                    entries=[
+                        ("VibeCoding", "Day 1 approach: no requirements, no planning, no review -- just prompts."),
+                        ("GSE-One", "Structured 5-phase method with requirements, planning, review, and knowledge retention."),
+                        ("Key difference", "GSE-One produces verified, documented apps; VibeCoding produces working prototypes (maybe)."),
+                        ("Recall", "Think back to FreeSelfApp on Day 1 to feel the contrast."),
+                    ],
+                    scale="2vw", width="70vw", position="left",
+                )
 
-            for aspect, vibe, gensem in _ROWS:
+        with st_zoom(90):
+            with st_grid(
+                cols="25% 37.5% 37.5%",
+                gap="8px",
+                cell_styles=s.project.containers.cell_pad_sm,
+            ) as g:
+                # Header row
                 with g.cell():
-                    with st_block(s.project.containers.table_normal_cell):
-                        st_write(s.project.titles.table_label, aspect)
+                    with st_block(s.project.containers.table_header_cell):
+                        st_write(s.project.titles.table_header, "Aspect")
                 with g.cell():
-                    with st_block(s.project.containers.table_normal_cell):
-                        st_write(s.project.titles.table_cell, vibe)
+                    with st_block(s.project.containers.table_header_cell):
+                        st_write(s.project.titles.table_header, "VibeCoding (Day 1)")
                 with g.cell():
-                    with st_block(s.project.containers.table_active_cell):
-                        st_write(s.project.titles.table_cell, gensem)
+                    with st_block(s.project.containers.table_header_cell):
+                        st_write(s.project.titles.table_header, "GSE-One (Day 5\u20136)")
 
-        st_space("v", 2)
-        with st_block(s.center_txt):
-            st_write(
-                bs.discussion,
-                "Think back to FreeSelfApp on Day 1. What would have been different?",
-            )
+                for aspect, vibe, gensem in _ROWS:
+                    with g.cell():
+                        with st_block(s.project.containers.table_normal_cell):
+                            st_write(s.project.titles.table_label, aspect)
+                    with g.cell():
+                        with st_block(s.project.containers.table_normal_cell):
+                            st_write(s.project.titles.table_cell, vibe)
+                    with g.cell():
+                        with st_block(s.project.containers.table_active_cell):
+                            st_write(s.project.titles.table_cell, gensem)
+
+            st_space("v", 2)
+            with st_block(s.center_txt):
+                st_write(
+                    bs.discussion,
+                    "Think back to FreeSelfApp on Day 1. What would have been different?",
+                )

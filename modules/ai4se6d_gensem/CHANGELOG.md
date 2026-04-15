@@ -20,7 +20,7 @@ GenSEM module — Generative Software Engineering Methods.
 - Part 4: Compound Engineering (35 blocks) — philosophy, brainstorm, plan, work, review, compound
 - Part 5: CalcApp v0.3 Activities (10 blocks) — FR/NFR examples, CE mapping, traceability
 - Part 6: GenSemOne Method (15 blocks) — 5-step method, timeline, vs vibecoding
-- Part 7: CE Plugin Demo (12 blocks) — architecture, demo phases, LFG, Cursor
+- Part 7: CE Plugin Demo (11 blocks) — architecture, demo phases, Cursor
 - Glossary and references blocks
 - CE review report and production plans
 - Bibliography with APA format and hover citations

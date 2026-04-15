@@ -1,8 +1,9 @@
 """Glossary — Comprehensive glossary of key terms used across all training modules."""
-# @guideline: maximize-viewport
+# @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -31,19 +32,22 @@ _ENTRIES = [
     ("AI", "Artificial Intelligence"),
     ("Automation Bias", "Tendency to over-rely on AI output, reducing critical review \u2014 especially risky for novices"),
     ("BDD", "Behavior-Driven Development \u2014 specifying behavior in Given/When/Then format"),
-    ("CE", "Compound Engineering \u2014 5-phase composable workflow (Brainstorm, Plan, Work, Review, Compound)"),
     ("CHOP", "Chat-Oriented Programming \u2014 multi-turn conversational interaction with LLMs (33-37% of interactions)"),
     ("CI/CD", "Continuous Integration / Continuous Deployment"),
+    ("Complexity Budget", "Sprint capacity measured in points \u2014 utility dep 1pt, framework 2-3pts, architectural 3-5pts. Warn at 80%, Gate at 100%"),
     ("Context Engineering", "Systematic management of all information fed to AI: rules, memory, tools, code. Replaces 'prompt engineering'"),
     ("Foundation Model", "Model pre-trained on very large datasets, adapted via fine-tuning or prompting"),
+    ("Gate", "High-risk decision requiring full analysis and human validation before proceeding"),
     ("GenAI", "Generative Artificial Intelligence \u2014 AI that creates new content rather than classifying existing data"),
     ("GenSEM", "Generative Software Engineering Methods \u2014 SE methodologies adapted for AI-assisted development"),
-    ("GenSEMOne", "Lightweight, Cursor-native GenSEM variant mapping CE principles to native IDE features"),
     ("GPT", "Generative Pre-trained Transformer"),
+    ("GSE-One", "Generative Software Engineering One \u2014 complete methodology with 16 principles, 4 lifecycle stages, 23 commands, 9 agents"),
     ("Hallucination", "AI generating plausible but incorrect output \u2014 includes package hallucinations (5.2-21.7%)"),
+    ("Health Dashboard", "8-dimension quality monitor: REQ Coverage, Test Pass, Design Debt, Findings, Budget, Traceability, Git Hygiene, AI Integrity"),
     ("HHH", "Helpful, Harmless, Honest \u2014 alignment criteria for LLMs"),
     ("Homogenization", "LLM-assisted solutions converging toward similar patterns, reducing diversity"),
     ("Hooks", "Event-triggered commands in AI tools for process enforcement (pre-commit checks, quality gates)"),
+    ("HUG", "Human Understanding Gathering \u2014 /gse:hug captures developer profile across 11 dimensions"),
     ("LLM", "Large Language Model \u2014 neural network trained on text to generate human-like language"),
     ("MAS", "Multi-Agent System \u2014 multiple AI agents collaborating on SE tasks"),
     ("MCP", "Model Context Protocol \u2014 open protocol connecting AI agents to external tools and data sources"),
@@ -60,20 +64,39 @@ _ENTRIES = [
     ("V&V", "Verification and Validation \u2014 ensuring software meets specs and user needs"),
     ("VibeCoding", "Developers describe intent to AI, accept generated code without close review (Karpathy, 2025)"),
     ("VibeEngineering", "Reintroducing systematic SE practices (requirements, TDD, architecture) to AI-assisted dev"),
+    ("Worktree", "Git worktree providing isolated working directory per task \u2014 main always stays stable"),
 ]
 
 
 def build():
+    st_marker("Glossary")
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Glossary", tag=t.div, toc_lvl="1")
+            with st_grid(
+                cols="95% 5%",
+                gap="0px",
+                cell_styles=s.project.containers.grid_cell_centered,
+            ) as g:
+                with g.cell():
+                    st_write(bs.heading, "Glossary", tag=t.div, toc_lvl="+1")
+                with g.cell():
+                    st_hover_tooltip(
+                        title="Glossary",
+                        entries=[
+                            ("Scope", "Covers all key terms from GenAI fundamentals through VibeCoding to GSE-One methodology."),
+                            ("Usage", "Reference this glossary when encountering unfamiliar acronyms or concepts in the training."),
+                            ("New in GSE-One", "Terms like Gate, Complexity Budget, Health Dashboard, HUG, and Worktree are GSE-One specific."),
+                        ],
+                        scale="2vw", width="70vw", position="left",
+                    )
         st_space("v", 1)
 
-        for term, definition in _ENTRIES:
-            st_write(
-                bs.definition,
-                (bs.term, term),
-                (bs.separator, " \u2014 "),
-                (bs.definition, definition),
-            )
-            st_space("v", 0.5)
+        with st_zoom(120):
+            for term, definition in _ENTRIES:
+                st_write(
+                    bs.definition,
+                    (bs.term, term),
+                    (bs.separator, " \u2014 "),
+                    (bs.definition, definition),
+                )
+                st_space("v", 0.5)

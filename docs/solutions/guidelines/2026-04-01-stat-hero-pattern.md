@@ -72,6 +72,21 @@ Whenever presenting data that contradicts common assumptions (paradoxes, declini
 - `ai4se6d_vibecoding/blocks/bck_vibecoding_danger_metr.py`
 - `ai4se6d_vibecoding/blocks/bck_vibecoding_danger_trust.py`
 
+## Anti-pattern: stat-hero abuse (2026-04-14)
+
+**Problem**: Using `stat_hero` / `s.Giant` / `s.GIANT` for non-statistical content such as status labels ("NEW — PRIMARY SKILL"), task descriptions, or section transitions. This produces 128-196pt text that is visually overwhelming and communicates nothing meaningful.
+
+**Rule**: `stat_hero` is ONLY for impactful numeric statistics (percentages, counts, durations). Status labels use `s.huge` (80pt) maximum. Body descriptions use `s.Large` (48pt).
+
+| Content type | Correct style | Size |
+|---|---|---|
+| Key statistic | `stat_hero` | 128-196pt |
+| Status label | `s.huge` | 80pt |
+| Body text | `s.Large` | 48pt |
+| Module title | `s.Huge` | 96pt |
+
+**Discovered in**: `ai4se6d_gensem` Sequence 1.1 — status labels for critical tasks (T1-T14) were rendered at 450pt, making the slides unreadable.
+
 ## Applicability
 
-Any presentation with impactful statistics. Should be a standard blueprint.
+Any presentation with impactful statistics. Should be a standard blueprint. Use sparingly — reserve for 1-2 slides per sequence, not every slide.

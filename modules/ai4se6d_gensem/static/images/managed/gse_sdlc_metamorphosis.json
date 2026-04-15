@@ -1,0 +1,18 @@
+{
+  "name": "gse_sdlc_metamorphosis",
+  "version": 1,
+  "timestamp": "2026-04-14T15:45:01.914040+00:00",
+  "source_type": "ai_generated",
+  "original_path": "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_gensem/static/images/ai/bd9cd3ccdf92842d.webp",
+  "prompt": "Minimalist digital illustration on a pure dark background (#1A1A2E). Flat vector style with soft gradients. Limited color palette: electric blue (#7AB8F5), teal (#2EC4B6), amber (#F39C12), white (#FFFFFF). Clean geometric shapes, no text, no watermarks, no photorealism. Ample negative space. Professional and modern aesthetic, suitable for tech conference projection. A developer silhouette on the left side writing code on a screen, morphing into a conductor silhouette on the right side directing an orchestra of glowing AI agents. The transition is a smooth gradient from blue to teal. A subtle arrow of light connects the two figures. No text, no letters, no words, no labels, no watermarks. 16:9 aspect ratio. Dark background #1A1A2E.",
+  "provider": "openai",
+  "model": null,
+  "size": "1536x1024",
+  "quality": "standard",
+  "base_image": null,
+  "revised_prompt": null,
+  "display_zoom": null,
+  "display_width": null,
+  "display_height": null,
+  "display_keep_ratio": true
+}

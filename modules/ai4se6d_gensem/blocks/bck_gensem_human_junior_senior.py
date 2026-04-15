@@ -1,9 +1,10 @@
 """Slide — Junior vs Senior: The Contradictions (3 studies)."""
-# @guideline: maximize-viewport
+# @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -43,29 +44,48 @@ _STUDIES = [
 
 
 def build():
+    st_marker("Junior vs Senior Impact")
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Junior vs Senior: The Contradictions", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
-
         with st_grid(
-            cols="repeat(auto-fit, minmax(280px, 1fr))",
-            gap="24px",
-            cell_styles=s.project.containers.cell_pad_md,
+            cols="95% 5%",
+            gap="0px",
+            cell_styles=s.project.containers.grid_cell_centered,
         ) as g:
-            for name, scope, bg, finding in _STUDIES:
-                with g.cell():
-                    with st_block(bg + s.project.containers.cell_pad_md):
-                        st_write(bs.card_title, name, tag=t.div)
-                        st_write(bs.card_sub, scope)
-                        st_space("v", 1)
-                        st_write(bs.body, finding)
+            with g.cell():
+                st_write(bs.heading, "Junior vs Senior: The Contradictions", tag=t.div, toc_lvl="+1")
+            with g.cell():
+                st_hover_tooltip(
+                    title="Junior vs Senior in AI-Assisted Development",
+                    entries=[
+                        ("Cui et al.", "Enterprise study: juniors gain +27-39%, seniors only +8-13%."),
+                        ("METR", "OSS study: seniors actually -19% slower on familiar code with AI."),
+                        ("Daniotti", "GitHub study: seniors capture ALL gains, juniors zero."),
+                        ("GSE-One link", "Structured process helps juniors bridge the gap; without it, experience dominates."),
+                    ],
+                    scale="2vw", width="70vw", position="left",
+                )
+        st_space("v", 1)
 
-        st_space("v", 1)
-        st_write(
-            bs.takeaway,
-            "The relationship is more nuanced than any single study suggests.",
-        )
-        st_space("v", 1)
-        st_write(bs.source, cite("cui-fieldexperiments2024"))
-        st_write(bs.source, cite("metr2025"))
-        st_write(bs.source, cite("daniotti-github2025"))
+        with st_zoom(120):
+            with st_grid(
+                cols="repeat(auto-fit, minmax(280px, 1fr))",
+                gap="24px",
+                cell_styles=s.project.containers.cell_pad_md,
+            ) as g:
+                for name, scope, bg, finding in _STUDIES:
+                    with g.cell():
+                        with st_block(bg + s.project.containers.cell_pad_md):
+                            st_write(bs.card_title, name, tag=t.div)
+                            st_write(bs.card_sub, scope)
+                            st_space("v", 1)
+                            st_write(bs.body, finding)
+
+            st_space("v", 1)
+            st_write(
+                bs.takeaway,
+                "The relationship is more nuanced than any single study suggests.",
+            )
+            st_space("v", 1)
+            st_write(bs.source, cite("cui-fieldexperiments2024"))
+            st_write(bs.source, cite("metr2025"))
+            st_write(bs.source, cite("daniotti-github2025"))
