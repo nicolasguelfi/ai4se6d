@@ -2,6 +2,12 @@
 
 Shared blocks and styles used across all ai4se6d modules.
 
+## [0.3.0] — 2026-04-15
+
+### Changed
+- `shared_widgets.py` updated for gensem integration
+- `references.bib` expanded with new GenSEM bibliography entries
+
 ## [0.2.1] — 2026-04-09
 
 ### Changed

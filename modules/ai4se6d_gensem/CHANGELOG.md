@@ -2,6 +2,31 @@
 
 GenSEM module — Generative Software Engineering Methods.
 
+## [0.3.0] — 2026-04-15
+
+### Added
+- Complete 4-session restructuring: T1–T8 themes with P1–P8 practice interleaving
+- 47 new blocks: command slides (23), practice blocks (8), theme blocks (T2–T8), evidence/risks/paradigms
+- T2: philosophy (6 slides), Agile bridge, HUG profile, commands & agents (4 slides)
+- T3: discovery (COLLECT/ASSESS/PLAN), frontmatter traceability
+- T4: decisions, risks & AI integrity (6 slides)
+- T5–T8: requirements, engineering, delivery, advanced (Sessions 3–4, staged)
+- Evidence restructuring: `evidence_rcts` (Productivity Paradox) and `evidence_reality` blocks
+- Risks block: 6 risk cards + "More AI ≠ fix" + Gap visualization
+- SDLC orchestrator and paradigms blocks
+- GSE logo assets, promo videos, deploy superhero videos
+- Design guideline configuration
+- Slide-break migration guide
+
+### Changed
+- book.py restructured into Session 1–4 with T1–T8 sequencing
+- 49 existing blocks refactored (style, layout, spacing, zoom, content)
+- Evidence blocks consolidated (Cui/METR/Peng → evidence_rcts + evidence_reality)
+- Multi-agent framework blocks consolidated into single `frameworks` block
+
+### Removed
+- 8 deprecated blocks: evidence_cui, evidence_metr, evidence_peng, fw_multiagent (×4), plugin_lfg
+
 ## [0.2.0] — 2026-04-08
 
 ### Changed
