@@ -163,11 +163,13 @@ st_book(
         blocks.bck_gensem_t2_agile_bridge,         # Agile → GSE-One concept mapping
 
         # ── T2 Séq 2.2 — Lifecycle & HUG ──────────────────────────
+        blocks.bck_gensem_t2_cmd_hug,               # /gse:hug — 13-dimension user profile
         blocks.bck_gensem_t2_philosophy,            # 6 Principles + Lifecycle + HUG + 3 Modes + GPS/Map (6 slides)
         blocks.bck_gensem_ce_five_phases,           # 5-phase CE lifecycle hero image
 
         # ── T2 Séq 2.3 — Commands & Agents ────────────────────────
         blocks.bck_gensem_t2_commands,              # 23 commands + 9 agents + .gse/ + Session (4 slides)
+        blocks.bck_gensem_t2_cmd_go,                # /gse:go — The Single Entry Point
         blocks.bck_gensem_t2_cmd_status,            # /gse:status — Where Am I?
         blocks.bck_gensem_t2_cmd_pause_resume,      # /gse:pause + /gse:resume — Session continuity
         blocks.bck_gensem_t2_cmd_task,              # /gse:task — Ad-hoc work & spikes
@@ -178,9 +180,12 @@ st_book(
 
         # ── T3 Séq 3.1-3.2 — COLLECT + ASSESS ────────────────────
         blocks.bck_gensem_t3_discovery,             # COLLECT + ASSESS + PLAN + Worktrees (4 slides)
+        blocks.bck_gensem_t3_cmd_collect,           # /gse:collect — What Do We Have?
+        blocks.bck_gensem_t3_cmd_assess,            # /gse:assess — What Is Missing?
 
         # ── T3 Séq 3.3 — PLAN deep-dive ───────────────────────────
         blocks.bck_gensem_ce_brainstorm_plan,       # Brainstorm & Plan phases detail
+        blocks.bck_gensem_t3_cmd_plan,              # /gse:plan — Plan at Every Level
         blocks.bck_gensem_ce_plan_antipattern,      # Plan = contract DON'T/DO
         blocks.bck_gensem_ce_plan_artifact,         # plan.md example with tasks
         blocks.bck_gensem_t3_frontmatter,           # YAML frontmatter: traceability in practice
@@ -204,6 +209,8 @@ st_book(
 
         # # ── T5 Séq 5.1 — Requirements ─────────────────────────────
         # blocks.bck_gensem_t5_requirements,          # REQS + DESIGN + PREVIEW + Traceability (3 slides)
+        # blocks.bck_gensem_t5_cmd_reqs,              # /gse:reqs — What Should It Do?
+        # blocks.bck_gensem_t5_cmd_design,            # /gse:design — How Should It Work?
         # blocks.bck_gensem_calcapp_fr_example,       # FR-001 full Given/When/Then example
         # blocks.bck_gensem_calcapp_nfr_example,      # NFR-002 WCAG accessibility example
 
@@ -219,10 +226,14 @@ st_book(
 
         # # ── T6 Séq 6.1-6.2 — PRODUCE + TESTS ─────────────────────
         # blocks.bck_gensem_t6_engineering,           # PRODUCE + TESTS + REVIEW + FIX (5 slides)
+        # blocks.bck_gensem_t6_cmd_tests,             # /gse:tests — How Do We Verify?
+        # blocks.bck_gensem_t6_cmd_produce,           # /gse:produce — Build It Right
         # blocks.bck_gensem_ce_work_guardrails,       # Scope enforcement + test-first
 
         # # ── T6 Séq 6.3 — REVIEW ───────────────────────────────────
         # blocks.bck_gensem_ce_review_nversion,       # N-version verification analogy
+        # blocks.bck_gensem_t6_cmd_review,            # /gse:review — Challenge Everything
+        # blocks.bck_gensem_t6_cmd_fix,               # /gse:fix — Fix What Was Found
 
         # # ── P6 — Produce + Test + Review on CalcApp ────────────────
         # blocks.bck_gensem_practice_p6,
@@ -233,9 +244,12 @@ st_book(
 
         # # ── T7 Séq 7.1-7.2 — DELIVER + COMPOUND ───────────────────
         # blocks.bck_gensem_t7_delivery,              # DELIVER + COMPOUND + INTEGRATE (3 slides)
+        # blocks.bck_gensem_t7_cmd_deliver,           # /gse:deliver — Ship the Sprint
         # blocks.bck_gensem_t7_cmd_health,            # /gse:health — 8-dimension dashboard
         # blocks.bck_gensem_ce_compound,              # 4 compound outputs detail
         # blocks.bck_gensem_ce_compound_flywheel,     # Knowledge flywheel progression
+        # blocks.bck_gensem_t7_cmd_compound,          # /gse:compound — What Did We Learn?
+        # blocks.bck_gensem_t7_cmd_integrate,         # /gse:integrate — Make It Stick
         # blocks.bck_gensem_t7_cmd_deploy,            # /gse:deploy — From zero to live
 
         # # ── P7 — Full Cycle on CalcApp ─────────────────────────────
