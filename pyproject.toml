@@ -4,7 +4,7 @@ version = "0.3.0"
 description = "AI4SE 6D — Training Collection (StreamTeX)"
 requires-python = ">=3.11"
 dependencies = [
-    "streamtex[cli,pdf,ai,inspector]>=0.3.0",
+    "streamtex[cli,pdf,ai,inspector]>=0.6.10",
     "streamlit>=1.54.0",
     "python-dotenv>=1.0.0",
     "plotly>=6.6.0",
