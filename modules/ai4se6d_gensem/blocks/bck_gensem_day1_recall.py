@@ -27,8 +27,7 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    with st_zoom(90):
-                        st_write(bs.heading, "Where We Left Off", tag=t.div, toc_lvl="+1")
+                    st_write(bs.heading, "Where We Left Off", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="Previous Sessions Recap",

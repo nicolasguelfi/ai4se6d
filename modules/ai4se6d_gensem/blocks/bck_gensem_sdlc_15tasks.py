@@ -122,8 +122,7 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    with st_zoom(90):
-                        st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
+                    st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
                     st_write(bs.sub_new, "4 NEW \u2014 Did not exist before GenAI")
                 with g.cell():
                     st_hover_tooltip(
@@ -151,8 +150,7 @@ def build():
                     cell_styles=s.project.containers.grid_cell_centered,
                 ) as g:
                     with g.cell():
-                        with st_zoom(90):
-                            st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
+                        st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
                         st_write(bs.sub_elev, "4 ELEVATED \u2014 Importance dramatically increased")
                     with g.cell():
                         st_hover_tooltip(
@@ -180,8 +178,7 @@ def build():
                     cell_styles=s.project.containers.grid_cell_centered,
                 ) as g:
                     with g.cell():
-                        with st_zoom(90):
-                            st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
+                        st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
                         st_write(bs.sub_trans, "7 TRANSFORMED \u2014 Traditional tasks, new nature (1/2)")
                     with g.cell():
                         st_hover_tooltip(
@@ -208,8 +205,7 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    with st_zoom(90):
-                        st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
+                    st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
                     st_write(bs.sub_trans, "7 TRANSFORMED \u2014 Traditional tasks, new nature (2/2)")
                 with g.cell():
                     st_hover_tooltip(

@@ -61,11 +61,10 @@ def build():
                     cell_styles=s.project.containers.grid_cell_centered,
                 ) as g:
                     with g.cell():
-                        with st_zoom(90):
-                            st_write(
-                            bs.heading, "Practice: Discover GSE-One",
-                            tag=t.div, toc_lvl="+1",
-                            )
+                        st_write(
+                        bs.heading, "Practice: Discover GSE-One",
+                        tag=t.div, toc_lvl="+1",
+                        )
                     with g.cell():
                         st_hover_tooltip(
                             title="Why free discovery?",
@@ -121,11 +120,10 @@ def build():
                     cell_styles=s.project.containers.grid_cell_centered,
                 ) as g:
                     with g.cell():
-                        with st_zoom(90):
-                            st_write(
-                            bs.heading, "Debrief: What Did You Experience?",
-                            tag=t.div, toc_lvl="+1",
-                            )
+                        st_write(
+                        bs.heading, "Debrief: What Did You Experience?",
+                        tag=t.div, toc_lvl="+1",
+                        )
                     with g.cell():
                         st_hover_tooltip(
                             title="Debrief — Mapping to GSE-One Concepts",
