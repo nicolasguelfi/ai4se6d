@@ -30,7 +30,7 @@ def build():
                 title="/gse:task \u2014 Outside the Standard Lifecycle",
                 entries=[
                     ("Ad-hoc task", "Execute a task outside the planned sprint. Creates branch + worktree, adds to backlog, consumes complexity budget. Reviewed during next /gse:review unless trivial (\u2264 1 pt)."),
-                    ("--spike option", "Exploratory experiment: max 3 pts, non-deliverable (branch deleted after), bypasses REQS/TESTS guardrails. MUST produce a DEC- artifact documenting question, approach, and answer."),
+                    ("--spike option", "Exploratory experiment on any artefact (code, docs, reorg, decision\u2026): produced work is discarded, only the DEC- decision survives. Max 3 pts, non-deliverable (branch deleted after), bypasses REQS/TESTS guardrails. MUST produce a DEC- artifact documenting question, approach, and answer."),
                     ("Spike for beginners", "Gate confirmation: 'This is an experiment \u2014 the code won't be kept. Are you sure?' Prevents confusion between spike and real work."),
                     ("If spike yields reusable code", "A normal TASK must be created to implement it properly with full REQS/TESTS. The spike DEC- artifact traces the origin."),
                     ("Cross-cutting", "Available at any phase. The orchestrator (/gse:go) may suggest a spike when it detects technical uncertainty."),
@@ -49,7 +49,7 @@ def build():
                         st_write(bs.body, "Added to backlog (TASK-)")
                         st_write(bs.body, "Consumes complexity budget")
                         st_write(bs.body, "Reviewed at next /gse:review")
-                        st_write(bs.body, "Delivered with sprint")
+                        st_write(bs.body, "Delivered with sprint \u2014 any artefact (code, docs, rename, \u2026)")
                 with g.cell():
                     with st_block(_cell_act):
                         st_write(bs.highlight, "/gse:task --spike")
@@ -58,4 +58,4 @@ def build():
                         st_write(bs.body, "Non-deliverable (branch deleted)")
                         st_write(bs.body, "Bypasses REQS/TESTS")
                         st_write(bs.body, "MUST produce DEC- artifact")
-                        st_write(bs.body, "Answers: \u201cIs this feasible?\u201d")
+                        st_write(bs.body, "Only the DEC- survives \u2014 whatever the artefact")
