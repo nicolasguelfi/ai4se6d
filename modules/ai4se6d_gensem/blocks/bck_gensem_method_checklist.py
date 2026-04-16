@@ -42,7 +42,7 @@ def build():
                 with l.item():
                     st_write(bs.body, (bs.step, "Step 1: "), "docs/requirements.md with FRs + NFRs")
                 with l.item():
-                    st_write(bs.body, (bs.step, "Step 2: "), "docs/plan.md with structure + todos")
+                    st_write(bs.body, (bs.step, "Step 2: "), ".gse/plan.yaml with tasks + complexity budget")
                 with l.item():
                     st_write(
                         bs.body,

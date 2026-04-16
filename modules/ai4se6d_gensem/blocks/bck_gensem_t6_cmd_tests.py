@@ -23,12 +23,12 @@ class BlockStyles:
 bs = BlockStyles
 
 _TEST_TYPES = [
-    ("Unit", "Individual functions in isolation", "DES, code"),
-    ("Integration", "Modules working together", "DES, REQ"),
-    ("E2E", "Complete user workflows", "REQ (stories)"),
-    ("Acceptance", "Requirement met (user view)", "REQ (criteria)"),
-    ("Visual", "UI rendering (screenshots)", "REQ (UI)"),
-    ("Regression", "Previously fixed bugs", "RVW"),
+    ("Unit", "verification", "Individual functions in isolation", "DES, code"),
+    ("Integration", "verification", "Modules working together", "DES, REQ"),
+    ("E2E", "validation", "Complete user workflows", "REQ (stories)"),
+    ("Visual", "validation", "UI rendering (screenshots)", "REQ (UI)"),
+    ("Acceptance", "validation", "Requirement met (user view)", "REQ (criteria)"),
+    ("Regression", "both", "Previously fixed bugs", "RVW"),
 ]
 
 
@@ -42,28 +42,34 @@ def build():
                 title="/gse:tests \u2014 Full Testing Lifecycle",
                 entries=[
                     ("Strategy", "Define test types, distribution (pyramid calibrated by domain), and risk-based prioritization."),
+                    ("Kind column", "verification = 'build the thing right' (traces to DES-). validation = 'build the right thing' (traces to REQ-). Regression = both."),
                     ("Environment", "Auto-detect framework from package manifest, install as dev dependency (pytest, vitest, etc.), configure runner."),
                     ("Visual testing", "For web/mobile: optional Playwright setup with screenshots, video on failure, visual regression."),
-                    ("Evidence", "Test results, coverage, screenshots saved to tests/evidence/sprint-NN/TASK-NNN/. Campaign report in report.md."),
+                    ("Evidence", "Test results, coverage, screenshots saved to tests/evidence/sprint-NN/TASK-NNN/. Campaign report: docs/sprints/sprint-NN/tests/TCP-NNN.md."),
                     ("Cross-sprint regression", "Full test suite runs during /gse:review. Tests that passed last sprint but fail now \u2192 [REGRESSION] HIGH."),
+                    ("See also", "The 'Test Pyramid by Domain' slide shows the 8-domain distribution (Unit / Integration / E2E-Visual / Acceptance / Other)."),
                 ],
                 scale="2vw", width="70vw", position="center",
             )
             st_space("v", 1)
 
         with st_zoom(85):
-            with st_grid(cols="20% 45% 35%", gap="8px", cell_styles=_hdr_cell) as g:
+            with st_grid(cols="18% 15% 40% 27%", gap="8px", cell_styles=_hdr_cell) as g:
                 with g.cell():
                     st_write(bs.table_hdr, "Type")
+                with g.cell():
+                    st_write(bs.table_hdr, "Kind")
                 with g.cell():
                     st_write(bs.table_hdr, "Purpose")
                 with g.cell():
                     st_write(bs.table_hdr, "Traces To")
 
-            for test_type, purpose, traces in _TEST_TYPES:
-                with st_grid(cols="20% 45% 35%", gap="8px", cell_styles=_normal_cell) as g:
+            for test_type, kind, purpose, traces in _TEST_TYPES:
+                with st_grid(cols="18% 15% 40% 27%", gap="8px", cell_styles=_normal_cell) as g:
                     with g.cell():
                         st_write(bs.table_lbl, test_type)
+                    with g.cell():
+                        st_write(bs.table_txt, kind)
                     with g.cell():
                         st_write(bs.table_txt, purpose)
                     with g.cell():

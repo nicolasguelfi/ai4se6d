@@ -36,7 +36,7 @@ def build():
         st_write(
             bs.body,
             (bs.label, "Output: "),
-            "docs/plan.md. Convert to Cursor todos.",
+            ".gse/plan.yaml. Maintained by the orchestrator throughout the sprint.",
         )
 
         st_space("v", 1)

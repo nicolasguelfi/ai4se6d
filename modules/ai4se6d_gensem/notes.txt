@@ -1,13 +1,18 @@
 --------
 --------
-La méthode GSE est ici:
-/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/github/gensem
 
-Le plan de formation pour le module est ici:
+Contexte  pour cette session:
+
+- Nous travaillons sur le module ai4se6d_gensem qui est ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_gensem
+
+- Le plan de formation pour le module est ici:
 /Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/docs/plans/2026-04-14-004-C-gensem-plan-v4.md
 
-Le module de formation est ici:
-/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_gensem
+- La projet de dévelopement du plugin complet de la méthode GSE est ici:
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/github/gensem
+
+
 
 Peux tu me faire une inspection et analyse croisée puis me faire des recommendation d'amélioration du module de formation.
 

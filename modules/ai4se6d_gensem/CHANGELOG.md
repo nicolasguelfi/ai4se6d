@@ -2,6 +2,24 @@
 
 GenSEM module — Generative Software Engineering Methods.
 
+## [0.4.0] — 2026-04-16
+
+### Added
+- 6 new blocks:
+  - `bck_gensem_ce_plan_living` — Living plan + 3 coherence alerts (Inform-tier)
+  - `bck_gensem_ce_plan_summary` — plan-summary.md archive (DELIVER output)
+  - `bck_gensem_t6_vv` — V&V foundation (Verification & Validation)
+  - `bck_gensem_t6_test_run` — Canonical Test Run (7 immutable steps, spec §6.3)
+  - `bck_gensem_t6_test_evidence` — Per-TASK YAML result block
+  - `bck_gensem_t6_test_review_tiers` — Test Review 3 tiers (STRATEGY / TST-SPEC / IMPL)
+
+### Changed
+- `book.py`: Sessions 3 & 4 now active (T5 requirements → T8 advanced); previously commented
+- T3 sequence: added living plan and plan-summary around `ce_plan_artifact`
+- T6 sequence: added V&V + test run + test evidence + review tiers before `/gse:produce`
+- Refined 20+ blocks: `title`, `method_checklist`, `method_step2`, `plugin_architecture`, `plugin_cursor`, `practice_p3`, `practice_p8`, `t2_cmd_backlog`, `t2_cmd_pause_resume`, `t2_cmd_status`, `t2_commands`, `t2_philosophy`, `t3_cmd_plan`, `t5_requirements`, `t6_cmd_fix`, `t6_cmd_produce`, `t6_cmd_tests`, `t6_engineering`, `t7_cmd_deliver`, `t7_cmd_health`, `ce_plan_artifact`
+- Asset update: `static/images/managed/gse_lifecycle_4stages.json`
+
 ## [0.3.0] — 2026-04-15
 
 ### Added

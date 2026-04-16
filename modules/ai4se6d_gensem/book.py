@@ -186,8 +186,10 @@ st_book(
         # ── T3 Séq 3.3 — PLAN deep-dive ───────────────────────────
         blocks.bck_gensem_ce_brainstorm_plan,       # Brainstorm & Plan phases detail
         blocks.bck_gensem_t3_cmd_plan,              # /gse:plan — Plan at Every Level
+        blocks.bck_gensem_ce_plan_living,           # Living plan + 3 coherence alerts (Inform-tier)
         blocks.bck_gensem_ce_plan_antipattern,      # Plan = contract DON'T/DO
-        blocks.bck_gensem_ce_plan_artifact,         # plan.md example with tasks
+        blocks.bck_gensem_ce_plan_artifact,         # .gse/plan.yaml live example
+        blocks.bck_gensem_ce_plan_summary,          # plan-summary.md archive (DELIVER output)
         blocks.bck_gensem_t3_frontmatter,           # YAML frontmatter: traceability in practice
 
         # ── T3 Séq 3.4 — Worktrees & Git ──────────────────────────
@@ -207,77 +209,81 @@ st_book(
         # SESSION 3 — "Build with discipline"
         # ═══════════════════════════════════════════════════════════════
 
-        # # ── T5 Séq 5.1 — Requirements ─────────────────────────────
-        # blocks.bck_gensem_t5_requirements,          # REQS + DESIGN + PREVIEW + Traceability (3 slides)
-        # blocks.bck_gensem_t5_cmd_reqs,              # /gse:reqs — What Should It Do?
-        # blocks.bck_gensem_t5_cmd_design,            # /gse:design — How Should It Work?
-        # blocks.bck_gensem_calcapp_fr_example,       # FR-001 full Given/When/Then example
-        # blocks.bck_gensem_calcapp_nfr_example,      # NFR-002 WCAG accessibility example
+        # ── T5 Séq 5.1 — Requirements ─────────────────────────────
+        blocks.bck_gensem_t5_requirements,          # REQS + DESIGN + PREVIEW + Traceability (3 slides)
+        blocks.bck_gensem_t5_cmd_reqs,              # /gse:reqs — What Should It Do?
+        blocks.bck_gensem_t5_cmd_design,            # /gse:design — How Should It Work?
+        blocks.bck_gensem_calcapp_fr_example,       # FR-001 full Given/When/Then example
+        blocks.bck_gensem_calcapp_nfr_example,      # NFR-002 WCAG accessibility example
 
-        # # ── T5 Séq 5.2 — Preview ──────────────────────────────────
-        # blocks.bck_gensem_t5_cmd_preview,           # /gse:preview — See before building
+        # ── T5 Séq 5.2 — Preview ──────────────────────────────────
+        blocks.bck_gensem_t5_cmd_preview,           # /gse:preview — See before building
 
-        # # ── T5 Séq 5.4 — Traceability ─────────────────────────────
-        # blocks.bck_gensem_calcapp_v03_traceability, # Traceability chain + 78 tests
-        # blocks.bck_gensem_calcapp_v03_prompts,      # Good vs Bad prompting strategy
+        # ── T5 Séq 5.4 — Traceability ─────────────────────────────
+        blocks.bck_gensem_calcapp_v03_traceability, # Traceability chain + 78 tests
+        blocks.bck_gensem_calcapp_v03_prompts,      # Good vs Bad prompting strategy
 
-        # # ── P5 — Requirements & Design on CalcApp ──────────────────
-        # blocks.bck_gensem_practice_p5,
+        # ── P5 — Requirements & Design on CalcApp ──────────────────
+        blocks.bck_gensem_practice_p5,
 
-        # # ── T6 Séq 6.1-6.2 — PRODUCE + TESTS ─────────────────────
-        # blocks.bck_gensem_t6_engineering,           # PRODUCE + TESTS + REVIEW + FIX (5 slides)
-        # blocks.bck_gensem_t6_cmd_tests,             # /gse:tests — How Do We Verify?
-        # blocks.bck_gensem_t6_cmd_produce,           # /gse:produce — Build It Right
-        # blocks.bck_gensem_ce_work_guardrails,       # Scope enforcement + test-first
+        # ── T6 Séq 6.1-6.2 — PRODUCE + TESTS ─────────────────────
+        blocks.bck_gensem_t6_vv,                    # V&V — Verification & Validation (foundation)
+        blocks.bck_gensem_t6_engineering,           # PRODUCE + TESTS + REVIEW + FIX (5 slides)
+        blocks.bck_gensem_t6_cmd_tests,             # /gse:tests — How Do We Verify?
+        blocks.bck_gensem_t6_test_run,              # Canonical Test Run — 7 immutable steps (spec §6.3)
+        blocks.bck_gensem_t6_test_evidence,         # test_evidence — Per-TASK YAML result block
+        blocks.bck_gensem_t6_test_review_tiers,     # Test Review — 3 tiers (STRATEGY / TST-SPEC / IMPL)
+        blocks.bck_gensem_t6_cmd_produce,           # /gse:produce — Build It Right
+        blocks.bck_gensem_ce_work_guardrails,       # Scope enforcement + test-first
 
-        # # ── T6 Séq 6.3 — REVIEW ───────────────────────────────────
-        # blocks.bck_gensem_ce_review_nversion,       # N-version verification analogy
-        # blocks.bck_gensem_t6_cmd_review,            # /gse:review — Challenge Everything
-        # blocks.bck_gensem_t6_cmd_fix,               # /gse:fix — Fix What Was Found
+        # ── T6 Séq 6.3 — REVIEW ───────────────────────────────────
+        blocks.bck_gensem_ce_review_nversion,       # N-version verification analogy
+        blocks.bck_gensem_t6_cmd_review,            # /gse:review — Challenge Everything
+        blocks.bck_gensem_t6_cmd_fix,               # /gse:fix — Fix What Was Found
 
-        # # ── P6 — Produce + Test + Review on CalcApp ────────────────
-        # blocks.bck_gensem_practice_p6,
+        # ── P6 — Produce + Test + Review on CalcApp ────────────────
+        blocks.bck_gensem_practice_p6,
 
         # ═══════════════════════════════════════════════════════════════
         # SESSION 4 — "Deliver, capitalize and master"
         # ═══════════════════════════════════════════════════════════════
 
-        # # ── T7 Séq 7.1-7.2 — DELIVER + COMPOUND ───────────────────
-        # blocks.bck_gensem_t7_delivery,              # DELIVER + COMPOUND + INTEGRATE (3 slides)
-        # blocks.bck_gensem_t7_cmd_deliver,           # /gse:deliver — Ship the Sprint
-        # blocks.bck_gensem_t7_cmd_health,            # /gse:health — 8-dimension dashboard
-        # blocks.bck_gensem_ce_compound,              # 4 compound outputs detail
-        # blocks.bck_gensem_ce_compound_flywheel,     # Knowledge flywheel progression
-        # blocks.bck_gensem_t7_cmd_compound,          # /gse:compound — What Did We Learn?
-        # blocks.bck_gensem_t7_cmd_integrate,         # /gse:integrate — Make It Stick
-        # blocks.bck_gensem_t7_cmd_deploy,            # /gse:deploy — From zero to live
+        # ── T7 Séq 7.1-7.2 — DELIVER + COMPOUND ───────────────────
+        blocks.bck_gensem_t7_delivery,              # DELIVER + COMPOUND + INTEGRATE (3 slides)
+        blocks.bck_gensem_t7_cmd_deliver,           # /gse:deliver — Ship the Sprint
+        blocks.bck_gensem_t7_cmd_health,            # /gse:health — 8-dimension dashboard
+        blocks.bck_gensem_ce_compound,              # 4 compound outputs detail
+        blocks.bck_gensem_ce_compound_flywheel,     # Knowledge flywheel progression
+        blocks.bck_gensem_t7_cmd_compound,          # /gse:compound — What Did We Learn?
+        blocks.bck_gensem_t7_cmd_integrate,         # /gse:integrate — Make It Stick
+        blocks.bck_gensem_t7_cmd_deploy,            # /gse:deploy — From zero to live
 
-        # # ── P7 — Full Cycle on CalcApp ─────────────────────────────
-        # blocks.bck_gensem_practice_p7,
+        # ── P7 — Full Cycle on CalcApp ─────────────────────────────
+        blocks.bck_gensem_practice_p7,
 
-        # # ── T8 Séq 8.1 — Plugin & Cross-Tool ──────────────────────
-        # blocks.bck_gensem_t8_advanced,              # Cross-tool + Learning + Project prep (3 slides)
-        # blocks.bck_gensem_t8_cmd_learn,             # /gse:learn — 3 modes + competency map (2 slides)
-        # blocks.bck_gensem_plugin_architecture,      # Plugin structure + 4 components
-        # blocks.bck_gensem_plugin_cursor,            # Claude Code vs Cursor comparison
+        # ── T8 Séq 8.1 — Plugin & Cross-Tool ──────────────────────
+        blocks.bck_gensem_t8_advanced,              # Cross-tool + Learning + Project prep (3 slides)
+        blocks.bck_gensem_t8_cmd_learn,             # /gse:learn — 3 modes + competency map (2 slides)
+        blocks.bck_gensem_plugin_architecture,      # Plugin structure + 4 components
+        blocks.bck_gensem_plugin_cursor,            # Claude Code vs Cursor comparison
 
-        # # ── T8 Séq 8.2 — Specializations ──────────────────────────
-        # blocks.bck_gensem_ce_specialization,        # Making GSE-One your own
-        # blocks.bck_gensem_ce_spec_5types,           # 5 types of specialization
+        # ── T8 Séq 8.2 — Specializations ──────────────────────────
+        blocks.bck_gensem_ce_specialization,        # Making GSE-One your own
+        blocks.bck_gensem_ce_spec_5types,           # 5 types of specialization
 
-        # # ── T8 Séq 8.3 — Frameworks positioning ───────────────────
-        # blocks.bck_gensem_frameworks,               # Gaps + Comparison + Roadmap + Takeaways (5 slides)
+        # ── T8 Séq 8.3 — Frameworks positioning ───────────────────
+        blocks.bck_gensem_frameworks,               # Gaps + Comparison + Roadmap + Takeaways (5 slides)
 
-        # # ── T8 Séq 8.4 — Project Preparation ──────────────────────
-        # blocks.bck_gensem_t8_modes,                 # 3 modes comparison table (Micro/Lightweight/Full)
+        # ── T8 Séq 8.4 — Project Preparation ──────────────────────
+        blocks.bck_gensem_t8_modes,                 # 3 modes comparison table (Micro/Lightweight/Full)
 
-        # # ── P8 — Autonomous Sprint ─────────────────────────────────
-        # blocks.bck_gensem_practice_p8,              # Feature selection + Go! (2 slides)
+        # ── P8 — Autonomous Sprint ─────────────────────────────────
+        blocks.bck_gensem_practice_p8,              # Feature selection + Go! (2 slides)
 
-        # # ── Closing ────────────────────────────────────────────────
-        # blocks.bck_gensem_method_checklist,         # Quick reference checklist
-        # blocks.bck_gensem_glossary,                 # 37+ terms glossary
-        # blocks.bck_gensem_references,               # Auto bibliography
+        # ── Closing ────────────────────────────────────────────────
+        blocks.bck_gensem_method_checklist,         # Quick reference checklist
+        blocks.bck_gensem_glossary,                 # 37+ terms glossary
+        blocks.bck_gensem_references,               # Auto bibliography
     ],
     toc_config=toc,
     marker_config=marker_config,

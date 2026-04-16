@@ -2,6 +2,25 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.3.1] — 2026-04-16
+
+### Added
+- GenSEM: activated Sessions 3 & 4 in `book.py` (T5 requirements, T6 engineering, T7 delivery, T8 advanced — previously commented out)
+- GenSEM: 6 new blocks — `bck_gensem_ce_plan_living`, `bck_gensem_ce_plan_summary`, `bck_gensem_t6_vv`, `bck_gensem_t6_test_run`, `bck_gensem_t6_test_evidence`, `bck_gensem_t6_test_review_tiers`
+- GenSEM: v5 plan addendum in `docs/plans/2026-04-16-005-C-gensem-plan-v5-addendum.md`
+- Dockerfile: documented optional Chromium/Playwright install for PDF export (disabled by default)
+
+### Changed
+- GenSEM: refinements across 20+ blocks (title, method, plugin, practice P3/P8, T2 commands & philosophy, T3 plan, T5 requirements, T6 engineering, T7 deliver/health)
+- GenSEM: `book.py` T3 sequence extended (living plan + plan summary), T6 sequence extended (V&V foundation + test run + evidence + review tiers)
+- GenSEM: asset update `gse_lifecycle_4stages.json`
+
+### Verified
+- `.stx-version` = 0.6.10 aligned with latest streamtex on PyPI
+- Dockerfile uses `--no-sources --upgrade-package streamtex` to always fetch latest PyPI
+- entrypoint.sh clears `.stx_cache` and regenerates warmup + static HTML at container start
+- Dual serve mode (Nginx static + Streamlit dynamic) active for all 4 Coolify apps
+
 ## [0.3.0] — 2026-04-15
 
 ### Added

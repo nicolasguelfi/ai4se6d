@@ -1,4 +1,4 @@
-"""T6 — LC02b: PRODUCE (worktree), TESTS (pyramid, 3 coverages), REVIEW (5 agents), FIX."""
+"""T6 — LC02b: TESTS (pyramid, 3 coverages), PRODUCE (worktree), REVIEW (5 agents), FIX."""
 # @guideline: minimalist-visual + maximize-viewport
 # @reuse: bck_gensem_ce_review_nversion, _work_review, _brainstorm_antipattern (v01)
 from streamtex import *
@@ -23,37 +23,7 @@ bs = BlockStyles
 
 
 def build():
-    st_slide_break(marker_label="LC02b: Produce, Test, Review")
-
-    # ── Slide: PRODUCE ──────────────────────────────────────────────
-    with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_grid(
-                cols="95% 5%",
-                gap="0px",
-                cell_styles=s.project.containers.grid_cell_centered,
-            ) as g:
-                with g.cell():
-                    with st_zoom(90):
-                        st_write(bs.heading, "/gse:produce — Code Within the Plan", tag=t.div, toc_lvl="+1")
-                with g.cell():
-                    st_hover_tooltip(
-                        title="PRODUCE — Constrained by the Plan",
-                        entries=[
-                            ("How it works", "The agent creates a feature branch + worktree, then generates code strictly following the approved plan."),
-                            ("Constraint", "Any deviation from the plan requires an explicit plan revision. No 'while we're at it' additions."),
-                            ("Budget visible", "The complexity budget gauge updates in real-time. Warning at 80%, Gate at 100%."),
-                            ("Output", "Committed code with conventional messages: gse(sprint-01/feat/budget): description."),
-                        ],
-                        scale="2vw", width="70vw", position="left",
-                    )
-            with st_zoom(120):
-                st_space("v", 2)
-                st_write(bs.accent, "The agent codes WITHIN the plan. Deviation = plan revision.")
-                st_space("v", 1)
-                st_write(bs.body, "No scope creep. No 'while we're at it'. Budget-constrained.")
-
-    st_slide_break(marker_label="/gse:tests — Test Pyramid & Coverage")
+    st_slide_break(marker_label="LC02b: Tests, Produce, Review, Fix")
 
     # ── Slide: TESTS — pyramid + 3 coverages ───────────────────────
     with st_block(_pf):
@@ -116,10 +86,13 @@ def build():
                     st_hover_tooltip(
                         title="Why Different Pyramids?",
                         entries=[
-                            ("Web frontend", "E2E and acceptance tests dominate because UI behavior is the primary quality concern."),
-                            ("API backend", "Unit tests dominate because business logic is the primary concern; E2E is minimal."),
+                            ("Why different pyramids?", "The agent calibrates distribution by project domain (config.yaml \u2192 project.domain). Starting point, not law."),
+                            ("Web frontend", "E2E-Visual and acceptance tests dominate because UI behavior is the primary quality concern."),
+                            ("API backend", "Unit tests dominate because business logic is the primary concern; E2E-Visual is minimal."),
                             ("CLI tool", "Unit tests dominate because input/output parsing is the core logic."),
-                            ("CalcApp = Web", "As a web frontend app, CalcApp uses the 20/20/40/20 pyramid — more E2E than unit tests."),
+                            ("Other column", "Constraint-level checks that don't fit a pyramid level (a11y, perf, load, compatibility, hardware sim, data quality)."),
+                            ("CalcApp = Web frontend", "20% Unit / 20% Integration / 30% E2E-Visual / 20% Acceptance / 10% Other (a11y, perf)."),
+                            ("See also", "The /gse:tests slide shows the 6 test types with their Kind (verification / validation / both)."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
@@ -130,28 +103,60 @@ def build():
             _table_lbl = s.project.titles.table_label
             _table_lbl_act = s.project.titles.table_label_active
 
-            with st_grid(cols="repeat(auto-fit, minmax(120px, 1fr))", gap="6px", cell_styles=_hdr_cell) as g:
-                for h in ["Domain", "Unit", "Integration", "E2E", "Acceptance"]:
+            with st_grid(cols="repeat(auto-fit, minmax(110px, 1fr))", gap="6px", cell_styles=_hdr_cell) as g:
+                for h in ["Domain", "Unit", "Integration", "E2E / Visual", "Acceptance", "Other"]:
                     with g.cell():
                         st_write(_table_hdr + s.center_txt, h)
 
             _pyramids = [
-                ("Web Frontend", "20%", "20%", "40%", "20%", True),
-                ("API Backend", "50%", "30%", "5%", "15%", False),
-                ("CLI Tool", "60%", "20%", "10%", "10%", False),
-                ("Mobile", "25%", "20%", "35%", "20%", False),
-                ("Scientific", "40%", "20%", "0%", "40%", False),
-                ("Library", "70%", "20%", "0%", "10%", False),
+                ("Web frontend", "20%", "20%", "30%", "20%", "10%", True),
+                ("API backend", "50%", "25%", "5%", "10%", "10%", False),
+                ("CLI tool", "60%", "20%", "5%", "10%", "5%", False),
+                ("Data pipeline", "40%", "30%", "0%", "20%", "10%", False),
+                ("Mobile", "25%", "20%", "30%", "15%", "10%", False),
+                ("Library / SDK", "70%", "20%", "0%", "5%", "5%", False),
+                ("Embedded", "50%", "25%", "0%", "10%", "15%", False),
+                ("Scientific", "40%", "20%", "0%", "30%", "10%", False),
             ]
-            for domain, unit, integ, e2e, accept, active in _pyramids:
+            for domain, unit, integ, e2e_vis, accept, other, active in _pyramids:
                 cell_s = _act_cell if active else _norm_cell
                 lbl_s = _table_lbl_act if active else _table_lbl
-                with st_grid(cols="repeat(auto-fit, minmax(120px, 1fr))", gap="6px", cell_styles=cell_s) as g:
+                with st_grid(cols="repeat(auto-fit, minmax(110px, 1fr))", gap="6px", cell_styles=cell_s) as g:
                     with g.cell():
                         st_write(lbl_s + s.center_txt, domain)
-                    for v in (unit, integ, e2e, accept):
+                    for v in (unit, integ, e2e_vis, accept, other):
                         with g.cell():
                             st_write(_table_txt + s.center_txt, v)
+
+    st_slide_break(marker_label="/gse:produce — Code Within the Plan")
+
+    # ── Slide: PRODUCE ──────────────────────────────────────────────
+    with st_block(_pf):
+        with st_block(s.center_txt):
+            with st_grid(
+                cols="95% 5%",
+                gap="0px",
+                cell_styles=s.project.containers.grid_cell_centered,
+            ) as g:
+                with g.cell():
+                    with st_zoom(90):
+                        st_write(bs.heading, "/gse:produce — Code Within the Plan", tag=t.div, toc_lvl="+1")
+                with g.cell():
+                    st_hover_tooltip(
+                        title="PRODUCE — Constrained by the Plan",
+                        entries=[
+                            ("How it works", "The agent creates a feature branch + worktree, then generates code strictly following the approved plan."),
+                            ("Constraint", "Any deviation from the plan requires an explicit plan revision. No 'while we're at it' additions."),
+                            ("Budget visible", "The complexity budget gauge updates in real-time. Warning at 80%, Gate at 100%."),
+                            ("Output", "Committed code with conventional messages: gse(sprint-01/feat/budget): description."),
+                        ],
+                        scale="2vw", width="70vw", position="left",
+                    )
+            with st_zoom(120):
+                st_space("v", 2)
+                st_write(bs.accent, "The agent codes WITHIN the plan. Deviation = plan revision.")
+                st_space("v", 1)
+                st_write(bs.body, "No scope creep. No 'while we're at it'. Budget-constrained.")
 
     st_slide_break(marker_label="/gse:review — 5 Perspectives")
 

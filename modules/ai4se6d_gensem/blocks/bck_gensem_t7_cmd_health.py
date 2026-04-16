@@ -45,6 +45,7 @@ def build():
                     ("Hard guardrail", "Health < 5 triggers a warning before /gse:deliver. You can proceed but must acknowledge the risk."),
                     ("Cross-sprint trends", "Health is tracked across sprints \u2014 you can see if quality improves or degrades over time."),
                     ("Actionable alerts", "Each alert includes a suggestion: 'Requirements coverage below 60% \u2014 consider adding tests for REQ-003 and REQ-005.'"),
+                    ("Dashboard view", "Run dashboard.py for a visual view: health radar, Sprint Workflow card (completed \u2705 / active \u25b6 / pending \u25cb / skipped \u2014 with budget bar), and Coherence Alerts card when plan.yaml.coherence.alerts is non-empty."),
                     ("Git hygiene sub-factors", "Uncommitted changes, stale branches (>2 sprints), main branch status, active worktree count, branch naming compliance, backup tag freshness."),
                 ],
                 scale="2vw", width="70vw", position="center",

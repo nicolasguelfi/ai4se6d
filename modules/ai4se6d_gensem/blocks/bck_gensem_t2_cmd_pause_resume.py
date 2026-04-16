@@ -30,6 +30,7 @@ def build():
                     ("/gse:pause", "Auto-commits all uncommitted work (WIP), saves a comprehensive checkpoint: context, sprint state, pending tasks, review findings, decision log, worktree map."),
                     ("/gse:resume", "Reloads the checkpoint, verifies worktree integrity, briefs you on where work stopped, and proposes next actions."),
                     ("Checkpoint contents", "Context state, sprint artifacts, pending task list, review findings, decision log snapshot, worktree map \u2014 everything needed to continue seamlessly."),
+                    ("Living plan aware", "/gse:resume reads .gse/plan.yaml to show the workflow trajectory: active activity, pending items, completed count, and coherence alerts. workflow.active is the primary signal for the next-action proposal."),
                     ("Cross-cutting", "Available at any phase. Use /gse:pause before closing your session, /gse:resume when you return."),
                 ],
                 scale="2vw", width="70vw", position="center",
@@ -53,4 +54,5 @@ def build():
                         st_write(bs.body, "\U0001f504 Reload checkpoint")
                         st_write(bs.body, "\U0001f50d Verify worktree integrity")
                         st_write(bs.body, "\U0001f4dd Brief: where you stopped")
+                        st_write(bs.body, "\U0001f5fa\ufe0f Show workflow trajectory")
                         st_write(bs.body, "\U0001f449 Propose next actions")

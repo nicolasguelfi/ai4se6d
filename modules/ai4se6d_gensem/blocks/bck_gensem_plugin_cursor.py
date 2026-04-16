@@ -30,14 +30,15 @@ def build():
                     title="Tool Comparison",
                     entries=[
                         ("Cursor strengths", "Visual IDE with inline diff, file-scoped context, and Plan Mode that maps naturally to /gse:plan."),
-                        ("Claude Code strengths", "Terminal-native with MCP servers, git worktrees, background agents, and layered CLAUDE.md rules."),
+                        ("Claude Code strengths", "Terminal-native with MCP servers, git worktrees, sub-agent delegation, and layered CLAUDE.md rules."),
+                        ("Orchestrator deployment", "Single identity, two file-system locations. On Cursor it lives in rules/ because .mdc rules are always-loaded. On Claude Code it lives in agents/ because the harness loads a named agent as the background identity. The 8 specialists live in agents/ on both platforms."),
                         ("GSE-One principle", "The methodology is tool-agnostic -- the discipline transfers across tools."),
                     ],
                     scale="2vw", width="70vw", position="left",
                 )
         st_space("v", 1)
 
-        with st_zoom(120):
+        with st_zoom(100):
             with st_grid(
                 cols=s.project.containers.responsive_2col,
                 gap="32px",
@@ -48,6 +49,8 @@ def build():
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Rules: "), ".cursor/rules/*.mdc with glob-scoped activation")
+                        with l.item():
+                            st_write(bs.body, (bs.keyword, "Orchestrator: "), "rules/gse-orchestrator.mdc \u2014 always-on identity (not a sub-agent)")
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Artifacts: "), "Notepads as structured knowledge documents")
                         with l.item():
@@ -62,11 +65,13 @@ def build():
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Rules: "), "Layered CLAUDE.md (project, user, global)")
                         with l.item():
+                            st_write(bs.body, (bs.keyword, "Orchestrator: "), "agents/gse-orchestrator.md \u2014 always-on identity")
+                        with l.item():
                             st_write(bs.body, (bs.keyword, "Artifacts: "), "Skills with arguments, composable workflows")
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Hooks: "), "17 lifecycle event types for automated enforcement")
                         with l.item():
-                            st_write(bs.body, (bs.keyword, "Strengths: "), "MCP servers, terminal-native, git worktrees, background agents")
+                            st_write(bs.body, (bs.keyword, "Strengths: "), "MCP servers, terminal-native, git worktrees, sub-agent delegation")
 
             st_space("v", 2)
             st_write(

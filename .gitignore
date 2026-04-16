@@ -19,3 +19,5 @@ _tmp/
 .stx_cache/
 exports/
 Icon?
+log.stx.txt
+*.log

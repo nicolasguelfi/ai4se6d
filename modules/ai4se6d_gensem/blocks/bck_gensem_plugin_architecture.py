@@ -28,15 +28,15 @@ def build():
                 st_hover_tooltip(
                     title="GSE-One Plugin Architecture",
                     entries=[
-                        ("What it is", "A directory-based plugin system that organizes skills, rules, hooks, and MCP integrations for AI-assisted development."),
-                        ("Tool-agnostic", "The .gse/ directory structure works with both Cursor and Claude Code -- install once, use everywhere."),
-                        ("Composable", "Each component (skills, rules, hooks, MCP) can be customized independently per project."),
+                        ("What it is", "A directory-based plugin system that organizes agents, skills, rules, hooks, and MCP integrations for AI-assisted development."),
+                        ("Tool-agnostic", "The plugin installs on both Cursor and Claude Code; only the orchestrator deployment location differs per platform (rules/ vs agents/). The .gse/ project state is identical on both."),
+                        ("Composable", "Each component (agents, skills, rules, hooks, MCP) can be customized independently per project."),
                     ],
                     scale="2vw", width="70vw", position="left",
                 )
         st_space("v", 1)
 
-        with st_zoom(120):
+        with st_zoom(100):
             with st_grid(
                 cols=s.project.containers.responsive_2col,
                 gap="32px",
@@ -46,17 +46,29 @@ def build():
                     st_code(
                         s.none,
                         code=(
-                            ".gse/\n"
-                            "\u251c\u2500\u2500 skills/          # Reusable prompt workflows\n"
-                            "\u251c\u2500\u2500 rules/           # Project-specific constraints\n"
-                            "\u251c\u2500\u2500 hooks/           # Lifecycle event handlers\n"
-                            "\u2514\u2500\u2500 mcp/             # Model Context Protocol servers"
+                            "plugin/                          # GSE-One plugin (installed)\n"
+                            "\u251c\u2500\u2500 agents/\n"
+                            "\u2502   \u251c\u2500\u2500 gse-orchestrator.md      # Claude Code only (identity)\n"
+                            "\u2502   \u2514\u2500\u2500 {8 specialists}.md       # both platforms\n"
+                            "\u251c\u2500\u2500 rules/\n"
+                            "\u2502   \u2514\u2500\u2500 gse-orchestrator.mdc     # Cursor only (identity)\n"
+                            "\u251c\u2500\u2500 skills/                      # parameterized prompt chains\n"
+                            "\u251c\u2500\u2500 hooks/                       # lifecycle events\n"
+                            "\u251c\u2500\u2500 commands/                    # /gse:* slash commands\n"
+                            "\u2514\u2500\u2500 tools/                       # dashboard, helpers\n"
+                            "\n"
+                            ".gse/                            # project state (created at install)\n"
+                            "\u251c\u2500\u2500 config.yaml, profile.yaml, status.yaml\n"
+                            "\u251c\u2500\u2500 plan.yaml, backlog.yaml, decisions.md\n"
+                            "\u2514\u2500\u2500 sources.yaml"
                         ),
                         language="text",
                     )
                     st_space("v", 1)
-                    st_write(bs.label, "Four Core Components", tag=t.div)
+                    st_write(bs.label, "Five Core Components", tag=t.div)
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                        with l.item():
+                            st_write(bs.body, (bs.keyword, "Agents"), " \u2014 8 specialized delegates + 1 always-on orchestrator identity")
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Skills"), " \u2014 parameterized prompt chains (brainstorm, plan, work, review, compound)")
                         with l.item():
@@ -81,8 +93,9 @@ def build():
                     st_space("v", 1)
                     st_write(
                         bs.body,
-                        "The plugin scaffolds the ",
+                        "The plugin installs to your IDE\u2019s plugin directory with sensible defaults. "
+                        "The ",
                         (bs.keyword, ".gse/"),
-                        " directory with sensible defaults. "
+                        " project state is created on first use. "
                         "Each component can be customized per project.",
                     )

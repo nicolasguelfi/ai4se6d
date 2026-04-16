@@ -28,6 +28,7 @@ def build():
                 title="/gse:fix \u2014 Traceable Corrections",
                 entries=[
                     ("Input", "RVW- findings from /gse:review with severity levels."),
+                    ("Conditional insertion", "FIX is not in workflow.expected by default. The orchestrator inserts it into workflow.pending after REVIEW only if findings with severity HIGH or MEDIUM exist. If the review is clean, FIX is moved to workflow.skipped with reason 'no review findings'."),
                     ("Isolation", "Creates a fix branch from the reviewed branch. Fixes are applied in an isolated worktree."),
                     ("Traceability", "Each fix traces back to its RVW- finding. The review/fix cycle is iterable until all findings are resolved."),
                     ("Iterative", "/gse:review \u2192 /gse:fix \u2192 /gse:review \u2192 ... until quality is satisfactory."),
@@ -54,4 +55,4 @@ def build():
                         st_write(bs.body, "Traces to RVW- IDs")
 
             st_space("v", 1)
-            st_write(bs.accent, "Review \u2192 Fix \u2192 Review \u2014 iterate until quality is right.")
+            st_write(bs.accent, "Review \u2192 Fix \u2192 Review \u2014 iterate until clean (FIX skipped when review is clean).")

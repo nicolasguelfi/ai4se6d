@@ -1,4 +1,4 @@
-"""T2 Seq 2.3-2.4 — 23 commands, 9 agents, .gse/ storage."""
+"""T2 Seq 2.3-2.4 — 23 commands, 8 agents + 1 Orchestrator, .gse/ storage."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -84,9 +84,9 @@ def build():
                                 with inner.cell():
                                     st_write(bs.body, (bs.keyword, f"{cat}  "), (bs.body, cmds))
 
-    st_slide_break(marker_label="9 Specialized Agents")
+    st_slide_break(marker_label="8 agents + 1 Orchestrator")
 
-    # ── Slide: 9 agents ─────────────────────────────────────────────
+    # ── Slide: 8 agents + 1 Orchestrator ────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
             with st_grid(
@@ -96,20 +96,20 @@ def build():
             ) as g:
                 with g.cell():
                     with st_zoom(90):
-                        st_write(bs.heading, "9 Specialized Agents", tag=t.div, toc_lvl="+1")
+                        st_write(bs.heading, "8 agents + 1 Orchestrator", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="The Virtual Team",
                         entries=[
-                            ("Why 9 agents?", "Each agent brings a specialized perspective. Together they catch issues that no single reviewer would find."),
+                            ("Why an orchestrator identity?", "The orchestrator is always-on (loaded as agents/gse-orchestrator.md on Claude Code, rules/gse-orchestrator.mdc on Cursor). The 8 specialists are delegated on demand."),
                             ("Always-on", "The guardrail-enforcer runs on every action. The devil-advocate activates during review to challenge assumptions."),
-                            ("Orchestrator", "The gse-orchestrator coordinates all others, manages the lifecycle, and handles decision classification (Auto/Inform/Gate)."),
+                            ("Orchestrator role", "The gse-orchestrator coordinates all others, manages the lifecycle, and handles decision classification (Auto/Inform/Gate)."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
             st_space("v", 1)
+            _orchestrator = ("\U0001f3bc", "gse-orchestrator", "Identity \u2014 Always On (lifecycle, decisions, coherence)")
             _agents_left = [
-                ("\U0001f3bc", "gse-orchestrator", "Lifecycle management"),
                 ("\U0001f50d", "requirements-analyst", "Completeness"),
                 ("\U0001f3d7\ufe0f", "architect", "Structural quality"),
                 ("\U0001f9ea", "test-strategist", "Coverage"),
@@ -122,6 +122,12 @@ def build():
                 ("\U0001f608", "devil-advocate", "Self-critique (P16)"),
             ]
             with st_zoom(85):
+                # Banner: orchestrator (identity)
+                with st_block(_cell_acc):
+                    emoji, name, role = _orchestrator
+                    st_write(bs.body, (bs.keyword, f"{emoji} {name}  "), (bs.body, role))
+                st_space("v", 0.5)
+                # 2×4 grid: the 8 specialists (delegated)
                 with st_grid(cols="1fr 1fr", gap="16px") as g:
                     with g.cell():
                         with st_grid(cols="1fr", gap="12px", cell_styles=_cell) as inner:
@@ -151,8 +157,8 @@ def build():
                     st_hover_tooltip(
                         title="Everything Is Stored and Traceable",
                         entries=[
-                            (".gse/", "Agent state: config, profile, sprint status, backlog, decisions, sources."),
-                            ("docs/sprints/", "Sprint artifacts: plan, reqs, design, test strategy, review, compound."),
+                            (".gse/", "Agent state: config, profile, status (with activity_history[]), plan, backlog, decisions, sources."),
+                            ("docs/sprints/", "Sprint artifacts: plan-summary, reqs, design, test strategy, review, compound."),
                             ("docs/learning/", "Personal learning notes produced by /gse:learn."),
                             ("Key point", ".gse/ is agent state. docs/ is project documentation. Both at project root."),
                         ],
@@ -162,7 +168,8 @@ def build():
             _gse_left = [
                 (".gse/config.yaml", "Project settings"),
                 (".gse/profile.yaml", "Your profile (HUG output)"),
-                (".gse/status.yaml", "Sprint state + health score"),
+                (".gse/status.yaml", "Sprint cursor + health score"),
+                (".gse/plan.yaml", "Living sprint plan"),
             ]
             _gse_right = [
                 (".gse/backlog.yaml", "All tasks (TASK-)"),

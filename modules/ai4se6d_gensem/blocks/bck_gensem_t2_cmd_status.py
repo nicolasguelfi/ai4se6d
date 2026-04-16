@@ -30,6 +30,7 @@ def build():
                     ("Purpose", "Display the current state of your project at a glance: sprint, phase, artifacts, health, branches."),
                     ("When to use", "Anytime you need orientation \u2014 beginning of session, after a pause, or before deciding what to do next."),
                     ("What it shows", "Current sprint number, active lifecycle phase (LC00\u2013LC03), artifact inventory, pending reviews, health score, active branches and worktrees."),
+                    ("Activity history", "status.yaml.activity_history[] records every completed activity for the current sprint (activity name, completion timestamp, sprint, notes). It's the authoritative source for plan.yaml.workflow.completed timestamps. Reset when /gse:plan --strategic promotes a new sprint."),
                     ("Cross-cutting", "Available at any phase \u2014 does not change project state, purely informational."),
                 ],
                 scale="2vw", width="70vw", position="center",

@@ -48,7 +48,7 @@ def build():
                             title="Generative Software Engineering",
                             entries=[
                                 ("Generative SE", "Generative Software Engineering is the emerging discipline where AI agents generate artifacts while humans specify, orchestrate, validate, and capitalize."),
-                                ("GSE-One", "GSE-One is one methodology for this discipline \u2014 16 principles, 4 lifecycle stages, 23 commands, 9 agents. It illustrates the discipline and equips you to adapt to others."),
+                                ("GSE-One", "GSE-One is one methodology for this discipline \u2014 16 principles, 4 lifecycle stages, 23 commands, 8 agents + 1 Orchestrator. It illustrates the discipline and equips you to adapt to others."),
                                 ("4 Sessions", "This training teaches the discipline through GSE-One across 4 sessions of 3 hours each."),
                             ],
                             scale="2vw", width="70vw", position="left",

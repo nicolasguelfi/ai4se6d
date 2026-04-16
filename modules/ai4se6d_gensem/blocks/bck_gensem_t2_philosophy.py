@@ -125,7 +125,7 @@ def build():
                         entries=[
                             ("LC00 Onboarding", "/gse:hug captures your profile (11 dimensions) to adapt the agent's behavior to your experience level."),
                             ("LC01 Discovery", "/gse:collect + /gse:assess + /gse:plan — inventory sources, analyze gaps, create a sprint plan with complexity budget."),
-                            ("LC02 Engineering", "REQS → DESIGN → PREVIEW → PRODUCE → TESTS → REVIEW → FIX → DELIVER — the full development cycle."),
+                            ("LC02 Engineering", "REQS → DESIGN → PREVIEW → TESTS → PRODUCE → REVIEW → FIX → DELIVER — the full development cycle."),
                             ("LC03 Capitalization", "/gse:compound + /gse:integrate — capture learnings, route them to operational destinations."),
                         ],
                         scale="2vw", width="70vw", position="left",

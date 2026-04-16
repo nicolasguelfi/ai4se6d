@@ -29,6 +29,24 @@ RUN uv sync --no-sources --no-dev --upgrade-package streamtex && \
     sed -i '/^\[tool\.uv\.sources\]/,/^$/d' pyproject.toml && \
     uv pip install rich jinja2
 
+# ─── OPTIONAL: enable PDF export in the container ───────────────────────
+# By default PDF export is DISABLED here to keep the image light (~500 MB).
+# The Python `playwright` package is already installed via streamtex[pdf],
+# but the Chromium browser binary + its system libs are NOT.
+# Without them, the UI shows: "PDF requires streamtex[pdf]" (misleading).
+#
+# To enable PDF export for all deployed modules, uncomment the line below.
+# Cost: +170 MB (Chromium) + ~30 MB (system libs), +30-60s build time.
+# The --with-deps flag auto-installs required apt packages (libnss3,
+# libatk-bridge, libcups2, libdrm2, libxkbcommon, libxcomposite,
+# libxdamage, libxfixes, libxrandr, libgbm, libpango, libcairo,
+# libasound2, libatspi2, …) and downloads Chromium into
+# /root/.cache/ms-playwright/ (auto-detected by Playwright at runtime —
+# no env var needed).
+#
+# RUN uv run playwright install --with-deps chromium
+# ────────────────────────────────────────────────────────────────────────
+
 # Fail the build if the installed streamtex version is older than required.
 # Uses importlib.metadata (package registry) — NOT streamtex.__version__
 RUN REQUIRED=$(cat .stx-version | tr -d '[:space:]') && \

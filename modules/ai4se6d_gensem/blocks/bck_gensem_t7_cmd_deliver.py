@@ -31,6 +31,7 @@ def build():
                     ("Tag", "Semantic version tag on main after merge. Generates changelog."),
                     ("Optional deploy", "If git.post_tag_hook is configured, deployment runs automatically after tagging. If it fails, proposes rollback (Gate)."),
                     ("Health check", "Warns if health < 5 before delivering. You can proceed but must acknowledge the risk."),
+                    ("Archive plan", "Step 9 reads .gse/plan.yaml and generates docs/sprints/sprint-NN/plan-summary.md. The PLN-NNN ID is inherited from plan.yaml.id to preserve P6 traceability. plan.yaml.status is then set to 'completed'."),
                     ("Cleanup", "Merged branches and worktrees are deleted to prevent sprawl (P12)."),
                 ],
                 scale="2vw", width="70vw", position="center",
@@ -38,12 +39,13 @@ def build():
             st_space("v", 1)
 
         with st_zoom(90):
-            with st_grid(cols="1fr 1fr 1fr 1fr 1fr", gap="8px") as g:
+            with st_grid(cols="1fr 1fr 1fr 1fr 1fr 1fr", gap="8px") as g:
                 for icon, step in [
                     ("\U0001f500", "Merge features"),
                     ("\U0001f500", "Merge to main"),
                     ("\U0001f3f7\ufe0f", "Tag release"),
                     ("\U0001f4dd", "Changelog"),
+                    ("\U0001f4e6", "Archive plan"),
                     ("\U0001f9f9", "Cleanup"),
                 ]:
                     with g.cell():

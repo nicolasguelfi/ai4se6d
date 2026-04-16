@@ -44,6 +44,7 @@ def build():
                     ("Auto-populated", "The agent adds items automatically: /gse:review findings, /gse:collect imports, /gse:plan deferrals. You can also add manually."),
                     ("Artifact types", "Filter by: code, test, requirement, design, doc, config, import, spike."),
                     ("GitHub sync", "/gse:backlog sync two-way synchronizes with GitHub Issues. Gate confirmation if conflicts detected."),
+                    ("Plan sync check", "/gse:backlog sprint compares current backlog items with plan.yaml.tasks[]. If divergence is detected, it emits an Inform-tier warning suggesting /gse:plan --tactical. Silent in Micro mode."),
                     ("Cross-cutting", "Available at any phase. The backlog is the single source of truth for all work items."),
                 ],
                 scale="2vw", width="70vw", position="center",
@@ -67,3 +68,5 @@ def build():
 
             st_space("v", 1)
             st_write(bs.accent, "Single source of truth \u2014 auto-populated by review, collect, and plan.")
+            st_space("v", 0.3)
+            st_write(bs.accent, "/gse:backlog sprint warns when backlog items diverge from the active plan.yaml.")

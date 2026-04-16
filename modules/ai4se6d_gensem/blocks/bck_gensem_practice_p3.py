@@ -44,7 +44,7 @@ def _scenario_slide(level_label, cell_style, steps, question):
                         entries=[
                             ("Goal", f"Execute the LC01 discovery pipeline (COLLECT \u2192 ASSESS \u2192 PLAN) on CalcApp. Adapted for {level_label} IT expertise."),
                             ("Time", "45 minutes."),
-                            ("Deliverable", "A validated plan.md with complexity budget and TASK- items."),
+                            ("Deliverable", "A validated .gse/plan.yaml with complexity budget and TASK- items."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
@@ -82,7 +82,7 @@ def build():
         cell_style=_cell,
         steps=[
             "Run /gse:go \u2014 let the agent guide you through COLLECT \u2192 ASSESS \u2192 PLAN",
-            "Read the plan.md generated \u2014 count the tasks",
+            "Read .gse/plan.yaml generated \u2014 count the tasks",
             "Note the total complexity points",
             "Validate the plan when the agent asks (Gate decision)",
         ],
@@ -98,7 +98,7 @@ def build():
             "Run /gse:collect \u2014 examine sources.yaml and reusability assessments",
             "Run /gse:assess \u2014 review the gap analysis (\u2713 / \u25d0 / \u2717 / \u26a0)",
             "Run /gse:plan \u2014 validate the sprint plan (Gate)",
-            "Open plan.md \u2014 verify TASK- items, branches, and complexity costs",
+            "Open .gse/plan.yaml \u2014 verify tasks[], branches, and complexity costs",
         ],
         question="Question: Is any task under-estimated? Would you reorder the priorities?",
     )

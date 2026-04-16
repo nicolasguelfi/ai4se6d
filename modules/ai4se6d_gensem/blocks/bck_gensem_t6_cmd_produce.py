@@ -29,7 +29,7 @@ def build():
                 entries=[
                     ("Step 1", "Create a feature branch + worktree for the task. All work is isolated from main and other tasks."),
                     ("Step 2", "Execute the production plan in the isolated worktree. Code, tests, and docs are committed to the feature branch."),
-                    ("Step 3", "Run the test suite after production. Results are attached as evidence (screenshots, coverage, campaign report)."),
+                    ("Step 3", "Run the test suite after production. Results attached as evidence (screenshots, coverage) + TCP-NNN campaign report in docs/sprints/sprint-NN/tests/."),
                     ("Complexity tracking", "New dependencies detected during production are logged, their complexity cost checked against the sprint budget (P10)."),
                     ("Guardrails", "If the sprint goes over budget: Soft warning at 80%, Gate at 100%. The agent never silently exceeds the budget."),
                 ],
@@ -56,7 +56,7 @@ def build():
                         st_write(bs.keyword + s.center_txt, "\U0001f9ea Tests + Evidence")
                         st_space("v", 0.5)
                         st_write(bs.body, "Auto-run test suite")
-                        st_write(bs.body, "Save campaign report")
+                        st_write(bs.body, "Save TCP-NNN report")
 
             st_space("v", 1)
             st_write(bs.accent, "Every task in its own worktree \u2014 parallel work without interference.")

@@ -1,4 +1,4 @@
-"""Slide — Plan: The Artifact."""
+"""Slide — Plan: The Living Artifact (.gse/plan.yaml)."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -11,45 +11,59 @@ class BlockStyles:
     heading = s.project.titles.heading
     body = s.project.titles.body
     label = s.project.titles.label
+    closing = s.project.titles.body + s.project.colors.highlight + s.bold
 
 bs = BlockStyles
 
-_PLAN = """\
-# Plan: Budget Alerts (from brainstorm)
+_PLAN_YAML = """\
+id: PLN-001
+sprint: 2
+mode: full
+status: active
+goal: "Budget Alerts feature"
 
-## Tasks (8 total, 3 dependencies)
-1. Create BudgetAlert model [no deps]
-2. Add alert threshold to Budget [depends: 1]
-3. Write alert check service [depends: 1]
-4. Create alert banner component [no deps]
-5. Wire service to UI [depends: 3, 4]
-6. Write tests for service [depends: 3]
-7. Write tests for component [depends: 4]
-8. Integration test [depends: 5, 6, 7]
+tasks:
+  - { id: TASK-010, complexity: M, branch: "gse/sprint-02/feat/alerts" }
+  - { id: TASK-011, complexity: S, branch: "gse/sprint-02/feat/banner" }
 
-## Files to modify: 6 | Files to create: 4
-## Test strategy: 12 test cases"""
+budget: { total: 8, consumed: 5, remaining: 3 }
+
+workflow:
+  completed: [collect, assess, plan, reqs]
+  active: design
+  pending: [tests, produce, review, deliver]
+
+coherence:
+  alerts: [budget_pressure]"""
 
 
 def build():
-    st_marker("plan.md Artifact Example")
+    st_marker(".gse/plan.yaml — Living Sprint Plan")
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
-            st_write(bs.heading, "Plan: The Artifact", tag=t.div, toc_lvl="+1")
+            st_write(bs.heading, "Plan: The Living Artifact", tag=t.div, toc_lvl="+1")
         st_hover_tooltip(
-            title="Plan Artifact in GSE-One",
+            title=".gse/plan.yaml — Living Sprint Plan",
             entries=[
-                ("Phase", "CE Plan = /gse:plan in GSE-One. Produces a concrete plan artifact."),
-                ("Content", "Tasks with dependencies, files to modify/create, test strategy."),
-                ("Purpose", "Acts as an executable contract that constrains the AI during /gse:produce."),
-                ("Example", "Budget Alerts: 8 tasks, 3 dependencies, 6 files to modify, 4 to create."),
+                ("Phase", "CE Plan = /gse:plan in GSE-One. Writes .gse/plan.yaml."),
+                ("Living", "The orchestrator updates plan.yaml after every activity transition (workflow state, budget, coherence)."),
+                ("Content", "Goal, tasks with branches, complexity budget, workflow tracking, coherence alerts."),
+                ("Purpose", "Executable contract + live workflow state — constrains the AI during /gse:produce."),
+                ("Archive", "At sprint end, DELIVER generates a read-only snapshot: docs/sprints/sprint-NN/plan-summary.md."),
             ],
             scale="2vw", width="70vw", position="center",
         )
         st_space("v", 0.5)
 
         with st_zoom(120):
-            st_write(bs.body, (bs.label, "Example output"), " from a plan phase:")
+            st_write(bs.body, (bs.label, "Example"), " — .gse/plan.yaml mid-sprint:")
             st_space("v", 0.5)
 
-            st_code(s.none, code=_PLAN, language="markdown")
+            st_code(s.none, code=_PLAN_YAML, language="yaml")
+
+            st_space("v", 0.5)
+            with st_block(s.project.containers.callout):
+                st_write(
+                    bs.closing,
+                    "Living during the sprint — archived as plan-summary.md at delivery.",
+                )
