@@ -26,7 +26,8 @@ def build():
             cell_styles=s.project.containers.grid_cell_centered,
         ) as g:
             with g.cell():
-                st_write(bs.heading, "The 80/20 Rule \u2014 From Your Experience", tag=t.div, toc_lvl="+1")
+                with st_zoom(90):
+                    st_write(bs.heading, "The 80/20 Rule \u2014 From Your Experience", tag=t.div, toc_lvl="+1")
             with g.cell():
                 st_hover_tooltip(
                     title="80/20 Rule in GSE-One",

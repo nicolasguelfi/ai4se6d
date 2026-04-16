@@ -32,7 +32,8 @@ def _scenario_slide(title, level_label, cell_style, steps, question):
 
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, f"P2: Explore .gse/ \u2014 {level_label}", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, f"P2: Explore .gse/ \u2014 {level_label}", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title=f"P2 {level_label} \u2014 What to do",
                 entries=[

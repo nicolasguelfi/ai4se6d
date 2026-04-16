@@ -38,7 +38,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "The Spectrum", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "The Spectrum", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="VibeCoding to Generative SE Spectrum",
@@ -51,10 +52,10 @@ def build():
                         scale="2vw", width="70vw", position="left",
                     )
 
-        with st_zoom(110):
+        with st_zoom(100):
             # Header row
             with st_grid(
-                cols="8% 22% 40% 30%",
+                cols="10% 25% 37% 28%",
                 gap="8px",
                 cell_styles=s.project.containers.table_header_cell,
             ) as g:
@@ -67,7 +68,7 @@ def build():
                 cell = s.project.containers.table_active_cell if is_active else s.project.containers.table_normal_cell
                 name_style = bs.level_active if is_active else bs.level_name
                 with st_grid(
-                    cols="8% 22% 40% 30%",
+                    cols="10% 25% 37% 28%",
                     gap="8px",
                     cell_styles=cell,
                 ) as g:

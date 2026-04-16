@@ -24,7 +24,8 @@ def build():
     st_marker("/gse:go")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:go \u2014 The Single Entry Point", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:go \u2014 The Single Entry Point", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:go \u2014 Orchestrate Everything",
                 entries=[

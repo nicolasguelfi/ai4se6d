@@ -22,12 +22,13 @@ bs = BlockStyles
 def build():
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.title,
                 "CalcApp v0.3 \u2014 Practicing GenSE Principles",
                 tag=t.div,
                 toc_lvl="1",
-            )
+                )
             st_space("v", 1)
             st_write(
                 bs.subtitle,

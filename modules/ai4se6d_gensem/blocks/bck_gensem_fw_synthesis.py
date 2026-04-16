@@ -47,7 +47,8 @@ def build():
             ) as g:
                 with g.cell():
                     with st_zoom(75):
-                        st_write(bs.heading, "Generative SE Methodologies: A Panorama", tag=t.div, toc_lvl="+1")
+                        with st_zoom(90):
+                            st_write(bs.heading, "Generative SE Methodologies: A Panorama", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="Generative SE Methodologies Compared",

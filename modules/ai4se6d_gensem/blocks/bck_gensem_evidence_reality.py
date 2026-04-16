@@ -52,7 +52,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "Five Developer Surveys", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "Five Developer Surveys", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="Five Developer Surveys — What they tell us",
@@ -107,7 +108,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "The AI Paradox", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "The AI Paradox", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="The 7h/week Paradox — Explained",
@@ -143,7 +145,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "The 160,000-Developer Study", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "The 160,000-Developer Study", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="The 160K Study — Explained",

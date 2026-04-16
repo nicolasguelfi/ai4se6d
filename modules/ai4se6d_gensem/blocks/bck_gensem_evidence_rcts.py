@@ -49,10 +49,11 @@ def build():
     st_marker("The Productivity Paradox")
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading, "The Productivity Paradox",
                 tag=t.div, toc_lvl="1",
-            )
+                )
             st_hover_tooltip(
                 title="3 Randomized Controlled Trials (RCTs)",
                 entries=[

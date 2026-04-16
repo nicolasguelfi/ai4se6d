@@ -34,7 +34,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "/gse:deliver — Ship It", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "/gse:deliver — Ship It", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="DELIVER — Merge, Tag, Deploy, Clean",
@@ -71,7 +72,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "/gse:compound — Knowledge Flywheel", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "/gse:compound — Knowledge Flywheel", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="COMPOUND — The Discipline\u2019s Distinctive Phase",
@@ -112,7 +114,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "/gse:integrate + /gse:health", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "/gse:integrate + /gse:health", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="INTEGRATE Routes Solutions, HEALTH Monitors Progress",

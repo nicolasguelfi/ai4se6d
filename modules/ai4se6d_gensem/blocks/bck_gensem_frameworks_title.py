@@ -11,6 +11,7 @@ bs = BlockStyles
 
 def build():
     with st_block(s.project.containers.page_fill_center):
-        st_write(bs.heading, "Methodological Frameworks for Generative SE", tag=t.div, toc_lvl="1")
+        with st_zoom(90):
+            st_write(bs.heading, "Methodological Frameworks for Generative SE", tag=t.div, toc_lvl="1")
         st_space("v", 2)
         st_write(bs.body, "Two categories: adaptations of existing methodologies vs. AI-native approaches.")

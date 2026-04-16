@@ -28,7 +28,8 @@ _CONCEPTS = [
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Layer 3: Execution (C9-C14)", tag=t.div, toc_lvl="1")
+        with st_zoom(90):
+            st_write(bs.heading, "Layer 3: Execution (C9-C14)", tag=t.div, toc_lvl="1")
         st_space("v", 1)
 
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:

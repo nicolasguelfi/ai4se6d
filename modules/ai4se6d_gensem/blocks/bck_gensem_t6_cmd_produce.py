@@ -22,7 +22,8 @@ def build():
     st_marker("/gse:produce")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:produce \u2014 Build It Right", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:produce \u2014 Build It Right", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:produce \u2014 Isolated Production",
                 entries=[

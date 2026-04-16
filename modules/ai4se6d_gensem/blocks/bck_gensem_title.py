@@ -35,16 +35,25 @@ def build():
     st_marker("GSE-One — Generative SE Methods")
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
-            st_write(bs.title, "Generative Software Engineering Methods", tag=t.div, toc_lvl="1")
-            st_hover_tooltip(
-                title="Generative Software Engineering",
-                entries=[
-                    ("Generative SE", "Generative Software Engineering is the emerging discipline where AI agents generate artifacts while humans specify, orchestrate, validate, and capitalize."),
-                    ("GSE-One", "GSE-One is one methodology for this discipline \u2014 16 principles, 4 lifecycle stages, 23 commands, 9 agents. It illustrates the discipline and equips you to adapt to others."),
-                    ("4 Sessions", "This training teaches the discipline through GSE-One across 4 sessions of 3 hours each."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
+            with st_zoom(90):
+                with st_grid(
+                    cols="95% 5%",
+                    gap="0px",
+                    cell_styles=s.project.containers.grid_cell_centered,
+                ) as g:
+                    with g.cell():
+                        with st_zoom(90):
+                            st_write(bs.title, "Generative Software Engineering Methods", tag=t.div, toc_lvl="1")
+                    with g.cell():
+                        st_hover_tooltip(
+                            title="Generative Software Engineering",
+                            entries=[
+                                ("Generative SE", "Generative Software Engineering is the emerging discipline where AI agents generate artifacts while humans specify, orchestrate, validate, and capitalize."),
+                                ("GSE-One", "GSE-One is one methodology for this discipline \u2014 16 principles, 4 lifecycle stages, 23 commands, 9 agents. It illustrates the discipline and equips you to adapt to others."),
+                                ("4 Sessions", "This training teaches the discipline through GSE-One across 4 sessions of 3 hours each."),
+                            ],
+                            scale="2vw", width="70vw", position="left",
+                        )
             st_image(
                 s.none,
                 width="80%",

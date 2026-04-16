@@ -16,16 +16,25 @@ def build():
     st_marker("Learning Objectives")
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Learning Objectives", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="Learning Objectives",
-                entries=[
-                    ("Bloom's taxonomy", "Each objective uses a specific action verb (Explain, Compare, Apply, Adapt, Execute) mapping to increasing cognitive complexity."),
-                    ("Discipline focus", "By the end of this module, you will understand Generative SE as a discipline and be able to practice it through GSE-One."),
-                    ("Transferable skills", "The principles you learn transfer to any Generative SE methodology \u2014 current or future."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
+            with st_zoom(90):
+                with st_grid(
+                    cols="95% 5%",
+                    gap="0px",
+                    cell_styles=s.project.containers.grid_cell_centered,
+                ) as g:
+                    with g.cell():
+                        with st_zoom(90):
+                            st_write(bs.heading, "Learning Objectives", tag=t.div, toc_lvl="+1")
+                    with g.cell():
+                        st_hover_tooltip(
+                            title="Learning Objectives",
+                            entries=[
+                                ("Bloom's taxonomy", "Each objective uses a specific action verb (Explain, Compare, Apply, Adapt, Execute) mapping to increasing cognitive complexity."),
+                                ("Discipline focus", "By the end of this module, you will understand Generative SE as a discipline and be able to practice it through GSE-One."),
+                                ("Transferable skills", "The principles you learn transfer to any Generative SE methodology \u2014 current or future."),
+                            ],
+                            scale="2vw", width="70vw", position="left",
+                        )
             st_space("v", 2)
 
             with st_zoom(100):

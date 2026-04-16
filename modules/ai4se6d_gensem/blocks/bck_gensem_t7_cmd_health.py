@@ -36,7 +36,8 @@ def build():
     st_marker("/gse:health \u2014 8 Dimensions")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:health \u2014 8 Dimensions", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:health \u2014 8 Dimensions", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:health \u2014 Project Quality Dashboard",
                 entries=[

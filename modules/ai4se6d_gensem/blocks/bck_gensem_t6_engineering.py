@@ -34,7 +34,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "/gse:produce — Code Within the Plan", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "/gse:produce — Code Within the Plan", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="PRODUCE — Constrained by the Plan",
@@ -63,7 +64,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "/gse:tests — Test Pyramid & Coverage", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "/gse:tests — Test Pyramid & Coverage", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="Testing in GSE-One",
@@ -108,7 +110,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "Test Pyramid by Domain", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "Test Pyramid by Domain", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="Why Different Pyramids?",
@@ -161,7 +164,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "/gse:review — 5 Perspectives", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "/gse:review — 5 Perspectives", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="Multi-Agent Review (N-Version Verification)",
@@ -200,7 +204,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "/gse:fix — Iterate Until Quality", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "/gse:fix — Iterate Until Quality", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="FIX — The Quality Loop",

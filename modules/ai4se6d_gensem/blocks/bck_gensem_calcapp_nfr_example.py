@@ -33,7 +33,8 @@ or associated <label> element.
 def build():
     st_marker("NFR-002: WCAG Accessibility")
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Example: NFR-002 Accessibility", tag=t.div, toc_lvl="+1")
+        with st_zoom(90):
+            st_write(bs.heading, "Example: NFR-002 Accessibility", tag=t.div, toc_lvl="+1")
         st_hover_tooltip(
             title="NFR-002 and GSE-One Principles",
             entries=[

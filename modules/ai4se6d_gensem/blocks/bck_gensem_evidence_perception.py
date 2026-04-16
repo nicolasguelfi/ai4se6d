@@ -20,7 +20,8 @@ def build():
     st_marker("Perception vs Reality Gap")
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "The Perception-Reality Gap", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "The Perception-Reality Gap", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="Perception vs Reality in AI Productivity",
                 entries=[

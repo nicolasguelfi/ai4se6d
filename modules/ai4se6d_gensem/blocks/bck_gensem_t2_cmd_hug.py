@@ -38,7 +38,8 @@ def build():
     st_marker("/gse:hug")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:hug \u2014 Know Your Developer", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:hug \u2014 Know Your Developer", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:hug \u2014 User Profile (13 Dimensions)",
                 entries=[

@@ -79,10 +79,11 @@ def build():
     # ── Slide 1a: Risks 1-3 ────────────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading, "The Risks Are Real (1/2)",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="6 Risks of AI-Assisted Development",
                 entries=_tt_entries,
@@ -114,10 +115,11 @@ def build():
     # ── Slide 1b: Risks 4-6 ────────────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading, "The Risks Are Real (2/2)",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="6 Risks of AI-Assisted Development",
                 entries=_tt_entries,
@@ -142,10 +144,11 @@ def build():
     # ── Slide 2: These risks don't disappear ────────────────────────
     with st_block(_page_fill_center):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading, "More AI Does Not Fix These Risks",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="Why more AI doesn't help",
                 entries=[
@@ -173,10 +176,11 @@ def build():
     # ── Slide 3: The Methodological Gap ─────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading, "The Methodological Gap",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="The Gap Between Tools and Methods",
                 entries=[

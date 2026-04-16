@@ -20,16 +20,25 @@ bs = BlockStyles
 def build():
     st_marker("Days 1-2 Recall")
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Where We Left Off", tag=t.div, toc_lvl="+1")
-        st_hover_tooltip(
-            title="Previous Sessions Recap",
-            entries=[
-                ("Days 1-2 covered", "VibeCoding definition, dangers (vulnerabilities, paradox), and VibeEngineering principles."),
-                ("Key insight", "VibeCoding is fast but fragile -- VibeEngineering reintroduces the discipline AI-assisted dev needs."),
-                ("Bridge to today", "Now we formalize these practices into a complete methodology: GSE-One."),
-            ],
-            scale="2vw", width="70vw", position="center",
-        )
+        with st_zoom(90):
+            with st_grid(
+                cols="95% 5%",
+                gap="0px",
+                cell_styles=s.project.containers.grid_cell_centered,
+            ) as g:
+                with g.cell():
+                    with st_zoom(90):
+                        st_write(bs.heading, "Where We Left Off", tag=t.div, toc_lvl="+1")
+                with g.cell():
+                    st_hover_tooltip(
+                        title="Previous Sessions Recap",
+                        entries=[
+                            ("Days 1-2 covered", "VibeCoding definition, dangers (vulnerabilities, paradox), and VibeEngineering principles."),
+                            ("Key insight", "VibeCoding is fast but fragile -- VibeEngineering reintroduces the discipline AI-assisted dev needs."),
+                            ("Bridge to today", "Now we formalize these practices into a complete methodology: GSE-One."),
+                        ],
+                        scale="2vw", width="70vw", position="left",
+                    )
         st_space("v", 1)
 
         with st_zoom(110):

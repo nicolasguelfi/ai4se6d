@@ -39,7 +39,8 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, "The 4-Phase GSE-One Lifecycle", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, "The 4-Phase GSE-One Lifecycle", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="GSE-One Lifecycle — LC00 to LC03",

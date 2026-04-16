@@ -59,7 +59,8 @@ def build():
     with st_block(_pf):
         with st_block(s.center_txt):
             with st_zoom(70):
-                st_write(bs.heading, "P4: Classify Decisions \u2014 Beginner", tag=t.div, toc_lvl="+1")
+                with st_zoom(90):
+                    st_write(bs.heading, "P4: Classify Decisions \u2014 Beginner", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="P4 Beginner \u2014 What to do",
                 entries=[
@@ -99,7 +100,8 @@ def build():
     with st_block(_pf):
         with st_block(s.center_txt):
             with st_zoom(70):
-                st_write(bs.heading, "P4: Classify Decisions \u2014 Intermediate", tag=t.div, toc_lvl="+1")
+                with st_zoom(90):
+                    st_write(bs.heading, "P4: Classify Decisions \u2014 Intermediate", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="P4 Intermediate \u2014 What to do",
                 entries=[
@@ -134,7 +136,8 @@ def build():
     with st_block(_pf):
         with st_block(s.center_txt):
             with st_zoom(70):
-                st_write(bs.heading, "P4: Classify Decisions \u2014 Advanced / Expert", tag=t.div, toc_lvl="+1")
+                with st_zoom(90):
+                    st_write(bs.heading, "P4: Classify Decisions \u2014 Advanced / Expert", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="P4 Advanced / Expert \u2014 What to do",
                 entries=[

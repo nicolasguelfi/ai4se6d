@@ -14,6 +14,7 @@ bs = BlockStyles
 
 def build():
     with st_block(s.project.containers.page_fill_center):
-        st_write(bs.heading, "The Implementation Layer: Multi-Agent Systems", tag=t.div, toc_lvl="1")
+        with st_zoom(90):
+            st_write(bs.heading, "The Implementation Layer: Multi-Agent Systems", tag=t.div, toc_lvl="1")
         st_space("v", 2)
         st_write(bs.body, "4 architectural categories, each with different trade-offs.")

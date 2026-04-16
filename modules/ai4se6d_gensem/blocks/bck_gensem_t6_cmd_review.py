@@ -33,7 +33,8 @@ def build():
     st_marker("/gse:review")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:review \u2014 Challenge Everything", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:review \u2014 Challenge Everything", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:review \u2014 6 Perspectives",
                 entries=[

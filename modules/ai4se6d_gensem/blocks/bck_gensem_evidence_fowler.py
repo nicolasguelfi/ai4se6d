@@ -15,7 +15,8 @@ bs = BlockStyles
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Fowler\u2019s Warning", tag=t.div, toc_lvl="1")
+            with st_zoom(90):
+                st_write(bs.heading, "Fowler\u2019s Warning", tag=t.div, toc_lvl="1")
             st_space("v", 1)
 
         with st_block(s.project.containers.callout):

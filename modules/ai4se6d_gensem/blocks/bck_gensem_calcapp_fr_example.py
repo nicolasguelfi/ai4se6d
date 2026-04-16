@@ -40,7 +40,8 @@ so that I can correct mistakes.
 def build():
     st_marker("FR-001: Given/When/Then")
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Example: FR-001 in Full Detail", tag=t.div, toc_lvl="+1")
+        with st_zoom(90):
+            st_write(bs.heading, "Example: FR-001 in Full Detail", tag=t.div, toc_lvl="+1")
         st_hover_tooltip(
             title="FR-001 and GSE-One Principles",
             entries=[

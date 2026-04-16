@@ -54,19 +54,28 @@ def build():
     # ── Slide 1: Briefing — what you'll do ──────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
-                bs.heading, "Practice: Discover GSE-One",
-                tag=t.div, toc_lvl="+1",
-            )
-            st_hover_tooltip(
-                title="Why free discovery?",
-                entries=[
-                    ("Pedagogy", "You'll experience the full GSE-One lifecycle BEFORE having the theory explained. This creates concrete reference points for the concepts that follow."),
-                    ("What to expect", "The GSE-One agent will guide you through onboarding (HUG), discovery (COLLECT/ASSESS), planning (PLAN), and the beginning of production (PRODUCE)."),
-                    ("Your role", "Follow the agent's lead. Don't try to understand everything — just observe and note what surprises you."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
+            with st_zoom(90):
+                with st_grid(
+                    cols="95% 5%",
+                    gap="0px",
+                    cell_styles=s.project.containers.grid_cell_centered,
+                ) as g:
+                    with g.cell():
+                        with st_zoom(90):
+                            st_write(
+                            bs.heading, "Practice: Discover GSE-One",
+                            tag=t.div, toc_lvl="+1",
+                            )
+                    with g.cell():
+                        st_hover_tooltip(
+                            title="Why free discovery?",
+                            entries=[
+                                ("Pedagogy", "You'll experience the full GSE-One lifecycle BEFORE having the theory explained. This creates concrete reference points for the concepts that follow."),
+                                ("What to expect", "The GSE-One agent will guide you through onboarding (HUG), discovery (COLLECT/ASSESS), planning (PLAN), and the beginning of production (PRODUCE)."),
+                                ("Your role", "Follow the agent's lead. Don't try to understand everything — just observe and note what surprises you."),
+                            ],
+                            scale="2vw", width="70vw", position="left",
+                        )
             st_space("v", 1)
 
             _left = Style("text-align: left;", "p1_left")
@@ -105,20 +114,29 @@ def build():
     # ── Slide 2: Debrief questions ──────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
-                bs.heading, "Debrief: What Did You Experience?",
-                tag=t.div, toc_lvl="+1",
-            )
-            st_hover_tooltip(
-                title="Debrief — Mapping to GSE-One Concepts",
-                entries=[
-                    ("Questions → HUG", "The agent asked about your profile — that's Principle P4 (Human-in-the-Loop) and P9 (Adaptive Communication)."),
-                    ("Choices → Gate", "When the agent presented options with consequences — that's P7 (Risk-Based Decision Classification)."),
-                    ("Refusals → Guardrails", "When the agent refused an action — that's P11 (Guardrails) protecting you from risky operations."),
-                    ("Branches → Worktrees", "The agent created branches/worktrees — that's P12 (Version Control Isolation)."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
+            with st_zoom(90):
+                with st_grid(
+                    cols="95% 5%",
+                    gap="0px",
+                    cell_styles=s.project.containers.grid_cell_centered,
+                ) as g:
+                    with g.cell():
+                        with st_zoom(90):
+                            st_write(
+                            bs.heading, "Debrief: What Did You Experience?",
+                            tag=t.div, toc_lvl="+1",
+                            )
+                    with g.cell():
+                        st_hover_tooltip(
+                            title="Debrief — Mapping to GSE-One Concepts",
+                            entries=[
+                                ("Questions → HUG", "The agent asked about your profile — that's Principle P4 (Human-in-the-Loop) and P9 (Adaptive Communication)."),
+                                ("Choices → Gate", "When the agent presented options with consequences — that's P7 (Risk-Based Decision Classification)."),
+                                ("Refusals → Guardrails", "When the agent refused an action — that's P11 (Guardrails) protecting you from risky operations."),
+                                ("Branches → Worktrees", "The agent created branches/worktrees — that's P12 (Version Control Isolation)."),
+                            ],
+                            scale="2vw", width="70vw", position="left",
+                        )
             st_space("v", 1)
 
             _cell_alt = (

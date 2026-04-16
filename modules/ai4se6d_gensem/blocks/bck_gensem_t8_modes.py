@@ -39,7 +39,8 @@ def build():
     st_marker("Choose Your Mode")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Choose Your Mode", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "Choose Your Mode", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="3 Modes \u2014 Choose Based on Project Scope",
                 entries=[

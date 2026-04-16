@@ -21,7 +21,8 @@ def build():
     st_marker("3 Takeaways → GSE-One")
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Key Takeaways", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "Key Takeaways", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="SOTA Review Takeaways",
                 entries=[

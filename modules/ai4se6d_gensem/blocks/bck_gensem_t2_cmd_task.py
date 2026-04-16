@@ -24,7 +24,8 @@ def build():
     st_marker("/gse:task")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:task \u2014 Ad-hoc Work & Spikes", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:task \u2014 Ad-hoc Work & Spikes", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:task \u2014 Outside the Standard Lifecycle",
                 entries=[

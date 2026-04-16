@@ -23,7 +23,8 @@ def build():
     st_marker("/gse:compound")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:compound \u2014 What Did We Learn?", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:compound \u2014 What Did We Learn?", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:compound \u2014 3-Axis Capitalization",
                 entries=[

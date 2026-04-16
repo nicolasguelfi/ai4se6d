@@ -34,7 +34,8 @@ def build():
     st_marker("/gse:preview")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:preview \u2014 See Before Building", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:preview \u2014 See Before Building", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:preview \u2014 Close the Gap",
                 entries=[

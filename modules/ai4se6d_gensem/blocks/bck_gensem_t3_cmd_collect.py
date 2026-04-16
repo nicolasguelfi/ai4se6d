@@ -23,7 +23,8 @@ def build():
     st_marker("/gse:collect")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:collect \u2014 What Do We Have?", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:collect \u2014 What Do We Have?", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:collect \u2014 Artefact Inventory",
                 entries=[

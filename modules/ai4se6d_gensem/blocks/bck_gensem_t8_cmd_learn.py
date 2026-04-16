@@ -30,7 +30,8 @@ def build():
     # ── Slide 1: 3 Modes ──────────────────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:learn \u2014 The Agent Teaches You", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:learn \u2014 The Agent Teaches You", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:learn \u2014 3 Learning Modes",
                 entries=[
@@ -67,7 +68,8 @@ def build():
     # ── Slide 2: Options & Competency Map ──────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:learn \u2014 Options & Competency Map", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:learn \u2014 Options & Competency Map", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:learn Options",
                 entries=[

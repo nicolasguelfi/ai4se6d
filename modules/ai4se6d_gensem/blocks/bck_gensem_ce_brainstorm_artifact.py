@@ -36,7 +36,8 @@ _BRAINSTORM = """\
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Brainstorm: The Artifact", tag=t.div, toc_lvl="1")
+        with st_zoom(90):
+            st_write(bs.heading, "Brainstorm: The Artifact", tag=t.div, toc_lvl="1")
         st_space("v", 0.5)
 
         st_write(bs.body, (bs.label, "Example output"), " from a brainstorm phase:")

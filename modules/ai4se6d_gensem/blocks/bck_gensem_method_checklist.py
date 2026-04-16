@@ -22,7 +22,8 @@ bs = BlockStyles
 def build():
     st_marker("GSE-One Quick Reference")
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "GSE-One Quick Reference Checklist", tag=t.div, toc_lvl="+1")
+        with st_zoom(90):
+            st_write(bs.heading, "GSE-One Quick Reference Checklist", tag=t.div, toc_lvl="+1")
         st_hover_tooltip(
             title="Quick Reference Checklist",
             entries=[

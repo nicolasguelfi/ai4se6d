@@ -18,7 +18,8 @@ bs = BlockStyles
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Plan B: If You Fall Behind", tag=t.div, toc_lvl="1")
+        with st_zoom(90):
+            st_write(bs.heading, "Plan B: If You Fall Behind", tag=t.div, toc_lvl="1")
         st_space("v", 0.5)
 
         with st_block(s.project.containers.callout):

@@ -29,7 +29,8 @@ HERO_PROMPT = (
 def build():
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
-            st_write(bs.title, "Compound Engineering", tag=t.div, toc_lvl="1")
+            with st_zoom(90):
+                st_write(bs.title, "Compound Engineering", tag=t.div, toc_lvl="1")
             st_write(bs.subtitle, "A Practical GenSE Approach", tag=t.div)
             st_image(
                 s.none,

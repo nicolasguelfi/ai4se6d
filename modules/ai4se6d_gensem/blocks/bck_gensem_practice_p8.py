@@ -45,7 +45,8 @@ def build():
     # ── Slide 1: Feature table ──────────────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "P8: Autonomous Sprint \u2014 Choose a Feature", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "P8: Autonomous Sprint \u2014 Choose a Feature", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="Your Autonomous Sprint",
                 entries=[
@@ -77,7 +78,8 @@ def build():
     # ── Beginner ────────────────────────────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "P8: Autonomous Sprint \u2014 Beginner", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "P8: Autonomous Sprint \u2014 Beginner", tag=t.div, toc_lvl="+1")
             st_space("v", 1)
 
             with st_grid(
@@ -110,7 +112,8 @@ def build():
     # ── Intermediate ────────────────────────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "P8: Autonomous Sprint \u2014 Intermediate", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "P8: Autonomous Sprint \u2014 Intermediate", tag=t.div, toc_lvl="+1")
             st_space("v", 1)
 
             with st_grid(
@@ -143,7 +146,8 @@ def build():
     # ── Advanced / Expert ───────────────────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "P8: Autonomous Sprint \u2014 Advanced / Expert", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "P8: Autonomous Sprint \u2014 Advanced / Expert", tag=t.div, toc_lvl="+1")
             st_space("v", 1)
 
             with st_grid(

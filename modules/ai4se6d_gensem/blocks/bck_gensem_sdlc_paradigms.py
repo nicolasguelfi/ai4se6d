@@ -48,11 +48,12 @@ def build():
     # ── Slide 13: RE Transformed ────────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
-                bs.heading,
-                "Requirements Engineering: Transformed",
-                tag=t.div, toc_lvl="+1",
-            )
+            with st_zoom(90):
+                st_write(
+                    bs.heading,
+                    "Requirements Engineering: Transformed",
+                    tag=t.div, toc_lvl="+1",
+                )
             st_hover_tooltip(
                 title="Requirements Engineering Transformed — Explained",
                 entries=[
@@ -83,11 +84,12 @@ def build():
     # ── Slide 14: Testing and Reviewing ─────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading,
                 "Testing and Reviewing: Structured Process Matters",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="Testing & Process — Explained",
                 entries=[
@@ -118,11 +120,12 @@ def build():
     # ── Slide 15: 3 Paradigms + transition ──────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading,
                 "3 Paradigms of Code Generation",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="3 Paradigms — What you practiced in Days 1-2",
                 entries=[

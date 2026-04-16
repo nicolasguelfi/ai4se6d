@@ -19,11 +19,12 @@ bs = BlockStyles
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading,
                 "The 160,000-Developer Study",
                 tag=t.div, toc_lvl="1",
-            )
+                )
             st_space("v", 1)
             st_write(bs.stat, "160K+")
             st_space("v", 1)

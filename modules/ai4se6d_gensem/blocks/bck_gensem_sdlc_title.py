@@ -34,13 +34,14 @@ def build():
     st_marker("Generative Software Engineering")
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.title,
                 (bs.title_g, "G"), "enerative ",
                 (bs.title_s, "S"), "oftware ",
                 (bs.title_e, "E"), "ngineering",
                 tag=t.div, toc_lvl="1",
-            )
+                )
             st_space("v", 1)
             with st_grid(cols="1fr 2fr 1fr", gap="0px") as g:
                 with g.cell():

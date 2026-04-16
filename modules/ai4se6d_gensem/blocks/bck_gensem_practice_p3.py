@@ -36,7 +36,8 @@ def _scenario_slide(level_label, cell_style, steps, question):
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.heading, f"P3: Sprint Planning \u2014 {level_label}", tag=t.div, toc_lvl="+1")
+                    with st_zoom(90):
+                        st_write(bs.heading, f"P3: Sprint Planning \u2014 {level_label}", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title=f"P3 {level_label} \u2014 What to do",

@@ -19,7 +19,8 @@ bs = BlockStyles
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "SE 3.0: Intent-Centric + Conversation-Oriented", tag=t.div, toc_lvl="1")
+        with st_zoom(90):
+            st_write(bs.heading, "SE 3.0: Intent-Centric + Conversation-Oriented", tag=t.div, toc_lvl="1")
         st_space("v", 1)
 
         with st_grid(

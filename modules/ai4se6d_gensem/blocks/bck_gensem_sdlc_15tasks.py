@@ -115,25 +115,27 @@ def build():
 
     # ── Slide 3: 4 NEW tasks ───────────────────────────────────────
     with st_block(_page_fill+s.center_txt):
-        with st_grid(
-            cols="95% 5%",
-            gap="0px",
-            cell_styles=s.project.containers.grid_cell_centered,
-        ) as g:
-            with g.cell():
-                st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
-                st_write(bs.sub_new, "4 NEW \u2014 Did not exist before GenAI")
-            with g.cell():
-                st_hover_tooltip(
-                    title="4 NEW Tasks \u2014 Why they didn't exist before",
-                    entries=[
-                        ("What changed", "Generative AI created entirely new developer activities that have no equivalent in traditional software engineering."),
-                        ("T1 + T2", "Before GenAI, developers coded directly. Now, formulating precise intent (T1) and building the right context for agents (T2) are the primary skills."),
-                        ("T13 + T14", "As AI agents become autonomous workers, someone must supervise them (T13) and capture what they learn (T14) \u2014 these roles simply didn't exist."),
-                        (_GEN + " Shield icon", "Marks tasks that are specific to generative software engineering."),
-                    ],
-                    scale="2vw", width="70vw", position="left",
-                )
+        with st_zoom(90):
+            with st_grid(
+                cols="95% 5%",
+                gap="0px",
+                cell_styles=s.project.containers.grid_cell_centered,
+            ) as g:
+                with g.cell():
+                    with st_zoom(90):
+                        st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
+                    st_write(bs.sub_new, "4 NEW \u2014 Did not exist before GenAI")
+                with g.cell():
+                    st_hover_tooltip(
+                        title="4 NEW Tasks \u2014 Why they didn't exist before",
+                        entries=[
+                            ("What changed", "Generative AI created entirely new developer activities that have no equivalent in traditional software engineering."),
+                            ("T1 + T2", "Before GenAI, developers coded directly. Now, formulating precise intent (T1) and building the right context for agents (T2) are the primary skills."),
+                            ("T13 + T14", "As AI agents become autonomous workers, someone must supervise them (T13) and capture what they learn (T14) \u2014 these roles simply didn't exist."),
+                            (_GEN + " Shield icon", "Marks tasks that are specific to generative software engineering."),
+                        ],
+                        scale="2vw", width="70vw", position="left",
+                    )
         st_space("v", 0)
         _render_group(_TASKS_NEW, _cell_new, _hdr_new, bs.label_new,zoom=90)
 
@@ -142,25 +144,27 @@ def build():
     # ── Slide 4: 4 ELEVATED tasks ──────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            with st_grid(
-                cols="95% 5%",
-                gap="0px",
-                cell_styles=s.project.containers.grid_cell_centered,
-            ) as g:
-                with g.cell():
-                    st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
-                    st_write(bs.sub_elev, "4 ELEVATED \u2014 Importance dramatically increased")
-                with g.cell():
-                    st_hover_tooltip(
-                        title="4 ELEVATED Tasks \u2014 Why they became critical",
-                        entries=[
-                            ("What changed", "These tasks existed before but their frequency and importance have surged because AI-generated code requires much more verification."),
-                            ("T5 \u2014 Code Review", "AI-generated code has a 12-65% vulnerability rate (SOTA Section 7.1), making continuous review essential \u2014 not just once per pull request."),
-                            ("T12 \u2014 Version Control", "When agents modify 10+ files at once, structured branching and worktree isolation become mandatory to prevent conflicts."),
-                            ("T15 \u2014 Requirements", "AI-driven conversational elicitation produces requirements faster but they need careful human validation to avoid hallucinated criteria."),
-                        ],
-                        scale="2vw", width="70vw", position="left",
-                    )
+            with st_zoom(90):
+                with st_grid(
+                    cols="95% 5%",
+                    gap="0px",
+                    cell_styles=s.project.containers.grid_cell_centered,
+                ) as g:
+                    with g.cell():
+                        with st_zoom(90):
+                            st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
+                        st_write(bs.sub_elev, "4 ELEVATED \u2014 Importance dramatically increased")
+                    with g.cell():
+                        st_hover_tooltip(
+                            title="4 ELEVATED Tasks \u2014 Why they became critical",
+                            entries=[
+                                ("What changed", "These tasks existed before but their frequency and importance have surged because AI-generated code requires much more verification."),
+                                ("T5 \u2014 Code Review", "AI-generated code has a 12-65% vulnerability rate (SOTA Section 7.1), making continuous review essential \u2014 not just once per pull request."),
+                                ("T12 \u2014 Version Control", "When agents modify 10+ files at once, structured branching and worktree isolation become mandatory to prevent conflicts."),
+                                ("T15 \u2014 Requirements", "AI-driven conversational elicitation produces requirements faster but they need careful human validation to avoid hallucinated criteria."),
+                            ],
+                            scale="2vw", width="70vw", position="left",
+                        )
             st_space("v", 2)
             _render_group(_TASKS_ELEVATED, _cell_elev, _hdr_elev, bs.label_elev,zoom=90)
 
@@ -169,25 +173,27 @@ def build():
     # ── Slide 5: TRANSFORMED tasks (1/2) — T3, T4, T7, T8 ─────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            with st_grid(
-                cols="95% 5%",
-                gap="0px",
-                cell_styles=s.project.containers.grid_cell_centered,
-            ) as g:
-                with g.cell():
-                    st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
-                    st_write(bs.sub_trans, "7 TRANSFORMED \u2014 Traditional tasks, new nature (1/2)")
-                with g.cell():
-                    st_hover_tooltip(
-                        title="7 TRANSFORMED Tasks (1/2) \u2014 How the role changed",
-                        entries=[
-                            ("What changed", "These traditional SE tasks still exist, but the human role shifted from doing the work to validating and deciding on AI-produced output."),
-                            ("T3 \u2014 Architecture", "AI proposes design options with trade-offs; the developer chooses and takes responsibility for the decision."),
-                            ("T4 \u2014 Code Generation", "Instead of writing code line by line, the developer orchestrates multi-agent code production and verifies the result."),
-                            ("T7-T8", "AI identifies bugs and refactoring opportunities; the developer confirms the diagnosis and validates the fix."),
-                        ],
-                        scale="2vw", width="70vw", position="left",
-                    )
+            with st_zoom(90):
+                with st_grid(
+                    cols="95% 5%",
+                    gap="0px",
+                    cell_styles=s.project.containers.grid_cell_centered,
+                ) as g:
+                    with g.cell():
+                        with st_zoom(90):
+                            st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
+                        st_write(bs.sub_trans, "7 TRANSFORMED \u2014 Traditional tasks, new nature (1/2)")
+                    with g.cell():
+                        st_hover_tooltip(
+                            title="7 TRANSFORMED Tasks (1/2) \u2014 How the role changed",
+                            entries=[
+                                ("What changed", "These traditional SE tasks still exist, but the human role shifted from doing the work to validating and deciding on AI-produced output."),
+                                ("T3 \u2014 Architecture", "AI proposes design options with trade-offs; the developer chooses and takes responsibility for the decision."),
+                                ("T4 \u2014 Code Generation", "Instead of writing code line by line, the developer orchestrates multi-agent code production and verifies the result."),
+                                ("T7-T8", "AI identifies bugs and refactoring opportunities; the developer confirms the diagnosis and validates the fix."),
+                            ],
+                            scale="2vw", width="70vw", position="left",
+                        )
             st_space("v", 2)
             _render_group(_TASKS_TRANSFORMED[:4], _cell_trans, _hdr_trans, bs.label_trans)
 
@@ -195,24 +201,28 @@ def build():
 
     # ── Slide 6: TRANSFORMED tasks (2/2) — T9, T10, T11 ─────────
     with st_block(_page_fill+s.center_txt):
-        with st_grid(
-            cols="95% 5%",
-            gap="0px",
-            cell_styles=s.project.containers.grid_cell_centered,
-        ) as g:
-            with g.cell():
-                st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
-                st_write(bs.sub_trans, "7 TRANSFORMED \u2014 Traditional tasks, new nature (2/2)")
-            with g.cell():
-                st_hover_tooltip(
-                    title="7 TRANSFORMED Tasks (2/2) \u2014 Automation with oversight",
-                    entries=[
-                        ("T9 \u2014 Documentation", "AI generates docs automatically from code; the developer curates quality and accuracy instead of writing from scratch."),
-                        ("T10 \u2014 Security", "AI scans dependencies and detects vulnerabilities; the developer prioritizes which ones to fix based on risk assessment."),
-                        ("T11 \u2014 CI/CD", "AI-triggered builds and deployments become standard; the developer defines the pipeline, AI executes and monitors it."),
-                        ("Common thread", "In all 7 transformed tasks, the pattern is the same: AI does the heavy lifting, the human validates, decides, and takes responsibility."),
-                    ],
-                    scale="2vw", width="70vw", position="left",
-                )
+        with st_zoom(90):
+            with st_grid(
+                cols="95% 5%",
+                gap="0px",
+                cell_styles=s.project.containers.grid_cell_centered,
+            ) as g:
+                with g.cell():
+                    with st_zoom(90):
+                        st_write(bs.heading, "15 Core Tasks", tag=t.div, toc_lvl="+1")
+                    st_write(bs.sub_trans, "7 TRANSFORMED \u2014 Traditional tasks, new nature (2/2)")
+                with g.cell():
+                    st_hover_tooltip(
+                        title="7 TRANSFORMED Tasks (2/2) \u2014 Automation with oversight",
+                        entries=[
+                            ("T9 \u2014 Documentation", "AI generates docs automatically from code; the developer curates quality and accuracy instead of writing from scratch."),
+                            ("T10 \u2014 Security", "AI scans dependencies and detects vulnerabilities; the developer prioritizes which ones to fix based on risk assessment."),
+                            ("T11 \u2014 CI/CD", "AI-triggered builds and deployments become standard; the developer defines the pipeline, AI executes and monitors it."),
+                            ("Common thread", "In all 7 transformed tasks, the pattern is the same: AI does the heavy lifting, the human validates, decides, and takes responsibility."),
+                        ],
+                        scale="2vw", width="70vw", position="left",
+                    )
         st_space("v", 2)
         _render_group(_TASKS_TRANSFORMED[4:], _cell_trans, _hdr_trans, bs.label_trans)
+
+    st_space("v", "30vh")

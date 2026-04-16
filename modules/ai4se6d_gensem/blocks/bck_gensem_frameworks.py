@@ -56,10 +56,11 @@ def build():
     # ── Slide 1: The Landscape ──────────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading, "The Methodological Landscape",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="3 Categories of GenSE Frameworks",
                 entries=[
@@ -118,10 +119,11 @@ def build():
     # ── Slide 2: What's missing everywhere ──────────────────────────
     with st_block(_page_fill_center):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading, "What's Missing Everywhere",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="Gaps in Existing Frameworks",
                 entries=[
@@ -164,10 +166,11 @@ def build():
     # ── Slide 3: Comparison table ───────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading, "Framework Comparison",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="How to Read This Table",
                 entries=[
@@ -215,10 +218,11 @@ def build():
     # ── Slide 4: Enterprise Roadmap 2025-2030 ───────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading, "Enterprise Roadmap 2025-2030",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="Industry Analyst Predictions",
                 entries=[
@@ -253,10 +257,11 @@ def build():
     # ── Slide 5: 3 Takeaways → GSE-One ─────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading, "Key Takeaways",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_space("v", 1)
             with st_zoom(120):
                 with st_list(li_style=bs.body) as l:

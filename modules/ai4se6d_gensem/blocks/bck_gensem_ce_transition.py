@@ -16,7 +16,8 @@ bs = BlockStyles
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "From Theory to Practice", tag=t.div, toc_lvl="1")
+            with st_zoom(90):
+                st_write(bs.heading, "From Theory to Practice", tag=t.div, toc_lvl="1")
             st_space("v", 1)
 
         st_write(bs.body, "Mapping CE phases to today's hands-on activities:")

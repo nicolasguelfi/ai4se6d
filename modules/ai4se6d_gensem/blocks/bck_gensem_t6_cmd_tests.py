@@ -36,7 +36,8 @@ def build():
     st_marker("/gse:tests")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:tests \u2014 How Do We Verify?", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:tests \u2014 How Do We Verify?", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:tests \u2014 Full Testing Lifecycle",
                 entries=[

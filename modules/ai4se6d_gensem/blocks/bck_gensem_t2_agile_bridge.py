@@ -33,7 +33,8 @@ def build():
     st_marker("Agile \u2192 GSE-One")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "From Agile to GSE-One", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "From Agile to GSE-One", tag=t.div, toc_lvl="+1")
 
             # Two tooltips side by side
             with st_grid(cols="1fr 1fr", gap="16px") as g:

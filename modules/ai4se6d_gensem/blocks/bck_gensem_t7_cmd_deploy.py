@@ -29,7 +29,8 @@ def build():
     st_marker("/gse:deploy")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:deploy \u2014 From Zero to Live", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:deploy \u2014 From Zero to Live", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:deploy \u2014 Hetzner + Coolify",
                 entries=[

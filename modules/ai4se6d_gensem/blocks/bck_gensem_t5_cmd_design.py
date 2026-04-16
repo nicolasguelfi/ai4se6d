@@ -22,7 +22,8 @@ def build():
     st_marker("/gse:design")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:design \u2014 How Should It Work?", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:design \u2014 How Should It Work?", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:design \u2014 Architecture & Decisions",
                 entries=[

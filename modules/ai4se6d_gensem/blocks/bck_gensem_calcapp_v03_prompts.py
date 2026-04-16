@@ -37,12 +37,13 @@ def build():
     st_marker("GSE-One Prompting Strategy")
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading,
                 "GSE-One Prompting Strategy for v0.3",
                 tag=t.div,
                 toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="GSE-One Prompting Strategy",
                 entries=[

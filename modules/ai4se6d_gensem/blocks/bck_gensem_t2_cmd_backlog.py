@@ -35,7 +35,8 @@ def build():
     st_marker("/gse:backlog")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:backlog \u2014 Unified Work Items", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:backlog \u2014 Unified Work Items", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:backlog \u2014 Pool + Sprint",
                 entries=[

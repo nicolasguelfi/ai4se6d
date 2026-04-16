@@ -36,7 +36,8 @@ As a user, I want to add a new expense.
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Step 1: Example Output", tag=t.div, toc_lvl="1")
+        with st_zoom(90):
+            st_write(bs.heading, "Step 1: Example Output", tag=t.div, toc_lvl="1")
         st_space("v", 0.5)
 
         st_write(bs.body, (bs.label, "Example requirements.md"), " with 3 FRs:")

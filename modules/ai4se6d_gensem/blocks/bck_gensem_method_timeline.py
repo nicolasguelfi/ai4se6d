@@ -34,7 +34,8 @@ _BLOCKS = [
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "GenSEMOne Timeline \u2014 1.5 Days", tag=t.div, toc_lvl="1")
+        with st_zoom(90):
+            st_write(bs.heading, "GenSEMOne Timeline \u2014 1.5 Days", tag=t.div, toc_lvl="1")
         st_space("v", 1)
 
         with st_grid(

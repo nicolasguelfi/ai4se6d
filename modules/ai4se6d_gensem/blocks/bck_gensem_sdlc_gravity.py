@@ -44,11 +44,12 @@ def build():
     st_marker("The Shifting Center of Gravity")
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(
-                bs.heading,
-                "The Shifting Center of Gravity",
-                tag=t.div, toc_lvl="1",
-            )
+            with st_zoom(90):
+                st_write(
+                    bs.heading,
+                    "The Shifting Center of Gravity",
+                    tag=t.div, toc_lvl="1",
+                )
             st_hover_tooltip(
                 title="The Shifting Center of Gravity",
                 entries=[

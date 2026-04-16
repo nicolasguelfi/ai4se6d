@@ -34,7 +34,8 @@ _PLAN = """\
 def build():
     st_marker("plan.md Artifact Example")
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Plan: The Artifact", tag=t.div, toc_lvl="+1")
+        with st_zoom(90):
+            st_write(bs.heading, "Plan: The Artifact", tag=t.div, toc_lvl="+1")
         st_hover_tooltip(
             title="Plan Artifact in GSE-One",
             entries=[

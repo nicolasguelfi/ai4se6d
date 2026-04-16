@@ -22,7 +22,8 @@ def build():
     st_marker("/gse:pause + /gse:resume")
     with st_block(_pf):
         with st_block(s.center_txt):
-            st_write(bs.heading, "/gse:pause + /gse:resume", tag=t.div, toc_lvl="+1")
+            with st_zoom(90):
+                st_write(bs.heading, "/gse:pause + /gse:resume", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="Session Continuity \u2014 Never Lose Work",
                 entries=[

@@ -21,7 +21,8 @@ bs = BlockStyles
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.heading, "Step 3: Iterate \u2014 The Development Loop", tag=t.div, toc_lvl="1")
+        with st_zoom(90):
+            st_write(bs.heading, "Step 3: Iterate \u2014 The Development Loop", tag=t.div, toc_lvl="1")
         st_space("v", 1)
 
         st_write(bs.body, "For ", (bs.keyword, "each FR"), ", follow these 5 sub-steps:")

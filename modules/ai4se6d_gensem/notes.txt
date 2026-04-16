@@ -46,6 +46,43 @@ Artifact-Driven Composition
 --------
 
 --------
+new command blocks:
+
+
+⏺ ┌───────────────┬──────────────────────────────┐ 
+  │   Commande    │           Fichier            │ 
+  ├───────────────┼──────────────────────────────┤ 
+  │ /gse:go       │ bck_gensem_t2_cmd_go.py      │ 
+  ├───────────────┼──────────────────────────────┤ 
+  │ /gse:hug      │ bck_gensem_t2_cmd_hug.py     │   
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:collect  │ bck_gensem_t3_cmd_collect.py │   
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:assess   │ bck_gensem_t3_cmd_assess.py  │ 
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:plan     │ bck_gensem_t3_cmd_plan.py    │ 
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:reqs     │ bck_gensem_t5_cmd_reqs.py    │ 
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:design   │ bck_gensem_t5_cmd_design.py  │ 
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:tests    │ bck_gensem_t6_cmd_tests.py   │ 
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:produce  │ bck_gensem_t6_cmd_produce.py │ 
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:review   │ bck_gensem_t6_cmd_review.py  │ 
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:fix      │ bck_gensem_t6_cmd_fix.py     │ 
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:deliver  │ bck_gensem_t7_cmd_deliver.py │ 
+  ├───────────────┼──────────────────────────────┤   
+  │ /gse:compound │ bck_gensem_t7_cmd_compound.p │ 
+  │               │ y                            │   
+  ├───────────────┼──────────────────────────────┤ 
+  │ /gse:integrat │ bck_gensem_t7_cmd_integrate. │   
+  │ e             │ py                           │ 
+  └───────────────┴──────────────────────────────┘   
+                                     
 
 --------
 
@@ -64,12 +101,49 @@ Artifact-Driven Composition
 --------
 
 --------
+ensure that all slides of this module have their title with st_zoom(90) 
+
+
+Requirements Engineering: Transformed
+
+
+--------
+in:
+title slide
+replace :
+4 Sessions × 3h
+by 
+4 Sessions
+
+in:
+
+in:
+
+in:
+
+in:
+
+in:
+
 
 --------
 
 --------
+Peux-tu appliquer la même approche pour afficher le bouton pour tooltip qui est décrite ici :
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_gensem/blocks/bck_gensem_sdlc_15tasks.py
 
---------
+Pour le(s) tooltips des slide(s) suivant(s):
+
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_gensem/blocks/bck_gensem_sdlc_paradigms.py
+
+/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/Projets/AISE/ROS/trainings/AI4SE/githubs/AI4SE6D_STX/projects/ai4se6d/modules/ai4se6d_gensem/blocks/bck_gensem_sdlc_paradigms.py
+
+
+
+Objectif:
+Tu appliques le schéma en grille et en capsule le titre st_zoom Avec 90%
+
+
 
 --------
 

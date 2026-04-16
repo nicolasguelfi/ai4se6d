@@ -44,11 +44,12 @@ def build():
     # ── Slide 11: Implementer → Orchestrator ────────────────────────
     with st_block(_page_fill_center):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.heading,
                 "Implementer  →  Orchestrator",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_hover_tooltip(
                 title="Implementer to Orchestrator",
                 entries=[
@@ -73,11 +74,12 @@ def build():
     # ── Slide 12: 3 Pillars ─────────────────────────────────────────
     with st_block(_page_fill_top):
         with st_block(s.center_txt):
-            st_write(
+            with st_zoom(90):
+                st_write(
                 bs.slide_title,
                 "What This Changes For You",
                 tag=t.div, toc_lvl="+1",
-            )
+                )
             st_space("v", 2)
 
             with st_grid(
