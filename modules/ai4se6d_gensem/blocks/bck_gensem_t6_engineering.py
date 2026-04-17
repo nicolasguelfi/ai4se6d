@@ -213,16 +213,18 @@ def build():
                         st_write(bs.heading, "/gse:fix — Iterate Until Quality", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
-                        title="FIX — The Quality Loop",
+                        title="FIX — The Conditional Quality Loop",
                         entries=[
-                            ("How it works", "Creates a fix branch targeting specific RVW- findings. Each fix commit references the finding ID."),
-                            ("Iteration", "REVIEW → FIX can loop until quality is acceptable: 0 HIGH findings + health score above threshold."),
+                            ("Conditional", "FIX is not in workflow.expected by default. The orchestrator inserts it after REVIEW only if findings with severity HIGH or MEDIUM exist; a clean review moves FIX to workflow.skipped."),
+                            ("How it works", "When triggered, creates a fix branch targeting specific RVW- findings. Each fix commit references the finding ID."),
+                            ("Iteration", "REVIEW → [FIX] → REVIEW can loop until quality is acceptable: 0 HIGH findings + health score above threshold."),
                             ("Discipline", "The fix ONLY addresses the finding. No extra changes. Scope stays constrained."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
             with st_zoom(120):
                 st_space("v", 2)
-                st_write(bs.accent, "REVIEW → FIX → REVIEW → FIX → ... until quality.")
+                st_write(bs.accent, "REVIEW → [FIX] → REVIEW → [FIX] → ... until quality.")
                 st_space("v", 1)
+                st_write(bs.body, "[FIX] is conditional — inserted only when REVIEW flags HIGH/MEDIUM findings.")
                 st_write(bs.body, "0 HIGH findings + acceptable health score = ready to deliver.")

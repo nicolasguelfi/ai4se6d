@@ -127,7 +127,7 @@ def build():
                             with l.item():
                                 st_write(bs.body + _left, (bs.keyword, "1. "), (bs.keyword, "Recommended: "), "CSV export (3-4 pts) or Data visualization (4-5 pts)")
                             with l.item():
-                                st_write(bs.body + _left, (bs.keyword, "2. "), (bs.keyword, "Use individual commands "), "\u2014 collect \u2192 assess \u2192 plan \u2192 reqs \u2192 design \u2192 preview \u2192 produce \u2192 tests \u2192 review \u2192 fix \u2192 deliver \u2192 compound")
+                                st_write(bs.body + _left, (bs.keyword, "2. "), (bs.keyword, "Use individual commands "), "\u2014 collect \u2192 assess \u2192 plan \u2192 reqs \u2192 design \u2192 preview \u2192 produce \u2192 tests \u2192 review \u2192 [fix] \u2192 deliver \u2192 compound  ([fix] only if REVIEW flags HIGH/MEDIUM)")
                 with g.cell():
                     with st_block(_cell_acc + _left):
                         with st_list(l_style=bs.body + _left, li_style=bs.body + _left, list_type=lt.unordered) as l:

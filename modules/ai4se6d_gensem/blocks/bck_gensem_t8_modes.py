@@ -24,7 +24,7 @@ bs = BlockStyles
 _HEADERS = ("Aspect", "Micro", "Lightweight", "Full")
 
 _ROWS = [
-    ("Lifecycle", "PRODUCE \u2192 DELIVER", "PLAN \u2192 PRODUCE \u2192 DELIVER", "LC01 \u2192 LC02 \u2192 LC03"),
+    ("Lifecycle", "PRODUCE \u2192 DELIVER", "PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER", "LC01 \u2192 LC02 \u2192 LC03"),
     ("Git strategy", "Direct commit", "Branch-only", "Worktree per task"),
     ("State files", "status.yaml only", "4 files", "4 files + sprint docs"),
     ("Sprint artifacts", "None", "Plan only", "Full set (plan, reqs, design, review, compound)"),
@@ -44,10 +44,12 @@ def build():
             st_hover_tooltip(
                 title="3 Modes \u2014 Choose Based on Project Scope",
                 entries=[
-                    ("Micro", "For <3 files: prototypes, quick experiments, learning exercises. Minimal overhead."),
-                    ("Lightweight", "For 3-4 files: internal tools, small features. Adds planning and branch isolation."),
-                    ("Full", "For \u22655 files: production systems, team projects. Complete lifecycle with all guardrails and traceability."),
-                    ("How to choose", "Start Lightweight for your professional project. Escalate to Full when you need requirements, review, or full traceability. The agent proposes the mode during /gse:go."),
+                    ("Triviality pre-filter", "File count is a pre-filter, not a complexity signal. <3 project files = Micro (too small for formal process). \u22653 files = the orchestrator applies the 7 structural signals."),
+                    ("7 structural signals", "Lightweight vs Full is decided on 7 structural signals (module coupling, architectural surface, cross-cutting concerns, data-flow depth, external integrations, risk-sensitive domains, test-strategy breadth) \u2014 not file count."),
+                    ("Micro", "Pre-filter: <3 project files. Prototypes, quick experiments. Minimal overhead."),
+                    ("Lightweight", "Small scope on the 7 signals. PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER. Branch isolation, 3 health dims."),
+                    ("Full", "Rich scope on the 7 signals. Complete lifecycle LC01\u2192LC02\u2192LC03. Worktrees, 8 health dims, full traceability."),
+                    ("How to choose", "Start Lightweight for your professional project. Escalate to Full when the 7 signals indicate structural complexity. The agent proposes the mode during /gse:go."),
                     ("Adopt mode", "For existing projects: /gse:go --adopt performs a non-destructive scan and creates a sprint-0 baseline without modifying any files."),
                 ],
                 scale="2vw", width="70vw", position="center",

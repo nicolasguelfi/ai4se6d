@@ -39,7 +39,8 @@ def build():
                     st_hover_tooltip(
                         title="Mono-Plugin Architecture",
                         entries=[
-                            ("52 files", "46 shared (skills, agents, templates) + 3 Claude Code specific + 3 Cursor specific."),
+                            ("57 files total", "23 skills + 19 templates + 9 agents + hooks, manifests and platform rules. Commands = skills (1:1 mapping): on Cursor, skills are exposed as slash commands; on Claude Code, commands are backed by the same skill definitions."),
+                            ("Shared vs platform-specific", "The bulk of the plugin is shared across Claude Code and Cursor; only manifests, hooks and Cursor rules differ."),
                             ("Parity", "The orchestrator body is identical across Claude Code and Cursor — verified by the generator."),
                             ("Installation", "gse install --target cursor OR gse install --target claude-code. One command."),
                             ("Sync", "gse sync keeps rules consistent across tools when working on the same project."),

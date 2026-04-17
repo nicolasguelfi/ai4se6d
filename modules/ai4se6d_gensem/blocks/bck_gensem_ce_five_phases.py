@@ -25,7 +25,7 @@ PIPELINE_PROMPT = (
 _PHASES = [
     ("LC00 — Onboarding", "/gse:hug", "User profiling and project initialization"),
     ("LC01 — Discovery & Planning", "/gse:collect  /gse:assess  /gse:plan", "Understand context, identify gaps, plan the sprint"),
-    ("LC02 — Development", "/gse:reqs  /gse:design  /gse:preview  /gse:tests  /gse:produce  /gse:review  /gse:fix  /gse:deliver", "Specify, design, test, build, review, and ship"),
+    ("LC02 — Development", "/gse:reqs  /gse:design  /gse:preview  /gse:tests  /gse:produce  /gse:review  [/gse:fix]  /gse:deliver", "Specify, design, test, build, review, and ship ([/gse:fix] runs only if REVIEW reports HIGH/MEDIUM findings)"),
     ("LC03 — Capitalization", "/gse:compound  /gse:integrate", "Codify learnings, route improvements"),
 ]
 
@@ -47,7 +47,7 @@ def build():
                         entries=[
                             ("LC00 Onboarding", "/gse:hug captures your profile (11 dimensions) to adapt the agent to your level."),
                             ("LC01 Discovery", "/gse:collect scans sources, /gse:assess identifies gaps, /gse:plan creates a sprint with complexity budget."),
-                            ("LC02 Development", "REQS > DESIGN > PREVIEW > TESTS > PRODUCE > REVIEW > FIX > DELIVER — the full development cycle."),
+                            ("LC02 Development", "REQS > DESIGN > PREVIEW > TESTS > PRODUCE > REVIEW > [FIX] > DELIVER — the full development cycle. [FIX] is conditional: inserted only when REVIEW reports HIGH/MEDIUM findings."),
                             ("LC03 Capitalization", "/gse:compound codifies learnings, /gse:integrate routes them to operational destinations."),
                             ("Cross-cutting", "/gse:status, /gse:health, /gse:backlog, /gse:task, /gse:learn, /gse:pause, /gse:resume, /gse:deploy — available at any phase."),
                         ],

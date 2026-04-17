@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.3.2] — 2026-04-17
+
+### Changed
+- GenSEM: alignment with GSE-One spec updates (FIX conditional, 7 structural signals, Lightweight workflow includes REQS, plugin inventory 23 skills / 19 templates / 57 files)
+- GenSEM: 8 blocks updated — `t8_modes`, `t8_advanced`, `plugin_architecture`, `t2_philosophy`, `ce_five_phases`, `practice_p8`, `ce_plan_summary`, `t6_engineering`
+
+### Verified
+- `.stx-version` = 0.6.10 still aligned with latest streamtex on PyPI (0.6.10, uploaded 2026-04-15)
+- `pyproject.toml` constraint `streamtex[cli,pdf,ai,inspector]>=0.6.10` unchanged
+- `uv.lock` refreshed after version bump
+- Dockerfile continues to rebuild `.stx_cache` + static HTML at container start (entrypoint.sh clears stale caches)
+- Dual serve mode (Nginx `/html/` + Streamlit `:8501`) active for all 5 Coolify apps
+
 ## [0.3.1] — 2026-04-16
 
 ### Added

@@ -39,7 +39,10 @@ gse:
 ## Activity Flow
 
 collect → assess → plan → reqs → design → tests
-→ produce → review → fix → deliver"""
+→ produce → review → [fix] → deliver
+
+# [fix] runs only if review reports HIGH/MEDIUM findings;
+# otherwise moved to workflow.skipped with reason 'no review findings'."""
 
 
 def build():

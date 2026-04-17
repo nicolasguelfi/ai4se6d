@@ -125,7 +125,7 @@ def build():
                         entries=[
                             ("LC00 Onboarding", "/gse:hug captures your profile (11 dimensions) to adapt the agent's behavior to your experience level."),
                             ("LC01 Discovery", "/gse:collect + /gse:assess + /gse:plan — inventory sources, analyze gaps, create a sprint plan with complexity budget."),
-                            ("LC02 Engineering", "REQS → DESIGN → PREVIEW → TESTS → PRODUCE → REVIEW → FIX → DELIVER — the full development cycle."),
+                            ("LC02 Engineering", "REQS → DESIGN → PREVIEW → TESTS → PRODUCE → REVIEW → [FIX] → DELIVER — the full development cycle. [FIX] is conditional: the orchestrator inserts it only if REVIEW produces HIGH/MEDIUM findings."),
                             ("LC03 Capitalization", "/gse:compound + /gse:integrate — capture learnings, route them to operational destinations."),
                         ],
                         scale="2vw", width="70vw", position="left",
@@ -291,7 +291,7 @@ def build():
                         with st_block(_act):
                             st_write(
                                 s.project.titles.table_cell,
-                                "REQS \u2192 DESIGN \u2192 PREVIEW \u2192 TESTS \u2192 PRODUCE \u2192 REVIEW \u2192 FIX \u2192 DELIVER",
+                                "REQS \u2192 DESIGN \u2192 PREVIEW \u2192 TESTS \u2192 PRODUCE \u2192 REVIEW \u2192 [FIX] \u2192 DELIVER",
                             )
 
                     # LC03
@@ -330,6 +330,15 @@ def build():
                     (bs.keyword, "any point"),
                     " in the lifecycle.",
                 )
+                st_write(
+                    bs.body,
+                    (bs.keyword, "[FIX]"),
+                    " is conditional \u2014 inserted by the orchestrator only when REVIEW reports ",
+                    (bs.keyword, "HIGH/MEDIUM findings"),
+                    "; a clean review moves FIX to ",
+                    (bs.keyword, "workflow.skipped"),
+                    ".",
+                )
 
     st_slide_break(marker_label="3 Project Modes")
 
@@ -348,11 +357,12 @@ def build():
                     st_hover_tooltip(
                         title="When to Use Each Mode",
                         entries=[
-                            ("Micro", "<3 files. PRODUCE \u2192 DELIVER only. Direct commits (no branches). Gate-only decisions. No guardrails enforced. No health score. State: .gse/status.yaml only."),
-                            ("Lightweight", "3-4 files. PLAN \u2192 PRODUCE \u2192 DELIVER. Branch-only (no worktrees). Auto+Gate decisions. Hard guardrails. 3 health dimensions. Plan artifact only."),
-                            ("Full", "\u22655 files. Complete lifecycle LC01\u2192LC02\u2192LC03. Worktree isolation (1 task = 1 worktree). Full Auto/Inform/Gate decisions. All guardrails. All 8 health dimensions. Full sprint artifacts."),
+                            ("Triviality pre-filter", "File count is a pre-filter for Micro. Beyond <3 files, mode selection uses 7 structural signals (coupling, surface, cross-cutting, data-flow, integrations, risk domains, test breadth)."),
+                            ("Micro", "Pre-filter: <3 project files. PRODUCE \u2192 DELIVER only. Direct commits (no branches). Gate-only decisions. No guardrails enforced. No health score. State: .gse/status.yaml only."),
+                            ("Lightweight", "Small scope on the 7 signals. PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER. Branch-only (no worktrees). Auto+Gate decisions. Hard guardrails. 3 health dimensions. Plan artifact only."),
+                            ("Full", "Rich scope on the 7 signals. Complete lifecycle LC01\u2192LC02\u2192LC03. Worktree isolation (1 task = 1 worktree). Full Auto/Inform/Gate decisions. All guardrails. All 8 health dimensions. Full sprint artifacts."),
                             ("Git strategy", "Micro = direct commit. Lightweight = branch-only. Full = worktree per task + sprint integration branch."),
-                            ("Recommendation", "Start Lightweight. Escalate to Full when you need requirements, design review, or full traceability."),
+                            ("Recommendation", "Start Lightweight. Escalate to Full when the 7 structural signals indicate real complexity."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
@@ -368,7 +378,7 @@ def build():
                         with st_block(_cell_acc):
                             st_write(bs.label, "Lightweight")
                             st_write(bs.body, "Small projects")
-                            st_write(bs.body, "PLAN → PRODUCE → DELIVER")
+                            st_write(bs.body, "PLAN → REQS → PRODUCE → DELIVER")
                     with g.cell():
                         with st_block(_cell_act):
                             st_write(bs.label, "Full")

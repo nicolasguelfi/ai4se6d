@@ -2,6 +2,21 @@
 
 GenSEM module — Generative Software Engineering Methods.
 
+## [0.4.1] — 2026-04-17
+
+### Changed — GSE-One methodology alignment
+- `bck_gensem_t8_modes`: Lightweight lifecycle now `PLAN → REQS → PRODUCE → DELIVER`; tooltip clarifies file count is a pre-filter for Micro, not a complexity signal; mode selection now described through 7 structural signals
+- `bck_gensem_t8_advanced`: plugin inventory updated to `57 files total` (23 skills + 19 templates + 9 agents + platform-specific manifests/hooks); explicit note that commands = skills (1:1 mapping across Cursor and Claude Code)
+- `bck_gensem_plugin_architecture`: added Skills count (23), Templates count (19), total (57 files), and commands↔skills mapping note
+- `bck_gensem_t2_philosophy`: LC02 sequence uses `[FIX]` bracket notation; added callout noting FIX is conditional on HIGH/MEDIUM findings; Lightweight mode now documents `PLAN → REQS → PRODUCE → DELIVER` in tooltip and card
+- `bck_gensem_ce_five_phases`: LC02 activity list shows `[/gse:fix]` and description notes conditional execution
+- `bck_gensem_practice_p8`: advanced command path shows `[fix]` with conditional annotation
+- `bck_gensem_ce_plan_summary`: activity-flow diagram uses `[fix]` with comment explaining `workflow.skipped` behavior
+- `bck_gensem_t6_engineering`: /gse:fix slide retitled "Conditional Quality Loop"; tooltip, accent and body clarify that FIX is inserted only on HIGH/MEDIUM findings
+
+### Rationale
+These changes align the presentation with three GSE-One spec updates: (1) FIX is no longer systematic in LC02 — the orchestrator inserts it only when REVIEW produces HIGH/MEDIUM findings; (2) complexity evaluation is based on 7 structural signals, file count being only a triviality pre-filter for Micro mode; (3) Lightweight `workflow.expected` is `[plan, reqs, produce, deliver]` (REQS added).
+
 ## [0.4.0] — 2026-04-16
 
 ### Added
