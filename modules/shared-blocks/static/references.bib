@@ -497,3 +497,1443 @@
     year      = {2026},
     url       = {https://contextarena.ai/},
 }
+
+
+% ═══════════════════════════════════════════════════════════════════════
+% GSE-ONE COMPETITIVE LANDSCAPE — April 2026 sweep
+% Methodologies, plugins, frameworks, standards concurrent with GenSEMOne
+% ═══════════════════════════════════════════════════════════════════════
+
+
+% ── Named methodologies & manifestos (industry) ──────────────────────────
+
+@misc{willison-vibeengineering2025,
+    title        = {Vibe Engineering},
+    author       = {Willison, Simon},
+    year         = {2025},
+    month        = oct,
+    howpublished = {simonwillison.net},
+    url          = {https://simonwillison.net/2025/Oct/7/vibe-engineering/},
+    abstract     = {Defines vibe engineering as the disciplined counterpart to vibe coding: AI acceleration with accountability-preserving review of every generated line.},
+}
+
+@misc{lutke-contextengineering2025,
+    title        = {Context Engineering (tweet)},
+    author       = {L{\"u}tke, Tobi},
+    year         = {2025},
+    month        = jun,
+    howpublished = {X/Twitter},
+    url          = {https://x.com/tobi/status/1935533422589399127},
+    note         = {Shopify CEO coining "context engineering" as successor to prompt engineering.},
+}
+
+@misc{breunig-contextfail2025,
+    title        = {How Long Contexts Fail + How to Fix Your Context},
+    author       = {Breunig, Drew},
+    year         = {2025},
+    month        = jun,
+    howpublished = {dbreunig.com},
+    url          = {https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html},
+    abstract     = {Four context failure modes (poisoning, distraction, confusion, clash) with hygiene patterns (tool loadout, quarantine, pruning, summarization, offloading).},
+}
+
+@misc{horthy-12factor2025,
+    title        = {12-Factor Agents},
+    author       = {Horthy, Dex},
+    year         = {2025},
+    howpublished = {HumanLayer (GitHub)},
+    url          = {https://github.com/humanlayer/12-factor-agents},
+    abstract     = {Twelve principles for production LLM systems: own your prompts, context window, control flow; small focused agents; LLMs as stateless decisions around deterministic scaffolding.},
+}
+
+@misc{grove-newcode2025,
+    title        = {The New Code},
+    author       = {Grove, Sean},
+    year         = {2025},
+    howpublished = {AI Engineer World's Fair 2025 keynote},
+    url          = {https://www.youtube.com/watch?v=8rABwKRsec4},
+    abstract     = {OpenAI keynote: specifications are the durable artifact; versioned markdown specs compile into docs, evals, and implementations.},
+}
+
+@misc{github-speckit2025,
+    title        = {Spec Kit: Spec-Driven Development Toolkit},
+    author       = {{GitHub} and {Microsoft}},
+    year         = {2025},
+    url          = {https://github.com/github/spec-kit},
+    abstract     = {Five-phase pipeline (constitution, specification, planning, tasks, implementation). Backends: Claude, Copilot, Gemini, Codex, Cursor, Windsurf.},
+    note         = {Announcement: https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/},
+}
+
+@misc{aws-kiro2025,
+    title        = {Kiro: Spec-Driven Agentic IDE},
+    author       = {{Amazon Web Services}},
+    year         = {2025},
+    url          = {https://kiro.dev/},
+    abstract     = {VS Code fork where specs (user stories, acceptance criteria, design, tasks) are source-of-truth; event-driven Agent Hooks keep tests, docs, and code in sync.},
+}
+
+@misc{aws-aidlc2025,
+    title        = {The {AI}-Driven Development Life Cycle ({AI-DLC})},
+    author       = {{Amazon Web Services}},
+    year         = {2025},
+    howpublished = {AWS DevOps Blog},
+    url          = {https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/},
+    abstract     = {Three-phase methodology (Inception, Construction, Operations) built around Mob Elaboration and Mob Construction --- AI as team collaborator.},
+}
+
+@misc{karpathy-software3-2025,
+    title        = {Software Is Changing (Again) --- Software 3.0},
+    author       = {Karpathy, Andrej},
+    year         = {2025},
+    howpublished = {Y Combinator AI Startup School},
+    url          = {https://www.latent.space/p/s3},
+    note         = {Three-tier taxonomy (1.0 code / 2.0 weights / 3.0 LLM-programmable); introduces the "autonomy slider".},
+}
+
+@misc{kodenerds-idd2026,
+    title        = {Intent-Driven Development 2026},
+    author       = {{Kodenerds}},
+    year         = {2026},
+    url          = {https://www.kodenerds.com/intent-driven-development-2026},
+    abstract     = {Positions specification quality as primary success lever; rebalances teams toward 60\% product judgment, 30\% architecture, 10\% design.},
+}
+
+@misc{thoughtworks-radar33-2025,
+    title        = {Technology Radar Volume 33},
+    author       = {{Thoughtworks}},
+    year         = {2025},
+    url          = {https://www.thoughtworks.com/radar},
+    note         = {Consolidation around context engineering and MCP; moves "complacency with AI-generated code" to Hold.},
+}
+
+@misc{fowler-abstraction2025,
+    title        = {{LLMs} Bring a New Nature of Abstraction},
+    author       = {Fowler, Martin},
+    year         = {2025},
+    howpublished = {martinfowler.com},
+    url          = {https://martinfowler.com/articles/2025-nature-abstraction.html},
+    abstract     = {LLMs introduce a non-deterministic abstraction that breaks classical reproducibility; every slice is a PR from a "dodgy collaborator".},
+}
+
+@misc{fowler-friction2025,
+    title        = {Patterns for Reducing Friction in {AI}-Assisted Development},
+    author       = {Fowler, Martin},
+    year         = {2025},
+    howpublished = {martinfowler.com},
+    url          = {https://martinfowler.com/articles/reduce-friction-ai/},
+}
+
+@misc{fowler-sdd3tools2025,
+    title        = {Understanding Spec-Driven Development: {Kiro}, {Spec Kit}, and {Tessl}},
+    author       = {Fowler, Martin},
+    year         = {2025},
+    howpublished = {martinfowler.com},
+    url          = {https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html},
+}
+
+@misc{yegge-deathjunior2024,
+    title        = {The Death of the Junior Developer},
+    author       = {Yegge, Steve},
+    year         = {2024},
+    howpublished = {Sourcegraph Blog},
+    url          = {https://sourcegraph.com/blog/the-death-of-the-junior-developer},
+    abstract     = {LLMs execute leaf tasks, eliminating the apprenticeship on-ramp; roles shift from author to coordinator of AI fleets.},
+}
+
+@misc{yegge-cheating2023,
+    title        = {Cheating Is All You Need},
+    author       = {Yegge, Steve},
+    year         = {2023},
+    howpublished = {Sourcegraph Blog},
+    url          = {https://about.sourcegraph.com/blog/cheating-is-all-you-need},
+}
+
+@book{osmani-leading2024,
+    title     = {Leading Effective Engineering Teams},
+    author    = {Osmani, Addy},
+    year      = {2024},
+    publisher = {O'Reilly},
+    url       = {https://leet.addy.ie/},
+    note      = {Companion newsletter on AI-assisted engineering: https://addyo.substack.com/},
+}
+
+@misc{osmani-contextengineering2025,
+    title        = {Context Engineering: Bringing Engineering Discipline to Prompts},
+    author       = {Osmani, Addy},
+    year         = {2025},
+    howpublished = {Substack},
+    url          = {https://addyo.substack.com/p/context-engineering-bringing-engineering},
+}
+
+@book{huyen-aiengineering2024,
+    title     = {{AI} Engineering: Building Applications with Foundation Models},
+    author    = {Huyen, Chip},
+    year      = {2024},
+    publisher = {O'Reilly},
+    url       = {https://www.oreilly.com/library/view/ai-engineering/9781098166298/},
+    note      = {Distinguishes AI engineering (application layer) from ML engineering (model layer); LLM-as-judge evaluation.},
+}
+
+@book{mollick-cointelligence2024,
+    title     = {Co-Intelligence: Living and Working with {AI}},
+    author    = {Mollick, Ethan},
+    year      = {2024},
+    publisher = {Penguin},
+    url       = {https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/},
+    note      = {Four rules; centaur vs. cyborg collaboration patterns.},
+}
+
+@book{iusztin-llmhandbook2024,
+    title     = {{LLM} Engineer's Handbook},
+    author    = {Iusztin, Paul and Labonne, Maxime},
+    year      = {2024},
+    publisher = {Packt},
+    isbn      = {978-1836200079},
+    note      = {Operational MLOps-for-LLMs methodology with concept-to-production pipeline.},
+}
+
+
+% ── AI-Native SE academic frameworks (extended) ──────────────────────────
+
+@article{hassan-se30vision2024,
+    author  = {Hassan, Ahmed E. and Oliva, Gustavo A. and Lin, Dayi and Chen, Boyuan and Jiang, Zhen Ming (Jack)},
+    title   = {Towards {AI}-Native Software Engineering ({SE 3.0}): A Vision and a Challenge Roadmap},
+    journal = {arXiv preprint arXiv:2410.06107},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2410.06107},
+    note    = {Original SE 3.0 vision: intent-centric conversational development, Teammate.next, IDE.next.},
+}
+
+@article{hoda-beyondcode2025,
+    author  = {Hoda, Rashina},
+    title   = {Toward Agentic Software Engineering Beyond Code: Framing Vision, Values, and Vocabulary},
+    journal = {arXiv preprint arXiv:2510.19692},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2510.19692},
+    note    = {ICSE 2026 AGENT Workshop. Values and principles for agentic SE beyond coding.},
+}
+
+@article{wang-aidev2025,
+    author  = {Wang, Dong and Yu, Junji and Shu, Honglin and Dorner, Michael and Kamei, Yasutaka and Chen, Junjie and Jiang, Yuan and Horimoto, Yasuyuki and Hata, Hideaki},
+    title   = {The Rise of {AI} Teammates in Software Engineering ({SE}) 3.0},
+    journal = {arXiv preprint arXiv:2507.15003},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2507.15003},
+    note    = {AIDev dataset: 456k PRs from Codex, Devin, Copilot, Cursor, Claude Code.},
+}
+
+@article{othman-agentsway2025,
+    author  = {Othman, Mohammad and Haider, Syed Saquib and Faheem, Muhammad},
+    title   = {Agentsway --- Software Development Methodology for {AI} Agents-based Teams},
+    journal = {arXiv preprint arXiv:2510.23664},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2510.23664},
+    note    = {End-to-end methodology for agent teams with retrospective learning loop --- direct GSE analog.},
+}
+
+@article{rafiq-shiftup2025,
+    author  = {Rafiq, Usman and Wang, Xiaofeng and Russo, Daniel},
+    title   = {Towards Shift-Up: A Framework on High-Value Activities in {GenAI} Native Software Development},
+    journal = {arXiv preprint arXiv:2509.24485},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2509.24485},
+}
+
+@article{alenezi-rethinking2026,
+    author  = {Alenezi, Mamdouh},
+    title   = {Rethinking Software Engineering for Agentic {AI} Systems},
+    journal = {arXiv preprint arXiv:2604.10599},
+    year    = {2026},
+    url     = {https://arxiv.org/abs/2604.10599},
+    note    = {Multivocal lit review; three core competencies: orchestration, verification, human-AI collaboration.},
+}
+
+@article{navneet-safeai2025,
+    author  = {Navneet, Sourav Kumar and Chandra, Joydeep},
+    title   = {Rethinking Autonomy: Preventing Failures in {AI}-Driven Software Engineering},
+    journal = {arXiv preprint arXiv:2508.11824},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2508.11824},
+    note    = {SAFE-AI Framework (Safety, Auditability, Feedback, Explainability); 4-tier autonomy taxonomy.},
+}
+
+@article{ustynov-beyondhuman2026,
+    author  = {Ustynov, Daniil},
+    title   = {Beyond Human-Readable: Rethinking Software Engineering Conventions for the Agentic Development Era},
+    journal = {arXiv preprint arXiv:2604.07502},
+    year    = {2026},
+    url     = {https://arxiv.org/abs/2604.07502},
+    note    = {Semantic density optimization; program skeletons; agent-first code conventions.},
+}
+
+@inproceedings{genai-native-patterns2025,
+    author    = {{Foundational Design authors}},
+    title     = {Foundational Design Principles and Patterns for Building Robust and Adaptive {GenAI}-Native Systems},
+    booktitle = {SPLASH Onward! 2025 / arXiv:2508.15411},
+    year      = {2025},
+    url       = {https://arxiv.org/abs/2508.15411},
+    note      = {Five pillars (reliability, excellence, evolvability, self-reliance, assurance); patterns: GenAI-native cells, programmable routers, organic substrates.},
+}
+
+@article{vibesafe-benchmark2025,
+    author  = {{Vibe Coding Safe authors}},
+    title   = {Is Vibe Coding Safe? Benchmarking Vulnerability of Agent-Generated Code},
+    journal = {arXiv preprint arXiv:2512.03262},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2512.03262},
+    note    = {61\% SWE-Agent/Claude 4 solutions functionally correct; only 10.5\% secure.},
+}
+
+@article{almas-masfw2025,
+    author  = {{ALMAS authors}},
+    title   = {{ALMAS}: Autonomous {LLM}-based Multi-Agent Software Engineering Framework},
+    journal = {arXiv preprint arXiv:2510.03463},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2510.03463},
+    note    = {Three Cs: Context-aware, Collaborative, Cost-effective; agile-role-mapped agents.},
+}
+
+@article{vision-agenticpm2026,
+    author  = {{Agentic SPM authors}},
+    title   = {Toward Agentic Software Project Management: A Vision and Roadmap},
+    journal = {arXiv preprint arXiv:2601.16392},
+    year    = {2026},
+    url     = {https://arxiv.org/abs/2601.16392},
+}
+
+
+% ── Multi-agent SE frameworks (extended) ─────────────────────────────────
+
+@inproceedings{yang-sweagent2024,
+    author    = {Yang, John and Jimenez, Carlos E. and Wettig, Alexander and Lieret, Kilian and Yao, Shunyu and Narasimhan, Karthik and Press, Ofir},
+    title     = {{SWE-agent}: Agent-Computer Interfaces Enable Automated Software Engineering},
+    booktitle = {NeurIPS 2024},
+    year      = {2024},
+    url       = {https://arxiv.org/abs/2405.15793},
+    note      = {Introduces Agent-Computer Interface (ACI) concept; 12.47\% SWE-bench.},
+}
+
+@article{tufano-autodev2024,
+    author  = {Tufano, Michele and Agarwal, Anisha and Jang, Jinu and Moghaddam, Roshanak Zilouchian and Sundaresan, Neel},
+    title   = {{AutoDev}: Automated {AI}-Driven Development},
+    journal = {arXiv preprint arXiv:2403.08299},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2403.08299},
+    note    = {Microsoft. Agent Scheduler with containerized guardrails; Round-Robin / Token / Priority strategies.},
+}
+
+@inproceedings{zhang-autocoderover2024,
+    author    = {Zhang, Yuntong and Ruan, Haifeng and Fan, Zhiyu and Roychoudhury, Abhik},
+    title     = {{AutoCodeRover}: Autonomous Program Improvement},
+    booktitle = {ISSTA 2024},
+    year      = {2024},
+    url       = {https://arxiv.org/abs/2404.05427},
+    note      = {LLM + AST-aware code search + spectrum-based fault localization.},
+}
+
+@article{liu-marscode2024,
+    author  = {Liu, Yizhou and others},
+    title   = {{MarsCode Agent}: {AI}-native Automated Bug Fixing},
+    journal = {arXiv preprint arXiv:2409.00899},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2409.00899},
+    note    = {ByteDance. Plan-Reproduce-Localize-Patch-Validate pipeline with code knowledge graphs; 39.33\% SWE-bench Lite.},
+}
+
+@article{chen-coder2024,
+    author  = {Chen, Dong and Lin, Shaoxin and Zeng, Muhan and Zan, Daoguang and others},
+    title   = {{CodeR}: Issue Resolving with Multi-Agent and Task Graphs},
+    journal = {arXiv preprint arXiv:2406.01304},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2406.01304},
+    note    = {Task-graph DSL simplifies planning; 28.33\% SWE-bench Lite.},
+}
+
+@article{arora-masai2024,
+    author  = {Arora, Daman and Sonwane, Atharv and Wadhwa, Nalin and Mehrotra, Abhav and Utpala, Saiteja and others},
+    title   = {{MASAI}: Modular Architecture for Software-engineering {AI} Agents},
+    journal = {arXiv preprint arXiv:2406.11638},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2406.11638},
+}
+
+@article{phan-hyperagent2024,
+    author  = {Phan, Huy Nhat and Nguyen, Phong X. and Bui, Nghi D. Q.},
+    title   = {{HyperAgent}: Generalist Software Engineering Agents to Solve Coding Tasks at Scale},
+    journal = {arXiv preprint arXiv:2409.16299},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2409.16299},
+    note    = {Planner/Navigator/Code-Editor/Executor MAS; 31.40\% SWE-bench Verified.},
+}
+
+@article{xia-agentless2024,
+    author  = {Xia, Chunqiu Steven and Deng, Yinlin and Dunn, Soren and Zhang, Lingming},
+    title   = {Agentless: Demystifying {LLM}-based Software Engineering Agents},
+    journal = {arXiv preprint arXiv:2407.01489},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2407.01489},
+    note    = {Minimalist Localization->Repair->Validate hits 32\% SWE-bench Lite; counter-narrative to MAS hype.},
+}
+
+@inproceedings{islam-mapcoder2024,
+    author    = {Islam, Md. Ashraful and Ali, Mohammed Eunus and Parvez, Md Rizwan},
+    title     = {{MapCoder}: Multi-Agent Code Generation for Competitive Problem Solving},
+    booktitle = {ACL 2024},
+    year      = {2024},
+    url       = {https://arxiv.org/abs/2405.11403},
+    note      = {Retrieval-Planning-Coding-Debugging cascade; SOTA HumanEval (93.9\%).},
+}
+
+@article{agentmesh2025,
+    author  = {{AgentMesh authors}},
+    title   = {{AgentMesh}: A Cooperative Multi-Agent Generative {AI} Framework for Software Development Automation},
+    journal = {arXiv preprint arXiv:2507.19902},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2507.19902},
+    note    = {Blackboard coordination; Planner/Coder/Debugger/Reviewer roles.},
+}
+
+@inproceedings{holt-l2mac2023,
+    author    = {Holt, Samuel and Luyten, Max Ruiz and van der Schaar, Mihaela},
+    title     = {{L2MAC}: Large Language Model Automatic Computer for Extensive Code Generation},
+    booktitle = {ICLR 2024},
+    year      = {2023},
+    url       = {https://arxiv.org/abs/2310.02003},
+    note      = {Von-Neumann stored-program LLM computer; bypasses context window.},
+}
+
+@article{openhands-sdk2025,
+    author  = {{OpenHands Team}},
+    title   = {The {OpenHands} Software Agent {SDK}: A Composable and Extensible Foundation for Production Agents},
+    journal = {arXiv preprint arXiv:2511.03690},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2511.03690},
+    note    = {Production redesign; 72\% SWE-Bench Verified with Claude Sonnet 4.5.},
+}
+
+@article{designing-masse2025,
+    author  = {{Designing LLM-MAS authors}},
+    title   = {Designing {LLM}-based Multi-Agent Systems for Software Engineering Tasks: Quality Attributes, Design Patterns and Rationale},
+    journal = {arXiv preprint arXiv:2511.08475},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2511.08475},
+}
+
+
+% ── Prompting & agent techniques ─────────────────────────────────────────
+
+@inproceedings{wei-cot2022,
+    author    = {Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and Ichter, Brian and Xia, Fei and Chi, Ed and Le, Quoc and Zhou, Denny},
+    title     = {Chain-of-Thought Prompting Elicits Reasoning in Large Language Models},
+    booktitle = {NeurIPS 2022},
+    year      = {2022},
+    url       = {https://arxiv.org/abs/2201.11903},
+}
+
+@article{li-scot2023,
+    author  = {Li, Jia and Li, Ge and Li, Yongmin and Jin, Zhi},
+    title   = {Structured Chain-of-Thought Prompting for Code Generation},
+    journal = {ACM Transactions on Software Engineering and Methodology / arXiv:2305.06599},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2305.06599},
+    note    = {SCoT uses source-code structures (sequence/branch/loop) as intermediate reasoning.},
+}
+
+@inproceedings{madaan-selfrefine2023,
+    author    = {Madaan, Aman and Tandon, Niket and Gupta, Prakhar and others},
+    title     = {{Self-Refine}: Iterative Refinement with Self-Feedback},
+    booktitle = {NeurIPS 2023},
+    year      = {2023},
+    url       = {https://arxiv.org/abs/2303.17651},
+    note      = {Single LLM as generator+critic+refiner; +20\% across 7 tasks.},
+}
+
+@inproceedings{shinn-reflexion2023,
+    author    = {Shinn, Noah and Cassano, Federico and Berman, Edward and Gopinath, Ashwin and Narasimhan, Karthik and Yao, Shunyu},
+    title     = {Reflexion: Language Agents with Verbal Reinforcement Learning},
+    booktitle = {NeurIPS 2023},
+    year      = {2023},
+    url       = {https://arxiv.org/abs/2303.11366},
+    note      = {Actor/Evaluator/Self-Reflection with episodic memory; 91\% HumanEval.},
+}
+
+@inproceedings{wang-codeact2024,
+    author    = {Wang, Xingyao and Chen, Yangyi and Yuan, Lifan and Zhang, Yizhe and Li, Yunzhu and Peng, Hao and Ji, Heng},
+    title     = {{CodeAct}: Executable Code Actions Elicit Better {LLM} Agents},
+    booktitle = {ICML 2024},
+    year      = {2024},
+    url       = {https://arxiv.org/abs/2402.01030},
+    note      = {Python code as unified action space for agents (+20\% over JSON).},
+}
+
+@article{white-patterns2023,
+    author  = {White, Jules and Fu, Quchen and Hays, Sam and Sandborn, Michael and Olea, Carlos and Gilbert, Henry and Elnashar, Ashraf and Spencer-Smith, Jesse and Schmidt, Douglas C.},
+    title   = {A Prompt Pattern Catalog to Enhance Prompt Engineering with {ChatGPT}},
+    journal = {arXiv preprint arXiv:2302.11382},
+    year    = {2023},
+    url     = {https://arxiv.org/abs/2302.11382},
+    note    = {GoF-style pattern catalog for prompts.},
+}
+
+
+% ── Requirements engineering + GenAI (extended) ──────────────────────────
+
+@article{khan-llmre-slr2025,
+    author  = {Khan, others},
+    title   = {Large Language Models for Requirements Engineering: A Systematic Literature Review},
+    journal = {arXiv preprint arXiv:2509.11446},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2509.11446},
+    note    = {SLR of 74 primary studies (2023--2024).},
+}
+
+@article{vogelsang-specprompts2024,
+    author  = {Vogelsang, Andreas},
+    title   = {From Specifications to Prompts: On the Future of Generative {LLMs} in Requirements Engineering},
+    journal = {IEEE Software / arXiv:2408.09127},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2408.09127},
+    note    = {Prompts as first-class RE artifacts.},
+}
+
+@article{abbasi-reconsider-re2025,
+    author  = {Abbasi, Mateen Ahmed and others},
+    title   = {Reconsidering Requirements Engineering: Human-{AI} Collaboration in {AI}-Native Software Development},
+    journal = {arXiv preprint arXiv:2510.04380},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2510.04380},
+}
+
+@inproceedings{ma-specgen2024,
+    author    = {Ma, Lezhi and Liu, Shangqing and Li, Yi and Xie, Xiaofei and Bu, Lei},
+    title     = {{SpecGen}: Automated Generation of Formal Program Specifications via {LLMs}},
+    booktitle = {ICSE 2025 / arXiv:2401.08807},
+    year      = {2024},
+    url       = {https://arxiv.org/abs/2401.08807},
+    note      = {Two-phase conversational + mutation approach; 279/385 verified.},
+}
+
+@inproceedings{msvlab-specfix2025,
+    author    = {{MSV-Lab}},
+    title     = {{SpecFix}: Automated Repair of Ambiguous Problem Descriptions for {LLM}-Based Code Generation},
+    booktitle = {ASE 2025 / arXiv:2505.07270},
+    year      = {2025},
+    url       = {https://arxiv.org/abs/2505.07270},
+    note      = {Differential-testing ambiguity detection; +30.9\% pass@1.},
+}
+
+@article{sdd-codecontract2026,
+    author  = {{SDD authors}},
+    title   = {Spec-Driven Development: From Code to Contract in the Age of {AI} Coding Assistants},
+    journal = {arXiv preprint arXiv:2602.00180},
+    year    = {2026},
+    url     = {https://arxiv.org/abs/2602.00180},
+    note    = {Formalizes SDD; reviews Spec-Kit, Kiro, Tessl.},
+}
+
+
+% ── Human-AI collaboration (extended) ────────────────────────────────────
+
+@article{correctness-collaboration2025,
+    author  = {{Correctness-to-Collaboration authors}},
+    title   = {From Correctness to Collaboration: A Human-Centered Framework for Evaluating {AI} Agent Behavior in Software Engineering},
+    journal = {arXiv preprint arXiv:2512.23844},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2512.23844},
+    note    = {Four expectations: Adhere, Ensure quality, Solve, Collaborate.},
+}
+
+@inproceedings{treude-paradigm2025,
+    author    = {Treude, Christoph and Storey, Margaret-Anne},
+    title     = {Generative {AI} and Empirical Software Engineering: A Paradigm Shift},
+    booktitle = {AIware 2025 / arXiv:2502.08108},
+    year      = {2025},
+    url       = {https://arxiv.org/abs/2502.08108},
+}
+
+@article{xiao-selfadmitted2025,
+    author  = {Xiao, Tao and Fan, Youmei and Calefato, Fabio and Treude, Christoph and Kula, Raula Gaikovina and Hata, Hideaki and Baltes, Sebastian},
+    title   = {Self-Admitted {GenAI} Usage in Open-Source Software},
+    journal = {arXiv preprint arXiv:2507.10422},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2507.10422},
+}
+
+@article{gu-challenges2025,
+    author  = {Gu, Alex and Jain, Naman and Li, Wen-Ding and Shetty, Manish and Shao, Yijia and Li, Ziyang and Yang, Diyi and Ellis, Kevin and Sen, Koushik and Solar-Lezama, Armando},
+    title   = {Challenges and Paths Towards {AI} for Software Engineering},
+    journal = {arXiv preprint arXiv:2503.22625},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2503.22625},
+}
+
+
+% ── Benchmarks (extended) ────────────────────────────────────────────────
+
+@inproceedings{jimenez-swebench2023,
+    author    = {Jimenez, Carlos E. and Yang, John and Wettig, Alexander and Yao, Shunyu and Pei, Kexin and Press, Ofir and Narasimhan, Karthik},
+    title     = {{SWE-bench}: Can Language Models Resolve Real-World {GitHub} Issues?},
+    booktitle = {ICLR 2024},
+    year      = {2023},
+    url       = {https://arxiv.org/abs/2310.06770},
+    note      = {2,294 GitHub issue/PR pairs; de-facto agent-SE benchmark.},
+}
+
+@inproceedings{jain-livecodebench2024,
+    author    = {Jain, Naman and Han, King and Gu, Alex and Li, Wen-Ding and Yan, Fanjia and Zhang, Tianjun and Wang, Sida and Solar-Lezama, Armando and Sen, Koushik and Stoica, Ion},
+    title     = {{LiveCodeBench}: Holistic and Contamination-Free Evaluation of {LLMs} for Code},
+    booktitle = {ICLR 2025},
+    year      = {2024},
+    url       = {https://arxiv.org/abs/2403.07974},
+}
+
+@inproceedings{liu-humanevalplus2023,
+    author    = {Liu, Jiawei and Xia, Chunqiu Steven and Wang, Yuyao and Zhang, Lingming},
+    title     = {Is Your Code Generated by {ChatGPT} Really Correct? Rigorous Evaluation of LLMs for Code Generation},
+    booktitle = {NeurIPS 2023},
+    year      = {2023},
+    url       = {https://arxiv.org/abs/2305.01210},
+    note      = {HumanEval+ / EvalPlus; 80x test expansion exposes 19--29\% pass@k drop.},
+}
+
+@inproceedings{zhuo-bigcodebench2024,
+    author    = {Zhuo, Terry Yue and others},
+    title     = {{BigCodeBench}: Benchmarking Code Generation with Diverse Function Calls and Complex Instructions},
+    booktitle = {ICLR 2025},
+    year      = {2024},
+    url       = {https://arxiv.org/abs/2406.15877},
+    note      = {1,140 SE-oriented tasks; LLMs cap at 60\% vs 97\% human.},
+}
+
+@article{tddbench-verified2024,
+    author  = {{IBM Research}},
+    title   = {{TDD-Bench Verified}: Can {LLMs} Generate Tests for Issues Before They Get Resolved?},
+    journal = {arXiv preprint arXiv:2412.02883},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2412.02883},
+}
+
+@article{tests-as-prompt2025,
+    author  = {{Tests-as-Prompt authors}},
+    title   = {Tests as Prompt: A {TDD} Benchmark for {LLM} Code Generation},
+    journal = {arXiv preprint arXiv:2505.09027},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2505.09027},
+}
+
+
+% ── Surveys (extended) ───────────────────────────────────────────────────
+
+@article{hou-llm4se-slr2024,
+    author  = {Hou, Xinyi and Zhao, Yanjie and Liu, Yue and Yang, Zhou and Wang, Kailong and Li, Li and Luo, Xiapu and Lo, David and Grundy, John and Wang, Haoyu},
+    title   = {Large Language Models for Software Engineering: A Systematic Literature Review},
+    journal = {ACM Transactions on Software Engineering and Methodology / arXiv:2308.10620},
+    year    = {2024},
+    url     = {https://arxiv.org/abs/2308.10620},
+    note    = {395 papers, Jan 2017--Jan 2024.},
+}
+
+@article{he-lmas-review2025,
+    author  = {He, Junda and Treude, Christoph and Lo, David},
+    title   = {{LLM}-Based Multi-Agent Systems for Software Engineering: Literature Review, Vision, and the Road Ahead},
+    journal = {ACM Transactions on Software Engineering and Methodology / arXiv:2404.04834},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2404.04834},
+}
+
+@article{fan-llm4se-fose2024,
+    author  = {Fan, Angela and Gokkaya, Beliz and Harman, Mark and Lyubarskiy, Mitya and Sengupta, Shubho and Yoo, Shin and Zhang, Jie M.},
+    title   = {Large Language Models for Software Engineering: Survey and Open Problems},
+    journal = {ICSE FoSE 2024 / arXiv:2310.03533},
+    year    = {2023},
+    url     = {https://arxiv.org/abs/2310.03533},
+}
+
+@article{contexteng-survey2025,
+    author  = {{Context Engineering Survey authors}},
+    title   = {A Survey of Context Engineering for Large Language Models},
+    journal = {arXiv preprint arXiv:2507.13334},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2507.13334},
+    note    = {1,400+ paper analysis; formalizes context engineering as discipline.},
+}
+
+@article{ace-playbooks2025,
+    author  = {{ACE authors}},
+    title   = {Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models},
+    journal = {arXiv preprint arXiv:2510.04618},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2510.04618},
+    note    = {Contexts as evolving playbooks via generation/reflection/curation --- direct parallel to GSE compound engineering.},
+}
+
+@article{agenticbench-survey2025,
+    author  = {{Agentic Benchmarks Survey authors}},
+    title   = {A Comprehensive Survey on Benchmarks and Solutions in Software Engineering of {LLM}-Empowered Agentic Systems},
+    journal = {arXiv preprint arXiv:2510.09721},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2510.09721},
+}
+
+@article{genius-vision2025,
+    author  = {{GENIUS Consortium}},
+    title   = {The Future of Generative {AI} in Software Engineering: A Vision from the European {GENIUS} Project},
+    journal = {arXiv preprint arXiv:2511.01348},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2511.01348},
+}
+
+
+% ── AI IDE tools & coding agents (extended) ──────────────────────────────
+
+@misc{aider-oss2023,
+    title        = {Aider: {AI} Pair Programming in Your Terminal},
+    author       = {Gauthier, Paul and {Aider-AI community}},
+    year         = {2023},
+    url          = {https://aider.chat/},
+    note         = {Terminal-based pair programming with Git-discipline (one commit per change).},
+}
+
+@misc{continue-ide2024,
+    title        = {Continue: Open-Source {AI} Code Assistant for VS Code and JetBrains},
+    author       = {{Continue Inc.}},
+    year         = {2024},
+    url          = {https://continue.dev},
+    note         = {Apache 2.0. Chat/Autocomplete/Edit/Action primitives; source-controlled rules.},
+}
+
+@misc{cline-vscode2024,
+    title        = {Cline: Autonomous Coding Agent for {VS Code}},
+    author       = {{Cline Inc.}},
+    year         = {2024},
+    url          = {https://cline.bot/},
+    note         = {Plan/Act dual-mode; MCP-extensible; approve-each-step human-in-the-loop.},
+}
+
+@misc{roocode-modes2024,
+    title        = {{Roo Code}: Sandboxed Modes for Agentic Development},
+    author       = {{RooCodeInc}},
+    year         = {2024},
+    url          = {https://roocode.com},
+    note         = {Sandboxed Modes (Architect, Code, Ask, Debug, custom) with constrained tool access.},
+}
+
+@misc{zed-acp2025,
+    title        = {{Zed Agent Client Protocol} ({ACP})},
+    author       = {{Zed Industries}},
+    year         = {2025},
+    url          = {https://zed.dev/acp},
+    note         = {Open protocol agent<->editor (complementary to MCP agent<->tools).},
+}
+
+@misc{replit-agent4-2026,
+    title        = {Replit Agent 4},
+    author       = {{Replit}},
+    year         = {2026},
+    url          = {https://replit.com/agent4},
+    note         = {Cloud agent with parallel execution; shared project context.},
+}
+
+@misc{devin-cognition2024,
+    title        = {{Devin}: Autonomous {AI} Software Engineer},
+    author       = {{Cognition AI}},
+    year         = {2024},
+    url          = {https://devin.ai/},
+    note         = {Acquired Windsurf (2025); \$73M ARR by mid-2025.},
+}
+
+@misc{factoryai-droids2025,
+    title        = {Factory {AI}: Droids for Agent-Native Development},
+    author       = {{Factory AI}},
+    year         = {2025},
+    url          = {https://factory.ai/},
+    note         = {Persistent computer per droid; best CLI agent on Terminal Bench (58.75\%).},
+}
+
+@misc{jetbrains-junie2026,
+    title        = {{JetBrains Junie}: Plan-First Coding Agent},
+    author       = {{JetBrains}},
+    year         = {2026},
+    url          = {https://www.jetbrains.com/junie/},
+    note         = {Plan before code; Code mode + Ask mode; Anthropic Agent SDK integration.},
+}
+
+@misc{google-jules2025,
+    title        = {{Jules}: Google's Autonomous Coding Agent},
+    author       = {{Google}},
+    year         = {2025},
+    url          = {https://jules.google/},
+}
+
+@misc{aws-q-developer2024,
+    title        = {{Amazon Q Developer}},
+    author       = {{Amazon Web Services}},
+    year         = {2024},
+    url          = {https://aws.amazon.com/q/developer/},
+    note         = {Multi-modal agent: IDE gen, CLI, Java/.NET transformations, security scanning.},
+}
+
+@misc{tabnine-enterprise2025,
+    title        = {{Tabnine}: Enterprise-Controlled {AI} Coding Assistant},
+    author       = {{Tabnine}},
+    year         = {2025},
+    url          = {https://www.tabnine.com/},
+    note         = {Self-hosted option; no training on customer code.},
+}
+
+@misc{augmentcode-contextengine2025,
+    title        = {{Augment Code}: Proprietary {Context Engine} for {AI} Coding},
+    author       = {{Augment Computing}},
+    year         = {2025},
+    url          = {https://www.augmentcode.com/context-engine},
+    note         = {500k-file index @ 100ms; SOC 2 Type II + ISO/IEC 42001 certified.},
+}
+
+@misc{stackblitz-bolt2024,
+    title        = {{Bolt.new}: Prompt-to-Full-Stack {AI} App Builder},
+    author       = {{StackBlitz}},
+    year         = {2024},
+    url          = {https://bolt.new},
+}
+
+@misc{vercel-v0app2026,
+    title        = {{v0.app}: {AI} {UI} Generator},
+    author       = {{Vercel}},
+    year         = {2026},
+    url          = {https://v0.app},
+    note         = {Formerly v0.dev; 2026 adds sandbox runtime + Git panel.},
+}
+
+@misc{lovable-dev2024,
+    title        = {{Lovable}: Natural-Language Full-Stack Builder},
+    author       = {{Lovable}},
+    year         = {2024},
+    url          = {https://lovable.dev/},
+}
+
+@misc{tempo-labs2024,
+    title        = {Tempo: Visual {React} Editor with {AI}},
+    author       = {{Tempo Labs}},
+    year         = {2024},
+    url          = {https://www.tempo.new/},
+}
+
+@misc{qodo-gen2026,
+    title        = {{Qodo}: Test-First Code Integrity Platform},
+    author       = {{Qodo}},
+    year         = {2026},
+    url          = {https://www.qodo.ai/},
+    note         = {Formerly CodiumAI; highest F1 (60.1\%) in 2026 PR-review benchmark.},
+}
+
+@misc{openai-codex-cli2025,
+    title        = {{OpenAI Codex CLI}},
+    author       = {{OpenAI}},
+    year         = {2025},
+    url          = {https://github.com/openai/codex},
+    note         = {Terminal agent in Rust; reads AGENTS.md; exposable as MCP server.},
+}
+
+
+% ── Methodology plugins & workflow systems (direct GSE analogues) ────────
+
+@misc{bmad-method2024,
+    title        = {{BMAD-METHOD}: Breakthrough Method for Agile {AI}-Driven Development},
+    author       = {{bmad-code-org}},
+    year         = {2024},
+    url          = {https://github.com/bmad-code-org/BMAD-METHOD},
+    note         = {37K+ GitHub stars. YAML-declarative workflows orchestrating personas (Analyst, PM, Architect, SM, PO, Dev, QA).},
+}
+
+@misc{openspec-fission2025,
+    title        = {{OpenSpec}: Lightweight Directory-Based Spec-Driven Development},
+    author       = {{Fission-AI}},
+    year         = {2025},
+    url          = {https://openspec.dev/},
+    note         = {No API keys, no MCP --- purely file-based specs parseable by any CLI agent.},
+}
+
+@misc{tessl-framework2025,
+    title        = {{Tessl Framework} and {Spec Registry}: {AI}-Native Software Development},
+    author       = {{Tessl}},
+    year         = {2025},
+    url          = {https://tessl.io/},
+    note         = {Spec-centric; 10,000+ prebuilt specs for OSS libraries to prevent API hallucinations.},
+}
+
+@misc{taskmaster-ai2024,
+    title        = {{Task Master AI} (claude-task-master)},
+    author       = {Toledano, Eyal},
+    year         = {2024},
+    url          = {https://www.task-master.dev/},
+    note         = {MCP server + npm CLI. PRD-driven task decomposition; 3-model architecture.},
+}
+
+@misc{voltagent-subagents2025,
+    title        = {Awesome {Claude Code} Subagents},
+    author       = {{VoltAgent}},
+    year         = {2025},
+    url          = {https://github.com/VoltAgent/awesome-claude-code-subagents},
+    note         = {100+ specialized subagents; sequential/operator/split-merge/agent-teams patterns.},
+}
+
+@misc{awesome-cursorrules2024,
+    title        = {Awesome Cursor Rules},
+    author       = {{PatrickJS}},
+    year         = {2024},
+    url          = {https://github.com/PatrickJS/awesome-cursorrules},
+    note         = {Community templates for .cursorrules / .cursor/rules/*.mdc; per-context rule loading.},
+}
+
+@misc{cursor-directory2024,
+    title        = {{Cursor Directory}: Rules, {MCPs}, and Prompts for {Cursor}},
+    author       = {{Cursor}},
+    year         = {2024},
+    url          = {https://cursor.directory/},
+}
+
+@misc{agentsmd-standard2025,
+    title        = {{AGENTS.md}: An Open Standard for {AI} Agent Project Guidance},
+    author       = {{Agentic AI Foundation}},
+    year         = {2025},
+    url          = {https://agents.md/},
+    note         = {Donated to Linux Foundation Dec 2025; 60K+ repos adopted by early 2026. 2026 ETH Zurich study raised effectiveness concerns.},
+}
+
+
+% ── Agent orchestration frameworks ──────────────────────────────────────
+
+@misc{langgraph-langchain2024,
+    title        = {{LangGraph}: Agent Workflows as Directed Graphs},
+    author       = {{LangChain Inc.}},
+    year         = {2024},
+    url          = {https://www.langchain.com/langgraph},
+    note         = {Typed Python state; checkpointing and streaming via LangSmith.},
+}
+
+@misc{crewai-2024,
+    title        = {{CrewAI}: Role-Based Multi-Agent Teams},
+    author       = {{CrewAI}},
+    year         = {2024},
+    url          = {https://www.crewai.com/},
+    note         = {DSL for role-based agent teams; 40\% faster time-to-production than LangGraph on standard workflows.},
+}
+
+@misc{msft-agentfw2026,
+    title        = {{Microsoft Agent Framework} 1.0 ({Semantic Kernel} + {AutoGen} Unified)},
+    author       = {{Microsoft}},
+    year         = {2026},
+    url          = {https://learn.microsoft.com/en-us/agent-framework/overview/},
+    note         = {GA April 3, 2026. First-class MCP + A2A protocols.},
+}
+
+@misc{openai-agents-sdk2025,
+    title        = {{OpenAI Agents SDK} (successor to Swarm)},
+    author       = {{OpenAI}},
+    year         = {2025},
+    url          = {https://github.com/openai/swarm},
+    note         = {Lightweight handoffs with guardrails and tracing.},
+}
+
+@misc{aws-strands-agents2025,
+    title        = {{AWS Strands Agents}},
+    author       = {{Amazon Web Services}},
+    year         = {2025},
+    url          = {https://strandsagents.com/},
+    note         = {Graph, Swarm, Workflow topologies + A2A interop; model-agnostic.},
+}
+
+@misc{block-goose-aaif2025,
+    title        = {{Goose}: Open-Source Local-First {AI} Agent Framework},
+    author       = {{Block}},
+    year         = {2025},
+    url          = {https://block.github.io/goose/},
+    note         = {Inaugural AAIF project (Dec 2025); 29K GH stars.},
+}
+
+
+% ── MCP-based ecosystems (extended) ─────────────────────────────────────
+
+@misc{microsoft-playwright-mcp2025,
+    title        = {{Playwright MCP}: Browser Automation via Accessibility Tree},
+    author       = {{Microsoft}},
+    year         = {2025},
+    url          = {https://github.com/microsoft/playwright-mcp},
+    note         = {Accessibility-tree snapshots (no screenshots); 4x token reduction vs DevTools MCP.},
+}
+
+@misc{chrome-devtools-mcp2025,
+    title        = {{Chrome DevTools MCP}: Agent Access to Running Web Pages},
+    author       = {{Google Chrome DevTools Team}},
+    year         = {2025},
+    url          = {https://github.com/ChromeDevTools/chrome-devtools-mcp},
+}
+
+
+% ── Industry frameworks, governance, standards ───────────────────────────
+
+@misc{atlassian-rovodev2025,
+    title        = {{Atlassian Rovo Dev}: Code Reviewer for {Bitbucket}},
+    author       = {{Atlassian}},
+    year         = {2025},
+    url          = {https://www.atlassian.com/software/rovo},
+    note         = {1,900+ repo evaluation: 30.8\% faster dev cycles, 35.6\% fewer review comments.},
+}
+
+@misc{servicenow-nowassist-code2025,
+    title        = {{ServiceNow Now Assist} for Code},
+    author       = {{ServiceNow}},
+    year         = {2025},
+    url          = {https://www.servicenow.com/platform/now-assist.html},
+}
+
+@misc{mckinsey-airev-sdlc2025,
+    title        = {The {AI} Revolution in Software Development},
+    author       = {{McKinsey \& Company}},
+    year         = {2025},
+    url          = {https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-ai-revolution-in-software-development},
+    note         = {Top performers 6-7x more likely to scale 4+ use cases; 20-30\% cost reduction in 2 years.},
+}
+
+@misc{aaif-linuxfoundation2025,
+    title        = {Agentic {AI} Foundation ({AAIF})},
+    author       = {{Linux Foundation}},
+    year         = {2025},
+    url          = {https://aaif.io/},
+    note         = {Founded Dec 9, 2025 by Anthropic, OpenAI, Block. Stewards MCP + Goose + AGENTS.md.},
+}
+
+@techreport{iso5338-2023,
+    author      = {{ISO/IEC}},
+    title       = {{ISO/IEC} 5338:2023 --- Information Technology --- {Artificial Intelligence} --- {AI} System Life Cycle Processes},
+    institution = {ISO},
+    year        = {2023},
+    url         = {https://www.iso.org/standard/81118.html},
+    note        = {De-facto normative spine for AI lifecycle governance. Overlay on ISO/IEC 12207.},
+}
+
+@misc{forge-conference2025,
+    title        = {{FORGE}: International Conference on {AI} Foundation Models and Software Engineering},
+    author       = {{ACM}},
+    year         = {2025},
+    url          = {https://conf.researchr.org/home/forge-2025},
+    note         = {ICSE-colocated; flagship venue for foundation-model-for-SE research.},
+}
+
+@misc{aiware-conference2025,
+    title        = {{AIware}: International Conference on {AI}-Powered Software},
+    author       = {{ACM}},
+    year         = {2025},
+    url          = {https://2025.aiwareconf.org/},
+}
+
+
+% ═══════════════════════════════════════════════════════════════════════
+% GSE-ONE COMPETITIVE LANDSCAPE — Cycle 2 (April 2026)
+% Targeted sweep after canonical spec review: PaaS, ADR tooling, quality
+% dashboards, AI-PM, RE with LLMs, V&V for AI-generated code, opencode
+% ═══════════════════════════════════════════════════════════════════════
+
+
+% ── Agent platforms (opencode) ──────────────────────────────────────────
+
+@misc{opencode-sst2024,
+    title        = {{opencode}: Open-Source {AI} Coding Agent},
+    author       = {{SST / Anomaly Innovations}},
+    year         = {2024},
+    url          = {https://opencode.ai/},
+    note         = {Repo: https://github.com/sst/opencode. Client-server TS/Bun server + Go TUI + VS Code extension. 75+ models. Native AGENTS.md consumer. Third GSE-One target platform alongside Claude Code + Cursor.},
+}
+
+
+% ── Self-hosted PaaS & deployment targets ───────────────────────────────
+
+@misc{coolify-paas2021,
+    title        = {{Coolify}: Self-Hostable Heroku / Vercel Alternative},
+    author       = {Bacsai, Andras},
+    year         = {2021},
+    url          = {https://coolify.io},
+    note         = {GSE-One's /gse:deploy target. One-command install on any VPS; Git-push deploys; 50K+ GH stars.},
+}
+
+@misc{dokku-paas2013,
+    title        = {{Dokku}: The Smallest PaaS Implementation},
+    author       = {Diaz-Gonzalez, Jose and {Dokku Contributors}},
+    year         = {2013},
+    url          = {https://dokku.com},
+    note         = {Docker + git push workflow; plugin ecosystem; CLI-first.},
+}
+
+@misc{caprover-paas2017,
+    title        = {{CapRover}: Docker Swarm-Based Self-Hosted {PaaS}},
+    author       = {Bigdeli, Kasra},
+    year         = {2017},
+    url          = {https://caprover.com},
+    note         = {One-click-apps marketplace. Known flaw: plaintext secrets in dashboard (long-standing issue).},
+}
+
+@misc{dokploy-paas2024,
+    title        = {{Dokploy}: {Vercel}-Clone Self-Hosted {PaaS}},
+    author       = {{Siumauricio}},
+    year         = {2024},
+    url          = {https://dokploy.com},
+    note         = {Fastest-growing 2024-2026 entrant. Multi-server, better monitoring than Coolify per several comparisons.},
+}
+
+@misc{easypanel-paas2021,
+    title        = {{Easypanel}: Modern Self-Hosted {PaaS}},
+    author       = {{Easypanel Team}},
+    year         = {2021},
+    url          = {https://easypanel.io},
+}
+
+@misc{komodo-orchestrator2023,
+    title        = {{Komodo}: Multi-Server Orchestrator},
+    author       = {{moghtech}},
+    year         = {2023},
+    url          = {https://komo.do},
+    note         = {Rust-based graph-resource model; stronger for multi-host than single-VPS.},
+}
+
+@misc{dockge-docker-compose2023,
+    title        = {{Dockge}: Reactive {Docker Compose} Manager},
+    author       = {Lam, Louis},
+    year         = {2023},
+    url          = {https://github.com/louislam/dockge},
+    note         = {Lightweight container UI; adjacent to PaaS category.},
+}
+
+
+% ── Architecture Decision Records (ADR) tooling ─────────────────────────
+
+@misc{pryce-adrtools2014,
+    title        = {adr-tools: Command-Line Tools for Working with {Architecture Decision Records}},
+    author       = {Pryce, Nat},
+    year         = {2014},
+    url          = {https://github.com/npryce/adr-tools},
+    note         = {Canonical CLI; Nygard-format ADRs. De facto baseline.},
+}
+
+@misc{vaillant-log4brains2020,
+    title        = {{Log4brains}: Docs-as-Code {ADR} Manager with Web Knowledge Base},
+    author       = {Vaillant, Thomas},
+    year         = {2020},
+    url          = {https://github.com/thomvaill/log4brains},
+    note         = {MADR template; static-web publisher with hot-reload. Most comprehensive OSS ADR tool.},
+}
+
+@misc{kopp-madr2017,
+    title        = {{MADR}: Markdown {Architectural Decision Record} Template},
+    author       = {Kopp, Oliver and others},
+    year         = {2017},
+    url          = {https://adr.github.io/madr/},
+    note         = {Free-form Consequences section; no time-boxed horizons.},
+}
+
+@misc{adr-tooling-catalog,
+    title        = {{ADR} Tooling Catalog},
+    author       = {{adr.github.io community}},
+    year         = {2024},
+    url          = {https://adr.github.io/adr-tooling/},
+    note         = {Community catalog of ~30 ADR tools.},
+}
+
+@article{agentic-akm2026,
+    author  = {{AgenticAKM authors}},
+    title   = {{AgenticAKM}: Multi-Agent Architecture Knowledge Management with Extraction, Retrieval, Generation, and Validation},
+    journal = {arXiv preprint arXiv:2602.04445},
+    year    = {2026},
+    url     = {https://arxiv.org/html/2602.04445},
+    note    = {Four-agent pipeline; closest research to GSE Decision Journal.},
+}
+
+@article{context-strategies-adr2026,
+    author  = {{Context Strategies authors}},
+    title   = {Context Strategies for Automated {ADR} Generation with {LLMs}},
+    journal = {arXiv preprint arXiv:2604.03826},
+    year    = {2026},
+    url     = {https://arxiv.org/html/2604.03826v1},
+}
+
+@misc{equalexperts-aiadr2024,
+    title        = {Accelerating {Architecture Decision Records} with Generative {AI}},
+    author       = {{Equal Experts}},
+    year         = {2024},
+    url          = {https://www.equalexperts.com/blog/our-thinking/accelerating-architectural-decision-records-adrs-with-generative-ai/},
+}
+
+
+% ── Code quality & engineering health dashboards ────────────────────────
+
+@misc{sonarqube-sonarsource2008,
+    title        = {{SonarQube} / {SonarCloud}: Continuous Code Quality Inspection},
+    author       = {{Sonar (SonarSource SA)}},
+    year         = {2008},
+    url          = {https://www.sonarsource.com/products/sonarqube/},
+    note         = {6,000+ rules across 35+ languages; quality gates; SCA + SBOM added 2025.},
+}
+
+@misc{codacy-dashboard2012,
+    title        = {{Codacy}: Cloud Code Quality Platform},
+    author       = {{Codacy Inc.}},
+    year         = {2012},
+    url          = {https://www.codacy.com},
+    note         = {SAST, secret detection, IaC, coverage, duplication; added Codacy AI review assistant 2025.},
+}
+
+@misc{codeclimate-maintainability2011,
+    title        = {{Code Climate}: Maintainability and Engineering Productivity},
+    author       = {{Code Climate Inc.}},
+    year         = {2011},
+    url          = {https://codeclimate.com},
+    note         = {Pioneer of "code quality as metric"; OSS CLI spun out as Qlty.},
+}
+
+@misc{deepsource-aiquality2019,
+    title        = {{DeepSource}: {AI}-Native Code Quality Platform},
+    author       = {{DeepSource Corp.}},
+    year         = {2019},
+    url          = {https://deepsource.com},
+    note         = {5,000+ rules; sub-5\% false-positive; 5-dim PR report cards; AI-powered Autofix.},
+}
+
+@misc{qlty-codequality2024,
+    title        = {{Qlty}: Successor to {Code Climate CLI}},
+    author       = {{Qlty Software}},
+    year         = {2024},
+    url          = {https://qlty.sh},
+    note         = {Orchestrates 70+ plugins across 40+ languages; adds cycle-time and review-latency analytics.},
+}
+
+@misc{codecov-coverage2014,
+    title        = {{Codecov}: Code Coverage Reporting},
+    author       = {{Sentry (acquired 2024)}},
+    year         = {2014},
+    url          = {https://about.codecov.io},
+}
+
+@misc{linearb-engineering2018,
+    title        = {{LinearB}: Engineering Analytics with {DORA} Dashboards},
+    author       = {{LinearB Inc.}},
+    year         = {2018},
+    url          = {https://linearb.io},
+}
+
+@misc{jellyfish-engineering2017,
+    title        = {{Jellyfish}: Engineering Management Platform with Investment Allocation},
+    author       = {{Jellyfish.co}},
+    year         = {2017},
+    url          = {https://jellyfish.co},
+    note         = {Differentiator: engineering investment \% to features / tech debt / bugs.},
+}
+
+@misc{swarmia-devex2020,
+    title        = {{Swarmia}: {DORA} + {SPACE} with Developer Experience},
+    author       = {{Swarmia Oy}},
+    year         = {2020},
+    url          = {https://www.swarmia.com},
+    note         = {Includes satisfaction surveys and focus-time tracking.},
+}
+
+
+% ── AI-powered project management & living plans ────────────────────────
+
+@misc{atlassian-rovo-jira-agents2026,
+    title        = {Atlassian Rovo + Rovo Dev Agents in {Jira}},
+    author       = {{Atlassian}},
+    year         = {2026},
+    url          = {https://www.atlassian.com/platform/rovo},
+    note         = {Feb 2026: Agents in Jira allow assigning tickets to AI agents as if they were people. Closest commercial "AI-maintained plan" analog.},
+}
+
+@misc{atlassian-intelligence2025,
+    title        = {Atlassian Intelligence for {Jira} and {Confluence}},
+    author       = {{Atlassian}},
+    year         = {2025},
+    url          = {https://www.atlassian.com/software/artificial-intelligence},
+    note         = {NL->JQL, smart summaries, sprint-planning recommendations from historical velocity.},
+}
+
+@misc{linear-ai-agent2025,
+    title        = {{Linear AI Triage} and {Linear Agent} (beta)},
+    author       = {{Linear}},
+    year         = {2025},
+    url          = {https://linear.app},
+    note         = {AI Triage GA mid-2025; Agent beta 2025-2026. MCP support + native Codex/Cursor/Copilot integrations.},
+}
+
+@misc{notion-ai-agents2025,
+    title        = {{Notion AI} + {Notion Agents}},
+    author       = {{Notion Labs}},
+    year         = {2025},
+    url          = {https://www.notion.so/product/ai},
+    note         = {Sep 2025: multi-source DBs and row-level permissions. Planning docs, not sprint plans.},
+}
+
+@misc{clickup-brain-autopilot2025,
+    title        = {{ClickUp Brain} + {Autopilot Agents}},
+    author       = {{ClickUp}},
+    year         = {2025},
+    url          = {https://clickup.com/ai},
+    note         = {No-code AI agents for standups, routine Q\&A, progress reports; bundled into paid tiers.},
+}
+
+@misc{asana-intelligence2024,
+    title        = {{Asana Intelligence}},
+    author       = {{Asana}},
+    year         = {2024},
+    url          = {https://asana.com/product/ai},
+}
+
+
+% ── Requirements Engineering AI tools & ISO 25010 pipelines ─────────────
+
+@article{lima-nfr-iso25010-2025,
+    author  = {Lima and others},
+    title   = {Automated {NFR} Generation with {LLMs}: A Comparative Study Aligned with {ISO/IEC} 25010:2023},
+    journal = {arXiv preprint arXiv:2503.15248},
+    year    = {2025},
+    url     = {https://arxiv.org/html/2503.15248v1},
+    note    = {80.4\% attribute-expert agreement on 1,593 NFRs; closest academic analog to GSE reqs Step 7.},
+}
+
+@article{llmrei-elicitation2025,
+    author  = {{LLMREI authors}},
+    title   = {{LLMREI}: Automating Requirements Elicitation Interviews with {LLMs}},
+    journal = {arXiv preprint arXiv:2507.02564},
+    year    = {2025},
+    url     = {https://arxiv.org/html/2507.02564v1},
+    note    = {Adaptive chatbot elicitation; covers GSE reqs Step 0.},
+}
+
+@article{standards-review-llm2025,
+    author  = {{Standards Review authors}},
+    title   = {Advancing Software Quality: Standards-Focused Review of {LLM}-Based Assurance},
+    journal = {arXiv preprint arXiv:2505.13766},
+    year    = {2025},
+    url     = {https://arxiv.org/html/2505.13766v1},
+    note    = {Maps LLM capabilities onto ISO/IEC 12207, 25010, 5055.},
+}
+
+@article{acceptance-testgen-llm2025,
+    author  = {{Acceptance Test Gen authors}},
+    title   = {Acceptance Test Generation with {LLMs}: An Industrial Case Study},
+    journal = {arXiv preprint arXiv:2504.07244},
+    year    = {2025},
+    url     = {https://arxiv.org/html/2504.07244v1},
+    note    = {User story -> Gherkin Given/When/Then -> executable test.},
+}
+
+@misc{jama-advisor2025,
+    title        = {{Jama Connect Advisor} with {Certivity}},
+    author       = {{Jama Software}},
+    year         = {2025},
+    url          = {https://www.jamasoftware.com/solutions/artificial-intelligence/},
+    note         = {NLP review of requirement quality, ambiguity detection, automotive regulation compliance.},
+}
+
+@misc{ibm-doors-ai2025,
+    title        = {{IBM Engineering AI Hub} 1.0 / {DOORS Next Requirements AI Assistant}},
+    author       = {{IBM}},
+    year         = {2025},
+    url          = {https://community.ibm.com/community/user/blogs/daniel-moul/2025/02/13/requirements-ai-assistant-for-doors-next},
+    note         = {watsonx.ai embedded in DOORS Next; requirement quality review. Feb 2025 GA.},
+}
+
+@misc{visure-ai-rm2025,
+    title        = {{Visure AI}-Powered Requirements Management Platform},
+    author       = {{Visure Solutions}},
+    year         = {2025},
+    url          = {https://visuresolutions.com/features/ai-requirements-management/},
+}
+
+
+% ── Verification & Validation for AI-generated code ─────────────────────
+
+@article{formal-verification-llm2025,
+    author  = {{Formal Verification authors}},
+    title   = {Towards Formal Verification of {LLM}-Generated Code from Natural Language Prompts},
+    journal = {arXiv preprint arXiv:2507.13290},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2507.13290},
+    note    = {Formal Query Language for verifiable user intent.},
+}
+
+@inproceedings{dafnypro-popl2026,
+    author    = {{DafnyPro Authors}},
+    title     = {{DafnyPro}: {LLM}-Assisted Automated Verification for {Dafny} Programs},
+    booktitle = {POPL 2026},
+    year      = {2026},
+    url       = {https://popl26.sigplan.org/details/dafny-2026-papers/12/DafnyPro-LLM-Assisted-Automated-Verification-for-Dafny-Programs},
+    note      = {Claude Opus 4.5 + GPT-5.2 ensemble hits 98.2\% annotation correctness.},
+}
+
+@inproceedings{kamran-pcc2024,
+    author    = {Kamran, others},
+    title     = {Proof-Carrying Code Completions},
+    booktitle = {ASEW 2024 Vision Paper},
+    year      = {2024},
+    url       = {https://web.cs.ucdavis.edu/~cdstanford/doc/2024/ASEW24b.pdf},
+    note      = {Classical PCC paradigm applied to AI-era codegen.},
+}
+
+@inproceedings{meta-ach-mutation2025,
+    author    = {{Meta ACH authors}},
+    title     = {Mutation-Guided {LLM} Test Generation ({Meta ACH})},
+    booktitle = {FSE 2025 / arXiv:2501.12862},
+    year      = {2025},
+    url       = {https://arxiv.org/abs/2501.12862},
+    note      = {10,795 Android classes; 571 privacy tests (73\% engineer-accepted).},
+}
+
+@inproceedings{agentic-pbt-neurips2025,
+    author    = {{Agentic PBT authors}},
+    title     = {Agentic Property-Based Testing: Finding Bugs Across the {Python} Ecosystem},
+    booktitle = {NeurIPS 2025 DL4Code Workshop / arXiv:2510.09907},
+    year      = {2025},
+    url       = {https://arxiv.org/html/2510.09907v1},
+}
+
+@article{pbt-bridges-llm2025,
+    author  = {{PBT Bridge authors}},
+    title   = {Use Property-Based Testing to Bridge {LLM} Code Generation and Validation},
+    journal = {arXiv preprint arXiv:2506.18315},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2506.18315},
+}
+
+@misc{pactflow-ai-contract2025,
+    title        = {{PactFlow AI}: {AI}-Augmented Contract Testing},
+    author       = {{SmartBear / PactFlow}},
+    year         = {2025},
+    url          = {https://pactflow.io/ai/},
+}
+
+
+% ── Methodology self-improvement feedback (analogues for COMPOUND Axe 2) ─
+
+@misc{github-continuous-ai-a11y2026,
+    title        = {Continuous {AI} for Accessibility: How {GitHub} Transforms Feedback into Inclusion},
+    author       = {{GitHub}},
+    year         = {2026},
+    month        = apr,
+    howpublished = {GitHub Blog},
+    url          = {https://github.blog/ai-and-ml/github-copilot/continuous-ai-for-accessibility-how-github-transforms-feedback-into-inclusion/},
+    note         = {Architectural parallel to GSE COMPOUND Axe 2: Copilot comments + auto-issue creation + quarterly review of custom-instruction/prompt files. Product-level, not methodology-level.},
+}
+
+@misc{safla-selfaware2025,
+    title        = {{SAFLA}: Self-Aware Feedback Loop Algorithm},
+    author       = {{ruvnet}},
+    year         = {2025},
+    url          = {https://github.com/ruvnet/SAFLA},
+    note         = {Reflective self-improvement for agents (not methodology).},
+}
+
+@misc{bmad-v6-ecosystem2026,
+    title        = {{BMAD V6} Intellectual Ecosystem},
+    author       = {Cheung, Benny},
+    year         = {2026},
+    url          = {https://bennycheung.github.io/bmad-v6-intellectual-ecosystem},
+    note         = {Describes BMAD v6 Builder module: user-initiated (pull-based) ecosystem extension, contrasted with GSE COMPOUND Axe 2 (telemetric, filtered).},
+}
