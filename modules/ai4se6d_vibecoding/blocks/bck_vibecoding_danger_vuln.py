@@ -1,6 +1,6 @@
 """Slide — Stat-hero: 12-65% vulnerability rates."""
 # @guideline: maximize-viewport
-# @pattern: stat_hero
+# @pattern: ptn_stat_hero
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t

@@ -7,76 +7,76 @@
   "installed_at": "2026-05-10T12:30:00Z",
   "patterns": [
     {
-      "name": "slide_heading",
-      "from": "core/slide_heading.md",
-      "sha": "30836e01b73c6befbc86138d2e04da62889f62eaeb1a728140943ac6280b4f25",
-      "installed_sha": "30836e01b73c6befbc86138d2e04da62889f62eaeb1a728140943ac6280b4f25"
+      "name": "ptn_slide_heading",
+      "from": "core/ptn_slide_heading.md",
+      "sha": "6f6ed6266c7bc3fcf45bb885a4d2e055bd03a6dafa3dad18dd39172f4b50a7a1",
+      "installed_sha": "6f6ed6266c7bc3fcf45bb885a4d2e055bd03a6dafa3dad18dd39172f4b50a7a1"
     },
     {
-      "name": "cite",
-      "from": "core/cite.md",
-      "sha": "bfffe32d22422aeacc617c057e91a9fd9278f396b23627e4f9c032fb307f4e48",
-      "installed_sha": "bfffe32d22422aeacc617c057e91a9fd9278f396b23627e4f9c032fb307f4e48"
+      "name": "ptn_cite",
+      "from": "core/ptn_cite.md",
+      "sha": "d6bec00512b1a4b7dc2086e53a3204b86e31231c6d102441ad0e06c4aae15c9d",
+      "installed_sha": "d6bec00512b1a4b7dc2086e53a3204b86e31231c6d102441ad0e06c4aae15c9d"
     },
     {
-      "name": "inline_emphasis",
-      "from": "core/inline_emphasis.md",
-      "sha": "6ead3ad21b9172136dd2563bf01b89d3f0bc94355b1837392662ab5f1fe7c5c2",
-      "installed_sha": "6ead3ad21b9172136dd2563bf01b89d3f0bc94355b1837392662ab5f1fe7c5c2"
+      "name": "ptn_inline_emphasis",
+      "from": "core/ptn_inline_emphasis.md",
+      "sha": "3284083321ce5fb22a1df0595d0fb0fee1a99d499a96131302697781d0d66752",
+      "installed_sha": "3284083321ce5fb22a1df0595d0fb0fee1a99d499a96131302697781d0d66752"
     },
     {
-      "name": "callout",
-      "from": "core/callout.md",
-      "sha": "19444a472dd27f38188c3634f3e672af548e83c46ac6ffc752ff5d9194a0030e",
-      "installed_sha": "19444a472dd27f38188c3634f3e672af548e83c46ac6ffc752ff5d9194a0030e"
+      "name": "ptn_callout",
+      "from": "core/ptn_callout.md",
+      "sha": "8e9970b62d8f43c38e174181c0dac0271ee7a59509b140b40d8e9d44f647fcf0",
+      "installed_sha": "8e9970b62d8f43c38e174181c0dac0271ee7a59509b140b40d8e9d44f647fcf0"
     },
     {
-      "name": "card_grid",
-      "from": "core/card_grid.md",
-      "sha": "9adf4bdec97a8edb8ffb5426063ee04ab0cc803f6cc87a1665efb6918e7edd02",
-      "installed_sha": "9adf4bdec97a8edb8ffb5426063ee04ab0cc803f6cc87a1665efb6918e7edd02"
+      "name": "ptn_card_grid",
+      "from": "core/ptn_card_grid.md",
+      "sha": "38febc4c647cd9d86700116e93f8cac0a6ebaca0806984b324b383b7b33ea532",
+      "installed_sha": "38febc4c647cd9d86700116e93f8cac0a6ebaca0806984b324b383b7b33ea532"
     },
     {
-      "name": "comparison_table",
-      "from": "core/comparison_table.md",
-      "sha": "1d765fbd65b7134397c03da9be428a5fd9a90162b078f6779c6e1a05fa7f2330",
-      "installed_sha": "1d765fbd65b7134397c03da9be428a5fd9a90162b078f6779c6e1a05fa7f2330"
+      "name": "ptn_comparison_table",
+      "from": "core/ptn_comparison_table.md",
+      "sha": "0b37b0e596438215caefc612f563b4dc7ee43b5746f2dd3583f8d851cd6b6363",
+      "installed_sha": "0b37b0e596438215caefc612f563b4dc7ee43b5746f2dd3583f8d851cd6b6363"
     },
     {
-      "name": "takeaways",
-      "from": "core/takeaways.md",
-      "sha": "9bfbd15c1c1a0f5cad86bea504f603861bb654b232675758b488514e19a2e5e7",
-      "installed_sha": "9bfbd15c1c1a0f5cad86bea504f603861bb654b232675758b488514e19a2e5e7"
+      "name": "ptn_takeaways",
+      "from": "core/ptn_takeaways.md",
+      "sha": "2b58db8a96e85b0e25b5f1eec6f7ef7e066a57c2a85a2d0dd8fbe841c6835b98",
+      "installed_sha": "2b58db8a96e85b0e25b5f1eec6f7ef7e066a57c2a85a2d0dd8fbe841c6835b98"
     },
     {
-      "name": "title_slide",
-      "from": "slides/title_slide.md",
-      "sha": "bb5fc4ca483efbae1afdeb717c345549ddc6ed57700cb14dcb5d4b410ebc346a",
-      "installed_sha": "bb5fc4ca483efbae1afdeb717c345549ddc6ed57700cb14dcb5d4b410ebc346a"
+      "name": "ptn_title_slide",
+      "from": "slides/ptn_title_slide.md",
+      "sha": "767c470f0588be8b0fad5f2c7b8625b636f2145b3c01bb9bfa040d3df71d46d6",
+      "installed_sha": "767c470f0588be8b0fad5f2c7b8625b636f2145b3c01bb9bfa040d3df71d46d6"
     },
     {
-      "name": "stat_hero",
-      "from": "slides/stat_hero.md",
-      "sha": "3d2e87de52ac8d72c023311f9a20116dea70e20ece94b76a75f1908c3c741eec",
-      "installed_sha": "3d2e87de52ac8d72c023311f9a20116dea70e20ece94b76a75f1908c3c741eec"
+      "name": "ptn_stat_hero",
+      "from": "slides/ptn_stat_hero.md",
+      "sha": "371b3f33fbedba0928db43ee2dd2573dd6d32b56f0365ca468576586b079334c",
+      "installed_sha": "371b3f33fbedba0928db43ee2dd2573dd6d32b56f0365ca468576586b079334c"
     },
     {
-      "name": "evidence_insight",
-      "from": "slides/evidence_insight.md",
-      "sha": "d7ef379ad86d4911dcb18b4b091bceed262cd28bbcdbe7ce7873c4dab980aefc",
-      "installed_sha": "d7ef379ad86d4911dcb18b4b091bceed262cd28bbcdbe7ce7873c4dab980aefc"
+      "name": "ptn_evidence_insight",
+      "from": "slides/ptn_evidence_insight.md",
+      "sha": "268bc12ce704d39183d352653e4c5411e7a9de38df40fde81a67888564dee66a",
+      "installed_sha": "268bc12ce704d39183d352653e4c5411e7a9de38df40fde81a67888564dee66a"
     },
     {
-      "name": "exercise_flow",
-      "from": "slides/exercise_flow.md",
-      "sha": "9803d46a120ae8ab8db620cf74b4d36c5f786ba432853e54e02771b88389aaa1",
-      "installed_sha": "9803d46a120ae8ab8db620cf74b4d36c5f786ba432853e54e02771b88389aaa1"
+      "name": "ptn_exercise_flow",
+      "from": "slides/ptn_exercise_flow.md",
+      "sha": "2270544dc5e33f4d55be1a4e9e09e3eede72827e3fd31f3f9b682cfb3f349c19",
+      "installed_sha": "2270544dc5e33f4d55be1a4e9e09e3eede72827e3fd31f3f9b682cfb3f349c19"
     },
     {
-      "name": "categorized_grid",
-      "from": "slides/categorized_grid.md",
-      "sha": "ff68cfaaa11e3cf21837bafe84e0e58647afec50f2f959d8c9d629dbe89a4d17",
-      "installed_sha": "ff68cfaaa11e3cf21837bafe84e0e58647afec50f2f959d8c9d629dbe89a4d17"
+      "name": "ptn_categorized_grid",
+      "from": "slides/ptn_categorized_grid.md",
+      "sha": "bc984c45650092755335ddc0a2df8467508c5af79e931323c542acf8c6066c67",
+      "installed_sha": "bc984c45650092755335ddc0a2df8467508c5af79e931323c542acf8c6066c67"
     }
   ]
 }

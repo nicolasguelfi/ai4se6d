@@ -19,18 +19,18 @@ frontmatter.
 <!-- BEGIN AUTO -->
 | Name | Description | Tags | Extrapolable |
 |---|---|---|---|
-| callout | Highlighted box for emphasized content (info / warning / critical / success variants) | callout, container, emphasis | ✓ |
-| card_grid | Grid of equal-size cards with title and body, used for taxonomies and inventories | grid, cards, taxonomy | ✓ |
-| categorized_grid | Grid of cards organised in named categories with category headers | grid, cards, categories, taxonomy | ✓ |
-| cite | Inline source citation with author, year, and optional URL — placed under a quote, stat, or claim | citation, evidence, footer | ✗ |
-| comparison_table | Multi-column comparison table with header row and aligned rows | grid, table, comparison | ✓ |
-| evidence_insight | Slide template combining a hero stat, a body explanation, key takeaways, and a source citation | template, evidence, slide | ✓ |
-| exercise_flow | Slide template for a timed exercise: briefing, action, debrief | template, exercise, practice, slide | ✓ |
-| inline_emphasis | Inline keyword/label/accent variants for mixed-style text inside a single st_write | inline, text, emphasis | ✓ |
-| slide_heading | Two-cell heading row (title + tooltip icon) at the top of a slide | atom, heading, layout | ✓ |
-| stat_hero | Slide centerpiece — a single oversized statistic with body and source | stat, evidence, hero | ✓ |
-| takeaways | Numbered list of 3–5 key takeaways with bold lead and explanation | list, summary, conclusion | ✓ |
-| title_slide | Title slide with hero image, course/section title, subtitle, and author | template, title, slide | ✓ |
+| ptn_callout | Highlighted box for emphasized content (info / warning / critical / success variants) | callout, container, emphasis | ✓ |
+| ptn_card_grid | Grid of equal-size cards with title and body, used for taxonomies and inventories | grid, cards, taxonomy | ✓ |
+| ptn_categorized_grid | Grid of cards organised in named categories with category headers | grid, cards, categories, taxonomy | ✓ |
+| ptn_cite | Inline source citation with author, year, and optional URL — placed under a quote, stat, or claim | citation, evidence, footer | ✗ |
+| ptn_comparison_table | Multi-column comparison table with header row and aligned rows | grid, table, comparison | ✓ |
+| ptn_evidence_insight | Slide template combining a hero stat, a body explanation, key takeaways, and a source citation | template, evidence, slide | ✓ |
+| ptn_exercise_flow | Slide template for a timed exercise: briefing, action, debrief | template, exercise, practice, slide | ✓ |
+| ptn_inline_emphasis | Inline keyword/label/accent variants for mixed-style text inside a single st_write | inline, text, emphasis | ✓ |
+| ptn_slide_heading | Two-cell heading row (title + tooltip icon) at the top of a slide | atom, heading, layout | ✓ |
+| ptn_stat_hero | Slide centerpiece — a single oversized statistic with body and source | stat, evidence, hero | ✓ |
+| ptn_takeaways | Numbered list of 3–5 key takeaways with bold lead and explanation | list, summary, conclusion | ✓ |
+| ptn_title_slide | Title slide with hero image, course/section title, subtitle, and author | template, title, slide | ✓ |
 <!-- END AUTO -->
 
 ## Application rules (manual)
@@ -46,11 +46,11 @@ frontmatter.
 
 A block can combine several patterns. Typical combinations seen in `ai4se6d`:
 
-- `slide_heading` + (`grid_boston` or `card_grid` or `comparison_table`)
-- `slide_heading` + `callout` (`info` / `critical`) + `cite`
-- `evidence_insight` (template) → composes `slide_heading` + `stat_hero` +
-  `takeaways` + `cite`
-- `exercise_flow` (template) → composes `slide_heading` + `card_grid`
+- `ptn_slide_heading` + (`grid_boston` or `ptn_card_grid` or `ptn_comparison_table`)
+- `ptn_slide_heading` + `ptn_callout` (`info` / `critical`) + `ptn_cite`
+- `ptn_evidence_insight` (template) → composes `ptn_slide_heading` + `ptn_stat_hero` +
+  `ptn_takeaways` + `ptn_cite`
+- `ptn_exercise_flow` (template) → composes `ptn_slide_heading` + `ptn_card_grid`
 
 ### Project palette
 

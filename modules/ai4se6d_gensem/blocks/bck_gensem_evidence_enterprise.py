@@ -1,6 +1,6 @@
 """Slides — 10% vs 25-30%, Fowler quote, Junior vs Senior."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: evidence_insight
+# @pattern: ptn_evidence_insight
 # @reuse: bck_gensem_evidence_enterprise, _fowler, human_junior_senior (v01)
 from streamtex import *
 from streamtex.bib import cite

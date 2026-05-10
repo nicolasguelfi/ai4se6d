@@ -1,6 +1,6 @@
 """Slide — Participant(s): individual presentations round table."""
 # @guideline: maximize-viewport
-# @pattern: comparison_table
+# @pattern: ptn_comparison_table
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s

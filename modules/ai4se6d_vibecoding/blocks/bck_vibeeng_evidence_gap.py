@@ -1,6 +1,6 @@
 """Slide — The Experience Gap: AI doesn't help everyone equally."""
 # @guideline: maximize-viewport
-# @pattern: stat_hero
+# @pattern: ptn_stat_hero
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t, ListTypes as lt

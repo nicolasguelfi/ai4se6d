@@ -1,6 +1,6 @@
 """Slide — The AI Paradox: 7h/week lost to AI inefficiencies."""
 # @guideline: maximize-viewport
-# @pattern: stat_hero
+# @pattern: ptn_stat_hero
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t

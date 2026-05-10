@@ -1,6 +1,6 @@
 """Slides — Framework landscape, key frameworks, synthesis, roadmap, → GSE-One."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: card_grid, transition_gse
+# @pattern: ptn_card_grid, ptn_transition_gse
 # @reuse: bck_gensem_fw_landscape, _synthesis, _roadmap, sota_takeaway (v01)
 from streamtex import *
 from streamtex.enums import Tags as t

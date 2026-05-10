@@ -1,6 +1,6 @@
 """Slide — VibeCoding to Generative SE spectrum: 4 maturity levels."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: comparison_table
+# @pattern: ptn_comparison_table
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s

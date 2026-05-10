@@ -35,9 +35,6 @@ Learning Objectives
 question:
 Peux-tu vérifier si les quatre points indiqués sont les plus adaptées au nouveau contenu de l'ensemble du book sachant qu'il y a eu beaucoup de modifications.
 
-
-
-
 --
 bloc/slide :
 

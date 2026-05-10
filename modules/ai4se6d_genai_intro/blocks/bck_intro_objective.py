@@ -1,6 +1,6 @@
 """Slide — Today's Objectives: Morning / Afternoon schedule table."""
 # @guideline: maximize-viewport
-# @pattern: comparison_table
+# @pattern: ptn_comparison_table
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s

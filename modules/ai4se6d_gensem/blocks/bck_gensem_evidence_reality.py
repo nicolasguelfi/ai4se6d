@@ -1,6 +1,6 @@
 """Slides — Perception gap, Developer surveys, 7h/week paradox, Daniotti 160K."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: evidence_insight
+# @pattern: ptn_evidence_insight
 # @reuse: bck_gensem_evidence_perception, _surveys, _paradox_ai, _daniotti (v01)
 from streamtex import *
 from streamtex.bib import cite

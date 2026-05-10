@@ -1,6 +1,6 @@
 """Slide — The METR Paradox: experienced devs 19% slower with AI."""
 # @guideline: maximize-viewport
-# @pattern: stat_hero
+# @pattern: ptn_stat_hero
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t

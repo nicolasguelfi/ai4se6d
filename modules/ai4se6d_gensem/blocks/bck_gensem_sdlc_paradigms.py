@@ -1,6 +1,6 @@
 """Slides 13-15 — RE transformed, Testing, 3 Paradigms + transition to GSE-One."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: evidence_insight, transition_gse
+# @pattern: ptn_evidence_insight, ptn_transition_gse
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s

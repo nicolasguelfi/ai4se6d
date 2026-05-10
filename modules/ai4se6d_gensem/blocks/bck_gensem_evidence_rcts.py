@@ -1,6 +1,6 @@
 """Slide — The Productivity Paradox (synthesizes Peng +55%, Cui +26%, METR -19%)."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: evidence_insight
+# @pattern: ptn_evidence_insight
 # @reuse: bck_gensem_evidence_peng, _cui, _metr, _paradox (v01) — condensed into 1 slide
 from streamtex import *
 from streamtex.bib import cite

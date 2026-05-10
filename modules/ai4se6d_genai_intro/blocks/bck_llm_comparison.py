@@ -1,6 +1,6 @@
 """Slide — LLM Comparison: table-roadmap pattern."""
 # @guideline: maximize-viewport
-# @pattern: comparison_table
+# @pattern: ptn_comparison_table
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t
