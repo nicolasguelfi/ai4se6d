@@ -3,8 +3,18 @@
 This folder catalogs the **streamtex-patterns** (reusable graphic design
 primitives) available for the `ai4se6d` collection of trainings.
 
+> **Source**: these patterns come from the central
+> [`streamtex-patterns`](../../../stx.toml) repo, preset `ai4se6d`
+> (= `slides` preset = `core` + `slides`). See `.patterns-meta.json`
+> for the exact source paths and SHA of each installed pattern.
+>
+> To update from the central repo: `stx patterns update`.
+> To check drift: `stx patterns status`.
+> To promote a local edit upstream: `stx patterns promote <name>`.
+
 Each pattern is one `.md` file at the root of this folder. The table below
-is **auto-generated** by `/stx-pattern:reindex` from each pattern's frontmatter.
+is **auto-generated** by `stx patterns install/update` from each pattern's
+frontmatter.
 
 <!-- BEGIN AUTO -->
 | Name | Description | Tags | Extrapolable |

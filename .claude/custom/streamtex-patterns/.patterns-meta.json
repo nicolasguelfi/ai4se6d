@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "source": "../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex-patterns",
+  "source_commit": "080af9bdf3492505ca844243fd29e048233e4e10",
+  "preset": "ai4se6d",
+  "mode": "copy",
+  "installed_at": "2026-05-10T12:30:00Z",
+  "patterns": [
+    {
+      "name": "slide_heading",
+      "from": "core/slide_heading.md",
+      "sha": "30836e01b73c6befbc86138d2e04da62889f62eaeb1a728140943ac6280b4f25",
+      "installed_sha": "30836e01b73c6befbc86138d2e04da62889f62eaeb1a728140943ac6280b4f25"
+    },
+    {
+      "name": "cite",
+      "from": "core/cite.md",
+      "sha": "bfffe32d22422aeacc617c057e91a9fd9278f396b23627e4f9c032fb307f4e48",
+      "installed_sha": "bfffe32d22422aeacc617c057e91a9fd9278f396b23627e4f9c032fb307f4e48"
+    },
+    {
+      "name": "inline_emphasis",
+      "from": "core/inline_emphasis.md",
+      "sha": "6ead3ad21b9172136dd2563bf01b89d3f0bc94355b1837392662ab5f1fe7c5c2",
+      "installed_sha": "6ead3ad21b9172136dd2563bf01b89d3f0bc94355b1837392662ab5f1fe7c5c2"
+    },
+    {
+      "name": "callout",
+      "from": "core/callout.md",
+      "sha": "19444a472dd27f38188c3634f3e672af548e83c46ac6ffc752ff5d9194a0030e",
+      "installed_sha": "19444a472dd27f38188c3634f3e672af548e83c46ac6ffc752ff5d9194a0030e"
+    },
+    {
+      "name": "card_grid",
+      "from": "core/card_grid.md",
+      "sha": "9adf4bdec97a8edb8ffb5426063ee04ab0cc803f6cc87a1665efb6918e7edd02",
+      "installed_sha": "9adf4bdec97a8edb8ffb5426063ee04ab0cc803f6cc87a1665efb6918e7edd02"
+    },
+    {
+      "name": "comparison_table",
+      "from": "core/comparison_table.md",
+      "sha": "1d765fbd65b7134397c03da9be428a5fd9a90162b078f6779c6e1a05fa7f2330",
+      "installed_sha": "1d765fbd65b7134397c03da9be428a5fd9a90162b078f6779c6e1a05fa7f2330"
+    },
+    {
+      "name": "takeaways",
+      "from": "core/takeaways.md",
+      "sha": "9bfbd15c1c1a0f5cad86bea504f603861bb654b232675758b488514e19a2e5e7",
+      "installed_sha": "9bfbd15c1c1a0f5cad86bea504f603861bb654b232675758b488514e19a2e5e7"
+    },
+    {
+      "name": "title_slide",
+      "from": "slides/title_slide.md",
+      "sha": "bb5fc4ca483efbae1afdeb717c345549ddc6ed57700cb14dcb5d4b410ebc346a",
+      "installed_sha": "bb5fc4ca483efbae1afdeb717c345549ddc6ed57700cb14dcb5d4b410ebc346a"
+    },
+    {
+      "name": "stat_hero",
+      "from": "slides/stat_hero.md",
+      "sha": "3d2e87de52ac8d72c023311f9a20116dea70e20ece94b76a75f1908c3c741eec",
+      "installed_sha": "3d2e87de52ac8d72c023311f9a20116dea70e20ece94b76a75f1908c3c741eec"
+    },
+    {
+      "name": "evidence_insight",
+      "from": "slides/evidence_insight.md",
+      "sha": "d7ef379ad86d4911dcb18b4b091bceed262cd28bbcdbe7ce7873c4dab980aefc",
+      "installed_sha": "d7ef379ad86d4911dcb18b4b091bceed262cd28bbcdbe7ce7873c4dab980aefc"
+    },
+    {
+      "name": "exercise_flow",
+      "from": "slides/exercise_flow.md",
+      "sha": "9803d46a120ae8ab8db620cf74b4d36c5f786ba432853e54e02771b88389aaa1",
+      "installed_sha": "9803d46a120ae8ab8db620cf74b4d36c5f786ba432853e54e02771b88389aaa1"
+    },
+    {
+      "name": "categorized_grid",
+      "from": "slides/categorized_grid.md",
+      "sha": "ff68cfaaa11e3cf21837bafe84e0e58647afec50f2f959d8c9d629dbe89a4d17",
+      "installed_sha": "ff68cfaaa11e3cf21837bafe84e0e58647afec50f2f959d8c9d629dbe89a4d17"
+    }
+  ]
+}
