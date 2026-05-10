@@ -131,8 +131,17 @@ def build():
                 st_space("v", 2)
                 st_write(bs.accent, "Solutions become operational. Health monitors progress.")
                 st_space("v", 1)
-                with st_grid(cols="repeat(auto-fit, minmax(200px, 1fr))", gap="12px", cell_styles=_cell) as g:
-                    for dim in ["REQ Coverage", "Test Pass", "Design Debt", "Findings",
-                                "Budget", "Traceability", "Git Hygiene", "AI Integrity"]:
+
+                st_write(bs.keyword + s.center_txt, "Code quality")
+                with st_grid(cols="1fr 1fr 1fr 1fr", gap="12px", cell_styles=_cell) as g:
+                    for dim in ["REQ Coverage", "Test Pass", "Design Debt", "Findings"]:
+                        with g.cell():
+                            st_write(bs.body, dim)
+
+                st_space("v", 0.5)
+
+                st_write(bs.keyword + s.center_txt, "Process discipline")
+                with st_grid(cols="1fr 1fr 1fr 1fr", gap="12px", cell_styles=_cell) as g:
+                    for dim in ["Budget", "Traceability", "Git Hygiene", "AI Integrity"]:
                         with g.cell():
                             st_write(bs.body, dim)

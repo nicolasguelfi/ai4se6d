@@ -39,11 +39,22 @@ def build():
             st_space("v", 1)
 
         with st_zoom(90):
-            with st_grid(cols="1fr 1fr 1fr 1fr 1fr 1fr", gap="8px") as g:
+            st_write(bs.keyword + s.center_txt, "Integrate")
+            with st_grid(cols="1fr 1fr 1fr", gap="8px") as g:
                 for icon, step in [
                     ("\U0001f500", "Merge features"),
                     ("\U0001f500", "Merge to main"),
                     ("\U0001f3f7\ufe0f", "Tag release"),
+                ]:
+                    with g.cell():
+                        with st_block(_cell):
+                            st_write(bs.body, f"{icon} ", (bs.keyword, step))
+
+            st_space("v", 0.5)
+
+            st_write(bs.keyword + s.center_txt, "Finalize")
+            with st_grid(cols="1fr 1fr 1fr", gap="8px") as g:
+                for icon, step in [
                     ("\U0001f4dd", "Changelog"),
                     ("\U0001f4e6", "Archive plan"),
                     ("\U0001f9f9", "Cleanup"),

@@ -52,15 +52,19 @@ def build():
             )
             st_space("v", 1)
 
-        with st_zoom(85):
-            with st_grid(cols="repeat(auto-fit, minmax(220px, 1fr))", gap="12px") as g:
-                for i, (icon, dim, formula) in enumerate(_DIMENSIONS):
-                    cell_style = _cell_acc if i % 2 == 0 else _cell
+        def _render_dim_row(items, offset):
+            with st_grid(cols="1fr 1fr 1fr 1fr", gap="12px") as g:
+                for i, (icon, dim, formula) in enumerate(items):
+                    cell_style = _cell_acc if (i + offset) % 2 == 0 else _cell
                     with g.cell():
                         with st_block(cell_style):
                             st_write(bs.body, f"{icon} ", (bs.keyword, dim))
                             st_write(bs.body, formula)
 
-            st_space("v", 1)
-            st_write(bs.critical, "Any dimension < 7/10 \u2192 risk alert")
-            st_write(bs.accent, "Health < 5 \u2192 warning before /gse:deliver")
+        _render_dim_row(_DIMENSIONS[:4], 0)
+        st_space("v", 0.5)
+        _render_dim_row(_DIMENSIONS[4:], 4)
+
+        st_space("v", 1)
+        st_write(bs.critical, "Any dimension < 7/10 \u2192 risk alert")
+        st_write(bs.accent, "Health < 5 \u2192 warning before /gse:deliver")

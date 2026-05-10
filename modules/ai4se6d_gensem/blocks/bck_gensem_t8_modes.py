@@ -23,16 +23,39 @@ bs = BlockStyles
 
 _HEADERS = ("Aspect", "Micro", "Lightweight", "Full")
 
-_ROWS = [
+# Rows split in two thematic groups to avoid a single dense 8-row table.
+_ROWS_ARCHITECTURE = [
     ("Lifecycle", "PRODUCE \u2192 DELIVER", "PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER", "LC01 \u2192 LC02 \u2192 LC03"),
     ("Git strategy", "Direct commit", "Branch-only", "Worktree per task"),
     ("State files", "status.yaml only", "4 files", "4 files + sprint docs"),
     ("Sprint artifacts", "None", "Plan only", "Full set (plan, reqs, design, review, compound)"),
+]
+
+_ROWS_DISCIPLINE = [
     ("Health dimensions", "None", "3 dimensions", "8 dimensions"),
     ("Decisions", "Gate-only", "Auto + Gate", "Auto / Inform / Gate"),
     ("Guardrails", "Not enforced", "Hard (mandatory)", "Hard + Soft + Emergency"),
     ("Complexity budget", "Not tracked", "Not tracked", "Tracked (8\u201315 pts)"),
 ]
+
+_MODES_COLS = "20% 22% 26% 32%"
+
+
+def _render_modes_table(rows):
+    with st_grid(cols=_MODES_COLS, gap="6px", cell_styles=_hdr_cell) as g:
+        for header in _HEADERS:
+            with g.cell():
+                st_write(bs.table_hdr, header)
+    for aspect, micro, light, full in rows:
+        with st_grid(cols=_MODES_COLS, gap="6px", cell_styles=_normal_cell) as g:
+            with g.cell():
+                st_write(bs.table_lbl, aspect)
+            with g.cell():
+                st_write(bs.table_txt, micro)
+            with g.cell():
+                st_write(bs.table_txt, light)
+            with g.cell():
+                st_write(bs.table_lbl_act, full)
 
 
 def build():
@@ -55,26 +78,15 @@ def build():
                 scale="2vw", width="70vw", position="center",
             )
 
-        with st_zoom(80):
-            st_space("v", 1)
+        st_space("v", 1)
 
-            # Header row
-            with st_grid(cols="20% 22% 26% 32%", gap="6px", cell_styles=_hdr_cell) as g:
-                for header in _HEADERS:
-                    with g.cell():
-                        st_write(bs.table_hdr, header)
+        st_write(bs.accent, "Architecture")
+        _render_modes_table(_ROWS_ARCHITECTURE)
 
-            # Data rows
-            for aspect, micro, light, full in _ROWS:
-                with st_grid(cols="20% 22% 26% 32%", gap="6px", cell_styles=_normal_cell) as g:
-                    with g.cell():
-                        st_write(bs.table_lbl, aspect)
-                    with g.cell():
-                        st_write(bs.table_txt, micro)
-                    with g.cell():
-                        st_write(bs.table_txt, light)
-                    with g.cell():
-                        st_write(bs.table_lbl_act, full)
+        st_space("v", 1)
 
-            st_space("v", 1)
-            st_write(bs.accent, "Start Lightweight. Escalate to Full when complexity demands it.")
+        st_write(bs.accent, "Discipline")
+        _render_modes_table(_ROWS_DISCIPLINE)
+
+        st_space("v", 1)
+        st_write(bs.accent, "Start Lightweight. Escalate to Full when complexity demands it.")
