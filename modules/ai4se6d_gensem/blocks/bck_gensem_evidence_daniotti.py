@@ -1,6 +1,6 @@
 """Slide — The 160,000-Developer Study (Daniotti et al.)."""
 # @guideline: maximize-viewport
-# @pattern: stat-hero
+# @pattern: stat_hero
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t

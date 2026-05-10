@@ -1,6 +1,6 @@
 """Slide — Synthesis: which framework? Comparison table."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: table-roadmap
+# @pattern: comparison_table
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s

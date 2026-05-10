@@ -1,6 +1,6 @@
 """Slides — 6 risks that motivate the need for methodology + methodological gap."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: task-card, transition-gse
+# @pattern: card_grid, transition_gse
 # @reuse: bck_gensem_risks_overview (v01) — data points reused
 from streamtex import *
 from streamtex.bib import cite

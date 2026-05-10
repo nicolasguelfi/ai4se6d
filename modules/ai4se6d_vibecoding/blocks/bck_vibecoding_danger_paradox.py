@@ -1,6 +1,6 @@
 """Slide — Stat-hero: AI Paradox — 7 hours/week lost."""
 # @guideline: maximize-viewport
-# @pattern: stat-hero
+# @pattern: stat_hero
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t

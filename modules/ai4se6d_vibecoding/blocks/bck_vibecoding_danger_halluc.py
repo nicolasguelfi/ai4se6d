@@ -1,6 +1,6 @@
 """Slide — Stat-hero: 5.2-21.7% hallucinated dependencies."""
 # @guideline: maximize-viewport
-# @pattern: stat-hero
+# @pattern: stat_hero
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t

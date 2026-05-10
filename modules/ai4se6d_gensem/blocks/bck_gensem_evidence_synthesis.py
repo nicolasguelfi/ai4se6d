@@ -1,6 +1,6 @@
 """Slides — 3 Evidence Takeaways + Creativity homogenization warning."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: evidence-insight, transition-gse
+# @pattern: evidence_insight, transition_gse
 # @reuse: bck_gensem_evidence_synthesis, human_creativity (v01)
 from streamtex import *
 from streamtex.bib import cite

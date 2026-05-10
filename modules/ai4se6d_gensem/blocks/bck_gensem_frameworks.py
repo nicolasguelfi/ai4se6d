@@ -1,6 +1,6 @@
 """Slides — Framework landscape, key frameworks, synthesis, roadmap, → GSE-One."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: task-card, transition-gse
+# @pattern: card_grid, transition_gse
 # @reuse: bck_gensem_fw_landscape, _synthesis, _roadmap, sota_takeaway (v01)
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -192,8 +192,10 @@ def build():
                 ("GSE-One", "\u2713\u2713", "\u2713\u2713", "\u2713\u2713", "\u2713\u2713", "Low", True),
             ]
 
+            _fw_cols = "22% 15.6% 15.6% 15.6% 15.6% 15.6%"
+
             with st_grid(
-                cols="repeat(auto-fit, minmax(120px, 1fr))",
+                cols=_fw_cols,
                 gap="6px", cell_styles=_hdr_cell,
             ) as g:
                 for h in _headers:
@@ -204,7 +206,7 @@ def build():
                 cell = _active_cell if is_active else _normal_cell
                 lbl = bs.table_lbl_active if is_active else bs.table_lbl
                 with st_grid(
-                    cols="repeat(auto-fit, minmax(120px, 1fr))",
+                    cols=_fw_cols,
                     gap="6px", cell_styles=cell,
                 ) as g:
                     with g.cell():

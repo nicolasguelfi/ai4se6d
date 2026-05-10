@@ -1,6 +1,6 @@
 """Slides — P1: Free discovery of GSE-One (briefing + debrief)."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: exercise-flow
+# @pattern: exercise_flow
 from pathlib import Path
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt

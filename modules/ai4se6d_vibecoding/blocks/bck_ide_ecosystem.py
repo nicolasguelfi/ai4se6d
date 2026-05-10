@@ -1,6 +1,6 @@
 """Slide — Agentic IDE Tools: Cursor, Claude Code, Windsurf, Copilot."""
 # @guideline: maximize-viewport
-# @pattern: table-roadmap
+# @pattern: comparison_table
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s

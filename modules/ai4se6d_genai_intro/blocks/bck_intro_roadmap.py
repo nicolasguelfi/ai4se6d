@@ -1,6 +1,6 @@
 """Slide 3 — 6-Day Journey roadmap (3 sections: D1-D2, D3-D4, D5-D6)."""
 # @guideline: maximize-viewport
-# @pattern: table-roadmap
+# @pattern: comparison_table
 from streamtex import *
 from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t

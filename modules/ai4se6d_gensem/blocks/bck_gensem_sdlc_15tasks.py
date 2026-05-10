@@ -1,6 +1,6 @@
 """Slides 3-6 — 15 Core Tasks in 4 slides: NEW, ELEVATED, TRANSFORMED (1/2), TRANSFORMED (2/2)."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: task-card
+# @pattern: card_grid
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s

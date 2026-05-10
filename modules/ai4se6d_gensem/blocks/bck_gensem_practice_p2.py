@@ -1,6 +1,6 @@
 """P2 — Debrief + .gse/ exploration — 3 scenarios by IT expertise."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: exercise-flow
+# @pattern: exercise_flow
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s

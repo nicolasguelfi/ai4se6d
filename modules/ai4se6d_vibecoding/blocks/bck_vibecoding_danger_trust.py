@@ -1,6 +1,6 @@
 """Slide — The Trust Crisis: developer confidence in AI is falling."""
 # @guideline: maximize-viewport
-# @pattern: stat-hero
+# @pattern: stat_hero
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t, ListTypes as lt
