@@ -27,10 +27,13 @@ frontmatter.
 | ptn_evidence_insight | Slide template combining a hero stat, a body explanation, key takeaways, and a source citation | template, evidence, slide | ✓ |
 | ptn_exercise_flow | Slide template for a timed exercise: briefing, action, debrief | template, exercise, practice, slide | ✓ |
 | ptn_inline_emphasis | Inline keyword/label/accent variants for mixed-style text inside a single st_write | inline, text, emphasis | ✓ |
+| ptn_narrative_transition | Bridge slide pivoting from a problem state to the proposed solution / methodology | template, narrative, transition, slide | ✓ |
 | ptn_slide_heading | Two-cell heading row (title + tooltip icon) at the top of a slide | atom, heading, layout | ✓ |
 | ptn_stat_hero | Slide centerpiece — a single oversized statistic with body and source | stat, evidence, hero | ✓ |
 | ptn_takeaways | Numbered list of 3–5 key takeaways with bold lead and explanation | list, summary, conclusion | ✓ |
+| ptn_term_definition_list | Vertical list of `term — definition` rows for glossaries, notations, abbreviation tables | list, glossary, reference, definitions | ✓ |
 | ptn_title_slide | Title slide with hero image, course/section title, subtitle, and author | template, title, slide | ✓ |
+| ptn_transition_gse | ai4se6d-specific transition slide pivoting a section into the GSE-One methodology | template, narrative, transition, slide, ai4se6d, gse-one | ✗ |
 <!-- END AUTO -->
 
 ## Application rules (manual)
