@@ -1,5 +1,18 @@
 # Pattern Library — ai4se6d
 
+> ⚠️ **DEPRECATED — replaced by the StreamTeX pack system.**
+>
+> The `streamtex-patterns` mechanism is frozen and no longer evolves.
+> Every reusable visual artefact now ships as a Python component inside
+> a pack. See the canonical mapping
+> [`streamtex-packs/docs/PATTERNS_MIGRATION.md`](../../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex-packs/docs/PATTERNS_MIGRATION.md)
+> for `ptn_*` → component path translations.
+>
+> **For the `ai4se6d` collection specifically**: this folder is kept as-is
+> for the existing modules. Do NOT add new patterns here, and do NOT use
+> `[patterns]` in `stx.toml` for new documents — declare
+> `[[packs]] streamtex-pack-design` / `streamtex-pack-gse` instead.
+
 This folder catalogs the **streamtex-patterns** (reusable graphic design
 primitives) available for the `ai4se6d` collection of trainings.
 
