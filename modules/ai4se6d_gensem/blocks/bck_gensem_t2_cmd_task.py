@@ -1,7 +1,7 @@
 """Slide — /gse:task: ad-hoc tasks and spike experiments."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
-from streamtex.enums import Tags as t, ListTypes as lt
+from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 from shared_widgets import st_hover_tooltip
 

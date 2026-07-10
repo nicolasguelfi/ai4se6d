@@ -2,7 +2,6 @@
 # @guideline: maximize-viewport
 # @pattern: ptn_comparison_table
 from streamtex import *
-from streamtex.bib import cite
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 

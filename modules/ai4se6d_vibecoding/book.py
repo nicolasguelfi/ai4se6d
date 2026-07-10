@@ -17,9 +17,9 @@ from custom.styles import Styles as s
 from custom.themes import dark
 from custom.config import IS_EXPORTABLE
 
-_doc_version = tomllib.loads((Path(__file__).parent.parent.parent / "pyproject.toml").read_text()).get("project", {}).get("version", "?")
 import streamtex.styles as sts
 import blocks
+_doc_version = tomllib.loads((Path(__file__).parent.parent.parent / "pyproject.toml").read_text()).get("project", {}).get("version", "?")
 
 # Configure static sources (module + shared-blocks)
 _module_dir = Path(__file__).parent

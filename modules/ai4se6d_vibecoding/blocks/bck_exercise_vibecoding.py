@@ -1,7 +1,7 @@
 """Slide — This Afternoon: Pure VibeCoding (framing for FreeSelfApp workshop)."""
 # @guideline: maximize-viewport
 from streamtex import *
-from streamtex.enums import Tags as t, ListTypes as lt
+from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_LANDSCAPE as _SUFFIX

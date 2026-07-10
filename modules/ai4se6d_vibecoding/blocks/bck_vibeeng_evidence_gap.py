@@ -3,7 +3,7 @@
 # @pattern: ptn_stat_hero
 from streamtex import *
 from streamtex.bib import cite
-from streamtex.enums import Tags as t, ListTypes as lt
+from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 
 class BlockStyles:

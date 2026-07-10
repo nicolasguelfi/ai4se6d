@@ -1,6 +1,5 @@
 """Slides — SDLC phases impact: 6 phases with GenAI impact split into 2 slides of 3."""
 # @guideline: minimalist-visual + maximize-viewport
-from multiprocessing.context import set_spawning_popen
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t
