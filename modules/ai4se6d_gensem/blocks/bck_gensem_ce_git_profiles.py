@@ -1,4 +1,4 @@
-"""Slide — Three Git Workflow Profiles for GSE-One."""
+"""Slide — Three Git Strategies for GSE-One."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
@@ -6,7 +6,7 @@ from custom.styles import Styles as s
 from shared_widgets import st_hover_tooltip
 
 class BlockStyles:
-    """Git profiles slide styles."""
+    """Git strategies slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
     profile_name = s.bold + s.project.colors.primary + s.Large
     body = s.project.titles.body
@@ -16,7 +16,7 @@ class BlockStyles:
 bs = BlockStyles
 
 def build():
-    st_marker("3 Git Workflow Profiles")
+    st_marker("3 Git Strategies")
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             with st_grid(
@@ -26,16 +26,17 @@ def build():
             ) as g:
                 with g.cell():
                     with st_zoom(90):
-                        st_write(bs.heading, "Three Git Workflow Profiles", tag=t.div, toc_lvl="+1")
+                        st_write(bs.heading, "Three Git Strategies", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
-                        title="Git Profiles in GSE-One",
+                        title="Git Strategies in GSE-One",
                         entries=[
-                            ("Profile A", "Solo/small projects. Direct commits on main. GSE-One adds structure without Git overhead."),
-                            ("Profile B", "Solo/large projects. Feature branches + worktrees for parallel work."),
-                            ("Profile C", "Team/large projects. Future commands: /gse:sync, /gse:pr, /gse:review --pr, /gse:merge, /gse:status --team, /gse:handoff."),
-                            ("Conventional commits", "GSE-One uses a structured format: gse(sprint-NN/activity): description. Example: gse(sprint-01/feat/budget): add category budget component. The agent generates these automatically."),
-                            ("Today", "Training uses Profile A -- direct commits, GSE-One phases map to commit messages."),
+                            ("Configuration", "Set in .gse/config.yaml: git.strategy = worktree | branch-only | none. Calibrated by the lifecycle mode and the HUG profile; change via /gse:hug --update or by editing the config."),
+                            ("none", "Direct commits on main. Default for Micro mode (trivial scripts) and legitimate ONLY there: in the other modes the protect-main hook blocks any git commit on main (Hard guardrail)."),
+                            ("branch-only", "Feature branches without worktrees — the agent switches branches in the main checkout. Lightweight default: a single feature branch off main, no sprint branch."),
+                            ("worktree", "One git worktree per task under .worktrees/ + a sprint integration branch gse/sprint-NN/integration. Full-mode default and the GSE-One flagship (P12 — Version Control Isolation)."),
+                            ("Conventional commits", "GSE-One uses a structured format: gse(sprint-NN/type): description, with Sprint / Task / Traces trailers. Example: gse(sprint-03/feat): implement user authentication flow. The agent generates these automatically."),
+                            ("Today", "Training uses the worktree strategy -- practices run Full mode."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
@@ -48,44 +49,56 @@ def build():
                 cell_styles=s.project.containers.cell_pad_md,
             ) as g:
                 with g.cell():
+                    with st_block(s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md):
+                        st_write(bs.profile_name, "none — Micro mode", tag=t.div)
+                        st_space("v", 0.5)
+                        with st_list(li_style=bs.body, list_type=lt.unordered) as l:
+                            with l.item():
+                                st_write(bs.body, "Direct commits on main, no branch creation")
+                            with l.item():
+                                st_write(bs.body, "Default for Micro mode (trivial scripts, one-offs)")
+                            with l.item():
+                                st_write(bs.body, "Legitimate ", (bs.keyword, "only"), " there — elsewhere the protect-main hook blocks commits on main")
+
+                with g.cell():
+                    with st_block(s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md):
+                        st_write(bs.profile_name, "branch-only — Lightweight", tag=t.div)
+                        st_space("v", 0.5)
+                        with st_list(li_style=bs.body, list_type=lt.unordered) as l:
+                            with l.item():
+                                st_write(bs.body, "Feature branches, no worktrees")
+                            with l.item():
+                                st_write(bs.body, "Agent switches branches in the main checkout")
+                            with l.item():
+                                st_write(bs.body, "Lightweight default: single feature branch off main, no sprint branch")
+
+                with g.cell():
                     with st_block(s.project.containers.cell_active_bg + s.project.containers.cell_pad_md):
-                        st_write(bs.profile_name, "Profile A \u2014 Solo, Small", tag=t.div)
-                        st_write(bs.today, "Today's profile", tag=t.div)
+                        st_write(bs.profile_name, "worktree — Full mode", tag=t.div)
+                        st_write(bs.today, "Today's strategy", tag=t.div)
                         st_space("v", 0.5)
                         with st_list(li_style=bs.body, list_type=lt.unordered) as l:
                             with l.item():
-                                st_write(bs.body, "Direct commits on main")
+                                st_write(bs.body, "One worktree per task in ", (bs.keyword, ".worktrees/"))
                             with l.item():
-                                st_write(bs.body, "GSE-One adds structure without Git overhead")
+                                st_write(bs.body, "Sprint integration branch ", (bs.keyword, "gse/sprint-NN/integration"))
                             with l.item():
-                                st_write(bs.body, "Ideal for learning and small projects")
+                                st_write(bs.body, "GSE-One flagship — ", (bs.keyword, "P12"), " isolation: main always stable")
 
                 with g.cell():
                     with st_block(s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md):
-                        st_write(bs.profile_name, "Profile B \u2014 Solo, Large", tag=t.div)
+                        st_write(bs.profile_name, "Team support", tag=t.div)
                         st_space("v", 0.5)
                         with st_list(li_style=bs.body, list_type=lt.unordered) as l:
                             with l.item():
-                                st_write(bs.body, "Feature branches + worktrees")
+                                st_write(bs.body, "Per-member HUG profiles in ", (bs.keyword, ".gse/profiles/"))
                             with l.item():
-                                st_write(bs.body, "Parallel work on multiple features")
+                                st_write(bs.body, "Enabled via ", (bs.keyword, "/gse:hug --team"), " or auto-detected from git contributors")
                             with l.item():
-                                st_write(bs.body, "For larger personal projects")
+                                st_write(bs.body, "Plan tasks carry ", (bs.keyword, "assignee"), " / ", (bs.keyword, "reviewer"), " fields")
+                            with l.item():
+                                st_write(bs.body, "Each member works in their own worktree/branch — no file-level conflicts")
 
-                with g.cell():
-                    with st_block(s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md):
-                        st_write(bs.profile_name, "Profile C \u2014 Team, Large", tag=t.div)
-                        st_space("v", 0.5)
-                        with st_list(li_style=bs.body, list_type=lt.unordered) as l:
-                            with l.item():
-                                st_write(bs.future, "/gse:sync")
-                            with l.item():
-                                st_write(bs.future, "/gse:pr")
-                            with l.item():
-                                st_write(bs.future, "/gse:review --pr")
-                            with l.item():
-                                st_write(bs.future, "/gse:merge")
-                            with l.item():
-                                st_write(bs.future, "/gse:status --team")
-                            with l.item():
-                                st_write(bs.future, "/gse:handoff")
+        st_space("v", 0.5)
+        with st_block(s.center_txt):
+            st_write(bs.body, "Strategy is set in ", (bs.keyword, ".gse/config.yaml"), " (", (bs.keyword, "git.strategy"), ") and calibrated by the lifecycle mode and HUG profile.", tag=t.div)
