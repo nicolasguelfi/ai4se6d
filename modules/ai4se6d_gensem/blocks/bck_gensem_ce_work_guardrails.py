@@ -1,4 +1,4 @@
-"""Slide — Work: Guardrails in Detail."""
+"""Slide — Work: Scope & Quality Guardrails."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
@@ -17,16 +17,16 @@ bs = BlockStyles
 
 
 def build():
-    st_marker("Work Guardrails: Scope + Tests")
+    st_marker("Work Guardrails: Strategy Before, Reconciliation After")
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
-            st_write(bs.heading, "Work: Guardrails in Detail", tag=t.div, toc_lvl="+1")
+            st_write(bs.heading, "Work: Scope & Quality Guardrails", tag=t.div, toc_lvl="+1")
         st_hover_tooltip(
-            title="Work Phase Guardrails",
+            title="Scope & Quality Guardrails",
             entries=[
-                ("Purpose", "Guardrails keep the AI agent within the planned scope, preventing scope creep and uncontrolled changes."),
-                ("Enforcement", "Scope violations trigger warnings and redirect back to the plan -- the agent cannot silently expand scope."),
-                ("Test-first", "Every task starts with tests, ensuring correctness is verified before moving on."),
+                ("Purpose", "Guardrails keep the AI agent within the planned scope as governance -- no silent scope expansion (P6). There is no file-by-file real-time blocking."),
+                ("Rendez-vous", "Strategy is checked before production; scope is reconciled deterministically after, at activity closure -- via git diff against the approved plan."),
+                ("Testing", "The test strategy is configurable (auto / tdd / test-after) -- TDD is an option, not a rule. The canonical test run happens after production."),
             ],
             scale="2vw", width="70vw", position="center",
         )
@@ -37,20 +37,31 @@ def build():
                 with l.item():
                     st_write(
                         bs.body,
-                        (bs.keyword, "Scope enforcement: "),
-                        "Agent attempts to modify unlisted file \u2192 warning + return to plan",
+                        (bs.keyword, "Before production: "),
+                        "Test strategy must exist -- Hard guardrail in Full mode, "
+                        "auto-generated Soft in Lightweight; budget watched (Soft 80%, Gate 100%)",
                     )
                 with l.item():
                     st_write(
                         bs.body,
-                        (bs.keyword, "Task tracking: "),
-                        "Each plan task checked off as completed, visible progress",
+                        (bs.keyword, "During: "),
+                        "Agent executes within the approved plan, progress visible in plan.yaml -- "
+                        "scope cannot expand silently, but no per-file blocking",
                     )
                 with l.item():
                     st_write(
                         bs.body,
-                        (bs.keyword, "Test-first: "),
-                        "Tests written before implementation for each task",
+                        (bs.keyword, "After (the real rendez-vous): "),
+                        "Canonical test run, then Scope Reconciliation -- git diff vs plan; "
+                        "deltas (ADDED / OMITTED / MODIFIED) hit a Gate: "
+                        "Accept as DEC- / Revert / Amend REQ-DES / Discuss",
+                    )
+                with l.item():
+                    st_write(
+                        bs.body,
+                        (bs.keyword, "Safety nets: "),
+                        "Review's requirements-analyst flags scope creep; "
+                        "re-planning is proposed on triggers (task > 2x estimate, budget > 80%...) -- never forced",
                     )
 
             st_space("v", 2)
@@ -58,5 +69,6 @@ def build():
             with st_block(s.project.containers.callout):
                 st_write(
                     bs.closing,
-                    "Deviations from plan require explicitly returning to the Plan phase.",
+                    "Example: the diff shows a file ADDED out of scope → the closure Gate "
+                    "asks you to accept it (DEC-), revert it, amend the requirements, or discuss.",
                 )
