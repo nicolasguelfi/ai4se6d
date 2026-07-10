@@ -27,7 +27,7 @@ _HEADERS = ("Aspect", "Micro", "Lightweight", "Full")
 _ROWS_ARCHITECTURE = [
     ("Lifecycle", "PRODUCE \u2192 DELIVER", "PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER", "LC01 \u2192 LC02 \u2192 LC03"),
     ("Git strategy", "Direct commit", "Branch-only", "Worktree per task"),
-    ("State files", "status.yaml only", "4 files + plan.yaml", "4 files + sprint docs"),
+    ("State files", "status.yaml only", "4 files + plan.yaml", "4 files + plan.yaml"),
     ("Sprint artifacts", "None", "reqs.md only", "Full set (plan-summary, reqs, design, tests, review, compound)"),
 ]
 
@@ -73,7 +73,7 @@ def build():
                     ("Lightweight", "Default when no Full rule matches. PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER. Branch isolation, 3 health dims."),
                     ("Full", "First-match-wins rules: persistence, multi-component, CI/CD, >10 deps or >10 entry points \u2014 or existing tests AND (deps > 3 OR entry points > 3). Complete lifecycle LC01\u2192LC02\u2192LC03. Worktrees, 8 health dims, full traceability."),
                     ("How to choose", "Start Lightweight for your professional project. Escalate to Full when the 7 signals indicate structural complexity. The agent proposes the mode during /gse:go."),
-                    ("Adopt mode", "For existing projects: /gse:go --adopt performs a non-destructive scan and creates a sprint-0 baseline without modifying any files."),
+                    ("Adopt mode", "For existing projects: /gse:go --adopt performs a non-destructive scan and creates a sprint-0 baseline — existing files are never modified without explicit approval (frontmatter annotation is a Gate)."),
                 ],
                 scale="2vw", width="70vw", position="center",
             )

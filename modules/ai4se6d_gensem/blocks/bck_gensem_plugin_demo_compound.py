@@ -1,4 +1,4 @@
-"""Slide — Live demo: /ce:compound phase."""
+"""Slide — Live demo: /ce-compound phase."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
@@ -16,7 +16,7 @@ bs = BlockStyles
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
-            st_write(bs.heading, "Live Demo: /ce:compound", tag=t.div, toc_lvl="1")
+            st_write(bs.heading, "Live Demo: /ce-compound", tag=t.div, toc_lvl="1")
         st_space("v", 1)
 
         st_write(bs.body, "The knowledge flywheel \u2014 each cycle feeds the next.")

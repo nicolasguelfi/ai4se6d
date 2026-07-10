@@ -219,7 +219,7 @@ def build():
                     st_hover_tooltip(
                         title="FIX — The Conditional Quality Loop",
                         entries=[
-                            ("Conditional", "FIX is not in workflow.expected by default. The orchestrator inserts it after REVIEW only if findings with severity HIGH or MEDIUM exist; a clean review moves FIX to workflow.skipped."),
+                            ("Conditional", "FIX is not in workflow.expected by default. The orchestrator inserts it after REVIEW only if findings with severity HIGH or MEDIUM exist; a clean review simply doesn't insert it."),
                             ("How it works", "When triggered, creates a fix branch targeting specific RVW- findings. Each fix commit references the finding ID."),
                             ("Iteration", "REVIEW → [FIX] → REVIEW can loop until quality is acceptable: 0 open HIGH/MEDIUM findings."),
                             ("Discipline", "The fix ONLY addresses the finding. No extra changes. Scope stays constrained."),

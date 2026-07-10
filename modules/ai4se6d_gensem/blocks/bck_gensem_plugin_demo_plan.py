@@ -1,4 +1,4 @@
-"""Slide — Live demo: /ce:plan phase."""
+"""Slide — Live demo: /ce-plan phase."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
@@ -16,7 +16,7 @@ bs = BlockStyles
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
-            st_write(bs.heading, "Live Demo: /ce:plan", tag=t.div, toc_lvl="1")
+            st_write(bs.heading, "Live Demo: /ce-plan", tag=t.div, toc_lvl="1")
         st_space("v", 1)
 
         st_write(bs.body, "Continues from the brainstorm output. The plan phase transforms exploration into a ", (bs.keyword, "contract"), ".")

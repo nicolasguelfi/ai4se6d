@@ -28,11 +28,11 @@ def build():
                 st_hover_tooltip(
                     title="GSE-One Plugin Architecture",
                     entries=[
-                        ("What it is", "A directory-based plugin system that organizes agents, skills, rules, hooks, and MCP integrations for AI-assisted development."),
+                        ("What it is", "A directory-based plugin system that organizes agents, skills, templates, rules, and hooks for AI-assisted development."),
                         ("Inventory", "24 skills, 29 templates, 11 agents (shared source + platform-specific manifests and hooks)."),
                         ("Commands = skills", "On Cursor, skills are exposed as slash commands; on Claude Code, each command is backed by the same skill definition. The 24 /gse:* commands map 1:1 onto the 24 skills."),
-                        ("Tool-agnostic", "The plugin installs on both Cursor and Claude Code; only the orchestrator deployment location differs per platform (rules/ vs agents/). The .gse/ project state is identical on both."),
-                        ("Composable", "Each component (agents, skills, rules, hooks, MCP) can be customized independently per project."),
+                        ("Tool-agnostic", "The plugin installs on Claude Code, Cursor and opencode; the orchestrator location differs per platform (agents/ vs rules/ vs AGENTS.md), along with manifests and hooks. The .gse/ project state is identical everywhere."),
+                        ("Composable", "Each component (agents, skills, templates, rules, hooks) can be customized independently per project."),
                     ],
                     scale="2vw", width="70vw", position="left",
                 )
@@ -79,8 +79,6 @@ def build():
                             st_write(bs.body, (bs.keyword, "Rules"), " \u2014 declarative constraints that guide every AI response")
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Hooks"), " \u2014 3 system hooks (protect main, block force-push incl. +refspec, review-findings warning) + 7 agent behaviors")
-                        with l.item():
-                            st_write(bs.body, (bs.keyword, "MCP Integration"), " \u2014 connect external tools, databases, and services")
                     st_space("v", 0.5)
                     st_write(bs.body, (bs.keyword, "Total: "), "≈240 files across 5 platforms (shared source + platform-specific manifests and hooks).")
 

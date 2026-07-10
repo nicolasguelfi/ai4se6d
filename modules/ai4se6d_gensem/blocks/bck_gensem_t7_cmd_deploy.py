@@ -38,7 +38,7 @@ def build():
                     ("Orientation", "Orientation by role (solo / instructor / learner) + auto-detected mode (full / partial / app-only / training) from .env."),
                     ("--status", "Show current deployment state without changes."),
                     ("--redeploy", "Rebuild and redeploy the application. Does not provision new server."),
-                    ("--destroy", "Tear down server. Gate-tier confirmation required \u2014 irreversible."),
+                    ("--destroy", "Tear down server. Double Gate \u2014 confirm twice (the server name must be re-typed) \u2014 irreversible."),
                     ("Post-tag hook", "Can be triggered automatically after /gse:deliver via git.post_tag_hook. If deployment fails, proposes rollback (Gate)."),
                     ("Health check", "Phase 6 polls the deployed app endpoint (/_stcore/health or /) until live."),
                 ],
@@ -72,7 +72,7 @@ def build():
                 ("/gse:deploy", "Full guided flow: provision \u2192 deploy"),
                 ("--status", "Show deployment state (read-only)"),
                 ("--redeploy", "Rebuild + redeploy (no new server)"),
-                ("--destroy", "Tear down server (Gate \u2014 irreversible)"),
+                ("--destroy", "Tear down server (double Gate \u2014 irreversible)"),
             ]:
                 with st_grid(cols="30% 70%", gap="8px", cell_styles=_normal_cell) as g:
                     with g.cell():

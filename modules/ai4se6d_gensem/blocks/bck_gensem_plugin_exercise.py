@@ -31,7 +31,7 @@ def build():
         st_write(
             bs.body,
             "Open your terminal. Run: ",
-            (bs.keyword, "/ce:brainstorm [describe a feature for your mini-project]"),
+            (bs.keyword, "/ce-brainstorm [describe a feature for your mini-project]"),
         )
 
         st_space("v", 0.5)

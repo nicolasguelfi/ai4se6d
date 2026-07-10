@@ -34,7 +34,7 @@ def build():
             ) as g:
                 with g.cell():
                     with st_zoom(90):
-                        st_write(bs.heading, "24 Commands in 9 Categories", tag=t.div, toc_lvl="+1")
+                        st_write(bs.heading, "The 24 Commands", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="GSE-One Command Map",
@@ -51,7 +51,7 @@ def build():
                             ("Audit", "/gse:audit — meta-audit of project state, invocable any time (cross-cutting)."),
                             ("Deployment", "/gse:deploy — from zero infrastructure to live app (Hetzner + Coolify)."),
                             ("Capitalization", "/gse:compound, /gse:integrate — codify learnings, route to operational destinations."),
-                            ("Ad-hoc", "/gse:task — exploratory spike, complexity-boxed (max 3 pts)."),
+                            ("Ad-hoc", "/gse:task — deliverable ad-hoc task (budget-tracked, reviewed); --spike for throwaway exploration (max 3 pts)."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
@@ -104,7 +104,7 @@ def build():
                         title="The Virtual Team",
                         entries=[
                             ("Why an orchestrator identity?", "The orchestrator is always-on (loaded as agents/gse-orchestrator.md on Claude Code, rules/gse-orchestrator.mdc on Cursor). The 10 specialists are delegated on demand."),
-                            ("Always-on", "The guardrail-enforcer runs on every action. The devil-advocate activates during review to challenge assumptions."),
+                            ("Always-on", "The guardrail-enforcer is a rule reference — enforced by the 3 system hooks and inline checks, never spawned. The devil-advocate activates during review to challenge assumptions."),
                             ("Orchestrator role", "The gse-orchestrator coordinates all others, manages the lifecycle, and handles decision classification (Auto/Inform/Gate)."),
                         ],
                         scale="2vw", width="70vw", position="left",
@@ -235,7 +235,7 @@ def build():
                             st_write(bs.body, "Save and restore session state")
                     with g.cell():
                         with st_block(_cell_act):
-                            st_write(bs.label, "/gse:task (spike)")
+                            st_write(bs.label, "/gse:task --spike")
                             st_write(bs.body, "Ad-hoc experiment, max 3pts")
                     with g.cell():
                         with st_block(_cell):
