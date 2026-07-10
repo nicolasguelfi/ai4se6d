@@ -45,6 +45,7 @@ _ENTRIES = [
     ("Foundation Model", "Model pre-trained on very large datasets, adapted to specific tasks via fine-tuning or prompting"),
     ("GenAI", "Generative Artificial Intelligence \u2014 AI that creates new content (text, code, images) rather than classifying existing data"),
     ("GenSEM", "Generative Software Engineering Methods \u2014 the study of SE methodologies adapted for AI-assisted development"),
+    ("GenSEMOne", "Lightweight, Cursor-native manual method built in this course \u2014 maps CE principles to native IDE features (precursor exercise to the GSE-One plugin)"),
     ("GPT", "Generative Pre-trained Transformer"),
     ("GSE-One", "Generic Software Engineering One — cross-platform GSE methodology plugin (Claude Code, Cursor, opencode; Codex/Gemini experimental): 16 principles, 24 commands, 11 agents, 3 modes"),
     ("Hallucination", "AI generating plausible but incorrect output \u2014 includes code hallucinations and package hallucinations (5.2-21.7%)"),

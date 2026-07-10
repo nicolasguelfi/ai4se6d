@@ -213,8 +213,8 @@ st_book(
         blocks.bck_gensem_t5_requirements,          # REQS + DESIGN + PREVIEW + Traceability (3 slides)
         blocks.bck_gensem_t5_cmd_reqs,              # /gse:reqs — What Should It Do?
         blocks.bck_gensem_t5_cmd_design,            # /gse:design — How Should It Work?
-        blocks.bck_gensem_calcapp_fr_example,       # FR-001 full Given/When/Then example
-        blocks.bck_gensem_calcapp_nfr_example,      # NFR-002 WCAG accessibility example
+        blocks.bck_gensem_calcapp_fr_example,       # REQ-001 full Given/When/Then example
+        blocks.bck_gensem_calcapp_nfr_example,      # REQ-102 WCAG accessibility example
 
         # ── T5 Séq 5.2 — Preview ──────────────────────────────────
         blocks.bck_gensem_t5_cmd_preview,           # /gse:preview — See before building
