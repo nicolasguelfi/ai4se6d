@@ -30,11 +30,12 @@ def build():
                     st_write(bs.heading, "The 80/20 Rule \u2014 From Your Experience", tag=t.div, toc_lvl="+1")
             with g.cell():
                 st_hover_tooltip(
-                    title="80/20 Rule in GSE-One",
+                    title="80/20 Rule — the CE lens in GSE-One",
                     entries=[
                         ("Principle", "Invest ~80% in planning and review, ~20% in execution."),
                         ("Day 1 contrast", "FreeSelfApp spent ~90% coding -- the opposite ratio."),
-                        ("GSE-One equivalent", "The /gse:plan and /gse:review phases embody this ratio."),
+                        ("GSE-One equivalent", "The weight lands on PLAN/REQS/DESIGN/PREVIEW before code and REVIEW after."),
+                        ("Origin", "The 80/20 reading comes from Compound Engineering (Every) -- GSE-One's ideological parent."),
                     ],
                     scale="2vw", width="70vw", position="left",
                 )

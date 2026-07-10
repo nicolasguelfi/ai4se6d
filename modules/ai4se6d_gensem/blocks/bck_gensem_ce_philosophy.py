@@ -16,7 +16,7 @@ class BlockStyles:
 bs = BlockStyles
 
 def build():
-    st_marker("GSE-One: Design Philosophy")
+    st_marker("GSE-One: Design Philosophy — CE Heritage")
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             with st_grid(
@@ -29,10 +29,10 @@ def build():
                         st_write(bs.heading, "Design Philosophy", tag=t.div, toc_lvl="1")
                 with g.cell():
                     st_hover_tooltip(
-                        title="GSE-One Design Philosophy",
+                        title="Design Philosophy — Compound Engineering heritage",
                         entries=[
-                            ("Core idea", "Each unit of engineering work should make subsequent units easier, not harder."),
-                            ("80/20 rule", "~80% planning and review, ~20% execution -- inverts VibeCoding."),
+                            ("Core idea (CE)", "Each unit of engineering work should make subsequent units easier, not harder — Compound Engineering's tagline (Every), inherited by GSE-One."),
+                            ("80/20 rule (CE lens)", "~80% planning and review, ~20% execution -- inverts VibeCoding. GSE-One's own design philosophy counts 7 pillars (spec \u00a71.4)."),
                             ("GSE-One equivalent", "This philosophy underpins all /gse: commands, especially /gse:assess and /gse:plan."),
                             ("Anti-pattern", "The 'prompt, generate, pray' loop with no planning or review."),
                         ],
@@ -59,7 +59,7 @@ def build():
             ) as g:
                 with g.cell():
                     with st_block(s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md):
-                        st_write(bs.card_title, "The 80/20 Rule", tag=t.div)
+                        st_write(bs.card_title, "The 80/20 Rule (CE heritage)", tag=t.div)
                         st_space("v", 0.5)
                         with st_list(li_style=bs.body, list_type=lt.unordered) as l:
                             with l.item():

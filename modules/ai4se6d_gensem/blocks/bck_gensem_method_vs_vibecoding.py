@@ -43,7 +43,7 @@ def build():
                     title="GSE-One vs VibeCoding",
                     entries=[
                         ("VibeCoding", "Day 1 approach: no requirements, no planning, no review -- just prompts."),
-                        ("GSE-One", "Structured 5-phase method with requirements, planning, review, and knowledge retention."),
+                        ("GSE-One", "Structured methodology -- 4-stage lifecycle (LC00-LC03), rooted in CE's workflow -- with requirements, planning, review, and knowledge retention."),
                         ("Key difference", "GSE-One produces verified, documented apps; VibeCoding produces working prototypes (maybe)."),
                         ("Recall", "Think back to FreeSelfApp on Day 1 to feel the contrast."),
                     ],

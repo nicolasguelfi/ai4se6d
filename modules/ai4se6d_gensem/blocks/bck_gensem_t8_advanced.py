@@ -55,9 +55,9 @@ def build():
                     with g.cell():
                         st_write(bs.body, (bs.keyword, "Cursor "), (bs.body, "— .mdc rules + hooks"))
                     with g.cell():
-                        st_write(bs.body, (bs.keyword, "Copilot "), (bs.body, "— compatible"))
+                        st_write(bs.body, (bs.keyword, "opencode "), (bs.body, "— native plugin (primary)"))
                     with g.cell():
-                        st_write(bs.body, (bs.keyword, "10+ tools "), (bs.body, "— Windsurf, Kiro, OpenCode..."))
+                        st_write(bs.body, (bs.keyword, "Codex CLI · Gemini CLI "), (bs.body, "— experimental (secondary)"))
 
     st_slide_break(marker_label="Learning & Specializations")
 

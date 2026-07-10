@@ -15,20 +15,20 @@ class BlockStyles:
 bs = BlockStyles
 
 _OUTPUTS = [
-    ("Pattern Documentation", "What worked, what failed, and why — captured as reusable patterns"),
-    ("Project Rules Updates", "CLAUDE.md enriched with new constraints and conventions"),
-    ("Skill Refinement", "Better prompts, improved decomposition strategies, sharper instructions"),
-    ("Architecture Decision Records", "Decisions and their rationale preserved for future reference"),
+    ("Pattern Documentation", "What worked, what failed, and why — captured as reusable patterns (GSE-One: compound.md, Axe 1)"),
+    ("Project Rules Updates", "Project rules enriched with new constraints and conventions (CE: CLAUDE.md — GSE-One: .gse/config.yaml via INTEGRATE Axe 1)"),
+    ("Skill Refinement", "Better prompts, improved decomposition strategies, sharper instructions (GSE-One: Axe 3 learning notes + competency map)"),
+    ("Architecture Decision Records", "Decisions and their rationale preserved for future reference (CE: ADRs — GSE-One: DEC- journal in .gse/decisions.md)"),
 ]
 
 def build():
-    st_marker("Compound: 4 Outputs")
+    st_marker("Compound: CE Outputs → GSE-One Axes")
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             with st_zoom(90):
                 st_write(
                 bs.heading,
-                "Phase 5: Compound — The Distinctive Contribution",
+                "Compound — The Distinctive Contribution (CE heritage)",
                 tag=t.div,
                 toc_lvl="+1",
                 )
@@ -38,6 +38,7 @@ def build():
                     ("What it is", "The phase where project knowledge is captured and reused, turning one-off work into compounding value."),
                     ("Why it matters", "Without Compound, every session starts from zero. With it, rules accumulate and AI gets smarter with each cycle."),
                     ("GSE-One difference", "This phase is what separates GSE-One from ad-hoc prompting -- systematic knowledge capitalization."),
+                    ("CE heritage", "These four outputs are Compound Engineering's (Every); /gse:compound maps them onto its 3 axes -- project (compound.md), methodology feedback, skills (learning notes)."),
                 ],
                 scale="2vw", width="70vw", position="center",
             )
