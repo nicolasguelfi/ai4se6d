@@ -44,7 +44,7 @@ _TIERS = [
         "tag": "[IMPL]",
         "when": "/gse:review Step 2e (always runs)",
         "trigger": "Unconditional \u2014 every sprint",
-        "blocks": "HIGH \u2192 blocks /gse:deliver",
+        "blocks": "HIGH or MEDIUM \u2192 TASK status: fixing, /gse:fix required before DELIVER",
         "cell": _cell_act,
     },
 ]
@@ -70,8 +70,8 @@ def build():
                             ("Agile thresholds", "Tiers activate by condition, not by default. Small/low-risk sprints skip upstream tiers. No bureaucracy for simple work."),
                             ("Hard guardrail", "HIGH findings in STRATEGY or TST-SPEC block /gse:produce. MEDIUM/LOW are informational \u2014 they warn but don't stop."),
                             ("CLI flags", "Force a tier manually: --review-strategy, --review-specs, --deep-review (STRATEGY + TST-SPEC; IMPL always runs in /gse:review)."),
-                            ("Light sprints", "Lightweight mode skips STRATEGY and TST-SPEC \u2014 straight to IMPL. Micro mode has no tier review at all."),
-                            ("IMPL always runs", "The post-production IMPL tier is unconditional. It is the 5-agent review of /gse:review Step 2e, renamed and refocused on implementation quality."),
+                            ("Light sprints", "Lightweight mode has no REVIEW activity at all \u2014 its net is the Minimal Integrity Pass (devil's advocate) at /gse:deliver Step 1.6. Micro has no tier review."),
+                            ("IMPL always runs", "The post-production IMPL tier is unconditional. IMPL is the test-strategist's dedicated pass (Step 2e) inside the full /gse:review (6 sub-agents + devil's advocate)."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )

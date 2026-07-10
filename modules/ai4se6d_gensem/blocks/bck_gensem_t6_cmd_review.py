@@ -24,7 +24,8 @@ _AGENTS = [
     ("\U0001f3d7\ufe0f", "architect", "Structure"),
     ("\U0001f4dd", "code-reviewer", "Quality"),
     ("\U0001f6e1\ufe0f", "security-auditor", "Vulnerabilities"),
-    ("\U0001f464", "ux-advocate", "Experience"),
+    ("\U0001f9ea", "test-strategist", "Test implementation quality (IMPL tier) + cross-sprint regression scan"),
+    ("\U0001f464", "ux-advocate", "Experience \u2014 conditional (UI projects)"),
     ("\U0001f608", "devil-advocate", "Self-critique (P16)"),
 ]
 
@@ -36,7 +37,7 @@ def build():
             with st_zoom(90):
                 st_write(bs.heading, "/gse:review \u2014 Challenge Everything", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
-                title="/gse:review \u2014 6 Perspectives",
+                title="/gse:review \u2014 7 Perspectives",
                 entries=[
                     ("Branch diff", "Review operates on git diff sprint-branch...feature-branch, not just file state. This ensures only sprint changes are reviewed."),
                     ("All artefact types", "Requirements, design, code, tests, docs \u2014 complete review of the current sprint."),

@@ -37,8 +37,8 @@ def build():
                     st_hover_tooltip(
                         title="V&V in GSE-One",
                         entries=[
-                            ("Verification", "Build the thing right. Check internal consistency against the design (DES-). Unit, Integration, and Visual tests."),
-                            ("Validation", "Build the right thing. Check the product against user intent (REQ-). Acceptance and E2E tests."),
+                            ("Verification", "Build the thing right. Check internal consistency against the design (DES-). Unit and Integration tests."),
+                            ("Validation", "Build the right thing. Check the product against user intent (REQ-). Acceptance, E2E, and Visual tests."),
                             ("Why it matters", "Both are necessary. 80% code coverage with 0 requirement-coverage = a thing built right that nobody needs."),
                             ("Kind column", "The test-types table tags each type: verification / validation / both. Regression is 'both' because a regressed bug may concern either side."),
                             ("Traceability", "Verification tests trace to DES-; validation tests trace to REQ-. This is the backbone of P6."),
@@ -56,7 +56,7 @@ def build():
                             st_write(bs.slogan, "Build the thing right.")
                             st_space("v", 0.5)
                             st_write(bs.body, (bs.keyword, "Trace: "), "DES- (design)")
-                            st_write(bs.body, (bs.keyword, "Types: "), "Unit, Integration, Visual")
+                            st_write(bs.body, (bs.keyword, "Types: "), "Unit, Integration")
                             st_space("v", 0.5)
                             st_write(bs.body, "Does the code do what we designed?")
                     with g.cell():
@@ -66,7 +66,7 @@ def build():
                             st_write(bs.slogan, "Build the right thing.")
                             st_space("v", 0.5)
                             st_write(bs.body, (bs.keyword, "Trace: "), "REQ- (requirements)")
-                            st_write(bs.body, (bs.keyword, "Types: "), "Acceptance, E2E")
+                            st_write(bs.body, (bs.keyword, "Types: "), "Acceptance, E2E, Visual")
                             st_space("v", 0.5)
                             st_write(bs.body, "Does the product solve the user's problem?")
 

@@ -121,7 +121,7 @@ def build():
                         title="INTEGRATE Routes Solutions, HEALTH Monitors Progress",
                         entries=[
                             ("INTEGRATE", "Routes capitalized solutions to operational destinations: Axe 1 → project config, Axe 2 → GitHub issue, Axe 3 → learning notes."),
-                            ("HEALTH", "8-dimension dashboard: Requirements Coverage, Test Pass Rate, Design Debt, Review Findings, Complexity Budget, Traceability, Git Hygiene, AI Integrity."),
+                            ("HEALTH", "8-dimension dashboard (Full mode; 3 in Lightweight, off in Micro): Requirements Coverage, Test Pass Rate, Design Debt, Review Findings, Complexity Budget, Traceability, Git Hygiene, AI Integrity."),
                             ("Trend tracking", "Health score is tracked across sprints — you can see if quality improves or degrades over time."),
                             ("Actionable alerts", "'Requirements coverage below 60%' → the agent suggests what to fix."),
                         ],

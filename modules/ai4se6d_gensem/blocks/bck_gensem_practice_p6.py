@@ -35,7 +35,7 @@ def _scenario_slide(level_label, cell_style, steps, question):
             st_hover_tooltip(
                 title=f"P6 {level_label} \u2014 What to do",
                 entries=[
-                    ("Goal", f"Execute the core engineering cycle PRODUCE \u2192 TESTS \u2192 REVIEW on CalcApp. Adapted for {level_label} IT expertise."),
+                    ("Goal", f"Execute the core engineering cycle TESTS \u2192 PRODUCE \u2192 REVIEW on CalcApp (the strategy precedes production; the canonical run executes tests after). Adapted for {level_label} IT expertise."),
                     ("Time", "45 minutes."),
                     ("Deliverable", "Implemented feature, passing tests, review.md with classified findings."),
                 ],
@@ -74,8 +74,8 @@ def build():
         level_label="Beginner",
         cell_style=_cell,
         steps=[
-            "Run /gse:produce \u2014 observe the code generated (you don\u2019t need to understand it)",
-            "Run /gse:tests \u2014 how many tests pass? How many fail?",
+            "Run /gse:tests \u2014 observe the test strategy the agent proposes",
+            "Run /gse:produce \u2014 observe the code generated (you don\u2019t need to understand it); PRODUCE auto-runs the tests (Step 4) \u2014 how many pass? How many fail?",
             "Run /gse:review \u2014 read the 3 most critical findings",
             "Look at review.md \u2014 do you agree with the agent\u2019s assessment?",
         ],
@@ -88,7 +88,7 @@ def build():
         level_label="Intermediate",
         cell_style=_cell_acc,
         steps=[
-            "Run /gse:produce \u2192 /gse:tests \u2192 /gse:review in sequence",
+            "Run /gse:tests \u2192 /gse:produce \u2192 /gse:review in sequence (PRODUCE auto-runs the tests at Step 4)",
             "Analyze the test pyramid: how many unit vs integration vs E2E tests?",
             "Classify review findings by severity (HIGH / MEDIUM / LOW)",
             "Identify which finding you would fix first and why",
@@ -102,8 +102,8 @@ def build():
         level_label="Advanced / Expert",
         cell_style=_cell_act,
         steps=[
-            "Run /gse:produce \u2014 read the generated code critically",
             "Before /gse:tests, write your own test strategy \u2014 then compare with the agent\u2019s",
+            "Run /gse:produce \u2014 read the generated code critically",
             "Run /gse:review \u2014 identify a finding you disagree with",
             "Argue with the agent (P16 devil\u2019s advocate) \u2014 document the outcome",
         ],

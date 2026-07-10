@@ -1,4 +1,4 @@
-"""T6 — LC02b: TESTS (pyramid, 3 coverages), PRODUCE (worktree), REVIEW (5 agents), FIX."""
+"""T6 — LC02b: TESTS (pyramid, 3 coverages), PRODUCE (worktree), REVIEW (7 perspectives), FIX."""
 # @guideline: minimalist-visual + maximize-viewport
 # @reuse: bck_gensem_ce_review_nversion, _work_review, _brainstorm_antipattern (v01)
 from streamtex import *
@@ -40,12 +40,12 @@ def build():
                     st_hover_tooltip(
                         title="Testing in GSE-One",
                         entries=[
-                            ("Test pyramid", "Calibrated by domain: web frontend = 20% unit, 20% integration, 40% E2E, 20% acceptance."),
+                            ("Test pyramid", "Calibrated by domain: web frontend = 20% unit, 20% integration, 30% E2E-Visual, 20% acceptance, 5% policy, 5% other."),
                             ("3 coverage dimensions", "Code coverage (% lines), Requirements coverage (% REQ with tests), Risk coverage (% high-risk modules tested)."),
                             ("Requirements > Code", "Having 80% code coverage but 0% requirements coverage is useless. REQ coverage tells you if you're testing what matters."),
                             ("CalcApp", "Vitest auto-detected. Pyramid calibrated for web frontend. TST- IDs trace back to REQ-."),
                             ("Visual testing", "For web/mobile projects, GSE-One captures screenshots after each production and uses multimodal AI analysis to detect visual regressions, layout issues, and accessibility problems."),
-                            ("Discipline principle", "Multi-perspective review is a disciplinary requirement of Generative SE \u2014 AgileGen uses a memory pool, V-Bounce has a QA agent, GSE-One uses /gse:review with 5 agents."),
+                            ("Discipline principle", "Multi-perspective review is a disciplinary requirement of Generative SE \u2014 AgileGen uses a memory pool, V-Bounce has a QA agent, GSE-One uses /gse:review with 6 parallel sub-agents + the devil's advocate (7 perspectives)."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
@@ -90,8 +90,8 @@ def build():
                             ("Web frontend", "E2E-Visual and acceptance tests dominate because UI behavior is the primary quality concern."),
                             ("API backend", "Unit tests dominate because business logic is the primary concern; E2E-Visual is minimal."),
                             ("CLI tool", "Unit tests dominate because input/output parsing is the core logic."),
-                            ("Other column", "Constraint-level checks that don't fit a pyramid level (a11y, perf, load, compatibility, hardware sim, data quality)."),
-                            ("CalcApp = Web frontend", "20% Unit / 20% Integration / 30% E2E-Visual / 20% Acceptance / 10% Other (a11y, perf)."),
+                            ("Policy & Other columns", "Policy = structural rules via static analysis (5%); Other = dynamic constraints attached to existing levels (a11y → E2E, perf → integration/E2E)."),
+                            ("CalcApp = Web frontend", "20% Unit / 20% Integration / 30% E2E-Visual / 20% Acceptance / 5% Policy / 5% Other (a11y, perf)."),
                             ("See also", "The /gse:tests slide shows the 6 test types with their Kind (verification / validation / both)."),
                         ],
                         scale="2vw", width="70vw", position="left",
@@ -104,27 +104,27 @@ def build():
             _table_lbl_act = s.project.titles.table_label_active
 
             with st_grid(cols="repeat(auto-fit, minmax(110px, 1fr))", gap="6px", cell_styles=_hdr_cell) as g:
-                for h in ["Domain", "Unit", "Integration", "E2E / Visual", "Acceptance", "Other"]:
+                for h in ["Domain", "Unit", "Integration", "E2E / Visual", "Acceptance", "Policy", "Other"]:
                     with g.cell():
                         st_write(_table_hdr + s.center_txt, h)
 
             _pyramids = [
-                ("Web frontend", "20%", "20%", "30%", "20%", "10%", True),
-                ("API backend", "50%", "25%", "5%", "10%", "10%", False),
-                ("CLI tool", "60%", "20%", "5%", "10%", "5%", False),
-                ("Data pipeline", "40%", "30%", "0%", "20%", "10%", False),
-                ("Mobile", "25%", "20%", "30%", "15%", "10%", False),
-                ("Library / SDK", "70%", "20%", "0%", "5%", "5%", False),
-                ("Embedded", "50%", "25%", "0%", "10%", "15%", False),
-                ("Scientific", "40%", "20%", "0%", "30%", "10%", False),
+                ("Web frontend", "20%", "20%", "30%", "20%", "5%", "5%", True),
+                ("API backend", "45%", "25%", "5%", "10%", "5%", "10%", False),
+                ("CLI tool", "55%", "20%", "5%", "10%", "5%", "5%", False),
+                ("Data pipeline", "35%", "30%", "0%", "20%", "5%", "10%", False),
+                ("Mobile", "20%", "20%", "30%", "15%", "5%", "10%", False),
+                ("Library / SDK", "65%", "20%", "0%", "5%", "5%", "5%", False),
+                ("Embedded", "45%", "25%", "0%", "10%", "5%", "15%", False),
+                ("Scientific", "35%", "20%", "0%", "30%", "5%", "10%", False),
             ]
-            for domain, unit, integ, e2e_vis, accept, other, active in _pyramids:
+            for domain, unit, integ, e2e_vis, accept, policy, other, active in _pyramids:
                 cell_s = _act_cell if active else _norm_cell
                 lbl_s = _table_lbl_act if active else _table_lbl
                 with st_grid(cols="repeat(auto-fit, minmax(110px, 1fr))", gap="6px", cell_styles=cell_s) as g:
                     with g.cell():
                         st_write(lbl_s + s.center_txt, domain)
-                    for v in (unit, integ, e2e_vis, accept, other):
+                    for v in (unit, integ, e2e_vis, accept, policy, other):
                         with g.cell():
                             st_write(_table_txt + s.center_txt, v)
 
@@ -158,9 +158,9 @@ def build():
                 st_space("v", 1)
                 st_write(bs.body, "No scope creep. No 'while we're at it'. Budget-constrained.")
 
-    st_slide_break(marker_label="/gse:review — 5 Perspectives")
+    st_slide_break(marker_label="/gse:review — 7 Perspectives")
 
-    # ── Slide: REVIEW — 5 agents ────────────────────────────────────
+    # ── Slide: REVIEW — 7 perspectives ──────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
             with st_grid(
@@ -170,21 +170,21 @@ def build():
             ) as g:
                 with g.cell():
                     with st_zoom(90):
-                        st_write(bs.heading, "/gse:review — 5 Perspectives", tag=t.div, toc_lvl="+1")
+                        st_write(bs.heading, "/gse:review — 7 Perspectives", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="Multi-Agent Review (N-Version Verification)",
                         entries=[
                             ("Analogy", "Like having 3 expert reviewers on every PR — but it takes 2 minutes, not 2 days."),
-                            ("5 perspectives", "Correctness (code-reviewer), Security (auditor), Architecture (architect), UX (advocate), Self-critique (devil-advocate P16)."),
-                            ("Findings", "Each finding gets an RVW- ID, severity (HIGH/MEDIUM/LOW), and a proposed fix. HIGH findings block delivery."),
+                            ("7 perspectives", "Correctness (code-reviewer), Security (auditor), Requirements (requirements-analyst), Architecture (architect), Test implementation (test-strategist), UX (advocate, conditional — UI projects), Self-critique (devil-advocate P16)."),
+                            ("Findings", "Each finding gets an RVW- ID, severity (HIGH/MEDIUM/LOW), and a proposed fix. HIGH or MEDIUM findings block delivery (TASK → fixing, /gse:fix required)."),
                             ("Health update", "The health score updates after review. Findings impact the Design Debt dimension."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
             with st_zoom(120):
                 st_space("v", 2)
-                st_write(bs.accent, "5 agents review your code simultaneously. 2 minutes.")
+                st_write(bs.accent, "6 agents review your code in parallel, then the devil's advocate challenges it.")
                 st_space("v", 1)
                 with st_grid(cols="repeat(auto-fit, minmax(200px, 1fr))", gap="12px", cell_styles=_cell) as g:
                     with g.cell():
@@ -192,9 +192,13 @@ def build():
                     with g.cell():
                         st_write(bs.body, "\U0001f6e1\ufe0f Security")
                     with g.cell():
+                        st_write(bs.body, "\U0001f4cb Requirements")
+                    with g.cell():
                         st_write(bs.body, "\U0001f3d7\ufe0f Architecture")
                     with g.cell():
-                        st_write(bs.body, "\U0001f464 UX")
+                        st_write(bs.body, "\U0001f9ea Test Implementation")
+                    with g.cell():
+                        st_write(bs.body, "\U0001f464 UX (conditional \u2014 UI projects)")
                     with g.cell():
                         st_write(bs.body, "\U0001f608 Devil's Advocate")
 
@@ -217,7 +221,7 @@ def build():
                         entries=[
                             ("Conditional", "FIX is not in workflow.expected by default. The orchestrator inserts it after REVIEW only if findings with severity HIGH or MEDIUM exist; a clean review moves FIX to workflow.skipped."),
                             ("How it works", "When triggered, creates a fix branch targeting specific RVW- findings. Each fix commit references the finding ID."),
-                            ("Iteration", "REVIEW → [FIX] → REVIEW can loop until quality is acceptable: 0 HIGH findings + health score above threshold."),
+                            ("Iteration", "REVIEW → [FIX] → REVIEW can loop until quality is acceptable: 0 open HIGH/MEDIUM findings."),
                             ("Discipline", "The fix ONLY addresses the finding. No extra changes. Scope stays constrained."),
                         ],
                         scale="2vw", width="70vw", position="left",
@@ -227,4 +231,4 @@ def build():
                 st_write(bs.accent, "REVIEW → [FIX] → REVIEW → [FIX] → ... until quality.")
                 st_space("v", 1)
                 st_write(bs.body, "[FIX] is conditional — inserted only when REVIEW flags HIGH/MEDIUM findings.")
-                st_write(bs.body, "0 HIGH findings + acceptable health score = ready to deliver.")
+                st_write(bs.body, "0 open HIGH/MEDIUM findings = ready to deliver.")

@@ -37,16 +37,16 @@ def build():
     with st_block(_pf):
         with st_block(s.center_txt):
             with st_zoom(90):
-                st_write(bs.heading, "/gse:health \u2014 8 Dimensions", tag=t.div, toc_lvl="+1")
+                st_write(bs.heading, "/gse:health \u2014 8 Dimensions (Full mode; Lightweight tracks 3, Micro none)", tag=t.div, toc_lvl="+1")
             st_hover_tooltip(
                 title="/gse:health \u2014 Project Quality Dashboard",
                 entries=[
-                    ("Composite score", "0\u201310 weighted average across all 8 dimensions. Any dimension below 7/10 triggers a risk alert."),
-                    ("Hard guardrail", "Health < 5 triggers a warning before /gse:deliver. You can proceed but must acknowledge the risk."),
+                    ("Composite score", "0\u201310 simple mean of the active dimensions (8 in Full, 3 in Lightweight, none in Micro). Any dimension below 7/10 triggers a risk alert."),
+                    ("Soft check", "Health < 5 triggers a warning before /gse:deliver (you may proceed but must acknowledge the risk)."),
                     ("Cross-sprint trends", "Health is tracked across sprints \u2014 you can see if quality improves or degrades over time."),
                     ("Actionable alerts", "Each alert includes a suggestion: 'Requirements coverage below 60% \u2014 consider adding tests for REQ-003 and REQ-005.'"),
                     ("Dashboard view", "Run dashboard.py for a visual view: health radar, Sprint Workflow card (completed \u2705 / active \u25b6 / pending \u25cb / skipped \u2014 with budget bar), and Coherence Alerts card when plan.yaml.coherence.alerts is non-empty."),
-                    ("Git hygiene sub-factors", "Uncommitted changes, stale branches (>2 sprints), main branch status, active worktree count, branch naming compliance, backup tag freshness."),
+                    ("Git hygiene sub-factors", "Active branches 20%, stale branches 20%, uncommitted changes 20%, merge conflicts 20%, main status 10%, unreviewed branches 10%."),
                 ],
                 scale="2vw", width="70vw", position="center",
             )
@@ -67,4 +67,4 @@ def build():
 
         st_space("v", 1)
         st_write(bs.critical, "Any dimension < 7/10 \u2192 risk alert")
-        st_write(bs.accent, "Health < 5 \u2192 warning before /gse:deliver")
+        st_write(bs.accent, "Soft check: health < 5 \u2192 warning before /gse:deliver (you may proceed)")
