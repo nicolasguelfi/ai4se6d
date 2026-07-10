@@ -83,6 +83,15 @@ def _scenario_slide(level_label, cell_style, steps, question, reminder=False):
                     (bs.accent, "/gse:…"),
                     " form).",
                 )
+                st_write(
+                    bs.body + s.center_txt,
+                    (bs.keyword, "Prerequisite — "),
+                    "your project must run in ",
+                    (bs.accent, "Full mode"),
+                    " (chosen at the mode Gate in P1; check with ",
+                    (bs.accent, "/gse:status"),
+                    ").",
+                )
 
 
 def build():

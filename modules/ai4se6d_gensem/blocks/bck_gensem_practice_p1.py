@@ -118,6 +118,13 @@ def build():
                     (bs.accent, "/gse:go"),
                     " (colon) form used on the slides is the canonical Claude Code form.",
                 )
+                st_write(
+                    bs.body,
+                    (bs.keyword, "Mode Gate — "),
+                    "when the agent proposes a mode, choose ",
+                    (bs.accent, "Full"),
+                    ": the training explores the complete lifecycle.",
+                )
 
     st_slide_break(marker_label="Open CalcApp. Type /gse-go (Cursor).")
 
