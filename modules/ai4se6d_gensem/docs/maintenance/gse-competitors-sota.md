@@ -182,6 +182,8 @@ Pour chaque entrée : **description**, **points communs avec GSE-One (corrigés)
 
 **Description** — Plug-in OSS 4-phase (Plan → Work → Review → Compound) avec 26 agents spécialisés. **Parent idéologique direct** de GSE-One.
 
+**MAJ 2026-07-10** — désormais 6 phases (Brainstorm, Plan, Work, Simplify, Review, Compound), 29 skills, 0 agent autonome ; commandes /ce-<skill> ; dépôt : EveryInc/compound-engineering-plugin (l'URL every-env/compound-plugin est morte).
+
 **Points communs** — Même philosophie, même vocabulaire (compound), même positionnement plug-in.
 
 **Points distinctifs** — GSE-One va au-delà : 23 commandes, 3 modes, 8-dim health dashboard, **Axe 2 methodology feedback** (inédit), safety tags git, beginner output filter.

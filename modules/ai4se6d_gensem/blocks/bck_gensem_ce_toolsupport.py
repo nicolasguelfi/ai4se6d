@@ -15,14 +15,14 @@ class BlockStyles:
 bs = BlockStyles
 
 _TOOLS = [
-    "Cursor", "Claude Code", "Copilot", "Windsurf", "Kiro", "OpenCode",
-    "Codex", "Gemini CLI", "Qwen Code", "Factory Droid", "Pi", "OpenClaw",
+    "Claude Code", "Cursor", "Codex", "GitHub Copilot", "Devin CLI", "Factory Droid",
+    "Qwen Code", "OpenCode", "Pi", "Kimi Code CLI", "Grok Build CLI", "Antigravity CLI",
 ]
 
 _TOOL_NOTES = [
-    ("Cursor", "Glob rules + Notepads for context management"),
-    ("Claude Code", "Layered rules + skills + hooks for deep integration"),
-    ("Copilot", "GitHub Actions for CI/CD-driven workflows"),
+    ("Claude Code", ".claude-plugin/ manifest — skills exposed as /ce-<skill> slash commands"),
+    ("Cursor", ".cursor-plugin/ manifest for native Cursor installation"),
+    ("Codex", "supported as both Codex App and Codex CLI"),
 ]
 
 def build():
@@ -32,7 +32,7 @@ def build():
                 st_write(bs.heading, "Tool Support \u2014 10+ Environments", tag=t.div, toc_lvl="1")
             st_space("v", 1)
 
-        st_write(bs.body, (bs.keyword, "Plugin architecture: "), ".claude-plugin/ + .cursor-plugin/ directories, TypeScript CLI, cross-tool sync.")
+        st_write(bs.body, (bs.keyword, "Plugin architecture: "), ".claude-plugin/ + .cursor-plugin/ manifests, native plugin installation per platform (marketplace or CLI).")
         st_space("v", 1)
 
         st_write(bs.tool_name, "Supported Tools", tag=t.div)

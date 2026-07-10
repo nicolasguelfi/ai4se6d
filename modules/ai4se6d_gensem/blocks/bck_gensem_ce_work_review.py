@@ -1,4 +1,4 @@
-"""Slide — Phases 3-4: Work & Review details."""
+"""Slide — Phases 3 & 5: Work & Review details (Simplify sits between them)."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
@@ -17,7 +17,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             with st_zoom(90):
-                st_write(bs.heading, "Phases 3-4: Work & Review", tag=t.div, toc_lvl="1")
+                st_write(bs.heading, "Phases 3 & 5: Work & Review", tag=t.div, toc_lvl="1")
             st_space("v", 1)
 
         with st_grid(
@@ -59,6 +59,6 @@ def build():
                         with l.item():
                             st_write(bs.body, "Learning extraction \u2014 what to compound")
                     st_space("v", 0.5)
-                    st_write(bs.body, (bs.keyword, "Inputs: "), "PR, URL, branch, markdown, current branch")
+                    st_write(bs.body, (bs.keyword, "Inputs: "), "PR, URL, branch, plan file, current branch")
                     st_space("v", 0.3)
                     st_write(bs.analogy, "Analogy: N-version verification \u2014 multiple perspectives catch different defects")

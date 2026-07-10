@@ -47,7 +47,7 @@ def build():
         st_space("v", 1)
 
         with st_block(bs.do_callout):
-            st_write(bs.body, (bs.keyword, "DO: "), '"/ce:brainstorm budget alerts"')
+            st_write(bs.body, (bs.keyword, "DO: "), '"/ce-brainstorm budget alerts"')
             st_space("v", 0.3)
             st_write(
                 bs.body,

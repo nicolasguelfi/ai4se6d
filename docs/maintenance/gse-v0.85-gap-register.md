@@ -69,8 +69,8 @@ Gravité des PÉRIMÉ : ~35 **haute** (comportement faux enseigné), ~90 moyenne
 | P-PREVIEW | Variante scaffold-as-preview absente | v0.85.0 : Gate Step 1.5 choisit static OU scaffold exécutable (recommandé web/mobile → CalcApp) qui devient la base de PRODUCE. | t5_cmd_preview, t5_requirements (l.111) |
 | P-CURSOR-CMDS | Forme des commandes dans les exercices | Sous Cursor/opencode : `/gse-go` (tiret) ; `/gse:go` = Claude Code plugin / Gemini (README §Commands). Tous les P1-P8 disent Cursor + `/gse:`. Décision : forme tiret, ou changer le runtime des exercices. | practice_p1..p8 (toutes invocations) |
 | P-MODE-FULL | Pratiques P3/P5/P6/P7 supposent le mode Full | Sur CalcApp vide, /gse:go recommandera Micro/Lightweight ; COLLECT/ASSESS, DESIGN/PREVIEW, REVIEW, COMPOUND, budget, 8 dimensions n'existent qu'en Full. Ajouter la consigne « choisir Full à la Gate de mode ». | practice_p3, p5, p6, p7 (briefings) |
-| P-CE-VOCAB | Vocabulaire « CE 5 phases » / commandes `/ce:*` / 80/20 | `/ce:brainstorm` etc. n'existent pas (24 commandes `/gse:`) ; lifecycle = 4 phases LC00-LC03 ; ratio 80/20 et mapping CE↔GSE absents du corpus. Décision pédagogique : garder le cadre CE comme généalogie explicite, ou re-libeller. | ce_demo_preview (haute), ce_transition, ce_brainstorm_antipattern, ce_philosophy, ce_8020_example, method_vs_vibecoding, ce_compound (sorties CLAUDE.md/ADR), calcapp_v03_ce_mapping, method_why |
-| P-TOOLSUPPORT | Slide « 10+ Environments » | Réel : 3 plateformes primaires (Claude Code, Cursor, opencode) + 2 expérimentales (Codex CLI, Gemini CLI) ; installeur Python/sh, pas de « TypeScript CLI » ni Copilot/Windsurf/Kiro. Réécriture. | ce_toolsupport (haute), t8_advanced (l.54-60), plugin_cursor (cadrage) |
+| P-CE-VOCAB | **[RECTIFIÉ 2026-07-10 puis TRAITÉ Q6]** Compound Engineering (CE) est une méthodologie externe réelle (plugin officiel `EveryInc/compound-engineering-plugin`, « parent idéologique direct » de GSE-One selon le doc SOTA §3.6). Les `/ce:*`, « 5 phases », 80/20 appartiennent à CE — **faux positifs** vis-à-vis de GSE-One pour les blocs SOTA. Écarts réels traités : attributions CE→GSE-One sur les blocs câblés (80/20 ≠ Design Philosophy 7 piliers ; « 5-phase » ≠ lifecycle 4 étapes ; 4 outputs CE mappés sur les 3 axes). Blocs SOTA orphelins rafraîchis contre l'upstream Every (6 phases dont Simplify, `/ce-<skill>`, `/ce-code-review`, 29 skills/0 agent). Bib `[compound-engineering]` réparée (ancienne URL 404). | ce_philosophy, ce_8020_example, method_vs_vibecoding, ce_compound, t8_advanced, ce_transition, ce_demo_preview, ce_brainstorm_antipattern, ce_toolsupport, ce_work_review, references.bib, gse-competitors-sota.md |
+| P-TOOLSUPPORT | **[RECTIFIÉ — fusionné dans P-CE-VOCAB]** `ce_toolsupport` décrit le plugin CE (10+ outils = fait CE exact), pas GSE-One — faux positif. Rafraîchi contre l'upstream Every (liste de plateformes réelle, installation native, manifests vérifiés). Les cartes cross-tool de `t8_advanced` (bloc câblé GSE-One) ont été réattribuées : opencode primaire + Codex/Gemini expérimentaux. | ce_toolsupport, t8_advanced |
 | P-INSTALL | Commandes d'installation inexistantes | « gse install --target … » et « gse sync » n'existent pas : `curl …/install.sh \| sh` ou `python3 install.py --platform … --mode …`. | t8_advanced (l.45-46), plugin_architecture (l.91-106) |
 | P-SPECIALIZE | « 5 types de spécialisation » / « 4 steps variant » | Mécanismes absents du corpus ; customisation réelle = `.gse/config.yaml` (spec §13.1-13.3). Réécriture ou re-cadrage « proposition du cours ». | ce_specialization, ce_spec_5types, t8_advanced (l.82) |
 | P-RECAP | Postscript v0.20.4→v0.60.1 | 9 écarts internes (dont : « Three Platforms »→5 ; `_LOCAL/audits/`+`latest.md`→`audit.json` ; Sprint Freeze 4→8 activités ; option « Auto » du Gate git identity inexistante ; « every guardrail can be overridden » faux pour Emergency ; 30→28/29 templates) + **trou de couverture v0.60.1→v0.85.0** (43 releases, 10 thèmes majeurs identifiés — cf. §4). Décision : corriger + second postscript, ou refondre. | recap_v060, book.py (commentaire) |
@@ -106,7 +106,18 @@ Thèmes majeurs à couvrir si le postscript est étendu (SUGGESTIONS issues du C
 9. Feedback cohorte DAY06 : Delivery Map, Open Items, version deployée (v0.62.6).
 10. Trains de méta-audit v0.62.8 et v0.84.0 (126 findings, 0 faux positif) ; tests 72→125.
 
-## 5. Détail par lot (extraits PÉRIMÉ — voir rapports d'agents pour les tables complètes)
+## 5. Suivi de traitement (Phase 3)
+
+| Lot / Problème | Statut | Commits |
+|---|---|---|
+| Lot mécanique M1-M23 (Q3) | ✅ traité en 4 passes + 1 correctif | `1c0d593`, `1aeecb4`, `680ca69`, `b0a8e2a`, `9c8a4e5` |
+| Correctif GenSEMOne | ✅ GenSEMOne = méthode manuelle du cours (pas un alias de GSE-One) ; entrée glossaire rétablie et clarifiée | `9c8a4e5` |
+| P-CURSOR-CMDS (Q4) | ✅ encart « Command form » P1 + rappels P2-P8 (forme tiret Cursor) | `1a17394` |
+| P-MODE-FULL (Q5) | ✅ consigne « choose Full » P1 + prérequis P3/P5/P6/P7 | `39306e9` |
+| P-CE-VOCAB + P-TOOLSUPPORT (Q6, rectifiés) | ✅ réattributions CE↔GSE-One + rafraîchissement SOTA upstream + bib | `2f9ecd0` + commit SOTA |
+| Restants à traiter | P-GITPROFILES, P-GUARDRAILS-WORK, P-P13, P-PREVIEW, P-INSTALL, P-SPECIALIZE, P-RECAP, P-GLOSSARY, P-ORPHANS, P-BRAND, P-CREATIVITY, P-METHOD-LABEL, P-FLYWHEEL, P-COMPOUND-FILTER, P-DELIVER-NEW, P-ENRICH | — |
+
+## 6. Détail par lot (extraits PÉRIMÉ — voir rapports d'agents pour les tables complètes)
 
 Les tables complètes (y compris items EXACT) sont dans les transcripts des 11 agents de vérification
 de la session du 2026-07-10. Ce registre reprend l'intégralité des écarts actionnables en §1-§2 ;

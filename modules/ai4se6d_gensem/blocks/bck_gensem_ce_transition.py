@@ -31,6 +31,8 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.phase, "CE Work"), " \u2192 ", (bs.activity, "TDD, project rules, structured prompts"))
             with l.item():
+                st_write(bs.body, (bs.phase, "CE Simplify"), " \u2192 ", (bs.activity, "Refactoring pass, reducing complexity"))
+            with l.item():
                 st_write(bs.body, (bs.phase, "CE Review"), " \u2192 ", (bs.activity, "V&V, cross-feedback"))
             with l.item():
                 st_write(bs.body, (bs.phase, "CE Compound"), " \u2192 ", (bs.activity, "Debrief, capture what worked"))
