@@ -1,4 +1,4 @@
-"""Slide — 5 Types of GSE-One Specialization."""
+"""Slide — 5 dimensions you can change when deriving your methodology."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
@@ -7,17 +7,18 @@ from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
-    """GSE-One specialization types slide styles."""
+    """Derivation dimensions slide styles."""
     heading = s.project.titles.heading
     body = s.project.titles.body
     keyword = s.project.titles.keyword
+    locator = s.project.colors.muted
     closing = s.project.titles.body + s.project.colors.highlight + s.bold
 
 bs = BlockStyles
 
 
 def build():
-    st_marker("5 Specialization Types")
+    st_marker("5 Derivation Dimensions")
     with st_block(s.project.containers.page_fill_top):
         with st_grid(
             cols="95% 5%",
@@ -26,14 +27,14 @@ def build():
         ) as g:
             with g.cell():
                 with st_zoom(90):
-                    st_write(bs.heading, "5 Types of GSE-One Specialization", tag=t.div, toc_lvl="+1")
+                    st_write(bs.heading, "Deriving Your Methodology — 5 Dimensions You Can Change", tag=t.div, toc_lvl="+1")
             with g.cell():
                 st_hover_tooltip(
-                    title="Specialization Types",
+                    title="Derivation Dimensions (Fork Level)",
                     entries=[
-                        ("Why specialize", "Different domains (medical, financial, safety-critical) need different quality gates and review criteria."),
-                        ("Not a fork", "Specializations build on GSE-One infrastructure -- they extend, not replace."),
-                        ("Five dimensions", "Redefine phases, add/remove phases, redefine artifacts, strengthen gates, encode domain knowledge."),
+                        ("Why derive", "Different domains (medical, financial, safety-critical) need different phases, quality gates, and review criteria."),
+                        ("Two levels", "Light specialization needs no fork (.gse/config.yaml). Deep specialization — new phases, new artifacts — means forking the methodology repo."),
+                        ("Five dimensions", "Redefine phases, add/remove phases, redefine artifacts, strengthen gates, encode domain knowledge — each maps to a real location in the repo."),
                     ],
                     scale="2vw", width="70vw", position="left",
                 )
@@ -45,31 +46,38 @@ def build():
                     st_write(
                         bs.body,
                         (bs.keyword, "Redefine phases"),
-                        " (e.g., threat-model \u2192 design \u2192 implement \u2192 pentest \u2192 harden)",
+                        " (e.g., threat-model → design → implement → pentest → harden) — ",
+                        (bs.locator, "src/activities/"),
+                        " + the orchestrator's lifecycle sequences",
                     )
                 with l.item():
                     st_write(
                         bs.body,
                         (bs.keyword, "Add or remove phases"),
-                        ' (e.g., add "ethical review" phase)',
+                        ' (e.g., add "ethical review") — same, plus ',
+                        (bs.locator, "config.yaml order"),
+                        " for per-project reordering",
                     )
                 with l.item():
                     st_write(
                         bs.body,
                         (bs.keyword, "Redefine artifacts"),
-                        " (exact structure, content, format per phase)",
+                        " (exact structure, content, format per phase) — ",
+                        (bs.locator, "src/templates/"),
                     )
                 with l.item():
                     st_write(
                         bs.body,
                         (bs.keyword, "Strengthen quality gates"),
-                        " (domain-specific verification criteria)",
+                        " (domain-specific verification criteria) — principles P7/P11 + review checklists (",
+                        (bs.locator, "review.custom_checks"),
+                        ")",
                     )
                 with l.item():
                     st_write(
                         bs.body,
                         (bs.keyword, "Encode domain knowledge"),
-                        " (medical, financial, safety-critical rules)",
+                        " (medical, financial, safety-critical rules) — agent checklists + config custom checks",
                     )
 
             st_space("v", 2)
@@ -77,5 +85,7 @@ def build():
             with st_block(s.project.containers.callout):
                 st_write(
                     bs.closing,
-                    "Not a fork \u2014 builds on GSE-One infrastructure.",
+                    "Light specialization needs no fork (.gse/config.yaml). "
+                    "Deep specialization — new phases, new artifacts — means forking the methodology repo; "
+                    "GSE-One ships the tooling for it (generator, verify, meta-audit).",
                 )
