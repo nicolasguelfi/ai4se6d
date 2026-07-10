@@ -280,9 +280,6 @@ st_book(
         # ── P8 — Autonomous Sprint ─────────────────────────────────
         blocks.bck_gensem_practice_p8,              # Feature selection + Go! (2 slides)
 
-        # ── Postscript — Since the session: v0.20.4 → v0.85.0 ──────
-        blocks.bck_gensem_recap_since_session,      # GSE-One evolutions post-training (10 slides)
-
         # ── Closing ────────────────────────────────────────────────
         blocks.bck_gensem_method_checklist,         # Quick reference checklist
         blocks.bck_gensem_glossary,                 # 37+ terms glossary

@@ -115,6 +115,13 @@ Thèmes majeurs à couvrir si le postscript est étendu (SUGGESTIONS issues du C
 | P-CURSOR-CMDS (Q4) | ✅ encart « Command form » P1 + rappels P2-P8 (forme tiret Cursor) | `1a17394` |
 | P-MODE-FULL (Q5) | ✅ consigne « choose Full » P1 + prérequis P3/P5/P6/P7 | `39306e9` |
 | P-CE-VOCAB + P-TOOLSUPPORT (Q6, rectifiés) | ✅ réattributions CE↔GSE-One + rafraîchissement SOTA upstream + bib | `2f9ecd0` + commit SOTA |
+| P-GITPROFILES (Q7) | ✅ slides git réécrites : stratégies × modes, commandes fantômes supprimées | `5966f7a` |
+| Lot 2 quasi-mécanique (Q8) | ✅ P-P13, P-INSTALL, P-CREATIVITY, P-COMPOUND-FILTER, P-METHOD-LABEL, P-FLYWHEEL | `96c09c6` |
+| P-GUARDRAILS-WORK (Q9) | ✅ slide réécrite « strategy before, reconciliation after » | `4ddf0a9` |
+| P-PREVIEW + P-GLOSSARY (Q10) | ✅ scaffold-as-preview + 4 entrées Essential Concepts | `f029f3d` |
+| Analyse pureté méthodologie (Q11) | ✅ rapport `gse-methodology-purity-findings.md` (gensem intact) | `e7b6a2d` |
+| P-SPECIALIZE (Q12, reformulé « fork ») | ✅ deux voies : configurer (config.yaml) / dériver (fork outillé) | `cd3a350` |
+| P-RECAP (Q13 puis DÉCISION FINALE) | ✅ **postscript supprimé** — principe : les formations se font toujours sur la dernière version, aucun récapitulatif inter-versions ni référence aux versions antérieures du plugin dans le support (le postscript consolidé v0.20.4→v0.85.0 de `4fc7f54` a été retiré ; contenu récupérable dans git). Les v0.x restants dans le deck = versions de l'app CalcApp (atelier), pas du plugin | `4fc7f54` puis suppression |
 | Restants à traiter | P-GITPROFILES, P-GUARDRAILS-WORK, P-P13, P-PREVIEW, P-INSTALL, P-SPECIALIZE, P-RECAP, P-GLOSSARY, P-ORPHANS, P-BRAND, P-CREATIVITY, P-METHOD-LABEL, P-FLYWHEEL, P-COMPOUND-FILTER, P-DELIVER-NEW, P-ENRICH | — |
 
 ## 6. Détail par lot (extraits PÉRIMÉ — voir rapports d'agents pour les tables complètes)
