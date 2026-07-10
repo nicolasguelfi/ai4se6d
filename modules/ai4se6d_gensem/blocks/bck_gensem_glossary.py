@@ -42,7 +42,7 @@ _ENTRIES = [
     ("GenAI", "Generative Artificial Intelligence \u2014 AI that creates new content rather than classifying existing data"),
     ("GenSEM", "Generative Software Engineering Methods \u2014 SE methodologies adapted for AI-assisted development"),
     ("GPT", "Generative Pre-trained Transformer"),
-    ("GSE-One", "Generic Software Engineering One \u2014 complete methodology with 16 principles, 4 lifecycle stages, 24 commands, 11 agents"),
+    ("GSE-One", "Generative Software Engineering One \u2014 the first instantiation of the GSE methodology: 16 principles, 4 lifecycle stages, 24 commands, 11 agents"),
     ("Hallucination", "AI generating plausible but incorrect output \u2014 includes package hallucinations (5.2-21.7%)"),
     ("Health Dashboard", "8-dimension quality monitor: REQ Coverage, Test Pass, Design Debt, Findings, Budget, Traceability, Git Hygiene, AI Integrity"),
     ("HHH", "Helpful, Harmless, Honest \u2014 alignment criteria for LLMs"),

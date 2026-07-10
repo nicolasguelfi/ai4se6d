@@ -2,7 +2,7 @@
 
 - **Date** : 2026-07-10
 - **Branche** : `align-gse-one-v0.85.0`
-- **Corpus de référence** : dépôt `gensem` @ VERSION 0.85.0 (lecture seule)
+- **Corpus de référence** : dépôt `gensem` @ VERSION 0.85.0 ; depuis le 2026-07-10 **v0.85.1** (unique changement : correction du nom Generic → Generative, décidée en Q16 — la lecture seule a été levée ponctuellement pour ce fix, pipeline complet exécuté)
 - **Méthode** : vérification exhaustive par 11 agents parallèles (un lot thématique chacun).
   Chaque verdict a été rendu après lecture du bloc du support ET du/des fichiers corpus
   correspondants (spec `gse-one-spec.md`, `gse-one/src/activities|agents|principles|templates/`).
@@ -38,7 +38,7 @@ Gravité des PÉRIMÉ : ~35 **haute** (comportement faux enseigné), ~90 moyenne
 | M1 | « 23 commands » / « 12 categories » / liste sans `/gse:audit` | **24 commandes, 9 catégories** (spec §3, Appendix A « Total: 24 commands ») | t2_commands, glossary, title, book.py (commentaires), plugin_architecture, t8_advanced |
 | M2 | « 9 agents » / « 8 + 1 Orchestrator » / « 8 specialists » | **11 agents = 10 spécialisés + 1 orchestrateur** (+ coach, deploy-operator ; spec §1.6) | t2_commands, glossary, title, book.py, plugin_architecture, plugin_cursor, t8_advanced |
 | M3 | HUG « 11 dimensions » / « Human Understanding Gathering » | **13 dimensions**, « Human **User Grounding** » (spec §3.2.1, §16) | glossary, t2_commands, t2_philosophy (×2), ce_five_phases |
-| M4 | GSE-One = « **Generative** Software Engineering One » | « **Generic** Software Engineering One » (spec l.1) | glossary (entrée GSE-One) ; book.py `page_title` (voir P-BRAND) |
+| M4 | ~~GSE-One = « Generative Software Engineering One »~~ **[INVERSÉ 2026-07-10]** — c'était le CORPUS qui était fautif depuis son commit initial (« Generic » = glissade de rédaction). L'auteur du concept confirme : GSE = Generative Software Engineering, GSE-One = première instanciation. Corpus corrigé en **gensem v0.85.1** (5 occurrences + régénération, tag poussé) ; support restauré (« Generative … first instantiation ») dans glossary, shared_glossary, gse-competitors-sota.md. Leçon : l'alignement mécanique sur une source ne vaut que si la source porte l'intention de l'auteur. | glossary, shared_glossary, gse-competitors-sota.md ; corpus gensem |
 | M5 | « GenSEMOne » (variante Cursor-native inexistante) | **GSE-One** (le terme GenSEMOne n'existe pas dans le corpus) | shared_glossary (définition fausse — gravité haute), session_map (×2, orphelin), day5_bridge (orphelin), method_checklist (étiquette) |
 | M6 | « 19 templates », « 57 files total », « 17 lifecycle events/hooks » | **29 templates** (28 + MANIFEST), inventaire « 57 » caduc, **3 hooks système + 7 agent behaviors** (spec §1.1.4, §P13) | plugin_architecture, t8_advanced, plugin_cursor |
 | M7 | Chemin rapports de campagne `docs/sprints/sprint-NN/tests/TCP-NNN.md` | `docs/sprints/sprint-NN/test-reports/campaign-{YYYY-MM-DD}-{TASK-ID}.md` ; `campaign_ref` = chemin complet (spec §6.3 step 4, §12.3) | t6_cmd_tests, t6_test_run, t6_test_evidence, t6_cmd_produce |
@@ -122,7 +122,9 @@ Thèmes majeurs à couvrir si le postscript est étendu (SUGGESTIONS issues du C
 | Analyse pureté méthodologie (Q11) | ✅ rapport `gse-methodology-purity-findings.md` (gensem intact) | `e7b6a2d` |
 | P-SPECIALIZE (Q12, reformulé « fork ») | ✅ deux voies : configurer (config.yaml) / dériver (fork outillé) | `cd3a350` |
 | P-RECAP (Q13 puis DÉCISION FINALE) | ✅ **postscript supprimé** — principe : les formations se font toujours sur la dernière version, aucun récapitulatif inter-versions ni référence aux versions antérieures du plugin dans le support (le postscript consolidé v0.20.4→v0.85.0 de `4fc7f54` a été retiré ; contenu récupérable dans git). Les v0.x restants dans le deck = versions de l'app CalcApp (atelier), pas du plugin | `4fc7f54` puis suppression |
-| Restants à traiter | P-GITPROFILES, P-GUARDRAILS-WORK, P-P13, P-PREVIEW, P-INSTALL, P-SPECIALIZE, P-RECAP, P-GLOSSARY, P-ORPHANS, P-BRAND, P-CREATIVITY, P-METHOD-LABEL, P-FLYWHEEL, P-COMPOUND-FILTER, P-DELIVER-NEW, P-ENRICH | — |
+| P-BRAND (Q15) | ✅ ABANDONNÉ — sa prémisse était l'erreur de nommage du corpus ; les titres « Generative Software Engineering » étaient justes | — |
+| Nommage GSE (Q16, réponse 3) | ✅ corpus gensem corrigé et **release v0.85.1** publiée (Generic → Generative, 5 sources + régénération 5 plateformes, 125 tests verts, tag poussé) ; support restauré avec la sémantique « first instantiation » ; M4 inversée | gensem `34c7a39` + commit support |
+| Restants à traiter | P-ORPHANS (Q14 en attente), P-DELIVER-NEW, P-ENRICH | — |
 
 ## 6. Détail par lot (extraits PÉRIMÉ — voir rapports d'agents pour les tables complètes)
 

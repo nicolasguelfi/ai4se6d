@@ -1,7 +1,7 @@
 # État de l'art des concurrents et alternatives à GSE-One
 
 > **Document de maintenance — v2 (avril 2026)**
-> **Périmètre** : panorama des approches, plug-ins, outils, frameworks, standards et méthodologies concurrents ou adjacents à **GSE-One (Generic Software Engineering One)** — référence méthodologique pour le génie logiciel dirigé par l'IA générative.
+> **Périmètre** : panorama des approches, plug-ins, outils, frameworks, standards et méthodologies concurrents ou adjacents à **GSE-One (Generative Software Engineering One)** — référence méthodologique pour le génie logiciel dirigé par l'IA générative.
 > **Finalité** : (a) positionner GSE-One dans le paysage réel, (b) identifier les écarts exploitables, (c) dessiner la prochaine version optimale.
 > **Sources** : 120+ entrées ajoutées à `modules/shared-blocks/static/references.bib` (cycles 1 et 2). Les clés BibTeX sont citées en ligne `[clé]`.
 > **Base normative** : `gensem/gse-one-spec.md` (2956 lignes) — spécification technique canonique.

@@ -9,6 +9,15 @@
   Playwright, TypeScript, Python, Node, Docker, Hetzner, Coolify, hcloud), puis lecture des
   contextes pour classer chaque occurrence.
 
+## A0. Nommage du concept — RÉSOLU (gensem v0.85.1)
+
+Le corpus s'auto-désignait « GSE-One — **Generic** Software Engineering One » depuis son commit
+initial (2026-04-11, v0.8) — glissade de rédaction jamais remarquée. Le concept de l'auteur :
+**GSE = Generative Software Engineering**, GSE-One = première instanciation de la méthodologie.
+Corrigé le 2026-07-10 : 5 occurrences sources (spec l.1, §1.2, glossaire §16, identités
+orchestrateur + lite), régénération 5 plateformes (`--verify`), 125 tests verts, release
+**v0.85.1** taguée et poussée (commit `34c7a39`).
+
 ## A. Contamination par le cas d'étude de la formation — AVÉRÉE
 
 ### A1. Référence littérale « CalcApp » dans l'orchestrateur livré
