@@ -53,5 +53,5 @@ def build():
 
         st_write(
             bs.transition,
-            "Today: GenSEMOne \u2014 your lightweight method for the professional mini-project.",
+            "Today: GSE-One \u2014 your structured method for the professional mini-project.",
         )

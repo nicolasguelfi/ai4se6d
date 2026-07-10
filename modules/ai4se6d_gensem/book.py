@@ -164,11 +164,11 @@ st_book(
 
         # ── T2 Séq 2.2 — Lifecycle & HUG ──────────────────────────
         blocks.bck_gensem_t2_cmd_hug,               # /gse:hug — 13-dimension user profile
-        blocks.bck_gensem_t2_philosophy,            # 6 Principles + Lifecycle + HUG + 3 Modes + GPS/Map (6 slides)
+        blocks.bck_gensem_t2_philosophy,            # 5 Foundation Principles + Lifecycle + HUG + 3 Modes + GPS/Map (6 slides)
         blocks.bck_gensem_ce_five_phases,           # 5-phase CE lifecycle hero image
 
         # ── T2 Séq 2.3 — Commands & Agents ────────────────────────
-        blocks.bck_gensem_t2_commands,              # 23 commands + 9 agents + .gse/ + Session (4 slides)
+        blocks.bck_gensem_t2_commands,              # 24 commands + 11 agents + .gse/ + Session (4 slides)
         blocks.bck_gensem_t2_cmd_go,                # /gse:go — The Single Entry Point
         blocks.bck_gensem_t2_cmd_status,            # /gse:status — Where Am I?
         blocks.bck_gensem_t2_cmd_pause_resume,      # /gse:pause + /gse:resume — Session continuity

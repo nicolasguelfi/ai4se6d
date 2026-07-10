@@ -31,7 +31,7 @@ def build():
                     entries=[
                         ("Cursor strengths", "Visual IDE with inline diff, file-scoped context, and Plan Mode that maps naturally to /gse:plan."),
                         ("Claude Code strengths", "Terminal-native with MCP servers, git worktrees, sub-agent delegation, and layered CLAUDE.md rules."),
-                        ("Orchestrator deployment", "Single identity, two file-system locations. On Cursor it lives in rules/ because .mdc rules are always-loaded. On Claude Code it lives in agents/ because the harness loads a named agent as the background identity. The 8 specialists live in agents/ on both platforms."),
+                        ("Orchestrator deployment", "Single identity, two file-system locations. On Cursor it lives in rules/ because .mdc rules are always-loaded. On Claude Code it lives in agents/ because the harness loads a named agent as the background identity. The 10 specialists live in agents/ on both platforms."),
                         ("GSE-One principle", "The methodology is tool-agnostic -- the discipline transfers across tools."),
                     ],
                     scale="2vw", width="70vw", position="left",
@@ -69,7 +69,7 @@ def build():
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Artifacts: "), "Skills with arguments, composable workflows")
                         with l.item():
-                            st_write(bs.body, (bs.keyword, "Hooks: "), "17 lifecycle event types for automated enforcement")
+                            st_write(bs.body, (bs.keyword, "Hooks: "), "3 system hooks (PreToolUse/PostToolUse) + 7 agent-enforced behaviors")
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Strengths: "), "MCP servers, terminal-native, git worktrees, sub-agent delegation")
 

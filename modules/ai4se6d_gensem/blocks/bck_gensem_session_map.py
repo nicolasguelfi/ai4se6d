@@ -49,7 +49,7 @@ def build():
                     st_write(bs.td_active, "2")
             with g.cell():
                 with st_block(s.project.containers.table_normal_cell + s.project.containers.cell_pad_sm):
-                    st_write(bs.td, "Mini-project with GenSEMOne")
+                    st_write(bs.td, "Mini-project with GSE-One")
 
             # Row 3 — Part 3
             with g.cell():
@@ -57,4 +57,4 @@ def build():
                     st_write(bs.td_active, "3")
             with g.cell():
                 with st_block(s.project.containers.table_normal_cell + s.project.containers.cell_pad_sm):
-                    st_write(bs.td, "Mini-project with GenSEMOne ctnd + Advanced GenSEM demo")
+                    st_write(bs.td, "Mini-project with GSE-One ctnd + Advanced GenSEM demo")

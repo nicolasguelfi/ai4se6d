@@ -1,4 +1,4 @@
-"""T2 Seq 2.3-2.4 — 23 commands, 8 agents + 1 Orchestrator, .gse/ storage."""
+"""T2 Seq 2.3-2.4 — 24 commands, 10 agents + 1 Orchestrator, .gse/ storage."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -24,7 +24,7 @@ bs = BlockStyles
 def build():
     st_slide_break(marker_label="Commands & Agents")
 
-    # ── Slide: 23 commands by category ──────────────────────────────
+    # ── Slide: 24 commands by category ──────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
             with st_grid(
@@ -34,20 +34,21 @@ def build():
             ) as g:
                 with g.cell():
                     with st_zoom(90):
-                        st_write(bs.heading, "23 Commands in 12 Categories", tag=t.div, toc_lvl="+1")
+                        st_write(bs.heading, "24 Commands in 9 Categories", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="GSE-One Command Map",
                         entries=[
                             ("Orchestration", "/gse:go, /gse:status, /gse:health — manage the overall workflow."),
                             ("Session", "/gse:pause, /gse:resume — save/restore session state."),
-                            ("Onboarding", "/gse:hug — create your developer profile (11 dimensions)."),
+                            ("Onboarding", "/gse:hug — create your developer profile (13 dimensions)."),
                             ("Learning", "/gse:learn — guided competency building (reactive + proactive, cross-cutting)."),
                             ("Backlog", "/gse:backlog — unified work item management (pool + sprint), syncs with GitHub Issues."),
                             ("Discovery", "/gse:collect, /gse:assess — inventory sources, gap analysis."),
                             ("Planning", "/gse:plan — sprint planning (cross-cutting, any level, any time)."),
                             ("Engineering", "/gse:reqs, /gse:design, /gse:preview, /gse:tests, /gse:produce, /gse:deliver — the dev cycle."),
                             ("Quality", "/gse:review, /gse:fix — multi-perspective review and fix."),
+                            ("Audit", "/gse:audit — meta-audit of project state, invocable any time (cross-cutting)."),
                             ("Deployment", "/gse:deploy — from zero infrastructure to live app (Hetzner + Coolify)."),
                             ("Capitalization", "/gse:compound, /gse:integrate — codify learnings, route to operational destinations."),
                             ("Ad-hoc", "/gse:task — exploratory spike, complexity-boxed (max 3 pts)."),
@@ -67,6 +68,7 @@ def build():
                 ("Planning", "/gse:plan"),
                 ("Engineering", "/gse:reqs  /gse:design  /gse:preview  /gse:tests  /gse:produce  /gse:deliver"),
                 ("Quality", "/gse:review  /gse:fix"),
+                ("Audit", "/gse:audit"),
                 ("Deployment", "/gse:deploy"),
                 ("Capitalization", "/gse:compound  /gse:integrate"),
                 ("Ad-hoc", "/gse:task"),
@@ -84,9 +86,9 @@ def build():
                                 with inner.cell():
                                     st_write(bs.body, (bs.keyword, f"{cat}  "), (bs.body, cmds))
 
-    st_slide_break(marker_label="8 agents + 1 Orchestrator")
+    st_slide_break(marker_label="10 agents + 1 Orchestrator")
 
-    # ── Slide: 8 agents + 1 Orchestrator ────────────────────────────
+    # ── Slide: 10 agents + 1 Orchestrator ───────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
             with st_grid(
@@ -96,12 +98,12 @@ def build():
             ) as g:
                 with g.cell():
                     with st_zoom(90):
-                        st_write(bs.heading, "8 agents + 1 Orchestrator", tag=t.div, toc_lvl="+1")
+                        st_write(bs.heading, "10 agents + 1 Orchestrator", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
                         title="The Virtual Team",
                         entries=[
-                            ("Why an orchestrator identity?", "The orchestrator is always-on (loaded as agents/gse-orchestrator.md on Claude Code, rules/gse-orchestrator.mdc on Cursor). The 8 specialists are delegated on demand."),
+                            ("Why an orchestrator identity?", "The orchestrator is always-on (loaded as agents/gse-orchestrator.md on Claude Code, rules/gse-orchestrator.mdc on Cursor). The 10 specialists are delegated on demand."),
                             ("Always-on", "The guardrail-enforcer runs on every action. The devil-advocate activates during review to challenge assumptions."),
                             ("Orchestrator role", "The gse-orchestrator coordinates all others, manages the lifecycle, and handles decision classification (Auto/Inform/Gate)."),
                         ],
@@ -114,12 +116,14 @@ def build():
                 ("\U0001f3d7\ufe0f", "architect", "Structural quality"),
                 ("\U0001f9ea", "test-strategist", "Coverage"),
                 ("\U0001f4dd", "code-reviewer", "Code quality"),
+                ("\U0001f9d1\u200d\U0001f3eb", "coach", "Observational — monitors 8 axes: pedagogy, profile, velocity, health, quality, engagement, deviation, sustainability"),
             ]
             _agents_right = [
                 ("\U0001f6e1\ufe0f", "security-auditor", "Vulnerabilities"),
                 ("\U0001f464", "ux-advocate", "User experience"),
                 ("\U0001f6a7", "guardrail-enforcer", "Rules (always-on)"),
                 ("\U0001f608", "devil-advocate", "Self-critique (P16)"),
+                ("\U0001f680", "deploy-operator", "Operational — drives /gse:deploy"),
             ]
             with st_zoom(85):
                 # Banner: orchestrator (identity)
@@ -127,7 +131,7 @@ def build():
                     emoji, name, role = _orchestrator
                     st_write(bs.body, (bs.keyword, f"{emoji} {name}  "), (bs.body, role))
                 st_space("v", 0.5)
-                # 2×4 grid: the 8 specialists (delegated)
+                # 2×5 grid: the 10 specialists (delegated)
                 with st_grid(cols="1fr 1fr", gap="16px") as g:
                     with g.cell():
                         with st_grid(cols="1fr", gap="12px", cell_styles=_cell) as inner:

@@ -66,9 +66,9 @@ def build():
                 st_space("v", 2)
                 st_write(bs.body, "Remember FreeSelfApp Day 1? That was the 20/80 — fast but fragile.")
 
-    st_slide_break(marker_label="6 Foundation Principles")
+    st_slide_break(marker_label="5 Foundation Principles")
 
-    # ── Slide: 6 Foundation principles ──────────────────────────────
+    # ── Slide: 5 Foundation principles ──────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
             with st_grid(
@@ -78,10 +78,10 @@ def build():
             ) as g:
                 with g.cell():
                     with st_zoom(90):
-                        st_write(bs.heading, "6 Foundation Principles", tag=t.div, toc_lvl="+1")
+                        st_write(bs.heading, "5 Foundation Principles", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
-                        title="Principles P1-P6 — The Foundation",
+                        title="P1, P2, P3, P5, P6 — The Foundation (P4 sits in Risk & Communication)",
                         entries=[
                             ("P1 Iterative", "All work is organized in sprints with modular file structure and incremental delivery."),
                             ("P3 Artifacts", "Every deliverable (code, requirements, tests, decisions) is tracked with a unique ID (REQ-, DES-, TST-, etc.)."),
@@ -123,7 +123,7 @@ def build():
                     st_hover_tooltip(
                         title="4 Lifecycle Stages",
                         entries=[
-                            ("LC00 Onboarding", "/gse:hug captures your profile (11 dimensions) to adapt the agent's behavior to your experience level."),
+                            ("LC00 Onboarding", "/gse:hug captures your profile (13 dimensions) to adapt the agent's behavior to your experience level."),
                             ("LC01 Discovery", "/gse:collect + /gse:assess + /gse:plan — inventory sources, analyze gaps, create a sprint plan with complexity budget."),
                             ("LC02 Engineering", "REQS → DESIGN → PREVIEW → TESTS → PRODUCE → REVIEW → [FIX] → DELIVER — the full development cycle. [FIX] is conditional: the orchestrator inserts it only if REVIEW produces HIGH/MEDIUM findings."),
                             ("LC03 Capitalization", "/gse:compound + /gse:integrate — capture learnings, route them to operational destinations."),
@@ -161,7 +161,7 @@ def build():
 
     st_slide_break(marker_label="/gse:hug — Your Profile")
 
-    # ── Slide: HUG — 11 profile dimensions + P9 adaptive comm ──────
+    # ── Slide: HUG — 13 profile dimensions + P9 adaptive comm ──────
     with st_block(_pf):
         with st_block(s.center_txt):
             with st_grid(
@@ -177,7 +177,7 @@ def build():
                         title="P9: Adaptive Communication + HUG Profile",
                         entries=[
                             ("Why a profile?", "The agent adapts its communication to your level. A beginner gets more Gates and explanations. An expert gets a streamlined flow."),
-                            ("11 dimensions", "IT expertise, scientific expertise, abstraction capability, language, verbosity, domain background, decision involvement, project domain, team context, learning goals, contextual tips."),
+                            ("13 dimensions", "User name, IT expertise, scientific expertise, abstraction capability, language, verbosity, emoji usage, domain background, decision involvement, project domain, team context, learning goals, contextual tips."),
                             ("Teacher context", "If your domain is Teaching, the agent uses pedagogical language and progressive disclosure."),
                             ("Business context", "If your domain is Business, the agent focuses on ROI, deadlines, and risk impact."),
                         ],
@@ -185,11 +185,13 @@ def build():
                     )
             st_space("v", 1)
             _dims_left = [
+                ("User name", "How the agent addresses you"),
                 ("IT expertise", "Beginner → Expert"),
                 ("Scientific expertise", "None → Researcher"),
                 ("Abstraction", "Concrete-first → Abstract-first"),
                 ("Language", "Chat + artifact languages"),
                 ("Verbosity", "Terse / Normal / Detailed"),
+                ("Emoji usage", "Enable / Disable emojis"),
                 ("Domain", "Teaching / Business / Science / Engineering"),
             ]
             _dims_right = [

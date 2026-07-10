@@ -29,8 +29,8 @@ def build():
                     title="GSE-One Plugin Architecture",
                     entries=[
                         ("What it is", "A directory-based plugin system that organizes agents, skills, rules, hooks, and MCP integrations for AI-assisted development."),
-                        ("Inventory", "23 skills, 19 templates, 9 agents \u2014 57 files total (shared source + platform-specific manifests and hooks)."),
-                        ("Commands = skills", "On Cursor, skills are exposed as slash commands; on Claude Code, each command is backed by the same skill definition. The 23 /gse:* commands map 1:1 onto the 23 skills."),
+                        ("Inventory", "24 skills, 29 templates, 11 agents (shared source + platform-specific manifests and hooks)."),
+                        ("Commands = skills", "On Cursor, skills are exposed as slash commands; on Claude Code, each command is backed by the same skill definition. The 24 /gse:* commands map 1:1 onto the 24 skills."),
                         ("Tool-agnostic", "The plugin installs on both Cursor and Claude Code; only the orchestrator deployment location differs per platform (rules/ vs agents/). The .gse/ project state is identical on both."),
                         ("Composable", "Each component (agents, skills, rules, hooks, MCP) can be customized independently per project."),
                     ],
@@ -51,7 +51,7 @@ def build():
                             "plugin/                          # GSE-One plugin (installed)\n"
                             "\u251c\u2500\u2500 agents/\n"
                             "\u2502   \u251c\u2500\u2500 gse-orchestrator.md      # Claude Code only (identity)\n"
-                            "\u2502   \u2514\u2500\u2500 {8 specialists}.md       # both platforms\n"
+                            "\u2502   \u2514\u2500\u2500 {10 specialists}.md      # both platforms\n"
                             "\u251c\u2500\u2500 rules/\n"
                             "\u2502   \u2514\u2500\u2500 gse-orchestrator.mdc     # Cursor only (identity)\n"
                             "\u251c\u2500\u2500 skills/                      # parameterized prompt chains\n"
@@ -70,19 +70,19 @@ def build():
                     st_write(bs.label, "Five Core Components", tag=t.div)
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
-                            st_write(bs.body, (bs.keyword, "Agents"), " \u2014 8 specialized delegates + 1 always-on orchestrator identity (9 total)")
+                            st_write(bs.body, (bs.keyword, "Agents"), " \u2014 10 specialized delegates + 1 always-on orchestrator identity (11 total)")
                         with l.item():
-                            st_write(bs.body, (bs.keyword, "Skills"), " \u2014 23 parameterized prompt chains, one per /gse:* command")
+                            st_write(bs.body, (bs.keyword, "Skills"), " \u2014 24 parameterized prompt chains, one per /gse:* command")
                         with l.item():
-                            st_write(bs.body, (bs.keyword, "Templates"), " \u2014 19 shared artefact and config templates")
+                            st_write(bs.body, (bs.keyword, "Templates"), " \u2014 29 shared artefact and config templates")
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Rules"), " \u2014 declarative constraints that guide every AI response")
                         with l.item():
-                            st_write(bs.body, (bs.keyword, "Hooks"), " \u2014 17 lifecycle events (pre-commit, post-review, on-error, etc.)")
+                            st_write(bs.body, (bs.keyword, "Hooks"), " \u2014 3 system hooks (protect main, block force-push incl. +refspec, review-findings warning) + 7 agent behaviors")
                         with l.item():
                             st_write(bs.body, (bs.keyword, "MCP Integration"), " \u2014 connect external tools, databases, and services")
                     st_space("v", 0.5)
-                    st_write(bs.body, (bs.keyword, "Total: "), "57 files (shared source + platform-specific manifests and hooks).")
+                    st_write(bs.body, (bs.keyword, "Total: "), "≈240 files across 5 platforms (shared source + platform-specific manifests and hooks).")
 
                 with g.cell():
                     st_write(bs.label, "Installation", tag=t.div)

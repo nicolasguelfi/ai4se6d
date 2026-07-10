@@ -45,7 +45,7 @@ def build():
                     st_hover_tooltip(
                         title="GSE-One Lifecycle — LC00 to LC03",
                         entries=[
-                            ("LC00 Onboarding", "/gse:hug captures your profile (11 dimensions) to adapt the agent to your level."),
+                            ("LC00 Onboarding", "/gse:hug captures your profile (13 dimensions) to adapt the agent to your level."),
                             ("LC01 Discovery", "/gse:collect scans sources, /gse:assess identifies gaps, /gse:plan creates a sprint with complexity budget."),
                             ("LC02 Development", "REQS > DESIGN > PREVIEW > TESTS > PRODUCE > REVIEW > [FIX] > DELIVER — the full development cycle. [FIX] is conditional: inserted only when REVIEW reports HIGH/MEDIUM findings."),
                             ("LC03 Capitalization", "/gse:compound codifies learnings, /gse:integrate routes them to operational destinations."),
