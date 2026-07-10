@@ -245,8 +245,8 @@ def build():
                     st_hover_tooltip(
                         title="Hooks — Deterministic Enforcement",
                         entries=[
-                            ("System hooks", "Deterministic rules that fire on specific events: protect main branch, block force-push, warn on unreviewed merges."),
-                            ("Agent behaviors", "Adaptive actions: warn about stale branches, suggest cleanup, detect framework drift."),
+                            ("System hooks (3)", "Deterministic, generated per platform: protect-main blocks commits on main (Hard); block force-push — -f / --force / --force-with-lease / +refspec (Emergency); review-findings-on-push warns when open review findings exist (Soft)."),
+                            ("Agent behaviors (7)", "Adaptive, run by the orchestrator: auto-commit on pause, frontmatter validation, health check, sprint boundary, dependency tracking, risk escalation, process discipline."),
                             ("Claude Code", "hooks.claude.json with PascalCase event names (PreToolUse, PostToolUse)."),
                             ("Cursor", "hooks.cursor.json with camelCase event names (preToolUse, postToolUse)."),
                         ],
@@ -257,9 +257,9 @@ def build():
                 with st_grid(cols="repeat(auto-fit, minmax(300px, 1fr))", gap="16px") as g:
                     with g.cell():
                         with st_block(s.project.containers.callout):
-                            st_write(bs.keyword + s.center_txt, "System Hooks")
-                            st_write(bs.body, "Protect main, block force-push, warn unreviewed")
+                            st_write(bs.keyword + s.center_txt, "3 System Hooks")
+                            st_write(bs.body, "Protect main, block force-push, warn on open findings at push")
                     with g.cell():
                         with st_block(s.project.containers.callout):
-                            st_write(bs.keyword + s.center_txt, "Agent Behaviors")
-                            st_write(bs.body, "Warn stale branches, suggest cleanup, detect drift")
+                            st_write(bs.keyword + s.center_txt, "7 Agent Behaviors")
+                            st_write(bs.body, "Auto-commit on pause, frontmatter validation, health check…")

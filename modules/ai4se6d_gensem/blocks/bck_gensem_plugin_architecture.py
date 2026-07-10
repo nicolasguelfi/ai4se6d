@@ -59,7 +59,7 @@ def build():
                             "\u251c\u2500\u2500 commands/                    # /gse:* slash commands\n"
                             "\u2514\u2500\u2500 tools/                       # dashboard, helpers\n"
                             "\n"
-                            ".gse/                            # project state (created at install)\n"
+                            ".gse/                            # project state (created by /gse:hug)\n"
                             "\u251c\u2500\u2500 config.yaml, profile.yaml, status.yaml\n"
                             "\u251c\u2500\u2500 plan.yaml, backlog.yaml, decisions.md\n"
                             "\u2514\u2500\u2500 sources.yaml"
@@ -89,19 +89,22 @@ def build():
                     st_code(
                         s.none,
                         code=(
-                            "# For Cursor\n"
-                            "gse install --target cursor\n\n"
-                            "# For Claude Code\n"
-                            "gse install --target claude-code"
+                            "# One-liner (auto-detects the 5 platforms)\n"
+                            "curl -fsSL <repo>/install.sh | sh\n\n"
+                            "# Or explicit (clone + install.py)\n"
+                            "python3 install.py \\\n"
+                            "  --platform claude|cursor|opencode|codex|gemini|both|all \\\n"
+                            "  --mode plugin|no-plugin|local|sandbox"
                         ),
                         language="bash",
                     )
                     st_space("v", 1)
                     st_write(
                         bs.body,
-                        "The plugin installs to your IDE\u2019s plugin directory with sensible defaults. "
+                        "The curl default is a no-plugin install into the project "
+                        "(.claude/, .cursor/, \u2026); set GSE_MODE=plugin for a user-scope plugin install. "
                         "The ",
                         (bs.keyword, ".gse/"),
-                        " project state is created on first use. "
+                        " project state is created by /gse:hug. "
                         "Each component can be customized per project.",
                     )

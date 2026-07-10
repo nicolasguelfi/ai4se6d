@@ -42,8 +42,8 @@ def build():
                             ("Plugin inventory", "24 skills + 29 templates + 11 agents (10 specialized + orchestrator) + hooks, manifests and platform rules. Commands = skills (1:1 mapping): the 24 /gse:* commands map onto the 24 skills — on Cursor, skills are exposed as slash commands; on Claude Code, commands are backed by the same skill definitions."),
                             ("Shared vs platform-specific", "The bulk of the plugin is shared across Claude Code and Cursor; only manifests, hooks and Cursor rules differ."),
                             ("Parity", "The orchestrator body is identical across Claude Code and Cursor — verified by the generator."),
-                            ("Installation", "gse install --target cursor OR gse install --target claude-code. One command."),
-                            ("Sync", "gse sync keeps rules consistent across tools when working on the same project."),
+                            ("Installation", "curl <repo>/install.sh | sh — auto-detects the 5 platforms. Or python3 install.py --platform claude|cursor|opencode|codex|gemini|both|all --mode plugin|no-plugin|local|sandbox."),
+                            ("Consistency", "Cross-platform consistency comes from the mono-plugin generator (gse_generate.py --verify): one shared source, per-platform outputs with parity asserted."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )

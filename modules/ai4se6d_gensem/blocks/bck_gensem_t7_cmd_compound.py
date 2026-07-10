@@ -29,7 +29,7 @@ def build():
                 title="/gse:compound \u2014 3-Axis Capitalization",
                 entries=[
                     ("Axe 1 \u2014 Project", "Patterns, errors, best practices observed during the sprint \u2192 compound.md. What worked, what didn\u2019t, what to repeat."),
-                    ("Axe 2 \u2014 Methodology", "What worked/didn\u2019t in GSE-One itself \u2192 propose issue on GSE-One repo. Filtered: only actionable feedback observed in 2+ sprints or confirmed by user."),
+                    ("Axe 2 \u2014 Methodology", "What worked/didn\u2019t in GSE-One itself \u2192 closing Gate routes it (export local / tickets / both). Quality filter: concrete (cited example), grouped by theme, deduplicated against existing issues, capped by compound.max_proposed_issues_per_sprint (default 3)."),
                     ("Axe 3 \u2014 Competencies", "Feed P14 learning notes. Aggregate contextual tips into topic-based notes. Update the competency map."),
                     ("Deeper than retro", "Goes beyond a standard agile retrospective \u2014 includes knowledge transfer and methodology feedback."),
                 ],
@@ -51,8 +51,8 @@ def build():
                         st_write(bs.keyword + s.center_txt, "Axe 2 \u2014 Methodology")
                         st_space("v", 0.5)
                         st_write(bs.body, "GSE-One feedback")
-                        st_write(bs.body, "Filtered: 2+ sprints")
-                        st_write(bs.body, "\u2192 issue on repo")
+                        st_write(bs.body, "Filtered: concrete, themed, deduped, cap 3")
+                        st_write(bs.body, "\u2192 Gate: local export / tickets / both")
                 with g.cell():
                     with st_block(_cell_act):
                         st_write(bs.keyword + s.center_txt, "Axe 3 \u2014 Competencies")

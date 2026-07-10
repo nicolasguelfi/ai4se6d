@@ -80,7 +80,7 @@ def build():
                         entries=[
                             ("The problem", "Without capitalization, each sprint starts from zero. Learnings are lost between sessions."),
                             ("3 axes", "Axe 1 (Project): patterns, errors, best practices \u2192 compound.md. Axe 2 (Method): feedback on GSE-One. Axe 3 (Skills): learning notes + competency map."),
-                            ("Flywheel effect", "Sprint 1 \u2192 10 rules. Sprint 3 \u2192 25 rules. Sprint 5 \u2192 50+ rules. First-attempt success rises from baseline to 80%+."),
+                            ("Flywheel effect", "Illustrative trajectory: Cycle 1 \u2192 0 rules, Cycle 3 \u2192 10, Cycle 5 \u2192 25, Cycle 10 \u2192 50+. First-attempt success rises from baseline to 80%+."),
                             ("Discipline principle", "Knowledge capitalization is what distinguishes Generative SE from VibeEngineering. GSE-One\u2019s COMPOUND is one implementation \u2014 this principle transfers to any GenSE methodology."),
                         ],
                         scale="2vw", width="70vw", position="left",

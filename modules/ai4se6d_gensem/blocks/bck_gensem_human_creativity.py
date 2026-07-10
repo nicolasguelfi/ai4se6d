@@ -29,7 +29,7 @@ def build():
                 ("Risk", "AI-assisted solutions converge toward similar patterns, reducing diversity."),
                 ("Evidence", "TOSEM identifies 5 interconnected themes on creativity impact."),
                 ("Social impact", "Xiao study: engineers consult AI instead of colleagues, disrupting knowledge sharing."),
-                ("GSE-One link", "GSE-One /gse:review phase explicitly checks for creative diversity and avoids monoculture."),
+                ("GSE-One link", "The devil's advocate pass in /gse:review (P16) challenges assumptions and flags when the agent chose the easiest solution without considering alternatives — a structural counter to solution monoculture."),
             ],
             scale="2vw", width="70vw", position="center",
         )

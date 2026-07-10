@@ -40,7 +40,7 @@ def build():
                 st_hover_tooltip(
                     title="The Knowledge Flywheel",
                     entries=[
-                        ("Flywheel effect", "Each cycle adds rules that make the next cycle faster -- 0 to 50+ rules over 10 cycles."),
+                        ("Flywheel effect", "Each cycle adds rules that make the next cycle faster -- an illustrative trajectory of 0 to 50+ rules over 10 cycles."),
                         ("Why GSE-One is different", "Most AI workflows are stateless. GSE-One accumulates project intelligence across sessions."),
                         ("Compound interest", "Like financial compounding: small consistent improvements yield exponential long-term gains."),
                     ],
@@ -64,6 +64,8 @@ def build():
                             outcome,
                         )
 
+            st_space("v", 0.5)
+            st_write(bs.label, "Illustrative trajectory — not measured data.")
             st_space("v", 1)
 
             with st_block(s.project.containers.callout):

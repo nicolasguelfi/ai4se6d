@@ -20,14 +20,14 @@ bs = BlockStyles
 
 
 def build():
-    st_marker("GSE-One Quick Reference")
+    st_marker("GenSEMOne Manual Workflow")
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
-            st_write(bs.heading, "GSE-One Quick Reference Checklist", tag=t.div, toc_lvl="+1")
+            st_write(bs.heading, "GenSEMOne Manual Workflow Checklist", tag=t.div, toc_lvl="+1")
         st_hover_tooltip(
-            title="Quick Reference Checklist",
+            title="GenSEMOne Manual Workflow — Quick Reference",
             entries=[
-                ("Purpose", "A step-by-step checklist to follow the GSE-One workflow in practice."),
+                ("Purpose", "A step-by-step checklist to follow the GenSEMOne manual workflow (precursor to the GSE-One plugin) in practice."),
                 ("Key discipline", "Each step builds on the previous -- skip one and the downstream quality drops."),
                 ("Carry forward", "This checklist is your companion for the hands-on practice sessions."),
             ],
