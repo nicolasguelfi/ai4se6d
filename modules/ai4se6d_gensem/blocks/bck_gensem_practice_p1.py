@@ -107,7 +107,19 @@ def build():
                                     with l.item():
                                         st_write(bs.body + _left, (bs.keyword, "5. "), (bs.keyword, "Note your observations"))
 
-    st_slide_break(marker_label="Open CalcApp. Type /gse:go.")
+            st_space("v", 1)
+            with st_block(_cell_accent):
+                st_write(
+                    bs.body,
+                    (bs.keyword, "Command form — "),
+                    "in Cursor, type ",
+                    (bs.accent, "/gse-go"),
+                    " (dash). The ",
+                    (bs.accent, "/gse:go"),
+                    " (colon) form used on the slides is the canonical Claude Code form.",
+                )
+
+    st_slide_break(marker_label="Open CalcApp. Type /gse-go (Cursor).")
 
 
     # ── Slide 2: Debrief questions ──────────────────────────────────

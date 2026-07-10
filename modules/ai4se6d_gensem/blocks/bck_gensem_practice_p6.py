@@ -23,7 +23,7 @@ bs = BlockStyles
 _left = Style("text-align: left;", "p6_left")
 
 
-def _scenario_slide(level_label, cell_style, steps, question):
+def _scenario_slide(level_label, cell_style, steps, question, reminder=False):
     mid = (len(steps) + 1) // 2
     left_steps = steps[:mid]
     right_steps = steps[mid:]
@@ -65,6 +65,17 @@ def _scenario_slide(level_label, cell_style, steps, question):
             st_write(bs.accent, question)
             st_space("v", 1)
             st_write(bs.timer, "45 minutes")
+            if reminder:
+                st_space("v", 1)
+                st_write(
+                    bs.body + s.center_txt,
+                    (bs.keyword, "Reminder — "),
+                    "in Cursor, commands use the dash form: ",
+                    (bs.accent, "/gse-…"),
+                    " (slides show the canonical ",
+                    (bs.accent, "/gse:…"),
+                    " form).",
+                )
 
 
 def build():
@@ -80,6 +91,7 @@ def build():
             "Look at review.md \u2014 do you agree with the agent\u2019s assessment?",
         ],
         question="Question: Did the review find issues you would not have noticed? Do you agree?",
+        reminder=True,
     )
 
     st_slide_break(marker_label="P6: Intermediate")

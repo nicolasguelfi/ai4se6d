@@ -73,6 +73,17 @@ def build():
                         with g.cell():
                             st_write(bs.table_txt + s.center_txt, pts)
 
+            st_space("v", 1)
+            st_write(
+                bs.body + s.center_txt,
+                (bs.keyword, "Reminder — "),
+                "in Cursor, commands use the dash form: ",
+                (bs.accent, "/gse-…"),
+                " (slides show the canonical ",
+                (bs.accent, "/gse:…"),
+                " form).",
+            )
+
     st_slide_break(marker_label="P8: Beginner")
 
     # ── Beginner ────────────────────────────────────────────────────
