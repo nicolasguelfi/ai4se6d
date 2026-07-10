@@ -24,7 +24,7 @@ _BACKLOG_YAML = """\
 
   test_evidence:
     status: pass                  # absent | pass | fail | skipped
-    campaign_ref: TCP-007
+    campaign_ref: docs/sprints/sprint-03/test-reports/campaign-2026-04-16-TASK-012.md
     timestamp: 2026-04-16T14:30:00Z
     pass_rate: 94                 # % of tests passing
     code_coverage: 78             # % of lines covered
@@ -40,7 +40,7 @@ def build():
             title="test_evidence \u2014 Structured per-TASK block",
             entries=[
                 ("status", "absent (not yet run) | pass | fail | skipped. Single source of truth for this TASK's test state."),
-                ("campaign_ref", "Links to the TCP-NNN campaign report (docs/sprints/sprint-NN/tests/TCP-NNN.md) that produced this evidence."),
+                ("campaign_ref", "Full path of the campaign report (docs/sprints/sprint-NN/test-reports/campaign-{date}-{TASK-ID}.md) that produced this evidence — TCP- id in its frontmatter."),
                 ("timestamp", "ISO-8601 of the canonical test run \u2014 when the evidence was collected."),
                 ("pass_rate", "Percentage of tests passing (0-100). Captured from the run."),
                 ("code_coverage", "Percentage of lines covered (0-100). Captured when the framework supports it."),
@@ -62,5 +62,5 @@ def build():
             with st_block(s.project.containers.callout):
                 st_write(
                     bs.closing,
-                    "One campaign per TASK. Each TCP-NNN lives in docs/sprints/sprint-NN/tests/.",
+                    "One campaign per TASK. Each campaign report lives in docs/sprints/sprint-NN/test-reports/.",
                 )

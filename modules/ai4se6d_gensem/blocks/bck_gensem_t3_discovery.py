@@ -104,7 +104,7 @@ def build():
                         title="ASSESS — What it does",
                         entries=[
                             ("Purpose", "Compare current state vs project goals. Identify what's covered, partial, missing, or risky."),
-                            ("4 categories", "✓ covered, ◐ partial, ✗ missing, ⚠ risk — produces a clear gap map."),
+                            ("4 categories", "✓ covered, ◐ partial, ✗ uncovered, ⚠ risk — produces a clear gap map."),
                             ("CalcApp example", "✓ CRUD expenses, ◐ monthly filter, ✗ budgets per category, ⚠ performance with large datasets."),
                             ("Output", "The gap feeds directly into /gse:plan as candidate backlog items."),
                         ],

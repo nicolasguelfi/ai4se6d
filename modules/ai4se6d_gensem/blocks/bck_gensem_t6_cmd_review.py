@@ -41,7 +41,7 @@ def build():
                     ("Branch diff", "Review operates on git diff sprint-branch...feature-branch, not just file state. This ensures only sprint changes are reviewed."),
                     ("All artefact types", "Requirements, design, code, tests, docs \u2014 complete review of the current sprint."),
                     ("Devil\u2019s advocate (P16)", "The agent challenges its own productions: hunts hallucinations, verifies libraries/APIs exist, questions assumptions."),
-                    ("RVW- findings", "Each finding gets a RVW- ID with severity. Findings auto-populate the backlog for /gse:fix."),
+                    ("RVW- findings", "Each finding gets a RVW- ID with severity. Findings are persisted in docs/sprints/sprint-NN/review.md — /gse:fix reads them there (the TASK just flips to status: fixing)."),
                     ("Cross-sprint regression", "Full test suite runs; tests that passed last sprint but fail now are flagged [REGRESSION] HIGH."),
                     ("Health update", "Health score is recalculated after review."),
                 ],

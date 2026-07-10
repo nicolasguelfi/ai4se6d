@@ -28,11 +28,11 @@ def build():
             st_hover_tooltip(
                 title="/gse:collect \u2014 Artefact Inventory",
                 entries=[
-                    ("Internal mode", "Scans the current project: source files, tests, docs, config, sprint artefacts, git state, dependencies. Produces .gse/inventory.yaml."),
+                    ("Internal mode", "Scans the current project: source files, tests, docs, config, sprint artefacts, git state, dependencies. The scan result is ephemeral (console summary — not persisted)."),
                     ("External mode", "Provide a path or URL: /gse:collect ~/other-project/ or a GitHub repo. Evaluates reusability, compatibility, integration cost, and license."),
                     ("Reusability assessment", "For each external element: Reusable as-is / Adaptable / Reference only / Incompatible. Integration cost in complexity points."),
                     ("Source registry", "All evaluated sources are recorded in .gse/sources.yaml with SRC- IDs for full provenance traceability."),
-                    ("Feeds ASSESS", "The inventory is the input for /gse:assess gap analysis."),
+                    ("Feeds ASSESS", "Only sources.yaml persists — /gse:assess re-runs its own inline scan."),
                 ],
                 scale="2vw", width="70vw", position="center",
             )
@@ -58,4 +58,4 @@ def build():
                         st_write(bs.body, "\U0001f4dc License check")
 
             st_space("v", 1)
-            st_write(bs.accent, "Output: .gse/inventory.yaml + .gse/sources.yaml (SRC- IDs)")
+            st_write(bs.accent, "Output: console inventory summary (ephemeral) + .gse/sources.yaml (SRC- IDs)")

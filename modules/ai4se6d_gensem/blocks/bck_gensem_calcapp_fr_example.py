@@ -1,4 +1,4 @@
-"""Slide — Example: FR-001 in Full Detail."""
+"""Slide — Example: REQ-001 in Full Detail."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -15,7 +15,7 @@ class BlockStyles:
 bs = BlockStyles
 
 _FR001 = """\
-## FR-001: Edit Existing Expense
+## REQ-001: Edit Existing Expense
 
 **User Story**: As a user, I want to edit an existing expense
 so that I can correct mistakes.
@@ -34,18 +34,18 @@ so that I can correct mistakes.
   Then no changes are saved
 
 **Priority**: Must (MoSCoW)
-**Test file**: tests/acceptance/fr-001-edit-expense.test.tsx"""
+**Traces**: tested_by: [TST-001]"""
 
 
 def build():
-    st_marker("FR-001: Given/When/Then")
+    st_marker("REQ-001: Given/When/Then")
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
-            st_write(bs.heading, "Example: FR-001 in Full Detail", tag=t.div, toc_lvl="+1")
+            st_write(bs.heading, "Example: REQ-001 in Full Detail", tag=t.div, toc_lvl="+1")
         st_hover_tooltip(
-            title="FR-001 and GSE-One Principles",
+            title="REQ-001 and GSE-One Principles",
             entries=[
-                ("GSE-One principle", "Structured requirements with acceptance criteria -- output of /gse:assess."),
+                ("GSE-One principle", "Structured requirements with acceptance criteria -- output of /gse:reqs."),
                 ("Traceability", "Each FR links to user story, acceptance criteria, priority, and test file."),
                 ("Given/When/Then", "Acceptance criteria use BDD format for unambiguous verification."),
                 ("MoSCoW priority", "Prioritization ensures the /gse:plan phase sequences work correctly."),

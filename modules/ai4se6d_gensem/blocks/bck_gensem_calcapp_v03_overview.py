@@ -14,18 +14,18 @@ class BlockStyles:
 bs = BlockStyles
 
 _FR = [
-    ("FR-001:", " Edit existing expenses"),
-    ("FR-002:", " Category management"),
-    ("FR-003:", " Expense sorting"),
-    ("FR-004:", " Search & filter"),
-    ("FR-005:", " Monthly summary"),
+    ("REQ-001:", " Edit existing expenses"),
+    ("REQ-002:", " Category management"),
+    ("REQ-003:", " Expense sorting"),
+    ("REQ-004:", " Search & filter"),
+    ("REQ-005:", " Monthly summary"),
 ]
 
 _NFR = [
-    ("NFR-001:", " Form validation < 100ms"),
-    ("NFR-002:", " Accessible labels (WCAG 2.1 AA)"),
-    ("NFR-003:", " Keyboard navigable"),
-    ("NFR-004:", " Responsive layout 320px\u20131920px"),
+    ("REQ-101:", " Form validation < 100ms"),
+    ("REQ-102:", " Accessible labels (WCAG 2.1 AA)"),
+    ("REQ-103:", " Keyboard navigable"),
+    ("REQ-104:", " Responsive layout 320px\u20131920px"),
 ]
 
 

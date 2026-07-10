@@ -37,7 +37,7 @@ def _scenario_slide(level_label, cell_style, steps, question):
                 entries=[
                     ("Goal", f"Execute REQS \u2192 DESIGN \u2192 PREVIEW on CalcApp. Adapted for {level_label} IT expertise."),
                     ("Time", "45 minutes."),
-                    ("Deliverable", "reqs.md with FR + NFR, design.md with DEC- decisions, preview validated."),
+                    ("Deliverable", "reqs.md with FR + NFR, design.md with DES- components (decisions go to .gse/decisions.md), preview validated."),
                 ],
                 scale="2vw", width="70vw", position="center",
             )
@@ -88,7 +88,7 @@ def build():
         level_label="Intermediate",
         cell_style=_cell_acc,
         steps=[
-            "Run /gse:reqs for FR-001 (budget per category) + NFR-001 (perf <200ms)",
+            "Run /gse:reqs for REQ-001 (budget per category) + REQ-101 (perf <200ms)",
             "Run /gse:design \u2014 validate the architecture proposal (Gate decision)",
             "Run /gse:preview \u2014 check wireframe and API contract",
             "Run /gse:status \u2014 verify the traceability chain REQ \u2192 DES \u2192 TASK",

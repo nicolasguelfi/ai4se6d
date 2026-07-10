@@ -64,12 +64,12 @@ def build():
                         st_write(bs.heading, "Test Review \u2014 3 Tiers with Agile Thresholds", tag=t.div, toc_lvl="+1")
                 with g.cell():
                     st_hover_tooltip(
-                        title="Test Review Layering \u2014 spec \u00a7D",
+                        title="Test Review Layering \u2014 spec \u00a76.5",
                         entries=[
                             ("Shift-left quality", "Strategy and spec defects caught before code is written against them. The old single post-production pass ran too late."),
                             ("Agile thresholds", "Tiers activate by condition, not by default. Small/low-risk sprints skip upstream tiers. No bureaucracy for simple work."),
                             ("Hard guardrail", "HIGH findings in STRATEGY or TST-SPEC block /gse:produce. MEDIUM/LOW are informational \u2014 they warn but don't stop."),
-                            ("CLI flags", "Force a tier manually: --review-strategy, --review-specs, --deep-review (all three)."),
+                            ("CLI flags", "Force a tier manually: --review-strategy, --review-specs, --deep-review (STRATEGY + TST-SPEC; IMPL always runs in /gse:review)."),
                             ("Light sprints", "Lightweight mode skips STRATEGY and TST-SPEC \u2014 straight to IMPL. Micro mode has no tier review at all."),
                             ("IMPL always runs", "The post-production IMPL tier is unconditional. It is the 5-agent review of /gse:review Step 2e, renamed and refocused on implementation quality."),
                         ],

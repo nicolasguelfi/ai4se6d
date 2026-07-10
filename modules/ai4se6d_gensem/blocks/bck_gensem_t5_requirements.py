@@ -1,4 +1,4 @@
-"""T5 — LC02a: REQS (FR/NFR, Given/When/Then), DESIGN (decisions), PREVIEW, traceability."""
+"""T5 — LC02: REQS (FR/NFR, Given/When/Then), DESIGN (decisions), PREVIEW, traceability."""
 # @guideline: minimalist-visual + maximize-viewport
 # @reuse: bck_gensem_calcapp_fr_example, _nfr_example, _traceability (v01)
 from streamtex import *
@@ -23,7 +23,7 @@ bs = BlockStyles
 
 
 def build():
-    st_slide_break(marker_label="LC02a: Requirements, Design, Preview")
+    st_slide_break(marker_label="LC02: Requirements, Design, Preview")
 
     # ── Slide: REQS — conversational elicitation ────────────────────
     with st_block(_pf):
@@ -40,7 +40,7 @@ def build():
                     st_hover_tooltip(
                         title="Requirements Engineering in GSE-One",
                         entries=[
-                            ("Step 0", "Conversational elicitation — the agent asks clarifying questions, not you."),
+                            ("Step 0.5", "Conversational elicitation — the agent asks clarifying questions, not you (Step 0 is the Open Questions Gate)."),
                             ("FR structure", "Each functional requirement has: ID, user story, acceptance criteria (Given/When/Then), priority, test file."),
                             ("NFR structure", "Each non-functional requirement has: standard (ISO 25010), measurement method, verification approach."),
                             ("Quality check", "The agent verifies: Complete? Consistent? Testable? Non-ambiguous?"),
@@ -133,3 +133,5 @@ def build():
                     (bs.body, " → "),
                     (bs.keyword, "RVW-"),
                 )
+                st_space("v", 0.5)
+                st_write(bs.body, "(2 of 7 link types shown — 12 ID prefixes in spec §P6)")

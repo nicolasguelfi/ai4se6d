@@ -407,7 +407,7 @@ def build():
                             ("/gse:go", "Like a GPS: the agent guides you through the entire lifecycle automatically. Best for beginners and standard workflows."),
                             ("Individual commands", "Like a map: you choose which command to run and when. Best for experienced users who want fine control."),
                             ("--adopt option", "/gse:go --adopt for existing projects: non-destructive scan, sprint-0 baseline, optional frontmatter annotation. No files modified without approval."),
-                            ("Orchestrator behavior", "The orchestrator detects project state and proposes the next activity. It can launch commands with options based on the conversation (e.g., /gse:plan --interactive)."),
+                            ("Orchestrator behavior", "The orchestrator detects project state and proposes the next activity. It can launch commands with options based on the conversation (e.g., /gse:plan --tactical)."),
                             ("You experienced this", "In P1, you used /gse:go. From now on, you'll learn the individual commands."),
                         ],
                         scale="2vw", width="70vw", position="left",

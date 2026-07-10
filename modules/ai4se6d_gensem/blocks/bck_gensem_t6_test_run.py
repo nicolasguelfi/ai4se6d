@@ -24,7 +24,7 @@ _STEPS = [
     ("1", "Execute", "Run test suite in the worktree (PRODUCE) or project root/worktree (TESTS). Coverage enabled when the framework supports it."),
     ("2", "Capture", "Pass/fail per test, timings, stdout/stderr, stack traces, coverage data, screenshots and videos (when visual testing is on)."),
     ("3", "Persist raw evidence", "Save to tests/evidence/sprint-NN/TASK-NNN/ \u2014 results.json, coverage.json, screenshots, videos."),
-    ("4", "Allocate TCP & create campaign", "Assign TCP-NNN id and create docs/sprints/sprint-NN/tests/TCP-NNN.md campaign report."),
+    ("4", "Allocate TCP & create campaign", "Assign TCP-NNN id and create docs/sprints/sprint-NN/test-reports/campaign-{date}-{TASK-ID}.md campaign report (TCP- id in frontmatter)."),
     ("5", "Write test_evidence", "Populate the structured block on the TASK in backlog.yaml (status, campaign_ref, timestamp, pass_rate, code_coverage, summary)."),
     ("6", "Inline summary", "One-paragraph chat summary \u2014 counts, coverage, notable failures. You know without opening files."),
     ("7", "Refresh health & dashboard", "Update status.yaml health dimensions + dashboard cards (Sprint Workflow, Coherence Alerts)."),

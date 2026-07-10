@@ -29,7 +29,7 @@ def build():
             st_hover_tooltip(
                 title="/gse:assess \u2014 Gap Analysis",
                 entries=[
-                    ("Input", "Artefact inventory from /gse:collect + project goals from config or user."),
+                    ("Input", "Inline artefact scan (same steps as COLLECT) + project goals from config or user."),
                     ("Analysis", "For each goal: which artefacts exist? Which are missing? What is their status (draft/reviewed/approved)? For external sources: compatibility and integration cost."),
                     ("Output", "Gap analysis report with GAP-NN identifiers: \u2713 Covered, \u25d0 Partial, \u2717 Uncovered, \u26a0 Risk areas."),
                     ("Feeds PLAN", "Uncovered goals (GAP-NN) become candidate TASK items in the backlog pool."),

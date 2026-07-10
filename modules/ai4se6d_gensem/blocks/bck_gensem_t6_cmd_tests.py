@@ -45,7 +45,7 @@ def build():
                     ("Kind column", "verification = 'build the thing right' (traces to DES-). validation = 'build the right thing' (traces to REQ-). Regression = both."),
                     ("Environment", "Auto-detect framework from package manifest, install as dev dependency (pytest, vitest, etc.), configure runner."),
                     ("Visual testing", "For web/mobile: optional Playwright setup with screenshots, video on failure, visual regression."),
-                    ("Evidence", "Test results, coverage, screenshots saved to tests/evidence/sprint-NN/TASK-NNN/. Campaign report: docs/sprints/sprint-NN/tests/TCP-NNN.md."),
+                    ("Evidence", "Test results, coverage, screenshots saved to tests/evidence/sprint-NN/TASK-NNN/. Campaign report: docs/sprints/sprint-NN/test-reports/campaign-{date}-{TASK-ID}.md (TCP- id in frontmatter)."),
                     ("Cross-sprint regression", "Full test suite runs during /gse:review. Tests that passed last sprint but fail now \u2192 [REGRESSION] HIGH."),
                     ("See also", "The 'Test Pyramid by Domain' slide shows the 8-domain distribution (Unit / Integration / E2E-Visual / Acceptance / Other)."),
                 ],

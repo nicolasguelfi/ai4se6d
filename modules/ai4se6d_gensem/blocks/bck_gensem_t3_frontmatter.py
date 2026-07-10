@@ -62,7 +62,7 @@ def build():
                     with st_block(_cell):
                         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                             with l.item():
-                                st_write(bs.body, (bs.keyword, "type"), " \u2014 artifact kind: requirement, design, test, review, plan, compound, decision, code")
+                                st_write(bs.body, (bs.keyword, "type"), " \u2014 artifact kind: requirement, design, test, review, plan-summary, compound, decision, code, test-campaign")
                             with l.item():
                                 st_write(bs.body, (bs.keyword, "sprint"), " \u2014 which sprint produced this artifact")
                             with l.item():
@@ -78,7 +78,7 @@ def build():
                     with st_block(_cell):
                         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                             with l.item():
-                                st_write(bs.body, (bs.accent, "traces"), " \u2014 the traceability web:")
+                                st_write(bs.body, (bs.accent, "traces"), " \u2014 the traceability web (7 link types):")
                             with l.item():
                                 st_write(bs.body, (bs.keyword, "derives_from"), " \u2014 origin (what requirement?)")
                             with l.item():
@@ -87,3 +87,5 @@ def build():
                                 st_write(bs.body, (bs.keyword, "tested_by"), " \u2014 which tests verify it?")
                             with l.item():
                                 st_write(bs.body, (bs.keyword, "decided_by"), " \u2014 which decision shaped it?")
+                            with l.item():
+                                st_write(bs.body, (bs.keyword, "+ validates, enforces, related_to"), " \u2014 12 ID prefixes total in spec \u00a7P6")

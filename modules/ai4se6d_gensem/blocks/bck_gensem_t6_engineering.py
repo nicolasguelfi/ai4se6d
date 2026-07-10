@@ -148,7 +148,7 @@ def build():
                             ("How it works", "The agent creates a feature branch + worktree, then generates code strictly following the approved plan."),
                             ("Constraint", "Any deviation from the plan requires an explicit plan revision. No 'while we're at it' additions."),
                             ("Budget visible", "The complexity budget gauge updates in real-time. Warning at 80%, Gate at 100%."),
-                            ("Output", "Committed code with conventional messages: gse(sprint-01/feat/budget): description."),
+                            ("Output", "Committed code with conventional messages: gse(sprint-01/feat): description + trailers Sprint/Task/Traces."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )

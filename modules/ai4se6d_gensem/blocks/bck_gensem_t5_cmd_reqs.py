@@ -28,7 +28,7 @@ def build():
             st_hover_tooltip(
                 title="/gse:reqs \u2014 Requirements Engineering",
                 entries=[
-                    ("Step 0 \u2014 Elicitation", "Conversational capture of user intent in natural language. The agent identifies functional needs AND implicit quality expectations."),
+                    ("Step 0.5 \u2014 Elicitation (Step 0 = Open Questions Gate)", "Conversational capture of user intent in natural language. The agent identifies functional needs AND implicit quality expectations."),
                     ("FR \u2014 Functional", "User stories with testable acceptance criteria (Given/When/Then). Each FR gets a REQ- ID."),
                     ("NFR \u2014 Non-Functional", "Quality requirements (performance, security, usability, accessibility). Measurable targets."),
                     ("Quality checklist", "ISO 25010-inspired verification: 7 quality dimensions, 2\u20133 checklist items each. Gaps classified by priority."),

@@ -25,9 +25,9 @@ def build():
             st_write(
                 bs.body,
                 "Looking at ",
-                (bs.keyword, "FR-001"),
+                (bs.keyword, "REQ-001"),
                 " and ",
-                (bs.keyword, "NFR-002"),
+                (bs.keyword, "REQ-102"),
                 ": how would you prompt Cursor to implement these? "
                 "What context would you load? What constraints would you set?",
             )

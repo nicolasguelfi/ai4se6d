@@ -31,7 +31,7 @@ def build():
                         st_hover_tooltip(
                             title="Brainstorm & Plan in GSE-One",
                             entries=[
-                                ("Brainstorm", "CE Brainstorm = /gse:assess in GSE-One. Clarify requirements, surface risks."),
+                                ("Brainstorm", "CE Brainstorm ≈ /gse:reqs elicitation (Step 0.5) + /gse:assess gap analysis in GSE-One. Clarify requirements, surface risks."),
                                 ("Plan", "CE Plan = /gse:plan in GSE-One. Task decomposition, file mapping, verification."),
                                 ("Key insight", "These two phases represent the bulk of the 80% planning investment."),
                                 ("Anti-pattern", "Skipping these leads to premature implementation and scope creep."),
