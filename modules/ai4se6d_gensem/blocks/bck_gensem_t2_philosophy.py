@@ -318,7 +318,7 @@ def build():
                         with st_block(_cell_acc):
                             st_write(
                                 s.project.titles.table_cell,
-                                "PLAN \u00b7 LEARN \u00b7 HEALTH \u00b7 STATUS \u00b7 PAUSE \u00b7 RESUME \u00b7 TASK",
+                                "PLAN \u00b7 STATUS \u00b7 HEALTH \u00b7 AUDIT \u00b7 BACKLOG \u00b7 TASK \u00b7 LEARN \u00b7 PAUSE \u00b7 RESUME \u00b7 DEPLOY",
                             )
 
             st_space("v", 1)
@@ -335,10 +335,10 @@ def build():
                 st_write(
                     bs.body,
                     (bs.keyword, "[FIX]"),
-                    " is conditional \u2014 inserted by the orchestrator only when REVIEW reports ",
+                    " is not in workflow.expected initially \u2014 the orchestrator inserts it only when REVIEW reports ",
                     (bs.keyword, "HIGH/MEDIUM findings"),
-                    "; a clean review moves FIX to ",
-                    (bs.keyword, "workflow.skipped"),
+                    "; a clean review simply ",
+                    (bs.keyword, "doesn't insert it"),
                     ".",
                 )
 
@@ -359,9 +359,9 @@ def build():
                     st_hover_tooltip(
                         title="When to Use Each Mode",
                         entries=[
-                            ("Triviality pre-filter", "File count is a pre-filter for Micro. Beyond <3 files, mode selection uses 7 structural signals (coupling, surface, cross-cutting, data-flow, integrations, risk domains, test breadth)."),
-                            ("Micro", "Pre-filter: <3 project files. PRODUCE \u2192 DELIVER only. Direct commits (no branches). Gate-only decisions. No guardrails enforced. No health score. State: .gse/status.yaml only."),
-                            ("Lightweight", "Small scope on the 7 signals. PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER. Branch-only (no worktrees). Auto+Gate decisions. Hard guardrails. 3 health dimensions. Plan artifact only."),
+                            ("Triviality pre-filter", "Pre-filter for Micro: no manifest AND no git history AND \u22642 source files. Otherwise, mode selection uses 7 structural signals (dependencies, persistence, entry points, multi-component, existing tests, CI/CD, git maturity)."),
+                            ("Micro", "Pre-filter: no manifest, no git history, \u22642 source files. PRODUCE \u2192 DELIVER only. Direct commits (no branches). Gate-only decisions. No guardrails enforced. No health score. State: .gse/status.yaml only."),
+                            ("Lightweight", "Small scope on the 7 signals. PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER. Branch-only (no worktrees). Auto+Gate decisions (Inform notices kept). REQS Hard, TESTS Soft. 3 health dimensions. reqs.md as the only sprint artefact."),
                             ("Full", "Rich scope on the 7 signals. Complete lifecycle LC01\u2192LC02\u2192LC03. Worktree isolation (1 task = 1 worktree). Full Auto/Inform/Gate decisions. All guardrails. All 8 health dimensions. Full sprint artifacts."),
                             ("Git strategy", "Micro = direct commit. Lightweight = branch-only. Full = worktree per task + sprint integration branch."),
                             ("Recommendation", "Start Lightweight. Escalate to Full when the 7 structural signals indicate real complexity."),

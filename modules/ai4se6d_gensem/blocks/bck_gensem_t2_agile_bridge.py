@@ -57,7 +57,7 @@ def build():
                         title="GSE-One Adaptations \u2014 Definitions",
                         entries=[
                             ("Complexity-budgeted sprint", "Not time-boxed: the sprint ends when the complexity budget is consumed. Typical budget: 8\u201315 points. Utility dependency = 1pt, framework = 2\u20133pts, architectural change = 3\u20135pts."),
-                            ("Complexity Points", "Cost model based on dependency type and risk, not relative effort. Tests, docs, and renames cost 0. Simplification earns credits (\u22121 to \u22122)."),
+                            ("Complexity Points", "Cost model based on dependency type and risk, not relative effort. Tests, docs and renames are assessed case-by-case (0, 1 or 2-5 pts \u2014 Cost Assessment Grid, Appendix B). Simplification earns credits (\u22121 to \u22122)."),
                             ("REQ- with Given/When/Then", "Formal requirement with unique ID (REQ-001), user story, and testable acceptance criteria in BDD format: Given [context], When [action], Then [outcome]."),
                             ("/gse:compound", "Replaces the retrospective with 3 systematic axes: Axe 1 (project patterns), Axe 2 (methodology feedback), Axe 3 (competency growth). Produces compound.md."),
                             ("Artifact completion + health", "Definition of Done becomes an 8-dimension health dashboard score. Each artifact must satisfy its type-specific checklist AND contribute to overall health > 6/10."),

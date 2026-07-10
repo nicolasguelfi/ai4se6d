@@ -34,21 +34,22 @@ def build():
             st_hover_tooltip(
                 title="/gse:deploy \u2014 Hetzner + Coolify",
                 entries=[
-                    ("Full pipeline", "Provision server \u2192 harden \u2192 install Coolify \u2192 configure DNS/SSL \u2192 deploy app. One guided flow."),
-                    ("3 scenarios", "Zero infrastructure (solo): full provisioning. Pre-configured (training): connect + deploy. Existing: redeploy to current setup."),
+                    ("Full pipeline", "Setup (hcloud CLI, API token, domain) \u2192 Provision \u2192 Secure/harden \u2192 Install Coolify \u2192 Configure DNS/SSL \u2192 Deploy. One guided flow, 6 phases."),
+                    ("Orientation", "Orientation by role (solo / instructor / learner) + auto-detected mode (full / partial / app-only / training) from .env."),
                     ("--status", "Show current deployment state without changes."),
                     ("--redeploy", "Rebuild and redeploy the application. Does not provision new server."),
                     ("--destroy", "Tear down server. Gate-tier confirmation required \u2014 irreversible."),
                     ("Post-tag hook", "Can be triggered automatically after /gse:deliver via git.post_tag_hook. If deployment fails, proposes rollback (Gate)."),
-                    ("Health check", "Warns if health < 5 before deploying. You can proceed but must acknowledge."),
+                    ("Health check", "Phase 6 polls the deployed app endpoint (/_stcore/health or /) until live."),
                 ],
                 scale="2vw", width="70vw", position="center",
             )
             st_space("v", 1)
 
         with st_zoom(90):
-            with st_grid(cols="1fr 1fr 1fr 1fr 1fr", gap="8px") as g:
+            with st_grid(cols="1fr 1fr 1fr 1fr 1fr 1fr", gap="8px") as g:
                 for icon, step in [
+                    ("\U0001f527", "Setup"),
                     ("\U0001f5a5\ufe0f", "Provision"),
                     ("\U0001f512", "Harden"),
                     ("\u2699\ufe0f", "Coolify"),

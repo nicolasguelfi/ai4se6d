@@ -27,14 +27,14 @@ _HEADERS = ("Aspect", "Micro", "Lightweight", "Full")
 _ROWS_ARCHITECTURE = [
     ("Lifecycle", "PRODUCE \u2192 DELIVER", "PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER", "LC01 \u2192 LC02 \u2192 LC03"),
     ("Git strategy", "Direct commit", "Branch-only", "Worktree per task"),
-    ("State files", "status.yaml only", "4 files", "4 files + sprint docs"),
-    ("Sprint artifacts", "None", "Plan only", "Full set (plan, reqs, design, review, compound)"),
+    ("State files", "status.yaml only", "4 files + plan.yaml", "4 files + sprint docs"),
+    ("Sprint artifacts", "None", "reqs.md only", "Full set (plan-summary, reqs, design, tests, review, compound)"),
 ]
 
 _ROWS_DISCIPLINE = [
     ("Health dimensions", "None", "3 dimensions", "8 dimensions"),
-    ("Decisions", "Gate-only", "Auto + Gate", "Auto / Inform / Gate"),
-    ("Guardrails", "Not enforced", "Hard (mandatory)", "Hard + Soft + Emergency"),
+    ("Decisions", "Gate-only", "Auto + Gate (Inform kept for guardrail notices)", "Auto / Inform / Gate"),
+    ("Guardrails", "Not enforced", "REQS Hard · TESTS Soft (auto strategy)", "Hard + Soft + Emergency"),
     ("Complexity budget", "Not tracked", "Not tracked", "Tracked (8\u201315 pts)"),
 ]
 
@@ -67,11 +67,11 @@ def build():
             st_hover_tooltip(
                 title="3 Modes \u2014 Choose Based on Project Scope",
                 entries=[
-                    ("Triviality pre-filter", "File count is a pre-filter, not a complexity signal. <3 project files = Micro (too small for formal process). \u22653 files = the orchestrator applies the 7 structural signals."),
-                    ("7 structural signals", "Lightweight vs Full is decided on 7 structural signals (module coupling, architectural surface, cross-cutting concerns, data-flow depth, external integrations, risk-sensitive domains, test-strategy breadth) \u2014 not file count."),
-                    ("Micro", "Pre-filter: <3 project files. Prototypes, quick experiments. Minimal overhead."),
-                    ("Lightweight", "Small scope on the 7 signals. PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER. Branch isolation, 3 health dims."),
-                    ("Full", "Rich scope on the 7 signals. Complete lifecycle LC01\u2192LC02\u2192LC03. Worktrees, 8 health dims, full traceability."),
+                    ("Triviality pre-filter", "The pre-filter is structural, not a complexity signal. No manifest AND no git history AND \u22642 source files = Micro (too small for formal process). Otherwise the orchestrator applies the 7 structural signals."),
+                    ("7 structural signals", "Lightweight vs Full is decided on 7 structural signals (dependencies, persistence, entry points, multi-component, existing tests, CI/CD, git maturity) \u2014 not file count."),
+                    ("Micro", "Pre-filter: no manifest, no git history, \u22642 source files. Prototypes, quick experiments. Minimal overhead."),
+                    ("Lightweight", "Default when no Full rule matches. PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER. Branch isolation, 3 health dims."),
+                    ("Full", "First-match-wins rules: persistence, multi-component, CI/CD, >10 deps or >10 entry points \u2014 or existing tests AND (deps > 3 OR entry points > 3). Complete lifecycle LC01\u2192LC02\u2192LC03. Worktrees, 8 health dims, full traceability."),
                     ("How to choose", "Start Lightweight for your professional project. Escalate to Full when the 7 signals indicate structural complexity. The agent proposes the mode during /gse:go."),
                     ("Adopt mode", "For existing projects: /gse:go --adopt performs a non-destructive scan and creates a sprint-0 baseline without modifying any files."),
                 ],

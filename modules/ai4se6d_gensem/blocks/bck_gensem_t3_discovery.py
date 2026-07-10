@@ -148,7 +148,7 @@ def build():
                         title="PLAN + Complexity Budget (P10)",
                         entries=[
                             ("Purpose", "Transform the gap into an actionable sprint: decompose into TASK- items with branches, dependencies, and complexity costs."),
-                            ("Complexity budget", "Each sprint has 8-15 complexity points. Tests/docs/renames = free. Simplification earns credits (\u22121 to \u22122)."),
+                            ("Complexity budget", "Each sprint has 8-15 complexity points. Maintenance work (tests/docs/renames): assessed case-by-case, 0/1/2-5 pts (Cost Assessment Grid). Simplification earns credits (\u22121 to \u22122)."),
                             ("Cost examples", "Utility dependency = 1pt, UI component = 1-2pts, framework = 2-3pts, external service = 2-4pts, security surface = 2-3pts, architectural pattern = 3-5pts, new language/framework = 4-6pts."),
                             ("The plan as contract", "The plan constrains the AI agent — it cannot deviate without plan revision. This prevents scope creep."),
                             ("Gate", "The user MUST validate the plan before production starts. No auto-approval."),
@@ -169,7 +169,7 @@ def build():
                             st_write(bs.body, (bs.stat, "Warn 80%"), (bs.body, " Gate 100%"))
                     with g.cell():
                         with st_block(s.project.containers.callout):
-                            st_write(bs.body, (bs.keyword, "Tests = 0pt"), (bs.body, " always free"))
+                            st_write(bs.body, (bs.keyword, "Tests: 0-5 pts"), (bs.body, " via the Cost Assessment Grid (no blanket free rule)"))
 
     st_slide_break(marker_label="Version Control: Worktree Isolation")
 
