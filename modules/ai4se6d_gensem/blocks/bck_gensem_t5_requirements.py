@@ -108,7 +108,7 @@ def build():
                     st_hover_tooltip(
                         title="Preview and Full Traceability",
                         entries=[
-                            ("/gse:preview", "Wireframes, API contracts, user story walkthroughs — validate before any code is written."),
+                            ("/gse:preview", "Wireframes, API contracts, user story walkthroughs — as static description or runnable scaffold (Gate at Step 1.5). Validate before any code is written."),
                             ("Cost of change", "Fixing a design flaw costs 10x less than fixing the same flaw in code. Preview closes the 80% of the 80/20 rule."),
                             ("Traceability web", "TASK → derives_from REQ → implements DES → decided_by DEC → validates TST. Every artifact is linked."),
                             ("Impact analysis", "Change REQ-007? The agent shows all impacted tests, designs, and tasks automatically."),

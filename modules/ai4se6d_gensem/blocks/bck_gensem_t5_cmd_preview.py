@@ -21,11 +21,11 @@ class BlockStyles:
 bs = BlockStyles
 
 _PREVIEW_TYPES = [
-    ("UI feature", "Wireframe description, screen-by-screen walkthrough"),
+    ("UI feature", "Wireframe description or scaffold, screen-by-screen walkthrough"),
     ("API", "Example request/response pairs, endpoint summary"),
     ("Architecture", "Component diagram (mermaid), dependency map"),
     ("Data model", "Entity list, relationship description"),
-    ("Feature", "User story walkthrough: \u201cAs a user, I click X, I see Y\u201d"),
+    ("Feature", "User story walkthrough (\u201cAs a user, I click X, I see Y\u201d) or scaffold"),
     ("Imported element", "Side-by-side: original source vs. planned adaptation"),
 ]
 
@@ -39,7 +39,8 @@ def build():
             st_hover_tooltip(
                 title="/gse:preview \u2014 Close the Gap",
                 entries=[
-                    ("Purpose", "Simulate what planned artifacts will look like BEFORE any code is written. Lightweight \u2014 not a prototype, but a visualization."),
+                    ("Purpose", "Simulate what planned artifacts will look like BEFORE any code is written. In the static variant, the preview is lightweight \u2014 not a prototype, but a throwaway visualization."),
+                    ("Two variants (Gate, Step 1.5)", "Static description (throwaway wireframes, walkthroughs) OR scaffold-as-preview: a minimal runnable project (Vite+React, Streamlit, Next.js\u2026) kept as the base of /gse:produce \u2014 no throwaway code. Recommended for web/mobile domains."),
                     ("Why it matters", "Closes the gap between 'I described what I want' and 'I can see what I'll get.' Fixing design costs 10x less than fixing code."),
                     ("Gate decision", "The user validates the preview before production starts. Modifications can be requested before any code is generated."),
                     ("When used", "After /gse:reqs and /gse:design, before /gse:tests and /gse:produce. The preview informs both test strategy and implementation."),
