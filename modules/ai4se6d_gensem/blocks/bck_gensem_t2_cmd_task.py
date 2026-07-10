@@ -29,11 +29,12 @@ def build():
             st_hover_tooltip(
                 title="/gse:task \u2014 Outside the Standard Lifecycle",
                 entries=[
+                    ("Sprint Freeze (Hard)", "Step 0 \u2014 before any work, the current sprint must be writeable: on a completed/delivered sprint a Hard Gate fires (Sprint Freeze invariant) instead of silently amending closed work."),
                     ("Ad-hoc task", "Execute a task outside the planned sprint. Creates branch + worktree, adds to backlog, consumes complexity budget. Reviewed during next /gse:review unless trivial (\u2264 1 pt)."),
                     ("--spike option", "Exploratory experiment on any artefact (code, docs, reorg, decision\u2026): produced work is discarded, only the DEC- decision survives. Max 3 pts, non-deliverable (branch deleted after), bypasses REQS/TESTS guardrails. MUST produce a DEC- artifact documenting question, approach, and answer."),
                     ("Spike for beginners", "Gate confirmation: 'This is an experiment \u2014 the code won't be kept. Are you sure?' Prevents confusion between spike and real work."),
                     ("If spike yields reusable code", "A normal TASK must be created to implement it properly with full REQS/TESTS. The spike DEC- artifact traces the origin."),
-                    ("Cross-cutting", "Available at any phase. The orchestrator (/gse:go) may suggest a spike when it detects technical uncertainty."),
+                    ("Cross-cutting", "Available at any phase."),
                 ],
                 scale="2vw", width="70vw", position="center",
             )

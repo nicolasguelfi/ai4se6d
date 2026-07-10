@@ -30,6 +30,7 @@ def build():
                     ("Merge", "Feature branches \u2192 sprint branch \u2192 main. Each merge is a Gate-tier decision (P12). Merge strategy adapted to user expertise (squash vs. merge vs. rebase)."),
                     ("Tag", "Semantic version tag on main after merge. Generates changelog."),
                     ("Optional deploy", "If git.post_tag_hook is configured, deployment runs automatically after tagging. If it fails, proposes rollback (Gate)."),
+                    ("Test evidence (Hard)", "Step 1.5 blocks delivery if a must-priority REQ lacks passing test_evidence \u2014 Gate: run tests now / deliver partial (DEC-) / reclassify as spike or deferred (DEC-) / discuss. Also verifies every declared test-strategy level was executed and evidence is fresh (spec \u00a79.3.1)."),
                     ("Health check", "Warns if health < 5 before delivering. You can proceed but must acknowledge the risk."),
                     ("Archive plan", "Step 9 reads .gse/plan.yaml and generates docs/sprints/sprint-NN/plan-summary.md. The PLN-NNN ID is inherited from plan.yaml.id to preserve P6 traceability. plan.yaml.status is then set to 'completed'."),
                     ("Cleanup", "Merged branches and worktrees are deleted to prevent sprawl (P12)."),

@@ -124,7 +124,8 @@ Thèmes majeurs à couvrir si le postscript est étendu (SUGGESTIONS issues du C
 | P-RECAP (Q13 puis DÉCISION FINALE) | ✅ **postscript supprimé** — principe : les formations se font toujours sur la dernière version, aucun récapitulatif inter-versions ni référence aux versions antérieures du plugin dans le support (le postscript consolidé v0.20.4→v0.85.0 de `4fc7f54` a été retiré ; contenu récupérable dans git). Les v0.x restants dans le deck = versions de l'app CalcApp (atelier), pas du plugin | `4fc7f54` puis suppression |
 | P-BRAND (Q15) | ✅ ABANDONNÉ — sa prémisse était l'erreur de nommage du corpus ; les titres « Generative Software Engineering » étaient justes | — |
 | Nommage GSE (Q16, réponse 3) | ✅ corpus gensem corrigé et **release v0.85.1** publiée (Generic → Generative, 5 sources + régénération 5 plateformes, 125 tests verts, tag poussé) ; support restauré avec la sémantique « first instantiation » ; M4 inversée | gensem `34c7a39` + commit support |
-| Restants à traiter | P-ORPHANS (Q14 en attente), P-DELIVER-NEW, P-ENRICH | — |
+| P-ORPHANS (Q14) | ✅ statu quo : session_map et day5_bridge restent en réserve (non câblés, corrects, réutilisables pour un format multi-jours) | — |
+| P-DELIVER-NEW/P-ENRICH (Q17, réponse 3) | ✅ enrichissement ciblé : guardrails test-evidence de DELIVER (Step 1.5, §9.3.1) + Sprint Freeze de /gse:task (Step 0) ; phrase non attestée « l'orchestrateur suggère un spike » retirée. Autres enrichissements (Pause Commit Gate, resume git_state, Root-Cause Discipline, reqs 7.5, Shared State, 9 statuts, UX Pass) volontairement laissés au registre pour une itération future | commit Q17 |
 
 ## 6. Détail par lot (extraits PÉRIMÉ — voir rapports d'agents pour les tables complètes)
 
