@@ -36,6 +36,7 @@ def build():
                 entries=[
                     ("Full pipeline", "Setup (hcloud CLI, API token, domain) \u2192 Provision \u2192 Secure/harden \u2192 Install Coolify \u2192 Configure DNS/SSL \u2192 Deploy. One guided flow, 6 phases."),
                     ("Orientation", "Orientation by role (solo / instructor / learner) + auto-detected mode (full / partial / app-only / training) from .env."),
+                    ("Training mode", "Learner preconditions are checked deterministically by the agent (.env present, DEPLOY_USER set, GitHub origin remote) — no self-reported y/n. A damaged learner app is recreated by re-running /gse:deploy (~5 min, from the learner's GitHub repo). Instructor tip: pin GSE_VERSION for the whole cohort (--training-init)."),
                     ("--status", "Show current deployment state without changes."),
                     ("--redeploy", "Rebuild and redeploy the application. Does not provision new server."),
                     ("--destroy", "Tear down server. Double Gate \u2014 confirm twice (the server name must be re-typed) \u2014 irreversible."),

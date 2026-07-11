@@ -44,7 +44,7 @@ def build():
                 title="/gse:hug \u2014 User Profile (13 Dimensions)",
                 entries=[
                     ("Purpose", "Establish or update the full engineering context profile. This profile calibrates EVERYTHING: decision tiers (P7), communication depth (P9), guardrail thresholds (P11), learning proposals (P14)."),
-                    ("Smart interview", "The agent infers as many dimensions as possible from context (language from first message, domain from package manifest, expertise from vocabulary). Only 4\u20135 explicit questions needed."),
+                    ("Smart interview", "The agent infers as many dimensions as possible from context (language from first message, domain from package manifest, expertise from vocabulary). With existing code to infer from, only 4\u20135 explicit questions are needed; on a greenfield project (nothing to infer) expect up to a dozen quick single-tap questions."),
                     ("Git init", "Also verifies the project is a git repository (initializes with foundational commit if needed) and creates the .gse/ directory."),
                     ("Updatable", "Run /gse:hug anytime to update your profile. Preferences evolve as you learn \u2014 expertise domains are also updated silently by observation (P14)."),
                 ],
@@ -68,4 +68,4 @@ def build():
                                 st_write(bs.body, f"{icon} ", (bs.keyword, label))
 
             st_space("v", 1)
-            st_write(bs.accent, "4\u20135 questions only \u2014 the agent infers the rest from context.")
+            st_write(bs.accent, "4\u20135 questions on existing code \u2014 up to a dozen quick ones on greenfield.")

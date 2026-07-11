@@ -87,20 +87,22 @@ def build():
                     st_code(
                         s.none,
                         code=(
-                            "# One-liner (auto-detects the 5 platforms)\n"
+                            "# One-liner (run inside the project; auto-picks the single\n"
+                            "# agent on PATH — several agents: set GSE_PLATFORM=...)\n"
                             "curl -fsSL <repo>/install.sh | sh\n\n"
                             "# Or explicit (clone + install.py)\n"
                             "python3 install.py \\\n"
                             "  --platform claude|cursor|opencode|codex|gemini|both|all \\\n"
-                            "  --mode plugin|no-plugin|local|sandbox"
+                            "  --mode project|machine|sandbox"
                         ),
                         language="bash",
                     )
                     st_space("v", 1)
                     st_write(
                         bs.body,
-                        "The curl default is a no-plugin install into the project "
-                        "(.claude/, .cursor/, \u2026); set GSE_MODE=plugin for a user-scope plugin install. "
+                        "The curl default is a project install \u2014 everything inside the project folder "
+                        "(.claude/, .cursor/, \u2026, registry at .gse/registry), nothing written to $HOME, "
+                        "so the project travels self-contained; set GSE_MODE=machine for a whole-machine install. "
                         "The ",
                         (bs.keyword, ".gse/"),
                         " project state is created by /gse:hug. "
