@@ -1,3 +1,56 @@
+
+
+----------------------------------
+On travail sur le module:
+ai4se6d/modules/ai4se6d_gensem
+
+
+
+tesla.nikola__source__02.jpg)
+
+----------------------------------
+
+pasteur.louis__source__01.jpg
+saint-exupery.antoine__source__01.jpg
+einstein.albert__source__01.jpg
+luther.martin__source__01.jpg
+marx.karl__source__02.png
+plato__source__03.jpg
+tesla.nikola__source__02.jpg
+berners-lee.tim__source__03.jpg
+orwell.george__source__01.jpg
+turing.alan__source__01.jpg
+berg.paul__source__01.jpg
+carson.rachel__source__01.jpg
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------
+
+
+
+----------------------------------
+
+
+
+----------------------------------
+
+
+
+----------------------------------
+
+
+
+
 # Mission : alignement du support de formation AI4SE sur GSE-One v0.85.0
 
 ## Contexte
