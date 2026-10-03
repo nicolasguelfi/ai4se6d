@@ -19,7 +19,8 @@ This project uses **uv** for dependency management. You MUST:
 Before writing any block code, you MUST read:
 1. `.claude/references/coding_standards.md` — full coding standards (single source of truth)
 2. `.claude/references/streamtex_cheatsheet_en.md` — syntax reference
-3. `book.py` — to understand how blocks are wired
+3. The book that wires the blocks: `book.py` at the root, or — in a multi-module project — the
+   `book.py` of the module you work on (`modules/<module>/book.py`, one book per document)
 
 ## Coding Standards
 See `.claude/references/coding_standards.md` for the full reference. Key rules:
@@ -51,7 +52,8 @@ See `.claude/references/coding_standards.md` for the full reference. Key rules:
 - Style composition: `Style + Style`, `Style + string`, `Style - string`
 
 ### Media & Visual
-- `st_image(style, uri=)` — Image handling with base64 encoding
+- `st_image(style, uri=)` — Images: inlined as base64 by default; **served** (not inlined) once the
+  book calls `configure_image_path()` + `set_static_sources()` — prefer serving for large media
 - `st_code(style, code=, language=)` — Code blocks with Pygments
 - `st_space(dir, amount)`, `st_br()` — Spacing
 - `st_mermaid(style, code)` — Mermaid diagrams
@@ -69,6 +71,9 @@ stx run
 ```
 
 ## Project Structure
+Check which layout this project uses before assuming one.
+
+Single document:
 ```
 ai4se6d/
 ├── book.py                 # Entry point
@@ -82,6 +87,17 @@ ai4se6d/
 └── .streamlit/config.toml  # Streamlit config
 ```
 
+Several documents (one book per module, shared blocks and a local pack):
+```
+ai4se6d/
+├── stx.toml                # packs, design system, [claude] declaration
+├── modules/<module>/       # one document each: book.py, blocks/, custom/, static/, .streamlit/
+├── modules/shared-blocks/  # blocks and helpers shared by the modules (or a local pack)
+└── <name>_pack/            # local pack: components + design system
+```
+Each module runs on its own (`stx run modules/<module>`); a block keeps its own explicit settings —
+do not factor per-slide values into shared helpers unless the author asks.
+
 ## Documentation Lookup (when answering user questions)
 
 When the user asks a question about StreamTeX usage, patterns, or features:
@@ -92,7 +108,7 @@ When the user asks a question about StreamTeX usage, patterns, or features:
    - `stx_manual_intro/blocks/` — fundamentals (text, grids, lists, images, containers, styles)
    - `stx_manual_advanced/blocks/` — advanced features (export, PDF, bibliography, diagrams, overlays, banners)
    - `stx_manual_ai/blocks/` — AI image generation, Claude profiles, prompt patterns
-   - `stx_manual_deploy/blocks/` — deployment (Docker, Render, CI/CD)
+   - `stx_manual_deploy/blocks/` — deployment (Docker, Hetzner/Coolify, HuggingFace, CI/CD)
    - `stx_manual_developer/blocks/` — library internals (architecture, testing, block system, CLI)
    - Block files are `bck_*.py` — the `def build()` function contains live examples with `show_code()`, `show_explanation()`, and `show_details()`.
 3. **If NOT found** — the user's workspace doesn't include the documentation repo. Tell them:
@@ -131,24 +147,84 @@ The `stx-block` commands cover the full project lifecycle:
 
 ## Workflows — stx-ce Compound Document Engineering
 
-The `stx-ce` commands provide a structured methodology for document production:
+The `stx-ce` commands provide a structured, **iterative and incremental** methodology for document production. A cycle can cover the full document or an increment (part, section, single block); the scope is determined by dialogue at the start, not by flags.
+
+### Cycle (9 phases)
 
 ```
-COLLECT -> ASSESS -> PLAN -> PRODUCE -> REVIEW -> FIX -> COMPOUND -> INTEGRATE
+COLLECT → ASSESS → PLAN → PROTOTYPE → PRODUCE → REVIEW → FIX → COMPOUND → INTEGRATE
+                            ↑
+              (QCM-driven; skipped when the increment continues
+               an already-validated visual territory with mapped patterns)
 ```
 
-1. **Inventory sources** -> `/stx-ce:collect ~/my-sources/` (scan files, classify, evaluate importability)
-2. **Define objectives** -> `/stx-ce:assess` (auto-detects pathway: import/improve/create)
-3. **Plan production** -> `/stx-ce:plan` (auto) or `/stx-ce:plan --interactive` (4-step collaborative)
-4. **Execute plan** -> `/stx-ce:produce` (orchestrates stx-block + stx-import commands)
-5. **Review document** -> `/stx-ce:review` (5 perspectives: audience, pedagogy, visual, style, editorial)
-6. **Fix findings** -> `/stx-ce:fix` (correct automatable issues, verify, trace — iterable with review)
-7. **Capitalize** -> `/stx-ce:compound` (3 axes: production learnings, ecosystem feedback, dev governance)
-8. **Integrate** -> `/stx-ce:integrate` (route solutions to lib issues, skill updates, or custom rules)
-9. **Full cycle** -> `/stx-ce:go "description"` (autonomous with 4 validation gates)
+1. **Inventory sources** → `/stx-ce:collect ~/my-sources/` (scan, classify, evaluate importability)
+2. **Define objectives + init master plan** → `/stx-ce:assess` (auto-detects pathway A/B/C; initializes the master plan on the first iteration, enriches it on subsequent ones)
+3. **Plan increment** → `/stx-ce:plan` (produces an increment plan aligned with the master plan; first iteration also produces the global TOC skeleton)
+4. **Validate styles + extract patterns** → `/stx-ce:prototype` (1+ pilot blocks; capture/reuse patterns into the local catalog)
+5. **Execute plan** → `/stx-ce:produce` (orchestrates stx-block + stx-import; applies mapped patterns; updates per-block statuses in the master plan)
+6. **Review document** → `/stx-ce:review` (scope-aware; multiple perspectives + objective monitoring)
+7. **Fix findings** → `/stx-ce:fix` (correct automatable issues; may propose re-applying new patterns to earlier blocks)
+8. **Capitalize** → `/stx-ce:compound` (4 axes: production learnings, ecosystem feedback, dev governance, master plan maintenance)
+9. **Integrate** → `/stx-ce:integrate` (route solutions; promote local patterns to the shared catalog when eligible)
 
-CE artifacts are stored in `docs/` (collect/, assess/, plans/, reviews/, solutions/).
-See `.claude/references/ce_cheatsheet_en.md` for the full reference.
+**Auxiliary commands**: `/stx-ce:go "description"` (orchestrated cycle with contextual scope dialogue, no flags exposed), `/stx-ce:continue` (resume session with reconciliation), `/stx-ce:status` (master plan dashboard), `/stx-ce:task <id>` (sub-task), `/stx-ce:pause` (snapshot before stopping).
+
+### Master plan
+
+Living reference for the document, **independent of git history**:
+- `docs/master-plan.yaml` — orchestration metadata (objectives, TOC, statuses, decisions log, components mapping)
+- `docs/master-plan.md` — content plan (intentions, sources, design notes, raw content drafts)
+- `docs/master-plan/archive/YYYY-MM-DD-NNN.{yaml,md}` — paired snapshots taken automatically whenever the plan differs from the last snapshot
+
+### QCM convention and `dialog_level`
+
+Every user-facing decision is surfaced as a QCM with a single format:
+- Option 1 suffixed `(Recommandé)` + 0-2 business alternatives + `Discutons-en` + auto-injected `Autre`.
+- The `producer-profile.md` field `dialog_level` (`minimal` / `guided` / `exhaustive`) modulates the **frequency** of QCMs — never the format.
+- In `minimal`, only the 4 **fundamental gates** surface QCMs (post-PLAN, post-REVIEW, post-FIX, post-INTEGRATE); sub-decisions silently apply the recommended default.
+
+**Source of truth**: `.claude/ce/skills/ce-conventions.md`.
+
+### Artifacts on disk
+
+CE artifacts are stored under `docs/`: `collect/`, `assess/`, `plans/`, `prototypes/`, `reviews/`, `solutions/`, plus `master-plan.{yaml,md}` and `master-plan/archive/`. See `.claude/references/ce_cheatsheet_en.md` for the full command reference.
+
+## Workflows — stx-pe Pack Engineering
+
+The `stx-pe` commands provide an orchestrated lifecycle for extracting, forking, refining, auditing, adopting, and publishing **reuse packs** across N projects. Where `stx-ce` operates inside a single project, `stx-pe` operates across projects to create or evolve a shared pack.
+
+### Cycle (7 phases, 4 fundamental gates)
+
+```
+DISCOVERY -> DESIGN -> IMPLEMENT -> ADOPT -> RETROFIT -> AUDIT -> PUBLISH
+   |          |                              |           ^         ^
+ [G1]       [G2]                          [G3/G4]      (auto)   (opt-in)
+```
+
+### Single user-facing agent
+
+**`pack-orchestrator`** is the only PE agent that talks to the user. It auto-classifies the prompt into one of six sub-modes and delegates to six invisible specialists (`pack-miner`, `pack-designer`, `pack-implementer`, `pack-retrofitter`, `pack-auditor`, `pack-publisher`). You never need to know the specialists exist.
+
+### Commands
+
+1. **Auto-detect sub-mode** → `/stx-pe:go [<projects>]` (orchestrated cycle, sub-mode inferred from prompt + workspace state)
+2. **Extract a new pack** → `/stx-pe:bootstrap <projects>` (N projects → brand-new pack from scratch)
+3. **Fork an upstream** → `/stx-pe:specialize <upstream> <projects>` (upstream pack + N projects → domain fork)
+4. **Enrich active pack** → `/stx-pe:refine` (single project + new blocks → incremental capture)
+5. **Health audit** → `/stx-pe:audit <pack> [<projects>]` (read-only: unused / duplicates / bundle gaps / drift)
+6. **Wire pack into projects** → `/stx-pe:adopt <pack> <projects>` (install only, no extraction)
+7. **Release a mature pack** → `/stx-pe:publish <pack-path>` (semver + tag + optional PyPI; always gated by user QCM)
+
+### Auto-routing via /stx-ce:task
+
+You don't need to remember `/stx-pe:*`. Free-text prompts to `/stx-ce:task` auto-classify into 5 PACK_* archetypes that route to `pack-orchestrator`: `PACK_BOOTSTRAP`, `PACK_SPECIALIZE`, `PACK_REFINE`, `PACK_AUDIT`, `PACK_ADOPT`. `PACK_PUBLISH` is intentionally NOT auto-routed — publishing requires explicit `/stx-pe:publish`.
+
+### Master plan
+
+PE artifacts live under `docs/pack-engineering/`: `pack-master-plan.{yaml,md}` (state + narrative) and `<ts>/{discovery,design,retrofit-plan,retrofit-report,audit-report}.md` (per-phase reports). Decisions log entries: `mining_validated`, `design_approved`, `implementation_completed`, `adoption_completed`, `retrofit_validated`, `smoke_fail_resolved`, `audit_completed`, `publish_decided`.
+
+See `.claude/references/pe_cheatsheet_en.md` for the full command reference.
 
 ## Design Guidelines
 
@@ -158,3 +234,40 @@ Projects can adopt a design guideline for consistent visual design:
 - **Block annotation**: `# @guideline: <name>` in block files (most specific wins)
 - **Combination**: `# @guideline: A + B` — A has priority, B complements
 - **Built-in**: `maximize-viewport`, `minimalist-visual`, `academic-structured`, `dense-informative`
+
+## Reuse architecture (packs, components, design systems, kits)
+
+The project may declare one or more StreamTeX packs in its `stx.toml`
+(cf. PLAN §6.1). The reference pack is `streamtex-pack-design`. Components
+are Python modules with a structured docstring (§4.1) and a
+`__component_meta__`. Kits glue a design system + a curated component
+list. See the `reuse-architecture` skill (loaded automatically).
+
+**Mandatory rules**:
+1. **Before generating or modifying any StreamTeX block**, run
+   `stx component list` (or read the `reuse-architecture` skill) to know
+   which components the active packs ship.
+2. When the user names a component (e.g. *"use callout"*, *"like
+   stat_hero"*), inspect it via `stx component show <name>` before
+   generating code — the docstring documents Visual / Structure /
+   Styling rules / Extrapolation rules (INVARIANTS / PARAMS / INTERDITS)
+   and the `bundles_required`.
+3. Strictly respect each component's `INVARIANTS` section. Adjust only
+   within `PARAMS`. Refuse anything matching `INTERDITS` and capture a
+   new component instead (via `stx component new` in `mypack/`).
+4. The component's code skeleton is a **starting point** — adapt it to
+   the project's `custom/styles.py` and the active design system.
+5. If the user describes something that matches no existing component
+   but is reusable, suggest `stx component new <name>` to capture it
+   into the **primary local pack** (PROTOTYPE / Phase 7).
+
+**Granularity tag** (cf. `reuse-architecture` skill):
+- `primitive` (callout, slide_heading, …)
+- `composition` (card_grid, takeaways, …)
+- `block` (title_slide, manual_section, …)
+
+A block can compose: blocks × compositions × primitives × free Python.
+
+**Commands**: `/stx-pack`, `/stx-component`, `/stx-ds`, `/stx-kit`,
+`/stx-validate`, `/stx-new`. See the `reuse-architecture` skill for the
+full mechanism.

@@ -7,7 +7,7 @@ include = []
 exclude = []
 source = "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex-claude"
 source_rev = "2bb1a8db511b83fdc8160e52751689a9c603a938"
-claude_md = ".claude/CLAUDE.md"
+claude_md = "CLAUDE.md"
 claude_md_sha = "724616435e184398c6fd3c973cff1e03082f47ddcfbf6f7d2ca49a72b7a66097"
 
 [files]
