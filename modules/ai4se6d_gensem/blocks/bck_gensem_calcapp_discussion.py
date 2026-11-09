@@ -36,5 +36,5 @@ def build():
 
         st_write(
             bs.closing,
-            "Take 2 minutes to think, then Tiago will guide the practice.",
+            "Take 2 minutes to think, then we start the practice together.",
         )

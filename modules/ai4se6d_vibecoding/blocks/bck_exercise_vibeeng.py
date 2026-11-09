@@ -34,7 +34,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "Tomorrow: VibeEngineering in Practice", tag=t.div, toc_lvl="1")
-            st_write(bs.body, (bs.keyword, "CalcApp v0.1"), " \u2014 Day 2 with Tiago", tag=t.div)
+            st_write(bs.body, (bs.keyword, "CalcApp v0.1"), " \u2014 Day 2", tag=t.div)
 
             st_image(
                 s.none,

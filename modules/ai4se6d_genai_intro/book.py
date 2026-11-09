@@ -97,7 +97,6 @@ marker_config = MarkerConfig(
 # bck_features         — template: feature showcase (from project init)
 # bck_grid_demo        — demo: responsive grid patterns
 # bck_lists_demo       — demo: list rendering patterns
-# bck_trainer_team     — deprecated: replaced by bck_trainer_ng + bck_trainer_ts
 # bck_same_tools       — planned: "Same Tools, Different Discipline" slide
 # bck_llm_tokens       — planned: token visualization (complement to tokenization)
 # bck_llm_next_token   — planned: next-token prediction detail
@@ -119,7 +118,6 @@ st_book(
         # Introduction
         blocks.bck_intro_title,
         blocks.bck_trainer_ng,
-        blocks.bck_trainer_ts,
         blocks.bck_intro_round_table,
         blocks.bck_poll_ai_experience,
         blocks.bck_poll_ai_result,
