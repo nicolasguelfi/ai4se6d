@@ -1,83 +1,64 @@
-"""Slide 35 — Windsurf + GitHub Copilot: other notable tools."""
+"""Act IV — Other agents you will meet at work: one line each (state checked November 2026).
+
+Sources checked 2026-11-09: GitHub changelog (Copilot cloud agent, renamed 2026-04-01),
+github.com/openai/codex, Google developers blog 2026-05-19 ("Transitioning Gemini CLI to
+Antigravity CLI": Gemini CLI stops serving individual plans on 2026-06-18, stays available
+with paid API keys and enterprise licences), Cursor product pages.
+"""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 
+
 class BlockStyles:
-    """Other IDEs slide styles."""
+    """Other agents slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
-    subheading = s.project.titles.section_title + s.center_txt
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.primary
     keyword_accent = s.bold + s.project.colors.accent
     keyword_warn = s.bold + s.project.colors.highlight
-    source = s.project.citation + s.large
+    takeaway = Style.create(
+        s.Large + s.italic + s.project.colors.accent + s.center_txt,
+        "ide_others_takeaway",
+    )
+    source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
+
 def build():
-    # Slide 1 — Windsurf
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Windsurf", tag=t.div, toc_lvl="1")
+            st_write(bs.heading, "Other Agents", tag=t.div, toc_lvl="1")
             st_space("v", 1)
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                # REF: cursor-ainative2025
                 with l.item():
-                    st_write(bs.body, (bs.keyword_accent, "Cascade"), " \u2014 multi-step AI flow engine for guided coding")
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "Memories"), " \u2014 persistent project context across sessions")
-                with l.item():
-                    st_write(bs.body, (bs.keyword_warn, "SOC 2 / FedRAMP"), " \u2014 enterprise-grade security compliance")
-                # REF: windsurf-cascade2025
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "800K+ developers"), " \u2014 growing community adoption")
-                # REF: windsurf-cascade2025
-                with l.item():
-                    st_write(bs.body, (bs.keyword_accent, "Acquired by Cognition"), " \u2014 merged with Devin AI team")
-
-            st_write(bs.source, cite("windsurf-cascade2025"))
-
-    st_slide_break()
-
-    # Slide 2 — GitHub Copilot
-    with st_block(s.project.containers.page_fill_top):
-        with st_zoom(90), st_block(s.center_txt):
-            st_write(bs.heading, "GitHub Copilot", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
-
-            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                    st_write(bs.body, (bs.keyword, "Cursor"), " — AI-native editor, agent and plan modes")
                 # REF: copilot-plans2025
                 with l.item():
-                    st_write(bs.body, (bs.keyword_warn, "20M+ developers"), " \u2014 largest AI coding user base")
+                    st_write(bs.body, (bs.keyword, "GitHub Copilot"), " — IDE agent; cloud agent: issue → pull request")
+                # REF: openai-codex-cli2025
                 with l.item():
-                    st_write(bs.body, (bs.keyword, "Agent Mode"), " \u2014 autonomous file editing and terminal access")
+                    st_write(bs.body, (bs.keyword, "Codex CLI"), " — OpenAI, open source, reads AGENTS.md")
                 with l.item():
-                    st_write(bs.body, (bs.keyword_accent, "Coding Agent"), " \u2014 async background agent for issues and PRs")
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "MCP support"), " \u2014 extensible via Model Context Protocol servers")
-                with l.item():
-                    st_write(bs.body, (bs.keyword_warn, "IP indemnity"), " \u2014 Microsoft legal protection for enterprise customers")
+                    st_write(
+                        bs.body,
+                        (bs.keyword, "Gemini CLI"), " — Google; succeeded by ",
+                        (bs.keyword_warn, "Antigravity CLI"), " (May 2026)",
+                    )
 
-            st_write(bs.source, cite("copilot-plans2025"))
-
-    st_slide_break()
-
-    # Slide 3 — OpenAI Codex
-    with st_block(s.project.containers.page_fill_top):
-        with st_zoom(90), st_block(s.center_txt):
-            st_write(bs.heading, "OpenAI Codex", tag=t.div, toc_lvl="1")
             st_space("v", 1)
-
-            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                with l.item():
-                    st_write(bs.body, (bs.keyword_accent, "Async coding agent"), " \u2014 runs in a cloud sandbox inside ChatGPT")
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "Full repo access"), " \u2014 reads entire codebases, writes multi-file changes")
-                with l.item():
-                    st_write(bs.body, (bs.keyword_warn, "Launched May 2025"), " \u2014 successor to the original Codex API (2021)")
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "codex-mini model"), " \u2014 optimized for code with fast response times")
-                with l.item():
-                    st_write(bs.body, (bs.keyword_accent, "ChatGPT Pro/Team/Enterprise"), " \u2014 not available on free tier")
+            st_write(
+                bs.takeaway,
+                "Not exclusive: know which one to reach for.",
+                tag=t.div,
+            )
+            st_write(
+                bs.source,
+                cite("cursor-ainative2025"), " · ", cite("copilot-plans2025"),
+                " · ", cite("openai-codex-cli2025"),
+                " · developers.googleblog.com, 19 May 2026",
+            )

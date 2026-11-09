@@ -15,6 +15,7 @@ class BlockStyles:
     keyword = s.bold + s.project.colors.primary
     keyword_accent = s.bold + s.project.colors.accent
     keyword_warn = s.bold + s.project.colors.highlight
+    takeaway = s.project.titles.body + s.center_txt
     source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
@@ -67,13 +68,21 @@ def build():
 
                 with g.cell():
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                        # REF: cursor-ainative2025
+                        # REF: opencode-sst2024
                         with l.item():
-                            st_write(bs.body, (bs.keyword_warn, "Cursor"), " \u2014 8 parallel agents running concurrently")
+                            st_write(bs.body, (bs.keyword_warn, "opencode"), " \u2014 plan, build, @subagents")
                         # REF: anthropic-claude-code2025
                         with l.item():
-                            st_write(bs.body, (bs.keyword_accent, "Claude Code"), " \u2014 5 sub-agents with autonomous orchestration")
+                            st_write(bs.body, (bs.keyword_accent, "Claude Code"), " \u2014 subagents, background tasks")
                         with l.item():
-                            st_write(bs.body, (bs.keyword, "GitHub Copilot"), " \u2014 async Coding Agent for background tasks")
+                            st_write(bs.body, (bs.keyword, "GitHub Copilot"), " \u2014 issue \u2192 pull request")
+                        with l.item():
+                            st_write(bs.body, (bs.keyword, "Cursor"), " \u2014 IDE, CLI and cloud agents")
+                    st_space("v", 1)
+                    st_write(
+                        bs.takeaway,
+                        "It ", (bs.keyword_warn, "plans, edits, runs"),
+                        ". You ", (bs.keyword_accent, "frame and review"), ".",
+                    )
 
-            st_write(bs.source, cite("cursor-ainative2025"), " \u00b7 ", cite("anthropic-claude-code2025"))
+            st_write(bs.source, cite("opencode-sst2024"), " \u00b7 ", cite("anthropic-claude-code2025"))

@@ -26,5 +26,5 @@ def build():
             st_space("v", 1)
             st_write(
                 bs.body,
-                "The TOOLS bring them to life.",
+                "The TOOLS bring them to life \u2014 this week, yours is opencode.",
             )

@@ -152,17 +152,20 @@ st_book(
         blocks.bck_exercise_vibeeng,             # Block 30
 
         # --- ACT IV: TOOL ECOSYSTEM ---
-        # blocks.bck_ide_overview,                 # Block 31 — Section billboard
-        # blocks.bck_ide_autonomy,                 # Block 32 — 5 levels + agentic turn
-        # blocks.bck_ide_cursor,                   # Block 33 — Cursor detailed
-        # blocks.bck_ide_claude_code,              # Block 34 — Claude Code detailed
-        # blocks.bck_ide_others,                   # Block 35 — Windsurf + Copilot
-        # blocks.bck_ide_comparison,               # Block 36 — Comparison matrix
-        # blocks.bck_ide_mcp,                      # Block 37 — MCP protocol
-        # blocks.bck_ide_cursor_choice,            # Block 38 — Why Cursor
+        blocks.bck_ide_overview,                 # Block 31 — Section billboard
+        blocks.bck_ide_autonomy,                 # Block 32 — 5 levels + agentic turn
+        blocks.bck_ide_opencode,                 # Block 33 — opencode, the course tool (3 slides)
+        blocks.bck_ide_claude_code,              # Block 34 — Claude Code, the reference terminal agent
+        blocks.bck_ide_others,                   # Block 35 — Cursor, Copilot, Codex CLI, Gemini CLI
+        blocks.bck_ide_local_llms,               # Block 35b — Local LLMs (Ollama, LM Studio)
+        blocks.bck_ide_comparison,               # Block 36 — Same concepts, different names
+        blocks.bck_ide_mcp,                      # Block 37 — MCP protocol
+        blocks.bck_ide_opencode_choice,          # Block 38 — Why opencode for this course
+        blocks.bck_ide_ai_act,                   # Block 38b — EU AI Act: risk levels + timeline
+        blocks.bck_ide_ai_rules,                 # Block 38c — Practical rules for this week
 
         # --- CLOSING ---
-        #blocks.bck_recap,                        # Block 39
+        # blocks.bck_recap,                      # Block 39 — disabled: road-ahead slide is edition-1 (Cursor, old day plan)
         blocks.bck_closing,                      # Block 40 — Questions?
         blocks.bck_shared_glossary,               # Block 41 — shared glossary
         blocks.bck_references,                   # Block 42 — Bibliography

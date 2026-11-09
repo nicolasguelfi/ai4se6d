@@ -51,14 +51,14 @@ def build():
                 with g.cell():
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
-                            st_write(bs.body, (bs.keyword, "Open protocol"), " \u2014 standardized tool-to-model communication")
+                            st_write(bs.body, (bs.keyword, "Open protocol"), " \u2014 plug tools and data into any agent")
                         # REF: mcp-registry2025
                         with l.item():
-                            st_write(bs.body, (bs.keyword_warn, "16,670+ servers"), " \u2014 rapidly growing ecosystem")
+                            st_write(bs.body, (bs.keyword_warn, "Thousands of servers"), " \u2014 public registry")
                         with l.item():
-                            st_write(bs.body, "Domains: ", (bs.keyword_accent, "version control"), ", ", (bs.keyword_accent, "testing"), ", ", (bs.keyword_accent, "databases"), ", ", (bs.keyword_accent, "cloud"), ", ", (bs.keyword_accent, "observability"))
+                            st_write(bs.body, (bs.keyword, "Universal"), " \u2014 all five agents")
                         with l.item():
-                            st_write(bs.body, (bs.keyword, "Universal"), " \u2014 works with Cursor, Claude Code, Copilot, Windsurf")
+                            st_write(bs.body, (bs.keyword_warn, "Trust"), " \u2014 a local server runs code on your machine")
 
                     st_space("v", 1)
                     st_write(
