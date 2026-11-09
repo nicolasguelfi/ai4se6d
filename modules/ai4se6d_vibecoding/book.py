@@ -155,10 +155,10 @@ st_book(
         blocks.bck_ide_overview,                 # Block 31 — Section billboard
         blocks.bck_ide_autonomy,                 # Block 32 — 5 levels + agentic turn
         blocks.bck_ide_opencode,                 # Block 33 — opencode, the course tool (3 slides)
-        blocks.bck_ide_claude_code,              # Block 34 — Claude Code, the reference terminal agent
-        blocks.bck_ide_others,                   # Block 35 — Cursor, Copilot, Codex CLI, Gemini CLI
+        blocks.bck_ide_claude_code_ed2,              # Block 34 — Claude Code, the reference terminal agent
+        blocks.bck_ide_others_ed2,                   # Block 35 — Cursor, Copilot, Codex CLI, Gemini CLI
         blocks.bck_ide_local_llms,               # Block 35b — Local LLMs (Ollama, LM Studio)
-        blocks.bck_ide_comparison,               # Block 36 — Same concepts, different names
+        blocks.bck_ide_comparison_ed2,               # Block 36 — Same concepts, different names
         blocks.bck_ide_mcp,                      # Block 37 — MCP protocol
         blocks.bck_ide_opencode_choice,          # Block 38 — Why opencode for this course
         blocks.bck_ide_ai_act,                   # Block 38b — EU AI Act: risk levels + timeline

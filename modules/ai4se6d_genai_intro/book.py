@@ -121,7 +121,7 @@ st_book(
         blocks.bck_intro_round_table,
         blocks.bck_poll_ai_experience,
         blocks.bck_poll_ai_result,
-        blocks.bck_intro_objective,
+        blocks.bck_intro_objective_ed2,
         blocks.bck_intro_roadmap,
         blocks.bck_intro_how_we_work,
         # Fundamentals — AI

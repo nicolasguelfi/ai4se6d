@@ -1,93 +1,104 @@
-"""Slide — What You Will Be Able to Do: six observable objectives of the 6-day course.
-
-Edition 2 (board peda1, P20): real objectives shown on day 1, each tied to the days that build it,
-plus the framing line (the published programme mentions Cursor; this edition uses opencode).
-"""
+"""Slide — Today's Objectives: Morning / Afternoon schedule table."""
 # @guideline: maximize-viewport
+# @pattern: ptn_comparison_table
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
 
 
 _page_fill = s.project.containers.page_fill_top
 
-_card = Style.create(
-    s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md,
-    "obj_card",
+# Cell styles — alternating rows
+_cell_primary = Style.create(
+    s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md
+    + s.container.layouts.vertical_center_layout
+    + s.center_txt,
+    "obj_cell_primary",
 )
-_frame = Style.create(
-    s.project.containers.callout + s.center_txt,
-    "obj_frame",
+_cell_accent = Style.create(
+    s.project.containers.cell_accent_bg + s.project.containers.cell_pad_md
+    + s.container.layouts.vertical_center_layout
+    + s.center_txt,
+    "obj_cell_accent",
+)
+_cell_header = Style.create(
+    s.project.containers.cell_active_bg + s.project.containers.cell_pad_md
+    + s.container.layouts.vertical_center_layout
+    + s.center_txt,
+    "obj_cell_header",
 )
 
 
 class BlockStyles:
-    """Slide: objectives — 3x2 grid of cards + framing callout."""
-    heading = s.project.titles.section_title + s.center_txt
-    days = Style.create(
-        s.project.colors.highlight + s.bold + s.text.sizes.pt22,
-        "obj_days",
+    """Slide: Today's Objectives — table-roadmap archetype."""
+    heading = s.project.titles.slide_title + s.center_txt
+    col_title = Style.create(
+        s.project.colors.highlight + s.bold + s.Large + s.text.wrap.hyphens,
+        "obj_col_title",
     )
-    verb = Style.create(
-        s.project.colors.accent + s.bold + s.text.sizes.pt24,
-        "obj_verb",
+    item = Style.create(
+        s.Large + s.text.wrap.hyphens,
+        "obj_item",
     )
-    detail = Style.create(
-        s.text.sizes.pt22,
-        "obj_detail",
-    )
-    frame = Style.create(s.text.sizes.pt24, "obj_frame_text")
-    frame_key = Style.create(
-        s.text.sizes.pt24 + s.bold + s.project.colors.primary, "obj_frame_key",
+    keyword = Style.create(
+        s.project.colors.accent + s.bold + s.Large + s.text.wrap.hyphens,
+        "obj_keyword",
     )
 
 
 bs = BlockStyles
 
-# (days, objective, how you will show it)
-_OBJECTIVES = [
-    ("Days 1-2", "Drive a coding agent with discipline",
-     "give a precise task, read its plan, approve or refuse each action"),
-    ("Day 2", "Plan, build, test and review a small app with an AI agent",
-     "CalcApp v0.1: your plan, your tests, an AI review you triage"),
-    ("Day 2 →", "Use git as your safety net",
-     "commit, branch, compare, go back to a known-good tag"),
-    ("Days 3-4", "Run a structured AI-assisted lifecycle with GSE-One",
-     "requirements → plan → build → review → deliver, on CalcApp"),
-    ("Day 4", "Measure quality instead of trusting the agent's word",
-     "lint, tests and CI give a green/red signal you can check"),
-    ("Days 5-6", "Ship and present a mini-project",
-     "scope, milestones, deployment, gallery demo"),
+# Schedule data: (text, is_keyword, cell_style)
+# Morning and Afternoon items paired row by row
+_ROWS = [
+    # Row 1: headers
+    ("Morning", "Afternoon", _cell_header, True),
+    # Row 2
+    ("Training Group Discovery", "Dev Environment Setup", _cell_primary, False),
+    # Row 3
+    ("Training Content", "Naive Project — Part 1", _cell_accent, False),
+    # Row 4 — keyword rows
+    ("Understand GenAI and LLMs", "Break", _cell_primary, False),
+    # Row 5
+    ("Break", "NaiveProject — Part 2", _cell_accent, False),
+    # Row 6
+    ("Discover Vibe...ing discipline", "Debrief & Discussion", _cell_primary, False),
+    # Row 7
+    ("GenAI Tools Ecosystem", "", _cell_accent, False),
 ]
 
-_NOTES = [
-    ("Message", "These are the six things you can check at the end of day 6 — not topics, abilities."),
-    ("Cursor vs opencode", "Say it once: the concepts (agent loop, plan, permissions, context files) "
-                           "are the same in every coding agent."),
-]
+# Keywords to highlight in accent color
+_KEYWORDS = {
+    "GenAI", "LLMs", "VibeCoding", "VibeEngineering",
+    "Naive Prototype", "GenAI Tools Ecosystem",
+    "Debrief", "Dev Environment Setup",
+}
+
+
+def _has_keyword(text):
+    """Check if text contains a keyword to highlight."""
+    return any(kw in text for kw in _KEYWORDS)
+
+
+def _render_text(text, is_header):
+    """Render a cell text, highlighting keywords."""
+    if is_header:
+        st_write(bs.col_title, text)
+    elif _has_keyword(text):
+        st_write(bs.keyword, text)
+    else:
+        st_write(bs.item, text)
 
 
 def build():
     with st_block(_page_fill):
-        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell():
-                st_write(bs.heading, "What You Will Be Able to Do", tag=t.div, toc_lvl="1")
-            with h.cell():
-                st_hover_tooltip(title="Trainer notes — objectives", entries=_NOTES, position="left", width="45vw")
+        with st_block(s.center_txt):
+            st_write(bs.heading, "Today's Objectives", tag=t.div, toc_lvl="1")
 
-        with st_grid(cols="1fr 1fr 1fr", gap="16px", cell_styles=_card) as g:
-            for days, verb, detail in _OBJECTIVES:
+        # Two-column schedule table
+        for morning, afternoon, cell, is_header in _ROWS:
+            with st_grid(cols="1fr 1fr", gap="12px", cell_styles=cell) as g:
                 with g.cell():
-                    st_write(bs.days, days, tag=t.div)
-                    st_write(bs.verb, verb, tag=t.div)
-                    st_write(bs.detail, detail, tag=t.div)
-
-        with st_block(_frame):
-            st_write(
-                bs.frame,
-                "The published programme mentions Cursor. This edition uses ",
-                (bs.frame_key, "opencode"),
-                ": open-source, provider-agnostic, in the terminal. "
-                "Same concepts — the skills transfer to any coding agent.",
-            )
+                    _render_text(morning, is_header)
+                with g.cell():
+                    _render_text(afternoon, is_header)
