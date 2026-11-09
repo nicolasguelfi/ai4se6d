@@ -88,7 +88,7 @@
     author    = {Karpathy, Andrej},
     year      = {2025},
     url       = {https://x.com/karpathy/status/1886192184808149383},
-    note      = {X/Twitter post, Feb 3, 2025. Origin of the term "vibe coding".},
+    note      = {X/Twitter post, Feb 2, 2025 (23:17 UTC, from the status id). Origin of the term "vibe coding".},
 }
 
 @misc{beck2025-augmented-coding,
@@ -116,10 +116,10 @@
 @inproceedings{spracklen-packages2025,
     title     = {We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs},
     author    = {Spracklen, Joseph and Wijewickrama, Raveen and Sakib, A H M Nazmus and Maiti, Anindya and Viswanath, Bimal and Jadliwala, Murtuza},
-    year      = {2024},
-    booktitle = {USENIX Security Symposium},
+    year      = {2025},
+    booktitle = {34th USENIX Security Symposium},
     url       = {https://arxiv.org/abs/2406.10279},
-    abstract  = {576,000 code samples, 16 LLMs. Hallucinated package rate: 5.2\% (commercial) to 21.7\% (open-source).},
+    abstract  = {576,000 Python and JavaScript samples, 16 LLMs. Average hallucinated-package rate: at least 5.2\% for commercial models (GPT-3.5/4/4 Turbo), 21.7\% for open-source models; 205,474 unique hallucinated names. Verified 2026-11-09.},
 }
 
 @article{basic-codesecurity-slr2025,
@@ -146,7 +146,7 @@
     year         = {2025},
     howpublished = {martinfowler.com},
     url          = {https://martinfowler.com/articles/exploring-gen-ai.html},
-    abstract     = {Warns that organizations chasing short-term AI productivity gains may face long-term technical debt catastrophe.},
+    abstract     = {Series of memos (mostly by Birgitta B{\"o}ckeler) on GenAI for software delivery. NOTE (2026-11-09): the page does not contain the phrase ``long-term catastrophe''; do not quote it as Fowler's.},
 }
 
 
@@ -167,7 +167,7 @@
     year         = {2024},
     journal      = {SSRN Working Paper 4945566},
     url          = {https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4945566},
-    abstract     = {Three field experiments (Microsoft, Accenture, Fortune 100) with 4,867 developers. Overall +26\%. Juniors: +27--39\%. Seniors: +8--13\%.},
+    abstract     = {Three field experiments (Microsoft, Accenture, Fortune 100) with 4,867 developers; +26.08\% completed tasks (SE 10.3\%). Short-tenure devs +27--39\%, long-tenure +8--13\%; junior +21--40\%, senior +7--16\% (subgroup estimates noisy, not significant at conventional levels). Feb 2025 version. Verified 2026-11-09.},
 }
 
 @misc{metr2025,
@@ -175,8 +175,8 @@
     author       = {{METR}},
     year         = {2025},
     url          = {https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/},
-    abstract     = {RCT: 16 experienced devs, 246 tasks. 19\% slower with AI despite predicting 24\% speedup. Acceptance rate: <44\%.},
-    note         = {arXiv: 2507.09089.},
+    abstract     = {RCT: 16 experienced devs (avg. 5 years on their repo), 246 issues. Tasks took 19\% longer with AI (95\% CI +2\% to +39\%) while devs forecast 24\% and afterwards believed 20\% speedup. Devs accepted <44\% of AI generations. Tools: Cursor Pro + Claude 3.5/3.7 Sonnet.},
+    note         = {Published 10 July 2025; arXiv: 2507.09089. Superseded for late-2025 tools by metr-uplift2026.},
 }
 
 @article{daniotti-github2025,
@@ -207,11 +207,11 @@
 % ── Empirical evidence — Surveys & reports ───────────────────────────────
 
 @misc{stackoverflow-survey2026,
-    title     = {Stack Overflow Developer Survey --- AI},
+    title     = {Stack Overflow Developer Survey 2024 --- AI},
     author    = {{Stack Overflow}},
-    year      = {2026},
+    year      = {2024},
     url       = {https://survey.stackoverflow.co/2024/ai},
-    note      = {76\% use or plan to use AI tools. 63\% use AI daily. 82\% regularly use AI for coding. Trust: 29\% (down from 43\% in 2024). Consulted April 2026.},
+    note      = {LEGACY KEY (misnamed): this is the 2024 survey. Prefer so-survey2024 / so-survey2025 / so-survey2026. 2024 figures: 76\% use or plan to use AI tools; 62\% currently use; trust in accuracy 43\% (2.7\% high + 40.3\% somewhat). Verified 2026-11-09.},
 }
 
 @techreport{jetbrains-survey2025,
@@ -223,11 +223,12 @@
 }
 
 @misc{gitlab-devsecops2025,
-    title     = {DevSecOps Report},
-    author    = {{GitLab}},
-    year      = {2025},
-    url       = {https://about.gitlab.com/developer-survey/},
-    abstract  = {3,266 respondents; 7 hours per team member weekly lost to AI-related inefficiencies.},
+    title        = {{GitLab} Survey Reveals the {AI} Paradox: Faster Coding Creates New Bottlenecks (2025 Global {DevSecOps} Report)},
+    author       = {{GitLab}},
+    year         = {2025},
+    howpublished = {GitLab press release, 10 November 2025},
+    url          = {https://about.gitlab.com/press/releases/2025-11-10-gitlab-survey-reveals-the-ai-paradox/},
+    abstract     = {Harris Poll for GitLab, 3,266 DevSecOps professionals. 7 hours per team member per week lost to inefficient processes; 60\% use more than 5 development tools; 49\% more than 5 AI tools. Verified 2026-11-09.},
 }
 
 @misc{gartner-se2025,
@@ -243,15 +244,16 @@
     author    = {{Anthropic}},
     year      = {2026},
     url       = {https://www.anthropic.com/research/impact-software-development},
-    abstract  = {60\% of software tasks AI-integrable, only 0--20\% fully delegable.},
+    abstract  = {Anthropic Economic Index study of coding conversations. NOTE (2026-11-09): the 60\% / 0--20\% figures come from anthropic-workstudy2025, not from this page.},
 }
 
 @misc{bain2025,
-    title     = {Technology Report 2025},
-    author    = {{Bain \& Company}},
-    year      = {2025},
-    url       = {https://www.bain.com/insights/topics/technology-report/},
-    abstract  = {10\% productivity gains from basic AI tooling; 25--30\% with end-to-end process redesign.},
+    title        = {From Pilots to Payoff: Generative {AI} in Software Development (Technology Report 2025)},
+    author       = {{Bain \& Company}},
+    year         = {2025},
+    howpublished = {Bain \& Company, 23 September 2025},
+    url          = {https://www.bain.com/insights/from-pilots-to-payoff-generative-ai-in-software-development-technology-report-2025/},
+    abstract     = {Teams using AI assistants see 10--15\% productivity boosts; some firms report 25--30\% by pairing GenAI with end-to-end process transformation; writing and testing code is about 25--35\% of the time from idea to launch. Verified 2026-11-09.},
 }
 
 @techreport{mckinsey-aieng2025,
@@ -274,11 +276,11 @@
 
 @article{soen101-2024,
     title     = {SOEN-101: Code Generation by Emulating Software Process Models Using Large Language Model Agents},
-    author    = {Qian, Feng and Chen, Jie and Ding, Shuai and others},
+    author    = {Lin, Feng and Kim, Dong Jae and Chen, Tse-Hsun (Peter)},
     year      = {2024},
     journal   = {arXiv preprint arXiv:2403.15852},
     url       = {https://arxiv.org/abs/2403.15852},
-    abstract  = {FlowGen: emulates Waterfall, TDD, Scrum with LLM agents. 15\% fewer code smells. FlowGenScrum: 75.2 Pass@1 on HumanEval.},
+    abstract  = {FlowGen (GPT-3.5 agents emulating Waterfall, TDD, Scrum). FlowGenScrum: Pass@1 75.2 on HumanEval, average 15\% improvement over raw GPT-3.5 (the 15\% is Pass@1, NOT code smells). Design and code review reduce code smells; vs raw GPT, error smell density -82 to -96\%, warning -15 to -58\%. v2 31 Oct 2024. Verified 2026-11-09.},
 }
 
 
@@ -1936,4 +1938,143 @@
     year         = {2026},
     url          = {https://bennycheung.github.io/bmad-v6-intellectual-ecosystem},
     note         = {Describes BMAD v6 Builder module: user-initiated (pull-based) ecosystem extension, contrasted with GSE COMPOUND Axe 2 (telemetric, filtered).},
+}
+
+
+% ── Day 2 (edition 2): AI-assisted code review — verified 2026-11-09 ─────
+
+@misc{coderabbit-ai-vs-human2025,
+    title        = {Our New Report: {AI} Code Creates 1.7x More Problems (State of {AI} vs. Human Code Generation)},
+    author       = {Loker, David},
+    year         = {2025},
+    howpublished = {CodeRabbit Blog, 17 December 2025},
+    url          = {https://www.coderabbit.ai/blog/state-of-ai-vs-human-code-generation-report},
+    abstract     = {470 open-source GitHub pull requests (320 AI-co-authored, 150 human-only): 10.83 vs 6.45 issues per PR (about 1.7x); security issues up to 2.74x higher. Vendor study; authorship labels not guaranteed.},
+}
+
+@misc{github-ccr-60m2026,
+    title        = {60 Million {Copilot} Code Reviews and Counting},
+    author       = {Gopu, Ria and Apirian, David},
+    year         = {2026},
+    howpublished = {GitHub Blog, 5 March 2026},
+    url          = {https://github.blog/ai-and-ml/github-copilot/60-million-copilot-code-reviews-and-counting/},
+    abstract     = {Copilot code review usage grew 10x since its April 2025 launch and now accounts for more than one in five code reviews on GitHub.},
+}
+
+@misc{jones-dre2011,
+    title        = {Software Defect Removal Efficiency},
+    author       = {Jones, Capers},
+    year         = {2011},
+    howpublished = {PPI Systems Engineering Newsjournal (SyEN) 36},
+    url          = {https://www.ppi-int.com/systems-engineering-newsjournal/ppi-syen-36/},
+    abstract     = {Data from more than 13,000 projects. Defect removal efficiency (min/avg/max): formal code inspections 60/85/96\%; automated unit testing 20/40/50\%; function testing 33/40/55\%.},
+}
+
+@book{cohen2006-peer-review,
+    title        = {Best Kept Secrets of Peer Code Review},
+    author       = {Cohen, Jason},
+    year         = {2006},
+    publisher    = {Smart Bear Inc.},
+    url          = {https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/},
+    abstract     = {Cisco MeetingPlace case study (lightweight review). SmartBear guidance: review no more than 200 to 400 lines of code at a time, and no more than 60 minutes per session.},
+}
+
+
+% ── Day 1 (edition 2): figures refresh — sources opened 2026-11-09 ───────
+
+@misc{metr-uplift2026,
+    title        = {We are Changing our Developer Productivity Experiment Design},
+    author       = {{METR}},
+    year         = {2026},
+    howpublished = {METR blog, 24 February 2026},
+    url          = {https://metr.org/blog/2026-02-24-uplift-update/},
+    abstract     = {Late-2025 follow-up (57 devs, 800+ tasks): returning devs -18\% time (CI -38\% to +9\%), new devs -4\% (CI -15\% to +9\%). METR calls the data unreliable (selection effects): a speedup is now likely, but only very weak evidence of its size.},
+}
+
+@misc{so-survey2024,
+    title        = {Stack Overflow Developer Survey 2024 --- {AI}},
+    author       = {{Stack Overflow}},
+    year         = {2024},
+    url          = {https://survey.stackoverflow.co/2024/ai},
+    abstract     = {Trust in AI accuracy: 43\% (2.7\% high + 40.3\% somewhat); distrust 30.4\%. 76\% use or plan to use AI tools.},
+}
+
+@misc{so-survey2025,
+    title        = {Stack Overflow Developer Survey 2025 --- {AI}},
+    author       = {{Stack Overflow}},
+    year         = {2025},
+    howpublished = {Stack Overflow, July 2025},
+    url          = {https://survey.stackoverflow.co/2025/ai},
+    abstract     = {84\% use or plan to use AI tools. Trust in accuracy 33\% (3.1\% high), distrust 46\%. Frustrations: 66\% ``almost right, but not quite''; 45\% debugging AI code more time-consuming.},
+}
+
+@misc{so-survey2026,
+    title        = {Stack Overflow Developer Survey 2026 --- {AI}},
+    author       = {{Stack Overflow}},
+    year         = {2026},
+    howpublished = {Stack Overflow, 6 October 2026},
+    url          = {https://survey.stackoverflow.co/2026/ai},
+    abstract     = {30,903 respondents, 169 countries. Trust question reworded: 48\% trust AI only when they can easily verify the output. 62\% favorable. 73\% use coding assistants/agents daily.},
+}
+
+@misc{anthropic-workstudy2025,
+    title        = {How {AI} Is Transforming Work at {Anthropic}},
+    author       = {{Anthropic}},
+    year         = {2025},
+    howpublished = {Anthropic Research, 2 December 2025},
+    url          = {https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic},
+    abstract     = {Survey of 132 Anthropic engineers and researchers (+53 interviews): Claude used in about 60\% of their work, self-reported +50\% productivity; most can ``fully delegate'' only 0--20\% of their work.},
+}
+
+@misc{gitclear-quality2025,
+    title        = {{AI} Copilot Code Quality: 2025 Research},
+    author       = {{GitClear}},
+    year         = {2025},
+    url          = {https://www.gitclear.com/ai_assistant_code_quality_2025_research},
+    abstract     = {211 million changed lines (2020--2024). Copy/pasted lines rose from 8.3\% to 12.3\% (2021--2024); moved (refactored) lines fell from 25\% to under 10\%; copy/paste exceeded moved code for the first time.},
+}
+
+@misc{veracode-genai2025,
+    title        = {2025 {GenAI} Code Security Report},
+    author       = {{Veracode}},
+    year         = {2025},
+    howpublished = {Veracode, 30 July 2025},
+    url          = {https://www.veracode.com/blog/genai-code-security-report/},
+    abstract     = {100+ LLMs, Java, Python, C\#, JavaScript: 45\% of code samples failed security tests and introduced OWASP Top 10 vulnerabilities.},
+}
+
+@misc{collins-woty2025,
+    title        = {Collins Word of the Year 2025: {AI} Meets Authenticity as Society Shifts},
+    author       = {{Collins Dictionary}},
+    year         = {2025},
+    howpublished = {Collins Language Lovers blog, 6 November 2025},
+    url          = {https://blog.collinsdictionary.com/language-lovers/collins-word-of-the-year-2025-ai-meets-authenticity-as-society-shifts/},
+    abstract     = {``Vibe coding'' named Collins Word of the Year 2025.},
+}
+
+@misc{ubs-chatgpt2023,
+    title        = {{ChatGPT} User Growth: {UBS} Estimate of 100 Million Monthly Users (Reuters report)},
+    author       = {{Reuters}},
+    year         = {2023},
+    howpublished = {Reuters via Euronews, 2 February 2023},
+    url          = {https://www.euronews.com/next/2023/02/02/openai-chatgpt},
+    abstract     = {UBS estimate (Similarweb data): about 100 million monthly active users in January 2023, two months after launch.},
+}
+
+@article{brown2020gpt3,
+    title        = {Language Models are Few-Shot Learners},
+    author       = {Brown, Tom B. and others},
+    year         = {2020},
+    journal      = {arXiv preprint arXiv:2005.14165},
+    url          = {https://arxiv.org/abs/2005.14165},
+    abstract     = {GPT-3, 175 billion parameters. v1 submitted 28 May 2020.},
+}
+
+@misc{openai-mrcr2025,
+    title        = {{OpenAI-MRCR}: Long Context Multiple Needle In A Haystack Benchmark},
+    author       = {{OpenAI}},
+    year         = {2025},
+    howpublished = {Hugging Face dataset card},
+    url          = {https://huggingface.co/datasets/openai/mrcr},
+    abstract     = {2, 4 or 8 identical requests hidden in a long multi-turn conversation; the model must return the i-th one (with a hash prefix). Score: difflib SequenceMatcher ratio (0--1). Bins from 4k to 1M tokens.},
 }

@@ -38,24 +38,29 @@ def build():
                     with st_zoom(50):
                         st_write(
                             bs.body,
-                            (bs.stat_big, "60% integrable")
+                            (bs.stat_big, "~60% of work with AI")
                         )
                 with sg.cell():
                     st_hover_tooltip(
-                        title="Anthropic Agentic Coding Report (2026)",
+                        title="Anthropic internal study (Dec 2025)",
                         entries=[
                             (
-                                "60% integrable",
-                                "Developers report using AI in roughly 60% of "
-                                "their work \u2014 code generation, documentation, "
-                                "test writing, debugging assistance.",
+                                "~60% of work",
+                                "132 Anthropic engineers and researchers "
+                                "self-report using Claude in about 60% of "
+                                "their work.",
                             ),
                             (
                                 "0\u201320% fully delegable",
-                                "Only 0 to 20% of tasks can be fully delegated "
-                                "to AI without human review. The rest requires "
-                                "active oversight: architecture, design decisions, "
-                                "strategic choices.",
+                                "Most say they can 'fully delegate' only "
+                                "0\u201320% of their work. The rest needs "
+                                "active human oversight and validation.",
+                            ),
+                            (
+                                "Caveat",
+                                "Self-reported, by staff of an AI lab, with "
+                                "possible selection bias \u2014 an upper bound "
+                                "for most teams.",
                             ),
                             (
                                 "Collaboration, not replacement",
@@ -80,8 +85,8 @@ def build():
                     bs.body,
                     "Most work still needs human judgment, review, and direction.",
                 )
-                # REF: https://www.anthropic.com/research/impact-software-development
-                st_write(bs.source, cite("anthropic-agentic2026"))
+                # REF: https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic
+                st_write(bs.source, cite("anthropic-workstudy2025"))
             
     st_space("v", "15vh")
     st_slide_break()
@@ -101,30 +106,29 @@ def build():
                     with st_zoom(40):
                         st_write(
                             bs.body,
-                            (bs.stat_warn, "10% gains without process change"),
+                            (bs.stat_warn, "10\u201315% with AI assistants alone"),
                         )
                 with sg.cell():
                     st_hover_tooltip(
-                        title="Bain Technology Report (2025)",
+                        title="Bain Technology Report (Sept 2025)",
                         entries=[
                             (
-                                "10% with tools alone",
-                                "AI coding tools deliver only 10\u201315% productivity "
-                                "gains when deployed in isolation, without changing "
-                                "existing workflows.",
+                                "10\u201315% with tools alone",
+                                "Teams using AI coding assistants see 10\u201315% "
+                                "productivity boosts \u2014 often without "
+                                "redirecting the time saved.",
                             ),
                             (
                                 "25\u201330% with process redesign",
-                                "Companies that pair AI with end-to-end process "
-                                "transformation report 25\u201330% productivity boosts "
-                                "\u2014 3x more than tools alone.",
+                                "Some companies report 25\u201330% boosts by "
+                                "pairing GenAI with end-to-end process "
+                                "transformation.",
                             ),
                             (
                                 "Why the gap?",
-                                "Writing code is only 25\u201335% of the development "
-                                "lifecycle. Accelerating coding without redesigning "
-                                "review, testing, and deployment creates new "
-                                "bottlenecks, not breakthroughs.",
+                                "Writing and testing code is only ~25\u201335% "
+                                "of the time from idea to launch. Speeding up "
+                                "coding alone moves the bottleneck elsewhere.",
                             ),
                         ],
                         scale="2.2vw",

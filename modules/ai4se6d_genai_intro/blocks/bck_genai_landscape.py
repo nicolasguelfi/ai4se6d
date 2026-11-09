@@ -78,17 +78,17 @@ def build():
                                 st_write(
                                     bs.body,
                                     (bs.keyword, "Code"),
-                                    (bs.body, " — GitHub Copilot, Cursor, Claude Code"),
+                                    (bs.body, " — GitHub Copilot, Cursor, Claude Code, opencode"),
                                 )
                             with l.item():
                                 st_write(
                                     bs.body,
                                     (bs.keyword, "Image"),
-                                    (bs.body, " — DALL-E, Midjourney, Stable Diffusion"),
+                                    (bs.body, " — Midjourney, Stable Diffusion, ChatGPT & Gemini images"),
                                 )
                             with l.item():
                                 st_write(
                                     bs.body,
                                     (bs.keyword, "Enterprise"),
-                                    (bs.body, " — Microsoft 365 Copilot, Google Workspace AI"),
+                                    (bs.body, " — Microsoft 365 Copilot, Gemini in Google Workspace"),
                                 )

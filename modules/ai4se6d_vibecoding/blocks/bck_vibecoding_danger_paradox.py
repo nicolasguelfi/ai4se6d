@@ -61,15 +61,15 @@ def build():
                                 entries=[
                                     (
                                         "7 hours/week",
-                                        "Time lost per team member to AI-related "
-                                        "inefficiencies \u2014 nearly a full workday "
-                                        "every week.",
+                                        "Time lost per team member to inefficient "
+                                        "processes \u2014 nearly a full workday "
+                                        "every week. GitLab calls it the 'AI paradox'.",
                                     ),
                                     (
                                         "3,266 professionals",
                                         "DevSecOps professionals surveyed (IT ops, "
                                         "security, development). Harris Poll for "
-                                        "GitLab, 2025.",
+                                        "GitLab, published 10 Nov 2025.",
                                     ),
                                     (
                                         "The paradox",
@@ -92,8 +92,7 @@ def build():
                     st_space("v", 1)
                     st_write(
                         bs.body,
-                        "lost per team member weekly to AI-related "
-                        "inefficiencies.",
+                        "lost per team member weekly to inefficient processes.",
                     )
                     st_space("v", 1)
                     st_write(

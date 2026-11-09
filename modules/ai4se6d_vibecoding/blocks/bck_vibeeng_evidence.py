@@ -1,4 +1,4 @@
-"""Slide 29 — The Evidence: FlowGen experiment stat-hero."""
+"""Slide 29 — The Evidence: FlowGen (SOEN-101) stat-hero — process-emulating agents."""
 # @guideline: maximize-viewport
 # @pattern: ptn_stat_hero
 from streamtex import *
@@ -25,8 +25,11 @@ def build():
             with st_zoom(130):
                 st_write(
                     bs.body,
-                    "fewer code smells when incorporating design and code review activities",
+                    "higher benchmark pass rate when LLM agents follow a process (Scrum)",
                 )
-                st_write(bs.body, "FlowGen experiment — structured processes beat ad-hoc coding")
+                st_write(
+                    bs.body,
+                    "FlowGen (GPT-3.5) \u2014 design + code review also cut code smells",
+                )
                 # REF: https://arxiv.org/abs/2403.15852
                 st_write(bs.source, cite("soen101-2024"))

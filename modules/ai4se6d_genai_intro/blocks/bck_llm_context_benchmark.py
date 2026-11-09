@@ -21,6 +21,10 @@ _CSV_PATH = (
     / "mrcr-line-chart-8-nee.csv"
 )
 
+# Date of the Context Arena export in _CSV_PATH. UPDATE when the CSV is
+# re-downloaded (planned 23-24/11/2026). Source sheet: docs/trainer/sources-day1.md
+_SNAPSHOT = "April 2026"
+
 _CONTEXT_ORDER = ["8k", "16k", "32k", "64k", "128k", "256k", "512k", "1M"]
 
 _COLORS = [
@@ -143,15 +147,16 @@ def build():
                 entries=[
                     (
                         "MRCR",
-                        "Multi-Round Coreference Resolution. The model must track "
-                        "entities across multiple conversation turns — like remembering "
-                        "who 'he' or 'it' refers to after many exchanges.",
+                        "Multi-Round Co-reference Resolution (OpenAI). A long "
+                        "conversation contains several near-identical requests, "
+                        "e.g. 'write a poem about tapirs'. The model is then asked: "
+                        "'return the 2nd poem about tapirs'.",
                     ),
                     (
                         "8 Needles",
-                        "8 specific facts are hidden ('needles') inside a long context "
-                        "('haystack'). The model must retrieve all 8 correctly. "
-                        "Tests real information retrieval, not just text generation.",
+                        "8 identical requests ('needles') are hidden in the "
+                        "conversation ('haystack'). The model must pick the right "
+                        "one by its order. More needles = harder.",
                     ),
                     (
                         "Context sizes",
@@ -161,8 +166,8 @@ def build():
                     ),
                     (
                         "Score",
-                        "Percentage of needles correctly retrieved (0-100%). "
-                        "A perfect model scores 100% at all context sizes.",
+                        "Text similarity between the answer and the expected one "
+                        "(0-100%). A perfect model scores 100% at all context sizes.",
                     ),
                 ],
                 scale="1.5vw",
@@ -177,4 +182,8 @@ def build():
         stx.st_html(fig_html, height=_HEIGHT)
 
         with st_block(s.center_txt):
-            st_write(bs.source, cite("contextarena2026"))
+            st_write(
+                bs.source,
+                cite("contextarena2026"), " · ", cite("openai-mrcr2025"),
+                f" — data snapshot {_SNAPSHOT}",
+            )

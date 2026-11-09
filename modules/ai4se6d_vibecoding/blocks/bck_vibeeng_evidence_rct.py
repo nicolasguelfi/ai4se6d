@@ -34,28 +34,28 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.stat, "+55.8%")
+                    st_write(bs.stat, "\u221255.8%")
                     st_space("v", 0.5)
                     st_write(
                         bs.body,
-                        "faster on ",
-                        (bs.keyword, "simple tasks"),
+                        "time on a ",
+                        (bs.keyword, "simple lab task"),
                     )
                     st_space("v", 0.5)
                     # REF: Peng et al. 2023, arXiv 2302.06590
                     st_write(bs.source, cite("peng-copilot2023"))
 
                 with g.cell():
-                    st_write(bs.stat, "\u221219%")
+                    st_write(bs.stat, "+19%")
                     st_space("v", 0.5)
                     st_write(
                         bs.body,
-                        "slower on ",
-                        (bs.keyword_warn, "real projects"),
+                        "time on ",
+                        (bs.keyword_warn, "real repo issues"),
                     )
                     st_space("v", 0.5)
-                    # REF: METR 2025
-                    st_write(bs.source, cite("metr-aitools2025"))
+                    # REF: METR 2025 (arXiv 2507.09089) + Feb 2026 update
+                    st_write(bs.source, cite("metr2025"), " · ", cite("metr-uplift2026"))
 
             st_space("v", 2)
             with st_zoom(150):

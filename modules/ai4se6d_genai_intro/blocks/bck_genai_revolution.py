@@ -1,6 +1,7 @@
 """Slide — The GenAI Revolution: image-dominant timeline."""
 # @guideline: maximize-viewport
 from streamtex import *
+from streamtex.bib import cite
 from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
@@ -56,6 +57,7 @@ def build():
             with st_zoom(160):
                 st_write(
                     bs.caption,
-                    "From GPT-3 (2022) to multimodal agents (2026) — the fastest technology adoption in history",
+                    "GPT-3 (2020) → ChatGPT (2022) → coding agents (2026) ",
+                    (s.project.citation, cite("brown2020gpt3")),
                     tag=t.div,
                 )

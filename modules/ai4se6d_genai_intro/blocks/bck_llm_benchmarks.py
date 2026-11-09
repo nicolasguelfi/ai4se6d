@@ -14,6 +14,11 @@ class BlockStyles:
 bs = BlockStyles
 
 
+# Date of the Artificial Analysis screenshots below. UPDATE when the images in
+# _SHARED/images/ai-index-*.{png,webp} are re-captured (planned 23-24/11/2026).
+# Source sheet: docs/trainer/sources-day1.md
+_SNAPSHOT = "April 2026"
+
 # (title, image filename, has_tooltip)
 _BENCHMARKS = [
     ("AI Index: Results", "ai-index-intelligence.png", False),
@@ -67,7 +72,11 @@ def build():
                         uri=f"_SHARED/images/{filename}",
                         width="100%",
                     )
-                st_write(bs.source, cite("artificialanalysis2026"))
+                st_write(
+                    bs.source,
+                    cite("artificialanalysis2026"),
+                    f" — snapshot {_SNAPSHOT}",
+                )
 
         if idx < len(_BENCHMARKS) - 1:
             st_space("v", "30vh")

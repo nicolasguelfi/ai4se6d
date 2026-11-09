@@ -82,7 +82,7 @@ def build():
                         st_space("h", "1.5rem")
 
                         # Quote 2: "Vibe coding" definition
-                        # Tweet: Feb 3, 2025
+                        # Tweet: Feb 2, 2025 (23:17 UTC)
                         st_write(
                             bs.quote,
                             (bs.quote_part1,
@@ -101,7 +101,8 @@ def build():
                         st_write(
                             bs.body,
                             (bs.keyword_accent, "Collins English Dictionary"),
-                            " \u2014 Word of the Year 2025",
+                            " \u2014 Word of the Year 2025 ",
+                            (bs.attribution, cite("collins-woty2025")),
                         )
 
     # Definition and paradigm shift are now in separate blocks:

@@ -123,12 +123,12 @@ st_book(
 
         # --- ACT II: THE REALITY CHECK ---
         blocks.bck_vibecoding_danger_intro,      # Block 12 — Billboard pivot
-        blocks.bck_vibecoding_danger_vuln,       # Block 13 — 12-65% vulnerabilities
+        blocks.bck_vibecoding_danger_vuln,       # Block 13 — 45% insecure (Veracode 2025)
         blocks.bck_vibecoding_danger_halluc,     # Block 14 — Hallucinated deps
         blocks.bck_vibecoding_danger_debt,       # Block 15 — Tech debt iceberg
         blocks.bck_vibecoding_danger_paradox,    # Block 16 — AI Paradox 7h/week
         blocks.bck_vibecoding_danger_metr,       # Block 16b — METR: experts -19% slower
-        blocks.bck_vibecoding_danger_trust,      # Block 16c — Trust crisis 43%→29%
+        blocks.bck_vibecoding_danger_trust,      # Block 16c — Trust 43%→33% (SO 2024→2025)
         blocks.bck_vibecoding_danger_demo_prod,  # Block 17 — Demo vs Production
         blocks.bck_vibecoding_reality,           # Block 18 — Stats + gala pivot
         blocks.bck_vibecoding_bridge,            # Block 19 — Speed AND Quality?
@@ -146,7 +146,7 @@ st_book(
         blocks.bck_vibeeng_spectrum,             # Block 28 — 4-level spectrum
         blocks.bck_vibeeng_evidence,             # Block 29 — FlowGen 15%
         blocks.bck_vibeeng_evidence_rct,         # Block 29b — Copilot RCT +55.8%
-        blocks.bck_vibeeng_evidence_gap,         # Block 29c — Junior +39% vs Senior +13%
+        blocks.bck_vibeeng_evidence_gap,         # Block 29c — Short vs long tenure gains
 
         # --- EXERCISE 3: REDO WITH DISCIPLINE ---
         blocks.bck_exercise_vibeeng,             # Block 30

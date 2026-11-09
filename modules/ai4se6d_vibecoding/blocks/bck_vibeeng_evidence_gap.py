@@ -45,11 +45,11 @@ def build():
             ) as g:
                 with g.cell():
                     st_write(bs.stat_junior, "+27\u201339%")
-                    st_write(bs.label, "Junior developers")
+                    st_write(bs.label, "Short-tenure developers")
 
                 with g.cell():
                     st_write(bs.stat_senior, "+8\u201313%")
-                    st_write(bs.label, "Senior developers")
+                    st_write(bs.label, "Long-tenure developers")
 
             st_space("v", 1)
             with st_zoom(130):

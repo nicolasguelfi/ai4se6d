@@ -65,34 +65,37 @@ def build():
                     ) as sg:
                         with sg.cell():
                             with st_zoom(60):
-                                st_write(bs.stat, "29%")
+                                st_write(bs.stat, "33%")
                         with sg.cell():
                             st_hover_tooltip(
                                 title="About this statistic",
                                 entries=[
                                     (
-                                        "29% trust (2025)",
-                                        "Only 29% of developers trust AI output "
-                                        "accuracy, down from 43% in 2024. "
-                                        "Stack Overflow Developer Survey.",
+                                        "33% trust (2025)",
+                                        "33% of developers trust the accuracy of AI "
+                                        "output (2024: 43%), while AI use rose from "
+                                        "76% to 84%. Only 3% trust it highly.",
                                     ),
                                     (
                                         "46% distrust",
-                                        "More developers actively distrust AI "
-                                        "(46%) than trust it (33%). Only 3% report "
-                                        "high trust.",
+                                        "More developers distrust AI accuracy "
+                                        "(46%, up from 31% in 2024) than trust it.",
                                     ),
                                     (
-                                        "45% frustrated",
+                                        "66% frustrated",
                                         "Top frustration: AI solutions that are "
-                                        "\"almost right, but not quite\" \u2014 "
-                                        "requiring manual correction.",
+                                        "\"almost right, but not quite\".",
                                     ),
                                     (
-                                        "66% fixing",
-                                        "Two thirds of developers spend more time "
-                                        "fixing AI-generated code than writing it "
-                                        "themselves from scratch.",
+                                        "45% debugging",
+                                        "Debugging AI-generated code is more "
+                                        "time-consuming (2nd frustration).",
+                                    ),
+                                    (
+                                        "2026 survey",
+                                        "Question reworded: 48% trust AI output only "
+                                        "when they can easily verify it "
+                                        "(published 6 Oct 2026).",
                                     ),
                                 ],
                                 scale="2.2vw",
@@ -114,31 +117,34 @@ def build():
                             st_write(
                                 bs.body,
                                 (bs.keyword_warn, "46%"),
-                                " actively ",
+                                " ",
                                 (bs.keyword_warn, "distrust"),
-                                " AI-generated code",
+                                " the accuracy of AI output",
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "45%"),
+                                (bs.keyword_warn, "66%"),
                                 " top frustration: ",
                                 "\u201calmost right, but not quite\u201d",
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword_warn, "66%"),
-                                " spend ",
-                                (bs.keyword_warn, "more time fixing"),
-                                " AI code than writing it themselves",
+                                (bs.keyword, "45%"),
+                                ": ",
+                                (bs.keyword_warn, "debugging AI code"),
+" takes longer",
                             )
 
                     st_space("v", 0.5)
-                    # REF: Stack Overflow Developer Survey 2025
-                    st_write(bs.source, cite("stackoverflow-survey2026"))
+                    # REF: Stack Overflow Developer Surveys 2024, 2025, 2026
+                    st_write(
+                        bs.source,
+                        cite("so-survey2025"), " · ", cite("so-survey2026"),
+                    )
                     st_space("v", 0.5)
                     st_write(
                         bs.closing,
-                        "Adoption is rising. Trust is falling. This is unsustainable.",
+                        "Adoption is rising. Trust is falling. Verify before you trust.",
                     )

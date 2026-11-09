@@ -65,9 +65,9 @@ def build():
                         st_space("v", 2)
                         st_write(
                             bs.quote,
-                            "\u201COrganizations chasing short-term productivity gains "
-                            "may face \u2018long-term catastrophe\u2019 from accumulated "
-                            "technical debt in AI-generated code.\u201D",
+                            "211M changed lines, 2020\u20132024: refactored code fell "
+                            "from 25% to under 10%, copy/paste rose from 8.3% to 12.3%"
+                            " \u2014 copy/paste now exceeds refactoring.",
                         )
-                        # REF: https://martinfowler.com/articles/exploring-gen-ai.html
-                        st_write(bs.source, cite("fowler-genai2025"))
+                        # REF: https://www.gitclear.com/ai_assistant_code_quality_2025_research
+                        st_write(bs.source, cite("gitclear-quality2025"))
