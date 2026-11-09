@@ -3,6 +3,7 @@
 **Date** : 2026-11-09
 **Édition** : DLH, 26-27/11, 03-04/12, 10-11/12/2026 — NG seul (Tiago Sousa ne fait plus partie de la formation et a transféré à NG la propriété de ses supports)
 **Source** : planches de décision `ai4se1` et `gsel1` (session Claude `ss2-ul-gse`, 2026-11-08/09) ; rapport d'état des lieux (artefact « AI4SE — état des lieux », v3)
+**Vue des six journées sur une page** : `2026-11-09-010-six-days-overview.md`.
 **Artefacts à produire pour les jours 3 à 6** : `2026-11-09-009-days3-6-specs.md` (contenu décidé et fichiers à reprendre, tiré de la planche `peda1`)
 **Branche de travail** : `edition2` (un push sur `main` redéploie les 4 apps Coolify : on ne fusionne qu'une fois l'édition prête)
 
