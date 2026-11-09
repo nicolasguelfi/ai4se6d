@@ -86,6 +86,24 @@ Connaissances : programme, fiches d'exercice, page d'orientation, FAQ des erreur
 Présenté honnêtement comme une IA préparée par NG, pas comme NG ; renvoie au formateur pour tout ce qui touche la machine, la clé, le serveur ou une perte de travail.
 Contenu hors corpus GSE-One (règle « pas de cas de formation dans le corpus distribué ») : il vit dans le kit. Retours : étiquette `ai4se-ed2` créée sur `nicolasguelfi/gensem` le 2026-11-09.
 
+## 2quater. Tuteur et syllabus (planche `tut2`, 2026-11-09) — remplace la conception du tuteur de § 2ter
+
+**But (NG).** Chaque participant possède un ensemble d'artefacts et un agent « training tutor », auquel il pose ses questions de compréhension et d'assistance pendant toute la formation.
+
+- **Session.** Le tuteur a sa propre session opencode, ouverte dans le dossier du kit (`~/ai4se/ai4se-kit/tutor`). Elle est séparée de la session de travail : il n'y a plus de `@tutor` global.
+- **Dépôts.** Un fichier de configuration personnel, `~/.config/ai4se/tutor-paths`, liste les dossiers qui font partie du contexte du tuteur.
+  - Par défaut, il contient `~/ai4se`, un dossier simple et non un dépôt, qui contient des dépôts voisins sans aucune imbrication.
+  - `tutor add <chemin>` ajoute un dossier situé ailleurs.
+  - Les secrets sont interdits par des règles opencode qui ne peuvent pas être contournées (`.env*`, clés, `~/.ssh`, identifiants opencode, `.git/config`).
+  - Vérifié le 9/11 avec opencode 2.2.6 : un dossier listé est lisible, `git -C` fonctionne, un `.env` est refusé, un dossier non listé est refusé.
+- **GSE-One.** Clone de gensem à v0.90.0 dans `~/ai4se/gensem`, avec un guide « où trouver quoi ». Le tuteur cherche d'abord dans les documents, puis lit seulement la section utile.
+- **Syllabus.** Rédigé, en anglais : vue d'ensemble des 12 demi-journées, une fiche par demi-journée, un glossaire, une FAQ et une procédure de reprise.
+  - Maintenant : la vue d'ensemble et les fiches HD01-HD04. Fiches HD05-HD08 en phase 2, HD09-HD12 en phase 3.
+  - Règle : une modification de diapositive met à jour la fiche de la même demi-journée, dans le même commit.
+- **Hébergement.** Dans le kit public : le code sous MIT, le syllabus sous CC BY 4.0.
+- **Mises à jour.** `tutor update` au début de chaque demi-journée.
+- **Réponses.** Elles sont fondées sur le cours et citent leur source. Le tuteur dit quand le cours ne couvre pas la question.
+
 ## 3. Fait depuis
 
 - 2026-11-09 — gensem **v0.89.1** publiée (commit 1b4f70a, tag v0.89.1, CI et release au vert).
