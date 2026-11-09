@@ -92,6 +92,23 @@ Contenu hors corpus GSE-One (règle « pas de cas de formation dans le corpus di
 - 2026-11-09 — gensem **v0.90.0** publiée (commit 4c6f5be, tag v0.90.0, CI et release au vert) : adaptateur natif opencode 2, sélection par l'installateur, garde-fous git renforcés. Test réel opencode 2.2.6 (HOME isolé) : adaptateur V2 choisi, commit sur `main` bloqué en session réelle. Le V1 de v0.89.1 fonctionne aussi sur 2.2.6.
 - 2026-11-09 — dépôts `ai4se6d-decks` (branches master, feat/tools-ecosystem-lecture-content, refactor/day2-split-image-slides) et `calcapp-course` (v0-plans … v5-production) créés en privé.
 
+- 2026-11-09 — **Phase 1 rédigée** (branche `edition2`) :
+  - jour 1 matin : objectifs réels, parcours 6 jours, « How we work », 3 notions adaptées d'all-trainings@7707c1c5 ;
+  - Acte IV opencode + LLM locaux + AI Act (règlement (UE) 2026/1744 « Omnibus » : haut risque annexe III au 2/12/2027, annexe I au 2/08/2028) ;
+  - chiffres revérifiés + `docs/trainer/sources-day1.md` ;
+  - module `ai4se6d_setup` (installation en salle, FreeSelfApp, débrief) ;
+  - module `ai4se6d_day2` (plan B, 104 blocs).
+  - `stx validate --build` : 7 livres OK.
+- 2026-11-09 — dépôts **publics** :
+  - `nicolasguelfi/ai4se-kit` (tuteur `@tutor` en lecture seule, `setup-learner.sh`, `check-learner.sh`, testés dans un HOME isolé avec opencode 2.2.6) ;
+  - `nicolasguelfi/calcapp-starter` (étiquette `j2-start`, plan d'exemple de secours, `npm start`, Dockerfile Node 22 → nginx testé, healthcheck sans curl).
+
+**À sauter en direct au jour 1 (GenAI, pour tenir 50 min)** :
+- `bck_ai_discriminative`, `bck_ai_generative`, `bck_ai_mccarthy` ;
+- ères sauf `era_genai` ;
+- une seule vue de `bck_llm_benchmarks` ;
+- `bck_llm_transformer_demo`, `vocabulary`, `embeddings`, `semantic_space`, `attention`, `attention_viz`, `context_benchmark`, `pretraining`, `finetuning`, `alignment`.
+
 ## 4. Points ouverts
 
 - ~~opencode 2~~ : réglé par v0.90.0 (voir § 3). Commande d'installation à utiliser en salle : `curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.90.0/install.sh | GSE_PLATFORM=opencode GSE_VERSION=v0.90.0 sh` (opencode installé AVANT, pour que l'installateur détecte la version 2).
