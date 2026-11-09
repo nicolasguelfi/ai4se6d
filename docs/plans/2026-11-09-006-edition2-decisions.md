@@ -121,6 +121,14 @@ Contenu hors corpus GSE-One (règle « pas de cas de formation dans le corpus di
   - `nicolasguelfi/ai4se-kit` (tuteur `@tutor` en lecture seule, `setup-learner.sh`, `check-learner.sh`, testés dans un HOME isolé avec opencode 2.2.6) ;
   - `nicolasguelfi/calcapp-starter` (étiquette `j2-start`, plan d'exemple de secours, `npm start`, Dockerfile Node 22 → nginx testé, healthcheck sans curl).
 
+- 2026-11-09 — **Tuteur v2 publié** (kit `2026-11-09.2`).
+  - Contenu : session dédiée, dossiers de contexte configurables, règles anti-secrets, syllabus (programme des 12 demi-journées, HD01-HD04, guide GSE-One, glossaire, FAQ, reprise), clone de gensem v0.90.0.
+  - Deux fuites trouvées et fermées par les tests :
+    - l'outil grep lisait des `.env` : il est désactivé, remplacé par `git grep` ;
+    - `git -C` et `ls` atteignaient des dossiers non listés : ils sont limités par une règle générée.
+  - Test de bout en bout depuis GitHub (HOME isolé, modèle gratuit) : réponse en français qui cite le syllabus, `.env` refusé, `tutor update` OK.
+- 2026-11-09 — Diapositives des jours 1-2 alignées sur le tuteur v2. Corrections de cohérence : `npm run test:run`, reprise dans `~/ai4se/calcapp-restart`, montants décimaux, syntaxe opencode 2. Ajout de `docs/trainer/sources-day2.md`.
+
 **À sauter en direct au jour 1 (GenAI, pour tenir 50 min)** :
 - `bck_ai_discriminative`, `bck_ai_generative`, `bck_ai_mccarthy` ;
 - ères sauf `era_genai` ;
