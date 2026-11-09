@@ -28,7 +28,7 @@ _OS = [
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.step, "Installation · step 0 of 7 · ~5 min", tag=t.div)
+        st_write(bs.step, "Installation · step 0 of 8 · ~5 min", tag=t.div)
         st_write(bs.heading, "0 · Open a Terminal", tag=t.div, toc_lvl="1")
         with st_grid(
             cols="repeat(auto-fit, minmax(300px, 1fr))",

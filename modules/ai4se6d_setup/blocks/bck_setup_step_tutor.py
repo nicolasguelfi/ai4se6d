@@ -1,4 +1,4 @@
-"""Slide — Installation step 7: say hello to @tutor inside opencode."""
+"""Slide — Installation step 8: say hello to @tutor inside opencode."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -21,8 +21,8 @@ _CODE_ZOOM = 190  # st_code font_size is not applied by Pygments: zoom instead
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.step, "Installation · step 7 of 7 · ~5 min", tag=t.div)
-        st_write(bs.heading, "7 · Hello @tutor", tag=t.div, toc_lvl="1")
+        st_write(bs.step, "Installation · step 8 of 8 · ~5 min", tag=t.div)
+        st_write(bs.heading, "8 · Hello @tutor", tag=t.div, toc_lvl="1")
         st_write(bs.caption, "@tutor: an AI prepared by the trainer — not the trainer.", tag=t.div)
         with st_zoom(85):
             st_write(bs.body, (bs.label, "In your terminal:"))

@@ -1,4 +1,4 @@
-"""Slide — Installation step 5a: GitHub account, gh CLI, gh auth login."""
+"""Slide — Installation step 6a: GitHub account, gh CLI, gh auth login."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -27,8 +27,8 @@ _GH = (
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.step, "Installation · step 5 of 7 · ~10 min", tag=t.div)
-        st_write(bs.heading, "5 · GitHub Login", tag=t.div, toc_lvl="1")
+        st_write(bs.step, "Installation · step 6 of 8 · ~10 min", tag=t.div)
+        st_write(bs.heading, "6 · GitHub Login", tag=t.div, toc_lvl="1")
         with st_zoom(85):
             st_write(bs.body, (bs.label, "No account? "), (bs.cmd, "github.com/signup"), " (personal is fine)")
         with st_zoom(_CODE_ZOOM):

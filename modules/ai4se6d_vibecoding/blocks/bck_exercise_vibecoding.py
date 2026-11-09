@@ -48,5 +48,5 @@ def build():
             st_write(
                 bs.body,
                 "This afternoon, you will practice self-generated code with VibeCoding first-hand. "
-                "You'll describe a project in natural language and let Cursor generate everything.",
+                "You'll describe a project in natural language and let opencode, the coding agent you install after lunch, generate everything.",
             )

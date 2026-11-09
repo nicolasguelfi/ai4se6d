@@ -19,9 +19,10 @@ _HEADERS = ("You see…", "Do this")
 _ERRORS = [
     ("“command not found”", "Open a new terminal (PATH not reloaded)"),
     ("Downloads hang (SSL, timeout)", "Proxy: try another network, or hand up"),
-    ("“401”, “invalid API key”", "Wrong key or provider: redo step 2"),
-    ("git asks for a password", "Not logged in: redo step 5"),
-    ("GSE-One before opencode 2", "Install opencode 2, then redo step 4"),
+    ("“401”, “invalid API key”", "Wrong key or provider: redo step 3"),
+    ("git asks for a password", "Not logged in: redo step 6"),
+    ("GSE-One before opencode 2", "Install opencode 2, then redo step 5"),
+    ("node missing, or older than v20", "Redo step 2, then open a new terminal"),
 ]
 
 

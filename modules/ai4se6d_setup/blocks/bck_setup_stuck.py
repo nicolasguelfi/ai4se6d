@@ -19,7 +19,7 @@ bs = BlockStyles
 _ORDER = [
     ("1", "The slide", "reread the step and its “Done when”"),
     ("2", "Your neighbour", "two pairs of eyes"),
-    ("3", "@tutor", "once step 7 works"),
+    ("3", "@tutor", "once step 8 works"),
 ]
 
 

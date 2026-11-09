@@ -144,7 +144,7 @@ st_book(
         blocks.bck_vibeeng_p_review,             # Block 26 — P5: Review
         blocks.bck_vibeeng_p_context,            # Block 27 — P6: Context Eng.
         blocks.bck_vibeeng_spectrum,             # Block 28 — 4-level spectrum
-        blocks.bck_vibeeng_evidence,             # Block 29 — FlowGen 15%
+        blocks.bck_vibeeng_evidence,             # Block 29 — FlowGen +15% Pass@1
         blocks.bck_vibeeng_evidence_rct,         # Block 29b — Copilot RCT +55.8%
         blocks.bck_vibeeng_evidence_gap,         # Block 29c — Short vs long tenure gains
 

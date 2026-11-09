@@ -1,4 +1,4 @@
-"""Slide — Installation step 5b: tell git who you are (global name and email)."""
+"""Slide — Installation step 6b: tell git who you are (global name and email)."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -26,8 +26,8 @@ _GIT = (
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.step, "Installation · step 5 of 7 · ~5 min", tag=t.div)
-        st_write(bs.heading, "5 · Your Git Identity", tag=t.div, toc_lvl="1")
+        st_write(bs.step, "Installation · step 6 of 8 · ~5 min", tag=t.div)
+        st_write(bs.heading, "6 · Your Git Identity", tag=t.div, toc_lvl="1")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_GIT, language="bash", line_numbers=False)
         with st_zoom(85):

@@ -1,4 +1,4 @@
-"""Slide — Installation step 2: connect your model key with opencode auth login."""
+"""Slide — Installation step 3: connect your model key with opencode auth login."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
@@ -22,8 +22,8 @@ _CODE_ZOOM = 220  # st_code font_size is not applied by Pygments: zoom instead
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.step, "Installation · step 2 of 7 · ~10 min", tag=t.div)
-        st_write(bs.heading, "2 · Your Model Key", tag=t.div, toc_lvl="1")
+        st_write(bs.step, "Installation · step 3 of 8 · ~10 min", tag=t.div)
+        st_write(bs.heading, "3 · Your Model Key", tag=t.div, toc_lvl="1")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code="opencode auth login", language="bash", line_numbers=False)
         with st_zoom(85):

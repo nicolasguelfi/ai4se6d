@@ -18,8 +18,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _STEPS = [
-    ("0", "Terminal"), ("1", "opencode 2"), ("2", "Model key"), ("3", "Course kit"),
-    ("4", "GSE-One"), ("5", "GitHub"), ("6", "Check"), ("7", "@tutor"),
+    ("0", "Terminal"), ("1", "opencode 2"), ("2", "Node.js"),
+    ("3", "Model key"), ("4", "Course kit"), ("5", "GSE-One"),
+    ("6", "GitHub"), ("7", "Check"), ("8", "@tutor"),
 ]
 
 
@@ -27,8 +28,8 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         st_write(bs.heading, "Installation — 75 min", tag=t.div, toc_lvl="1")
         st_write(bs.body, (bs.label, "Goal: "), "your toolchain, one step per slide.")
-        with st_grid(
-            cols="repeat(auto-fit, minmax(300px, 1fr))",
+        with st_zoom(85), st_grid(
+            cols="repeat(auto-fit, minmax(380px, 1fr))",
             gap="12px",
             cell_styles=s.project.containers.table_normal_cell,
         ) as g:
@@ -38,5 +39,5 @@ def build():
         with st_zoom(85):
             with st_block(bs.done_box):
                 st_write(bs.body, (bs.done_label, "Done when: "), "the check is all green and @tutor answers you.")
-            st_write(bs.body, (bs.label, "Mid-point (13:50): "), "step 3 or beyond.")
+            st_write(bs.body, (bs.label, "Mid-point (13:50): "), "step 4 or beyond.")
             st_write(bs.body, (bs.label, "If stuck: "), "slide → neighbour → @tutor → hand.")

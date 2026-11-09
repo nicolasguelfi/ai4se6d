@@ -1,4 +1,4 @@
-"""Slide — Installation step 4: install GSE-One, pinned to v0.90.0 (after opencode)."""
+"""Slide — Installation step 5: install GSE-One, pinned to v0.90.0 (after opencode)."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -16,21 +16,21 @@ class BlockStyles:
     done_label = Style.create(s.bold + s.project.colors.success, "setup_done_label")
 bs = BlockStyles
 
-_CODE_ZOOM = 190  # st_code font_size is not applied by Pygments: zoom instead
-_FOLDER = "mkdir -p ~/ai4se/gse-check && cd ~/ai4se/gse-check"
+_CODE_ZOOM = 150  # st_code font_size is not applied by Pygments: zoom instead
+# One block (folder + pinned install), split with "\" so no line wraps on screen.
 _GSE = (
-    "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.90.0/install.sh"
-    " | GSE_PLATFORM=opencode GSE_VERSION=v0.90.0 sh"
+    "mkdir -p ~/ai4se/gse-check && cd ~/ai4se/gse-check\n"
+    "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.90.0/install.sh \\\n"
+    "  | GSE_PLATFORM=opencode GSE_VERSION=v0.90.0 sh"
 )
 
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.step, "Installation · step 4 of 7 · ~10 min", tag=t.div)
-        st_write(bs.heading, "4 · GSE-One v0.90.0", tag=t.div, toc_lvl="1")
-        st_write(bs.caption, "Needs opencode 2 (step 1). Installs into this test folder.", tag=t.div)
-        with st_zoom(_CODE_ZOOM):
-            st_code(s.none, code=_FOLDER, language="bash", line_numbers=False)
+        with st_block(s.none):
+            st_write(bs.step, "Installation · step 5 of 8 · ~10 min", tag=t.div)
+            st_write(bs.heading, "5 · GSE-One v0.90.0", tag=t.div, toc_lvl="1")
+            st_write(bs.caption, "Needs opencode 2 (step 1). Installs into this test folder.", tag=t.div)
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_GSE, language="bash", line_numbers=False)
         with st_zoom(85), st_block(bs.done_box):

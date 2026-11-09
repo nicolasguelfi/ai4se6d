@@ -28,7 +28,7 @@ _ALTERNATIVES = (
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        st_write(bs.step, "Installation · step 1 of 7 · ~10 min", tag=t.div)
+        st_write(bs.step, "Installation · step 1 of 8 · ~10 min", tag=t.div)
         st_write(bs.heading, "1 · Install opencode 2", tag=t.div, toc_lvl="1")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_INSTALL, language="bash", line_numbers=False)
