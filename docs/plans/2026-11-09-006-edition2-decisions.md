@@ -80,11 +80,11 @@ objectifs réels sur une diapositive du jour 1 seulement ; niveau des apprenants
 | 2 | Jours 3-4 | 19/11 → 02/12 (hors 26-27/11) | répétition P1 → P7 | 03/12 |
 | 3 | Jours 5-6 | 04/12 → 09/12 | répétition du déploiement (3 comptes) | 10/12 |
 
-**Tuteur (P5).** Agent opencode `tuteur`, installé dans la configuration globale de l'apprenant (`~/.config/opencode/agents/tuteur.md`) pour servir aussi dans le mini-projet ; appelé par `@tuteur`.
+**Tuteur (P5).** Agent opencode `tutor` (supports en anglais), installé dans la configuration globale de l'apprenant (`~/.config/opencode/agents/tutor.md`) par le kit public `nicolasguelfi/ai4se-kit` (`setup-learner.sh`) pour servir aussi dans le mini-projet ; appelé par `@tutor`.
 Lecture seule (aucune écriture, commandes limitées à la lecture : `git status`, `git log`, lecture de `.gse/`) pour ne jamais interférer avec GSE-One.
 Connaissances : programme, fiches d'exercice, page d'orientation, FAQ des erreurs fréquentes, procédure de reprise.
 Présenté honnêtement comme une IA préparée par NG, pas comme NG ; renvoie au formateur pour tout ce qui touche la machine, la clé, le serveur ou une perte de travail.
-Contenu hors corpus GSE-One (règle « pas de cas de formation dans le corpus distribué ») : il vit dans ai4se6d et le starter.
+Contenu hors corpus GSE-One (règle « pas de cas de formation dans le corpus distribué ») : il vit dans le kit. Retours : étiquette `ai4se-ed2` créée sur `nicolasguelfi/gensem` le 2026-11-09.
 
 ## 3. Fait depuis
 
