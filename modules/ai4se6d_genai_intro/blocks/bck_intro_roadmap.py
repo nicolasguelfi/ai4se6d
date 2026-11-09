@@ -1,4 +1,4 @@
-"""Slide 3 — 6-Day Journey roadmap (3 sections: D1-D2, D3-D4, D5-D6)."""
+"""Slide — 6-Day Journey roadmap (3 sections: D1-D2, D3-D4, D5-D6), edition 2 flow."""
 # @guideline: maximize-viewport
 # @pattern: ptn_comparison_table
 from streamtex import *
@@ -41,11 +41,11 @@ class BlockStyles:
         "day_label_active",
     )
     session = Style.create(
-        s.Large + s.text.wrap.hyphens,
+        s.text.sizes.pt32,
         "session",
     )
     session_active = Style.create(
-        s.project.colors.highlight + s.Large + s.text.wrap.hyphens,
+        s.project.colors.highlight + s.text.sizes.pt32,
         "session_active",
     )
 bs = BlockStyles
@@ -53,12 +53,18 @@ bs = BlockStyles
 
 # Day data: (day, morning_label, afternoon_label, is_today)
 DAYS = [
-    (1, "GenAI Fundamentals · VibeCoding · VibeEngineering", "Workshop: FreeSelfApp Prototype", True),
-    (2, "Mastering Cursor · Planning", "CalcApp v0.1 · Code Review · Git", False),
-    (3, "SE Concepts · GenSEM · VibeTesting", "Requirements · NFR · V&V", False),
-    (4, "CalcApp v0.2–v0.5 Iterations", "Refactoring · Quality · Deployment", False),
-    (5, "Professional Mini-Project (Part 1)", "Professional Mini-Project (Part 2)", False),
-    (6, "Professional Mini-Project (Part 3)", "Presentations · Ethics · Closure", False),
+    (1, "GenAI foundations · LLM → AI agent · VibeEngineering",
+     "Setup in the room · First prototype with opencode", True),
+    (2, "Git first · Driving opencode on CalcApp",
+     "CalcApp v0.1 · AI code review · Bridge to GSE-One", False),
+    (3, "GSE-One: a structured lifecycle on CalcApp",
+     "Requirements · Plan · Build · Review", False),
+    (4, "CalcApp iterations with GSE-One",
+     "Measuring quality: lint, tests, CI", False),
+    (5, "Mini-project: scope, milestones, build",
+     "Mini-project: build · Deployment", False),
+    (6, "Mini-project: finish · Applied ethics",
+     "Gallery demo · Closure", False),
 ]
 
 # Pairs for each section
@@ -90,7 +96,7 @@ def build():
             with st_block(s.center_txt):
                 lvl = "1" if idx == 0 else "2"
                 st_write(bs.heading, "6-Day Journey", tag=t.div, toc_lvl=lvl)
-                st_space("v", "10vh")
+                st_space("v", "4vh")
 
                 _render_day(*day_a)
                 st_space("v", 4)

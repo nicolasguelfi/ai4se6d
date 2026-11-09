@@ -121,8 +121,9 @@ st_book(
         blocks.bck_intro_round_table,
         blocks.bck_poll_ai_experience,
         blocks.bck_poll_ai_result,
-        blocks.bck_intro_roadmap,
         blocks.bck_intro_objective,
+        blocks.bck_intro_roadmap,
+        blocks.bck_intro_how_we_work,
         # Fundamentals — AI
         blocks.bck_ai_definition,
         blocks.bck_ai_mccarthy,
@@ -139,6 +140,7 @@ st_book(
         blocks.bck_genai_landscape,
         # Fundamentals — LLMs
         blocks.bck_llm_comparison,
+        blocks.bck_genai_models_cost,
         blocks.bck_llm_benchmarks,
         blocks.bck_llm_how_work,
         blocks.bck_llm_transformers_in_60s_title,
@@ -166,6 +168,9 @@ st_book(
         # Capabilities & Limitations
         blocks.bck_llm_capabilities,
         blocks.bck_llm_limitations,
+        # From LLM to agent (edition 2, day-1 notions 1-2)
+        blocks.bck_genai_llm_to_agent,
+        blocks.bck_genai_no_memory,
         # Fundamentals — Cross-cutting
         blocks.bck_ai_ethics,
         blocks.bck_genai_takeaways,
