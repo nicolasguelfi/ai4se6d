@@ -41,6 +41,51 @@
 - Backlog : A7, B11, B15.
 - Forme : les choix candidat par candidat sont respectés (pas de « tout livrer maintenant »).
 
+## 2bis. Décisions pédagogiques (planche `peda1`, 2026-11-09)
+
+Analyse qualitative du contenu et de la forme (dépôts des apprenants d'avril, revues de mars-avril, errata, rapport de retours). Ces choix **remplacent** les décisions 2, 3, 9 et 13 de la planche `ai4se1` et **complètent** la 12.
+
+| # | Sujet | Décision NG | Conséquence retenue |
+|---|---|---|---|
+| P1 | Ampleur | **Refonte complète, en trois phases** : jours 1-2, puis jours 3-4, puis jours 5-6 (« on verra bien ce qu'on arrive à faire ») | Remplace les décisions 2-3. Calendrier en § 2ter |
+| P2 | Jour 2 | **Plan B** : restructuré autour de CalcApp, git d'abord (35 min), pilotage d'opencode, le plan de l'apprenant pilote la construction, revue IA HIGH/MEDIUM/LOW, diapositive pont vers GSE-One | Remplace la décision 9. Starter avec étiquettes `j2-start`, `j2-part1`, `j2-v0.1` |
+| P3 | opencode | **Passe complète** des supports (`/gse-…` dans les pratiques, bandeau dans la théorie, bloc « GSE-One dans opencode ») | |
+| P4 | Rattrapage | **Starter public + étiquettes de reprise + répétition générale** | Diapositive « En retard de plus de 15 min ? » |
+| P5 | Formateur seul | **Agent « tuteur » opencode** que les apprenants sollicitent quand ils sont perdus (idée de NG) | Complète la décision 12. Conception en § 2ter |
+| P6 | Modèles | **Un modèle imposé** pendant les ateliers + un de secours + une heure de comparaison cadrée | Dépend du budget des clés (point ouvert) |
+| P7 | Retours | **Questionnaire final** + **tickets GitHub sur le dépôt public de GSE-One** pendant la formation, pour corriger en cours de route | Comptes GitHub créés au jour 1 ; étiquette dédiée sur `nicolasguelfi/gensem` |
+| P8 | Vérification | **Quiz à main levée** seulement | Cohérent avec la décision 17 |
+| P9 | Chiffres | **Mise à jour à la source** + fiche des sources formateur | Captures de benchmarks le 23-24/11 |
+| P10 | Notions jour 1 | **Quatre diapositives** (LLM → agent ; pas de mémoire ; paysage + coût ; AI Act + règles pratiques) — **en important d'abord les blocs existants de `streamtex-all-trainings`**, en attendant la migration de toute la formation vers all-trainings | Inventaire d'all-trainings fait avant d'écrire du neuf |
+| P11 | Théorie GSE-One | **Allègement** : P1 en premier, liste de diapositives à sauter, cadres du jour 4 désactivés | |
+| P12 | Orientation | **Une page imprimée** (recto : où suis-je ; verso : quand l'agent dérape) | Remplace la fiche de l'ancienne méthode |
+| P13 | Gates | **Grille de 3 questions** + au moins une modification ou un refus par activité | |
+| P14 | Exercices | **Fiche standard**, P1 à 60 min, P8 = lancement du mini-projet ; **allonger les pratiques si nécessaire** | |
+| P15 | Dépôt des travaux | **GitHub dès le jour 3**, push chaque soir, étiquette `demo` | |
+| P16 | Déploiement | **Dockerfile testé dans le starter** + mode opératoire + répétition | Avant le 10/12 |
+| P17 | Mini-projet | **Une page** : portée, jalons, démo structurée | |
+| P18 | Clôture | **Galerie en deux rotations** + éthique appliquée avant le déjeuner | **Remplace la décision 13** (les démos reviennent, en galerie) |
+| P19 | Entre les blocs | **Rien** : NG ne peut pas contacter les apprenants ; tout se fait pendant la formation, aucun travail obligatoire à la maison | Voir ci-dessous |
+| P20 | Objectifs | **Objectifs réels affichés au jour 1** + 30 min « mesurer la qualité » au jour 4 | Sans courriel J-7 (P19) |
+
+**Conséquences de P19 (aucun contact avant ni entre les blocs).** Tout ce qui supposait un courriel J-7 passe en salle :
+installation (opencode, GSE-One v0.90.0 épinglée, clé, tuteur), compte GitHub et `gh auth login` **au jour 1** (créneau d'installation, avec `check-learner.sh`) ;
+objectifs réels sur une diapositive du jour 1 seulement ; niveau des apprenants relevé à main levée au jour 1 ; la « liste de contrôle à J-7 » de la décision 6 devient une liste de contrôle en salle.
+
+## 2ter. Calendrier des trois phases et conception du tuteur
+
+| Phase | Contenu | Rédaction | Vérification | Prêt pour |
+|---|---|---|---|---|
+| 1 | Jours 1-2 | 10/11 → **18/11** | 19-20/11 : répétition jours 1-2 (installation réelle, starter, étiquettes, modèle imposé) ; 23-24/11 : captures de benchmarks ; 25/11 : marge | 26/11 |
+| 2 | Jours 3-4 | 19/11 → 02/12 (hors 26-27/11) | répétition P1 → P7 | 03/12 |
+| 3 | Jours 5-6 | 04/12 → 09/12 | répétition du déploiement (3 comptes) | 10/12 |
+
+**Tuteur (P5).** Agent opencode `tuteur`, installé dans la configuration globale de l'apprenant (`~/.config/opencode/agents/tuteur.md`) pour servir aussi dans le mini-projet ; appelé par `@tuteur`.
+Lecture seule (aucune écriture, commandes limitées à la lecture : `git status`, `git log`, lecture de `.gse/`) pour ne jamais interférer avec GSE-One.
+Connaissances : programme, fiches d'exercice, page d'orientation, FAQ des erreurs fréquentes, procédure de reprise.
+Présenté honnêtement comme une IA préparée par NG, pas comme NG ; renvoie au formateur pour tout ce qui touche la machine, la clé, le serveur ou une perte de travail.
+Contenu hors corpus GSE-One (règle « pas de cas de formation dans le corpus distribué ») : il vit dans ai4se6d et le starter.
+
 ## 3. Fait depuis
 
 - 2026-11-09 — gensem **v0.89.1** publiée (commit 1b4f70a, tag v0.89.1, CI et release au vert).
