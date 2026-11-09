@@ -15,9 +15,8 @@ bs = BlockStyles
 
 
 _CATCHUP = """\
-cd ~ && mv calcapp calcapp-old
-git clone https://github.com/nicolasguelfi/calcapp-starter calcapp
-cd calcapp && git checkout -b mywork j2-part1 && npm ci"""
+git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart
+cd ~/ai4se/calcapp-restart && git checkout -b mywork j2-part1 && npm ci"""
 
 
 def build():
@@ -25,7 +24,7 @@ def build():
         with st_zoom(80):
             st_write(bs.heading, 'Catch-up: Tag j2-part1', tag=t.div, toc_lvl='+1')
             st_write(bs.body, 'Restart from the end of Part 1 (first features, tests green):', tag=t.div)
-            st_code(s.none, code=_CATCHUP, language='bash', line_numbers=False, font_size="36pt")
+            st_code(s.none, code=_CATCHUP, language="bash", line_numbers=False, font_size="30pt")
             with st_list(list_type=lt.unordered, l_style=bs.body, li_style=bs.body) as l:
                 with l.item():
                     st_write(
@@ -35,7 +34,7 @@ def build():
                         ' and ',
                         (bs.cmd, 'AGENTS.md'),
                         ' from ',
-                        (bs.cmd, 'calcapp-old'),
+                        (bs.cmd, '~/ai4se/calcapp'),
                     )
                 with l.item():
                     st_write(bs.body, 'Skip the tasks already done in the tag, continue with the next one')

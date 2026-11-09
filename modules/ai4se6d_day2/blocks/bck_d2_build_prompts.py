@@ -15,11 +15,11 @@ bs = BlockStyles
 
 _RED = """\
 @docs/plan.md Task 1 only. Write the failing test first, in tests/.
-Do NOT write the implementation. Run npx vitest run and show the failure."""
+Do NOT write the implementation. Run npm run test:run and show the failure."""
 
 _GREEN = """\
 Implement the minimal code that makes tests/<file>.test.tsx pass.
-Do not modify the test file. Run npx vitest run."""
+Do not modify the test file. Run npm run test:run."""
 
 
 def build():
@@ -32,6 +32,6 @@ def build():
             st_code(s.none, code=_GREEN, language='text', line_numbers=False, font_size="36pt")
             st_write(
                 bs.foot,
-                'In prompts, ask for npx vitest run: npm test watches forever and the agent would wait.',
+                'In prompts, ask for npm run test:run (one shot): npm test is watch mode (q to quit), the agent would wait.',
                 tag=t.div,
             )

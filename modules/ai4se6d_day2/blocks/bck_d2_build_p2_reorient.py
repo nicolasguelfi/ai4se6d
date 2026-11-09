@@ -22,7 +22,7 @@ def build():
                 with l.item():
                     st_write(
                         bs.body,
-                        (bs.cmd, 'cd calcapp'),
+                        (bs.cmd, 'cd ~/ai4se/calcapp'),
                         ' → ',
                         (bs.cmd, 'git status'),
                         ': clean, on ',
@@ -31,10 +31,8 @@ def build():
                 with l.item():
                     st_write(
                         bs.body,
-                        (bs.cmd, 'npm test'),
-                        ' → Part 1 tests still green (',
-                        (bs.cmd, 'q'),
-                        ' quits)',
+                        (bs.cmd, 'npm run test:run'),
+                        ' → Part 1 tests still green',
                     )
                 with l.item():
                     st_write(bs.body, (bs.cmd, 'npm run dev'), ' → the app renders in the browser')

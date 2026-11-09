@@ -20,7 +20,7 @@ bs = BlockStyles
 _STEPS = [
     ("0", "Terminal"), ("1", "opencode 2"), ("2", "Node.js"),
     ("3", "Model key"), ("4", "Course kit"), ("5", "GSE-One"),
-    ("6", "GitHub"), ("7", "Check"), ("8", "@tutor"),
+    ("6", "GitHub"), ("7", "Check"), ("8", "Tutor window"),
 ]
 
 
@@ -38,6 +38,6 @@ def build():
                     st_write(bs.step_name, (bs.step_num, f"{num} · "), name, tag=t.div)
         with st_zoom(85):
             with st_block(bs.done_box):
-                st_write(bs.body, (bs.done_label, "Done when: "), "the check is all green and @tutor answers you.")
+                st_write(bs.body, (bs.done_label, "Done when: "), "the check is all green and your tutor answers.")
             st_write(bs.body, (bs.label, "Mid-point (13:50): "), "step 4 or beyond.")
-            st_write(bs.body, (bs.label, "If stuck: "), "slide → neighbour → @tutor → hand.")
+            st_write(bs.body, (bs.label, "If stuck: "), "slide → neighbour → tutor window (step 8) → hand.")

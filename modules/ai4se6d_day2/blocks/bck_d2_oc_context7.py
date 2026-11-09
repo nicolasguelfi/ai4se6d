@@ -16,12 +16,9 @@ bs = BlockStyles
 _CONFIG = """\
 {
   "$schema": "https://opencode.ai/config.json",
-  "mcp": {
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp"
-    }
-  }
+  "mcp": { "servers": {
+    "context7": { "type": "remote", "url": "https://mcp.context7.com/mcp" }
+  } }
 }"""
 
 

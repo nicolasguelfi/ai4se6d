@@ -34,5 +34,5 @@ def build():
                 with l.item(): st_write(bs.body, (bs.keyword, "Generate code"), " — from natural language descriptions")
                 with l.item(): st_write(bs.body, (bs.keyword, "Write & summarize"), " — documents, emails, reports")
                 with l.item(): st_write(bs.body, (bs.keyword, "Analyze data"), " — patterns, trends, anomalies")
-                with l.item(): st_write(bs.body, (bs.keyword, "Create images"), " — from text prompts (DALL-E, Midjourney)")
+                with l.item(): st_write(bs.body, (bs.keyword, "Create images"), " — from text prompts (image models)")
                 with l.item(): st_write(bs.body, (bs.keyword, "Reason & plan"), " — multi-step problem solving")

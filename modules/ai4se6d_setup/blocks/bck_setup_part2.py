@@ -28,4 +28,5 @@ def build():
             with l.item():
                 st_write(bs.body, "Update ", (bs.keyword, "notes.md"))
         st_space("v", 1)
+        st_write(bs.body, (bs.label, "Mid-point (15:50): "), "1 new feature + 1 commit.")
         st_write(bs.body, (bs.label, "16:10: "), "last commit, notes ready for the debrief.")

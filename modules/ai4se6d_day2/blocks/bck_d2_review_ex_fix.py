@@ -16,7 +16,7 @@ bs = BlockStyles
 
 _FIX = """\
 Fix RVW-1 from docs/review.md. First write a failing test that exposes
-it and run npx vitest run (RED), then fix the code (GREEN).
+it and run npm run test:run (RED), then fix the code (GREEN).
 Change nothing else."""
 
 
@@ -38,6 +38,6 @@ def build():
                 with l.item():
                     st_write(bs.body, 'Read the diff: did it touch anything else?')
                 with l.item():
-                    st_write(bs.body, (bs.cmd, 'npm test'), ' green → commit ', (bs.cmd, 'fix: RVW-1 …'))
+                    st_write(bs.body, (bs.cmd, 'npm run test:run'), ' green → commit ', (bs.cmd, 'fix: RVW-1 …'))
                 with l.item():
                     st_write(bs.body, 'In ', (bs.cmd, 'docs/review.md'), ': RVW-1 → ', (bs.keyword, 'fixed'))

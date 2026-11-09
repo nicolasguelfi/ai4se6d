@@ -25,7 +25,7 @@ def build():
                 st_write(
                     bs.body,
                     (bs.done_label, 'Done when: '),
-                    (bs.cmd, 'npm test'),
+                    (bs.cmd, 'npm run test:run'),
                     ' shows your new test passing, and ',
                     (bs.cmd, 'git log --oneline'),
                     ' shows ',
@@ -50,7 +50,7 @@ def build():
                 bs.body,
                 (bs.label, 'If stuck: '),
                 '1. ',
-                (bs.cmd, '@tutor'),
+                'your tutor window',
                 '  2. recovery tag ',
                 (bs.cmd, 'j2-start'),
                 '  3. raise your hand',

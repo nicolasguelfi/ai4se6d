@@ -18,7 +18,7 @@ class BlockStyles:
 bs = BlockStyles
 
 _CODE_ZOOM = 190  # st_code font_size is not applied by Pygments: zoom instead
-_CHECK = "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/ai4se-kit/main/check-learner.sh | sh"
+_CHECK = "sh ~/ai4se/ai4se-kit/check-learner.sh"
 
 
 def build():

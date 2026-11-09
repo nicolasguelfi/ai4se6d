@@ -20,6 +20,7 @@ BLOCKS = [
     blocks.bck_setup_step_git_identity,
     blocks.bck_setup_step_check,
     blocks.bck_setup_step_tutor,
+    blocks.bck_setup_tutor_sees,
     blocks.bck_setup_stuck,
     blocks.bck_setup_install_errors,
     # ── FreeSelfApp workshop (14:30 + 15:30, 2 × 45 min) ──

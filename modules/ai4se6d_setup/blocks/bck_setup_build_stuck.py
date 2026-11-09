@@ -21,11 +21,11 @@ def build():
         st_space("v", 1)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
             with l.item():
+                st_write(bs.body, "Ask ", (bs.keyword, "your tutor window"), " (right-hand terminal)")
+            with l.item():
                 st_write(bs.body, (bs.keyword, "Rephrase"), " — smaller, more precise request")
             with l.item():
                 st_write(bs.body, (bs.keyword, "Paste the error"), " to the agent: “this fails with …”")
-            with l.item():
-                st_write(bs.body, "Ask ", (bs.keyword, "@tutor"))
             with l.item():
                 st_write(bs.body, (bs.warn, "Raise your hand"), " — technical blockers")
         st_space("v", 1)

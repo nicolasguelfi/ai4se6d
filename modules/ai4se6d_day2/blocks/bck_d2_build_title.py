@@ -22,5 +22,6 @@ def build():
             st_write(bs.subtitle, 'Test-first development with an agent', tag=t.div)
             st_space("v", 2)
             st_write(bs.timer, '11:30 · 45 min', tag=t.div)
+            st_write(bs.subtitle, 'demo 15 · practice 11:45 → 12:10 · debrief 5', tag=t.div)
             st_space("v", 1)
             st_write(bs.foot, 'You have a plan. Now build it — one task at a time.', tag=t.div)

@@ -21,3 +21,4 @@ def build():
             st_write(bs.subtitle, 'Routing, data layer, minimal UI — driven by your plan', tag=t.div)
             st_space("v", 2)
             st_write(bs.timer, '13:15 · 75 min', tag=t.div)
+            st_write(bs.subtitle, 're-start 15 · practice 13:30 → 14:20 · debrief 10', tag=t.div)

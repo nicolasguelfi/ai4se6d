@@ -46,7 +46,7 @@ def build():
                     st_write(
                         bs.body,
                         'GREEN prompt → ',
-                        (bs.cmd, 'npm test'),
+                        (bs.cmd, 'npm run test:run'),
                         ' green → commit ',
                         (bs.cmd, 'feat: …'),
                     )

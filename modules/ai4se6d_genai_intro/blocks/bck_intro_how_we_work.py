@@ -1,4 +1,4 @@
-"""Slide — How We Work This Week: practice first, @tutor, GitHub feedback, daily buffer, hands-up quiz.
+"""Slide — How We Work This Week: practice first, your tutor window, GitHub feedback, daily buffer, hands-up quiz.
 
 Edition 2 (board peda1: P5 tutor agent, P7 feedback issues, P8 hands-up quiz, P14 standard exercise sheet).
 """
@@ -44,8 +44,9 @@ bs = BlockStyles
 _ROWS = sg.create("A1:A5", _row_label) + sg.create("B1:B5", _row_text)
 
 _NOTES = [
-    ("@tutor", "Show it once live during installation (afternoon). Insist: it is an AI, it can be wrong, "
-               "and it tells them when to call you."),
+    ("Tutor window", "Show it once live during installation (afternoon): a second terminal running "
+                     "~/ai4se/ai4se-kit/tutor. Insist: it is an AI, it can be wrong, it cites its sources, "
+                     "and it tells them when to call you."),
     ("Issues", "Typos, unclear slides, GSE-One bugs: one issue each, label ai4se-ed2. Fixed during the course."),
 ]
 
@@ -64,13 +65,14 @@ def build():
             with g.cell():
                 st_write(bs.text, "Short demo (≤ 10 min), then you do it. Every exercise says when you are ",
                          (bs.key, "done"), " — something you can see, e.g. ",
-                         (bs.code, "npm test"), " shows 3 passing tests.")
+                         (bs.code, "npm run test:run"), " shows 3 passing tests.")
             with g.cell():
-                st_write(bs.label, "Lost? Ask @tutor")
+                st_write(bs.label, "Lost? Your tutor window")
             with g.cell():
-                st_write(bs.text, "Type ", (bs.code, "@tutor"), " in opencode: an ",
-                         (bs.key, "AI assistant"), ", not the trainer. It reads your project, never changes it, "
-                         "and tells you when to call me. Then the recovery tag, then raise your hand.")
+                st_write(bs.text, "A second terminal running ", (bs.code, "~/ai4se/ai4se-kit/tutor"), ": an ",
+                         (bs.key, "AI assistant"), ", not the trainer. It reads the course and your folders, "
+                         "never changes them, cites its sources and tells you when to call me. "
+                         "Then the recovery tag, then raise your hand.")
             with g.cell():
                 st_write(bs.label, "Feedback any time")
             with g.cell():

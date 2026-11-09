@@ -58,9 +58,8 @@ def build():
                         st_write(
                             bs.body,
                             "Context files (",
-                            (bs.accent, ".cursorrules"),
-                            ", ",
-                            (bs.accent, "CLAUDE.md"),
+                            (bs.accent, "AGENTS.md"),
+                            "; CLAUDE.md, Cursor rules elsewhere"
                             ") communicate these constraints to the AI.",
                         )
                         st_space("v", 1)

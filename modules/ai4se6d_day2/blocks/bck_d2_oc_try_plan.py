@@ -20,7 +20,7 @@ _SHEET = [
     ("Goal", "a reviewed plan, no code"),
     ("Done when", "the plan names files and tests; a Context7 call appears"),
     ("Mid-point (2 min)", "context7 shows as connected"),
-    ("If stuck", "@tutor, then raise your hand"),
+    ("If stuck", "your tutor window, then raise your hand"),
 ]
 
 

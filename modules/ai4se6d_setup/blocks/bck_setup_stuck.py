@@ -1,4 +1,4 @@
-"""Slide — Stuck? 3 before me: the slide, your neighbour, @tutor, then raise your hand."""
+"""Slide — Stuck? 3 before me: the slide, your neighbour, your tutor window, then raise your hand."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -19,7 +19,7 @@ bs = BlockStyles
 _ORDER = [
     ("1", "The slide", "reread the step and its “Done when”"),
     ("2", "Your neighbour", "two pairs of eyes"),
-    ("3", "@tutor", "once step 8 works"),
+    ("3", "Tutor window", "once step 8 works"),
 ]
 
 

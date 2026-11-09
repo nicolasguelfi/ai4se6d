@@ -28,6 +28,6 @@ def build():
                     "it opens in the browser, does one thing you wanted, and ",
                     (bs.cmd, "git log"), " shows 2+ commits.",
                 )
-            st_write(bs.body, (bs.label, "Mid-point (15:15): "), "it opens + 1 commit.", tag=t.div)
-            st_write(bs.body, (bs.label, "If stuck: "), "rephrase → paste the error → @tutor → hand.", tag=t.div)
+            st_write(bs.body, (bs.label, "Mid-point (14:55): "), "it opens + 1 commit.", tag=t.div)
+            st_write(bs.body, (bs.label, "If stuck: "), "1. your tutor window  2. rephrase or paste the error to the agent  3. raise your hand.", tag=t.div)
             st_write(bs.body, (bs.label, "Debrief (16:15): "), "your notes + one example.", tag=t.div)

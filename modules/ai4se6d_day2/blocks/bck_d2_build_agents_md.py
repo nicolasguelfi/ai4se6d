@@ -21,7 +21,7 @@ _RULES = """\
 - Use fireEvent from @testing-library/react
 - Import from react-router (NOT react-router-dom)
 - Never install Jest; never skip, weaken or delete a test
-- Run tests with `npx vitest run` (never watch mode)"""
+- Run tests with `npm run test:run` (never watch mode)"""
 
 
 def build():

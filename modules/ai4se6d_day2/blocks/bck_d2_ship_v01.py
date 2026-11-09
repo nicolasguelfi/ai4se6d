@@ -21,7 +21,7 @@ bs = BlockStyles
 _SHIP = """\
 git switch mywork
 git merge fix/review          # + any finished feat/ branch not merged yet
-npx vitest run                # all green? if not, fix before tagging
+npm run test:run              # all green? if not, fix before tagging
 git tag v0.1
 git log --oneline --graph --decorate -10"""
 
@@ -53,7 +53,7 @@ def build():
                 bs.body,
                 (bs.label, 'If stuck: '),
                 '1. ',
-                (bs.cmd, '@tutor'),
+                'your tutor window',
                 '  2. tag ',
                 (bs.cmd, 'j2-v0.1'),
                 ', then ',

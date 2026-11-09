@@ -16,8 +16,8 @@ bs = BlockStyles
 
 _SHEET = [
     ("Done when", "git log --oneline shows your commit on feat/hello, and git status is clean"),
-    ("Mid-point (7 min)", "npx vitest run is green and git branch shows * feat/hello"),
-    ("If stuck", "1. @tutor in opencode  2. re-clone at j2-start in a new folder  3. raise your hand"),
+    ("Mid-point (7 min)", "npm run test:run is green and git branch shows * feat/hello"),
+    ("If stuck", "1. your tutor window  2. re-clone at j2-start in a new folder  3. raise your hand"),
     ("Git asks who you are?", "git config --global user.name \"Your Name\"  then  user.email"),
 ]
 

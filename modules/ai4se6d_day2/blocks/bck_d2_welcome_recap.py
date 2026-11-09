@@ -23,7 +23,7 @@ def build():
             with l.item(): st_write(bs.body, (bs.keyword, "GenAI basics"), " — what an LLM can and cannot do")
             with l.item(): st_write(bs.body, (bs.keyword, "VibeCoding"), " vs ", (bs.keyword, "VibeEngineering"))
             with l.item(): st_write(bs.body, (bs.keyword, "Tools"), " — opencode is our coding agent")
-            with l.item(): st_write(bs.body, (bs.keyword, "Set-up"), " — your key, GSE-One, ", (bs.keyword, "@tutor"), ", GitHub")
+            with l.item(): st_write(bs.body, (bs.keyword, "Set-up"), " — your key, GSE-One, your ", (bs.keyword, "tutor window"), ", GitHub")
             with l.item(): st_write(bs.body, (bs.keyword, "FreeSelfApp"), " — a naive prototype, built fast")
         st_space("v", 1)
         st_write(bs.question, "Hands up: who would ship it to a customer?", tag=t.div)

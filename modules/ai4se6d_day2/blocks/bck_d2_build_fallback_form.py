@@ -20,7 +20,7 @@ Render ExpenseForm, fill the labelled inputs amount (4.50),
 description (Coffee), category (Food), date (2026-03-01), click
 "Add Expense", and assert onSubmit was called with that data,
 amount as a number. Use getByLabelText / getByRole.
-Do NOT write the component. Run npx vitest run."""
+Do NOT write the component. Run npm run test:run."""
 
 
 def build():

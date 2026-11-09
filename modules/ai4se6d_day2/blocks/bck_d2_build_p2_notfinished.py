@@ -41,7 +41,7 @@ def build():
                     st_write(
                         bs.body,
                         'Then ',
-                        (bs.cmd, 'npm test'),
+                        (bs.cmd, 'npm run test:run'),
                         ' and ',
                         (bs.cmd, 'npm run dev'),
                         ' must work',

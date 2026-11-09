@@ -57,5 +57,5 @@ BLOCKS_PM = [
     blocks.bck_d2_bridge_quiz,  # Hands-up quiz — 5 questions
     blocks.bck_d2_bridge_quiz_answers,  # Hands-up quiz — answers
     blocks.bck_d2_bridge_day3,  # Preview of Day 3
-    blocks.bck_d2_close_buffer,  # Buffer — catch up, questions, @tutor
+    blocks.bck_d2_close_buffer,  # Buffer — catch up, questions, tutor window
 ]

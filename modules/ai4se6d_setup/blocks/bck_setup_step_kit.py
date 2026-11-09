@@ -1,4 +1,4 @@
-"""Slide — Installation step 4: install the course kit (tutor agent + default model)."""
+"""Slide — Installation step 4: install the course kit (tutor, syllabus, GSE-One docs, default model)."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
@@ -16,8 +16,12 @@ class BlockStyles:
     done_label = Style.create(s.bold + s.project.colors.success, "setup_done_label")
 bs = BlockStyles
 
-_CODE_ZOOM = 190  # st_code font_size is not applied by Pygments: zoom instead
-_KIT = "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/ai4se-kit/main/setup-learner.sh | sh"
+_CODE_ZOOM = 130  # st_code font_size is not applied by Pygments: zoom instead
+# One command, split with "\" so no line wraps on screen.
+_KIT = (
+    "git clone https://github.com/nicolasguelfi/ai4se-kit ~/ai4se/ai4se-kit \\\n"
+    "  && sh ~/ai4se/ai4se-kit/setup-learner.sh"
+)
 
 
 def build():
@@ -27,11 +31,13 @@ def build():
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_KIT, language="bash", line_numbers=False)
         with st_zoom(85):
-            st_write(bs.body, (bs.label, "It installs, for all your projects:"))
+            st_write(bs.body, (bs.label, "It installs, in "), (bs.cmd, "~/ai4se"), (bs.label, ":"))
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item():
-                    st_write(bs.body, (bs.cmd, "@tutor"), " — an AI helper prepared by the trainer")
+                    st_write(bs.body, (bs.cmd, "tutor"), " — an AI helper prepared by the trainer (step 8)")
                 with l.item():
-                    st_write(bs.body, "the default model for the workshops")
+                    st_write(bs.body, "the course syllabus and the GSE-One v0.90.0 docs")
+                with l.item():
+                    st_write(bs.body, "the default model for the workshops (never your key)")
             with st_block(bs.done_box):
-                st_write(bs.body, (bs.done_label, "Done when: "), "it ends with no red error line.")
+                st_write(bs.body, (bs.done_label, "Done when: "), "it ends with “Next: open your tutor window”.")

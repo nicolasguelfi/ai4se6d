@@ -22,7 +22,7 @@ tests/ mirrors src/ · docs/ = your plan and documentation
 1. TDD: failing test first, never weaken a test
 2. `npm run test:run` and `npm run lint` pass before a commit
 3. One branch per task — never commit directly to main
-5. Never commit secrets (.env* stays out of git)"""
+4. Never commit secrets (.env* stays out of git)"""
 
 
 def build():

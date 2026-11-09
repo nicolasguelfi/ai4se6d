@@ -20,7 +20,7 @@ _SHEET = [
     ("Goal", "compare a vague prompt with a precise one"),
     ("Done when", "it quotes the test command and folder from the files"),
     ("Mid-point (2 min)", "the vague answer is noted"),
-    ("If stuck", "@tutor, then raise your hand"),
+    ("If stuck", "your tutor window, then raise your hand"),
 ]
 
 
@@ -33,7 +33,7 @@ def build():
             with st_list(l_style=bs.step, li_style=bs.step, list_type=lt.ordered) as l:
                 with l.item(): st_write(bs.step, (bs.keyword, "/new"), " \u201cHow are tests organised here?\u201d Note the answer")
                 with l.item(): st_write(bs.step, (bs.keyword, "/new"), " \u201cFrom ", (bs.keyword, "@package.json"), " and ", (bs.keyword, "@AGENTS.md"), ": test command, folder, naming?\u201d")
-                with l.item(): st_write(bs.step, (bs.keyword, "!npx vitest run"), " — the output joins the conversation")
+                with l.item(): st_write(bs.step, (bs.keyword, "!npm run test:run"), " — the output joins the conversation")
                 with l.item(): st_write(bs.step, "\u201cSummarise the test results in two lines.\u201d")
         with st_zoom(85):
             with st_block(s.project.containers.callout):

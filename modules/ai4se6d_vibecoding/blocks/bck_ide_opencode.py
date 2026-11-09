@@ -35,23 +35,20 @@ $ opencode                    # the agent works in this folder
 [Tab] -> plan                 # read-only: propose a plan first
 [Tab] -> build                # now it may edit and run commands
 > explain @src/export.js      # @file adds a file to the context
-> @tutor my tests fail, why?  # the course tutor (read-only)
-> /gse-status                 # GSE-One commands start with /gse-"""
+> /gse-status                 # GSE-One commands start with /gse-
+$ ~/ai4se/ai4se-kit/tutor     # 2nd terminal: the course tutor (read-only)"""
 
 _CONFIG = """\
 {
   "model": "<provider>/<reference model>",
-  "permission": {
-    "edit": "ask",
-    "bash": "ask",
-    "webfetch": "allow"
-  },
-  "mcp": {
-    "playwright": {
-      "type": "local",
-      "command": ["npx", "-y", "@playwright/mcp"]
-    }
-  }
+  "permissions": [
+    { "action": "edit", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "*", "effect": "ask" }
+  ],
+  "mcp": { "servers": {
+    "playwright": { "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp"] }
+  } }
 }"""
 
 
@@ -102,7 +99,7 @@ def build():
                 gap="24px",
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
-                with g.cell(), st_zoom(130):
+                with g.cell(), st_zoom(105):
                     st_code(s.none, code=_CONFIG, language="json")
                 with g.cell():
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:

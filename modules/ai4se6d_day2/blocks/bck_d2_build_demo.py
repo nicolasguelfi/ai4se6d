@@ -33,7 +33,7 @@ def build():
                 with l.item():
                     st_write(
                         bs.body,
-                        (bs.cmd, 'npm test'),
+                        (bs.cmd, 'npm run test:run'),
                         ' → ',
                         (bs.keyword, 'RED'),
                         ' (the component does not exist)',
@@ -41,7 +41,7 @@ def build():
                 with l.item():
                     st_write(bs.body, 'Ask for the minimal code — ', (bs.keyword, 'do not touch the test'))
                 with l.item():
-                    st_write(bs.body, (bs.cmd, 'npm test'), ' → ', (bs.keyword, 'GREEN'))
+                    st_write(bs.body, (bs.cmd, 'npm run test:run'), ' → ', (bs.keyword, 'GREEN'))
                 with l.item():
                     st_write(bs.body, 'Break the code on purpose → a test must fail')
                 with l.item():

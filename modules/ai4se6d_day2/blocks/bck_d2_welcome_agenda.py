@@ -12,6 +12,9 @@ class BlockStyles:
     time = Style.create(s.project.titles.table_label + Style("white-space:nowrap;", "d2_nowrap"), "d2_agenda_time")
     item = s.project.titles.table_cell
     pause = Style.create(s.project.titles.table_cell + s.project.colors.muted + s.italic, "d2_agenda_pause")
+    first = Style.create(s.project.titles.table_cell + s.center_txt, "d2_agenda_first")
+    label = s.project.titles.table_label
+    cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "d2_agenda_cmd")
 bs = BlockStyles
 
 _MORNING = [
@@ -48,8 +51,9 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(75):
             st_write(bs.heading, "Today’s Agenda", tag=t.div, toc_lvl="+1")
-        st_space("v", 1)
-        with st_grid(cols=s.project.containers.responsive_2col, grid_style=s.project.containers.gap_32) as g:
+            st_write(bs.first, (bs.label, "First: "), (bs.cmd, "~/ai4se/ai4se-kit/tutor update"),
+                     " — get today's course notes", tag=t.div)
+        with st_zoom(90), st_grid(cols=s.project.containers.responsive_2col, grid_style=s.project.containers.gap_32) as g:
             with g.cell():
                 with st_block(s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md):
                     _column("Morning", _MORNING)

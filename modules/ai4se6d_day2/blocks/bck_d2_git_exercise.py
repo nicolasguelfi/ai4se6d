@@ -15,15 +15,15 @@ class BlockStyles:
 bs = BlockStyles
 
 _STEPS = """\
-git clone https://github.com/nicolasguelfi/calcapp-starter calcapp
-cd calcapp && git checkout -b mywork j2-start && npm ci
-npx vitest run              # all green?
+git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp
+cd ~/ai4se/calcapp && git checkout -b mywork j2-start && npm ci
+npm run test:run            # all green?
 git switch -c feat/hello
 # change one line of README.md, then:
 git status && git diff
 git add README.md && git commit -m "docs: say hello"
 # break a file in src/ on purpose, look at git diff, then:
-git restore <that-file> && npx vitest run"""
+git restore <that-file> && npm run test:run"""
 
 
 def build():

@@ -17,7 +17,7 @@ Write a failing Vitest test in tests/components/ExpenseItem.test.tsx.
 ExpenseItem receives an `expense` prop (id, amount, description,
 category, date, createdAt) and an `onDelete` handler. It must show
 the description and the amount in euros: "Lunch" and "€25.50"
-for 25.50. Do NOT write the component. Run npx vitest run."""
+for 25.50. Do NOT write the component. Run npm run test:run."""
 
 _ITEM_GREEN = """\
 Implement the minimal ExpenseItem (default export) that passes

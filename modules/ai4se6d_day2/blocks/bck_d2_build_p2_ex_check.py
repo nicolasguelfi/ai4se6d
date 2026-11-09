@@ -25,7 +25,7 @@ def build():
                 st_write(
                     bs.body,
                     (bs.done_label, 'Done when: '),
-                    (bs.cmd, 'npm test'),
+                    (bs.cmd, 'npm run test:run'),
                     ' shows 4+ passing tests; the app has two pages; an added expense survives a browser refresh.',
                 )
             st_write(
@@ -40,7 +40,7 @@ def build():
                 bs.body,
                 (bs.label, 'If stuck: '),
                 '1. ',
-                (bs.cmd, '@tutor'),
+                'your tutor window',
                 '  2. recovery tag ',
                 (bs.cmd, 'j2-part1'),
                 '  3. raise your hand',
