@@ -105,6 +105,17 @@ Contenu hors corpus GSE-One (règle « pas de cas de formation dans le corpus di
 - **Mises à jour.** `tutor update` au début de chaque demi-journée.
 - **Réponses.** Elles sont fondées sur le cours et citent leur source. Le tuteur dit quand le cours ne couvre pas la question.
 
+## 2quinquies. Méthode de travail sur les supports StreamTeX (option A, NG, 2026-11-09)
+
+But : aucune perte ni régression du travail de l'édition 1.
+
+- **Repère fixe.** L'étiquette `edition1-final` (poussée sur GitHub) marque `main` à la fin de l'édition 1 (`05355ab`, 08/10/2026). Pour revoir l'édition 1 : `git checkout edition1-final`.
+- **Branche.** Tout le travail se fait sur `edition2`. `main` n'est pas touchée avant la fusion, car un push sur `main` redéploie les 4 sites.
+- **Désactiver au lieu de supprimer.** Un bloc retiré du cours est enlevé de la séquence du livre (`book.py`, `sequence_*.py`), mais son fichier reste. Aucun fichier de bloc ou d'image de l'édition 1 n'est supprimé.
+- **Nouveau bloc quand le sens change.** On ne modifie un bloc existant que pour une petite correction (chiffre, nom d'outil, date). Une réécriture devient un nouveau bloc, et l'ancien est désactivé.
+- **Rapport avant fusion.** `uv run python scripts/edition_diff.py` liste, par module, les blocs ajoutés, désactivés et modifiés depuis `edition1-final`. Il échoue si un fichier de l'édition 1 a été supprimé. NG valide ce rapport et les captures des livres avant toute fusion dans `main`.
+- **Hors git.** `_LOCAL/`, `docs/maintenance/gse-alignement.md` et `modules/ai4se6d_various/static/` ne sont pas suivis par git. Ils ne sont protégés que par l'historique de Dropbox, et on n'y touche pas.
+
 ## 3. Fait depuis
 
 - 2026-11-09 — gensem **v0.89.1** publiée (commit 1b4f70a, tag v0.89.1, CI et release au vert).
