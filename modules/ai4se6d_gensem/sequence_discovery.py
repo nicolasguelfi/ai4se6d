@@ -8,6 +8,7 @@ BLOCKS_DISCOVERY = [
     blocks.bck_gensem_sheet_discover_steps,
     blocks.bck_gensem_sheet_discover_check,
     # 14:30 — E12 Plan the sprint (recall 5 + 35 + debrief 5)
+    blocks.bck_gensem_command_form,
     blocks.bck_gensem_t3_cmd_plan,
     blocks.bck_gensem_sheet_plan_steps,
     blocks.bck_gensem_sheet_plan_check,

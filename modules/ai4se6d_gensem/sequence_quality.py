@@ -11,6 +11,7 @@ BLOCKS_QUALITY = [
     blocks.bck_gensem_quality_kit,
     # 09:15 — CCSET12 in practice: recall + commands (10 min), E14 (80 min, break, 30 min), debrief (15 min)
     blocks.bck_vv_practice_title,
+    blocks.bck_gensem_command_form,
     blocks.bck_gensem_t6_cmd_tests,
     blocks.bck_gensem_t6_cmd_produce,
     blocks.bck_gensem_t6_cmd_review,

@@ -24,7 +24,7 @@ Légende : `[x]` fait · `[ ]` à faire · `[~]` en cours · `[R]` demande la r�
 - [x] CCSET12 : cours « vérification et validation » (à écrire) + illustration.
 - [x] E11, E12, E13 : fiches à source unique (`modules/shared-blocks/exercise_sheets.py`, rendu `exercise_sheet.py`, syllabus par `scripts/sheets_markdown.py`) ; E14 à E18 écrites aussi.
 - [x] Accueil du jour 3 (rappel des jours 1-2), débriefs, fin de journée.
-- [x] Passe opencode : aucun « Cursor » dans les blocs repris aux jours 3-4 ; les blocs de commandes de l'édition 1 gardent la forme `/gse:` (décision P3 : bandeau à ajouter).
+- [x] Passe opencode : aucun « Cursor » dans les blocs repris aux jours 3-4 ; les blocs de commandes de l'édition 1 gardent la forme `/gse:` (décision P3) : diapositive « One Command Form » (`bck_gensem_command_form`) placée avant les blocs de commandes, aux jours 3 et 4.
 - [~] Fiche `docs/trainer/sources-day3.md` écrite ; chiffres de l'édition 1 encore à vérifier à la source (P9).
 - [x] Syllabus HD05-HD06 + page d'orientation (`syllabus/orientation.md`) ; programme public HD05-HD08 réécrit (déjeuner du jour 3 12:30-13:30).
 
