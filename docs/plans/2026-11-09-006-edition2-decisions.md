@@ -133,6 +133,7 @@ Source : `2026-11-10-012-six-days-cycles-plan.html` (déroulé minuté, 25 fiche
 
 - **Modèle imposé** (décision P6) : `deepseek/deepseek-v4.1-flash` via OpenRouter, sur la clé de NG, pour tous les apprenants et pour **toute la préparation** des séances (répétitions comprises). **Secours** : `minimax/minimax-m3.1-flash`.
 - **Pourquoi** : seul modèle observé sur une journée entière de la répétition à blanc du 10/11 (plan, TDD, revue qui trouve un vrai HIGH), coût estimé ≈ 12 $ par apprenant sur les jours 2 à 6 (≈ 250 $ pour 20), à confirmer par la répétition de référence. Prix OpenRouter du 10/11 : entrée 0,30 $, sortie 1,20 $, cache 0,006 $ par million de jetons.
+- **Coût mesuré (répétition de référence du 10/11, un apprenant intensif, jours 1 à 4)** : 1,75 $ au total sur OpenRouter (dont 0,18 $ pour tout le jour 2) — le plafond de 20 $ par clé laisse une large marge.
 - **Mesure** : 47,5 millions de jetons pour environ 2 h 45 d'agent pendant la répétition à blanc (surtout du contexte relu en cache).
 - **À traiter en notion 4 (jour 1)** : l'origine du modèle et ce qu'on met dans un prompt (question de perception sur la confidentialité).
 - **Écarté pour la préparation** : les modèles gratuits d'opencode (quota quotidien épuisé après environ 1 h 45 d'agent pendant la répétition à blanc ; confirme la décision 5).
