@@ -34,11 +34,12 @@ BLOCKS = [
     blocks.bck_setup_workshop_sheet,
     blocks.bck_setup_take_notes,
     blocks.bck_setup_build_stuck,
-    blocks.bck_setup_part2,
+    blocks.bck_setup_workshop_continue,
     # ── Debrief (16:15, 30 min) ──
     blocks.bck_setup_debrief_compare,
     blocks.bck_setup_debrief_questions,
+    blocks.bck_setup_debrief_cycles,  # link to the morning cycles 01-03
     blocks.bck_setup_quiz,
     blocks.bck_setup_quiz_answers,
-    blocks.bck_setup_day2_preview,
+    blocks.bck_setup_tomorrow_preview,
 ]

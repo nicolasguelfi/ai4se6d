@@ -13,6 +13,7 @@ bck_<category>_<topic>.py
 ### Principles
 
 1. **No numbers** — Never use ordinal numbers (b1_, p2_, 01_) in identifiers. Numbers prevent reordering and reuse.
+   This covers day numbers (`d2_`, `day3`), part numbers (`p2`, `part2`), versions (`v01`), edition suffixes (`_ed2`) and product names with digits (`context7`): only keywords that say what the slide is about (NG, 2026-11-10). A rewritten edition-1 block gets a new keyword name (`bck_intro_objective_abilities`, not `bck_intro_objective_ed2`); edition-1 files keep their names (option A: never renamed nor deleted).
 2. **Category first** — The most general concept comes first for alphabetical grouping:
    - `bck_llm_capabilities.py`, `bck_llm_comparison.py`, `bck_llm_tokens.py` cluster together
 3. **Topic second** — The most specific concept comes last:

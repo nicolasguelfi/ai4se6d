@@ -53,18 +53,18 @@ bs = BlockStyles
 
 # Day data: (day, morning_label, afternoon_label, is_today)
 DAYS = [
-    (1, "GenAI foundations · LLM → AI agent · VibeEngineering",
+    (1, "GenAI foundations · VibeCoding → VibeEngineering · Tools",
      "Setup in the room · First prototype with opencode", True),
-    (2, "Git first · Driving opencode on CalcApp",
-     "CalcApp v0.1 · AI code review · Bridge to GSE-One", False),
-    (3, "GSE-One: a structured lifecycle on CalcApp",
-     "Requirements · Plan · Build · Review", False),
-    (4, "CalcApp iterations with GSE-One",
-     "Measuring quality: lint, tests, CI", False),
-    (5, "Mini-project: scope, milestones, build",
-     "Mini-project: build · Deployment", False),
-    (6, "Mini-project: finish · Applied ethics",
-     "Gallery demo · Closure", False),
+    (2, "Git first · Driving opencode · Planning · TDD on CalcApp",
+     "CalcApp v0.1 · AI code review · Ship v0.1", False),
+    (3, "SE concepts · Requirements · NFR · Verification & validation",
+     "GSE-One on CalcApp: discover, plan, requirements, design", False),
+    (4, "Tests, production, review with GSE-One · Measuring quality",
+     "Deliver & capitalise · Framing your mini-project", False),
+    (5, "Deployment · Mini-project sprint",
+     "Mini-project sprint · Milestone: plan & requirements", False),
+    (6, "Mini-project: finish, deliver · Applied ethics",
+     "Gallery demos · Closure", False),
 ]
 
 # Pairs for each section

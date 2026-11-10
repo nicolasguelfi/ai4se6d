@@ -149,20 +149,22 @@ st_book(
         blocks.bck_vibeeng_evidence_gap,         # Block 29c — Short vs long tenure gains
 
         # --- EXERCISE 3: REDO WITH DISCIPLINE ---
+        blocks.bck_gse_solution_human_loop,      # CCSET02 — how GSE-One solves it
         blocks.bck_exercise_vibeeng,             # Block 30
 
         # --- ACT IV: TOOL ECOSYSTEM ---
         blocks.bck_ide_overview,                 # Block 31 — Section billboard
         blocks.bck_ide_autonomy,                 # Block 32 — 5 levels + agentic turn
         blocks.bck_ide_opencode,                 # Block 33 — opencode, the course tool (3 slides)
-        blocks.bck_ide_claude_code_ed2,              # Block 34 — Claude Code, the reference terminal agent
-        blocks.bck_ide_others_ed2,                   # Block 35 — Cursor, Copilot, Codex CLI, Gemini CLI
+        blocks.bck_ide_claude_code_reference,              # Block 34 — Claude Code, the reference terminal agent
+        blocks.bck_ide_others_landscape,                   # Block 35 — Cursor, Copilot, Codex CLI, Gemini CLI
         blocks.bck_ide_local_llms,               # Block 35b — Local LLMs (Ollama, LM Studio)
-        blocks.bck_ide_comparison_ed2,               # Block 36 — Same concepts, different names
+        blocks.bck_ide_comparison_concepts,               # Block 36 — Same concepts, different names
         blocks.bck_ide_mcp,                      # Block 37 — MCP protocol
         blocks.bck_ide_opencode_choice,          # Block 38 — Why opencode for this course
         blocks.bck_ide_ai_act,                   # Block 38b — EU AI Act: risk levels + timeline
         blocks.bck_ide_ai_rules,                 # Block 38c — Practical rules for this week
+        blocks.bck_gse_solution_plugin,          # CCSET03 — how GSE-One solves it
 
         # --- CLOSING ---
         # blocks.bck_recap,                      # Block 39 — disabled: road-ahead slide is edition-1 (Cursor, old day plan)
