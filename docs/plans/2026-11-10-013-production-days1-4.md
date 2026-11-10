@@ -1,7 +1,7 @@
 # Production des jours 1 à 4 — suivi
 
 **Lancée** : 2026-11-10, à la demande de NG, à partir du déroulé validé `2026-11-10-012-six-days-cycles-plan.html` (16 cycles CCSET, fiches E1 à E18).
-**Règles** : option A (branche `edition2`, désactiver au lieu de supprimer, nouveau bloc `_ed2` quand le sens change, rapport `scripts/edition_diff.py` validé par NG avant fusion) ; chaque diapositive modifiée met à jour la fiche HD de la même demi-journée dans `ai4se-kit/syllabus/`, dans le même lot de commits ; `uv run ruff check` et `uv run stx validate --build` avant chaque commit de blocs ; diapositives en anglais.
+**Règles** : option A (branche `edition2`, désactiver au lieu de supprimer, nouveau bloc aux mots-clés sans chiffre quand le sens change, rapport `scripts/edition_diff.py` validé par NG avant fusion) ; chaque diapositive modifiée met à jour la fiche HD de la même demi-journée dans `ai4se-kit/syllabus/`, dans le même lot de commits ; `uv run ruff check` et `uv run stx validate --build` avant chaque commit de blocs ; diapositives en anglais.
 **Illustration du plugin** (cycles 01 à 12) : une diapositive par cycle, mise en page commune `modules/shared-blocks/gse_solution.py`, texte seulement, ni démonstration ni capture d'exécution.
 
 Légende : `[x]` fait · `[ ]` à faire · `[~]` en cours · `[R]` demande la répétition (exécution réelle de GSE-One avec un modèle).
@@ -17,16 +17,16 @@ Légende : `[x]` fait · `[ ]` à faire · `[~]` en cours · `[R]` demande la r�
 
 ## Lot 2 — jour 3 (phase 2)
 
-- [ ] `gensem` : livre réorganisé en séquences jour 3 / jour 4 (blocs non montrés retirés du livre, fichiers gardés).
-- [ ] CCSET09 : sélection des blocs `sdlc_*`, `evidence_*`, `fw_*` ; illustration (principes, cycle de vie, modes, Gates) ; grille des 3 questions ; page d'orientation (recto-verso, imprimable).
-- [ ] CCSET10 : cours « élicitation des exigences » (à écrire) + illustration.
-- [ ] CCSET11 : cours « exigences non fonctionnelles » (à écrire) + illustration.
-- [ ] CCSET12 : cours « vérification et validation » (à écrire) + illustration.
-- [ ] E11 (P1 + exploration `.gse/` + garde-fou), E12 (P3), E13 (P5) : nouveaux blocs `_ed2` à la fiche standard.
-- [ ] Accueil du jour 3 (rappel des jours 1-2), débriefs, fin de journée.
-- [ ] Passe opencode sur les blocs repris (mentions de Cursor, forme `/gse-…`).
-- [ ] Chiffres vérifiés à la source : `docs/trainer/sources-day3.md`.
-- [ ] Syllabus HD05-HD06 (nouvelles fiches) ; programme public (déjeuner 12:30-13:30).
+- [x] `gensem` : livre réorganisé en séquences jour 3 / jour 4 (blocs non montrés retirés du livre, fichiers gardés).
+- [x] CCSET09 : sélection des blocs `sdlc_*`, `evidence_*`, `fw_*` ; illustration (principes, cycle de vie, modes, Gates) ; grille des 3 questions ; page d'orientation (recto-verso, imprimable).
+- [x] CCSET10 : cours « élicitation des exigences » (à écrire) + illustration.
+- [x] CCSET11 : cours « exigences non fonctionnelles » (à écrire) + illustration.
+- [x] CCSET12 : cours « vérification et validation » (à écrire) + illustration.
+- [x] E11, E12, E13 : fiches à source unique (`modules/shared-blocks/exercise_sheets.py`, rendu `exercise_sheet.py`, syllabus par `scripts/sheets_markdown.py`) ; E14 à E18 écrites aussi.
+- [x] Accueil du jour 3 (rappel des jours 1-2), débriefs, fin de journée.
+- [x] Passe opencode : aucun « Cursor » dans les blocs repris aux jours 3-4 ; les blocs de commandes de l'édition 1 gardent la forme `/gse:` (décision P3 : bandeau à ajouter).
+- [~] Fiche `docs/trainer/sources-day3.md` écrite ; chiffres de l'édition 1 encore à vérifier à la source (P9).
+- [x] Syllabus HD05-HD06 + page d'orientation (`syllabus/orientation.md`) ; programme public HD05-HD08 réécrit (déjeuner du jour 3 12:30-13:30).
 
 ## Lot 3 — jour 4 (phase 2)
 
@@ -47,3 +47,4 @@ Légende : `[x]` fait · `[ ]` à faire · `[~]` en cours · `[R]` demande la r�
 
 - 2026-11-10 — déroulé 012 validé et versionné (commit `feb5419`) ; suivi ouvert.
 - 2026-11-10 — lot 1 : composant `gse_solution`, 8 diapositives d'illustration (CCSET01-08), carte des cycles, feuille de route, débrief du jour 1 relié aux cycles ; syllabus HD01-HD04. Règle de NG « aucun chiffre dans les noms de blocs » appliquée aux blocs de l'édition 2 : 103 blocs du jour 2 (`bck_d2_*` → mots-clés, ids de style `d2_*` aussi), 4 blocs `_ed2`, 2 blocs de `setup`, 2 images. Les fichiers de l'édition 1 gardent leur nom (option A). Rapport `edition_diff` : aucun fichier de l'édition 1 supprimé.
+- 2026-11-10 — lot 2 (jour 3) : livre gensem réorganisé en 4 séquences (`sequence_concepts`, `sequence_discovery`, `sequence_quality`, `sequence_delivery` ; les deux dernières provisoires) ; 3 cours écrits (élicitation 9 diapositives, exigences non fonctionnelles 7, vérification et validation 7) + 4 illustrations CCSET09-12, grille des Gates, page d'orientation ; accueil et clôture du jour 3 ; 8 fiches d'exercice E11-E18 à source unique ; 13 références ajoutées à `references.bib` ; vérification visuelle par export HTML et captures (débordement corrigé).

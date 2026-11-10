@@ -36,7 +36,7 @@ _FOOT = Style.create(s.project.titles.caption + s.italic + s.center_txt, "gse_so
 DEFAULT_FOOT = "Concept only — you will use GSE-One from day 3."
 
 
-def gse_solution(*, cycle, label, problem, solution, foot=DEFAULT_FOOT, zoom=80):
+def gse_solution(*, cycle, label, problem, solution, foot=DEFAULT_FOOT, zoom=60):
     """Render the slide: cycle tag, heading, the problem, GSE-One's solution, a footnote."""
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(zoom):
