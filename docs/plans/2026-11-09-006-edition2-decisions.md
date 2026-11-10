@@ -129,6 +129,15 @@ Source : `2026-11-10-012-six-days-cycles-plan.html` (déroulé minuté, 25 fiche
 - **Valeurs par défaut des 16 points ouverts validées** : déjeuner du jour 3 de 12:30 à 13:30 ; P2 et P4 fusionnés dans P1 ; 12 diapositives d'illustration (texte ou schéma, sans capture d'exécution) ; les trois cours écrits en phase 2 à partir des blocs du module gensem ; fiches d'exercice dans le syllabus du kit ; comparaison de modèles au jour 5 à 09:45 ; étiquette du starter avec couverture et `ci.yml` ; mini-projet redéployé au jour 6 seulement si le temps le permet ; galerie en deux rotations ; contrôle des dépôts à 13:45 ; pauses ajoutées aux jours 5-6 ; validation du jalon du jour 5 au fil de l'eau ; jour 3 sans marge ; dépôt privé autorisé pour le mini-projet. Reste à confirmer avec DLH : la taille du groupe (environ 20).
 - **Production** des jours 1 à 4 lancée le 10/11 : suivi dans `2026-11-10-013-production-days1-4.md`.
 
+## 2septies. Modèle de la formation (NG, 2026-11-10)
+
+- **Modèle imposé** (décision P6) : `deepseek/deepseek-v4.1-flash` via OpenRouter, sur la clé de NG, pour tous les apprenants et pour **toute la préparation** des séances (répétitions comprises). **Secours** : `minimax/minimax-m3.1-flash`.
+- **Pourquoi** : seul modèle observé sur une journée entière de la répétition à blanc du 10/11 (plan, TDD, revue qui trouve un vrai HIGH), coût estimé ≈ 12 $ par apprenant sur les jours 2 à 6 (≈ 250 $ pour 20), à confirmer par la répétition de référence. Prix OpenRouter du 10/11 : entrée 0,30 $, sortie 1,20 $, cache 0,006 $ par million de jetons.
+- **Mesure** : 47,5 millions de jetons pour environ 2 h 45 d'agent pendant la répétition à blanc (surtout du contexte relu en cache).
+- **À traiter en notion 4 (jour 1)** : l'origine du modèle et ce qu'on met dans un prompt (question de perception sur la confidentialité).
+- **Écarté pour la préparation** : les modèles gratuits d'opencode (quota quotidien épuisé après environ 1 h 45 d'agent pendant la répétition à blanc ; confirme la décision 5).
+- **Reste à faire** : identifiant exact vérifié après connexion de la clé, puis `opencode.base.json` du kit mis à jour ; répétition de référence des jours 2 à 4 refaite avec ce modèle.
+
 ## 3. Fait depuis
 
 - 2026-11-09 — gensem **v0.89.1** publiée (commit 1b4f70a, tag v0.89.1, CI et release au vert).
@@ -163,5 +172,5 @@ Source : `2026-11-10-012-six-days-cycles-plan.html` (déroulé minuté, 25 fiche
 ## 4. Points ouverts
 
 - ~~opencode 2~~ : réglé par v0.90.0 (voir § 3). Commande d'installation à utiliser en salle : `curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.90.0/install.sh | GSE_PLATFORM=opencode GSE_VERSION=v0.90.0 sh` (opencode installé AVANT, pour que l'installateur détecte la version 2).
-- Budget et fournisseur des clés de modèle (≈ 20 clés plafonnées).
+- Budget et fournisseur des clés de modèle (≈ 20 clés plafonnées) : fournisseur OpenRouter et modèle fixés le 10/11 (§ 2septies) ; reste le plafond par clé.
 - Mode d'accès aux VM DLH (protocole, distribution des identifiants sur fiche papier).
