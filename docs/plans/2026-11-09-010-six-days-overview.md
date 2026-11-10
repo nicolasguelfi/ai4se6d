@@ -2,7 +2,7 @@
 
 **But** : juger chaque déroulé en ayant la semaine entière sous les yeux.
 **Source** : le programme public `ai4se-kit/syllabus/00-programme.md` (en anglais, pour les apprenants et le tuteur). Ce tableau le résume, il ne le remplace pas. En cas d'écart, c'est le programme qui fait foi, puis les déroulés détaillés.
-**Déroulé en cycles des six journées (fait foi)** : `2026-11-10-012-six-days-cycles-plan.html` (16 cycles CCSET, 25 fiches d'exercice). Il remplace les tableaux ci-dessous pour les jours 3 à 6.
+**Déroulé en cycles des six journées (fait foi)** : `2026-11-10-012-six-days-cycles-plan.html` (16 cycles CCSET, 25 fiches d'exercice). Il remplace les tableaux ci-dessous pour les jours 3 à 6. Production des jours 1 à 4 : `2026-11-10-013-production-days1-4.md` (supports rédigés le 10/11, à répéter).
 **Déroulés minutés antérieurs** : jour 1 `2026-11-09-008-day1-plan.md`, jour 2 `2026-11-09-007-day2-plan-b.md`, jours 3 à 6 `2026-11-10-011-days3-6-plan.md` (première version provisoire, 8 points ouverts).
 **Légende** : ✅ définitif (rédigé, pas encore répété) · 🟡 provisoire (à confirmer en phase 2 ou 3) · ⬜ supports à écrire.
 
