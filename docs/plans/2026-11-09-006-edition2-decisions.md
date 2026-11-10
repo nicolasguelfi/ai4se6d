@@ -4,7 +4,8 @@
 **Édition** : DLH, 26-27/11, 03-04/12, 10-11/12/2026 — NG seul (Tiago Sousa ne fait plus partie de la formation et a transféré à NG la propriété de ses supports)
 **Source** : planches de décision `ai4se1` et `gsel1` (session Claude `ss2-ul-gse`, 2026-11-08/09) ; rapport d'état des lieux (artefact « AI4SE — état des lieux », v3)
 **Vue des six journées sur une page** : `2026-11-09-010-six-days-overview.md`.
-**Déroulés minutés des jours 3 à 6 (provisoires)** : `2026-11-10-011-days3-6-plan.md`.
+**Déroulé des six journées en cycles (fait foi)** : `2026-11-10-012-six-days-cycles-plan.html`.
+**Déroulés minutés des jours 3 à 6 (provisoires)** : `2026-11-10-011-days3-6-plan.md`. Remplacé par le fichier 012.
 **Artefacts à produire pour les jours 3 à 6** : `2026-11-09-009-days3-6-specs.md` (contenu décidé et fichiers à reprendre, tiré de la planche `peda1`)
 **Branche de travail** : `edition2` (un push sur `main` redéploie les 4 apps Coolify : on ne fusionne qu'une fois l'édition prête)
 
@@ -117,6 +118,16 @@ But : aucune perte ni régression du travail de l'édition 1.
 - **Nouveau bloc quand le sens change.** On ne modifie un bloc existant que pour une petite correction (chiffre, nom d'outil, date). Une réécriture devient un nouveau bloc, et l'ancien est désactivé.
 - **Rapport avant fusion.** `uv run python scripts/edition_diff.py` liste, par module, les blocs ajoutés, désactivés et modifiés depuis `edition1-final`. Il échoue si un fichier de l'édition 1 a été supprimé. NG valide ce rapport et les captures des livres avant toute fusion dans `main`.
 - **Hors git.** `_LOCAL/`, `docs/maintenance/gse-alignement.md` et `modules/ai4se6d_various/static/` ne sont pas suivis par git. Ils ne sont protégés que par l'historique de Dropbox, et on n'y touche pas.
+
+## 2sexies. Déroulé en cycles (NG, 2026-11-10) — fait foi pour les six journées
+
+Source : `2026-11-10-012-six-days-cycles-plan.html` (déroulé minuté, 25 fiches d'exercice, 16 points ouverts).
+
+- **Cycle CCSET** (proposition de NG) : chaque concept suit quatre étapes : théorie (problème, solutions en théorie et en pratique), illustration conceptuelle de la solution retenue par GSE-One, exercice sur fiche, débrief. 16 cycles, CCSET01 à CCSET16 ; les jours 5-6 appliquent tous les cycles au mini-projet.
+- **Jours 1-2 à la main** : vibe coding (jour 1) puis vibe engineering sur CalcApp (jour 2), avant GSE-One. Le plugin n'y apparaît que comme illustration (une diapositive « la solution retenue par GSE-One » par cycle) : **ni démonstration, ni exercice** avec le plugin.
+- **Option A** : les quatre cours de génie logiciel du programme initial (concepts et GenSEM 60 min, élicitation des exigences 45, exigences non fonctionnelles 45, vérification et validation 30) occupent le **jour 3 matin** ; GSE-One est utilisé à partir du jour 3 après-midi. **Remplace P11** (« P1 avant toute théorie »).
+- **Valeurs par défaut des 16 points ouverts validées** : déjeuner du jour 3 de 12:30 à 13:30 ; P2 et P4 fusionnés dans P1 ; 12 diapositives d'illustration (texte ou schéma, sans capture d'exécution) ; les trois cours écrits en phase 2 à partir des blocs du module gensem ; fiches d'exercice dans le syllabus du kit ; comparaison de modèles au jour 5 à 09:45 ; étiquette du starter avec couverture et `ci.yml` ; mini-projet redéployé au jour 6 seulement si le temps le permet ; galerie en deux rotations ; contrôle des dépôts à 13:45 ; pauses ajoutées aux jours 5-6 ; validation du jalon du jour 5 au fil de l'eau ; jour 3 sans marge ; dépôt privé autorisé pour le mini-projet. Reste à confirmer avec DLH : la taille du groupe (environ 20).
+- **Production** des jours 1 à 4 lancée le 10/11 : suivi dans `2026-11-10-013-production-days1-4.md`.
 
 ## 3. Fait depuis
 

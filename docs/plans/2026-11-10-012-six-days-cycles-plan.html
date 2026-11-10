@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Déroulé AI4SE édition 2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a training timetable — sticky day bar, one section per day, timetable tables then exercise sheets. */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#1c2230; --muted:#5b6474; --line:#dde1e8; --accent:#1f5fa8;
+  --t-bg:#e3edf9; --t-fg:#1b4f8c;   /* théorie */
+  --p-bg:#efe6f7; --p-fg:#5f3a8a;   /* plugin (illustration) */
+  --e-bg:#e2f3e8; --e-fg:#1d6b3c;   /* exercice */
+  --d-bg:#fbefd9; --d-fg:#8a5a10;   /* débrief */
+  --x-bg:#eceef2; --x-fg:#4d5563;   /* hors cycle */
+  --ok:#1d6b3c; --adapt:#8a5a10; --new:#a3312b; --gap:#a3312b;
+  --f-display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12161d; --surface:#1a1f28; --fg:#e4e8ef; --muted:#9aa3b2; --line:#2c3340; --accent:#7fb0ea;
+  --t-bg:#1c2c42; --t-fg:#9cc4f2; --p-bg:#2c2240; --p-fg:#c9a8ee; --e-bg:#173322; --e-fg:#8fd6a8;
+  --d-bg:#3a2c12; --d-fg:#f0c674; --x-bg:#262c36; --x-fg:#aab2c0;
+  --ok:#8fd6a8; --adapt:#f0c674; --new:#f19a92; --gap:#f19a92; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12161d; --surface:#1a1f28; --fg:#e4e8ef; --muted:#9aa3b2; --line:#2c3340; --accent:#7fb0ea;
+  --t-bg:#1c2c42; --t-fg:#9cc4f2; --p-bg:#2c2240; --p-fg:#c9a8ee; --e-bg:#173322; --e-fg:#8fd6a8;
+  --d-bg:#3a2c12; --d-fg:#f0c674; --x-bg:#262c36; --x-fg:#aab2c0;
+  --ok:#8fd6a8; --adapt:#f0c674; --new:#f19a92; --gap:#f19a92; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:2rem;font-weight:600}
+h2{font-size:1.55rem;font-weight:600;padding-top:8px}
+h3{font-size:1.15rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+h4{font-size:1.05rem;font-weight:600}
+p{margin:0}
+.lede{max-width:72ch;color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:14px}
+section.day{display:flex;flex-direction:column;gap:18px;padding-top:36px;scroll-margin-top:64px}
+.daymeta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.92rem}
+.daymeta b{color:var(--fg);font-weight:600}
+nav.days{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-top:20px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav.days .in{display:flex;gap:4px;overflow-x:auto;padding-block:8px}
+nav.days a{font-family:var(--f-display);font-weight:500;color:var(--fg);text-decoration:none;padding:6px 12px;border-radius:6px;white-space:nowrap}
+nav.days a:hover,nav.days a:focus-visible{background:var(--surface);outline:2px solid var(--accent);outline-offset:-2px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:.9rem;color:var(--muted)}
+.ph{display:inline-block;font-family:var(--f-display);font-weight:600;font-size:.78rem;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.ph.t{background:var(--t-bg);color:var(--t-fg)} .ph.p{background:var(--p-bg);color:var(--p-fg)}
+.ph.e{background:var(--e-bg);color:var(--e-fg)} .ph.d{background:var(--d-bg);color:var(--d-fg)}
+.ph.x{background:var(--x-bg);color:var(--x-fg)}
+.st{font-size:.8rem;font-weight:600;white-space:nowrap}
+.st.ok{color:var(--ok)} .st.ad{color:var(--adapt)} .st.nw{color:var(--new)}
+.gap{color:var(--gap);font-weight:600;font-size:.82rem;white-space:nowrap}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{font-family:var(--f-display);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td.h,td.m{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.m{text-align:right;color:var(--muted)}
+tr.brk td{background:var(--bg);color:var(--muted)}
+tr.cyc td{background:var(--bg);font-family:var(--f-display);font-weight:600;font-size:.95rem;color:var(--accent)}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:0 3px;overflow-wrap:anywhere}
+.path{font-family:var(--f-mono);font-size:.8rem;overflow-wrap:anywhere;color:var(--muted)}
+.sheets{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:14px}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.sheet header{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;justify-content:space-between}
+.sheet .tag{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.sheet dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;margin:0;font-size:.92rem}
+.sheet dt{font-weight:600;color:var(--muted)}
+.sheet dd{margin:0;min-width:0}
+.sheet ol{margin:0;padding-left:1.2em}
+.note{border-left:3px solid var(--accent);padding:8px 12px;background:var(--surface);max-width:90ch}
+.open{counter-reset:o;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.open li{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.open li b{font-family:var(--f-display)}
+@media (max-width:560px){.sheet dl{grid-template-columns:1fr}.sheet dt{margin-top:4px}h1{font-size:1.6rem}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="stack">
+  <p class="daymeta"><span>AI4SE édition 2 · DLH</span><span>26-27/11, 03-04/12, 10-11/12/2026</span><span>Validé par NG le 10/11/2026</span></p>
+  <h1>Déroulé des six journées en cycles</h1>
+  <p class="lede">Base : option A de la dernière analyse. Les jours 1 et 2 sont faits à la main (vibe coding puis vibe engineering sur CalcApp). Les quatre cours de génie logiciel occupent le jour 3 matin. GSE-One est utilisé à partir du jour 3 après-midi. Aux jours 1, 2 et 3 matin, le plugin n'apparaît que comme illustration : une diapositive « la solution retenue par GSE-One », sans démonstration ni exercice.</p>
+  <p class="lede">Ce déroulé fait foi pour les six journées. Il remplace, pour les jours 3 à 6, le déroulé provisoire <code>2026-11-10-011-days3-6-plan.md</code>. Les valeurs par défaut des points ouverts sont validées. Le programme public (<code>ai4se-kit/syllabus/00-programme.md</code>) est mis à jour à partir de ce fichier.</p>
+  <div class="legend">
+    <span><span class="ph t">Théorie</span> concept académique : problème, solutions en théorie et en pratique</span>
+    <span><span class="ph p">Plugin</span> illustration conceptuelle de la solution retenue par GSE-One</span>
+    <span><span class="ph e">Exercice</span> sur fiche</span>
+    <span><span class="ph d">Débrief</span></span>
+    <span><span class="ph x">Hors cycle</span> accueil, pause, installation, projet</span>
+  </div>
+  <div class="legend">
+    <span>État des supports :</span><span class="st ok">existe</span><span class="st ad">à adapter</span><span class="st nw">à écrire</span><span class="gap">[écart]</span><span>= différent du programme publié</span>
+  </div>
+</header>
+
+<nav class="days" aria-label="Journées"><div class="in">
+  <a href="#cycles">Cycles</a><a href="#j1">Jour 1</a><a href="#j2">Jour 2</a><a href="#j3">Jour 3</a><a href="#j4">Jour 4</a><a href="#j5">Jour 5</a><a href="#j6">Jour 6</a><a href="#ouverts">Points ouverts</a>
+</div></nav>
+
+<!-- ============ CYCLES ============ -->
+<section class="day" id="cycles">
+  <h2>Les 16 cycles CCSET</h2>
+  <p class="lede">Chaque cycle suit quatre étapes : théorie, illustration par le plugin, exercice sur fiche, débrief. Aux jours 1 et 3, le cycle se joue à l'échelle de la demi-journée : théorie le matin, exercices l'après-midi. Aux jours 2 et 4, il se joue séquence par séquence. Les cycles 06, 07 et 08, faits à la main au jour 2, sont repris avec GSE-One aux jours 3 et 4 : c'est la spirale.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Cycle</th><th>Concept</th><th>Théorie</th><th>Illustration GSE-One</th><th>Exercice</th><th>Outil</th></tr></thead>
+    <tbody>
+      <tr><td class="h">CCSET01</td><td>IA générative : du LLM à l'agent</td><td>J1 09:45</td><td>J1 10:30</td><td>FreeSelfApp (J1 après-midi)</td><td>à la main</td></tr>
+      <tr><td class="h">CCSET02</td><td>Du vibe coding au vibe engineering</td><td>J1 10:50</td><td>J1 11:30</td><td>FreeSelfApp</td><td>à la main</td></tr>
+      <tr><td class="h">CCSET03</td><td>Écosystème d'outils, AI Act, règles pratiques</td><td>J1 11:35</td><td>J1 12:10</td><td>FreeSelfApp ; repris au J6 (éthique)</td><td>à la main</td></tr>
+      <tr><td class="h">CCSET04</td><td>Gestion de configuration : git comme filet</td><td>J2 09:15</td><td>J2 09:27</td><td>Git sur CalcApp</td><td>à la main</td></tr>
+      <tr><td class="h">CCSET05</td><td>Piloter un agent : ingénierie du contexte</td><td>J2 09:50</td><td>J2 10:02</td><td>Essayer ×3</td><td>à la main</td></tr>
+      <tr><td class="h">CCSET06</td><td>Planification technique : user stories, tâches atomiques</td><td>J2 11:00</td><td>J2 11:05</td><td><code>docs/plan.md</code> ; repris en P3 (J3)</td><td>à la main, puis GSE-One</td></tr>
+      <tr><td class="h">CCSET07</td><td>Tests avec l'IA : TDD, test mutant</td><td>J2 11:30</td><td>J2 11:42</td><td>CalcApp v0.1 ; repris en P6 (J4)</td><td>à la main, puis GSE-One</td></tr>
+      <tr><td class="h">CCSET08</td><td>Revue de code, documentation vivante, livraison</td><td>J2 14:30</td><td>J2 14:55</td><td>Revue du diff, README, v0.1 ; repris en P6-P7</td><td>à la main, puis GSE-One</td></tr>
+      <tr><td class="h">CCSET09</td><td>Concepts du génie logiciel : définir sa GenSEM</td><td>J3 09:15</td><td>J3 10:05</td><td>P1 Découvrir GSE-One, P3 Planifier</td><td>GSE-One</td></tr>
+      <tr><td class="h">CCSET10</td><td>Élicitation des exigences</td><td>J3 10:15</td><td>J3 10:55</td><td>P5 Exigences et conception</td><td>GSE-One</td></tr>
+      <tr><td class="h">CCSET11</td><td>Exigences non fonctionnelles</td><td>J3 11:15</td><td>J3 11:55</td><td>P5 Exigences et conception</td><td>GSE-One</td></tr>
+      <tr><td class="h">CCSET12</td><td>Vérification et validation</td><td>J3 12:00</td><td>J3 12:25</td><td>P6 Stratégie de test, production, revue (J4)</td><td>GSE-One</td></tr>
+      <tr><td class="h">CCSET13</td><td>Mesurer la qualité</td><td>J4 11:45</td><td>J4 11:55</td><td>Mesurer CalcApp</td><td>outils + GSE-One</td></tr>
+      <tr><td class="h">CCSET14</td><td>Livraison, maintenance, capitalisation</td><td>J4 13:15</td><td>J4 13:27</td><td>P7 Cycle complet et continuité</td><td>GSE-One</td></tr>
+      <tr><td class="h">CCSET15</td><td>Cadrer un projet</td><td>J4 15:00</td><td>J4 15:15</td><td>Fiche projet, <code>/gse-go</code> Allégé</td><td>GSE-One</td></tr>
+      <tr><td class="h">CCSET16</td><td>Déploiement</td><td>J5 09:15</td><td>J5 09:35</td><td>Déployer CalcApp, par vagues</td><td>GSE-One</td></tr>
+    </tbody>
+  </table></div>
+  <p class="lede">Jours 5 et 6 : le mini-projet applique tous les cycles en autonomie, en mode Allégé. Aucun concept nouveau, sauf le déploiement (cycle 16). L'éthique du jour 6 applique le cycle 03 à son propre projet.</p>
+</section>
+
+<!-- ============ JOUR 1 ============ -->
+<section class="day" id="j1">
+  <h2>Jour 1 · jeudi 26/11 · découvrir l'IA générative, vibe coder</h2>
+  <p class="daymeta"><span><b>Cycles</b> 01, 02, 03</span><span><b>Outil</b> opencode seul ; GSE-One installé dans un dossier de test, jamais utilisé</span><span><b>Modules</b> <code>genai_intro</code>, <code>vibecoding</code>, <code>setup</code></span></p>
+  <h3>Matin (HD01) · 09:00-12:15 · théorie des trois cycles</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Heure</th><th>Min</th><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+    <tbody>
+      <tr><td class="h">09:00</td><td class="m">30</td><td><span class="ph x">Accueil</span></td><td>Découverte du groupe : tour de table, sondage, niveau relevé à main levée.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">09:30</td><td class="m">15</td><td><span class="ph x">Accueil</span></td><td>Contenu de la formation : 6 objectifs réels, phrase de cadrage (opencode et non Cursor), comment on travaille, <b>carte des 16 cycles</b>.</td><td><span class="st ok">existe</span> + <span class="st nw">1 diapositive « cycles »</span></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET01 · IA générative : du LLM à l'agent</td></tr>
+      <tr><td class="h">09:45</td><td class="m">45</td><td><span class="ph t">Théorie</span></td><td>Fondamentaux allégés et notions 1 à 3 : du LLM à l'agent ; le modèle n'a pas de mémoire ; 4 familles de modèles, ce que donne la clé ; jetons = coût.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">10:30</td><td class="m">5</td><td><span class="ph p">Plugin</span></td><td>« Le modèle oublie tout entre deux sessions. Solution retenue par GSE-One : la mémoire du projet est écrite dans des fichiers (<code>.gse/</code>) et relue à chaque reprise ; un profil décrit l'utilisateur. »</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr class="brk"><td class="h">10:35</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td></td><td></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET02 · Du vibe coding au vibe engineering</td></tr>
+      <tr><td class="h">10:50</td><td class="m">40</td><td><span class="ph t">Théorie</span></td><td>Actes I à III : ce qu'est le vibe coding, ses limites mesurées (METR, enquêtes), ce que l'ingénierie ajoute.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">11:30</td><td class="m">5</td><td><span class="ph p">Plugin</span></td><td>« L'agent agit seul et peut casser. Solution retenue : l'humain reste dans la boucle ; chaque décision est classée Auto (l'agent fait), Inform (il fait et prévient) ou Gate (il attend ta validation) ; des garde-fous bloquent les actions dangereuses. »</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET03 · Écosystème d'outils, AI Act, règles pratiques</td></tr>
+      <tr><td class="h">11:35</td><td class="m">35</td><td><span class="ph t">Théorie</span></td><td>Acte IV : autonomie, opencode (outil du cours), autres outils, LLM locaux, MCP. Notion 4 : AI Act et règles pratiques (ce qu'on ne colle pas dans un prompt, quelles permissions donner).</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">12:10</td><td class="m">5</td><td><span class="ph p">Plugin</span></td><td>« Chaque agent a ses réglages. Solution retenue : GSE-One est un plugin, le même ensemble de règles, de commandes et d'agents pour 5 agents de codage. Vous l'installez cet après-midi ; vous l'utiliserez au jour 3. »</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr class="brk"><td class="h">12:15</td><td class="m">60</td><td><span class="ph x">Déjeuner</span></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Après-midi (HD02) · 13:15-17:00 · exercice et débrief des trois cycles</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Heure</th><th>Min</th><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+    <tbody>
+      <tr><td class="h">13:15</td><td class="m">75</td><td><span class="ph x">Installation</span></td><td>Fiche E1 : opencode 2, Node, clé, kit, GSE-One dans <code>~/ai4se/gse-check</code> (vérification seulement), GitHub, contrôle, fenêtre du tuteur.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">14:30</td><td class="m">45</td><td><span class="ph e">Exercice</span></td><td>Fiche E2 : FreeSelfApp, partie 1 (prototype naïf, uniquement par prompts).</td><td><span class="st ok">existe</span></td></tr>
+      <tr class="brk"><td class="h">15:15</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td></td><td></td></tr>
+      <tr><td class="h">15:30</td><td class="m">45</td><td><span class="ph e">Exercice</span></td><td>Fiche E2 : FreeSelfApp, partie 2 (une fonction de plus, faire expliquer un fichier).</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">16:15</td><td class="m">30</td><td><span class="ph d">Débrief</span></td><td>Cycles 01 à 03 : « ce que j'aurais fait à la main / ce que l'IA a fait » à partir de <code>notes.md</code> ; relier aux notions du matin (oubli du contexte, autonomie, risques) ; quiz à main levée ; annonce du jour 2.</td><td><span class="st ok">existe</span> <span class="st ad">+ lien aux cycles</span></td></tr>
+      <tr><td class="h">16:45</td><td class="m">15</td><td><span class="ph x">Marge</span></td><td>Installations en retard, questions.</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Fiches d'exercice</h3>
+  <div class="sheets">
+    <article class="sheet"><header><h4>E1 · Installation</h4><span class="tag">75 min · hors cycle · <span class="st ok">existe</span></span></header>
+      <dl><dt>But</dt><dd>Ta chaîne d'outils, une étape à la fois.</dd>
+      <dt>Étapes</dt><dd>0 terminal · 1 opencode 2 · 2 Node LTS · 3 clé du modèle (<code>opencode auth login</code>) · 4 kit du cours · 5 GSE-One v0.90.0 dans <code>~/ai4se/gse-check</code> · 6 GitHub et identité git · 7 <code>check-learner.sh</code> · 8 fenêtre du tuteur.</dd>
+      <dt>Fini quand</dt><dd>Le contrôle est tout vert et le tuteur répond.</dd>
+      <dt>Mi-parcours</dt><dd>13:50 : étape 4 ou au-delà.</dd>
+      <dt>Si bloqué</dt><dd>La diapositive, le voisin, le tuteur, puis la main levée.</dd></dl></article>
+    <article class="sheet"><header><h4>E2 · FreeSelfApp</h4><span class="tag">2 × 45 min · cycles 01-03 · <span class="st ok">existe</span></span></header>
+      <dl><dt>But</dt><dd>Ta petite application web, uniquement par prompts : vivre le vibe coding.</dd>
+      <dt>Étapes</dt><dd><ol><li><code>~/ai4se/freeselfapp</code>, <code>git init</code>, <code>opencode</code>.</li><li>Premier prompt, puis itérer.</li><li>Ça marche : <code>git commit</code>.</li><li>Tenir <code>notes.md</code> : surprises, ce qui a cassé et qui a réparé, nombre de prompts, ce que tu aurais fait à la main.</li><li>Partie 2 : une fonction voulue ; faire expliquer un fichier ; un commit par étape.</li></ol></dd>
+      <dt>Fini quand</dt><dd>L'application s'ouvre, fait une chose voulue, et <code>git log</code> montre au moins 2 commits.</dd>
+      <dt>Mi-parcours</dt><dd>15:15 : elle s'ouvre, 1 commit.</dd>
+      <dt>Si bloqué</dt><dd>Reformuler plus petit, coller l'erreur à l'agent, tuteur, main levée.</dd>
+      <dt>Débrief</dt><dd>16:15, à partir de <code>notes.md</code>.</dd></dl></article>
+  </div>
+</section>
+
+<!-- ============ JOUR 2 ============ -->
+<section class="day" id="j2">
+  <h2>Jour 2 · vendredi 27/11 · vibe engineering à la main sur CalcApp</h2>
+  <p class="daymeta"><span><b>Cycles</b> 04 à 08</span><span><b>Outil</b> opencode seul, plugin en illustration</span><span><b>Module</b> <code>day2</code> (plan B)</span><span><b>Reprise</b> <code>j2-start</code>, <code>j2-part1</code>, <code>j2-v0.1</code></span></p>
+  <h3>Matin (HD03) · 09:00-12:15</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Heure</th><th>Min</th><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+    <tbody>
+      <tr><td class="h">09:00</td><td class="m">15</td><td><span class="ph x">Accueil</span></td><td><code>tutor update</code>, rappel du jour 1, « mêmes outils, autre discipline », chaîne des artefacts.</td><td><span class="st ok">existe</span></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET04 · Gestion de configuration : git comme filet</td></tr>
+      <tr><td class="h">09:15</td><td class="m">12</td><td><span class="ph t">Théorie</span></td><td>Pourquoi le contrôle de version compte plus avec un agent ; status, diff, commit, branche, restore.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">09:27</td><td class="m">3</td><td><span class="ph p">Plugin</span></td><td>« Solution retenue par GSE-One : une branche par tâche, une étiquette de sauvegarde avant toute opération risquée, refus d'un commit direct sur <code>main</code>. »</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">09:30</td><td class="m">15</td><td><span class="ph e">Exercice</span></td><td>Fiche E3 : Git sur CalcApp.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">09:45</td><td class="m">5</td><td><span class="ph d">Débrief</span></td><td>Qu'a montré <code>git diff</code> ? L'agent vient de modifier 5 fichiers : quelle commande d'abord ?</td><td><span class="st ok">existe</span></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET05 · Piloter un agent : ingénierie du contexte</td></tr>
+      <tr><td class="h">09:50</td><td class="m">12</td><td><span class="ph t">Théorie</span></td><td>Structure de projet lisible par l'IA, <code>AGENTS.md</code>, contexte et <code>@fichier</code>, agent <i>plan</i> puis <i>build</i>, liste de tâches, MCP et Context7. Trois démonstrations courtes d'opencode (pas du plugin).</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">10:02</td><td class="m">3</td><td><span class="ph p">Plugin</span></td><td>« Solution retenue : GSE-One est lui-même un <code>AGENTS.md</code> (l'orchestrateur), plus des commandes <code>/gse-…</code> et des agents spécialisés. »</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">10:05</td><td class="m">30</td><td><span class="ph e">Exercice</span></td><td>Fiche E4 : Essayer ×3 (règles, contexte, plan).</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">10:35</td><td class="m">10</td><td><span class="ph d">Débrief</span></td><td>Qu'est-ce qui a changé avec <code>AGENTS.md</code> et les <code>@fichiers</code> ? Qu'a demandé l'agent <i>plan</i> ?</td><td><span class="st ok">existe</span></td></tr>
+      <tr class="brk"><td class="h">10:45</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td></td><td></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET06 · Planification technique</td></tr>
+      <tr><td class="h">11:00</td><td class="m">5</td><td><span class="ph t">Théorie</span></td><td>User story, critère d'acceptation testable, tâche atomique. La théorie de l'élicitation vient au jour 3 (cycle 10).</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">11:05</td><td class="m">2</td><td><span class="ph p">Plugin</span></td><td>« Solution retenue : <code>/gse-reqs</code> et <code>/gse-plan</code> produisent ces artefacts ; le plan est validé à une Gate. »</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">11:07</td><td class="m">20</td><td><span class="ph e">Exercice</span></td><td>Fiche E5 : ton <code>docs/plan.md</code>.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">11:27</td><td class="m">3</td><td><span class="ph d">Débrief</span></td><td>Quelle tâche as-tu découpée ou réécrite, et pourquoi ?</td><td><span class="st ok">existe</span></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET07 · Tests avec l'IA (partie 1)</td></tr>
+      <tr><td class="h">11:30</td><td class="m">12</td><td><span class="ph t">Théorie</span></td><td>TDD : rouge, vert, refactor ; lire le test avant le code ; test mutant.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">11:42</td><td class="m">3</td><td><span class="ph p">Plugin</span></td><td>« Solution retenue : <code>/gse-tests</code> fixe une stratégie de test avant le code ; <code>/gse-produce</code> exécute les tests et ne déclare pas fini si c'est rouge. »</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">11:45</td><td class="m">30</td><td><span class="ph e">Exercice</span></td><td>Fiche E6 : tâche 1 de TON plan.</td><td><span class="st ok">existe</span></td></tr>
+      <tr class="brk"><td class="h">12:15</td><td class="m">60</td><td><span class="ph x">Déjeuner</span></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Après-midi (HD04) · 13:15-17:30</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Heure</th><th>Min</th><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+    <tbody>
+      <tr class="cyc"><td colspan="5">CCSET07 · Tests avec l'IA (partie 2)</td></tr>
+      <tr><td class="h">13:15</td><td class="m">15</td><td><span class="ph t">Théorie</span></td><td>Une tâche = une branche ; liste de relecture ; prompts de reprise.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">13:30</td><td class="m">50</td><td><span class="ph e">Exercice</span></td><td>Fiche E7 : tes tâches suivantes.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">14:20</td><td class="m">10</td><td><span class="ph d">Débrief</span></td><td>Où l'agent a-t-il changé un test ou fait plus que demandé ?</td><td><span class="st ok">existe</span></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET08 · Revue de code, documentation vivante, livraison</td></tr>
+      <tr><td class="h">14:30</td><td class="m">25</td><td><span class="ph t">Théorie</span></td><td>Ce que l'IA voit et rate ; taille de revue (200 à 400 lignes) ; inspection (Capers Jones) ; tri HIGH / MEDIUM / LOW ; documentation vivante 80/20.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">14:55</td><td class="m">5</td><td><span class="ph p">Plugin</span></td><td>« Solution retenue : <code>/gse-review</code> numérote les constats (RVW) et les classe HIGH / MEDIUM / LOW, avec plusieurs relecteurs spécialisés (sécurité, architecture, tests…) ; <code>/gse-deliver</code> refuse de livrer avec un HIGH ouvert sans ta décision. »</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr class="brk"><td class="h">15:00</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td></td><td></td></tr>
+      <tr><td class="h">15:15</td><td class="m">35</td><td><span class="ph e">Exercice</span></td><td>Fiche E8 : revue du diff du jour.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">15:50</td><td class="m">15</td><td><span class="ph e">Exercice</span></td><td>Fiche E9 : README 80/20.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">16:05</td><td class="m">10</td><td><span class="ph d">Débrief</span></td><td>Le constat le plus utile ? Ce que l'IA a raté ? Ce que tu as refusé ?</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">16:15</td><td class="m">15</td><td><span class="ph e">Exercice</span></td><td>Fiche E10 : livrer v0.1.</td><td><span class="st ok">existe</span></td></tr>
+      <tr><td class="h">16:30</td><td class="m">30</td><td><span class="ph d">Débrief</span></td><td>Débrief du jour et quiz. Le « pont vers GSE-One » devient le récapitulatif des illustrations du jour : un tableau « fait à la main aujourd'hui / ce que GSE-One fera au jour 3 », sans démonstration.</td><td><span class="st ad">à adapter</span></td></tr>
+      <tr><td class="h">17:00</td><td class="m">30</td><td><span class="ph x">Marge</span></td><td>Rattrapage, questions, tuteur.</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Fiches d'exercice</h3>
+  <div class="sheets">
+    <article class="sheet"><header><h4>E3 · Git sur CalcApp</h4><span class="tag">15 min · cycle 04 · <span class="st ok">existe</span></span></header>
+      <dl><dt>But</dt><dd>Commiter sur une branche, casser, restaurer.</dd>
+      <dt>Étapes</dt><dd>Cloner le starter dans <code>~/ai4se/calcapp</code> à <code>j2-start</code>, <code>npm ci</code>, tests verts ; branche <code>feat/hello</code> ; modifier le README, <code>git diff</code>, commit ; casser un fichier, <code>git diff</code>, <code>git restore</code>.</dd>
+      <dt>Fini quand</dt><dd>Ton commit est sur <code>feat/hello</code> et <code>git status</code> est propre.</dd>
+      <dt>Si bloqué</dt><dd>Tuteur, recloner à <code>j2-start</code>, main levée.</dd></dl></article>
+    <article class="sheet"><header><h4>E4 · Essayer ×3</h4><span class="tag">30 min · cycle 05 · <span class="st ok">existe</span></span></header>
+      <dl><dt>But</dt><dd>Voir le contexte changer les réponses de l'agent.</dd>
+      <dt>Étapes</dt><dd><ol><li><b>Règles</b> : une règle ajoutée à <code>AGENTS.md</code> change la réponse.</li><li><b>Contexte</b> : prompt vague contre prompt avec <code>@fichiers</code>.</li><li><b>Plan</b> : Context7 connecté, agent <i>plan</i> sur une page <code>/budgets</code>, sans code.</li></ol></dd>
+      <dt>Fini quand</dt><dd>Les trois essais sont faits et tu peux dire ce qui a changé.</dd></dl></article>
+    <article class="sheet"><header><h4>E5 · Ton docs/plan.md</h4><span class="tag">20 min · cycle 06 · <span class="st ok">existe</span></span></header>
+      <dl><dt>But</dt><dd>Un plan commité.</dd>
+      <dt>Étapes</dt><dd>2 min sur papier : tes fonctions voulues ; agent <i>plan</i> avec le prompt d'élicitation (3 questions, puis 4 à 6 user stories) ; découper en 5 à 8 tâches atomiques, tests d'abord ; contester au moins une fois ; écrire et commiter <code>docs/plan.md</code>.</dd>
+      <dt>Fini quand</dt><dd>« docs: v0.1 plan » est dans <code>git log</code> ; 5 à 8 tâches, une marquée <code>[next]</code>.</dd>
+      <dt>Si bloqué</dt><dd>Partir de <code>docs/plan-example.md</code>.</dd></dl></article>
+    <article class="sheet"><header><h4>E6 · Tâche 1 de ton plan</h4><span class="tag">30 min · cycle 07 · <span class="st ok">existe</span></span></header>
+      <dl><dt>But</dt><dd>Livrer la première tâche, test d'abord, sur sa branche.</dd>
+      <dt>Étapes</dt><dd>Branche <code>feat/…</code> ; prompt ROUGE, lire le test, commit <code>test:</code> ; prompt VERT, commit <code>feat:</code> ; test mutant ; fusion dans <code>mywork</code>.</dd>
+      <dt>Fini quand</dt><dd>Le nouveau test passe et <code>test:</code> précède <code>feat:</code>.</dd>
+      <dt>Si bloqué</dt><dd>Prompts de secours A (ExpenseItem) ou B (ExpenseForm).</dd></dl></article>
+    <article class="sheet"><header><h4>E7 · Tes tâches suivantes</h4><span class="tag">50 min · cycle 07 · <span class="st ok">existe</span></span></header>
+      <dl><dt>But</dt><dd>Les tâches suivantes du plan (navigation, données, interface), une branche chacune.</dd>
+      <dt>Fini quand</dt><dd>Au moins 4 tests verts, deux pages, une dépense qui survit au rafraîchissement.</dd>
+      <dt>Mi-parcours</dt><dd>13:55 : navigation fusionnée.</dd>
+      <dt>Si bloqué</dt><dd>Tuteur, étiquette <code>j2-part1</code>, main levée.</dd></dl></article>
+    <article class="sheet"><header><h4>E8 · Revue du diff du jour</h4><span class="tag">35 min · cycle 08 · <span class="st ok">existe</span></span></header>
+      <dl><dt>But</dt><dd>Relire tout ce qui a changé aujourd'hui, trier, corriger ce qui compte.</dd>
+      <dt>Étapes</dt><dd><code>git diff j2-start</code> donné à l'agent <i>plan</i> ; constats RVW-n en HIGH / MEDIUM / LOW dans <code>docs/review.md</code> ; corriger 2 à 3 constats, test d'abord ; refuser au moins un constat, raison écrite.</dd>
+      <dt>Fini quand</dt><dd>Tri écrit, au moins 2 corrections avec test, au moins 1 refus motivé, tests verts.</dd>
+      <dt>Si bloqué</dt><dd>Étiquette <code>j2-v0.1</code>.</dd></dl></article>
+    <article class="sheet"><header><h4>E9 · README 80/20</h4><span class="tag">15 min · cycle 08 · <span class="st ok">existe</span></span></header>
+      <dl><dt>But</dt><dd>L'agent écrit le QUOI, tu écris le POURQUOI.</dd>
+      <dt>Fini quand</dt><dd>Chaque commande du README marche et il finit par une section « Why » de ta main.</dd></dl></article>
+    <article class="sheet"><header><h4>E10 · Livrer v0.1</h4><span class="tag">15 min · cycle 08 · <span class="st ok">existe</span></span></header>
+      <dl><dt>But</dt><dd>Tout le travail vert sur la ligne principale, étiqueté <code>v0.1</code>.</dd>
+      <dt>Fini quand</dt><dd><code>git tag</code> liste <code>v0.1</code> sur un commit aux tests verts.</dd>
+      <dt>Si bloqué</dt><dd>Étiquette <code>j2-v0.1</code>.</dd></dl></article>
+  </div>
+</section>
+
+<!-- ============ JOUR 3 ============ -->
+<section class="day" id="j3">
+  <h2>Jour 3 · jeudi 03/12 · les concepts du génie logiciel, puis GSE-One</h2>
+  <p class="daymeta"><span><b>Cycles</b> 09 à 12 (théorie), P1, P3, P5 (exercices)</span><span><b>Outil</b> GSE-One pour la première fois, CalcApp en mode Complet</span><span><b>Modules</b> <code>gensem</code> (édition 1, passe opencode) + 3 cours à écrire</span><span><b>Reprise</b> <code>p3-start</code>, <code>p5-start</code></span></p>
+  <h3>Matin (HD05) · 09:00-12:30 · théorie des quatre cycles</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Heure</th><th>Min</th><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+    <tbody>
+      <tr><td class="h">09:00</td><td class="m">15</td><td><span class="ph x">Accueil</span></td><td><code>tutor update</code>, rappel des jours 1-2, CalcApp poussé sur GitHub et adresse notée dans la feuille de suivi.</td><td><span class="st ad">à adapter</span> (<code>day1_recall</code>)</td></tr>
+      <tr class="cyc"><td colspan="5">CCSET09 · Concepts du génie logiciel : définir sa GenSEM</td></tr>
+      <tr><td class="h">09:15</td><td class="m">50</td><td><span class="ph t">Théorie</span></td><td>Pourquoi une méthode : gravité du cycle de vie, preuves (essais contrôlés, perception contre mesure), risques. Paradigmes et cycles de vie. Paysage des cadres pour l'IA générative et leur synthèse : ce qu'une GenSEM doit contenir.</td><td><span class="st ad">à adapter</span> (<code>sdlc_*</code>, <code>evidence_*</code>, <code>fw_*</code>, chiffres à vérifier)</td></tr>
+      <tr><td class="h">10:05</td><td class="m">10</td><td><span class="ph p">Plugin</span></td><td>« La GenSEM retenue : GSE-One. » Principes, cycle de vie (collecte → … → livraison → capitalisation), profil, modes Complet et Allégé, Gates et grille des 3 questions. Remise de la page d'orientation imprimée.</td><td><span class="st ad">à adapter</span> (<code>t2_philosophy</code>, <code>t8_modes</code>) + <span class="st nw">grille, page d'orientation</span></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET10 · Élicitation des exigences</td></tr>
+      <tr><td class="h">10:15</td><td class="m">40</td><td><span class="ph t">Théorie</span></td><td>Parties prenantes et sources ; techniques (entretien, questionnaire, observation, atelier, scénario, prototype) ; user stories et critères Given / When / Then ; ambiguïté ; l'IA comme partenaire d'élicitation et ses pièges.</td><td><span class="st nw">à écrire</span> (base <code>sdlc_re</code>, <code>t5_requirements</code>)</td></tr>
+      <tr><td class="h">10:55</td><td class="m">5</td><td><span class="ph p">Plugin</span></td><td>« Solution retenue : <code>/gse-reqs</code> pose des questions en langage simple, écrit des exigences REQ-nnn avec critères testables et les relie aux tâches et aux tests (traçabilité). »</td><td><span class="st ad">à adapter</span> (<code>t5_cmd_reqs</code>)</td></tr>
+      <tr class="brk"><td class="h">11:00</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td></td><td></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET11 · Exigences non fonctionnelles</td></tr>
+      <tr><td class="h">11:15</td><td class="m">40</td><td><span class="ph t">Théorie</span></td><td>Les qualités d'un logiciel (ISO/IEC 25010 : performance, sécurité, fiabilité, utilisabilité, maintenabilité…) ; rendre une exigence non fonctionnelle mesurable ; compromis ; lien avec l'architecture ; ce que l'IA oublie (sécurité, accessibilité).</td><td><span class="st nw">à écrire</span> (base <code>calcapp_nfr_example</code>)</td></tr>
+      <tr><td class="h">11:55</td><td class="m">5</td><td><span class="ph p">Plugin</span></td><td>« Solution retenue : exigences non fonctionnelles mesurables dans <code>reqs.md</code>, prises en compte par <code>/gse-design</code> (décisions de conception tracées) et vérifiées par la revue. »</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET12 · Vérification et validation</td></tr>
+      <tr><td class="h">12:00</td><td class="m">25</td><td><span class="ph t">Théorie</span></td><td>Vérifier (bien construire le produit) et valider (construire le bon produit) ; niveaux et pyramide de tests ; stratégie de test avant le code ; preuves ; la revue comme vérification statique.</td><td><span class="st nw">à écrire</span> (base <code>t6_vv</code>, <code>sdlc_testing</code>)</td></tr>
+      <tr><td class="h">12:25</td><td class="m">5</td><td><span class="ph p">Plugin</span></td><td>« Solution retenue : <code>/gse-tests</code> dérive la stratégie des exigences ; les tests laissent des preuves d'exécution ; la revue a plusieurs niveaux. »</td><td><span class="st ad">à adapter</span> (<code>t6_cmd_tests</code>)</td></tr>
+      <tr class="brk"><td class="h">12:30</td><td class="m">60</td><td><span class="ph x">Déjeuner</span></td><td>12:30-13:30 au lieu de 12:15-13:15. <span class="gap">[écart]</span></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Après-midi (HD06) · 13:30-17:00 · exercices avec GSE-One</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Heure</th><th>Min</th><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+    <tbody>
+      <tr><td class="h">13:30</td><td class="m">50</td><td><span class="ph e">Exercice</span></td><td>Fiche E11 : P1, découvrir GSE-One sur ton CalcApp (cycle 09). Absorbe l'exploration de <code>.gse/</code> (ancien P2) et l'essai du garde-fou (partie d'ancien P4).</td><td><span class="st ad">à adapter</span></td></tr>
+      <tr><td class="h">14:20</td><td class="m">10</td><td><span class="ph d">Débrief</span></td><td>Quels principes du matin as-tu vus (Gate, garde-fou, mémoire dans les fichiers) ?</td><td><span class="st ad">à adapter</span></td></tr>
+      <tr><td class="h">14:30</td><td class="m">5</td><td><span class="ph t">Théorie</span></td><td>Rappel du cycle 06 : sprint, budget de complexité, tâche.</td><td><span class="st ad">à adapter</span> (<code>t3_cmd_plan</code>)</td></tr>
+      <tr><td class="h">14:35</td><td class="m">35</td><td><span class="ph e">Exercice</span></td><td>Fiche E12 : P3, planifier le sprint avec GSE-One (le cycle 06 refait avec le plugin).</td><td><span class="st ad">à adapter</span></td></tr>
+      <tr><td class="h">15:10</td><td class="m">5</td><td><span class="ph d">Débrief</span></td><td>Qu'a vu le plan de GSE-One qui manquait à ton <code>docs/plan.md</code>, et l'inverse ?</td><td></td></tr>
+      <tr class="brk"><td class="h">15:15</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td></td><td></td></tr>
+      <tr><td class="h">15:30</td><td class="m">65</td><td><span class="ph e">Exercice</span></td><td>Fiche E13 : P5, exigences fonctionnelles et non fonctionnelles, puis conception (cycles 10 et 11).</td><td><span class="st ad">à adapter</span></td></tr>
+      <tr><td class="h">16:35</td><td class="m">10</td><td><span class="ph d">Débrief</span></td><td>Quelle technique d'élicitation l'agent a-t-il utilisée ? Quelle exigence non fonctionnelle manquait ?</td><td></td></tr>
+      <tr><td class="h">16:45</td><td class="m">15</td><td><span class="ph d">Débrief</span></td><td>Fin de journée : push sur GitHub, <code>/gse-pause</code>, quiz à main levée. Pas de marge. <span class="gap">[écart]</span></td><td><span class="st nw">à écrire</span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Fiches d'exercice</h3>
+  <div class="sheets">
+    <article class="sheet"><header><h4>E11 · P1 Découvrir GSE-One</h4><span class="tag">50 min · cycle 09 · <span class="st ad">à adapter</span></span></header>
+      <dl><dt>But</dt><dd>Faire entrer ton CalcApp dans GSE-One et passer ta première Gate.</dd>
+      <dt>Étapes</dt><dd><ol><li><code>cd ~/ai4se/calcapp</code>, branche <code>mywork</code> ; installer GSE-One dans ce dossier (même commande qu'à l'étape 5 du jour 1).</li><li><code>opencode</code>, puis <code>/gse-go</code> ; répondre aux questions du profil.</li><li>À la Gate du mode : choisir <b>Complet</b>, appliquer la grille des 3 questions, noter tes réponses.</li><li>Ouvrir <code>.gse/profile.yaml</code> (te reconnais-tu ?) et <code>.gse/status.yaml</code>, puis <code>/gse-status</code>.</li><li>Demander à l'agent de commiter directement sur <code>main</code> et observer le refus.</li></ol></dd>
+      <dt>Fini quand</dt><dd><code>/gse-status</code> affiche le projet en mode Complet et un refus du garde-fou est noté dans la feuille de suivi.</dd>
+      <dt>Mi-parcours</dt><dd>14:00 : questions du profil terminées.</dd>
+      <dt>Si bloqué</dt><dd>Tuteur, étiquette <code>p3-start</code>, main levée.</dd></dl></article>
+    <article class="sheet"><header><h4>E12 · P3 Planifier le sprint</h4><span class="tag">35 min · cycle 06 repris · <span class="st ad">à adapter</span></span></header>
+      <dl><dt>But</dt><dd>Un plan de sprint validé par toi, avec au moins une modification.</dd>
+      <dt>Étapes</dt><dd>Laisser <code>/gse-go</code> enchaîner collecte → évaluation → plan ; lire <code>.gse/plan.yaml</code> (nombre de tâches, points) ; à la Gate, appliquer la grille et modifier au moins une chose (découper, réordonner, retirer) ; comparer avec ton <code>docs/plan.md</code> du jour 2.</dd>
+      <dt>Fini quand</dt><dd><code>/gse-status</code> montre le plan validé ; ta modification est notée.</dd>
+      <dt>Si bloqué</dt><dd>Étiquette <code>p3-start</code>.</dd></dl></article>
+    <article class="sheet"><header><h4>E13 · P5 Exigences et conception</h4><span class="tag">65 min · cycles 10 et 11 · <span class="st ad">à adapter</span></span></header>
+      <dl><dt>But</dt><dd>Les exigences de la prochaine version de CalcApp, fonctionnelles et non fonctionnelles, puis une conception validée.</dd>
+      <dt>Étapes</dt><dd><ol><li><code>/gse-reqs</code> : répondre en langage simple ; vérifier que chaque exigence fonctionnelle a des critères testables (Given / When / Then).</li><li>Ajouter toi-même au moins une exigence non fonctionnelle <b>mesurable</b> (exemple : « 1 000 dépenses s'affichent en moins de 200 ms »).</li><li><code>/gse-design</code> : Gate avec la grille.</li><li><code>/gse-preview</code> : comparer avec ce que tu imaginais.</li><li><code>/gse-status</code> : vérifier la chaîne exigence → conception → tâche.</li></ol></dd>
+      <dt>Fini quand</dt><dd><code>reqs.md</code> contient au moins 3 exigences fonctionnelles et 1 non fonctionnelle mesurable ; la conception est validée ; les liens apparaissent.</dd>
+      <dt>Mi-parcours</dt><dd>16:00 : exigences validées.</dd>
+      <dt>Si bloqué</dt><dd>Tuteur, étiquette <code>p5-start</code>, main levée.</dd></dl></article>
+  </div>
+</section>
+
+<!-- ============ JOUR 4 ============ -->
+<section class="day" id="j4">
+  <h2>Jour 4 · vendredi 04/12 · tester, mesurer, livrer, cadrer son projet</h2>
+  <p class="daymeta"><span><b>Cycles</b> 12 (pratique), 13, 14, 15</span><span><b>Outil</b> GSE-One, CalcApp en Complet, puis mini-projet en Allégé</span><span><b>Reprise</b> <code>p6-start</code>, <code>p7-start</code></span></p>
+  <h3>Matin (HD07) · 09:00-12:15</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Heure</th><th>Min</th><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+    <tbody>
+      <tr><td class="h">09:00</td><td class="m">15</td><td><span class="ph x">Accueil</span></td><td><code>tutor update</code>, <code>/gse-resume</code>.</td><td><span class="st ok">existe</span> (<code>t2_cmd_pause_resume</code>)</td></tr>
+      <tr class="cyc"><td colspan="5">CCSET12 · Vérification et validation, en pratique</td></tr>
+      <tr><td class="h">09:15</td><td class="m">10</td><td><span class="ph t">Théorie</span></td><td>Rappel du cours d'hier ; les commandes <code>/gse-tests</code>, <code>/gse-produce</code>, <code>/gse-review</code>.</td><td><span class="st ad">à adapter</span> (<code>t6_cmd_tests</code>, <code>t6_cmd_review</code>)</td></tr>
+      <tr><td class="h">09:25</td><td class="m">80</td><td><span class="ph e">Exercice</span></td><td>Fiche E14, partie 1 : ta stratégie de test, puis tests et production.</td><td><span class="st ad">à adapter</span></td></tr>
+      <tr class="brk"><td class="h">10:45</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td></td><td></td></tr>
+      <tr><td class="h">11:00</td><td class="m">30</td><td><span class="ph e">Exercice</span></td><td>Fiche E14, partie 2 : revue et tri.</td><td><span class="st ad">à adapter</span></td></tr>
+      <tr><td class="h">11:30</td><td class="m">15</td><td><span class="ph d">Débrief</span></td><td>Qu'a trouvé la revue que tu n'avais pas vu au jour 2 ? Que corriges-tu d'abord, que refuses-tu ?</td><td></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET13 · Mesurer la qualité</td></tr>
+      <tr><td class="h">11:45</td><td class="m">10</td><td><span class="ph t">Théorie</span></td><td>Analyse statique (lint), couverture de tests et ses limites, intégration continue, métriques ; lien avec les exigences non fonctionnelles.</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">11:55</td><td class="m">3</td><td><span class="ph p">Plugin</span></td><td>« Solution retenue : <code>/gse-health</code> donne un état de santé du projet par dimension. »</td><td><span class="st ad">à adapter</span> (<code>t7_cmd_health</code>)</td></tr>
+      <tr><td class="h">11:58</td><td class="m">12</td><td><span class="ph e">Exercice</span></td><td>Fiche E15 : mesurer ton CalcApp.</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">12:10</td><td class="m">5</td><td><span class="ph d">Débrief</span></td><td>Que ne dit pas la couverture ?</td><td></td></tr>
+      <tr class="brk"><td class="h">12:15</td><td class="m">60</td><td><span class="ph x">Déjeuner</span></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Après-midi (HD08) · 13:15-17:00</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Heure</th><th>Min</th><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+    <tbody>
+      <tr class="cyc"><td colspan="5">CCSET14 · Livraison, maintenance, capitalisation</td></tr>
+      <tr><td class="h">13:15</td><td class="m">12</td><td><span class="ph t">Théorie</span></td><td>Livrer : fusion et stratégies (merge, squash, rebase), étiquette, journal des changements. Maintenance corrective. Capitaliser : rétrospective, leçons apprises.</td><td><span class="st ad">à adapter</span> (<code>t7_delivery</code>)</td></tr>
+      <tr><td class="h">13:27</td><td class="m">3</td><td><span class="ph p">Plugin</span></td><td><code>/gse-fix</code>, <code>/gse-deliver</code> (stratégie de fusion à une Gate), <code>/gse-compound</code>, <code>/gse-learn</code> ; pause et reprise, backlog.</td><td><span class="st ad">à adapter</span></td></tr>
+      <tr><td class="h">13:30</td><td class="m">60</td><td><span class="ph e">Exercice</span></td><td>Fiche E16 : P7, cycle complet et continuité. La démonstration de 14:30 du plan précédent devient une étape de l'exercice.</td><td><span class="st ad">à adapter</span></td></tr>
+      <tr><td class="h">14:30</td><td class="m">15</td><td><span class="ph d">Débrief</span></td><td>Qu'a retenu l'agent comme leçon, et qu'aurais-tu écrit, toi ? La santé du projet a-t-elle progressé depuis ce matin ?</td><td></td></tr>
+      <tr class="brk"><td class="h">14:45</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td></td><td></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET15 · Cadrer un projet</td></tr>
+      <tr><td class="h">15:00</td><td class="m">15</td><td><span class="ph t">Théorie</span></td><td>Cadrer : un utilisateur, un problème, 2 à 4 exigences essentielles, version minimale, jalons, ce qui va au backlog. Règles et jalons du mini-projet. Reprise du deck de Tiago « Design of the Professional Mini-Project », sans la partie Cursor.</td><td><span class="st nw">page du mini-projet</span> + <span class="st ad">deck à importer</span></td></tr>
+      <tr><td class="h">15:15</td><td class="m">5</td><td><span class="ph p">Plugin</span></td><td>Mode Allégé (même cycle, moins de Gates) ; <code>/gse-go --adopt</code> pour un projet existant.</td><td><span class="st ad">à adapter</span> (<code>t8_modes</code>)</td></tr>
+      <tr><td class="h">15:20</td><td class="m">25</td><td><span class="ph e">Exercice</span></td><td>Fiche E17 : ta fiche projet d'une page.</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">15:45</td><td class="m">45</td><td><span class="ph e">Exercice</span></td><td>Fiche E18 : <code>/gse-go</code> en mode Allégé sur le mini-projet ; NG valide chaque fiche en 1 minute (« vert » ou « réduis »).</td><td><span class="st ad">à adapter</span> (<code>practice_p8</code>)</td></tr>
+      <tr><td class="h">16:30</td><td class="m">15</td><td><span class="ph d">Débrief</span></td><td>Push des deux dépôts, débrief, quiz à main levée.</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">16:45</td><td class="m">15</td><td><span class="ph x">Marge</span></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Fiches d'exercice</h3>
+  <div class="sheets">
+    <article class="sheet"><header><h4>E14 · P6 Stratégie de test, production, revue</h4><span class="tag">80 + 30 min · cycle 12 · <span class="st ad">à adapter</span></span></header>
+      <dl><dt>But</dt><dd>La fonctionnalité suivante, testée selon ta stratégie, puis relue.</dd>
+      <dt>Étapes</dt><dd><ol><li>Sur papier, en 5 lignes : ta stratégie de test pour la prochaine exigence (niveaux, cas limites).</li><li><code>/gse-tests</code> : comparer avec ta stratégie ; accepter ou refuser au moins un point.</li><li><code>/gse-produce</code> : les tests s'exécutent ; combien passent ?</li><li>Partie 2 : <code>/gse-review</code> ; lire les 3 constats les plus graves de <code>review.md</code> ; es-tu d'accord avec le tri ? Refuser au moins un constat, raison écrite.</li></ol></dd>
+      <dt>Fini quand</dt><dd>Fonctionnalité produite, tests verts, <code>review.md</code> présent, ton tri noté avec au moins un refus motivé.</dd>
+      <dt>Mi-parcours</dt><dd>10:05 : stratégie de test validée.</dd>
+      <dt>Si bloqué</dt><dd>Tuteur, étiquette <code>p6-start</code>, main levée.</dd></dl></article>
+    <article class="sheet"><header><h4>E15 · Mesurer ton CalcApp</h4><span class="tag">12 min · cycle 13 · <span class="st nw">à écrire</span></span></header>
+      <dl><dt>But</dt><dd>Trois mesures de la qualité de ton code.</dd>
+      <dt>Étapes</dt><dd><code>npm run lint</code> : nombre d'avertissements ; tests avec couverture : pourcentage et fichier le moins couvert ; ouvrir une exécution de CI sur GitHub : que vérifie-t-elle ? ; <code>/gse-health</code> : comparer.</dd>
+      <dt>Fini quand</dt><dd>Les trois nombres sont notés dans la feuille de suivi.</dd>
+      <dt>Prérequis</dt><dd>Une étiquette du starter qui ajoute la couverture et un <code>ci.yml</code> (point ouvert 8).</dd></dl></article>
+    <article class="sheet"><header><h4>E16 · P7 Cycle complet et continuité</h4><span class="tag">60 min · cycle 14 · <span class="st ad">à adapter</span></span></header>
+      <dl><dt>But</dt><dd>Fermer la boucle du sprint et savoir reprendre son travail.</dd>
+      <dt>Étapes</dt><dd><ol><li><code>/gse-fix</code> sur 2 constats, test d'abord.</li><li><code>/gse-deliver</code> : choisir la stratégie de fusion à la Gate et la justifier.</li><li><code>/gse-compound</code> : lire les leçons retenues, ajouter la tienne.</li><li><code>/gse-health</code> : comparer avec ce matin.</li><li>Continuité : <code>/gse-backlog</code> pour noter une idée ; <code>/gse-pause</code>, fermer opencode, rouvrir, <code>/gse-resume</code>.</li></ol></dd>
+      <dt>Fini quand</dt><dd>La fonctionnalité est sur <code>main</code> ; ta leçon est dans <code>compound.md</code> ; <code>/gse-resume</code> te dit où tu en étais.</dd>
+      <dt>Si bloqué</dt><dd>Tuteur, étiquette <code>p7-start</code>, main levée.</dd></dl></article>
+    <article class="sheet"><header><h4>E17 · Ta fiche projet</h4><span class="tag">25 min · cycle 15 · <span class="st nw">à écrire</span></span></header>
+      <dl><dt>But</dt><dd>Un mini-projet faisable en un jour et demi.</dd>
+      <dt>Étapes</dt><dd>Choisir un sujet (professionnel ou personnel ; un projet existant est permis s'il est réduit à une petite évolution). Remplir une page : utilisateur, problème, 2 à 4 exigences essentielles, ce qui est hors champ (backlog), technologie déployable ou Dockerfile propre, démo en 5 à 7 minutes.</dd>
+      <dt>Fini quand</dt><dd>La fiche est écrite dans le dépôt du projet.</dd></dl></article>
+    <article class="sheet"><header><h4>E18 · /gse-go en mode Allégé</h4><span class="tag">45 min · cycle 15 · <span class="st ad">à adapter</span></span></header>
+      <dl><dt>But</dt><dd>Le mini-projet démarré sous GSE-One et validé par NG.</dd>
+      <dt>Étapes</dt><dd>Dossier du projet, <code>git init</code>, dépôt GitHub ; installer GSE-One ; <code>/gse-go</code>, mode <b>Allégé</b> ; idées en plus dans le backlog ; <code>tutor add &lt;chemin&gt;</code> si le dossier est hors de <code>~/ai4se</code> ; NG valide la fiche en 1 minute.</dd>
+      <dt>Fini quand</dt><dd><code>/gse-status</code> affiche le mode Allégé, la fiche est « vert », le dépôt est poussé.</dd></dl></article>
+  </div>
+</section>
+
+<!-- ============ JOUR 5 ============ -->
+<section class="day" id="j5">
+  <h2>Jour 5 · jeudi 10/12 · déployer, puis le sprint du mini-projet</h2>
+  <p class="daymeta"><span><b>Cycle</b> 16, puis le projet en autonomie</span><span><b>Outil</b> GSE-One, mode Allégé</span><span><b>Jalon</b> 16:30 : exigences et plan validés</span></p>
+  <div class="tbl"><table>
+    <thead><tr><th>Heure</th><th>Min</th><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+    <tbody>
+      <tr><td class="h">09:00</td><td class="m">15</td><td><span class="ph x">Accueil</span></td><td><code>tutor update</code>, <code>/gse-resume</code> sur le mini-projet.</td><td></td></tr>
+      <tr class="cyc"><td colspan="5">CCSET16 · Déploiement</td></tr>
+      <tr><td class="h">09:15</td><td class="m">20</td><td><span class="ph t">Théorie</span></td><td>Du code à un service : conteneur et image (Dockerfile), serveur, variables d'environnement et secrets, journaux, retour arrière.</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">09:35</td><td class="m">10</td><td><span class="ph p">Plugin</span></td><td><code>/gse-deploy</code> : Dockerfile généré seulement s'il manque, état dans <code>.gse/deploy.json</code>. Mode opératoire du cours : prénom comme identifiant, copie de <code>.env.training</code>, ordre des vagues.</td><td><span class="st ad">à adapter</span> (<code>t7_cmd_deploy</code>) + <span class="st nw">mode opératoire</span></td></tr>
+      <tr><td class="h">09:45</td><td class="m">60</td><td><span class="ph x">Projet</span></td><td>Fiche E20 : plan et exigences du mini-projet. Fiche E21 si la comparaison de deux modèles est placée ici (point ouvert 7). <span class="gap">[écart]</span></td><td><span class="st nw">à écrire</span></td></tr>
+      <tr class="brk"><td class="h">10:45</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td><span class="gap">[écart]</span></td><td></td></tr>
+      <tr><td class="h">11:00</td><td class="m">75</td><td><span class="ph x">Projet</span></td><td>Sprint (E20). En parallèle, <span class="ph e">Exercice</span> E19 : vague 1 (11:00-11:40) et vague 2 (11:40-12:15) déploient CalcApp avec le formateur.</td><td></td></tr>
+      <tr class="brk"><td class="h">12:15</td><td class="m">60</td><td><span class="ph x">Déjeuner</span></td><td></td><td></td></tr>
+      <tr><td class="h">13:15</td><td class="m">105</td><td><span class="ph x">Projet</span></td><td>Sprint. E19 : vague 3 (13:15-14:00) et vague 4 (14:00-14:45).</td><td></td></tr>
+      <tr class="brk"><td class="h">15:00</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td><span class="gap">[écart]</span></td><td></td></tr>
+      <tr><td class="h">15:15</td><td class="m">75</td><td><span class="ph x">Projet</span></td><td>Sprint ; NG valide exigences et plan de chacun au fil de l'eau.</td><td></td></tr>
+      <tr><td class="h">16:30</td><td class="m">15</td><td><span class="ph d">Débrief</span></td><td><b>Jalon</b> : exigences et plan validés pour tous ; ce qui ne tiendra pas d'ici demain 11:30 passe au backlog. Débrief du déploiement (cycle 16) : ce qui a coincé, comment lire ses journaux.</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">16:45</td><td class="m">15</td><td><span class="ph x">Marge</span></td><td>Push, <code>/gse-pause</code>.</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Fiches d'exercice</h3>
+  <div class="sheets">
+    <article class="sheet"><header><h4>E19 · Déployer CalcApp</h4><span class="tag">35 à 45 min par vague · cycle 16 · <span class="st nw">à écrire</span></span></header>
+      <dl><dt>But</dt><dd>CalcApp en ligne à ton adresse, pour apprendre le chemin avant ton projet.</dd>
+      <dt>Étapes</dt><dd>Copier <code>.env.training</code> dans CalcApp (jamais commité) ; identifiant = ton prénom ; <code>/gse-deploy</code> ; ouvrir l'adresse ; lire tes journaux (méthode à fixer : pas d'accès administrateur à Coolify).</dd>
+      <dt>Fini quand</dt><dd>CalcApp répond à son adresse.</dd>
+      <dt>Si bloqué</dt><dd>NG, à la table de déploiement.</dd></dl></article>
+    <article class="sheet"><header><h4>E20 · Sprint du mini-projet</h4><span class="tag">jours 5 et 6 · tous les cycles · <span class="st nw">à écrire</span></span></header>
+      <dl><dt>But</dt><dd>Appliquer seul la boucle apprise, en mode Allégé.</dd>
+      <dt>Étapes</dt><dd><code>/gse-plan</code> (budget de 8 à 10 points) → <code>/gse-reqs</code> → <code>/gse-tests</code> → <code>/gse-produce</code> → <code>/gse-review</code> → <code>/gse-fix</code> ; la grille des 3 questions à chaque Gate ; push chaque soir.</dd>
+      <dt>Fini quand</dt><dd>Jour 5 à 16:30 : exigences et plan validés par NG. Jour 6 à 11:30 : première livraison.</dd>
+      <dt>Si bloqué</dt><dd>Tuteur (<code>tutor add</code> si besoin), page d'orientation (verso « quand l'agent dérape »), NG.</dd></dl></article>
+    <article class="sheet"><header><h4>E21 · Comparer deux modèles</h4><span class="tag">60 min · cycles 05 et 10 · <span class="st nw">à écrire</span> · point ouvert 7</span></header>
+      <dl><dt>But</dt><dd>Choisir la meilleure version de tes exigences en comparant deux modèles.</dd>
+      <dt>Étapes</dt><dd>Même consigne <code>/gse-reqs</code> sur deux modèles ; grille : nombre d'exigences, testabilité, exigence non fonctionnelle oubliée, questions posées, coût en jetons ; « comparez la structure, pas les mots » ; garder la meilleure version.</dd>
+      <dt>Fini quand</dt><dd>La grille est remplie et une version est retenue.</dd></dl></article>
+  </div>
+</section>
+
+<!-- ============ JOUR 6 ============ -->
+<section class="day" id="j6">
+  <h2>Jour 6 · vendredi 11/12 · finir, livrer, éthique, galerie, clôture</h2>
+  <p class="daymeta"><span><b>Cycles</b> aucun nouveau ; l'éthique applique le cycle 03</span><span><b>Livraison</b> 11:30, gel 12:00</span></p>
+  <div class="tbl"><table>
+    <thead><tr><th>Heure</th><th>Min</th><th>Phase</th><th>Contenu</th><th>État</th></tr></thead>
+    <tbody>
+      <tr><td class="h">09:00</td><td class="m">15</td><td><span class="ph x">Accueil</span></td><td><code>tutor update</code>, <code>/gse-resume</code>.</td><td></td></tr>
+      <tr><td class="h">09:15</td><td class="m">75</td><td><span class="ph x">Projet</span></td><td>Finir le sprint (E20).</td><td></td></tr>
+      <tr class="brk"><td class="h">10:30</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td><span class="gap">[écart]</span></td><td></td></tr>
+      <tr><td class="h">10:45</td><td class="m">45</td><td><span class="ph x">Projet</span></td><td>Finir le sprint.</td><td></td></tr>
+      <tr><td class="h">11:30</td><td class="m">45</td><td><span class="ph e">Exercice</span></td><td>Fiche E22 : livrer (11:30) puis geler et chasser les coquilles vides (12:00).</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">12:15</td><td class="m">30</td><td><span class="ph e">Exercice</span></td><td>Fiche E23 : auditez votre projet (application du cycle 03).</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr class="brk"><td class="h">12:45</td><td class="m">60</td><td><span class="ph x">Déjeuner</span></td><td></td><td></td></tr>
+      <tr><td class="h">13:45</td><td class="m">15</td><td><span class="ph x">Projet</span></td><td>Préparer sa démo (E24) ; NG contrôle les dépôts finaux (point ouvert 11).</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">14:00</td><td class="m">45</td><td><span class="ph e">Exercice</span></td><td>Fiche E24 : galerie, rotation 1 (forme : point ouvert 10).</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">14:45</td><td class="m">45</td><td><span class="ph e">Exercice</span></td><td>Galerie, rotation 2.</td><td></td></tr>
+      <tr class="brk"><td class="h">15:30</td><td class="m">15</td><td><span class="ph x">Pause</span></td><td></td><td></td></tr>
+      <tr><td class="h">15:45</td><td class="m">30</td><td><span class="ph d">Débrief</span></td><td>Fiche E25 : leçons apprises en groupe (garder, changer, abandonner).</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">16:15</td><td class="m">20</td><td><span class="ph d">Débrief</span></td><td>Plan « lundi matin » : la première chose qu'on fera autrement au travail.</td><td><span class="st nw">à écrire</span></td></tr>
+      <tr><td class="h">16:35</td><td class="m">15</td><td><span class="ph x">Clôture</span></td><td>Questionnaire final en salle (celui de DLH ?).</td><td>à confirmer</td></tr>
+      <tr><td class="h">16:50</td><td class="m">10</td><td><span class="ph x">Clôture</span></td><td>Certificats, ressources.</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Fiches d'exercice</h3>
+  <div class="sheets">
+    <article class="sheet"><header><h4>E22 · Livrer et geler</h4><span class="tag">45 min · cycles 08 et 14 · <span class="st nw">à écrire</span></span></header>
+      <dl><dt>But</dt><dd>Une version présentable, honnête sur ses limites.</dd>
+      <dt>Étapes</dt><dd>11:30 : <code>/gse-deliver</code>, étiquette <code>demo</code>, README « fiche projet » (pitch, lancement, adresse en ligne), push. 12:00, gel : plus de nouvelle fonction ; chercher <code>NotImplemented</code> et <code>TODO</code> ; cliquer chaque bouton ; lister les limites dans le README.</dd>
+      <dt>Fini quand</dt><dd>L'étiquette <code>demo</code> est poussée et le README liste les limites connues.</dd></dl></article>
+    <article class="sheet"><header><h4>E23 · Auditez votre projet</h4><span class="tag">30 min · cycle 03 appliqué · <span class="st nw">à écrire</span></span></header>
+      <dl><dt>But</dt><dd>Vérifier son projet contre l'AI Act, les licences, les secrets et les données.</dd>
+      <dt>Étapes</dt><dd>Liste courte : niveau de risque au sens de l'AI Act et transparence ; licences du code et des dépendances ; aucun secret dans l'historique git (<code>.env</code> jamais commité) ; données personnelles traitées.</dd>
+      <dt>Fini quand</dt><dd>Une section « Éthique et conformité » figure dans le README.</dd></dl></article>
+    <article class="sheet"><header><h4>E24 · Démo en galerie</h4><span class="tag">15 + 90 min · <span class="st nw">à écrire</span></span></header>
+      <dl><dt>But</dt><dd>Montrer sa démarche en 5 à 7 minutes.</dd>
+      <dt>Structure</dt><dd>Problème, produit, un « moment GSE », une leçon, questions. Les visiteurs testent avec une grille de 3 questions.</dd></dl></article>
+    <article class="sheet"><header><h4>E25 · Leçons apprises et lundi matin</h4><span class="tag">50 min · <span class="st nw">à écrire</span></span></header>
+      <dl><dt>But</dt><dd>Tirer ce qu'on garde, change ou abandonne, et un premier geste concret au travail.</dd></dl></article>
+  </div>
+</section>
+
+<!-- ============ POINTS OUVERTS ============ -->
+<section class="day" id="ouverts">
+  <h2>Points ouverts</h2>
+  <p class="lede">Valeurs par défaut validées par NG le 10/11/2026, sauf le point 13 (à confirmer avec DLH).</p>
+  <ol class="open">
+    <li><b>1. Les quatre cours de génie logiciel au jour 3 matin (option A).</b> Ce déroulé repose sur cette option. Par défaut : retenue.</li>
+    <li><b>2. Déjeuner du jour 3 de 12:30 à 13:30.</b> Il garde tes durées (60 + 45 + 45 + 30). Par défaut : retenu et reporté dans le programme. Variante : réduire « GenSEM » à 45 minutes pour garder 12:15.</li>
+    <li><b>3. P2 (explorer <code>.gse/</code>) et P4 (classer les décisions) ne sont plus des exercices séparés.</b> Leur cœur passe dans P1 (E11), et les décisions se pratiquent à chaque Gate. Par défaut : fusionnés.</li>
+    <li><b>4. Forme de l'illustration du plugin.</b> Une diapositive de texte ou un schéma, « la solution retenue par GSE-One », sans démonstration ni capture d'exécution. Il en faut 12 (jours 1, 2 et 3 matin). Par défaut : ce format.</li>
+    <li><b>5. Supports des trois cours (élicitation, exigences non fonctionnelles, vérification et validation).</b> As-tu tes supports de l'édition 1 ? Par défaut : je les écris en phase 2 (19/11 → 02/12) à partir des blocs du module gensem.</li>
+    <li><b>6. Fiches d'exercice.</b> Une fiche par exercice dans le syllabus du kit public, que lit le tuteur ; la diapositive y renvoie. 10 fiches existent, 7 sont à adapter, 8 à écrire. Par défaut : dans le kit.</li>
+    <li><b>7. Comparaison de deux modèles (E21).</b> Par défaut : jour 5 à 09:45 sur ses propres exigences. Variante : pendant P5 au jour 3, ce qui raccourcit une pratique déjà serrée.</li>
+    <li><b>8. Mesurer la qualité (E15).</b> Par défaut : une étiquette du starter qui ajoute la couverture et un <code>ci.yml</code> ; la branche <code>v5-production</code> de l'édition 1 seulement en démonstration.</li>
+    <li><b>9. Déploiement du mini-projet.</b> Au jour 5 on déploie CalcApp. Par défaut : redéployer le mini-projet après la livraison de 11:30 au jour 6 seulement si le temps le permet ; sinon l'adresse en ligne du README est celle de CalcApp.</li>
+    <li><b>10. Forme de la galerie.</b> Par défaut : deux rotations (une moitié présente, l'autre visite), comme dans le programme. Variante : 4 tables de 5, puis 4 projets en plénière.</li>
+    <li><b>11. Contrôle des dépôts finaux.</b> Par défaut : à 13:45 pendant la préparation des démos, et non à 12:15 en même temps que l'éthique.</li>
+    <li><b>12. Pauses ajoutées</b> au jour 5 (10:45 et 15:00) et au jour 6 (10:30). Par défaut : retenues et reportées dans le programme.</li>
+    <li><b>13. Taille du groupe.</b> Les vagues de 5 et la galerie supposent environ 20 apprenants. À confirmer avec DLH.</li>
+    <li><b>14. Jalon du jour 5.</b> Par défaut : validation au fil de l'eau de 15:15 à 16:30, car 20 validations en 15 minutes sont impossibles.</li>
+    <li><b>15. Jour 3 sans marge en fin d'après-midi.</b> Par défaut : accepté ; en cas de retard, P5 se termine au jour 4 à 09:15 et P6 raccourcit d'autant.</li>
+    <li><b>16. Visibilité du dépôt du mini-projet.</b> Un projet professionnel poussé sur un GitHub public peut exposer du code de l'employeur. Par défaut : dépôt privé autorisé pour le mini-projet, CalcApp reste public.</li>
+  </ol>
+</section>
+</div>
+</body>
+</html>
