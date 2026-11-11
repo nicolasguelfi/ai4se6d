@@ -36,7 +36,7 @@ def build():
                 with l.item():
                     st_write(bs.body, (bs.cmd, "tutor"), " — an AI helper prepared by the trainer (step 8)")
                 with l.item():
-                    st_write(bs.body, "the course syllabus and the GSE-One v0.90.0 docs")
+                    st_write(bs.body, "the course syllabus and the GSE-One v0.90.1 docs")
                 with l.item():
                     st_write(bs.body, "the default model for the workshops (never your key)")
             with st_block(bs.done_box):

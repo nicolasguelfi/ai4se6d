@@ -29,6 +29,6 @@ def build():
                     st_write(bs.body, 'Your work goes to GitHub, pushed every evening')
             st_write(
                 bs.foot,
-                'Keep your laptop as it is: opencode, model key, GSE-One v0.90.0, your tutor.',
+                'Keep your laptop as it is: opencode, model key, GSE-One v0.90.1, your tutor.',
                 tag=t.div,
             )

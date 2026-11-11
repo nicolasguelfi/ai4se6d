@@ -29,7 +29,7 @@ def build():
                 with l.item():
                     st_write(bs.body, (bs.label, "Add: "), (bs.cmd, "~/ai4se/ai4se-kit/tutor add ~/work/repo"))
                 with l.item():
-                    st_write(bs.body, (bs.sees, "Sees: "), "the course syllabus and the GSE-One v0.90.0 docs")
+                    st_write(bs.body, (bs.sees, "Sees: "), "the course syllabus and the GSE-One v0.90.1 docs")
                 with l.item():
                     st_write(bs.body, (bs.never, "Never: "), "your secrets — ", (bs.cmd, ".env"),
                              ", keys, ", (bs.cmd, "~/.ssh"), ", opencode credentials")

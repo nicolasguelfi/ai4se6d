@@ -19,7 +19,7 @@
 | 4 | Agent apprenants | **opencode** principal ; Cursor gratuit comme simple éditeur si besoin | Pas de sièges Cursor Pro |
 | 5 | Accès modèles | **Une clé plafonnée par apprenant** (type OpenRouter) | Modèles gratuits opencode Zen limités par IP : écartés |
 | 6 | Machines | VM DLH de référence ; portables personnels acceptés ; installation en salle pour qui n'est pas prêt ; liste de contrôle à J-7 | Pas de session à distance |
-| 7 | GSE-One | v0.89.1 retenue, puis **v0.90.0** (intégration de la PR #11 opencode 2, décidée par NG) — version épinglée pour la formation | Voir § 3 |
+| 7 | GSE-One | v0.89.1 retenue, puis v0.90.0 (intégration de la PR #11 opencode 2, décidée par NG), puis **v0.90.1** (correctifs issus de la répétition, 2026-11-11) — version épinglée pour la formation | Voir § 3 |
 | 8 | Dépôts de Tiago | Nouveaux dépôts privés : `nicolasguelfi/ai4se6d-decks`, `nicolasguelfi/calcapp-course` (créés le 2026-11-09) | |
 | 9 | Jour 2 | Import **condensé** du deck de Tiago en StreamTeX, dans ai4se6d | Cible ai4se6d choisie par NG (QCM) |
 | 10 | CalcApp | **Starter épinglé** (Vite 7, Vitest 4, React Router 7, TS 5.9, package-lock) | |
@@ -143,6 +143,7 @@ Source : `2026-11-10-012-six-days-cycles-plan.html` (déroulé minuté, 25 fiche
 
 - 2026-11-09 — gensem **v0.89.1** publiée (commit 1b4f70a, tag v0.89.1, CI et release au vert).
 - 2026-11-09 — gensem **v0.90.0** publiée (commit 4c6f5be, tag v0.90.0, CI et release au vert) : adaptateur natif opencode 2, sélection par l'installateur, garde-fous git renforcés. Test réel opencode 2.2.6 (HOME isolé) : adaptateur V2 choisi, commit sur `main` bloqué en session réelle. Le V1 de v0.89.1 fonctionne aussi sur 2.2.6.
+- 2026-11-11 — gensem **v0.90.1** publiée (commit 1df436d, tag v0.90.1, release au vert) : adaptateur opencode exempté du lint, archive sans `__pycache__`, `dashboard.py` tolère les commentaires de fin de ligne. Épinglage de la formation passé à v0.90.1 (kit et diapositives).
 - 2026-11-09 — dépôts `ai4se6d-decks` (branches master, feat/tools-ecosystem-lecture-content, refactor/day2-split-image-slides) et `calcapp-course` (v0-plans … v5-production) créés en privé.
 
 - 2026-11-09 — **Phase 1 rédigée** (branche `edition2`) :
@@ -172,6 +173,6 @@ Source : `2026-11-10-012-six-days-cycles-plan.html` (déroulé minuté, 25 fiche
 
 ## 4. Points ouverts
 
-- ~~opencode 2~~ : réglé par v0.90.0 (voir § 3). Commande d'installation à utiliser en salle : `curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.90.0/install.sh | GSE_PLATFORM=opencode GSE_VERSION=v0.90.0 sh` (opencode installé AVANT, pour que l'installateur détecte la version 2).
+- ~~opencode 2~~ : réglé par v0.90.0 (voir § 3). Commande d'installation à utiliser en salle : `curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.90.1/install.sh | GSE_PLATFORM=opencode GSE_VERSION=v0.90.1 sh` (opencode installé AVANT, pour que l'installateur détecte la version 2).
 - Budget et fournisseur des clés de modèle (≈ 20 clés plafonnées) : fournisseur OpenRouter et modèle fixés le 10/11 (§ 2septies) ; reste le plafond par clé.
 - Mode d'accès aux VM DLH (protocole, distribution des identifiants sur fiche papier).
