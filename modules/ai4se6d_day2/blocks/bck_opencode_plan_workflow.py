@@ -20,10 +20,10 @@ def build():
             st_write(bs.heading, "Think First, Then Code", tag=t.div, toc_lvl="+1")
         st_space("v", 0.5)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
-            with l.item(): st_write(bs.body, (bs.keyword, "Tab → plan"), ": describe the whole feature and its constraints")
+            with l.item(): st_write(bs.body, (bs.keyword, "Shift+Tab → plan"), ": describe the whole feature and its constraints")
             with l.item(): st_write(bs.body, (bs.keyword, "Review"), ": files, order, tests included?")
             with l.item(): st_write(bs.body, (bs.keyword, "Push back"), ": “tests first”, “split this step”")
-            with l.item(): st_write(bs.body, (bs.keyword, "Tab → build"), ": “implement step 1 only”")
+            with l.item(): st_write(bs.body, (bs.keyword, "Shift+Tab → build"), ": “implement step 1 only”")
             with l.item(): st_write(bs.body, (bs.keyword, "git diff"), ", tests, commit — then the next step")
         st_space("v", 1)
         with st_block(s.project.containers.callout):

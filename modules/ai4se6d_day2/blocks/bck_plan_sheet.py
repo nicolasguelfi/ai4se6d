@@ -16,6 +16,7 @@ bs = BlockStyles
 
 _SHEET = [
     ("Done when", "git log --oneline on mywork shows “docs: v0.1 plan”; docs/plan.md has 5-8 tasks, one [next]"),
+    ("Check", "is anything missing for the app to work end to end (wiring, entry point, assembly of the parts)? If so, add that task"),
     ("Mid-point (11:15)", "your user stories have testable acceptance criteria; you are splitting them"),
     ("If stuck", "1. your tutor window  2. cp docs/plan-example.md docs/plan.md, adapt it  3. raise your hand"),
     ("New file?", "git diff ignores untracked files: git add first, then git diff --staged"),

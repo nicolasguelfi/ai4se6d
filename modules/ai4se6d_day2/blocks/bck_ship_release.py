@@ -1,4 +1,4 @@
-"""Slide — Exercise — ship v0.1 (merge and tag)."""
+"""Slide — Exercise — ship v0.1 (merge, tag, then main takes mywork)."""
 # @guideline: minimalist-visual + maximize-viewport
 # @pattern: ptn_exercise_flow
 from streamtex import *
@@ -23,6 +23,7 @@ git switch mywork
 git merge fix/review          # + any finished feat/ branch not merged yet
 npm run test:run              # all green? if not, fix before tagging
 git tag v0.1
+git switch -C main mywork     # main = your v0.1 (it held only the starter)
 git log --oneline --graph --decorate -10"""
 
 
@@ -40,6 +41,15 @@ def build():
                 tag=t.div,
             )
             st_code(s.none, code=_SHIP, language='bash', line_numbers=False, font_size="36pt")
+            st_write(
+                bs.body,
+                (bs.label, 'Why main: '),
+                'from tomorrow, the methodology plugin treats ',
+                (bs.cmd, 'main'),
+                ' as the reference. Git says main and origin/main have diverged: normal, do not pull'
+                ' (origin is the starter); you push to your own repository tomorrow morning.',
+                tag=t.div,
+            )
             with st_block(bs.done_box):
                 st_write(
                     bs.body,
@@ -47,7 +57,11 @@ def build():
                     (bs.cmd, 'git tag'),
                     ' lists ',
                     (bs.cmd, 'v0.1'),
-                    ', on a commit where the tests are green.',
+                    ', on a commit where the tests are green, and ',
+                    (bs.cmd, 'main'),
+                    ' is on that same commit (',
+                    (bs.cmd, 'git branch -v'),
+                    ').',
                 )
             st_write(
                 bs.body,

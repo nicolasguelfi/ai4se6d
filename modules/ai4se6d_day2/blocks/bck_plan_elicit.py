@@ -25,7 +25,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(75):
             st_write(bs.heading, "Elicit with the Plan Agent", tag=t.div, toc_lvl="+1")
-        st_write(bs.body, (bs.keyword, "Tab → plan"), ", then adapt and paste:", tag=t.div)
+        st_write(bs.body, (bs.keyword, "Shift+Tab → plan"), ", then adapt and paste:", tag=t.div)
         st_space("v", 0.5)
         st_code(s.none, code=_PROMPT, language="text", line_numbers=False, font_size="22pt")
         st_space("v", 0.5)

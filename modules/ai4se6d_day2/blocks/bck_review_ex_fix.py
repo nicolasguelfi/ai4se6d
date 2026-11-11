@@ -26,7 +26,7 @@ def build():
             st_write(bs.heading, 'Fix One Finding — Test First', tag=t.div, toc_lvl='+1')
             st_write(
                 bs.body,
-                'Tab back to the ',
+                'Shift+Tab back to the ',
                 (bs.keyword, 'build'),
                 ' agent, on branch ',
                 (bs.cmd, 'fix/review'),

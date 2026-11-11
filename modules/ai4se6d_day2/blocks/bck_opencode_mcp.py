@@ -38,5 +38,5 @@ def build():
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
             with l.item(): st_write(bs.body, (bs.keyword, "Model Context Protocol"), ": an open standard")
             with l.item(): st_write(bs.body, "Each server exposes ", (bs.keyword, "tools"), " the agent calls when it needs them")
-            with l.item(): st_write(bs.body, "Declared under ", (bs.keyword, "mcp"), " in opencode.json")
+            with l.item(): st_write(bs.body, "Added with ", (bs.keyword, "opencode mcp add"), ": written under ", (bs.keyword, "mcp.servers"), " in opencode.json")
             with l.item(): st_write(bs.body, "Every tool takes context space: ", (bs.keyword, "enable few"))

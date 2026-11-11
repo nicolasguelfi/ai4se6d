@@ -14,9 +14,11 @@ class BlockStyles:
 bs = BlockStyles
 
 _GSE = (
-    "cd ~/ai4se/calcapp && git switch mywork\n"
+    "cd ~/ai4se/calcapp && git switch -c chore/gse-one main\n"
     "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.90.0/install.sh \\\n"
-    "  | GSE_PLATFORM=opencode GSE_VERSION=v0.90.0 sh"
+    "  | GSE_PLATFORM=opencode GSE_VERSION=v0.90.0 sh\n"
+    "git add . && git commit -m \"chore: install GSE-One v0.90.0\"\n"
+    "git switch main && git merge --no-ff --no-edit chore/gse-one"
 )
 
 
@@ -25,7 +27,7 @@ def build():
         with st_zoom(75):
             st_write(bs.heading, "GSE-One in Your CalcApp", tag=t.div, toc_lvl="+1", label="Install GSE-One in CalcApp")
             st_write(bs.body, "The same command as on day 1, in your project folder this time.", tag=t.div)
-            with st_zoom(140):
+            with st_zoom(115):
                 st_code(s.none, code=_GSE, language="bash", line_numbers=False)
             st_write(bs.body, "Done when ", (bs.cmd, "cat .gse/registry"), " prints ", (bs.cmd, ".opencode"), tag=t.div)
-            st_write(bs.foot, "Then commit the new files: they are part of your project.", tag=t.div)
+            st_write(bs.foot, "The new files are part of your project: committed on a branch, merged into main (main only receives merges).", tag=t.div)

@@ -27,7 +27,7 @@ _HEADERS = ("", "opencode", "Claude Code", "Cursor", "Copilot", "Codex CLI")
 _ROWS = [
     ("Models", "Any provider, local too", "Claude only", "Several vendors", "Several vendors", "OpenAI"),
     ("Instructions", "AGENTS.md", "CLAUDE.md", "AGENTS.md + rules", "AGENTS.md + own file", "AGENTS.md"),
-    ("Plan first", "plan agent (Tab)", "plan mode", "plan mode", "plan agent", "read-only mode"),
+    ("Plan first", "plan agent (Shift+Tab)", "plan mode", "plan mode", "plan agent", "read-only mode"),
     ("Extensions", "MCP, agents, plugins", "MCP, hooks, skills", "MCP, rules, hooks", "MCP, agents", "MCP"),
     ("Open source", "Yes (MIT)", "No", "No", "Partly", "Yes (Apache-2.0)"),
 ]

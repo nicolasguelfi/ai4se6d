@@ -31,9 +31,9 @@ def build():
         st_write(bs.demo, "Demo first (3 min): plan agent, todo list, a Context7 call", tag=t.div)
         with st_zoom(85):
             with st_list(l_style=bs.step, li_style=bs.step, list_type=lt.ordered) as l:
-                with l.item(): st_write(bs.step, "No context7 in ", (bs.keyword, "opencode.json"), "? Add it, restart opencode")
-                with l.item(): st_write(bs.step, (bs.keyword, "opencode mcp list"), " in a terminal: context7 connected?")
-                with l.item(): st_write(bs.step, (bs.keyword, "Tab → plan"), ": \u201cPlan a /budgets page. Use context7 for React Router 7. Tests first.\u201d")
+                with l.item(): st_write(bs.step, "No context7 yet? ", (bs.keyword, "opencode mcp add context7 --url https://mcp.context7.com/mcp"))
+                with l.item(): st_write(bs.step, "Restart opencode: the sidebar shows context7 ", (bs.keyword, "Connected"), "?")
+                with l.item(): st_write(bs.step, (bs.keyword, "Shift+Tab → plan"), ": \u201cPlan a /budgets page. Use context7 for React Router 7. Tests first.\u201d")
                 with l.item(): st_write(bs.step, "Read the plan and its todo list, push back once")
                 with l.item(): st_write(bs.step, (bs.keyword, "Do not build"), ": your real plan comes at 11:00")
         with st_zoom(85):

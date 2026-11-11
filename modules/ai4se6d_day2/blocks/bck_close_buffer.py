@@ -44,5 +44,11 @@ def build():
                     (bs.cmd, 'git tag'),
                     ' shows ',
                     (bs.cmd, 'v0.1'),
-                    '.',
+                    '; ',
+                    (bs.cmd, 'git branch -v'),
+                    ': ',
+                    (bs.cmd, 'main'),
+                    ' and ',
+                    (bs.cmd, 'mywork'),
+                    ' on the same commit.',
                 )

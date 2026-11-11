@@ -13,9 +13,10 @@ class BlockStyles:
     label = s.project.titles.label
 bs = BlockStyles
 
+_CMD = "opencode mcp add context7 --url https://mcp.context7.com/mcp"
+
 _CONFIG = """\
 {
-  "$schema": "https://opencode.ai/config.json",
   "mcp": { "servers": {
     "context7": { "type": "remote", "url": "https://mcp.context7.com/mcp" }
   } }
@@ -30,9 +31,11 @@ def build():
             bs.body, (bs.label, "Problem: "), "the model learned old APIs; React Router 7 moves fast.",
             tag=t.div,
         )
-        st_write(bs.body, "Add to ", (bs.label, "opencode.json"), " at the project root:", tag=t.div)
-        st_code(s.none, code=_CONFIG, language="json", line_numbers=False, font_size="22pt")
+        st_write(bs.body, "In the project folder, one command (no hand-written JSON):", tag=t.div)
+        st_code(s.none, code=_CMD, language="bash", line_numbers=False, font_size="22pt")
+        st_write(bs.body, "It writes ", (bs.label, "opencode.json"), " at the project root:", tag=t.div)
+        st_code(s.none, code=_CONFIG, language="json", line_numbers=False, font_size="20pt")
         st_write(
-            bs.body, "Check: ", (bs.keyword, "opencode mcp list"),
+            bs.body, "Check: restart opencode, the sidebar shows ", (bs.keyword, "context7 Connected"),
             " · In a prompt: ", (bs.keyword, "use context7"), tag=t.div,
         )

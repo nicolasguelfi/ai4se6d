@@ -21,6 +21,6 @@ def build():
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
             with l.item(): st_write(bs.body, (bs.keyword, "Structure + AGENTS.md"), " = your standing prompt")
             with l.item(): st_write(bs.body, (bs.keyword, "Context is finite"), ": @ the right files, no secrets, /new per task")
-            with l.item(): st_write(bs.body, (bs.keyword, "Tab"), ": plan first, build second")
+            with l.item(): st_write(bs.body, (bs.keyword, "Shift+Tab"), ": plan first, build second")
             with l.item(): st_write(bs.body, (bs.keyword, "Todo ticked ≠ done"), ": tests + reviewed diff")
             with l.item(): st_write(bs.body, (bs.keyword, "MCP"), " adds tools; ", (bs.keyword, "Context7"), " adds live docs")

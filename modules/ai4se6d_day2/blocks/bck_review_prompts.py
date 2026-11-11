@@ -34,7 +34,7 @@ def build():
                 bs.body,
                 (bs.label, 'Effective: '),
                 (bs.keyword, 'plan'),
-                ' agent (Tab — read-only), one file, one concern, the context:',
+                ' agent (Shift+Tab — read-only), one file, one concern, the context:',
                 tag=t.div,
             )
             st_code(s.none, code=_GOOD1, language='text', line_numbers=False, font_size="36pt")

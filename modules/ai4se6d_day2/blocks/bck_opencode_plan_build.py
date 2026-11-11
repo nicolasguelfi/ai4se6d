@@ -1,4 +1,4 @@
-"""Slide — Plan agent vs build agent (Tab)."""
+"""Slide — Plan agent vs build agent (Shift+Tab)."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
@@ -36,4 +36,4 @@ def build():
                         with l.item(): st_write(bs.text, "Edits files, runs commands")
                         with l.item(): st_write(bs.text, "Follows the plan you approved")
         st_space("v", 1)
-        st_write(bs.closing, "Press Tab to switch agents: opencode shows which one is active.", tag=t.div)
+        st_write(bs.closing, "Press Shift+Tab to switch agents: opencode shows which one is active.", tag=t.div)

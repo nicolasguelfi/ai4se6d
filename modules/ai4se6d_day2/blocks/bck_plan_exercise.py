@@ -22,10 +22,10 @@ def build():
         st_write(bs.timer, "20 min · goal: a committed plan", tag=t.div)
         st_space("v", 0.5)
         with st_list(l_style=bs.step, li_style=bs.step, list_type=lt.ordered) as l:
-            with l.item(): st_write(bs.step, (bs.keyword, "git switch mywork"), ", ", (bs.keyword, "opencode"), ", ", (bs.keyword, "Tab → plan"))
+            with l.item(): st_write(bs.step, (bs.keyword, "git switch mywork"), ", ", (bs.keyword, "opencode"), ", ", (bs.keyword, "Shift+Tab → plan"))
             with l.item(): st_write(bs.step, "Paste the elicitation prompt, answer its questions")
             with l.item(): st_write(bs.step, "“Split into 5-8 atomic tasks, tests first, with acceptance criteria.”")
             with l.item(): st_write(bs.step, "Push back at least once: too big? not testable?")
-            with l.item(): st_write(bs.step, (bs.keyword, "Tab → build"), ": “Write docs/plan.md in the slide format.”")
+            with l.item(): st_write(bs.step, (bs.keyword, "Shift+Tab → build"), ": “Write docs/plan.md in the slide format.”")
             with l.item(): st_write(bs.step, "Edit, mark T1 ", (bs.keyword, "[next]"), ", ", (bs.keyword, "git add"), " it, ", (bs.keyword, "git diff --staged"))
             with l.item(): st_write(bs.step, (bs.keyword, "git commit -m \"docs: v0.1 plan\""))

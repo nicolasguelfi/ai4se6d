@@ -13,7 +13,7 @@ class BlockStyles:
 bs = BlockStyles
 
 _CMD = (
-    "cd ~/ai4se/calcapp && git switch mywork\n"
+    "cd ~/ai4se/calcapp && git switch main\n"
     "gh repo create calcapp --public --source=. --remote=mine\n"
     "git push mine --all && git push mine --tags\n"
     "gh repo view --web"

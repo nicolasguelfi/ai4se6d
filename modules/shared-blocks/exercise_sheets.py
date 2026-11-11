@@ -13,14 +13,17 @@ SHEETS = {
         "title": "Discover GSE-One on Your CalcApp",
         "goal": "Bring your CalcApp under GSE-One and pass your first Gate.",
         "steps": [
-            "`cd ~/ai4se/calcapp`, `git switch mywork`; install GSE-One in this folder "
-            "(same command as day 1, installation step 5).",
+            "`cd ~/ai4se/calcapp` (since yesterday `main` holds your v0.1); install GSE-One on a branch "
+            "merged into `main` (commands just before this sheet; same install command as day 1, installation step 5).",
             "Start `opencode`, type `/gse-go`, answer the profile questions in plain language.",
             "At the mode Gate choose Full; apply the 3-question grid and write your answers in the tracking sheet.",
             "Open `.gse/profile.yaml` (do you recognise yourself?) and `.gse/status.yaml`, then run `/gse-status`.",
-            "Ask the agent to commit straight on `main`. Watch the guardrail refuse, and note it.",
+            "Ask the agent to commit straight on `main`. Look for its Gate: the agent refuses by itself, explains "
+            "the protect-main guardrail and offers safe paths (a branch, …). Pick one, and note the Gate. "
+            "(The hook would block the commit only if the agent tried anyway.)",
         ],
-        "done_when": "`/gse-status` shows the project in Full mode, and one guardrail refusal is noted in the tracking sheet.",
+        "done_when": "`/gse-status` shows the project in Full mode, and the guardrail Gate (refusal + safe options) "
+                     "is noted in the tracking sheet.",
         "midpoint": "14:00 — the profile questions are done.",
         "if_stuck": "Your tutor window → restart from the tag `p3-start` → raise your hand.",
         "debrief": "Which principles from this morning did you see: a Gate, a guardrail, the memory in files?",

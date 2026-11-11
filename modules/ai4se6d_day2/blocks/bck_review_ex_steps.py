@@ -39,7 +39,7 @@ def build():
                 with l.item():
                     st_write(
                         bs.body,
-                        'Tab → ',
+                        'Shift+Tab → ',
                         (bs.keyword, 'plan'),
                         ' agent (read-only): run the review prompt',
                     )

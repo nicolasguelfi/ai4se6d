@@ -32,8 +32,8 @@ $ cd ~/ai4se/my-project       # always start in a dedicated project folder
 $ opencode                    # the agent works in this folder
 
 > /init                       # reads the code, writes AGENTS.md
-[Tab] -> plan                 # read-only: propose a plan first
-[Tab] -> build                # now it may edit and run commands
+[Shift+Tab] -> plan           # read-only: propose a plan first
+[Shift+Tab] -> build          # now it may edit and run commands
 > explain @src/export.js      # @file adds a file to the context
 > /gse-status                 # GSE-One commands start with /gse-
 $ ~/ai4se/ai4se-kit/tutor     # 2nd terminal: the course tutor (read-only)"""
@@ -65,7 +65,7 @@ def build():
                 with l.item():
                     st_write(bs.body, (bs.keyword_warn, "Any model provider"), " \u2014 this week: your capped key")
                 with l.item():
-                    st_write(bs.body, (bs.keyword_accent, "plan"), " / ", (bs.keyword_accent, "build"), " agents \u2014 ", (bs.keyword_warn, "Tab"), " to switch")
+                    st_write(bs.body, (bs.keyword_accent, "plan"), " / ", (bs.keyword_accent, "build"), " agents \u2014 ", (bs.keyword_warn, "Shift+Tab"), " to switch")
                 with l.item():
                     st_write(bs.body, (bs.keyword, "AGENTS.md"), " \u2014 project rules; ", (bs.keyword, "/init"), " drafts it")
                 with l.item():
