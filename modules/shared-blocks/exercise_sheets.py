@@ -42,7 +42,8 @@ SHEETS = {
         "done_when": "`/gse-status` shows a validated plan, and your change is noted in the tracking sheet.",
         "midpoint": None,
         "if_stuck": "Your tutor window → restart from the tag `p3-start` → raise your hand.",
-        "debrief": "What did GSE-One's plan see that your `docs/plan.md` missed — and the other way round?",
+        "debrief": "What did GSE-One's plan see that your `docs/plan.md` missed — and the other way round? "
+                   "How many Gates did you accept as proposed? (After a run of them, the coach asks you to pick Discuss once.)",
     },
     "requirements": {
         "cycle": "CCSET10 and CCSET11 · Exercise E13 (P5)",
@@ -97,7 +98,8 @@ SHEETS = {
         "done_when": "The three numbers and the CI colour are written in the tracking sheet.",
         "midpoint": None,
         "if_stuck": "No CI run? The kit is not pushed: `git push mine --all`. Then your tutor window → raise your hand.",
-        "debrief": "What does coverage not tell you? Hint: a file no test loads is not even listed.",
+        "debrief": "What does coverage not tell you? Hint: a file no test loads is not even listed. "
+                   "And are green tests a green build? (Each check sees a different thing.)",
     },
     "delivery": {
         "cycle": "CCSET14 · Exercise E16 (P7)",

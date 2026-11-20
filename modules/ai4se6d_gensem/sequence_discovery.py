@@ -12,6 +12,7 @@ BLOCKS_DISCOVERY = [
     blocks.bck_gensem_t3_cmd_plan,
     blocks.bck_gensem_sheet_plan_steps,
     blocks.bck_gensem_sheet_plan_check,
+    blocks.bck_gensem_gate_coach,  # debrief: real case, the coach flags rubber-stamping (finding 7)
     # 15:15 — Break (15 min)
     # 15:30 — E13 Requirements and design (65 min) + debrief (10 min)
     blocks.bck_gensem_sheet_requirements_steps,

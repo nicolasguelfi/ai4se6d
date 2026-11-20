@@ -22,6 +22,7 @@ BLOCKS_QUALITY = [
     blocks.bck_quality_signals,
     blocks.bck_quality_coverage_limits,
     blocks.bck_quality_continuous_integration,
+    blocks.bck_quality_green_tests_red_build,  # real case: CI red at build, tests and review green (finding 6)
     blocks.bck_gse_solution_quality,
     blocks.bck_gensem_sheet_quality_steps,
     blocks.bck_gensem_sheet_quality_check,

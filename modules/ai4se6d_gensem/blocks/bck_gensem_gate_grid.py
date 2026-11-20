@@ -26,3 +26,5 @@ def build():
                     with l.item(): st_write(bs.question, "Would I have chosen differently?")
             st_write(bs.rule, "At least one change or one refusal per activity — written in the tracking sheet.", tag=t.div)
             st_write(bs.foot, "\"Looks good\" is not a review. A Gate you always accept is not a Gate.", tag=t.div)
+            st_write(bs.foot, "GSE-One's coach notices it too: after a run of recommended options accepted as is, "
+                     "it asks you to pick Discuss once.", tag=t.div)
