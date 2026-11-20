@@ -1,4 +1,4 @@
-"""Exercise sheets of edition 2 (days 3-4) — single source for the slides and the syllabus.
+"""Exercise sheets of edition 2 (days 3-6) — single source for the slides and the syllabus.
 
 One entry per sheet (keys are keywords, never numbers). Text in English (slides language).
 Backticks mark commands and file names. Fields: cycle, time, title, goal, steps (list),
@@ -150,5 +150,147 @@ SHEETS = {
         "midpoint": None,
         "if_stuck": "Your tutor window → raise your hand.",
         "debrief": "Push both repositories (CalcApp and your project); hands-up quiz.",
+    },
+    # ── Day 5 ───────────────────────────────────────────────────────────────
+    "sprint": {
+        "cycle": "All cycles · Exercise E20 (your mini-project, Lightweight mode)",
+        "time": "Day 5 · 09:45 → day 6 · 11:30",
+        "title": "Your Mini-Project Sprint",
+        "goal": "Apply the loop you learned, on your own, in Lightweight mode: plan → requirements → production → delivery.",
+        "steps": [
+            "`/gse-plan`: a sprint of 8 to 10 complexity points; what does not fit goes to the backlog (`/gse-backlog`).",
+            "`/gse-reqs`: 2 to 5 requirements with Given / When / Then criteria, at least one of them a measurable "
+            "non-functional requirement (sheet E21: you run it on two models).",
+            "Show your plan and requirements to the trainer: day 5, 15:15-16:30, one by one.",
+            "`/gse-produce`, task by task: each task on its branch, its tests run. Lightweight has no `/gse-tests` "
+            "step: a minimal test strategy is generated for you.",
+            "At every Gate, the 3-question grid: at least one change or one refusal per activity, in the tracking sheet.",
+            "Every evening: `/gse-pause`, then `git push --all origin`.",
+            "Day 6, 11:30: first delivery with `/gse-deliver` (sheet E22).",
+        ],
+        "done_when": "Day 5, 16:30: requirements and plan validated by the trainer. "
+                     "Day 6, 11:30: the first delivery is on `main`.",
+        "midpoint": "Day 5, 12:15 — the plan is validated and the requirements are written.",
+        "if_stuck": "Your tutor window (project outside `~/ai4se`? `~/ai4se/ai4se-kit/tutor add <path>`) → the back of "
+                    "your orientation page, \"when the agent drifts\" → raise your hand. No recovery tag: the project is yours.",
+        "debrief": "Day 5, 16:30: what did you move to the backlog to hold the 11:30 delivery? Which Gate did you change, and why?",
+    },
+    "model_comparison": {
+        "cycle": "CCSET05 and CCSET10 · Exercise E21",
+        "time": "Day 5 · 09:45 · 60 min, with the plan",
+        "title": "Compare Two Models",
+        "goal": "Keep the better version of your requirements, by giving the same instruction to two models.",
+        "steps": [
+            "After `/gse-plan`, copy your project next to it, for the second model: `cp -R . ../<project>-model-b`.",
+            "Model A, in your project — the course model `openrouter/deepseek/deepseek-v4.1-flash`: run `/gse-reqs` "
+            "and write down your answers to its questions.",
+            "Model B, in the copy: start `opencode`, type `/models`, pick `openrouter/minimax/minimax-m3.1-flash`, "
+            "then `/gse-reqs` with the same answers.",
+            "Fill the grid for each model: number of requirements, testable ones (Given / When / Then), the "
+            "non-functional requirement it forgot, the questions it asked, the cost (sidebar: tokens, $ spent).",
+            "Compare the structure, not the words. Keep the better version: if it is B, copy its "
+            "`docs/sprints/sprint-01/reqs.md` over yours and ask the agent to check it against your plan.",
+        ],
+        "done_when": "The grid is filled for both models and the version you keep is noted in the tracking sheet.",
+        "midpoint": None,
+        "if_stuck": "`/models` does not show the model? Type part of its name to filter the list. "
+                    "Then your tutor window → raise your hand.",
+        "debrief": "Which model asked the better questions? Did the cheaper run lose anything that matters? "
+                   "Compare the structure, not the words.",
+    },
+    "deploy_calcapp": {
+        "cycle": "CCSET16 · Exercise E19",
+        "time": "Day 5 · waves of 5 learners, 11:00-14:45 · 35-45 min per wave",
+        "title": "Deploy CalcApp",
+        "goal": "CalcApp online at its own address, to learn the path before your project.",
+        "steps": [
+            "Steps: to be written once the deployment server is chosen. Wait for your wave; the trainer guides it.",
+        ],
+        "done_when": "CalcApp answers at its address.",
+        "midpoint": None,
+        "if_stuck": "The trainer, at the deployment table.",
+        "debrief": "At 16:30, debrief of cycle 16: what got stuck, and where you read your logs.",
+    },
+    # ── Day 6 ───────────────────────────────────────────────────────────────
+    "deliver_freeze": {
+        "cycle": "CCSET08 and CCSET14 · Exercise E22",
+        "time": "Day 6 · 11:30 · 45 min",
+        "title": "Deliver, Then Freeze",
+        "goal": "A version you can present, honest about its limits.",
+        "steps": [
+            "11:30, `/gse-deliver`: its integrity check lists at most 5 findings; a HIGH one stops the merge until you "
+            "decide (fix it, or accept the risk as a recorded decision). Choose the merge strategy at the Gate.",
+            "Push the delivery: `git push origin main --tags`.",
+            "12:00, freeze: no new feature from now on. Hunt the empty shells: `git grep -n -E \"NotImplemented|TODO|FIXME\"`; "
+            "launch the app and click every button, run every step of your demo.",
+            "On a branch (`git switch -c docs/demo`), the README: the project card (a one-sentence pitch, how to launch "
+            "it, the live address — CalcApp's if your project is not deployed) and a section \"Known limits\". Commit.",
+            "Bring it to `main` and mark the demo version: `git switch main`, `git merge --no-ff docs/demo`, "
+            "`git tag demo`, `git push origin main demo`.",
+        ],
+        "done_when": "The tag `demo` is on GitHub, and the README shows the project card and the known limits.",
+        "midpoint": "12:00 — the delivery is on `main` and pushed; the freeze starts.",
+        "if_stuck": "A HIGH finding blocks the merge? Small: fix it now. Otherwise accept the risk at the Gate and list it "
+                    "in the known limits. Then your tutor window → raise your hand.",
+        "debrief": "How many empty shells did you find? Which limit would you rather say yourself than have a visitor find?",
+    },
+    "project_audit": {
+        "cycle": "CCSET03 applied · Exercise E23",
+        "time": "Day 6 · 12:15 · 30 min",
+        "title": "Audit Your Project",
+        "goal": "Check your own project against the AI Act, licences, secrets and personal data.",
+        "steps": [
+            "AI Act: does your app use AI? If so, which risk level (day 1: unacceptable, high, low or minimal)? "
+            "Does the user know they deal with an AI, or with AI-made content (transparency)?",
+            "Licences: a `LICENSE` file in your repository? The licence of each direct dependency "
+            "(`npm view <package> license`, `pip show <package>`): does one forbid your use?",
+            "Secrets: `git log --all --oneline -- .env` prints nothing; `git grep -n -i -E \"api.?key|secret|password|token\"` "
+            "shows no real value. A leaked key is revoked, not just deleted.",
+            "Personal data: which ones does your app keep (names, e-mails, health…), where, why, for how long? "
+            "Keep the fewest; demo with made-up data.",
+            "Write the four answers in a README section \"Ethics and compliance\", on a branch merged into `main` as at 12:00; push.",
+        ],
+        "done_when": "The README of `main`, on GitHub, has a section \"Ethics and compliance\" with your four answers.",
+        "midpoint": None,
+        "if_stuck": "Not sure of a risk level or a licence? Write \"not sure, because…\": an honest doubt is a valid answer. "
+                    "Then your tutor window → raise your hand.",
+        "debrief": "Who found a secret in their history, or a licence they did not know? What would change for a real client?",
+    },
+    "gallery_demo": {
+        "cycle": "All cycles · Exercise E24",
+        "time": "Day 6 · 13:45 · 15 min + 14:00 · 90 min",
+        "title": "Gallery Demo",
+        "goal": "Show your approach in 5 to 7 minutes, and test the projects of the others.",
+        "steps": [
+            "13:45, prepare: launch your app from the `demo` tag (`git switch --detach demo`); open the files you will show.",
+            "Your 5-7 minutes, in this order: the problem (who, what) · the product, live · one GSE moment (a Gate you "
+            "changed, a finding, a refusal) · one lesson · questions.",
+            "Two rotations (14:00 and 14:45): half of the room presents at their laptop, the other half visits; then swap.",
+            "As a visitor: try the product yourself, ask the 3 questions of the visitor grid, write one line per project.",
+        ],
+        "done_when": "You presented during one rotation and visited during the other, with one line of notes per project visited.",
+        "midpoint": "14:45 — swap roles.",
+        "if_stuck": "The app breaks during the demo? Show the requirements, the tests and the release notes instead: "
+                    "the process is what is judged.",
+        "debrief": "Which GSE moment did you see most often? Which project would you use tomorrow? (Taken up in E25.)",
+    },
+    "lessons": {
+        "cycle": "All cycles · Exercise E25",
+        "time": "Day 6 · 15:45 · 50 min",
+        "title": "Lessons Learned and Monday Morning",
+        "goal": "What you keep, change or drop, and one first concrete step at work.",
+        "steps": [
+            "Alone, 5 min: three notes — one thing to keep, one to change, one to drop (the agent, the method, your habits).",
+            "At your table, 15 min: group the notes; choose the table's top keep, change and drop.",
+            "One voice per table: 2 minutes for the room.",
+            "16:15, alone: your Monday-morning plan — the first thing you will do differently at work, when, "
+            "and how you will know it worked.",
+            "Tell it to your neighbour in one minute.",
+        ],
+        "done_when": "Your table's keep / change / drop is reported, and your Monday-morning plan is in the tracking sheet.",
+        "midpoint": "16:15 — the table lists are reported.",
+        "if_stuck": "No idea for Monday? Pick one habit of this week: a plan before code, tests first, a branch per task, "
+                    "the Gate grid, a README that states its limits.",
+        "debrief": "The trainer collects the table lists: they feed the next edition, like your issues labelled `ai4se-ed2`.",
     },
 }

@@ -108,10 +108,15 @@ from sequence_concepts import BLOCKS_CONCEPTS  # noqa: E402 — day 3 morning
 from sequence_discovery import BLOCKS_DISCOVERY  # noqa: E402 — day 3 afternoon
 from sequence_quality import BLOCKS_QUALITY  # noqa: E402 — day 4 morning
 from sequence_delivery import BLOCKS_DELIVERY  # noqa: E402 — day 4 afternoon
+from sequence_deployment import BLOCKS_DEPLOYMENT  # noqa: E402 — day 5 morning
+from sequence_sprint import BLOCKS_SPRINT  # noqa: E402 — day 5 afternoon
+from sequence_finish import BLOCKS_FINISH  # noqa: E402 — day 6 morning
+from sequence_gallery import BLOCKS_GALLERY  # noqa: E402 — day 6 afternoon
 
 # ── Orchestrate slides ──────────────────────────────────────────────
 st_book(
-    BLOCKS_CONCEPTS + BLOCKS_DISCOVERY + BLOCKS_QUALITY + BLOCKS_DELIVERY + [
+    BLOCKS_CONCEPTS + BLOCKS_DISCOVERY + BLOCKS_QUALITY + BLOCKS_DELIVERY
+    + BLOCKS_DEPLOYMENT + BLOCKS_SPRINT + BLOCKS_FINISH + BLOCKS_GALLERY + [
         # Edition-1 sequence (sessions 1-4) replaced on 2026-11-10 by the day 3 / day 4 sequences;
         # its blocks stay on disk (option A). See git tag edition1-final for the former list.
         blocks.bck_gensem_glossary,                 # 37+ terms glossary
