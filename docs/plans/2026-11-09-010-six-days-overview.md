@@ -2,7 +2,7 @@
 
 **But** : juger chaque déroulé en ayant la semaine entière sous les yeux.
 **Source** : le programme public `ai4se-kit/syllabus/00-programme.md` (en anglais, pour les apprenants et le tuteur). Ce tableau le résume, il ne le remplace pas. En cas d'écart, c'est le programme qui fait foi, puis les déroulés détaillés.
-**Déroulé en cycles des six journées (fait foi)** : `2026-11-10-012-six-days-cycles-plan.html` (16 cycles CCSET, 25 fiches d'exercice). Il remplace les tableaux ci-dessous pour les jours 3 à 6. Production des jours 1 à 4 : `2026-11-10-013-production-days1-4.md` (supports rédigés le 10/11, à répéter).
+**Déroulé en cycles des six journées (fait foi)** : `2026-11-10-012-six-days-cycles-plan.html` (16 cycles CCSET, 25 fiches d'exercice). Il remplace les tableaux ci-dessous pour les jours 3 à 6. Production des jours 1 à 4 : `2026-11-10-013-production-days1-4.md` (supports rédigés le 10/11, à répéter). Production des jours 5 et 6 : `2026-11-20-014-production-days5-6.md` (supports rédigés le 20/11 ; fiche E19 et mode opératoire du déploiement en attente du choix du serveur).
 **Déroulés minutés antérieurs** : jour 1 `2026-11-09-008-day1-plan.md`, jour 2 `2026-11-09-007-day2-plan-b.md`, jours 3 à 6 `2026-11-10-011-days3-6-plan.md` (première version provisoire, 8 points ouverts).
 **Légende** : ✅ définitif (rédigé, pas encore répété) · 🟡 provisoire (à confirmer en phase 2 ou 3) · ⬜ supports à écrire.
 
@@ -26,10 +26,10 @@
 | **HD06** J3 après-midi | 13:15-17:00, pause vers 14:45 | 13:15 P3 planifier le sprint · 14:00 P4 classer les décisions (Auto / Inform / Gate) · 15:00 P5 exigences et conception · 16:15 débrief, push, quiz · 16:45 marge | module `gensem` | 🟡 ⬜ |
 | **HD07** J4 matin | 09:00-12:15, pause vers 10:45 | 09:00 `/gse-resume` · 09:15 P6 tests, production, revue · 11:30 débrief du tri de la revue · 11:45 **mesurer la qualité** (30 min : lint, métriques, CI) | module `gensem` + branche CalcApp `v5-production` | 🟡 ⬜ |
 | **HD08** J4 après-midi | 13:15-17:00, pause vers 14:45 | 13:15 P7 cycle complet (correction, livraison, capitalisation, santé) · 14:30 pause/reprise, backlog, tâche ponctuelle · 15:00 **lancement du mini-projet** (fiche projet) · 15:45 `/gse-go` mode Allégé · 16:30 push, débrief, quiz · 16:45 marge | module `gensem` | 🟡 ⬜ |
-| **HD09** J5 matin | 09:00-12:15 | 09:00 `/gse-resume` · 09:15 comment marche le déploiement · 09:45 sprint du mini-projet (plan, exigences) **et en parallèle** vagues de déploiement de 5 | deck Marp de Tiago (`AI4SE6d/slides/day5`) + Dockerfile du starter | 🟡 ⬜ |
-| **HD10** J5 après-midi | 13:15-17:00 | 13:15 suite du sprint, dernières vagues · 16:30 **jalon** : exigences et plan validés avec toi · 16:45 push, `/gse-pause`, marge | rien | 🟡 ⬜ |
-| **HD11** J6 matin | 09:00-12:45 | 09:00 `/gse-resume` · 09:15 finir le sprint · 11:30 **première livraison** · 12:00 **gel** et chasse aux coquilles vides · 12:15 éthique appliquée à son projet (AI Act, licences, sécurité) | rien | 🟡 ⬜ |
-| **HD12** J6 après-midi | 13:45-17:00, pause 15:30 | 13:45 préparer sa démo · 14:00 galerie, rotation 1 · 14:45 rotation 2 · 15:45 leçons apprises · 16:15 plan « lundi matin » · 16:35 questionnaire final · 16:50 certificats | rien | 🟡 ⬜ |
+| **HD09** J5 matin | 09:00-12:15 | 09:00 `/gse-resume` · 09:15 comment marche le déploiement · 09:45 sprint du mini-projet (plan, exigences) **et en parallèle** vagues de déploiement de 5 | module `gensem` (`sequence_deployment`) · fiches E19 (gabarit), E20, E21 · hd09 | ✅ (E19 🟡) |
+| **HD10** J5 après-midi | 13:15-17:00 | 13:15 suite du sprint, dernières vagues · 16:30 **jalon** : exigences et plan validés avec toi · 16:45 push, `/gse-pause`, marge | module `gensem` (`sequence_sprint`) · hd10 | ✅ |
+| **HD11** J6 matin | 09:00-12:45 | 09:00 `/gse-resume` · 09:15 finir le sprint · 11:30 **première livraison** · 12:00 **gel** et chasse aux coquilles vides · 12:15 éthique appliquée à son projet (AI Act, licences, sécurité) | module `gensem` (`sequence_finish`) · fiches E22, E23 · hd11 | ✅ |
+| **HD12** J6 après-midi | 13:45-17:00, pause 15:30 | 13:45 préparer sa démo · 14:00 galerie, rotation 1 · 14:45 rotation 2 · 15:45 leçons apprises · 16:15 plan « lundi matin » · 16:35 questionnaire final · 16:50 certificats | module `gensem` (`sequence_gallery`) · fiches E24, E25 · hd12 | ✅ |
 
 ## Ce qui reste ouvert sur les jours 3 à 6
 
