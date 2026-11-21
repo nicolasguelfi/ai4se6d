@@ -29,4 +29,4 @@ def build():
             st_write(bs.body, "Four short answers. \"Not sure, because…\" is a valid answer.", tag=t.div)
             with st_zoom(120):
                 st_code(s.none, code=_SECTION, language="markdown", line_numbers=False)
-            st_write(bs.foot, "On a branch, merged into main as at 12:00; then push.", tag=t.div)
+            st_write(bs.foot, "The first task of a new sprint: /gse-task, then /gse-deliver; then push.", tag=t.div)

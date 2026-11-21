@@ -15,8 +15,8 @@ class BlockStyles:
 bs = BlockStyles
 
 ROWS = [
-    ("09:15", "E20", "Finish the sprint"),
-    ("11:30", "E22", "Deliver, then freeze at 12:00"),
+    ("09:15", "E20", "Finish the sprint; from 11:00, its last task: empty shells, README"),
+    ("11:30", "E22", "Deliver, tag demo; 12:00 freeze: rehearse your demo"),
     ("12:15", "E23", "Audit your project: AI Act, licences, secrets, data"),
     ("13:45", "E24", "Prepare your demo; gallery in two rotations (14:00, 14:45)"),
     ("15:45", "E25", "Lessons learned; your Monday-morning plan"),

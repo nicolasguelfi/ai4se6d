@@ -158,7 +158,8 @@ SHEETS = {
         "title": "Your Mini-Project Sprint",
         "goal": "Apply the loop you learned, on your own, in Lightweight mode: plan → requirements → production → delivery.",
         "steps": [
-            "`/gse-plan`: a sprint of 8 to 10 complexity points; what does not fit goes to the backlog (`/gse-backlog`).",
+            "`/gse-plan`: a sprint of 8 to 10 complexity points; its last task, day 6 from 11:00, the empty-shell hunt "
+            "and the README (sheet E22). What does not fit goes to the backlog (`/gse-backlog`).",
             "`/gse-reqs`: 2 to 5 requirements with Given / When / Then criteria, at least one of them a measurable "
             "non-functional requirement (sheet E21: you run it on two models).",
             "Show your plan and requirements to the trainer: day 5, 15:15-16:30, one by one.",
@@ -218,21 +219,24 @@ SHEETS = {
         "title": "Deliver, Then Freeze",
         "goal": "A version you can present, honest about its limits.",
         "steps": [
+            "From 11:00, the last task of your sprint, through GSE-One like any other (on its task branch): hunt the "
+            "empty shells (`git grep -n -E \"NotImplemented|TODO|FIXME\"`, click every button, run your demo); write the "
+            "README project card (pitch, how to run it, live address — CalcApp's if not deployed, \"Known limits\", "
+            "an \"Ethics and compliance\" placeholder for E23).",
             "11:30, `/gse-deliver`: its integrity check lists at most 5 findings; a HIGH one stops the merge until you "
             "decide (fix it, or accept the risk as a recorded decision). Choose the merge strategy at the Gate.",
-            "Push the delivery: `git push origin main --tags`.",
-            "12:00, freeze: no new feature from now on. Hunt the empty shells: `git grep -n -E \"NotImplemented|TODO|FIXME\"`; "
-            "launch the app and click every button, run every step of your demo.",
-            "On a branch (`git switch -c docs/demo`), the README: the project card (a one-sentence pitch, how to launch "
-            "it, the live address — CalcApp's if your project is not deployed) and a section \"Known limits\". Commit.",
-            "Bring it to `main` and mark the demo version: `git switch main`, `git merge --no-ff docs/demo`, "
-            "`git tag demo`, `git push origin main demo`.",
+            "Push the delivery, then mark it as the demo version (a tag, not a commit): `git push origin main --tags`, "
+            "`git tag demo main`, `git push origin demo`.",
+            "12:00, freeze: nothing more is committed to the app. Rehearse your demo, step by step.",
+            "A limit found after the delivery? Say it yourself in the demo; it becomes the first task of the next sprint.",
         ],
-        "done_when": "The tag `demo` is on GitHub, and the README shows the project card and the known limits.",
-        "midpoint": "12:00 — the delivery is on `main` and pushed; the freeze starts.",
+        "done_when": "The tag `demo` is on GitHub, on the delivered commit, and its README shows the project card and the known limits.",
+        "midpoint": "12:00 — the delivery is on `main`, tagged `demo` and pushed; the freeze starts.",
         "if_stuck": "A HIGH finding blocks the merge? Small: fix it now. Otherwise accept the risk at the Gate and list it "
                     "in the known limits. Then your tutor window → raise your hand.",
-        "debrief": "How many empty shells did you find? Which limit would you rather say yourself than have a visitor find?",
+        "debrief": "How many empty shells did you find? Which limit would you rather say yourself than have a visitor find? "
+                   "After the course: the delivered sprint is closed; `/gse-task` (or `/gse-plan`) opens the next one — "
+                   "new task branches, a new `/gse-deliver`.",
     },
     "project_audit": {
         "cycle": "CCSET03 applied · Exercise E23",
@@ -248,7 +252,8 @@ SHEETS = {
             "shows no real value. A leaked key is revoked, not just deleted.",
             "Personal data: which ones does your app keep (names, e-mails, health…), where, why, for how long? "
             "Keep the fewest; demo with made-up data.",
-            "Write the four answers in a README section \"Ethics and compliance\", on a branch merged into `main` as at 12:00; push.",
+            "Write the four answers in the README section \"Ethics and compliance\", as the first task of a new sprint: "
+            "`/gse-task` opens it, `/gse-deliver` delivers it; push.",
         ],
         "done_when": "The README of `main`, on GitHub, has a section \"Ethics and compliance\" with your four answers.",
         "midpoint": None,

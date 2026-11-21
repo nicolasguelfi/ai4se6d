@@ -1,4 +1,4 @@
-"""Slide — The README project card, written at the 12:00 freeze (exercise E22, edition 2)."""
+"""Slide — The README project card, written in the last task of the sprint, from 11:00 (exercise E22, edition 2)."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -34,7 +34,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(66):
             st_write(bs.heading, "README: Your Project Card", tag=t.div, toc_lvl="+1", label="README project card")
-            st_write(bs.body, "What a visitor reads first — and what the trainer checks at 13:45.", tag=t.div)
+            st_write(bs.body, "The last task of your sprint, from 11:00. What a visitor reads first — and what the trainer checks at 13:45.", tag=t.div)
             with st_zoom(120):
                 st_code(s.none, code=_CARD, language="markdown", line_numbers=False)
             st_write(bs.foot, "Saying your limits yourself is part of the delivery.", tag=t.div)
