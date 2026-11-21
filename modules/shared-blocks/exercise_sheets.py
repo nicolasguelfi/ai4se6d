@@ -227,7 +227,7 @@ SHEETS = {
             "decide (fix it, or accept the risk as a recorded decision). Choose the merge strategy at the Gate.",
             "Push the delivery, then mark it as the demo version (a tag, not a commit): `git push origin main --tags`, "
             "`git tag demo main`, `git push origin demo`.",
-            "12:00, freeze: nothing more is committed to the app. Rehearse your demo, step by step.",
+            "12:00, freeze: no more change to the app's code. Rehearse your demo, step by step.",
             "A limit found after the delivery? Say it yourself in the demo; it becomes the first task of the next sprint.",
         ],
         "done_when": "The tag `demo` is on GitHub, on the delivered commit, and its README shows the project card and the known limits.",
