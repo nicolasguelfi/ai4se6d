@@ -1,6 +1,6 @@
 """Slide — How we deploy in this course: the operating mode of exercise E19 (CCSET16, edition 2).
 
-Learner path rehearsed on the course server on 2026-11-21 (GSE-One v0.92.0, Coolify, Learner role).
+Learner path rehearsed on the course server on 2026-11-21 (GSE-One v0.91.0, Coolify, Learner role).
 No server name, domain or token here: the course file `.env.training` carries them.
 """
 # @guideline: minimalist-visual + maximize-viewport
