@@ -22,7 +22,7 @@ bs = BlockStyles
 
 ROWS = [
     ("Your repository", "Your own CalcApp repository becomes `origin`; push `main` — the server builds what is on GitHub"),
-    ("Your identifier", "`l` + your number in the tracking sheet (e.g. `l07`) → `calcapp-l07.<course domain>`"),
+    ("Your identifier", "`v` + your number in the tracking sheet (e.g. `v07`) → `calcapp-v07.<course domain>`"),
     ("The course file", "`.env.training` from the trainer → `.env` in CalcApp; ignored by git, never committed"),
     ("The command", "`/gse-deploy`, role Learner: checks, build, start, HTTPS, health check (1-3 min)"),
     ("Your logs", "`/gse-deploy --logs` (last 100 lines; `--lines 300` for more)"),

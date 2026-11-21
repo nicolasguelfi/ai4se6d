@@ -209,8 +209,8 @@ SHEETS = {
             "(`git remote rename origin starter`, then `git remote rename mine origin`), then `git push origin main`. "
             "The server builds what is on GitHub, not what is on your laptop.",
             "At the deployment table, the trainer gives you the course file `.env.training`. Copy it into CalcApp as "
-            "`.env`, open it and set `DEPLOY_USER=` to your learner identifier (`l` + your number in the tracking "
-            "sheet, e.g. `l07`) — never your name: the address is public. `git status` must not list `.env`.",
+            "`.env`, open it and set `DEPLOY_USER=` to your learner identifier (`v` + your number in the tracking "
+            "sheet, e.g. `v07`) — never your name: the address is public. `git status` must not list `.env`.",
             "In opencode: `/gse-deploy`, choose Learner. It checks `.env` and your remote, then builds and starts "
             "CalcApp (1-3 min). A warning about uncommitted `.gse/` files only: accept it.",
             "Open the address it gives (`https://calcapp-<identifier>.<course domain>`) and do one calculation.",
