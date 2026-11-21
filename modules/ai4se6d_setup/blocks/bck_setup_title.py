@@ -32,4 +32,4 @@ def build():
                 tag=t.div,
             )
             st_space("v", 2)
-            st_write(bs.info, "AI for Software Engineering · opencode 2 + GSE-One v0.91.2", tag=t.div)
+            st_write(bs.info, "AI for Software Engineering · opencode 2 + GSE-One v0.92.0", tag=t.div)
