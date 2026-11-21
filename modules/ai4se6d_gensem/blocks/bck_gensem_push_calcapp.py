@@ -24,7 +24,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(75):
             st_write(bs.heading, "Your CalcApp on GitHub", tag=t.div, toc_lvl="+1", label="Push CalcApp to GitHub")
-            st_write(bs.body, "Your work goes to your own repository, pushed every evening.", tag=t.div)
+            st_write(bs.body, "Your work goes to your own repository, pushed before each break and every evening.", tag=t.div)
             with st_zoom(140):
                 st_code(s.none, code=_CMD, language="bash", line_numbers=False)
             st_write(bs.body, "Write the repository address in the tracking sheet.", tag=t.div)

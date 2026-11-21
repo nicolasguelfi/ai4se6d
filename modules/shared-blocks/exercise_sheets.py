@@ -140,8 +140,10 @@ SHEETS = {
         "title": "Start Your Mini-Project in Lightweight Mode",
         "goal": "Your mini-project started under GSE-One and validated by the trainer.",
         "steps": [
-            "Create the project folder, `git init`, and its GitHub repository (private allowed).",
-            "Install GSE-One in the folder; run `/gse-go` and choose Lightweight mode.",
+            "Create the project folder, `git init`, and its GitHub repository. Private? Invite the trainer to read it: "
+            "on GitHub, Settings → Collaborators → add `nicolasguelfi`.",
+            "Install GSE-One in the folder; run `/gse-go` and choose Lightweight mode. Commit the `.gse/` folder "
+            "(never list it in `.gitignore`): it is your project's memory, and what the trainer reads.",
             "Put every extra idea in the backlog, not in the plan.",
             "Folder outside `~/ai4se`? Run `~/ai4se/ai4se-kit/tutor add <path>`.",
             "Show your card to the trainer: \"green\" or \"reduce\".",
@@ -149,7 +151,7 @@ SHEETS = {
         "done_when": "`/gse-status` shows Lightweight mode, the card is \"green\", the repository is pushed.",
         "midpoint": None,
         "if_stuck": "Your tutor window → raise your hand.",
-        "debrief": "Push both repositories (CalcApp and your project); hands-up quiz.",
+        "debrief": "Push both repositories (CalcApp and your project) — from now on, before each break; hands-up quiz.",
     },
     # ── Day 5 ───────────────────────────────────────────────────────────────
     "sprint": {

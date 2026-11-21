@@ -26,7 +26,7 @@ def build():
                 with l.item():
                     st_write(bs.body, 'CalcApp continues — recovery tag ', (bs.cmd, 'p3-start'))
                 with l.item():
-                    st_write(bs.body, 'Your work goes to GitHub, pushed every evening')
+                    st_write(bs.body, 'Your work goes to GitHub, pushed before each break and every evening')
             st_write(
                 bs.foot,
                 'Keep your laptop as it is: opencode, model key, GSE-One v0.91.2, your tutor.',

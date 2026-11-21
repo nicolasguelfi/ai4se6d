@@ -40,6 +40,6 @@ def build():
                                         " (at most 5 findings; a HIGH one stops the merge until you decide)")
                 with l.item(): st_write(bs.body, "8 to 10 complexity points; every extra idea goes to ",
                                         (bs.inline, "/gse-backlog"))
-                with l.item(): st_write(bs.body, "The 3-question grid at every Gate; push every evening")
+                with l.item(): st_write(bs.body, "The 3-question grid at every Gate; push before each break")
                 with l.item(): st_write(bs.body, (bs.label, "Milestones"), ": day 5 16:30 plan and requirements validated · "
                                         "day 6 11:30 first delivery · 12:00 freeze")
