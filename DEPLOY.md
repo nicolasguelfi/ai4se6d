@@ -10,7 +10,14 @@ ai4se6d (GitHub repo)
   → Docker build → single image
     → Coolify service: ai4se6d-collection     (FOLDER=modules/ai4se6d_collection)
     → Coolify service: ai4se6d-genai-intro    (FOLDER=modules/ai4se6d_genai_intro)
+    → Coolify service: ai4se6d-setup          (FOLDER=modules/ai4se6d_setup)   → ai4se6d-handson-setup.streamtex.org
+    → Coolify service: ai4se6d-vibecoding     (FOLDER=modules/ai4se6d_vibecoding)
+    → Coolify service: ai4se6d-day2           (FOLDER=modules/ai4se6d_day2)    → ai4se6d-coding-agent.streamtex.org
+    → Coolify service: ai4se6d-gensem         (FOLDER=modules/ai4se6d_gensem)
 ```
+
+Note: the public address of a module follows its topic, not its folder name
+(`ai4se6d_setup` → `ai4se6d-handson-setup`, `ai4se6d_day2` → `ai4se6d-coding-agent`).
 
 ## GitHub Secret Required
 
@@ -51,7 +58,11 @@ The workflow UUIDs in `.github/workflows/hetzner-deploy.yml` are:
 ```json
 {
   "ai4se6d-collection":   {"uuid": "ilkmnoz457cta2j1z3k8ax8m"},
-  "ai4se6d-genai-intro":  {"uuid": "x45el0zeq6eqhhv1vo99mz20"}
+  "ai4se6d-genai-intro":  {"uuid": "x45el0zeq6eqhhv1vo99mz20"},
+  "ai4se6d-setup":        {"uuid": "b1bi4pac9jmgpnknkimgeljb"},
+  "ai4se6d-vibecoding":   {"uuid": "s7mmmshyobzfo23wkylwa43r"},
+  "ai4se6d-day2":         {"uuid": "a1146bn38twqidm4cpnlc396"},
+  "ai4se6d-gensem":       {"uuid": "d10dhnoelag1sb4lsnls4gp1"}
 }
 ```
 

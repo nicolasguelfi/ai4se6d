@@ -30,3 +30,21 @@ services:
       - FOLDER=modules/ai4se6d_vibecoding
     # Without Docker:
     #   cd modules/ai4se6d_vibecoding && uv run streamlit run book.py --server.port 8503
+
+  setup:
+    build: .
+    ports:
+      - "8504:8501"
+    environment:
+      - FOLDER=modules/ai4se6d_setup
+    # Without Docker:
+    #   cd modules/ai4se6d_setup && uv run streamlit run book.py --server.port 8504
+
+  day2:
+    build: .
+    ports:
+      - "8505:8501"
+    environment:
+      - FOLDER=modules/ai4se6d_day2
+    # Without Docker:
+    #   cd modules/ai4se6d_day2 && uv run streamlit run book.py --server.port 8505

@@ -67,7 +67,9 @@ jobs:
           {
             "ai4se6d-collection":   {"folder": "modules/ai4se6d_collection",   "uuid": "ilkmnoz457cta2j1z3k8ax8m", "replicas": []},
             "ai4se6d-genai-intro":  {"folder": "modules/ai4se6d_genai_intro",  "uuid": "x45el0zeq6eqhhv1vo99mz20", "replicas": []},
+            "ai4se6d-setup":        {"folder": "modules/ai4se6d_setup",        "uuid": "b1bi4pac9jmgpnknkimgeljb", "replicas": []},
             "ai4se6d-vibecoding":   {"folder": "modules/ai4se6d_vibecoding",   "uuid": "s7mmmshyobzfo23wkylwa43r", "replicas": []},
+            "ai4se6d-day2":         {"folder": "modules/ai4se6d_day2",         "uuid": "a1146bn38twqidm4cpnlc396", "replicas": []},
             "ai4se6d-gensem":       {"folder": "modules/ai4se6d_gensem",       "uuid": "d10dhnoelag1sb4lsnls4gp1", "replicas": []}
           }
           SERVICES

@@ -14,13 +14,29 @@ button_label = "Open"
 project_url = "https://ai4se6d-genai-intro.streamtex.org"
 order = 1
 
+[projects.setup]
+title = "Hands-on Setup & First Prototype"
+description = "Installing the toolchain and driving a first prototype with a coding agent (Day 1 afternoon)"
+emoji = "\U0001F6E0"
+button_label = "Open"
+project_url = "https://ai4se6d-handson-setup.streamtex.org"
+order = 2
+
 [projects.vibecoding]
 title = "VibeCoding & VibeEngineering"
 description = "Discovering intent-driven development and engineering discipline with AI"
 emoji = "\U0001F680"
 button_label = "Open"
 project_url = "https://ai4se6d-vibecoding.streamtex.org"
-order = 2
+order = 3
+
+[projects.day2]
+title = "Driving a Coding Agent: CalcApp v0.1"
+description = "Tests, Git discipline and a guided build of CalcApp v0.1 with a coding agent (Day 2)"
+emoji = "\U0001F916"
+button_label = "Open"
+project_url = "https://ai4se6d-coding-agent.streamtex.org"
+order = 4
 
 [projects.gensem]
 title = "GenSEM — Generative SE Methods"
@@ -28,7 +44,7 @@ description = "Frameworks, evidence, and methodology for generative software eng
 emoji = "\U0001F4DA"
 button_label = "Open"
 project_url = "https://ai4se6d-gensem.streamtex.org"
-order = 3
+order = 5
 
 [projects.various]
 title = "Q&A Companion"
@@ -36,4 +52,4 @@ description = "Detailed answers to participant questions, enriched throughout th
 emoji = "\u2753"
 button_label = "Open"
 project_url = "https://ai4se6d-various.streamtex.org"
-order = 4
+order = 6
