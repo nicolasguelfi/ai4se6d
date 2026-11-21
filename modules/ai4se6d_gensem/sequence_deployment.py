@@ -19,7 +19,7 @@ BLOCKS_DEPLOYMENT = [
     blocks.bck_deploy_rollback,
     # 09:35 — CCSET16 How GSE-One solves it + course set-up (10 min)
     blocks.bck_gse_solution_deployment,
-    blocks.bck_deploy_course_mode,  # PLACEHOLDER until the deployment server is chosen
+    blocks.bck_deploy_course_mode,
     # 09:45 — Mini-project sprint (E20): the plan, then the requirements on two models (E21) (60 min)
     blocks.bck_project_lightweight_loop,
     blocks.bck_gensem_sheet_sprint_steps,

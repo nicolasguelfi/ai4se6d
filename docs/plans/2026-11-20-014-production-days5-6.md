@@ -37,10 +37,10 @@ Les jours 5-6 sont ajoutés au module `ai4se6d_gensem`, en quatre nouvelles séq
 
 ## Gabarits en attente [P]
 
-- Fiche E19 `deploy_calcapp` : but, durée, « Steps: to be written once the deployment server is chosen », fini quand, si bloqué, débrief. Diapositives `bck_gensem_sheet_deploy_calcapp_steps/check` et section E19 de hd09.
-- Diapositive `bck_deploy_course_mode` (« How We Deploy in This Course ») et section « How we deploy in this course » de hd09 : liste ce qu'elle contiendra (identifiant, fichier de configuration copié, ordre des vagues, lecture des journaux), sans nom de serveur ni domaine.
+- [x] ~~Fiche E19 `deploy_calcapp` : but, durée, « Steps: to be written once the deployment server is chosen », fini quand, si bloqué, débrief.~~ Écrite le 2026-11-21 (voir « Décisions de NG du 2026-11-21 », point 6). Diapositives `bck_gensem_sheet_deploy_calcapp_steps/check` et section E19 de hd09.
+- [x] ~~Diapositive `bck_deploy_course_mode` (« How We Deploy in This Course ») et section « How we deploy in this course » de hd09 : liste ce qu'elle contiendra (identifiant, fichier de configuration copié, ordre des vagues, lecture des journaux), sans nom de serveur ni domaine.~~ Écrite le 2026-11-21.
 - Diapositive `bck_closing_questionnaire` : « Link given in class » (questionnaire de DLH ou le nôtre).
-- Décision attendue : planche `board-j56` (serveur, lecture des journaux, répétition).
+- [x] ~~Décision attendue : planche `board-j56`~~ Tranchée le 2026-11-21 (serveur de cours neuf, commande `--logs`, répétition par Claude).
 
 ## Décisions de NG du 2026-11-21
 
@@ -50,11 +50,15 @@ Les jours 5-6 sont ajoutés au module `ai4se6d_gensem`, en quatre nouvelles séq
 2. **E21** : B dans une copie du projet — conservé (point ouvert 4 clos).
 3. **Grille des visiteurs** de la galerie (3 questions) — conservée (point ouvert 3 clos).
 4. **Budget en mode Allégé** (spec §13.2 « Not tracked » contre `plan.md` Step 4) : ticket au backlog de gensem **BKL-be46a693**, traité après la formation (point ouvert 5 clos).
-5. **E19 du jour 5** : toujours en attente de la planche `j56a` (point ouvert 1 inchangé).
+5. **E19 du jour 5** : planche `j56a` tranchée. Serveur : celui de l'édition 1 n'existait plus (Hetzner vide de ce côté, DNS pendant) → **nouveau serveur de cours dédié**, détruit après le cours ; secrets dans le dossier formateur Dropbox (`_trainer/course-server/`, hors dépôt). Journaux : **commande `/gse-deploy --logs`** (GSE-One v0.91.0). Répétition : **Claude** (faite le 2026-11-21).
+6. **E19 écrite après la répétition réelle** (parcours apprenant, 2026-11-21) : le CalcApp de l'apprenant a deux dépôts distants (`origin` = starter, `mine` = le sien, jour 3) et GSE-One déploie `origin` → étape 1 : `git remote rename origin starter`, `git remote rename mine origin` (aucune journée suivante n'utilise `mine`). Identifiant `DEPLOY_USER` = `l` + numéro de la feuille de suivi (jamais le prénom : l'adresse est publique) — **valeur par défaut à confirmer par NG**. Fichier `.env.training` remis à la table de déploiement (canal laissé au formateur). Fiche, diapositive `bck_deploy_course_mode`, sections de hd09 alignées ; aucun nom de serveur ni domaine dans les supports.
+7. **Gel de 12:00 (E22)** : formulation « 12:00, freeze: no more change to the app's code. Rehearse your demo, step by step. » (commit `bb75398`).
+8. **Tags de reprise p5/p6** : nettoyés et déplacés (p5-start `a524bc2`, p6-start `f37c510`, p7-start `ff315d1` reconstruit sur le nouveau p6, poussés en force sur calcapp-starter).
+9. **Dépendance ferme** : la répétition a trouvé 4 défauts de GSE-One qui auraient fait échouer tous les déploiements apprenants avec Coolify 4.7 (F23, F25, F26 ; F24) ; corrigés dans v0.91.0, non publiée (NG publie avec ses autres modifications). **La v0.91.0 doit être publiée et épinglée dans le kit (setup-learner.sh, hd06, programme) avant le jour 3 (03/12)** : la fiche E19 ne prévoit pas de mise à jour en salle.
 
 ## Points ouverts pour NG
 
-1. Serveur de déploiement et lecture des journaux (bloque E19 et le mode opératoire). Par défaut : rien n'est écrit tant que la planche n'est pas tranchée. **Toujours en attente** (planche `j56a`, 2026-11-21).
+1. ~~Serveur de déploiement et lecture des journaux (bloque E19 et le mode opératoire). Par défaut : rien n'est écrit tant que la planche n'est pas tranchée. **Toujours en attente** (planche `j56a`, 2026-11-21).~~ **Clos** le 2026-11-21 (décisions 5 et 6).
 2. ~~E22 : fusion par l'apprenant d'une branche `docs/demo` dans `main` après la livraison (hors `/gse-deliver`). Par défaut : retenu ; alternative : écrire la fiche projet avant 11:30 sur la branche de la dernière tâche, pour que `/gse-deliver` l'emporte.~~ Tranché le 2026-11-21 : README = dernière tâche du sprint (voir Décisions).
 3. Grille des visiteurs de la galerie (3 questions) : « résout-il le problème annoncé (essayer soi-même) ? une exigence et le test qui la vérifie ? quelle limite ou quel risque ? ». Par défaut : celle-ci. **Clos** : conservée le 2026-11-21.
 4. E21 : B dans une copie du projet. Par défaut : retenu ; alternative : comparer seulement au moment de la Gate de `/gse-reqs`, sans copie (plus rapide, moins comparable). **Clos** : conservé le 2026-11-21.
@@ -64,3 +68,4 @@ Les jours 5-6 sont ajoutés au module `ai4se6d_gensem`, en quatre nouvelles séq
 
 - 2026-11-20 — lots 1 et 2 produits (diapositives `83e1040`, kit `f6218fb`) ; validation `ruff` et `stx validate --build` (2 avertissements connus : `uv.lock` source locale, image insérée de genai_intro) ; 40 captures dans le dossier `shots-j56` du bloc-notes de session.
 - 2026-11-21 — décisions de NG appliquées (E22 = README dernière tâche du sprint ; E20 et E23 alignés ; HD09, HD11, programme, glossaire ; diapositives `bck_gensem_today_finish`, `bck_project_finish_line`, `bck_project_readme_card` (déplacée avant la fiche E22), `bck_ethics_readme_section`) ; fiches du syllabus identiques octet pour octet à `sheets_markdown.py` (vérifié) ; `ruff` et `stx validate --build` (2 avertissements connus) ; captures `e22-*` dans `shots-j56`, aucun débordement.
+- 2026-11-21 (après-midi) — serveur de cours prêt (DNS, HTTPS, port 8000 fermé, `.env.training`) ; répétition apprenant réussie (déploiement en 45 s, journaux, `training-reap`) après correctifs F21-F27 dans gensem v0.91.0 ; E19, `bck_deploy_course_mode`, hd09 écrits ; rendu des 3 diapositives vérifié sans exception (AppTest) ; ancien `.env.training` retiré du dépôt public calcapp (`76f25db`, `.env.*` ignorés).

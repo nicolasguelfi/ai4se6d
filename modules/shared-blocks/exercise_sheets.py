@@ -205,12 +205,26 @@ SHEETS = {
         "title": "Deploy CalcApp",
         "goal": "CalcApp online at its own address, to learn the path before your project.",
         "steps": [
-            "Steps: to be written once the deployment server is chosen. Wait for your wave; the trainer guides it.",
+            "Before your wave, in `~/ai4se/calcapp` on `main`: make your own repository the one that gets deployed "
+            "(`git remote rename origin starter`, then `git remote rename mine origin`), then `git push origin main`. "
+            "The server builds what is on GitHub, not what is on your laptop.",
+            "At the deployment table, the trainer gives you the course file `.env.training`. Copy it into CalcApp as "
+            "`.env`, open it and set `DEPLOY_USER=` to your learner identifier (`l` + your number in the tracking "
+            "sheet, e.g. `l07`) — never your name: the address is public. `git status` must not list `.env`.",
+            "In opencode: `/gse-deploy`, choose Learner. It checks `.env` and your remote, then builds and starts "
+            "CalcApp (1-3 min). A warning about uncommitted `.gse/` files only: accept it.",
+            "Open the address it gives (`https://calcapp-<identifier>.<course domain>`) and do one calculation.",
+            "`/gse-deploy --logs`: find your own visit in the log, then the other lines — who else is calling your app?",
+            "Write your address in the tracking sheet.",
         ],
-        "done_when": "CalcApp answers at its address.",
+        "done_when": "CalcApp answers at its HTTPS address, you found your own visit in its logs, and the address "
+                     "is in the tracking sheet.",
         "midpoint": None,
-        "if_stuck": "The trainer, at the deployment table.",
-        "debrief": "At 16:30, debrief of cycle 16: what got stuck, and where you read your logs.",
+        "if_stuck": "The build failed? Run `npm run test:run && npm run build` on your laptop: the server runs the same "
+                    "steps. Fix, push, run `/gse-deploy` again (it reuses your app). A 503 page: the container is "
+                    "starting, wait one minute. Then the trainer, at the deployment table.",
+        "debrief": "At 16:30, debrief of cycle 16: what got stuck, where you read your logs, and what the robots in "
+                   "your log were looking for.",
     },
     # ── Day 6 ───────────────────────────────────────────────────────────────
     "deliver_freeze": {
