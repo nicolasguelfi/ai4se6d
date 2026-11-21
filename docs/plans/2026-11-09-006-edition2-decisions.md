@@ -176,3 +176,4 @@ Source : `2026-11-10-012-six-days-cycles-plan.html` (déroulé minuté, 25 fiche
 - ~~opencode 2~~ : réglé par v0.90.0 (voir § 3). Commande d'installation à utiliser en salle : `curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.90.1/install.sh | GSE_PLATFORM=opencode GSE_VERSION=v0.90.1 sh` (opencode installé AVANT, pour que l'installateur détecte la version 2).
 - Budget et fournisseur des clés de modèle (≈ 20 clés plafonnées) : fournisseur OpenRouter et modèle fixés le 10/11 (§ 2septies) ; reste le plafond par clé.
 - Mode d'accès aux VM DLH (protocole, distribution des identifiants sur fiche papier).
+- 2026-11-21 — gensem **v0.91.0** publiée (commit fe47de7, tag v0.91.0) et épinglée dans le kit et les diapositives : `/gse-deploy --logs`, parcours formateur et apprenant corrigés pour Coolify 4.7 (détail : tracker 014).
