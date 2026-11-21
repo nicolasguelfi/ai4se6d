@@ -45,11 +45,3 @@ emoji = "\U0001F4DA"
 button_label = "Open"
 project_url = "https://ai4se6d-gensem.streamtex.org"
 order = 5
-
-[projects.various]
-title = "Q&A Companion"
-description = "Detailed answers to participant questions, enriched throughout the training"
-emoji = "\u2753"
-button_label = "Open"
-project_url = "https://ai4se6d-various.streamtex.org"
-order = 6
