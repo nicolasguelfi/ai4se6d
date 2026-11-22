@@ -119,6 +119,7 @@ st_book(
         blocks.bck_intro_title,
         blocks.bck_trainer_ng,
         blocks.bck_intro_round_table,
+        blocks.bck_poll_survey_link,      # Online survey on Sumvadis: QR + URL (NG, 2026-11-22)
         blocks.bck_poll_ai_experience,
         blocks.bck_poll_ai_result,
         blocks.bck_intro_objective_abilities,
