@@ -6,7 +6,11 @@
 Edition 2, day-1 notion 3 (board peda1, P10). Family-level wording only: the two all-trainings data files
 disagree on model names, so only names checked on the web (Nov 2026) appear — product lines (GPT, Claude,
 Gemini, Llama, Gemma, gpt-oss, Qwen, Kimi) and two dated flagships (Mistral Large 4 — API preview 2026-10-06,
-open weights end of Oct 2026, re-checked 2026-11-22; DeepSeek V4, Apr 2026). The reference model of the course is still to be decided: placeholder wording.
+open weights end of Oct 2026, re-checked 2026-11-22; DeepSeek V4, Apr 2026).
+Course models (ai4se-kit opencode.base.json, syllabus hd09): main openrouter/deepseek/deepseek-v4.1-flash,
+backup openrouter/minimax/minimax-m3.1-flash. Key budget: $10 per learner (NG, 2026-11-22), shown in tokens only:
+OpenRouter prices 2026-11-22 — DeepSeek $0.0498 / $0.1992 per M tokens in / out, MiniMax $0.075 / $0.30
+→ $10 ≈ 200 M tokens sent to the main model (≈ 130 M on the backup, ≈ 50 M generated).
 """
 # @guideline: maximize-viewport
 from streamtex import *
@@ -84,6 +88,9 @@ _NOTES_COST = [
     ("Message", "You pay for every token sent and received; an agent re-sends the context at every turn."),
     ("The split", "\"Luxembourg\" cut in two is illustrative: each model has its own tokenizer."),
     ("Habits", "One task per session, short AGENTS.md, point to the files needed (@file) instead of the whole repo."),
+    ("The budget", "Each key is capped at $10 on OpenRouter. DeepSeek V4.1 Flash costs about $0.05 per million tokens "
+                   "sent and $0.20 per million generated: $10 ≈ 200 M tokens sent (≈ 130 M on the MiniMax backup). "
+                   "An agent mostly sends: ≈ 100 long sessions of 2M tokens."),
 ]
 
 
@@ -122,10 +129,12 @@ def _cost_slide():
                 st_write(bs.panel_title, "What your key gives you", tag=t.div)
                 with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                     with l.item():
-                        st_write(bs.body, (bs.key, "One capped budget"), " — when it is spent, calls stop.")
+                        st_write(bs.body, (bs.key, "≈ 200 million tokens"),
+                                 " — when they are spent, calls stop.")
                     with l.item():
-                        st_write(bs.body, (bs.key, "One reference model"), " chosen by the trainer: ",
-                                 (bs.code, "⟨reference model⟩"), ".")
+                        st_write(bs.body, (bs.key, "Main model"), ": ", (bs.code, "deepseek-v4.1-flash"))
+                    with l.item():
+                        st_write(bs.body, (bs.key, "Backup model"), ": ", (bs.code, "minimax-m3.1-flash"))
                     with l.item():
                         st_write(bs.body, (bs.key, "A secret"), " — never in a prompt, a commit or an issue.")
                     with l.item():
