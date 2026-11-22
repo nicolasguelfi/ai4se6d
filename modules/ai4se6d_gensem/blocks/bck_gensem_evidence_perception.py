@@ -19,20 +19,21 @@ bs = BlockStyles
 def build():
     st_marker("Perception vs Reality Gap")
     with st_block(s.project.containers.page_fill_top):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "The Perception-Reality Gap", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="Perception vs Reality in AI Productivity",
-                entries=[
-                    ("METR gap", "Developers predicted +24% speed gain but were actually 19% slower — a 43-point perception error."),
-                    ("Expert predictions", "Both economists and ML specialists predicted ~38-39% improvement — equally wrong."),
-                    ("SO confidence drop", "Stack Overflow developer confidence in AI accuracy fell from 40% to 29% in one year."),
-                    ("GSE-One link", "Systematic overestimation means process guardrails and measurement are essential, not optional."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "The Perception-Reality Gap", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="Perception vs Reality in AI Productivity",
+                    entries=[
+                        ("METR gap", "Developers predicted +24% speed gain but were actually 19% slower — a 43-point perception error."),
+                        ("Expert predictions", "Both economists and ML specialists predicted ~38-39% improvement — equally wrong."),
+                        ("SO confidence drop", "Stack Overflow developer confidence in AI accuracy fell from 40% to 29% in one year."),
+                        ("GSE-One link", "Systematic overestimation means process guardrails and measurement are essential, not optional."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(100):
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:

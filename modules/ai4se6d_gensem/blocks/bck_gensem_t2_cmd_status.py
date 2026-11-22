@@ -22,20 +22,22 @@ def build():
     st_marker("/gse:status")
     with st_block(_pf):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:status \u2014 Where Am I?", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:status \u2014 Lifecycle Status",
-                entries=[
-                    ("Purpose", "Display the current state of your project at a glance: sprint, phase, artifacts, health, branches."),
-                    ("When to use", "Anytime you need orientation \u2014 beginning of session, after a pause, or before deciding what to do next."),
-                    ("What it shows", "Current sprint number, active lifecycle phase (LC00\u2013LC03), artifact inventory, pending reviews, health score, active branches and worktrees."),
-                    ("Activity history", "status.yaml.activity_history[] records every completed activity for the current sprint (activity name, completion timestamp, sprint, notes). It's the authoritative source for plan.yaml.workflow.completed timestamps. Reset when /gse:plan --strategic promotes a new sprint."),
-                    ("Cross-cutting", "Available at any phase \u2014 does not change project state, purely informational."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(90):
+                        st_write(bs.heading, "/gse:status \u2014 Where Am I?", tag=t.div, toc_lvl="+1")
+                with h.cell():
+                    st_hover_tooltip(
+                        title="/gse:status \u2014 Lifecycle Status",
+                        entries=[
+                            ("Purpose", "Display the current state of your project at a glance: sprint, phase, artifacts, health, branches."),
+                            ("When to use", "Anytime you need orientation \u2014 beginning of session, after a pause, or before deciding what to do next."),
+                            ("What it shows", "Current sprint number, active lifecycle phase (LC00\u2013LC03), artifact inventory, pending reviews, health score, active branches and worktrees."),
+                            ("Activity history", "status.yaml.activity_history[] records every completed activity for the current sprint (activity name, completion timestamp, sprint, notes). It's the authoritative source for plan.yaml.workflow.completed timestamps. Reset when /gse:plan --strategic promotes a new sprint."),
+                            ("Cross-cutting", "Available at any phase \u2014 does not change project state, purely informational."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             st_write(bs.accent, "Your project dashboard \u2014 always available, never modifies state.")
             st_space("v", 1)

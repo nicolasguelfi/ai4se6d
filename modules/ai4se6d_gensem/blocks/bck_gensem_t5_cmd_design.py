@@ -21,20 +21,21 @@ bs = BlockStyles
 def build():
     st_marker("/gse:design")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:design \u2014 How Should It Work?", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:design \u2014 Architecture & Decisions",
-                entries=[
-                    ("Purpose", "Define architecture decisions, component decomposition, interface contracts, and technical choices. All significant choices are logged to the decision journal (DEC-)."),
-                    ("Traces", "Design artefacts (DES-) trace to requirements (REQ-). Every design decision is justified by a DEC- entry."),
-                    ("Agents invoked", "The architect agent evaluates structural quality and scalability. The security-auditor checks for attack surface."),
-                    ("Output", "design.md with component diagram, interface contracts, and dependency map. Feeds /gse:preview and /gse:produce."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:design \u2014 How Should It Work?", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:design \u2014 Architecture & Decisions",
+                    entries=[
+                        ("Purpose", "Define architecture decisions, component decomposition, interface contracts, and technical choices. All significant choices are logged to the decision journal (DEC-)."),
+                        ("Traces", "Design artefacts (DES-) trace to requirements (REQ-). Every design decision is justified by a DEC- entry."),
+                        ("Agents invoked", "The architect agent evaluates structural quality and scalability. The security-auditor checks for attack surface."),
+                        ("Output", "design.md with component diagram, interface contracts, and dependency map. Feeds /gse:preview and /gse:produce."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             _outputs = [

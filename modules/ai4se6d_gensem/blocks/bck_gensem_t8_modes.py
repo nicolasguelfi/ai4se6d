@@ -61,22 +61,24 @@ def _render_modes_table(rows):
 def build():
     st_marker("Choose Your Mode")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "Choose Your Mode", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="3 Modes \u2014 Choose Based on Project Scope",
-                entries=[
-                    ("Triviality pre-filter", "The pre-filter is structural, not a complexity signal. No manifest AND no git history AND \u22642 source files = Micro (too small for formal process). Otherwise the orchestrator applies the 7 structural signals."),
-                    ("7 structural signals", "Lightweight vs Full is decided on 7 structural signals (dependencies, persistence, entry points, multi-component, existing tests, CI/CD, git maturity) \u2014 not file count."),
-                    ("Micro", "Pre-filter: no manifest, no git history, \u22642 source files. Prototypes, quick experiments. Minimal overhead."),
-                    ("Lightweight", "Default when no Full rule matches. PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER. Branch isolation, 3 health dims."),
-                    ("Full", "First-match-wins rules: persistence, multi-component, CI/CD, >10 deps or >10 entry points \u2014 or existing tests AND (deps > 3 OR entry points > 3). Complete lifecycle LC01\u2192LC02\u2192LC03. Worktrees, 8 health dims, full traceability."),
-                    ("How to choose", "Start Lightweight for your professional project. Escalate to Full when the 7 signals indicate structural complexity. The agent proposes the mode during /gse:go."),
-                    ("Adopt mode", "For existing projects: /gse:go --adopt performs a non-destructive scan and creates a sprint-0 baseline — existing files are never modified without explicit approval (frontmatter annotation is a Gate)."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "Choose Your Mode", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="3 Modes \u2014 Choose Based on Project Scope",
+                    entries=[
+                        ("Triviality pre-filter", "The pre-filter is structural, not a complexity signal. No manifest AND no git history AND \u22642 source files = Micro (too small for formal process). Otherwise the orchestrator applies the 7 structural signals."),
+                        ("7 structural signals", "Lightweight vs Full is decided on 7 structural signals (dependencies, persistence, entry points, multi-component, existing tests, CI/CD, git maturity) \u2014 not file count."),
+                        ("Micro", "Pre-filter: no manifest, no git history, \u22642 source files. Prototypes, quick experiments. Minimal overhead."),
+                        ("Lightweight", "Default when no Full rule matches. PLAN \u2192 REQS \u2192 PRODUCE \u2192 DELIVER. Branch isolation, 3 health dims."),
+                        ("Full", "First-match-wins rules: persistence, multi-component, CI/CD, >10 deps or >10 entry points \u2014 or existing tests AND (deps > 3 OR entry points > 3). Complete lifecycle LC01\u2192LC02\u2192LC03. Worktrees, 8 health dims, full traceability."),
+                        ("How to choose", "Start Lightweight for your professional project. Escalate to Full when the 7 signals indicate structural complexity. The agent proposes the mode during /gse:go."),
+                        ("Adopt mode", "For existing projects: /gse:go --adopt performs a non-destructive scan and creates a sprint-0 baseline — existing files are never modified without explicit approval (frontmatter annotation is a Gate)."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         st_space("v", 1)
 

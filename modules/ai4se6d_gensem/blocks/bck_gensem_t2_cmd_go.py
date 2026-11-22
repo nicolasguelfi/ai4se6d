@@ -23,20 +23,21 @@ bs = BlockStyles
 def build():
     st_marker("/gse:go")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:go \u2014 The Single Entry Point", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:go \u2014 Orchestrate Everything",
-                entries=[
-                    ("Purpose", "Detect current project state (including git branch and worktree state), propose the next logical activity group (LC00\u2013LC03), and orchestrate it with validation gates between activities."),
-                    ("--adopt", "Onboard an existing project: scan, infer sprint state, initialize .gse/, offer to annotate existing artefacts. Auto-detected when .gse/ is absent but the project has existing code."),
-                    ("Smart detection", "The orchestrator checks: is .gse/ present? Is a sprint active? What phase are we in? Are there uncommitted changes? Then proposes the right next step."),
-                    ("Cross-cutting", "Available at any time. This is the command beginners use \u2014 the agent figures out what to do next."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:go \u2014 The Single Entry Point", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:go \u2014 Orchestrate Everything",
+                    entries=[
+                        ("Purpose", "Detect current project state (including git branch and worktree state), propose the next logical activity group (LC00\u2013LC03), and orchestrate it with validation gates between activities."),
+                        ("--adopt", "Onboard an existing project: scan, infer sprint state, initialize .gse/, offer to annotate existing artefacts. Auto-detected when .gse/ is absent but the project has existing code."),
+                        ("Smart detection", "The orchestrator checks: is .gse/ present? Is a sprint active? What phase are we in? Are there uncommitted changes? Then proposes the right next step."),
+                        ("Cross-cutting", "Available at any time. This is the command beginners use \u2014 the agent figures out what to do next."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             with st_grid(cols="1fr 1fr 1fr 1fr", gap="8px") as g:

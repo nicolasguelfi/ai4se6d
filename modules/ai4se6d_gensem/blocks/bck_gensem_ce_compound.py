@@ -24,25 +24,26 @@ _OUTPUTS = [
 def build():
     st_marker("Compound: CE Outputs → GSE-One Axes")
     with st_block(s.project.containers.page_fill_top):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading,
-                "Compound — The Distinctive Contribution (CE heritage)",
-                tag=t.div,
-                toc_lvl="+1",
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(
+                    bs.heading,
+                    "Compound — The Distinctive Contribution (CE heritage)",
+                    tag=t.div,
+                    toc_lvl="+1",
+                    )
+            with h.cell():
+                st_hover_tooltip(
+                    title="Compound Phase",
+                    entries=[
+                        ("What it is", "The phase where project knowledge is captured and reused, turning one-off work into compounding value."),
+                        ("Why it matters", "Without Compound, every session starts from zero. With it, rules accumulate and AI gets smarter with each cycle."),
+                        ("GSE-One difference", "This phase is what separates GSE-One from ad-hoc prompting -- systematic knowledge capitalization."),
+                        ("CE heritage", "These four outputs are Compound Engineering's (Every); /gse:compound maps them onto its 3 axes -- project (compound.md), methodology feedback, skills (learning notes)."),
+                    ],
+                    position="left", width="50vw",
                 )
-            st_hover_tooltip(
-                title="Compound Phase",
-                entries=[
-                    ("What it is", "The phase where project knowledge is captured and reused, turning one-off work into compounding value."),
-                    ("Why it matters", "Without Compound, every session starts from zero. With it, rules accumulate and AI gets smarter with each cycle."),
-                    ("GSE-One difference", "This phase is what separates GSE-One from ad-hoc prompting -- systematic knowledge capitalization."),
-                    ("CE heritage", "These four outputs are Compound Engineering's (Every); /gse:compound maps them onto its 3 axes -- project (compound.md), methodology feedback, skills (learning notes)."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
 
         with st_zoom(120):
             with st_grid(

@@ -22,21 +22,22 @@ bs = BlockStyles
 def build():
     st_marker("/gse:collect")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:collect \u2014 What Do We Have?", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:collect \u2014 Artefact Inventory",
-                entries=[
-                    ("Internal mode", "Scans the current project: source files, tests, docs, config, sprint artefacts, git state, dependencies. The scan result is ephemeral (console summary — not persisted)."),
-                    ("External mode", "Provide a path or URL: /gse:collect ~/other-project/ or a GitHub repo. Evaluates reusability, compatibility, integration cost, and license."),
-                    ("Reusability assessment", "For each external element: Reusable as-is / Adaptable / Reference only / Incompatible. Integration cost in complexity points."),
-                    ("Source registry", "All evaluated sources are recorded in .gse/sources.yaml with SRC- IDs for full provenance traceability."),
-                    ("Feeds ASSESS", "Only sources.yaml persists — /gse:assess re-runs its own inline scan."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:collect \u2014 What Do We Have?", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:collect \u2014 Artefact Inventory",
+                    entries=[
+                        ("Internal mode", "Scans the current project: source files, tests, docs, config, sprint artefacts, git state, dependencies. The scan result is ephemeral (console summary — not persisted)."),
+                        ("External mode", "Provide a path or URL: /gse:collect ~/other-project/ or a GitHub repo. Evaluates reusability, compatibility, integration cost, and license."),
+                        ("Reusability assessment", "For each external element: Reusable as-is / Adaptable / Reference only / Incompatible. Integration cost in complexity points."),
+                        ("Source registry", "All evaluated sources are recorded in .gse/sources.yaml with SRC- IDs for full provenance traceability."),
+                        ("Feeds ASSESS", "Only sources.yaml persists — /gse:assess re-runs its own inline scan."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             with st_grid(cols="1fr 1fr", gap="24px") as g:

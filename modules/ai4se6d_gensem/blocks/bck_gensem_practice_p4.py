@@ -58,18 +58,20 @@ def build():
     # ── Beginner ────────────────────────────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
-            with st_zoom(70):
-                with st_zoom(90):
-                    st_write(bs.heading, "P4: Classify Decisions \u2014 Beginner", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="P4 Beginner \u2014 What to do",
-                entries=[
-                    ("Goal", "Learn the 3 decision tiers (Auto / Inform / Gate) with simple, concrete scenarios. The trainer explains each term."),
-                    ("Time", "45 minutes: classify (15 min) + provoke guardrail (10 min) + discussion (20 min)."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(70):
+                        with st_zoom(90):
+                            st_write(bs.heading, "P4: Classify Decisions \u2014 Beginner", tag=t.div, toc_lvl="+1")
+                with h.cell():
+                    st_hover_tooltip(
+                        title="P4 Beginner \u2014 What to do",
+                        entries=[
+                            ("Goal", "Learn the 3 decision tiers (Auto / Inform / Gate) with simple, concrete scenarios. The trainer explains each term."),
+                            ("Time", "45 minutes: classify (15 min) + provoke guardrail (10 min) + discussion (20 min)."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_grid(
                 cols="1fr 1fr",
@@ -99,18 +101,20 @@ def build():
     # ── Intermediate ────────────────────────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
-            with st_zoom(70):
-                with st_zoom(90):
-                    st_write(bs.heading, "P4: Classify Decisions \u2014 Intermediate", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="P4 Intermediate \u2014 What to do",
-                entries=[
-                    ("Goal", "Classify 8 CalcApp scenarios, write consequence analyses, and provoke guardrails."),
-                    ("Time", "45 minutes: classify (10 min) + consequences (10 min) + guardrails (10 min) + discussion (15 min)."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(70):
+                        with st_zoom(90):
+                            st_write(bs.heading, "P4: Classify Decisions \u2014 Intermediate", tag=t.div, toc_lvl="+1")
+                with h.cell():
+                    st_hover_tooltip(
+                        title="P4 Intermediate \u2014 What to do",
+                        entries=[
+                            ("Goal", "Classify 8 CalcApp scenarios, write consequence analyses, and provoke guardrails."),
+                            ("Time", "45 minutes: classify (10 min) + consequences (10 min) + guardrails (10 min) + discussion (15 min)."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_zoom(85):
                 with st_grid(cols="70% 30%", gap="6px", cell_styles=_hdr) as g:
@@ -135,18 +139,20 @@ def build():
     # ── Advanced / Expert ───────────────────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
-            with st_zoom(70):
-                with st_zoom(90):
-                    st_write(bs.heading, "P4: Classify Decisions \u2014 Advanced / Expert", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="P4 Advanced / Expert \u2014 What to do",
-                entries=[
-                    ("Goal", "Classify 12 scenarios (8 standard + 4 architectural), analyze all Gate consequences, provoke all 3 guardrail levels."),
-                    ("Time", "45 minutes: classify (10 min) + consequences (15 min) + guardrails (10 min) + calibration discussion (10 min)."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(70):
+                        with st_zoom(90):
+                            st_write(bs.heading, "P4: Classify Decisions \u2014 Advanced / Expert", tag=t.div, toc_lvl="+1")
+                with h.cell():
+                    st_hover_tooltip(
+                        title="P4 Advanced / Expert \u2014 What to do",
+                        entries=[
+                            ("Goal", "Classify 12 scenarios (8 standard + 4 architectural), analyze all Gate consequences, provoke all 3 guardrail levels."),
+                            ("Time", "45 minutes: classify (10 min) + consequences (15 min) + guardrails (10 min) + calibration discussion (10 min)."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_zoom(80):
                 with st_grid(

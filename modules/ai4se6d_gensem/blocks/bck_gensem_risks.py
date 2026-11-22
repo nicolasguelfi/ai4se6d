@@ -79,17 +79,19 @@ def build():
     # ── Slide 1a: Risks 1-3 ────────────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading, "The Risks Are Real (1/2)",
-                tag=t.div, toc_lvl="+1",
-                )
-            st_hover_tooltip(
-                title="6 Risks of AI-Assisted Development",
-                entries=_tt_entries,
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(90):
+                        st_write(
+                        bs.heading, "The Risks Are Real (1/2)",
+                        tag=t.div, toc_lvl="+1",
+                        )
+                with h.cell():
+                    st_hover_tooltip(
+                        title="6 Risks of AI-Assisted Development",
+                        entries=_tt_entries,
+                        position="left", width="50vw",
+                    )
 
             with st_zoom(80):
                 with st_grid(
@@ -115,17 +117,19 @@ def build():
     # ── Slide 1b: Risks 4-6 ────────────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading, "The Risks Are Real (2/2)",
-                tag=t.div, toc_lvl="+1",
-                )
-            st_hover_tooltip(
-                title="6 Risks of AI-Assisted Development",
-                entries=_tt_entries,
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(90):
+                        st_write(
+                        bs.heading, "The Risks Are Real (2/2)",
+                        tag=t.div, toc_lvl="+1",
+                        )
+                with h.cell():
+                    st_hover_tooltip(
+                        title="6 Risks of AI-Assisted Development",
+                        entries=_tt_entries,
+                        position="left", width="50vw",
+                    )
 
             with st_zoom(80):
                 with st_grid(
@@ -144,20 +148,23 @@ def build():
     # ── Slide 2: These risks don't disappear ────────────────────────
     with st_block(_page_fill_center):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading, "More AI Does Not Fix These Risks",
-                tag=t.div, toc_lvl="+1",
-                )
-            st_hover_tooltip(
-                title="Why more AI doesn't help",
-                entries=[
-                    ("The trap", "Organizations assume the next model version will fix security and hallucination issues. But these are structural problems, not model limitations."),
-                    ("The pattern", "Faster code generation with the same lack of review = more vulnerabilities, faster. Speed amplifies both good and bad practices."),
-                    ("The solution", "Structured review, testing, and verification processes — applied consistently at every AI generation, not just at merge time."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(90):
+                        st_write(
+                        bs.heading, "More AI Does Not Fix These Risks",
+                        tag=t.div, toc_lvl="+1",
+                        )
+                with h.cell():
+                    st_hover_tooltip(
+                        title="Why more AI doesn't help",
+                        entries=[
+                            ("The trap", "Organizations assume the next model version will fix security and hallucination issues. But these are structural problems, not model limitations."),
+                            ("The pattern", "Faster code generation with the same lack of review = more vulnerabilities, faster. Speed amplifies both good and bad practices."),
+                            ("The solution", "Structured review, testing, and verification processes — applied consistently at every AI generation, not just at merge time."),
+                        ],
+                        position="left", width="50vw",
+                    )
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(
@@ -176,21 +183,24 @@ def build():
     # ── Slide 3: The Methodological Gap ─────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading, "The Methodological Gap",
-                tag=t.div, toc_lvl="+1",
-                )
-            st_hover_tooltip(
-                title="The Gap Between Tools and Methods",
-                entries=[
-                    ("The situation", "AI coding tools are adopted at 84-85% rates. But a structured engineering discipline for AI-assisted development barely exists."),
-                    ("VibeCoding", "Fast prototyping, but 12-65% vulnerabilities, no requirements, no review \u2014 a house of cards."),
-                    ("VibeEngineering", "Reintroduces RE + TDD + CI/CD, but lacks lifecycle management, risk governance, and knowledge capitalization."),
-                    ("The answer", "Methodologies are emerging (GSE-One, AgileGen, SE 3.0\u2026), but the discipline that unifies them is not \u2014 yet. This training contributes to building it."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(90):
+                        st_write(
+                        bs.heading, "The Methodological Gap",
+                        tag=t.div, toc_lvl="+1",
+                        )
+                with h.cell():
+                    st_hover_tooltip(
+                        title="The Gap Between Tools and Methods",
+                        entries=[
+                            ("The situation", "AI coding tools are adopted at 84-85% rates. But a structured engineering discipline for AI-assisted development barely exists."),
+                            ("VibeCoding", "Fast prototyping, but 12-65% vulnerabilities, no requirements, no review \u2014 a house of cards."),
+                            ("VibeEngineering", "Reintroduces RE + TDD + CI/CD, but lacks lifecycle management, risk governance, and knowledge capitalization."),
+                            ("The answer", "Methodologies are emerging (GSE-One, AgileGen, SE 3.0\u2026), but the discipline that unifies them is not \u2014 yet. This training contributes to building it."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_grid(cols="2fr 3fr", gap="24px") as g:
                 with g.cell():

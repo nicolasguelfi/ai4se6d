@@ -28,24 +28,25 @@ bs = BlockStyles
 def build():
     st_marker("/gse:deploy")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:deploy \u2014 From Zero to Live", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:deploy \u2014 Hetzner + Coolify",
-                entries=[
-                    ("Full pipeline", "Setup (hcloud CLI, API token, domain) \u2192 Provision \u2192 Secure/harden \u2192 Install Coolify \u2192 Configure DNS/SSL \u2192 Deploy. One guided flow, 6 phases."),
-                    ("Orientation", "Orientation by role (solo / instructor / learner) + auto-detected mode (full / partial / app-only / training) from .env."),
-                    ("Training mode", "Learner preconditions are checked deterministically by the agent (.env present, DEPLOY_USER set, GitHub origin remote) — no self-reported y/n. A damaged learner app is recreated by re-running /gse:deploy (~5 min, from the learner's GitHub repo). Instructor tip: pin GSE_VERSION for the whole cohort (--training-init)."),
-                    ("--status", "Show current deployment state without changes."),
-                    ("--redeploy", "Rebuild and redeploy the application. Does not provision new server."),
-                    ("--destroy", "Tear down server. Double Gate \u2014 confirm twice (the server name must be re-typed) \u2014 irreversible."),
-                    ("Post-tag hook", "Can be triggered automatically after /gse:deliver via git.post_tag_hook. If deployment fails, proposes rollback (Gate)."),
-                    ("Health check", "Phase 6 polls the deployed app endpoint (/_stcore/health or /) until live."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:deploy \u2014 From Zero to Live", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:deploy \u2014 Hetzner + Coolify",
+                    entries=[
+                        ("Full pipeline", "Setup (hcloud CLI, API token, domain) \u2192 Provision \u2192 Secure/harden \u2192 Install Coolify \u2192 Configure DNS/SSL \u2192 Deploy. One guided flow, 6 phases."),
+                        ("Orientation", "Orientation by role (solo / instructor / learner) + auto-detected mode (full / partial / app-only / training) from .env."),
+                        ("Training mode", "Learner preconditions are checked deterministically by the agent (.env present, DEPLOY_USER set, GitHub origin remote) — no self-reported y/n. A damaged learner app is recreated by re-running /gse:deploy (~5 min, from the learner's GitHub repo). Instructor tip: pin GSE_VERSION for the whole cohort (--training-init)."),
+                        ("--status", "Show current deployment state without changes."),
+                        ("--redeploy", "Rebuild and redeploy the application. Does not provision new server."),
+                        ("--destroy", "Tear down server. Double Gate \u2014 confirm twice (the server name must be re-typed) \u2014 irreversible."),
+                        ("Post-tag hook", "Can be triggered automatically after /gse:deliver via git.post_tag_hook. If deployment fails, proposes rollback (Gate)."),
+                        ("Health check", "Phase 6 polls the deployed app endpoint (/_stcore/health or /) until live."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             with st_grid(cols="1fr 1fr 1fr 1fr 1fr 1fr", gap="8px") as g:

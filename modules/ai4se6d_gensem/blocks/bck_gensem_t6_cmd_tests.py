@@ -35,23 +35,24 @@ _TEST_TYPES = [
 def build():
     st_marker("/gse:tests")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:tests \u2014 How Do We Verify?", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:tests \u2014 Full Testing Lifecycle",
-                entries=[
-                    ("Strategy", "Define test types, distribution (pyramid calibrated by domain), and risk-based prioritization."),
-                    ("Kind column", "verification = 'build the thing right' (traces to DES-). validation = 'build the right thing' (traces to REQ-). Regression = both."),
-                    ("Environment", "Auto-detect framework from package manifest, install as dev dependency (pytest, vitest, etc.), configure runner."),
-                    ("Visual testing", "For web/mobile: optional Playwright setup with screenshots, video on failure, visual regression."),
-                    ("Evidence", "Test results, coverage, screenshots saved to tests/evidence/sprint-NN/TASK-NNN/. Campaign report: docs/sprints/sprint-NN/test-reports/campaign-{date}-{TASK-ID}.md (TCP- id in frontmatter)."),
-                    ("Cross-sprint regression", "Full test suite runs during /gse:review. Tests that passed last sprint but fail now \u2192 [REGRESSION] HIGH."),
-                    ("See also", "The 'Test Pyramid by Domain' slide shows the 8-domain distribution (Unit / Integration / E2E-Visual / Acceptance / Other)."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:tests \u2014 How Do We Verify?", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:tests \u2014 Full Testing Lifecycle",
+                    entries=[
+                        ("Strategy", "Define test types, distribution (pyramid calibrated by domain), and risk-based prioritization."),
+                        ("Kind column", "verification = 'build the thing right' (traces to DES-). validation = 'build the right thing' (traces to REQ-). Regression = both."),
+                        ("Environment", "Auto-detect framework from package manifest, install as dev dependency (pytest, vitest, etc.), configure runner."),
+                        ("Visual testing", "For web/mobile: optional Playwright setup with screenshots, video on failure, visual regression."),
+                        ("Evidence", "Test results, coverage, screenshots saved to tests/evidence/sprint-NN/TASK-NNN/. Campaign report: docs/sprints/sprint-NN/test-reports/campaign-{date}-{TASK-ID}.md (TCP- id in frontmatter)."),
+                        ("Cross-sprint regression", "Full test suite runs during /gse:review. Tests that passed last sprint but fail now \u2192 [REGRESSION] HIGH."),
+                        ("See also", "The 'Test Pyramid by Domain' slide shows the 8-domain distribution (Unit / Integration / E2E-Visual / Acceptance / Other)."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(85):
             with st_grid(cols="18% 15% 40% 27%", gap="8px", cell_styles=_hdr_cell) as g:

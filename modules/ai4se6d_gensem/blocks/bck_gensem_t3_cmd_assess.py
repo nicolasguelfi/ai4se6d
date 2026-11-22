@@ -23,20 +23,21 @@ bs = BlockStyles
 def build():
     st_marker("/gse:assess")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:assess \u2014 What Is Missing?", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:assess \u2014 Gap Analysis",
-                entries=[
-                    ("Input", "Inline artefact scan (same steps as COLLECT) + project goals from config or user."),
-                    ("Analysis", "For each goal: which artefacts exist? Which are missing? What is their status (draft/reviewed/approved)? For external sources: compatibility and integration cost."),
-                    ("Output", "Gap analysis report with GAP-NN identifiers: \u2713 Covered, \u25d0 Partial, \u2717 Uncovered, \u26a0 Risk areas."),
-                    ("Feeds PLAN", "Uncovered goals (GAP-NN) become candidate TASK items in the backlog pool."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:assess \u2014 What Is Missing?", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:assess \u2014 Gap Analysis",
+                    entries=[
+                        ("Input", "Inline artefact scan (same steps as COLLECT) + project goals from config or user."),
+                        ("Analysis", "For each goal: which artefacts exist? Which are missing? What is their status (draft/reviewed/approved)? For external sources: compatibility and integration cost."),
+                        ("Output", "Gap analysis report with GAP-NN identifiers: \u2713 Covered, \u25d0 Partial, \u2717 Uncovered, \u26a0 Risk areas."),
+                        ("Feeds PLAN", "Uncovered goals (GAP-NN) become candidate TASK items in the backlog pool."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             with st_grid(cols="1fr 1fr 1fr 1fr", gap="12px") as g:

@@ -26,21 +26,11 @@ def build():
     # Slide 27 — Anthropic Finding
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
-            with st_zoom(105):
-                st_write(bs.heading, "What Can Actually Be Delegated?", tag=t.div, toc_lvl="1")
-            st_space("v", 4)
-            with st_grid(
-                cols="95fr 5fr",
-                gap="0px",
-                cell_styles=s.project.containers.grid_cell_centered,
-            ) as sg:
-                with sg.cell():
-                    with st_zoom(50):
-                        st_write(
-                            bs.body,
-                            (bs.stat_big, "~60% of work with AI")
-                        )
-                with sg.cell():
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(105):
+                        st_write(bs.heading, "What Can Actually Be Delegated?", tag=t.div, toc_lvl="1")
+                with h.cell():
                     st_hover_tooltip(
                         title="Anthropic internal study (Dec 2025)",
                         entries=[
@@ -69,10 +59,14 @@ def build():
                                 "The modern workflow is constant collaboration.",
                             ),
                         ],
-                        scale="2.2vw",
-                        width="70vw",
-                        position="left",
+                        position="left", width="50vw",
                     )
+            st_space("v", 4)
+            with st_zoom(50):
+                st_write(
+                    bs.body,
+                    (bs.stat_big, "~60% of work with AI")
+                )
             with st_zoom(50):
                 st_write(
                     bs.body,
@@ -94,21 +88,11 @@ def build():
     # Slide 28 — Bain Study
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
-            with st_zoom(120):
-                st_write(bs.heading, "New Tools -> New Processes", tag=t.div, toc_lvl="2")
-            st_space("v", 4)
-            with st_grid(
-                cols="95fr 5fr",
-                gap="0px",
-                cell_styles=s.project.containers.grid_cell_centered,
-            ) as sg:
-                with sg.cell():
-                    with st_zoom(40):
-                        st_write(
-                            bs.body,
-                            (bs.stat_warn, "10\u201315% with AI assistants alone"),
-                        )
-                with sg.cell():
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(120):
+                        st_write(bs.heading, "New Tools -> New Processes", tag=t.div, toc_lvl="2")
+                with h.cell():
                     st_hover_tooltip(
                         title="Bain Technology Report (Sept 2025)",
                         entries=[
@@ -131,10 +115,14 @@ def build():
                                 "coding alone moves the bottleneck elsewhere.",
                             ),
                         ],
-                        scale="2.2vw",
-                        width="70vw",
-                        position="left",
+                        position="left", width="50vw",
                     )
+            st_space("v", 4)
+            with st_zoom(40):
+                st_write(
+                    bs.body,
+                    (bs.stat_warn, "10\u201315% with AI assistants alone"),
+                )
             with st_zoom(40):
                 st_write(
                     bs.body,

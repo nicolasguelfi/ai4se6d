@@ -27,7 +27,33 @@ _PROMPT = (
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "Security Vulnerabilities", tag=t.div, toc_lvl="1")
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    st_write(bs.heading, "Security Vulnerabilities", tag=t.div, toc_lvl="1")
+                with h.cell():
+                    st_hover_tooltip(
+                        title="Trainer notes \u2014 Security Vulnerabilities",
+                        entries=[
+                            (
+                                "45%",
+                                "Veracode (July 2025): 100+ LLMs on Java, "
+                                "Python, C# and JavaScript tasks. 45% of "
+                                "samples introduced OWASP Top 10 flaws.",
+                            ),
+                            (
+                                "62%",
+                                "At least 62.07% of 331,000 AI-generated C "
+                                "programs (FormAI-v2) are vulnerable, "
+                                "proven with the ESBMC model checker.",
+                            ),
+                            (
+                                "9 LLMs tested",
+                                "GPT-4o-mini, Gemini Pro 1.0, Falcon 180B, "
+                                "Code Llama 13B, and 5 others.",
+                            ),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_grid(
                 cols="2fr 3fr",
@@ -46,40 +72,8 @@ def build():
                     )
 
                 with g.cell():
-                    with st_grid(
-                        cols="95fr 5fr",
-                        gap="0px",
-                        cell_styles=s.project.containers.grid_cell_centered,
-                    ) as sg:
-                        with sg.cell():
-                            with st_zoom(60):
-                                st_write(bs.stat, "45%")
-                        with sg.cell():
-                            st_hover_tooltip(
-                                title="About this statistic",
-                                entries=[
-                                    (
-                                        "45%",
-                                        "Veracode (July 2025): 100+ LLMs on Java, "
-                                        "Python, C# and JavaScript tasks. 45% of "
-                                        "samples introduced OWASP Top 10 flaws.",
-                                    ),
-                                    (
-                                        "62%",
-                                        "At least 62.07% of 331,000 AI-generated C "
-                                        "programs (FormAI-v2) are vulnerable, "
-                                        "proven with the ESBMC model checker.",
-                                    ),
-                                    (
-                                        "9 LLMs tested",
-                                        "GPT-4o-mini, Gemini Pro 1.0, Falcon 180B, "
-                                        "Code Llama 13B, and 5 others.",
-                                    ),
-                                ],
-                                scale="2.2vw",
-                                width="55vw",
-                                position="left",
-                            )
+                    with st_zoom(60):
+                        st_write(bs.stat, "45%")
                     st_space("v", 1)
                     st_write(
                         bs.body,

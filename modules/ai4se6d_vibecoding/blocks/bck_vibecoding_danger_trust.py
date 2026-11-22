@@ -39,7 +39,43 @@ _PROMPT = (
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "The Trust Crisis", tag=t.div, toc_lvl="1")
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    st_write(bs.heading, "The Trust Crisis", tag=t.div, toc_lvl="1")
+                with h.cell():
+                    st_hover_tooltip(
+                        title="Trainer notes \u2014 The Trust Crisis",
+                        entries=[
+                            (
+                                "33% trust (2025)",
+                                "33% of developers trust the accuracy of AI "
+                                "output (2024: 43%), while AI use rose from "
+                                "76% to 84%. Only 3% trust it highly.",
+                            ),
+                            (
+                                "46% distrust",
+                                "More developers distrust AI accuracy "
+                                "(46%, up from 31% in 2024) than trust it.",
+                            ),
+                            (
+                                "66% frustrated",
+                                "Top frustration: AI solutions that are "
+                                "\"almost right, but not quite\".",
+                            ),
+                            (
+                                "45% debugging",
+                                "Debugging AI-generated code is more "
+                                "time-consuming (2nd frustration).",
+                            ),
+                            (
+                                "2026 survey",
+                                "Question reworded: 48% trust AI output only "
+                                "when they can easily verify it "
+                                "(published 6 Oct 2026).",
+                            ),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_grid(
                 cols="1.7fr 3.3fr",
@@ -58,50 +94,8 @@ def build():
                     )
 
                 with g.cell():
-                    with st_grid(
-                        cols="95fr 5fr",
-                        gap="0px",
-                        cell_styles=s.project.containers.grid_cell_centered,
-                    ) as sg:
-                        with sg.cell():
-                            with st_zoom(60):
-                                st_write(bs.stat, "33%")
-                        with sg.cell():
-                            st_hover_tooltip(
-                                title="About this statistic",
-                                entries=[
-                                    (
-                                        "33% trust (2025)",
-                                        "33% of developers trust the accuracy of AI "
-                                        "output (2024: 43%), while AI use rose from "
-                                        "76% to 84%. Only 3% trust it highly.",
-                                    ),
-                                    (
-                                        "46% distrust",
-                                        "More developers distrust AI accuracy "
-                                        "(46%, up from 31% in 2024) than trust it.",
-                                    ),
-                                    (
-                                        "66% frustrated",
-                                        "Top frustration: AI solutions that are "
-                                        "\"almost right, but not quite\".",
-                                    ),
-                                    (
-                                        "45% debugging",
-                                        "Debugging AI-generated code is more "
-                                        "time-consuming (2nd frustration).",
-                                    ),
-                                    (
-                                        "2026 survey",
-                                        "Question reworded: 48% trust AI output only "
-                                        "when they can easily verify it "
-                                        "(published 6 Oct 2026).",
-                                    ),
-                                ],
-                                scale="2.2vw",
-                                width="55vw",
-                                position="left",
-                            )
+                    with st_zoom(60):
+                        st_write(bs.stat, "33%")
                     st_write(
                         bs.sub_stat,
                         "of developers trust AI output accuracy (2025)",

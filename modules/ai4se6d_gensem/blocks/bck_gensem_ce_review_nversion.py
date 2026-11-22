@@ -20,18 +20,20 @@ bs = BlockStyles
 def build():
     st_marker("N-Version Verification")
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(90):
-            st_write(bs.heading, "Review: N-Version Verification", tag=t.div, toc_lvl="+1")
-        st_hover_tooltip(
-            title="N-Version Verification",
-            entries=[
-                ("Origin", "Borrowed from safety-critical systems (aviation, medical) where N independent implementations are compared."),
-                ("In GSE-One", "Multiple independent review perspectives -- correctness, security, requirements, architecture, test implementation, UX, adversarial self-review -- catch different classes of defects."),
-                ("Speed advantage", "Like having 6 expert reviewers (plus a devil's advocate) on every PR, but automated in 2 minutes instead of 2 days."),
-            ],
-            scale="2vw", width="70vw", position="center",
-        )
-        st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "Review: N-Version Verification", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="N-Version Verification",
+                    entries=[
+                        ("Origin", "Borrowed from safety-critical systems (aviation, medical) where N independent implementations are compared."),
+                        ("In GSE-One", "Multiple independent review perspectives -- correctness, security, requirements, architecture, test implementation, UX, adversarial self-review -- catch different classes of defects."),
+                        ("Speed advantage", "Like having 6 expert reviewers (plus a devil's advocate) on every PR, but automated in 2 minutes instead of 2 days."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(120):
             with st_block(s.project.containers.callout):

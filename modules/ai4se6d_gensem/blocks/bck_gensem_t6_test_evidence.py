@@ -34,23 +34,25 @@ _BACKLOG_YAML = """\
 def build():
     st_marker("test_evidence \u2014 Per-TASK Test Results")
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(90):
-            st_write(bs.heading, "test_evidence \u2014 Per-TASK Test Results", tag=t.div, toc_lvl="+1")
-        st_hover_tooltip(
-            title="test_evidence \u2014 Structured per-TASK block",
-            entries=[
-                ("status", "absent (not yet run) | pass | fail | skipped. Single source of truth for this TASK's test state."),
-                ("campaign_ref", "Full path of the campaign report (docs/sprints/sprint-NN/test-reports/campaign-{date}-{TASK-ID}.md) that produced this evidence — TCP- id in its frontmatter."),
-                ("timestamp", "ISO-8601 of the canonical test run \u2014 when the evidence was collected."),
-                ("pass_rate", "Percentage of tests passing (0-100). Captured from the run."),
-                ("code_coverage", "Percentage of lines covered (0-100). Captured when the framework supports it."),
-                ("summary", "One-line human-readable commentary \u2014 notable flakes, skipped suites, env quirks."),
-                ("Distinct from health rollup", "status.yaml.test_pass_rate is a scalar 0-10 project-wide health dimension. test_evidence is per-TASK. Different concepts, different files."),
-                ("Who writes it", "Written by the Canonical test run (PRODUCE Step 4 or /gse:tests --run) \u2014 same 7-step procedure, same output."),
-            ],
-            scale="2vw", width="70vw", position="center",
-        )
-        st_space("v", 0.5)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "test_evidence \u2014 Per-TASK Test Results", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="test_evidence \u2014 Structured per-TASK block",
+                    entries=[
+                        ("status", "absent (not yet run) | pass | fail | skipped. Single source of truth for this TASK's test state."),
+                        ("campaign_ref", "Full path of the campaign report (docs/sprints/sprint-NN/test-reports/campaign-{date}-{TASK-ID}.md) that produced this evidence — TCP- id in its frontmatter."),
+                        ("timestamp", "ISO-8601 of the canonical test run \u2014 when the evidence was collected."),
+                        ("pass_rate", "Percentage of tests passing (0-100). Captured from the run."),
+                        ("code_coverage", "Percentage of lines covered (0-100). Captured when the framework supports it."),
+                        ("summary", "One-line human-readable commentary \u2014 notable flakes, skipped suites, env quirks."),
+                        ("Distinct from health rollup", "status.yaml.test_pass_rate is a scalar 0-10 project-wide health dimension. test_evidence is per-TASK. Different concepts, different files."),
+                        ("Who writes it", "Written by the Canonical test run (PRODUCE Step 4 or /gse:tests --run) \u2014 same 7-step procedure, same output."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(110):
             st_write(bs.body, (bs.label, "Example"), " \u2014 backlog.yaml after /gse:tests --run on TASK-012:")

@@ -33,22 +33,23 @@ _PREVIEW_TYPES = [
 def build():
     st_marker("/gse:preview")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:preview \u2014 See Before Building", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:preview \u2014 Close the Gap",
-                entries=[
-                    ("Purpose", "Simulate what planned artifacts will look like BEFORE any code is written. In the static variant, the preview is lightweight \u2014 not a prototype, but a throwaway visualization."),
-                    ("Two variants (Gate, Step 1.5)", "Static description (throwaway wireframes, walkthroughs) OR scaffold-as-preview: a minimal runnable project (Vite+React, Streamlit, Next.js\u2026) kept as the base of /gse:produce \u2014 no throwaway code. Recommended for web/mobile domains."),
-                    ("Why it matters", "Closes the gap between 'I described what I want' and 'I can see what I'll get.' Fixing design costs 10x less than fixing code."),
-                    ("Gate decision", "The user validates the preview before production starts. Modifications can be requested before any code is generated."),
-                    ("When used", "After /gse:reqs and /gse:design, before /gse:tests and /gse:produce. The preview informs both test strategy and implementation."),
-                    ("In CalcApp", "Preview the budget dashboard wireframe, the StorageService API contract, and the expense form user journey."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:preview \u2014 See Before Building", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:preview \u2014 Close the Gap",
+                    entries=[
+                        ("Purpose", "Simulate what planned artifacts will look like BEFORE any code is written. In the static variant, the preview is lightweight \u2014 not a prototype, but a throwaway visualization."),
+                        ("Two variants (Gate, Step 1.5)", "Static description (throwaway wireframes, walkthroughs) OR scaffold-as-preview: a minimal runnable project (Vite+React, Streamlit, Next.js\u2026) kept as the base of /gse:produce \u2014 no throwaway code. Recommended for web/mobile domains."),
+                        ("Why it matters", "Closes the gap between 'I described what I want' and 'I can see what I'll get.' Fixing design costs 10x less than fixing code."),
+                        ("Gate decision", "The user validates the preview before production starts. Modifications can be requested before any code is generated."),
+                        ("When used", "After /gse:reqs and /gse:design, before /gse:tests and /gse:produce. The preview informs both test strategy and implementation."),
+                        ("In CalcApp", "Preview the budget dashboard wireframe, the StorageService API contract, and the expense form user journey."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             st_write(bs.accent, "Plan 80%, execute 20% \u2014 preview closes the 80%.")

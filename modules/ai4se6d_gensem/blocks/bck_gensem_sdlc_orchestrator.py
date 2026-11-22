@@ -44,22 +44,24 @@ def build():
     # ── Slide 11: Implementer → Orchestrator ────────────────────────
     with st_block(_page_fill_center):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading,
-                "Implementer  →  Orchestrator",
-                tag=t.div, toc_lvl="+1",
-                )
-            st_hover_tooltip(
-                title="Implementer to Orchestrator",
-                entries=[
-                    ("What changed", "Developers used to spend 80% of their time writing code. With GenAI agents, the ratio inverts: 80% is now specifying intent, orchestrating agents, and validating results."),
-                    ("Evidence", "Gartner predicts 80% of the developer workforce will need to reskill by 2027 to adapt to AI-augmented workflows."),
-                    ("GSE-One link", "GSE-One structures this transition by providing a lifecycle that covers all 3 new roles: Specify (/gse:reqs), Orchestrate (/gse:produce), Validate (/gse:review)."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(90):
+                        st_write(
+                        bs.heading,
+                        "Implementer  →  Orchestrator",
+                        tag=t.div, toc_lvl="+1",
+                        )
+                with h.cell():
+                    st_hover_tooltip(
+                        title="Implementer to Orchestrator",
+                        entries=[
+                            ("What changed", "Developers used to spend 80% of their time writing code. With GenAI agents, the ratio inverts: 80% is now specifying intent, orchestrating agents, and validating results."),
+                            ("Evidence", "Gartner predicts 80% of the developer workforce will need to reskill by 2027 to adapt to AI-augmented workflows."),
+                            ("GSE-One link", "GSE-One structures this transition by providing a lifecycle that covers all 3 new roles: Specify (/gse:reqs), Orchestrate (/gse:produce), Validate (/gse:review)."),
+                        ],
+                        position="left", width="50vw",
+                    )
             st_image(
                 s.none, width="60%",
                 editable=IS_EDITABLE,

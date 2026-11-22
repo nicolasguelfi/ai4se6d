@@ -22,18 +22,20 @@ bs = BlockStyles
 def build():
     st_marker("GenSEMOne Manual Workflow")
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(90):
-            st_write(bs.heading, "GenSEMOne Manual Workflow Checklist", tag=t.div, toc_lvl="+1")
-        st_hover_tooltip(
-            title="GenSEMOne Manual Workflow — Quick Reference",
-            entries=[
-                ("Purpose", "A step-by-step checklist to follow the GenSEMOne manual workflow (precursor to the GSE-One plugin) in practice."),
-                ("Key discipline", "Each step builds on the previous -- skip one and the downstream quality drops."),
-                ("Carry forward", "This checklist is your companion for the hands-on practice sessions."),
-            ],
-            scale="2vw", width="70vw", position="center",
-        )
-        st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "GenSEMOne Manual Workflow Checklist", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="GenSEMOne Manual Workflow — Quick Reference",
+                    entries=[
+                        ("Purpose", "A step-by-step checklist to follow the GenSEMOne manual workflow (precursor to the GSE-One plugin) in practice."),
+                        ("Key discipline", "Each step builds on the previous -- skip one and the downstream quality drops."),
+                        ("Carry forward", "This checklist is your companion for the hands-on practice sessions."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(120):
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:

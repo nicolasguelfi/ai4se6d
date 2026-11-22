@@ -36,25 +36,26 @@ _callout_warn = Style.create(
 def build():
     st_marker("GSE-One Prompting Strategy")
     with st_block(s.project.containers.page_fill_top):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading,
-                "GSE-One Prompting Strategy for v0.3",
-                tag=t.div,
-                toc_lvl="+1",
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(
+                    bs.heading,
+                    "GSE-One Prompting Strategy for v0.3",
+                    tag=t.div,
+                    toc_lvl="+1",
+                    )
+            with h.cell():
+                st_hover_tooltip(
+                    title="GSE-One Prompting Strategy",
+                    entries=[
+                        ("GSE-One principle", "Structured prompting with context, scope, and verification -- the /gse:produce discipline."),
+                        ("Good pattern", "Load FR doc first, implement one FR at a time, constrain scope, verify with tests."),
+                        ("Anti-pattern", "Dumping all features in one prompt -- VibeCoding with no traceability."),
+                        ("Key insight", "Prompting strategy is the bridge between /gse:plan output and /gse:produce execution."),
+                    ],
+                    position="left", width="50vw",
                 )
-            st_hover_tooltip(
-                title="GSE-One Prompting Strategy",
-                entries=[
-                    ("GSE-One principle", "Structured prompting with context, scope, and verification -- the /gse:produce discipline."),
-                    ("Good pattern", "Load FR doc first, implement one FR at a time, constrain scope, verify with tests."),
-                    ("Anti-pattern", "Dumping all features in one prompt -- VibeCoding with no traceability."),
-                    ("Key insight", "Prompting strategy is the bridge between /gse:plan output and /gse:produce execution."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
 
         with st_zoom(120):
             # GOOD prompting

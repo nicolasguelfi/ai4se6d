@@ -20,18 +20,20 @@ bs = BlockStyles
 def build():
     st_marker("3 Takeaways → GSE-One")
     with st_block(s.project.containers.page_fill_top):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "Key Takeaways", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="SOTA Review Takeaways",
-                entries=[
-                    ("Disciplinary foundation", "Structured processes consistently outperform ad-hoc approaches \u2014 this is a principle of the discipline, not of any single methodology."),
-                    ("Methodology multiplier", "Tool alone yields ~10% gains; tool + process yields 25-30%. Generative SE methodologies operationalize this multiplier."),
-                    ("80/20 rule", "Planning and review account for 80% of quality; execution is only 20%. This principle is shared by all mature GenSE methodologies."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "Key Takeaways", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="SOTA Review Takeaways",
+                    entries=[
+                        ("Disciplinary foundation", "Structured processes consistently outperform ad-hoc approaches \u2014 this is a principle of the discipline, not of any single methodology."),
+                        ("Methodology multiplier", "Tool alone yields ~10% gains; tool + process yields 25-30%. Generative SE methodologies operationalize this multiplier."),
+                        ("80/20 rule", "Planning and review account for 80% of quality; execution is only 20%. This principle is shared by all mature GenSE methodologies."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(120):
             st_space("v", 2)

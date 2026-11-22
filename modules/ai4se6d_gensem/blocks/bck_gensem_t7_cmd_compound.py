@@ -22,20 +22,21 @@ bs = BlockStyles
 def build():
     st_marker("/gse:compound")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:compound \u2014 What Did We Learn?", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:compound \u2014 3-Axis Capitalization",
-                entries=[
-                    ("Axe 1 \u2014 Project", "Patterns, errors, best practices observed during the sprint \u2192 compound.md. What worked, what didn\u2019t, what to repeat."),
-                    ("Axe 2 \u2014 Methodology", "What worked/didn\u2019t in GSE-One itself \u2192 closing Gate routes it (export local / tickets / both). Quality filter: concrete (cited example), grouped by theme, deduplicated against existing issues, capped by compound.max_proposed_issues_per_sprint (default 3)."),
-                    ("Axe 3 \u2014 Competencies", "Feed P14 learning notes. Aggregate contextual tips into topic-based notes. Update the competency map."),
-                    ("Deeper than retro", "Goes beyond a standard agile retrospective \u2014 includes knowledge transfer and methodology feedback."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:compound \u2014 What Did We Learn?", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:compound \u2014 3-Axis Capitalization",
+                    entries=[
+                        ("Axe 1 \u2014 Project", "Patterns, errors, best practices observed during the sprint \u2192 compound.md. What worked, what didn\u2019t, what to repeat."),
+                        ("Axe 2 \u2014 Methodology", "What worked/didn\u2019t in GSE-One itself \u2192 closing Gate routes it (export local / tickets / both). Quality filter: concrete (cited example), grouped by theme, deduplicated against existing issues, capped by compound.max_proposed_issues_per_sprint (default 3)."),
+                        ("Axe 3 \u2014 Competencies", "Feed P14 learning notes. Aggregate contextual tips into topic-based notes. Update the competency map."),
+                        ("Deeper than retro", "Goes beyond a standard agile retrospective \u2014 includes knowledge transfer and methodology feedback."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             with st_grid(cols="1fr 1fr 1fr", gap="16px") as g:

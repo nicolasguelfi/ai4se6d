@@ -21,23 +21,24 @@ bs = BlockStyles
 def build():
     st_marker("/gse:deliver")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:deliver \u2014 Ship the Sprint", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:deliver \u2014 Merge, Tag, Deploy",
-                entries=[
-                    ("Merge", "Feature branches \u2192 sprint branch \u2192 main. Each merge is a Gate-tier decision (P12). Merge strategy adapted to user expertise (squash vs. merge vs. rebase)."),
-                    ("Tag", "Semantic version tag on main after merge. Generates changelog."),
-                    ("Optional deploy", "If git.post_tag_hook is configured, deployment runs automatically after tagging. If it fails, proposes rollback (Gate)."),
-                    ("Test evidence (Hard)", "Step 1.5 blocks delivery if a must-priority REQ lacks passing test_evidence \u2014 Gate: run tests now / deliver partial (DEC-) / reclassify as spike or deferred (DEC-) / discuss. Also verifies every declared test-strategy level was executed and evidence is fresh (spec \u00a79.3.1)."),
-                    ("Health check", "Warns if health < 5 before delivering. You can proceed but must acknowledge the risk."),
-                    ("Archive plan", "Step 9 reads .gse/plan.yaml and generates docs/sprints/sprint-NN/plan-summary.md. The PLN-NNN ID is inherited from plan.yaml.id to preserve P6 traceability. plan.yaml.status is then set to 'completed'."),
-                    ("Cleanup", "Merged branches and worktrees are deleted to prevent sprawl (P12)."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:deliver \u2014 Ship the Sprint", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:deliver \u2014 Merge, Tag, Deploy",
+                    entries=[
+                        ("Merge", "Feature branches \u2192 sprint branch \u2192 main. Each merge is a Gate-tier decision (P12). Merge strategy adapted to user expertise (squash vs. merge vs. rebase)."),
+                        ("Tag", "Semantic version tag on main after merge. Generates changelog."),
+                        ("Optional deploy", "If git.post_tag_hook is configured, deployment runs automatically after tagging. If it fails, proposes rollback (Gate)."),
+                        ("Test evidence (Hard)", "Step 1.5 blocks delivery if a must-priority REQ lacks passing test_evidence \u2014 Gate: run tests now / deliver partial (DEC-) / reclassify as spike or deferred (DEC-) / discuss. Also verifies every declared test-strategy level was executed and evidence is fresh (spec \u00a79.3.1)."),
+                        ("Health check", "Warns if health < 5 before delivering. You can proceed but must acknowledge the risk."),
+                        ("Archive plan", "Step 9 reads .gse/plan.yaml and generates docs/sprints/sprint-NN/plan-summary.md. The PLN-NNN ID is inherited from plan.yaml.id to preserve P6 traceability. plan.yaml.status is then set to 'completed'."),
+                        ("Cleanup", "Merged branches and worktrees are deleted to prevent sprawl (P12)."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             st_write(bs.keyword + s.center_txt, "Integrate")

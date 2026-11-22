@@ -31,23 +31,24 @@ _LEVELS = [
 def build():
     st_marker("/gse:plan")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:plan \u2014 Plan at Every Level", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:plan \u2014 Cross-Cutting Planning",
-                entries=[
-                    ("Purpose", "Select items from the backlog pool and promote them to the current sprint. Create new items if needed. Creates the sprint branch at strategic level; assigns branch names to each task at tactical level."),
-                    ("4 levels", "Project (roadmap) \u2192 Sprint (budget) \u2192 Task (how) \u2192 Micro (ordering). Each has its own approval tier."),
-                    ("Cross-cutting", "Planning is not bound to a single lifecycle phase \u2014 it can be invoked at any abstraction level, at any time (P5)."),
-                    ("Living document", "The orchestrator updates .gse/plan.yaml after every activity transition: workflow state, budget consumption, coherence checks. No Markdown parsing \u2014 YAML only."),
-                    ("Coherence alerts", "Non-blocking alerts surface when the plan drifts: budget_pressure (>80% consumed), significant_scope_drift (>50% tasks changed), velocity_risk. Inform-tier, never Hard guardrail."),
-                    ("Re-planning", "Auto-triggered when: task exceeds 2x estimate, new dependency found, assumption invalidated, budget at risk (>80%), or user changes priorities."),
-                    ("Planning debt", "If planning is skipped ('just do it'), the agent records planning debt \u2014 reviewed during /gse:compound."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:plan \u2014 Plan at Every Level", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:plan \u2014 Cross-Cutting Planning",
+                    entries=[
+                        ("Purpose", "Select items from the backlog pool and promote them to the current sprint. Create new items if needed. Creates the sprint branch at strategic level; assigns branch names to each task at tactical level."),
+                        ("4 levels", "Project (roadmap) \u2192 Sprint (budget) \u2192 Task (how) \u2192 Micro (ordering). Each has its own approval tier."),
+                        ("Cross-cutting", "Planning is not bound to a single lifecycle phase \u2014 it can be invoked at any abstraction level, at any time (P5)."),
+                        ("Living document", "The orchestrator updates .gse/plan.yaml after every activity transition: workflow state, budget consumption, coherence checks. No Markdown parsing \u2014 YAML only."),
+                        ("Coherence alerts", "Non-blocking alerts surface when the plan drifts: budget_pressure (>80% consumed), significant_scope_drift (>50% tasks changed), velocity_risk. Inform-tier, never Hard guardrail."),
+                        ("Re-planning", "Auto-triggered when: task exceeds 2x estimate, new dependency found, assumption invalidated, budget at risk (>80%), or user changes priorities."),
+                        ("Planning debt", "If planning is skipped ('just do it'), the agent records planning debt \u2014 reviewed during /gse:compound."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             with st_grid(cols="30% 40% 30%", gap="8px", cell_styles=_hdr_cell) as g:

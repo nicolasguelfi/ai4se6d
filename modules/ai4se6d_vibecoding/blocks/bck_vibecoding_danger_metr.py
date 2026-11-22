@@ -30,7 +30,53 @@ _PROMPT = (
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "The METR Paradox", tag=t.div, toc_lvl="1")
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    st_write(bs.heading, "The METR Paradox", tag=t.div, toc_lvl="1")
+                with h.cell():
+                    st_hover_tooltip(
+                        title="METR Study Details",
+                        entries=[
+                            (
+                                "Study design",
+                                "Randomized controlled trial (METR, July 2025). "
+                                "Each task randomly allowed or disallowed AI. "
+                                "16 devs, 246 real issues on mature open-source "
+                                "repos they knew well (5 years on average).",
+                            ),
+                            (
+                                "+19% time",
+                                "Tasks took 19% longer with AI allowed "
+                                "(95% CI: +2% to +39%). Time shifted to "
+                                "prompting, waiting on and reviewing AI output.",
+                            ),
+                            (
+                                "Perception gap",
+                                "Before: devs forecast a 24% speedup. "
+                                "After: they still believed AI had sped them "
+                                "up by 20%. Measured: 19% slower.",
+                            ),
+                            (
+                                "<44% accepted",
+                                "Developers accepted fewer than 44% of the "
+                                "AI generations they reviewed.",
+                            ),
+                            (
+                                "Tool used",
+                                "Cursor Pro with Claude 3.5/3.7 Sonnet "
+                                "\u2014 state-of-the-art AI coding tools "
+                                "at the time of the study (early 2025).",
+                            ),
+                            (
+                                "Feb 2026 update",
+                                "Late-2025 tools, returning devs: \u221218% time "
+                                "(CI \u221238% to +9%), not significant. METR: a "
+                                "speedup is now likely, but its size cannot "
+                                "be measured reliably (selection effects).",
+                            ),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_grid(
                 cols="1.5fr 3.5fr",
@@ -49,60 +95,8 @@ def build():
                     )
 
                 with g.cell():
-                    with st_grid(
-                        cols="95fr 5fr",
-                        gap="0px",
-                        cell_styles=s.project.containers.grid_cell_centered,
-                    ) as sg:
-                        with sg.cell():
-                            with st_zoom(60):
-                                st_write(bs.stat, "+19%")
-                        with sg.cell():
-                            st_hover_tooltip(
-                                title="METR Study Details",
-                                entries=[
-                                    (
-                                        "Study design",
-                                        "Randomized controlled trial (METR, July 2025). "
-                                        "Each task randomly allowed or disallowed AI. "
-                                        "16 devs, 246 real issues on mature open-source "
-                                        "repos they knew well (5 years on average).",
-                                    ),
-                                    (
-                                        "+19% time",
-                                        "Tasks took 19% longer with AI allowed "
-                                        "(95% CI: +2% to +39%). Time shifted to "
-                                        "prompting, waiting on and reviewing AI output.",
-                                    ),
-                                    (
-                                        "Perception gap",
-                                        "Before: devs forecast a 24% speedup. "
-                                        "After: they still believed AI had sped them "
-                                        "up by 20%. Measured: 19% slower.",
-                                    ),
-                                    (
-                                        "<44% accepted",
-                                        "Developers accepted fewer than 44% of the "
-                                        "AI generations they reviewed.",
-                                    ),
-                                    (
-                                        "Tool used",
-                                        "Cursor Pro with Claude 3.5/3.7 Sonnet "
-                                        "\u2014 state-of-the-art AI coding tools "
-                                        "at the time of the study (early 2025).",
-                                    ),
-                                    (
-                                        "Feb 2026 update",
-                                        "Late-2025 tools, returning devs: \u221218% time "
-                                        "(CI \u221238% to +9%), not significant. METR: a "
-                                        "speedup is now likely, but its size cannot "
-                                        "be measured reliably (selection effects).",
-                                    ),
-                                ],
-                                scale="2.2vw",
-                                width="80vw",
-                                position="left",
-                            )
+                    with st_zoom(60):
+                        st_write(bs.stat, "+19%")
                     st_space("v", 0.5)
                     st_write(
                         bs.body,

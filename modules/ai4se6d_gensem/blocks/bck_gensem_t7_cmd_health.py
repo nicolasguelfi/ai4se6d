@@ -35,22 +35,23 @@ _DIMENSIONS = [
 def build():
     st_marker("/gse:health \u2014 8 Dimensions")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:health \u2014 8 Dimensions (Full mode; Lightweight tracks 3, Micro none)", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:health \u2014 Project Quality Dashboard",
-                entries=[
-                    ("Composite score", "0\u201310 simple mean of the active dimensions (8 in Full, 3 in Lightweight, none in Micro). Any dimension below 7/10 triggers a risk alert."),
-                    ("Soft check", "Health < 5 triggers a warning before /gse:deliver (you may proceed but must acknowledge the risk)."),
-                    ("Cross-sprint trends", "Health is tracked across sprints \u2014 you can see if quality improves or degrades over time."),
-                    ("Actionable alerts", "Each alert includes a suggestion: 'Requirements coverage below 60% \u2014 consider adding tests for REQ-003 and REQ-005.'"),
-                    ("Dashboard view", "Run dashboard.py for a visual view: health radar, Sprint Workflow card (completed \u2705 / active \u25b6 / pending \u25cb / skipped \u2014 with budget bar), and Coherence Alerts card when plan.yaml.coherence.alerts is non-empty."),
-                    ("Git hygiene sub-factors", "Active branches 20%, stale branches 20%, uncommitted changes 20%, merge conflicts 20%, main status 10%, unreviewed branches 10%."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:health \u2014 8 Dimensions (Full mode; Lightweight tracks 3, Micro none)", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:health \u2014 Project Quality Dashboard",
+                    entries=[
+                        ("Composite score", "0\u201310 simple mean of the active dimensions (8 in Full, 3 in Lightweight, none in Micro). Any dimension below 7/10 triggers a risk alert."),
+                        ("Soft check", "Health < 5 triggers a warning before /gse:deliver (you may proceed but must acknowledge the risk)."),
+                        ("Cross-sprint trends", "Health is tracked across sprints \u2014 you can see if quality improves or degrades over time."),
+                        ("Actionable alerts", "Each alert includes a suggestion: 'Requirements coverage below 60% \u2014 consider adding tests for REQ-003 and REQ-005.'"),
+                        ("Dashboard view", "Run dashboard.py for a visual view: health radar, Sprint Workflow card (completed \u2705 / active \u25b6 / pending \u25cb / skipped \u2014 with budget bar), and Coherence Alerts card when plan.yaml.coherence.alerts is non-empty."),
+                        ("Git hygiene sub-factors", "Active branches 20%, stale branches 20%, uncommitted changes 20%, merge conflicts 20%, main status 10%, unreviewed branches 10%."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         def _render_dim_row(items, offset):
             with st_grid(cols="1fr 1fr 1fr 1fr", gap="12px") as g:

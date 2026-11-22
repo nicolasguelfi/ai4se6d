@@ -45,18 +45,20 @@ def build():
     # ── Slide 1: Feature table ──────────────────────────────────────
     with st_block(_pf):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "P8: Autonomous Sprint \u2014 Choose a Feature", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="Your Autonomous Sprint",
-                entries=[
-                    ("Goal", "Execute a complete GSE-One sprint on your own. No guidance from the trainer."),
-                    ("Budget", "45 minutes \u2014 choose a feature that fits your IT expertise level."),
-                    ("Success criteria", "Plan + requirements + code + tests + review + merge + compound.md."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as hdr:
+                with hdr.cell():
+                    with st_zoom(90):
+                        st_write(bs.heading, "P8: Autonomous Sprint \u2014 Choose a Feature", tag=t.div, toc_lvl="+1")
+                with hdr.cell():
+                    st_hover_tooltip(
+                        title="Your Autonomous Sprint",
+                        entries=[
+                            ("Goal", "Execute a complete GSE-One sprint on your own. No guidance from the trainer."),
+                            ("Budget", "45 minutes \u2014 choose a feature that fits your IT expertise level."),
+                            ("Success criteria", "Plan + requirements + code + tests + review + merge + compound.md."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_zoom(90):
                 with st_grid(cols="40% 25% 15%", gap="6px", cell_styles=_hdr) as g:

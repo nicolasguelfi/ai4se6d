@@ -40,19 +40,21 @@ so that I can correct mistakes.
 def build():
     st_marker("REQ-001: Given/When/Then")
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(90):
-            st_write(bs.heading, "Example: REQ-001 in Full Detail", tag=t.div, toc_lvl="+1")
-        st_hover_tooltip(
-            title="REQ-001 and GSE-One Principles",
-            entries=[
-                ("GSE-One principle", "Structured requirements with acceptance criteria -- output of /gse:reqs."),
-                ("Traceability", "Each FR links to user story, acceptance criteria, priority, and test file."),
-                ("Given/When/Then", "Acceptance criteria use BDD format for unambiguous verification."),
-                ("MoSCoW priority", "Prioritization ensures the /gse:plan phase sequences work correctly."),
-            ],
-            scale="2vw", width="70vw", position="center",
-        )
-        st_space("v", 0.5)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "Example: REQ-001 in Full Detail", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="REQ-001 and GSE-One Principles",
+                    entries=[
+                        ("GSE-One principle", "Structured requirements with acceptance criteria -- output of /gse:reqs."),
+                        ("Traceability", "Each FR links to user story, acceptance criteria, priority, and test file."),
+                        ("Given/When/Then", "Acceptance criteria use BDD format for unambiguous verification."),
+                        ("MoSCoW priority", "Prioritization ensures the /gse:plan phase sequences work correctly."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(120):
             st_write(bs.body, (bs.label, "Complete functional requirement"), " with traceability:")

@@ -22,20 +22,21 @@ bs = BlockStyles
 def build():
     st_marker("/gse:integrate")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:integrate \u2014 Make It Stick", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:integrate \u2014 Route Solutions",
-                entries=[
-                    ("Axe 1 \u2192 Project", "Project learnings become config rules or project conventions. Automated patterns are added to .gse/config.yaml."),
-                    ("Axe 2 \u2192 GSE-One repo", "Methodology feedback becomes an issue on the GSE-One repository (if the user accepts). Only actionable, validated feedback."),
-                    ("Axe 3 \u2192 Learning", "Competency insights are saved to docs/learning/ and the competency map in profile.yaml is updated."),
-                    ("Closes the loop", "COMPOUND identifies what was learned. INTEGRATE ensures it is not forgotten \u2014 solutions are routed to operational destinations."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:integrate \u2014 Make It Stick", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:integrate \u2014 Route Solutions",
+                    entries=[
+                        ("Axe 1 \u2192 Project", "Project learnings become config rules or project conventions. Automated patterns are added to .gse/config.yaml."),
+                        ("Axe 2 \u2192 GSE-One repo", "Methodology feedback becomes an issue on the GSE-One repository (if the user accepts). Only actionable, validated feedback."),
+                        ("Axe 3 \u2192 Learning", "Competency insights are saved to docs/learning/ and the competency map in profile.yaml is updated."),
+                        ("Closes the loop", "COMPOUND identifies what was learned. INTEGRATE ensures it is not forgotten \u2014 solutions are routed to operational destinations."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             with st_grid(cols="1fr 1fr 1fr", gap="16px") as g:

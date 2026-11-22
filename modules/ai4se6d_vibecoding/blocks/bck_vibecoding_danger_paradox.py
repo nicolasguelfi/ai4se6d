@@ -28,7 +28,41 @@ _PROMPT = (
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "The AI Paradox", tag=t.div, toc_lvl="1")
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    st_write(bs.heading, "The AI Paradox", tag=t.div, toc_lvl="1")
+                with h.cell():
+                    st_hover_tooltip(
+                        title="Trainer notes \u2014 The AI Paradox",
+                        entries=[
+                            (
+                                "7 hours/week",
+                                "Time lost per team member to inefficient "
+                                "processes \u2014 nearly a full workday "
+                                "every week. GitLab calls it the 'AI paradox'.",
+                            ),
+                            (
+                                "3,266 professionals",
+                                "DevSecOps professionals surveyed (IT ops, "
+                                "security, development). Harris Poll for "
+                                "GitLab, published 10 Nov 2025.",
+                            ),
+                            (
+                                "The paradox",
+                                "AI accelerates coding, but fragmented "
+                                "toolchains and new compliance complexity "
+                                "create bottlenecks that offset the speed "
+                                "gains.",
+                            ),
+                            (
+                                "Tool sprawl",
+                                "60% use more than 5 dev tools; 49% use "
+                                "more than 5 AI tools. Integration overhead "
+                                "eats productivity.",
+                            ),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_grid(
                 cols="2fr 3fr",
@@ -47,48 +81,8 @@ def build():
                     )
 
                 with g.cell():
-                    with st_grid(
-                        cols="95fr 5fr",
-                        gap="0px",
-                        cell_styles=s.project.containers.grid_cell_centered,
-                    ) as sg:
-                        with sg.cell():
-                            with st_zoom(60):
-                                st_write(bs.stat, "7 hours")
-                        with sg.cell():
-                            st_hover_tooltip(
-                                title="About this statistic",
-                                entries=[
-                                    (
-                                        "7 hours/week",
-                                        "Time lost per team member to inefficient "
-                                        "processes \u2014 nearly a full workday "
-                                        "every week. GitLab calls it the 'AI paradox'.",
-                                    ),
-                                    (
-                                        "3,266 professionals",
-                                        "DevSecOps professionals surveyed (IT ops, "
-                                        "security, development). Harris Poll for "
-                                        "GitLab, published 10 Nov 2025.",
-                                    ),
-                                    (
-                                        "The paradox",
-                                        "AI accelerates coding, but fragmented "
-                                        "toolchains and new compliance complexity "
-                                        "create bottlenecks that offset the speed "
-                                        "gains.",
-                                    ),
-                                    (
-                                        "Tool sprawl",
-                                        "60% use more than 5 dev tools; 49% use "
-                                        "more than 5 AI tools. Integration overhead "
-                                        "eats productivity.",
-                                    ),
-                                ],
-                                scale="2.2vw",
-                                width="70vw",
-                                position="left",
-                            )
+                    with st_zoom(60):
+                        st_write(bs.stat, "7 hours")
                     st_space("v", 1)
                     st_write(
                         bs.body,

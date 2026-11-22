@@ -30,18 +30,20 @@ def _scenario_slide(level_label, cell_style, steps, question, reminder=False):
 
     with st_block(_pf):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, f"P7: Complete Cycle \u2014 {level_label}", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title=f"P7 {level_label} \u2014 What to do",
-                entries=[
-                    ("Goal", f"Close the loop: FIX \u2192 DELIVER \u2192 COMPOUND \u2192 HEALTH. Adapted for {level_label} IT expertise."),
-                    ("Time", "45 minutes."),
-                    ("Deliverable", "Findings fixed, feature merged to main, compound.md with patterns, improved health score."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(90):
+                        st_write(bs.heading, f"P7: Complete Cycle \u2014 {level_label}", tag=t.div, toc_lvl="+1")
+                with h.cell():
+                    st_hover_tooltip(
+                        title=f"P7 {level_label} \u2014 What to do",
+                        entries=[
+                            ("Goal", f"Close the loop: FIX \u2192 DELIVER \u2192 COMPOUND \u2192 HEALTH. Adapted for {level_label} IT expertise."),
+                            ("Time", "45 minutes."),
+                            ("Deliverable", "Findings fixed, feature merged to main, compound.md with patterns, improved health score."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_grid(
                 cols="1fr 1fr",

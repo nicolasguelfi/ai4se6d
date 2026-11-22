@@ -34,22 +34,23 @@ _SUBCMDS = [
 def build():
     st_marker("/gse:backlog")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:backlog \u2014 Unified Work Items", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:backlog \u2014 Pool + Sprint",
-                entries=[
-                    ("Two zones", "Pool = unplanned ideas (sprint: null). Sprint = items assigned to current sprint. Items move from pool to sprint during /gse:plan."),
-                    ("Auto-populated", "The agent adds items automatically: /gse:review findings, /gse:collect imports, /gse:plan deferrals. You can also add manually."),
-                    ("Artifact types", "Filter by: code, test, requirement, design, doc, config, import, spike."),
-                    ("GitHub sync", "/gse:backlog sync two-way synchronizes with GitHub Issues. Gate confirmation if conflicts detected."),
-                    ("Plan sync check", "/gse:backlog sprint compares current backlog items with plan.yaml.tasks[]. If divergence is detected, it emits an Inform-tier warning suggesting /gse:plan --tactical. Silent in Micro mode."),
-                    ("Cross-cutting", "Available at any phase. The backlog is the single source of truth for all work items."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:backlog \u2014 Unified Work Items", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:backlog \u2014 Pool + Sprint",
+                    entries=[
+                        ("Two zones", "Pool = unplanned ideas (sprint: null). Sprint = items assigned to current sprint. Items move from pool to sprint during /gse:plan."),
+                        ("Auto-populated", "The agent adds items automatically: /gse:review findings, /gse:collect imports, /gse:plan deferrals. You can also add manually."),
+                        ("Artifact types", "Filter by: code, test, requirement, design, doc, config, import, spike."),
+                        ("GitHub sync", "/gse:backlog sync two-way synchronizes with GitHub Issues. Gate confirmation if conflicts detected."),
+                        ("Plan sync check", "/gse:backlog sprint compares current backlog items with plan.yaml.tasks[]. If divergence is detected, it emits an Inform-tier warning suggesting /gse:plan --tactical. Silent in Micro mode."),
+                        ("Cross-cutting", "Available at any phase. The backlog is the single source of truth for all work items."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             # Sub-commands table

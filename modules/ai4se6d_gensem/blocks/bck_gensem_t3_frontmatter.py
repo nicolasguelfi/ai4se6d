@@ -35,21 +35,22 @@ gse:
 def build():
     st_marker("Artifact Frontmatter")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(80):
-                with st_zoom(90):
-                    st_write(bs.heading, "Artifact Frontmatter: Traceability", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="YAML Frontmatter \u2014 Why it matters",
-                entries=[
-                    ("What it is", "A YAML header at the top of every artifact file (requirements, design, tests, reviews, plans). The agent generates and maintains it automatically."),
-                    ("P3 \u2014 Artifacts Are Everything", "Every deliverable is tracked: code, requirements, design, tests, decisions, learning notes. The frontmatter is how P3 is implemented."),
-                    ("P6 \u2014 Traceability", "The traces section links each artifact to its origin, implementation, tests, and decisions. This enables automatic impact analysis."),
-                    ("You don\u2019t write it", "The agent creates and updates frontmatter. You read it to understand the traceability web and verify links."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(80):
+                    with st_zoom(90):
+                        st_write(bs.heading, "Artifact Frontmatter: Traceability", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="YAML Frontmatter \u2014 Why it matters",
+                    entries=[
+                        ("What it is", "A YAML header at the top of every artifact file (requirements, design, tests, reviews, plans). The agent generates and maintains it automatically."),
+                        ("P3 \u2014 Artifacts Are Everything", "Every deliverable is tracked: code, requirements, design, tests, decisions, learning notes. The frontmatter is how P3 is implemented."),
+                        ("P6 \u2014 Traceability", "The traces section links each artifact to its origin, implementation, tests, and decisions. This enables automatic impact analysis."),
+                        ("You don\u2019t write it", "The agent creates and updates frontmatter. You read it to understand the traceability web and verify links."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_grid(cols="1.5fr 2fr 2fr", gap="24px") as g:
             # Left — code block with frontmatter example

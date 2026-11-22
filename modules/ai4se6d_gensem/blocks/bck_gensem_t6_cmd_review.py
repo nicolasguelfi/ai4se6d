@@ -33,22 +33,23 @@ _AGENTS = [
 def build():
     st_marker("/gse:review")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:review \u2014 Challenge Everything", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:review \u2014 7 Perspectives",
-                entries=[
-                    ("Branch diff", "Review operates on git diff sprint-branch...feature-branch, not just file state. This ensures only sprint changes are reviewed."),
-                    ("All artefact types", "Requirements, design, code, tests, docs \u2014 complete review of the current sprint."),
-                    ("Devil\u2019s advocate (P16)", "The agent challenges its own productions: hunts hallucinations, verifies libraries/APIs exist, questions assumptions."),
-                    ("RVW- findings", "Each finding gets a RVW- ID with severity. Findings are persisted in docs/sprints/sprint-NN/review.md — /gse:fix reads them there (the TASK just flips to status: fixing)."),
-                    ("Cross-sprint regression", "Full test suite runs; tests that passed last sprint but fail now are flagged [REGRESSION] HIGH."),
-                    ("Health update", "Health score is recalculated after review."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:review \u2014 Challenge Everything", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:review \u2014 7 Perspectives",
+                    entries=[
+                        ("Branch diff", "Review operates on git diff sprint-branch...feature-branch, not just file state. This ensures only sprint changes are reviewed."),
+                        ("All artefact types", "Requirements, design, code, tests, docs \u2014 complete review of the current sprint."),
+                        ("Devil\u2019s advocate (P16)", "The agent challenges its own productions: hunts hallucinations, verifies libraries/APIs exist, questions assumptions."),
+                        ("RVW- findings", "Each finding gets a RVW- ID with severity. Findings are persisted in docs/sprints/sprint-NN/review.md — /gse:fix reads them there (the TASK just flips to status: fixing)."),
+                        ("Cross-sprint regression", "Full test suite runs; tests that passed last sprint but fail now are flagged [REGRESSION] HIGH."),
+                        ("Health update", "Health score is recalculated after review."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(85):
             with st_grid(cols="repeat(auto-fit, minmax(200px, 1fr))", gap="12px") as g:

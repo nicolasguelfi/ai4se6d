@@ -32,40 +32,33 @@ _ROWS = [
 def build():
     st_marker("Agile \u2192 GSE-One")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "From Agile to GSE-One", tag=t.div, toc_lvl="+1")
-
-            # Two tooltips side by side
-            with st_grid(cols="1fr 1fr", gap="16px") as g:
-                with g.cell():
-                    st_hover_tooltip(
-                        title="Agile Concepts \u2014 Definitions",
-                        entries=[
-                            ("Sprint", "A fixed-duration iteration (typically 2 weeks) during which a team delivers a potentially shippable product increment."),
-                            ("Story Points", "A relative measure of effort and complexity used to estimate how much work a user story requires."),
-                            ("User Story", "A short requirement written from the user\u2019s perspective: 'As a [role], I want [goal], so that [benefit].'"),
-                            ("Retrospective", "A meeting at the end of each sprint where the team reflects on what went well, what didn\u2019t, and what to improve."),
-                            ("Definition of Done", "A shared checklist of criteria that every work item must satisfy before it is considered complete."),
-                            ("Velocity", "The average number of story points a team completes per sprint \u2014 used for capacity planning."),
-                            ("Product Backlog", "An ordered list of everything the product needs \u2014 features, fixes, improvements \u2014 maintained by the Product Owner."),
-                        ],
-                        scale="2vw", width="70vw", position="center",
-                    )
-                with g.cell():
-                    st_hover_tooltip(
-                        title="GSE-One Adaptations \u2014 Definitions",
-                        entries=[
-                            ("Complexity-budgeted sprint", "Not time-boxed: the sprint ends when the complexity budget is consumed. Typical budget: 8\u201315 points. Utility dependency = 1pt, framework = 2\u20133pts, architectural change = 3\u20135pts."),
-                            ("Complexity Points", "Cost model based on dependency type and risk, not relative effort. Tests, docs and renames are assessed case-by-case (0, 1 or 2-5 pts \u2014 Cost Assessment Grid, Appendix B). Simplification earns credits (\u22121 to \u22122)."),
-                            ("REQ- with Given/When/Then", "Formal requirement with unique ID (REQ-001), user story, and testable acceptance criteria in BDD format: Given [context], When [action], Then [outcome]."),
-                            ("/gse:compound", "Replaces the retrospective with 3 systematic axes: Axe 1 (project patterns), Axe 2 (methodology feedback), Axe 3 (competency growth). Produces compound.md."),
-                            ("Artifact completion + health", "Definition of Done becomes an 8-dimension health dashboard score. Each artifact must satisfy its type-specific checklist AND contribute to overall health > 6/10."),
-                            ("Budget consumption rate", "Replaces velocity: tracks how fast the complexity budget is consumed. Warning at 80%, Gate at 100%. Overrun = debt carried to next sprint."),
-                            ("/gse:backlog", "Unified backlog with pool (unplanned items, sprint: null) and sprint-assigned items. Managed as TASK- artifacts with git state tracking."),
-                        ],
-                        scale="2vw", width="70vw", position="center",
-                    )
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "From Agile to GSE-One", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="Trainer notes \u2014 From Agile to GSE-One",
+                    entries=[
+                        ("Agile concepts", "\u2014 definitions below"),
+                        ("Sprint", "A fixed-duration iteration (typically 2 weeks) during which a team delivers a potentially shippable product increment."),
+                        ("Story Points", "A relative measure of effort and complexity used to estimate how much work a user story requires."),
+                        ("User Story", "A short requirement written from the user\u2019s perspective: 'As a [role], I want [goal], so that [benefit].'"),
+                        ("Retrospective", "A meeting at the end of each sprint where the team reflects on what went well, what didn\u2019t, and what to improve."),
+                        ("Definition of Done", "A shared checklist of criteria that every work item must satisfy before it is considered complete."),
+                        ("Velocity", "The average number of story points a team completes per sprint \u2014 used for capacity planning."),
+                        ("Product Backlog", "An ordered list of everything the product needs \u2014 features, fixes, improvements \u2014 maintained by the Product Owner."),
+                        ("GSE-One adaptations", "\u2014 definitions below"),
+                        ("Complexity-budgeted sprint", "Not time-boxed: the sprint ends when the complexity budget is consumed. Typical budget: 8\u201315 points. Utility dependency = 1pt, framework = 2\u20133pts, architectural change = 3\u20135pts."),
+                        ("Complexity Points", "Cost model based on dependency type and risk, not relative effort. Tests, docs and renames are assessed case-by-case (0, 1 or 2-5 pts \u2014 Cost Assessment Grid, Appendix B). Simplification earns credits (\u22121 to \u22122)."),
+                        ("REQ- with Given/When/Then", "Formal requirement with unique ID (REQ-001), user story, and testable acceptance criteria in BDD format: Given [context], When [action], Then [outcome]."),
+                        ("/gse:compound", "Replaces the retrospective with 3 systematic axes: Axe 1 (project patterns), Axe 2 (methodology feedback), Axe 3 (competency growth). Produces compound.md."),
+                        ("Artifact completion + health", "Definition of Done becomes an 8-dimension health dashboard score. Each artifact must satisfy its type-specific checklist AND contribute to overall health > 6/10."),
+                        ("Budget consumption rate", "Replaces velocity: tracks how fast the complexity budget is consumed. Warning at 80%, Gate at 100%. Overrun = debt carried to next sprint."),
+                        ("/gse:backlog", "Unified backlog with pool (unplanned items, sprint: null) and sprint-assigned items. Managed as TASK- artifacts with git state tracking."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(100):
             st_space("v", 1)

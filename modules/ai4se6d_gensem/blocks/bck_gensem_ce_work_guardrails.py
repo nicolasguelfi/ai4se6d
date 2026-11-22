@@ -19,18 +19,20 @@ bs = BlockStyles
 def build():
     st_marker("Work Guardrails: Strategy Before, Reconciliation After")
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(90):
-            st_write(bs.heading, "Work: Scope & Quality Guardrails", tag=t.div, toc_lvl="+1")
-        st_hover_tooltip(
-            title="Scope & Quality Guardrails",
-            entries=[
-                ("Purpose", "Guardrails keep the AI agent within the planned scope as governance -- no silent scope expansion (P6). There is no file-by-file real-time blocking."),
-                ("Rendez-vous", "Strategy is checked before production; scope is reconciled deterministically after, at activity closure -- via git diff against the approved plan."),
-                ("Testing", "The test strategy is configurable (auto / tdd / test-after) -- TDD is an option, not a rule. The canonical test run happens after production."),
-            ],
-            scale="2vw", width="70vw", position="center",
-        )
-        st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "Work: Scope & Quality Guardrails", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="Scope & Quality Guardrails",
+                    entries=[
+                        ("Purpose", "Guardrails keep the AI agent within the planned scope as governance -- no silent scope expansion (P6). There is no file-by-file real-time blocking."),
+                        ("Rendez-vous", "Strategy is checked before production; scope is reconciled deterministically after, at activity closure -- via git diff against the approved plan."),
+                        ("Testing", "The test strategy is configurable (auto / tdd / test-after) -- TDD is an option, not a rule. The canonical test run happens after production."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(120):
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:

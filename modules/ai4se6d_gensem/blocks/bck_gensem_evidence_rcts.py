@@ -49,22 +49,24 @@ def build():
     st_marker("The Productivity Paradox")
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading, "The Productivity Paradox",
-                tag=t.div, toc_lvl="1",
-                )
-            st_hover_tooltip(
-                title="3 Randomized Controlled Trials (RCTs)",
-                entries=[
-                    ("Peng +55.8%", "Developers with GitHub Copilot completed an HTTP server task 55.8% faster. But this was a single simple task — 95% CI is 21-89%, very wide."),
-                    ("Cui +26%", "4,867 developers at Microsoft/Accenture over 2-8 months: AI group completed 26% more tasks. Juniors gained +27-39%, seniors only +8-13%."),
-                    ("METR -19%", "16 experienced OSS developers on familiar code were 19% SLOWER with AI. They predicted +24% — prompt overhead and context-switching ate the gains."),
-                    ("Resolution", "The gains depend on task complexity, developer experience, and codebase familiarity. Without structured process, AI creates as many problems as it solves."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(90):
+                        st_write(
+                        bs.heading, "The Productivity Paradox",
+                        tag=t.div, toc_lvl="1",
+                        )
+                with h.cell():
+                    st_hover_tooltip(
+                        title="3 Randomized Controlled Trials (RCTs)",
+                        entries=[
+                            ("Peng +55.8%", "Developers with GitHub Copilot completed an HTTP server task 55.8% faster. But this was a single simple task — 95% CI is 21-89%, very wide."),
+                            ("Cui +26%", "4,867 developers at Microsoft/Accenture over 2-8 months: AI group completed 26% more tasks. Juniors gained +27-39%, seniors only +8-13%."),
+                            ("METR -19%", "16 experienced OSS developers on familiar code were 19% SLOWER with AI. They predicted +24% — prompt overhead and context-switching ate the gains."),
+                            ("Resolution", "The gains depend on task complexity, developer experience, and codebase familiarity. Without structured process, AI creates as many problems as it solves."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_grid(cols="2fr 3fr", gap="24px", cell_styles=_cell) as g:
                 with g.cell():

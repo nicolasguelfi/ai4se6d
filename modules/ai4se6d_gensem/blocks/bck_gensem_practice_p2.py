@@ -32,18 +32,20 @@ def _scenario_slide(title, level_label, cell_style, steps, question, reminder=Fa
 
     with st_block(_pf):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, f"P2: Explore .gse/ \u2014 {level_label}", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title=f"P2 {level_label} \u2014 What to do",
-                entries=[
-                    ("Goal", f"Explore the .gse/ directory and understand what GSE-One produced during P1. Scenario adapted for {level_label} IT expertise."),
-                    ("Time", "45 minutes."),
-                    ("Deliverable", "Answers to the reflection question and a mental model of the .gse/ structure."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    with st_zoom(90):
+                        st_write(bs.heading, f"P2: Explore .gse/ \u2014 {level_label}", tag=t.div, toc_lvl="+1")
+                with h.cell():
+                    st_hover_tooltip(
+                        title=f"P2 {level_label} \u2014 What to do",
+                        entries=[
+                            ("Goal", f"Explore the .gse/ directory and understand what GSE-One produced during P1. Scenario adapted for {level_label} IT expertise."),
+                            ("Time", "45 minutes."),
+                            ("Deliverable", "Answers to the reflection question and a mental model of the .gse/ structure."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_grid(
                 cols="1fr 1fr",

@@ -40,20 +40,22 @@ coherence:
 def build():
     st_marker(".gse/plan.yaml — Living Sprint Plan")
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(90):
-            st_write(bs.heading, "Plan: The Living Artifact", tag=t.div, toc_lvl="+1")
-        st_hover_tooltip(
-            title=".gse/plan.yaml — Living Sprint Plan",
-            entries=[
-                ("Phase", "CE Plan = /gse:plan in GSE-One. Writes .gse/plan.yaml."),
-                ("Living", "The orchestrator updates plan.yaml after every activity transition (workflow state, budget, coherence)."),
-                ("Content", "Goal, tasks with branches, complexity budget, workflow tracking, coherence alerts."),
-                ("Purpose", "Executable contract + live workflow state — constrains the AI during /gse:produce."),
-                ("Archive", "At sprint end, DELIVER generates a read-only snapshot: docs/sprints/sprint-NN/plan-summary.md."),
-            ],
-            scale="2vw", width="70vw", position="center",
-        )
-        st_space("v", 0.5)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "Plan: The Living Artifact", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title=".gse/plan.yaml — Living Sprint Plan",
+                    entries=[
+                        ("Phase", "CE Plan = /gse:plan in GSE-One. Writes .gse/plan.yaml."),
+                        ("Living", "The orchestrator updates plan.yaml after every activity transition (workflow state, budget, coherence)."),
+                        ("Content", "Goal, tasks with branches, complexity budget, workflow tracking, coherence alerts."),
+                        ("Purpose", "Executable contract + live workflow state — constrains the AI during /gse:produce."),
+                        ("Archive", "At sprint end, DELIVER generates a read-only snapshot: docs/sprints/sprint-NN/plan-summary.md."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(120):
             st_write(bs.body, (bs.label, "Example"), " — .gse/plan.yaml mid-sprint:")

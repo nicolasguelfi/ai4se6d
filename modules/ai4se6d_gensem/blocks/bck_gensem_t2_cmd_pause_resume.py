@@ -21,21 +21,22 @@ bs = BlockStyles
 def build():
     st_marker("/gse:pause + /gse:resume")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:pause + /gse:resume", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="Session Continuity \u2014 Never Lose Work",
-                entries=[
-                    ("/gse:pause", "Auto-commits all uncommitted work (WIP), saves a comprehensive checkpoint: context, sprint state, pending tasks, review findings, decision log, worktree map."),
-                    ("/gse:resume", "Reloads the checkpoint, verifies worktree integrity, briefs you on where work stopped, and proposes next actions."),
-                    ("Checkpoint contents", "Context state, sprint artifacts, pending task list, review findings, decision log snapshot, worktree map \u2014 everything needed to continue seamlessly."),
-                    ("Living plan aware", "/gse:resume reads .gse/plan.yaml to show the workflow trajectory: active activity, pending items, completed count, and coherence alerts. workflow.active is the primary signal for the next-action proposal."),
-                    ("Cross-cutting", "Available at any phase. Use /gse:pause before closing your session, /gse:resume when you return."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:pause + /gse:resume", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="Session Continuity \u2014 Never Lose Work",
+                    entries=[
+                        ("/gse:pause", "Auto-commits all uncommitted work (WIP), saves a comprehensive checkpoint: context, sprint state, pending tasks, review findings, decision log, worktree map."),
+                        ("/gse:resume", "Reloads the checkpoint, verifies worktree integrity, briefs you on where work stopped, and proposes next actions."),
+                        ("Checkpoint contents", "Context state, sprint artifacts, pending task list, review findings, decision log snapshot, worktree map \u2014 everything needed to continue seamlessly."),
+                        ("Living plan aware", "/gse:resume reads .gse/plan.yaml to show the workflow trajectory: active activity, pending items, completed count, and coherence alerts. workflow.active is the primary signal for the next-action proposal."),
+                        ("Cross-cutting", "Available at any phase. Use /gse:pause before closing your session, /gse:resume when you return."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(90):
             with st_grid(cols="1fr 1fr", gap="24px") as g:

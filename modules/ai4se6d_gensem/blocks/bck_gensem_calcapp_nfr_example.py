@@ -33,19 +33,21 @@ or associated <label> element.
 def build():
     st_marker("REQ-102: WCAG Accessibility")
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(90):
-            st_write(bs.heading, "Example: REQ-102 Accessibility", tag=t.div, toc_lvl="+1")
-        st_hover_tooltip(
-            title="REQ-102 and GSE-One Principles",
-            entries=[
-                ("GSE-One principle", "Non-functional requirements with measurable criteria -- output of /gse:reqs (Step 3 — NFRs)."),
-                ("Standard reference", "Links to WCAG 2.1 AA -- external standard as verification anchor."),
-                ("Measurement", "100% of inputs must have aria-label or associated label element."),
-                ("Verification", "Automated vitest-axe scan -- fits into /gse:review automated checks."),
-            ],
-            scale="2vw", width="70vw", position="center",
-        )
-        st_space("v", 0.5)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "Example: REQ-102 Accessibility", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="REQ-102 and GSE-One Principles",
+                    entries=[
+                        ("GSE-One principle", "Non-functional requirements with measurable criteria -- output of /gse:reqs (Step 3 — NFRs)."),
+                        ("Standard reference", "Links to WCAG 2.1 AA -- external standard as verification anchor."),
+                        ("Measurement", "100% of inputs must have aria-label or associated label element."),
+                        ("Verification", "Automated vitest-axe scan -- fits into /gse:review automated checks."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(120):
             st_write(bs.body, (bs.label, "Complete non-functional requirement"), " with verification:")

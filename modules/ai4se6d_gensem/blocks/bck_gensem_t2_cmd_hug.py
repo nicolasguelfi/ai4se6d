@@ -37,20 +37,21 @@ _DIMENSIONS = [
 def build():
     st_marker("/gse:hug")
     with st_block(_pf):
-        with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(bs.heading, "/gse:hug \u2014 Know Your Developer", tag=t.div, toc_lvl="+1")
-            st_hover_tooltip(
-                title="/gse:hug \u2014 User Profile (13 Dimensions)",
-                entries=[
-                    ("Purpose", "Establish or update the full engineering context profile. This profile calibrates EVERYTHING: decision tiers (P7), communication depth (P9), guardrail thresholds (P11), learning proposals (P14)."),
-                    ("Smart interview", "The agent infers as many dimensions as possible from context (language from first message, domain from package manifest, expertise from vocabulary). With existing code to infer from, only 4\u20135 explicit questions are needed; on a greenfield project (nothing to infer) expect up to a dozen quick single-tap questions."),
-                    ("Git init", "Also verifies the project is a git repository (initializes with foundational commit if needed) and creates the .gse/ directory."),
-                    ("Updatable", "Run /gse:hug anytime to update your profile. Preferences evolve as you learn \u2014 expertise domains are also updated silently by observation (P14)."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                with st_zoom(90):
+                    st_write(bs.heading, "/gse:hug \u2014 Know Your Developer", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="/gse:hug \u2014 User Profile (13 Dimensions)",
+                    entries=[
+                        ("Purpose", "Establish or update the full engineering context profile. This profile calibrates EVERYTHING: decision tiers (P7), communication depth (P9), guardrail thresholds (P11), learning proposals (P14)."),
+                        ("Smart interview", "The agent infers as many dimensions as possible from context (language from first message, domain from package manifest, expertise from vocabulary). With existing code to infer from, only 4\u20135 explicit questions are needed; on a greenfield project (nothing to infer) expect up to a dozen quick single-tap questions."),
+                        ("Git init", "Also verifies the project is a git repository (initializes with foundational commit if needed) and creates the .gse/ directory."),
+                        ("Updatable", "Run /gse:hug anytime to update your profile. Preferences evolve as you learn \u2014 expertise domains are also updated silently by observation (P14)."),
+                    ],
+                    position="left", width="50vw",
+                )
 
         with st_zoom(80):
             _left = _DIMENSIONS[:7]

@@ -56,21 +56,23 @@ def build():
     # ── Slide 1: The Landscape ──────────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading, "The Methodological Landscape",
-                tag=t.div, toc_lvl="+1",
-                )
-            st_hover_tooltip(
-                title="3 Categories of GenSE Frameworks",
-                entries=[
-                    ("Adaptations", "Existing agile/DevOps methods extended with AI capabilities (AgileGen, Agentic DevOps). Familiar but limited."),
-                    ("AI-Native", "Methods designed from scratch for AI-augmented development (SE 3.0, V-Bounce, Promptware, MAISTRO). Ambitious but mostly theoretical."),
-                    ("Process Plugins", "Composable methodology plugins that work across tools (Compound Engineering → GSE-One). Practical and portable."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 2)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as hdr:
+                with hdr.cell():
+                    with st_zoom(90):
+                        st_write(
+                        bs.heading, "The Methodological Landscape",
+                        tag=t.div, toc_lvl="+1",
+                        )
+                with hdr.cell():
+                    st_hover_tooltip(
+                        title="3 Categories of GenSE Frameworks",
+                        entries=[
+                            ("Adaptations", "Existing agile/DevOps methods extended with AI capabilities (AgileGen, Agentic DevOps). Familiar but limited."),
+                            ("AI-Native", "Methods designed from scratch for AI-augmented development (SE 3.0, V-Bounce, Promptware, MAISTRO). Ambitious but mostly theoretical."),
+                            ("Process Plugins", "Composable methodology plugins that work across tools (Compound Engineering → GSE-One). Practical and portable."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             # Row 1: Adaptations
             st_write(bs.cat_label, "Adaptations — Existing methods extended")
@@ -119,21 +121,24 @@ def build():
     # ── Slide 2: What's missing everywhere ──────────────────────────
     with st_block(_page_fill_center):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading, "What's Missing Everywhere",
-                tag=t.div, toc_lvl="+1",
-                )
-            st_hover_tooltip(
-                title="Gaps in Existing Frameworks",
-                entries=[
-                    ("Knowledge capitalization", "No framework except CE/GSE-One systematically captures learnings across development cycles."),
-                    ("AI integrity", "No framework addresses hallucination detection, confidence levels, or adversarial self-review (P15-P16)."),
-                    ("Adaptive communication", "No framework adapts its behavior to the developer's experience level (P9)."),
-                    ("Cross-tool portability", "Most frameworks are locked to one IDE or tool."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as hdr:
+                with hdr.cell():
+                    with st_zoom(90):
+                        st_write(
+                        bs.heading, "What's Missing Everywhere",
+                        tag=t.div, toc_lvl="+1",
+                        )
+                with hdr.cell():
+                    st_hover_tooltip(
+                        title="Gaps in Existing Frameworks",
+                        entries=[
+                            ("Knowledge capitalization", "No framework except CE/GSE-One systematically captures learnings across development cycles."),
+                            ("AI integrity", "No framework addresses hallucination detection, confidence levels, or adversarial self-review (P15-P16)."),
+                            ("Adaptive communication", "No framework adapts its behavior to the developer's experience level (P9)."),
+                            ("Cross-tool portability", "Most frameworks are locked to one IDE or tool."),
+                        ],
+                        position="left", width="50vw",
+                    )
             with st_zoom(120):
                 st_space("v", 2)
                 with st_grid(
@@ -166,21 +171,23 @@ def build():
     # ── Slide 3: Comparison table ───────────────────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading, "Framework Comparison",
-                tag=t.div, toc_lvl="+1",
-                )
-            st_hover_tooltip(
-                title="How to Read This Table",
-                entries=[
-                    ("Columns", "Practical (ready to use), Agile (iterative), Tool Support (IDE integration), Enterprise (scalable), Learning Curve (ease of adoption)."),
-                    ("Symbols", "✓✓ = strong, ✓ = partial, ★ = weak or theoretical."),
-                    ("Active row", "GSE-One (Compound Engineering) is highlighted as the most balanced across all criteria."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as hdr:
+                with hdr.cell():
+                    with st_zoom(90):
+                        st_write(
+                        bs.heading, "Framework Comparison",
+                        tag=t.div, toc_lvl="+1",
+                        )
+                with hdr.cell():
+                    st_hover_tooltip(
+                        title="How to Read This Table",
+                        entries=[
+                            ("Columns", "Practical (ready to use), Agile (iterative), Tool Support (IDE integration), Enterprise (scalable), Learning Curve (ease of adoption)."),
+                            ("Symbols", "✓✓ = strong, ✓ = partial, ★ = weak or theoretical."),
+                            ("Active row", "GSE-One (Compound Engineering) is highlighted as the most balanced across all criteria."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             _headers = ["Framework", "Practical", "Agile", "Tools", "Enterprise", "Learning"]
             _rows = [
@@ -220,21 +227,23 @@ def build():
     # ── Slide 4: Enterprise Roadmap 2025-2030 ───────────────────────
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            with st_zoom(90):
-                st_write(
-                bs.heading, "Enterprise Roadmap 2025-2030",
-                tag=t.div, toc_lvl="+1",
-                )
-            st_hover_tooltip(
-                title="Industry Analyst Predictions",
-                entries=[
-                    ("Convergence", "All major analysts agree: AI-assisted SE will become universal by 2028. The question is not IF but HOW."),
-                    ("The failure mode", "Forrester predicts 50% of enterprises will try to replace developers with AI and fail — because they focus on tools, not process."),
-                    ("The success mode", "Bain and McKinsey data shows 25-30% gains only with end-to-end process transformation, not tool adoption alone."),
-                ],
-                scale="2vw", width="70vw", position="center",
-            )
-            st_space("v", 1)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as hdr:
+                with hdr.cell():
+                    with st_zoom(90):
+                        st_write(
+                        bs.heading, "Enterprise Roadmap 2025-2030",
+                        tag=t.div, toc_lvl="+1",
+                        )
+                with hdr.cell():
+                    st_hover_tooltip(
+                        title="Industry Analyst Predictions",
+                        entries=[
+                            ("Convergence", "All major analysts agree: AI-assisted SE will become universal by 2028. The question is not IF but HOW."),
+                            ("The failure mode", "Forrester predicts 50% of enterprises will try to replace developers with AI and fail — because they focus on tools, not process."),
+                            ("The success mode", "Bain and McKinsey data shows 25-30% gains only with end-to-end process transformation, not tool adoption alone."),
+                        ],
+                        position="left", width="50vw",
+                    )
 
             with st_zoom(120):
                 with st_list(li_style=bs.body) as l:

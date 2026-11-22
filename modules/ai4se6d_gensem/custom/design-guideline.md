@@ -49,6 +49,8 @@ Every concept slide should have an illustrative image (AI-generated or managed) 
 ### R4 — Tooltips for Depth
 Every slide that presents a fact, statistic, or concept must have an `st_hover_tooltip` **placed immediately after the slide title** (never at the bottom of the slide — tooltips open downward and would be clipped or invisible at the bottom).
 
+The tooltip always sits at the top right, on the title line: a two-column header grid (`cols="95% 5%"`, title cell + tooltip cell, `position="left"`, `width="50vw"`), never under the title or beside another element (NG, 2026-11-22).
+
 Content:
 - Source reference (paper, study, section)
 - 2-4 term/definition entries that connect logically to the slide content
@@ -76,9 +78,9 @@ All grids use `repeat(auto-fit, minmax(Npx, 1fr))` with:
 When a slide contains a single image as its main element, the image is always centered (`s.center_txt` on the image style). This is a universal graphic design rule — no exceptions.
 
 ### R8 — Tooltip Positioning
-- `position="center"` by default (safe for any icon position)
+- `position="left"` by default: the icon sits at the top right, on the title line (R4; NG, 2026-11-22)
 - `position="right"` only when the icon is at the far left of the viewport
-- `position="left"` only when the icon is at the far right of the viewport
+- `position="center"` only for an icon in the middle of the viewport (no longer the case for slide tooltips)
 - Tooltip `width` never exceeds `50vw` to avoid clipping
 
 ### R9 — Slide Break Pattern
@@ -145,12 +147,15 @@ with st_grid(
 A single-concept slide for an important task or principle:
 ```python
 with st_block(page_fill):
-    st_write(heading, "TX — Task Name", tag=t.div, toc_lvl="2")
+    with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+        with h.cell():
+            st_write(heading, "TX — Task Name", tag=t.div, toc_lvl="2")
+        with h.cell():
+            st_hover_tooltip(title="...", entries=[...], position="left", width="50vw")
     st_space("v", 2)
     st_write(status_style, "Status Label")     # s.huge (80pt), NOT stat_hero
     st_space("v", 2)
     st_write(body, "One-sentence description")
-    st_hover_tooltip(title="...", entries=[...])
 ```
 
 ### `transition-gse`
@@ -167,14 +172,17 @@ with st_block(page_fill_center):
 A slide presenting a key finding with supporting detail in tooltip:
 ```python
 with st_block(page_fill):
-    st_write(heading, "Topic: Transformed/Key Finding", tag=t.div, toc_lvl="2")
+    with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+        with h.cell():
+            st_write(heading, "Topic: Transformed/Key Finding", tag=t.div, toc_lvl="2")
+        with h.cell():
+            st_hover_tooltip(title="...", entries=[
+                ("Study", "..."),
+                ("Result", "..."),
+                ("GSE-One link", "/gse:command does X"),
+            ], position="left", width="50vw")
     st_space("v", 2)
     st_write(accent, "The key insight in one sentence.")  # s.Large bold accent
     st_space("v", 2)
     st_write(body, "Supporting explanation connecting to the methodology.")
-    st_hover_tooltip(title="...", entries=[
-        ("Study", "..."),
-        ("Result", "..."),
-        ("GSE-One link", "/gse:command does X"),
-    ])
 ```
