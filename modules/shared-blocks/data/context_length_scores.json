@@ -1,0 +1,199 @@
+{
+ "title": {
+  "en": "LLM reliability as the context grows — GDM-MRCR v2, 8 needles (Context Arena)",
+  "fr": "Fiabilité des LLM quand le contexte s'allonge — GDM-MRCR v2, 8 aiguilles (Context Arena)"
+ },
+ "updated": "2026-11-22",
+ "decision": "method of streamtex-all-trainings (data JSON with sources + drawing tool, rule m1); ai4se6d chart design kept; same-generation and complete-results rules (NG 2026-11-22)",
+ "benchmark": {
+  "name": "GDM-MRCR v2, 8 needles",
+  "method": "Multi-round co-reference resolution: a long fictional conversation in which the user made exactly the same request 8 times (« write a poem about tapirs ») and received a different answer each time, among dozens of similar requests with other formats, topics or styles; at the end the model must reproduce the n-th of the 8 answers (e.g. the 3rd poem about tapirs), preceded by a random string. Same task at every length: only the surrounding conversation grows.",
+  "metric": "mean similarity to the reference answer (0-100), not a right/wrong accuracy",
+  "chance_level": 15,
+  "chance_source": "Google DeepMind, eval_hub mrcr_v2 README: guessing among the needles scores about 15 % with 8 needles",
+  "dataset": "https://github.com/google-deepmind/eval_hub/tree/master/eval_hub/mrcr_v2",
+  "measures": "https://contextarena.ai",
+  "api": "https://contextarena.ai/api/needle-summary?needles=8",
+  "measured_by": "Dillon Uzar (Context Arena), third party, same harness for every model",
+  "bins_note": "a bin is named by its upper bound: 8K = (4K, 8K] tokens … 1M = (512K, 1M]",
+  "notes": [
+   "Rule m1: for each model, the highest reasoning effort measured.",
+   "Same generation: models put online between 2026-05-13 and 2026-08-13 (about three months).",
+   "Complete results: a score at every length up to 512K tokens.",
+   "Grok 4.6 left out: no score at 512K (every model must be measured at each length up to 512K).",
+   "Mistral Medium 3.5 left out: online 2026-04-30, outside the generation window (2026-05-13 .. 2026-08-13).",
+   "Above 512K only Gemini has a point (the 1M prompts do not fit the other models' windows)."
+  ]
+ },
+ "bins": [
+  8192,
+  16384,
+  32768,
+  65536,
+  131072,
+  262144,
+  524288,
+  1048576
+ ],
+ "charts": {
+  "providers": {
+   "file": "context-length",
+   "series": [
+    {
+     "model": "GPT-5.6 Sol",
+     "provider": "OpenAI",
+     "slug": "openai/gpt-5.6-sol",
+     "reasoning": "max",
+     "online": "2026-07-09",
+     "latest_run": "2026-07-10",
+     "scores": [
+      100.0,
+      100.0,
+      98.0,
+      98.8,
+      92.4,
+      83.5,
+      61.9,
+      null
+     ],
+     "tests": [
+      80,
+      80,
+      136,
+      85,
+      103,
+      141,
+      236,
+      null
+     ]
+    },
+    {
+     "model": "Claude Opus 5",
+     "provider": "Anthropic",
+     "slug": "anthropic/claude-opus-5",
+     "reasoning": "max",
+     "online": "2026-07-24",
+     "latest_run": "2026-08-13",
+     "scores": [
+      98.7,
+      99.9,
+      99.3,
+      99.9,
+      91.3,
+      65.6,
+      42.5,
+      null
+     ],
+     "tests": [
+      80,
+      80,
+      136,
+      85,
+      103,
+      141,
+      236,
+      null
+     ]
+    },
+    {
+     "model": "Gemini 3.7 Flash",
+     "provider": "Google",
+     "slug": "google/gemini-3.7-flash",
+     "reasoning": "high",
+     "online": "2026-08-13",
+     "latest_run": "2026-08-14",
+     "scores": [
+      100,
+      100.0,
+      98.6,
+      93.1,
+      88.6,
+      89.0,
+      77.7,
+      63.5
+     ],
+     "tests": [
+      80,
+      80,
+      136,
+      85,
+      103,
+      141,
+      236,
+      300
+     ]
+    },
+    {
+     "model": "DeepSeek V4 Pro",
+     "provider": "DeepSeek",
+     "slug": "deepseek/deepseek-v4-pro-0813",
+     "reasoning": "max",
+     "online": "2026-08-12",
+     "latest_run": "2026-08-13",
+     "scores": [
+      93.9,
+      91.5,
+      97.2,
+      77.3,
+      60.4,
+      36.1,
+      34.3,
+      null
+     ],
+     "tests": [
+      80,
+      80,
+      136,
+      85,
+      103,
+      141,
+      236,
+      null
+     ]
+    },
+    {
+     "model": "Qwen 3.8 Max",
+     "provider": "Alibaba",
+     "slug": "qwen/qwen3.8-max",
+     "reasoning": "xhigh",
+     "online": "2026-08-03",
+     "latest_run": "2026-08-14",
+     "scores": [
+      98.7,
+      97.5,
+      99.3,
+      96.5,
+      92.3,
+      67.7,
+      29.7,
+      null
+     ],
+     "tests": [
+      80,
+      80,
+      136,
+      85,
+      103,
+      141,
+      236,
+      null
+     ]
+    }
+   ]
+  }
+ },
+ "labels": {
+  "title": {
+   "en": "Performance vs Context Size (MRCR — 8 Needles)",
+   "fr": "Performance selon la taille du contexte (MRCR — 8 aiguilles)"
+  },
+  "x": {
+   "en": "Context Size",
+   "fr": "Taille du contexte"
+  },
+  "y": {
+   "en": "MRCR Score (%)",
+   "fr": "Score MRCR (%)"
+  }
+ }
+}

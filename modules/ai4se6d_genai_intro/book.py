@@ -160,6 +160,7 @@ st_book(
         blocks.bck_llm_autoregressive,
         blocks.bck_llm_context_window,
         blocks.bck_llm_context_benchmark,
+        blocks.bck_llm_context_reliability,  # the two all-trainings context charts (NG, 2026-11-22)
         # Sequence 3B — How LLMs Are Built (engineering)
         blocks.bck_llm_how_built,
         blocks.bck_llm_pretraining,

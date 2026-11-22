@@ -2319,3 +2319,42 @@
     url          = {https://eur-lex.europa.eu/eli/reg/2016/679/oj},
     note         = {Art. 5: principles, including data minimisation.},
 }
+
+% ── Context reliability slides, copied from streamtex-all-trainings assets/references.bib (NG 2026-11-22) ──
+
+@misc{uzar2026contextarena,
+  author       = {Uzar, Dillon},
+  title        = {Context Arena: long-context benchmark leaderboard (GDM-MRCR v2, 8 needles)},
+  howpublished = {Web leaderboard and JSON API},
+  year         = {2026},
+  note         = {Scores per context bin, 8K to 1M tokens; runs up to 2026-08-23. Data read through https://contextarena.ai/api/needle-summary?needles=8. Consulted 2026-10-11},
+  url          = {https://contextarena.ai},
+}
+
+@misc{gdm2025mrcrv2,
+  author       = {{Google DeepMind}},
+  title        = {{MRCR} v2: Multi-Round Co-reference Resolution, eval\_hub},
+  howpublished = {GitHub repository},
+  year         = {2025},
+  note         = {Apache-2.0. Test introduced in Vodrahalli et al., Michelangelo (arXiv:2409.12640). Chance level with 8 needles about 15 \%. Consulted 2026-10-11},
+  url          = {https://github.com/google-deepmind/eval_hub/tree/master/eval_hub/mrcr_v2},
+}
+
+@techreport{hong2025contextrot,
+  author      = {Hong, Kelly and Troynikov, Anton and Huber, Jeff},
+  title       = {Context Rot: How Increasing Input Tokens Impacts {LLM} Performance},
+  institution = {Chroma},
+  year        = {2025},
+  month       = jul,
+  note        = {18 models, performance drops as input length grows. Consulted 2026-10-11},
+  url         = {https://www.trychroma.com/research/context-rot},
+}
+
+@inproceedings{modarressi2025nolima,
+  author    = {Modarressi, Ali and Deilamsalehy, Hanieh and Dernoncourt, Franck and Bui, Trung and Rossi, Ryan A. and Yoon, Seunghyun and Schütze, Hinrich},
+  title     = {{NoLiMa}: Long-Context Evaluation Beyond Literal Matching},
+  booktitle = {Proceedings of the 42nd International Conference on Machine Learning (ICML)},
+  year      = {2025},
+  note      = {arXiv:2502.05167. Consulted 2026-10-11},
+  url       = {https://arxiv.org/abs/2502.05167},
+}

@@ -1,0 +1,290 @@
+{
+ "title": {
+  "en": "Artificial Analysis Intelligence Index v5.0.1 — models of the same generation",
+  "fr": "Artificial Analysis Intelligence Index v5.0.1 — modèles de la même génération"
+ },
+ "updated": "2026-11-22",
+ "decision": "NG 2026-11-22: charts drawn from data (no screenshots), aligned on streamtex-all-trainings; same generation (3 months) and complete results (nine evaluations)",
+ "benchmark": {
+  "name": "Artificial Analysis Intelligence Index v5.0.1",
+  "method": "Composite of nine evaluations run by Artificial Analysis on every model: AA-Briefcase v1.1, AutomationBench-AA, Terminal-Bench 4.0, FrontierCode-AA 2.0, AA-Omniscience v1.1, GDP.pdf, HLE-Diamond, CritPt v2 (Hard Subset), Terminal-Bench-Science 0.1.",
+  "metric": "index score (0-100); cost per task = weighted average USD cost of one index task; output tokens = tokens generated to run the whole index (answers, tool calls, reasoning); input tokens = tokens sent, re-sent at every turn of the agent loop",
+  "measures": "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index",
+  "measured_by": "Artificial Analysis, third party, same harness for every model",
+  "notes": [
+   "Same generation: models released 2026-09 .. 2026-11.",
+   "Complete results: each model is listed on the page of each of the nine evaluations.",
+   "GLM-5.3 left out: released 2026-08, outside the generation window (2026-09 .. 2026-11).",
+   "Course model: DeepSeek V4.1 Flash 1017 (outlined).",
+   "◆ = open weights."
+  ]
+ },
+ "models": [
+  {
+   "model": "Claude Fable 5.2",
+   "slug": "claude-fable-5-2",
+   "provider": "Anthropic",
+   "score": 65,
+   "cost_per_task": 26.54,
+   "output_tokens_m": 275.0,
+   "input_tokens_m": 28300.0,
+   "minutes_per_task": 42.1,
+   "price_in": 8.0,
+   "price_out": 40.0,
+   "released": "2026-11",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "GPT-6.2 Astra",
+   "slug": "gpt-6-2-astra",
+   "provider": "OpenAI",
+   "score": 62,
+   "cost_per_task": 4.0,
+   "output_tokens_m": 65.8,
+   "input_tokens_m": 2160.0,
+   "minutes_per_task": 14.9,
+   "price_in": 8.0,
+   "price_out": 40.0,
+   "released": "2026-11",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "Gemini 4 Neon",
+   "slug": "gemini-4-neon",
+   "provider": "Google",
+   "score": 61,
+   "cost_per_task": 6.44,
+   "output_tokens_m": 283.0,
+   "input_tokens_m": 8120.0,
+   "minutes_per_task": 22.8,
+   "price_in": 3.0,
+   "price_out": 15.0,
+   "released": "2026-11",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "Gemini 4 Carbon",
+   "slug": "gemini-4-carbon",
+   "provider": "Google",
+   "score": 60,
+   "cost_per_task": 7.76,
+   "output_tokens_m": 205.0,
+   "input_tokens_m": 7620.0,
+   "minutes_per_task": 34.7,
+   "price_in": 4.0,
+   "price_out": 20.0,
+   "released": "2026-10",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "Claude Opus 5.5",
+   "slug": "claude-opus-5-5",
+   "provider": "Anthropic",
+   "score": 59,
+   "cost_per_task": 10.04,
+   "output_tokens_m": 218.0,
+   "input_tokens_m": 15600.0,
+   "minutes_per_task": 25.3,
+   "price_in": 4.0,
+   "price_out": 20.0,
+   "released": "2026-09",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "GPT-6.2 Sol",
+   "slug": "gpt-6-2-sol",
+   "provider": "OpenAI",
+   "score": 57,
+   "cost_per_task": 1.01,
+   "output_tokens_m": 60.9,
+   "input_tokens_m": 2220.0,
+   "minutes_per_task": 10.1,
+   "price_in": 2.0,
+   "price_out": 10.0,
+   "released": "2026-11",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "Claude Sonnet 5.5",
+   "slug": "claude-sonnet-5-5",
+   "provider": "Anthropic",
+   "score": 55,
+   "cost_per_task": 10.02,
+   "output_tokens_m": 335.0,
+   "input_tokens_m": 30600.0,
+   "minutes_per_task": 31.5,
+   "price_in": 2.0,
+   "price_out": 10.0,
+   "released": "2026-09",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "Gemini 4 Hydrogen",
+   "slug": "gemini-4-hydrogen",
+   "provider": "Google",
+   "score": 54,
+   "cost_per_task": 3.16,
+   "output_tokens_m": 304.0,
+   "input_tokens_m": 11300.0,
+   "minutes_per_task": 16.9,
+   "price_in": 1.5,
+   "price_out": 7.5,
+   "released": "2026-11",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "Kimi K3.1 Pro",
+   "slug": "kimi-k3-1-pro",
+   "provider": "Kimi",
+   "score": 46,
+   "cost_per_task": 3.68,
+   "output_tokens_m": 113.0,
+   "input_tokens_m": 7010.0,
+   "minutes_per_task": 38.5,
+   "price_in": 2.0,
+   "price_out": 10.0,
+   "released": "2026-10",
+   "open_weights": 1,
+   "course_model": 0
+  },
+  {
+   "model": "Muse Wonder",
+   "slug": "muse-wonder",
+   "provider": "Meta",
+   "score": 44,
+   "cost_per_task": 6.95,
+   "output_tokens_m": 113.0,
+   "input_tokens_m": 11400.0,
+   "minutes_per_task": 14.6,
+   "price_in": 4.0,
+   "price_out": 20.0,
+   "released": "2026-10",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "Qwen4 Max",
+   "slug": "qwen4-max",
+   "provider": "Alibaba",
+   "score": 43,
+   "cost_per_task": 3.27,
+   "output_tokens_m": 127.0,
+   "input_tokens_m": 9900.0,
+   "minutes_per_task": 27.0,
+   "price_in": 1.5,
+   "price_out": 4.5,
+   "released": "2026-11",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "Claude Haiku 5.5",
+   "slug": "claude-haiku-5-5",
+   "provider": "Anthropic",
+   "score": 36,
+   "cost_per_task": 0.41,
+   "output_tokens_m": 298.0,
+   "input_tokens_m": 14600.0,
+   "minutes_per_task": 14.7,
+   "price_in": 0.1,
+   "price_out": 0.5,
+   "released": "2026-10",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "Grok 4.7",
+   "slug": "grok-4-7",
+   "provider": "SpaceXAI",
+   "score": 35,
+   "cost_per_task": 7.77,
+   "output_tokens_m": 148.0,
+   "input_tokens_m": 7230.0,
+   "minutes_per_task": 24.3,
+   "price_in": 2.0,
+   "price_out": 6.0,
+   "released": "2026-09",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "DeepSeek V4.1 Flash 1017",
+   "slug": "deepseek-v4-1-flash-1017",
+   "provider": "DeepSeek",
+   "score": 33,
+   "cost_per_task": 0.6,
+   "output_tokens_m": 174.0,
+   "input_tokens_m": 19800.0,
+   "minutes_per_task": 14.4,
+   "price_in": 0.3,
+   "price_out": 1.2,
+   "released": "2026-10",
+   "open_weights": 1,
+   "course_model": 1
+  },
+  {
+   "model": "GPT-6 Luna",
+   "slug": "gpt-6-luna",
+   "provider": "OpenAI",
+   "score": 28,
+   "cost_per_task": 0.15,
+   "output_tokens_m": 110.0,
+   "input_tokens_m": 6010.0,
+   "minutes_per_task": 11.8,
+   "price_in": 0.1,
+   "price_out": 0.5,
+   "released": "2026-09",
+   "open_weights": 0,
+   "course_model": 0
+  },
+  {
+   "model": "Mistral Large 4",
+   "slug": "mistral-large-4",
+   "provider": "Mistral",
+   "score": 26,
+   "cost_per_task": 2.06,
+   "output_tokens_m": 107.0,
+   "input_tokens_m": 7470.0,
+   "minutes_per_task": 20.0,
+   "price_in": 0.7,
+   "price_out": 2.1,
+   "released": "2026-10",
+   "open_weights": 1,
+   "course_model": 0
+  }
+ ],
+ "labels": {
+  "score": {
+   "en": "Artificial Analysis Intelligence Index (9 evaluations)",
+   "fr": "Indice d'intelligence Artificial Analysis (9 évaluations)"
+  },
+  "output_tokens_m": {
+   "en": "Output tokens to run the index (millions)",
+   "fr": "Tokens générés pour passer l'indice (millions)"
+  },
+  "cost_per_task": {
+   "en": "Average cost of one index task (USD)",
+   "fr": "Coût moyen d'une tâche de l'indice (USD)"
+  },
+  "score_vs_cost": {
+   "en": "Cost per task (USD, log scale)",
+   "fr": "Coût par tâche (USD, échelle log)"
+  },
+  "course": {
+   "en": "course model",
+   "fr": "modèle du cours"
+  },
+  "source": {
+   "en": "Source: Artificial Analysis, Intelligence Index v5.0.1 — models released {window}, read on {updated} · ◆ open weights",
+   "fr": "Source : Artificial Analysis, Intelligence Index v5.0.1 — modèles sortis {window}, relevé du {updated} · ◆ poids ouverts"
+  }
+ }
+}
