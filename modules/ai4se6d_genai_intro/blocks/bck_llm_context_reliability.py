@@ -33,6 +33,11 @@ _NOTES_PROVIDERS = [
      "For each model, the highest reasoning effort measured. Claude Opus 4.7 is left out (below 3 from 128K at every "
      "effort: a failure, not a result). Beyond 512K only Gemini has a point: the 1M prompts do not fit the other "
      "models."),
+    ("Why 7 models here, 5 on the previous slide",
+     "The previous slide keeps models of the same generation (online May–August 2026) with a score at every length "
+     "up to 512K: 5 models, data read on 2026-11-22. This chart comes from the all-trainings course and keeps one "
+     "model per provider, so it adds Grok 4.6 (no score at 512K) and Mistral Medium 3.5 (April 2026, an older "
+     "generation). Same test, same measures (up to 2026-08-14)."),
     ("The lesson",
      "A large context window does not mean the model uses all of it well. Giving it only the relevant passages, which "
      "is what RAG does, keeps it in the zone where it is reliable."),

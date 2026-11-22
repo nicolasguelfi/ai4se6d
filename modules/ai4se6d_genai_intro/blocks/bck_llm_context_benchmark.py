@@ -44,11 +44,12 @@ def build():
                     title="MRCR 8 Needles — What this test measures",
                     entries=[
                         (
-                            "MRCR",
-                            "Multi-Round Co-reference Resolution (OpenAI). A long "
+                            "MRCR v2",
+                            "Multi-Round Co-reference Resolution, version 2 (Google DeepMind), "
+                            "run by Context Arena with the same harness for every model. A long "
                             "conversation contains several near-identical requests, "
                             "e.g. 'write a poem about tapirs'. The model is then asked: "
-                            "'return the 2nd poem about tapirs'.",
+                            "'return the 3rd poem about tapirs'.",
                         ),
                         (
                             "8 Needles",
@@ -65,7 +66,9 @@ def build():
                         (
                             "Score",
                             "Text similarity between the answer and the expected one "
-                            "(0-100%). A perfect model scores 100% at all context sizes.",
+                            "(0-100%), not a right/wrong accuracy. A perfect model scores 100% "
+                            "at all context sizes; picking one of the 8 answers at random "
+                            "gives about 15%.",
                         ),
                     ],
                     position="left",
@@ -77,6 +80,6 @@ def build():
         with st_block(s.center_txt):
             st_write(
                 bs.source,
-                cite("contextarena2026"), " · ", cite("openai-mrcr2025"),
+                cite("uzar2026contextarena"), " · ", cite("gdm2025mrcrv2"),   # GDM-MRCR v2, as in the data (NG, 2026-11-22)
                 f" — data snapshot {snapshot}",
             )
