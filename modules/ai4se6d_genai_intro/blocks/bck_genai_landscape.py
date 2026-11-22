@@ -81,7 +81,7 @@ def build():
                                 st_write(
                                     bs.body,
                                     (bs.keyword, "Code"),
-                                    (bs.body, " — GitHub Copilot, Cursor, Claude Code, opencode"),
+                                    (bs.body, " — GitHub Copilot, Cursor, Claude Code, Codex, opencode"),
                                 )
                             with l.item():
                                 st_write(
