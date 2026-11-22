@@ -9,6 +9,8 @@ _page_fill = s.project.containers.page_fill_top
 
 # Shared image path
 _IMG = "_SHARED/bck_trainer_ng"
+_LINKEDIN = "https://www.linkedin.com/in/nicolas-guelfi-phd/"
+_EMAILS = ("nicolas.guelfi@ros.lu", "nicolas.guelfi@uni.lu", "nicolas.guelfi@bics.lu")
 
 # Cell style for the profile grid (table-roadmap pattern)
 _cell = Style.create(
@@ -41,6 +43,10 @@ class BlockStyles:
     link_label = Style.create(
         s.project.colors.accent + s.Large + s.center_txt,
         "trainer_ng_link",
+    )
+    emails = Style.create(
+        s.large + s.center_txt,
+        "trainer_ng_emails",
     )
 bs = BlockStyles
 
@@ -128,5 +134,6 @@ def build():
     with st_zoom(200), st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "More Information", tag=t.div)
-            st_image(s.none, uri=f"{_IMG}/image1.png", width="200px")
-            st_write(bs.link_label, "Connect on LinkedIn")
+            st_image(s.none, uri=f"{_IMG}/image1.png", width="200px", link=_LINKEDIN)
+            st_write(bs.link_label, "Connect on LinkedIn", link=_LINKEDIN)
+            st_write(bs.emails, "  \u25cf  ".join(_EMAILS))
