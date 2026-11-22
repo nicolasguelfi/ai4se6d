@@ -1,28 +1,16 @@
-"""Slides — the two all-trainings charts on context length: reliability per provider, and with / without reasoning.
+"""Slide — the longer the context, the less reliable the model (one model per provider) (streamtex-all-trainings chart, content/atoms/bck_llm_rag_context_benchmark_01).
 
 NG, 2026-11-22: "ces deux graphiques sont aussi intéressants pour les participants […] je pensais les rajouter après
-les nôtres" — they follow bck_llm_context_benchmark. Copied from streamtex-all-trainings
-(content/atoms/bck_llm_rag_context_benchmark_01 and _02, planche contexte1): same data, same drawing tool, same
-trainer notes (English). The figures live in modules/shared-blocks/data/context_reliability_scores.json; redraw with
-
-    uv run python scripts/draw_context_reliability_chart.py
+les nôtres"; then "vraiment sur des slides séparés": one block per chart, layout in blocks/_context_charts.py. Same
+data, drawing tool and trainer notes (English) as all-trainings (planche contexte1); the figures live in
+modules/shared-blocks/data/context_reliability_scores.json.
 """
 # @guideline: maximize-viewport
-from streamtex import *
-from streamtex.bib import cite
-from streamtex.enums import Tags as t
-from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
-
-
-_IMAGES = "_SHARED/images/diagrams/context-reliability"
-_slide_top = Style("justify-content:flex-start;margin-top:0;", "ctxrel_slide_top")
+from blocks._context_charts import chart_slide
 
 
 class BlockStyles:
-    """Context reliability slides styles."""
-    heading = s.project.titles.slide_title + s.center_txt
-    source = s.project.citation + s.large + s.center_txt
+    """Layout and styles in blocks/_context_charts.py (shared by the two chart slides)."""
 bs = BlockStyles
 
 
@@ -53,41 +41,7 @@ _NOTES_PROVIDERS = [
      "on 18 models and several tasks; NoLiMa (Adobe), the drop when the question and the answer share no word."),
 ]
 
-_NOTES_REASONING = [
-    ("What the chart shows",
-     "GPT-5.5 on the same test, at maximum reasoning effort and with reasoning off. At 32K tokens (about 50 pages): "
-     "95.8 with reasoning, 35.0 without."),
-    ("Why",
-     "Reasoning lets the model go back over the context before answering: here, find the eight identical requests "
-     "and count to the right one. Without it, the model answers in one pass."),
-    ("In practice",
-     "The setting matters as much as the model: the same name can hide very different reliability. Reasoning costs "
-     "time and tokens; reducing the context (RAG) is the other lever."),
-    ("Reading the score",
-     "Same score as the previous slide: closeness to the right answer, 0 to 100; chance ≈ 15."),
-]
-
-# (title, image, notes, citations)
-_SLIDES = [
-    ("The longer the context, the less reliable the model", "context-length", _NOTES_PROVIDERS,
-     ["uzar2026contextarena", "gdm2025mrcrv2", "hong2025contextrot", "modarressi2025nolima"]),
-    ("The same model, with and without reasoning", "context-length-reasoning", _NOTES_REASONING,
-     ["uzar2026contextarena", "gdm2025mrcrv2"]),
-]
-
 
 def build():
-    for idx, (title, image, notes, refs) in enumerate(_SLIDES):
-        with st_slide(cut=idx > 0, marker=(title if idx > 0 else None), style=_slide_top):
-            with st_grid(cols="92% 8%", cell_styles=s.project.containers.grid_cell_centered) as h:
-                with h.cell(), st_zoom(46):   # long titles kept on one line
-                    st_write(bs.heading, title, tag=t.div, toc_lvl="1" if idx == 0 else "2")
-                with h.cell():
-                    st_hover_tooltip(title=f"Trainer notes — {title}", entries=notes, position="left",
-                                     width="50vw")
-            st_image(uri=f"{_IMAGES}/{image}-en.png", width="100%", max_vh=64, align="center")
-            with st_block(s.center_txt):
-                parts = []
-                for i, key in enumerate(refs):
-                    parts += ([" · "] if i else []) + [cite(key)]
-                st_write(bs.source, *parts)
+    chart_slide("The longer the context, the less reliable the model", "context-length", _NOTES_PROVIDERS,
+                ["uzar2026contextarena", "gdm2025mrcrv2", "hong2025contextrot", "modarressi2025nolima"], "1")

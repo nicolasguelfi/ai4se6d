@@ -47,7 +47,7 @@ _NOTES = [
 
 
 def _bullets(items):
-    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered, text_align="left", item_gap=0.6) as l:
         for parts in items:
             with l.item():
                 st_write(bs.body, *parts)

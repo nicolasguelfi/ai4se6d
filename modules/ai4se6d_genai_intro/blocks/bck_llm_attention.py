@@ -46,7 +46,7 @@ def build():
             st_write(bs.heading, "Step 3: Self-Attention", tag=t.div, toc_lvl="1")
 
             with st_grid(
-                cols="2fr 3fr",
+                cols="1.5fr 3.5fr",
                 gap="24px",
                 cell_styles=_cell,
             ) as g:
@@ -62,9 +62,11 @@ def build():
                     )
 
                 with g.cell():
-                    with st_list(
+                    with st_zoom(90), st_list(   # fits one screen with the 0.6 em item gap (NG, 2026-11-22)
                         list_type=lt.unordered,
                         li_style=bs.body,
+                        text_align="left",  # bullets and wrapped lines start at the left edge (NG, 2026-11-22)
+                        item_gap=0.6,  # 0.6 em between items — streamtex st_list(item_gap=), 0.7.85 (NG, 2026-11-22)
                     ) as l:
                         with l.item():
                             st_write(

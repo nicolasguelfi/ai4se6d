@@ -24,9 +24,9 @@ def build():
         with st_block(s.center_txt):
             st_write(bs.heading, "Key Takeaways", tag=t.div, toc_lvl="1")
 
-            st_space("v", "10vh")
+            st_space("v", "4vh")   # fits one screen with the 0.6 em item gap (NG, 2026-11-22)
             with st_zoom(130):
-                with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered, text_align="left", item_gap=0.6) as l:
                     with l.item(): st_write(bs.body, (bs.keyword, "GenAI creates"), " — it generates, not just classifies")
                     with l.item(): st_write(bs.body, (bs.keyword, "LLMs are probabilistic"), " — next-token prediction at scale")
                     with l.item(): st_write(bs.body, (bs.keyword, "Powerful but limited"), " — complement, don't replace expertise")

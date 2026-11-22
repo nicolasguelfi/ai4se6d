@@ -46,6 +46,7 @@ from . import bck_llm_benchmarks as bck_llm_benchmarks
 from . import bck_llm_capabilities as bck_llm_capabilities
 from . import bck_llm_comparison as bck_llm_comparison
 from . import bck_llm_context_benchmark as bck_llm_context_benchmark
+from . import bck_llm_context_reasoning as bck_llm_context_reasoning
 from . import bck_llm_context_reliability as bck_llm_context_reliability
 from . import bck_llm_context_window as bck_llm_context_window
 from . import bck_llm_embeddings as bck_llm_embeddings

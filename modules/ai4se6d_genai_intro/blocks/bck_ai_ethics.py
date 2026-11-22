@@ -36,7 +36,7 @@ def build():
             st_write(bs.heading, "Ethics & Responsibility", tag=t.div, toc_lvl="1")
 
             with st_grid(
-                cols="2fr 3fr",
+                cols="1.5fr 3.5fr",
                 gap="32px",
                 cell_styles=bs.cell_center,
             ) as g:
@@ -52,8 +52,8 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(130):
-                        with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                    with st_zoom(115):   # fits one screen with the 0.6 em item gap (NG, 2026-11-22)
+                        with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered, text_align="left", item_gap=0.6) as l:
                             with l.item(): st_write(bs.body, (bs.keyword, "Bias"), " — models reflect training data biases")
                             with l.item(): st_write(bs.body, (bs.keyword, "Privacy"), " — sensitive data in prompts leaks")
                             with l.item(): st_write(bs.body, (bs.keyword, "Copyright"), " — who owns AI-generated content?")
