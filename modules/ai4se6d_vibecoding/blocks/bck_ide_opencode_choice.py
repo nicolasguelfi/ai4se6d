@@ -45,7 +45,7 @@ def build():
             st_space("v", 1)
             st_write(
                 bs.note,
-                "The programme says Cursor: keep it (or any editor) open next to opencode to read code.",
+                "Keep an editor open next to opencode to read code — VSCodium recommended, its AI off.",
                 tag=t.div,
             )
             st_write(bs.source, cite("opencode-sst2024"))
