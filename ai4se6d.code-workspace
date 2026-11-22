@@ -1,0 +1,51 @@
+// Opens ai4se6d with one root per module, so that `custom`, `blocks` and `shared_widgets` resolve as at run time (NG via the observer, 2026-11-22). Open it in Cursor: File > Open Workspace from File.
+{
+  "folders": [
+    {
+      "name": "ai4se6d (root)",
+      "path": "."
+    },
+    {
+      "name": "genai_intro",
+      "path": "modules/ai4se6d_genai_intro"
+    },
+    {
+      "name": "setup",
+      "path": "modules/ai4se6d_setup"
+    },
+    {
+      "name": "vibecoding",
+      "path": "modules/ai4se6d_vibecoding"
+    },
+    {
+      "name": "coding_agent",
+      "path": "modules/ai4se6d_coding_agent"
+    },
+    {
+      "name": "gensem",
+      "path": "modules/ai4se6d_gensem"
+    },
+    {
+      "name": "various",
+      "path": "modules/ai4se6d_various"
+    },
+    {
+      "name": "collection",
+      "path": "modules/ai4se6d_collection"
+    },
+    {
+      "name": "shared-blocks",
+      "path": "modules/shared-blocks"
+    }
+  ],
+  "settings": {
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.diagnosticMode": "openFilesOnly",
+    "cursorpyright.analysis.autoSearchPaths": true,
+    "cursorpyright.analysis.diagnosticMode": "openFilesOnly",
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.stx_cache": true
+    }
+  }
+}

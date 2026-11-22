@@ -1,0 +1,10 @@
+// Navigation in Cursor when this module is opened as its own root (ai4se6d.code-workspace) — NG via the observer, 2026-11-22. Same as pyproject.toml [tool.pyright] at the repository root; RELATIVE paths only (Dropbox).
+{
+  "venvPath": "../..",
+  "venv": ".venv",
+  "extraPaths": [
+    "../ai4se6d_genai_intro",
+    "../../../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"
+  ],
+  "reportMissingImports": "warning"
+}

@@ -1,3 +1,20 @@
 {
-  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
+  "// pourquoi": "Navigation dans Cursor (aller à la définition, infobulles) — mission NG via l'observatrice, 2026-11-22, alignée sur streamtex-all-trainings. streamtex est installé en éditable par un crochet d'import que l'analyse statique ne suit pas : on pointe sur sa source. Les blocs importent `custom` de leur module et, au lancement, modules/shared-blocks (setup.py) : un environnement par module dans pyproject.toml [tool.pyright], et ai4se6d.code-workspace ouvre chaque module comme une racine. Chemins RELATIFS seulement : le dépôt vit dans Dropbox. La règle « python.languageServer » reste dans les réglages utilisateur de Cursor (NG).",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/modules/shared-blocks",
+    "${workspaceFolder}/../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"
+  ],
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.diagnosticMode": "openFilesOnly",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.stx_cache": true
+  },
+  "cursorpyright.analysis.autoSearchPaths": true,
+  "cursorpyright.analysis.diagnosticMode": "openFilesOnly",
+  "cursorpyright.analysis.extraPaths": [
+    "${workspaceFolder}/modules/shared-blocks",
+    "${workspaceFolder}/../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"
+  ]
 }

@@ -19,5 +19,27 @@ default-groups = ["dev"]
 [tool.uv.sources]
 streamtex = { path = "/Volumes/Mac_Data/Win_data/data/backups/Dropbox-nicolas.guelfi@laposte.net/messir Dropbox/Nicolas Guelfi/users/NG/dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex", editable = true }
 
+[tool.pyright]
+# Cursor / Pylance navigation (go to definition, hover) — mission NG via the observer, 2026-11-22, aligned on
+# streamtex-all-trainings. streamtex is installed in editable mode through an import hook that static analysis
+# does not follow: point at its source. Each module imports its own `custom`/`blocks` and, through setup.py at run
+# time, modules/shared-blocks: one execution environment per module. RELATIVE paths only (Dropbox repository).
+venvPath = "."
+venv = ".venv"
+extraPaths = ["modules/shared-blocks", "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"]
+reportMissingImports = "warning"
+executionEnvironments = [
+    { root = "modules/ai4se6d_coding_agent", extraPaths = ["modules/shared-blocks", "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"] },
+    { root = "modules/ai4se6d_collection", extraPaths = ["modules/shared-blocks", "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"] },
+    { root = "modules/ai4se6d_genai_intro", extraPaths = ["modules/shared-blocks", "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"] },
+    { root = "modules/ai4se6d_gensem", extraPaths = ["modules/shared-blocks", "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"] },
+    { root = "modules/ai4se6d_setup", extraPaths = ["modules/shared-blocks", "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"] },
+    { root = "modules/ai4se6d_various", extraPaths = ["modules/shared-blocks", "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"] },
+    { root = "modules/ai4se6d_vibecoding", extraPaths = ["modules/shared-blocks", "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"] },
+    # shared blocks run inside a module: `custom` resolves to the module's; genai_intro stands for any of them
+    { root = "modules/shared-blocks", extraPaths = ["modules/ai4se6d_genai_intro", "../../../../../../../../../dev-dropbox/dvlpt/eclipse/git/github/streamtex-dev/streamtex"] },
+    { root = "." },
+]
+
 [tool.ruff.lint]
 ignore = ["F403", "F405", "E701", "E741"]
