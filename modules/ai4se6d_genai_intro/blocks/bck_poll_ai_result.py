@@ -1,4 +1,9 @@
-"""Slide — You're Not Alone: AI adoption stats with image."""
+"""Slide — You're Not Alone: AI adoption stats with image.
+
+Stack Overflow Developer Survey 2026 (AI section, all respondents; NG, 2026-11-22): 83% use at least one AI
+tool at work (n = 17,464); 77% of them use AI daily (n = 14,478); 69.3% use AI to generate code in a familiar
+area (n = 12,547). Gartner (2025): 90% of enterprise software engineers will use AI code assistants by 2028.
+"""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.bib import cite
@@ -41,7 +46,7 @@ bs = BlockStyles
 # Master prompt components
 
 _PROMPT = (
-    f"{_PREFIX} A large circular progress chart at 76%, rendered as a glowing electric "
+    f"{_PREFIX} A large circular progress chart at 83%, rendered as a glowing electric "
     "blue arc on dark background. Inside the circle, a simple developer silhouette icon "
     f"in teal. Amber accent dot marks the percentage endpoint. {_SUFFIX}"
 )
@@ -69,26 +74,26 @@ def build():
                     )
 
                 with g.cell():
-                    st_write(bs.stat_hero, "76%")
+                    st_write(bs.stat_hero, "83%")
                     st_space("v", 0.5)
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "76%"),
-                                (bs.body, " use or plan to use AI tools"),
+                                (bs.keyword, "83%"),
+                                (bs.body, " use AI tools at work"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "63%"),
-                                (bs.body, " use AI tools daily"),
+                                (bs.keyword, "77%"),
+                                (bs.body, " of them use AI daily"),
                             )
                         with l.item():
                             st_write(
                                 bs.body,
-                                (bs.keyword, "82%"),
-                                (bs.body, " regularly use AI for coding"),
+                                (bs.keyword, "69%"),
+                                (bs.body, " generate code with AI"),
                             )
                         with l.item():
                             st_write(
@@ -99,7 +104,7 @@ def build():
                     st_space("v", 0.5)
                     st_write(
                         bs.source,
-                        cite("stackoverflow-survey2026"),
+                        cite("so-survey2026"),
                         " ",
                         cite("gartner-se2025"),
                     )
