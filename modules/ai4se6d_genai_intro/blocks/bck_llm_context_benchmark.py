@@ -1,4 +1,9 @@
-"""Slide — Context Performance Benchmark: interactive Plotly chart from CSV."""
+"""Slide — Context Performance Benchmark: interactive Plotly chart from CSV.
+
+Data: scripts/update_context_arena.py rewrites the CSV from the Context Arena API (NG, 2026-11-22: a
+generator, so the next edition only reruns the script). Shown by default: the `featured` rows (best model
+of Anthropic, OpenAI, Google, Mistral and of the best open-weights provider); the snapshot month is in the CSV.
+"""
 # @guideline: maximize-viewport
 import streamlit as st  # noqa: F401
 import pandas as pd
@@ -23,22 +28,16 @@ _CSV_PATH = (
 
 # Date of the Context Arena export in _CSV_PATH. UPDATE when the CSV is
 # re-downloaded (planned 23-24/11/2026). Source sheet: docs/trainer/day1/sources.md
-_SNAPSHOT = "April 2026"
 
 _CONTEXT_ORDER = ["8k", "16k", "32k", "64k", "128k", "256k", "512k", "1M"]
 
+# The first five go to the featured models (shown by default): five clearly distinct hues.
 _COLORS = [
-    "#00D4AA", "#FF6B6B", "#4ECDC4", "#FFE66D",
-    "#A8E6CF", "#FF8B94", "#B8A9C9", "#F7DC6F",
+    "#00D4AA", "#FF6B6B", "#FFE66D", "#7AB8F5", "#F39C12",
+    "#B8A9C9", "#A8E6CF", "#FF8B94", "#4ECDC4", "#F7DC6F", "#C39BD3", "#85C1E9",
 ]
 
 # ── Visible by default (model_slug values from CSV) ──────────────────
-_VISIBLE_SLUGS = {
-    "anthropic/claude-opus-4.5:thinking",
-    "google/gemini-3.1-pro-preview:thinking:high",
-    "openai/gpt-5.2:thinking:xhigh",
-    "mistralai/ministral-14b-2512"
-}
 
 # ── Chart dimensions & scaling ───────────────────────────────────────
 _HEIGHT = 1100   # chart height in pixels (width auto-fills iframe)
@@ -74,6 +73,7 @@ def _clean_name(slug: str) -> str:
 
 def _build_chart() -> go.Figure:
     df = pd.read_csv(_CSV_PATH)
+    featured = set(df.loc[df["featured"] == 1, "model_slug"])
     df["model"] = df["model_slug"].apply(_clean_name)
     df["context_bin"] = pd.Categorical(
         df["context_bin"], categories=_CONTEXT_ORDER, ordered=True,
@@ -83,11 +83,12 @@ def _build_chart() -> go.Figure:
 
     fig = go.Figure()
 
-    for i, slug in enumerate(df["model_slug"].unique()):
+    slugs = sorted(df["model_slug"].unique(), key=lambda x: (x not in featured, x))  # featured first
+    for i, slug in enumerate(slugs):
         mdf = df[df["model_slug"] == slug].sort_values("context_bin")
         model = _clean_name(slug)
         color = _COLORS[i % len(_COLORS)]
-        visible = True if slug in _VISIBLE_SLUGS else "legendonly"
+        visible = True if slug in featured else "legendonly"
         fig.add_trace(go.Scatter(
             x=mdf["context_bin"].astype(str),
             y=mdf["avg_score"],
@@ -185,5 +186,5 @@ def build():
             st_write(
                 bs.source,
                 cite("contextarena2026"), " · ", cite("openai-mrcr2025"),
-                f" — data snapshot {_SNAPSHOT}",
+                f" — data snapshot {pd.read_csv(_CSV_PATH, usecols=['snapshot'])['snapshot'].iloc[0]}",
             )
