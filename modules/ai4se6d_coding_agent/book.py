@@ -120,14 +120,14 @@ st_book(
             format="html",
             mode=ExportMode.MANUAL if IS_EXPORTABLE else ExportMode.NEVER,
             output_dir="./exports",
-            filename="ai4se6d-day2",
+            filename="ai4se6d-coding-agent",
             timestamp=True,
         ),
         ExportConfig(
             format="pdf",
             mode=ExportMode.MANUAL if IS_EXPORTABLE else ExportMode.NEVER,
             output_dir="./exports",
-            filename="ai4se6d-day2",
+            filename="ai4se6d-coding-agent",
             timestamp=True,
             pdf=PdfConfig(
                 format="16:10",

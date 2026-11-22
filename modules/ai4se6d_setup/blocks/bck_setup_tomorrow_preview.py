@@ -10,7 +10,7 @@ class BlockStyles:
     heading = s.project.titles.slide_title + s.center_txt
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.accent
-    caption = Style.create(s.project.titles.caption + s.center_txt, "setup_day2_caption")
+    caption = Style.create(s.project.titles.caption + s.center_txt, "setup_tomorrow_caption")
 bs = BlockStyles
 
 

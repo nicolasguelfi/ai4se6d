@@ -1,7 +1,7 @@
 # Fiche des sources — jour 2 (édition 2)
 
 Décision `peda1` P9 : chiffres **mis à jour à la source** + cette fiche formateur.
-Cette fiche recense **tous les chiffres affichés dans le module `ai4se6d_day2`**, avec la source et la date
+Cette fiche recense **tous les chiffres affichés dans le module `ai4se6d_coding_agent`**, avec la source et la date
 **telles que citées dans les blocs** (clé BibTeX dans `modules/shared-blocks/static/references.bib`).
 Rédigée le 2026-11-09 à partir des blocs et de la bibliographie : les URL n'ont **pas** été rouvertes pour cette fiche
 (colonne « Consulté » = « — ») ; à vérifier à la source avant le 26/11.
@@ -9,7 +9,7 @@ Rédigée le 2026-11-09 à partir des blocs et de la bibliographie : les URL n'o
 Statuts : **vérifié** (chiffre conservé, source confirmée) · **mis à jour** (chiffre ou libellé corrigé) ·
 **retiré** (affirmation non vérifiable, supprimée ou reformulée) · **à vérifier** (repris de la bibliographie, source non rouverte).
 
-## Module `ai4se6d_day2`
+## Module `ai4se6d_coding_agent`
 
 | Diapositive (fichier) | Chiffre / fait affiché | Source (titre, URL) | Date de la source | Consulté | Statut |
 |---|---|---|---|---|---|

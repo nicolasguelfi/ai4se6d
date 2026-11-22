@@ -30,7 +30,7 @@ button_label = "Open"
 project_url = "https://ai4se6d-vibecoding.streamtex.org"
 order = 3
 
-[projects.day2]
+[projects.coding-agent]
 title = "Driving a Coding Agent: CalcApp v0.1"
 description = "Tests, Git discipline and a guided build of CalcApp v0.1 with a coding agent (Day 2)"
 emoji = "\U0001F916"

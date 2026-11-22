@@ -40,11 +40,11 @@ services:
     # Without Docker:
     #   cd modules/ai4se6d_setup && uv run streamlit run book.py --server.port 8504
 
-  day2:
+  coding-agent:
     build: .
     ports:
       - "8505:8501"
     environment:
-      - FOLDER=modules/ai4se6d_day2
+      - FOLDER=modules/ai4se6d_coding_agent
     # Without Docker:
-    #   cd modules/ai4se6d_day2 && uv run streamlit run book.py --server.port 8505
+    #   cd modules/ai4se6d_coding_agent && uv run streamlit run book.py --server.port 8505
