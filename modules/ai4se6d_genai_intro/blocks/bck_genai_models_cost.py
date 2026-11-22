@@ -5,8 +5,8 @@
 
 Edition 2, day-1 notion 3 (board peda1, P10). Family-level wording only: the two all-trainings data files
 disagree on model names, so only names checked on the web (Nov 2026) appear — product lines (GPT, Claude,
-Gemini, Llama, Gemma, gpt-oss, Qwen, Kimi) and two dated flagships (Mistral Large 3, Dec 2025; DeepSeek V4,
-Apr 2026). The reference model of the course is still to be decided: placeholder wording.
+Gemini, Llama, Gemma, gpt-oss, Qwen, Kimi) and two dated flagships (Mistral Large 4 — API preview 2026-10-06,
+open weights end of Oct 2026, re-checked 2026-11-22; DeepSeek V4, Apr 2026). The reference model of the course is still to be decided: placeholder wording.
 """
 # @guideline: maximize-viewport
 from streamtex import *
@@ -67,8 +67,8 @@ _FAMILIES = [
      "Often at the top of coding benchmarks. API only — weights not published."),
     ("Open-weight models", "Meta Llama · Google Gemma · OpenAI gpt-oss · Qwen …",
      "Weights downloadable: run them yourself (locally, on your server) or through a provider."),
-    ("Mistral — European", "Mistral Large 3 (Dec 2025) · Mistral Medium …",
-     "EU-based provider; many models with open weights."),
+    ("Mistral — European", "Mistral Large 4 (Oct 2026) · Medium 3.5 · Small 4",
+     "EU-based provider; its models, Large 4 included, have open weights."),
     ("Chinese models", "DeepSeek V4 (Apr 2026) · Qwen (Alibaba) · Kimi (Moonshot) …",
      "Often open-weight and cheap per token; check where your data is processed."),
 ]
@@ -101,7 +101,7 @@ def _families_slide():
         st_write(bs.asof, "As of Nov 2026 — names change fast, families do not.", tag=t.div)
         with st_grid(cols="1fr 1fr", gap="16px", cell_styles=_family) as g:
             for family, names, meaning in _FAMILIES:
-                with g.cell():
+                with st_zoom(130),g.cell():
                     st_write(bs.fam_title, family, tag=t.div)
                     st_write(bs.names, names, tag=t.div)
                     st_space("v", 1)
