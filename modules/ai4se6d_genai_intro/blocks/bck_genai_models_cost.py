@@ -21,6 +21,8 @@ from shared_widgets import st_hover_tooltip
 
 # Inside each st_slide box (min-height 80vh, centred, 10vh margins = one screen per slide): stack the
 # content from the top, without page_fill_top's own 85vh, which would make each slide taller than the screen.
+# The cost slide is taller than the families slide: top-aligned, no top margin, so it fits one screen.
+_slide_top = Style("justify-content:flex-start;margin-top:0;", "mc_slide_top")
 _slide_body = Style("display:flex;flex-direction:column;justify-content:flex-start;gap:1.5rem;", "mc_slide_body")
 
 _family = Style.create(
@@ -53,12 +55,7 @@ class BlockStyles:
     code = Style.create(
         s.text.sizes.pt24 + s.text.fonts.font_monospace + s.project.colors.primary, "mc_code",
     )
-    sentence = Style.create(s.text.sizes.pt44 + s.bold + s.center_txt, "mc_sentence")
-    tok_a = Style.create(s.project.colors.primary, "mc_tok_a")
-    tok_b = Style.create(s.project.colors.accent, "mc_tok_b")
-    tok_c = Style.create(s.project.colors.highlight, "mc_tok_c")
-    tok_m = Style.create(s.project.colors.muted, "mc_tok_m")
-    rule = Style.create(s.text.sizes.pt28 + s.bold + s.project.colors.highlight + s.center_txt, "mc_rule")
+    rule = Style.create(s.text.sizes.pt44 + s.bold + s.project.colors.highlight + s.center_txt, "mc_rule")
     calc = Style.create(s.text.sizes.pt28, "mc_calc")
     calc_key = Style.create(s.text.sizes.pt28 + s.bold + s.project.colors.highlight, "mc_calc_key")
 
@@ -86,7 +83,6 @@ _NOTES_FAMILIES = [
 
 _NOTES_COST = [
     ("Message", "You pay for every token sent and received; an agent re-sends the context at every turn."),
-    ("The split", "\"Luxembourg\" cut in two is illustrative: each model has its own tokenizer."),
     ("Habits", "One task per session, short AGENTS.md, point to the files needed (@file) instead of the whole repo."),
     ("The budget", "Each key is capped at $10 on OpenRouter. DeepSeek V4.1 Flash costs about $0.05 per million tokens "
                    "sent and $0.20 per million generated: $10 ≈ 200 M tokens sent (≈ 130 M on the MiniMax backup). "
@@ -124,37 +120,25 @@ def _families_slide():
 def _cost_slide():
     with st_block(_slide_body):
         _header("Your Key · Tokens = Cost", "2", _NOTES_COST)
-        with st_grid(cols="1fr 1fr", gap="16px", cell_styles=_panel) as g:
-            with g.cell():
-                st_write(bs.panel_title, "What your key gives you", tag=t.div)
-                with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                    with l.item():
-                        st_write(bs.body, (bs.key, "≈ 200 million tokens"),
-                                 " — when they are spent, calls stop.")
-                    with l.item():
-                        st_write(bs.body, (bs.key, "Main model"), ": ", (bs.code, "deepseek-v4.1-flash"))
-                    with l.item():
-                        st_write(bs.body, (bs.key, "Backup model"), ": ", (bs.code, "minimax-m3.1-flash"))
-                    with l.item():
-                        st_write(bs.body, (bs.key, "A secret"), " — never in a prompt, a commit or an issue.")
-                    with l.item():
-                        st_write(bs.body, "Cost grows with ", (bs.key, "context size"), " × ",
-                                 (bs.key, "number of turns"), ".")
-            with g.cell():
-                st_write(bs.panel_title, "The model reads tokens", tag=t.div)
-                st_space("v", 2)
-                st_write(
-                    bs.sentence,
-                    "« ", (bs.tok_a, "Luxem"), (bs.tok_b, "bourg"), (bs.tok_c, " is"),
-                    (bs.tok_a, " a"), (bs.tok_m, " ____"), " »",
-                    tag=t.div,
-                )
-                st_space("v", 2)
-                st_write(bs.body, "Fragments, not words — each one a number.", tag=t.div)
-                st_space("v", 1)
-                st_write(bs.rule, "1 token ≈ 4 characters ≈ ¾ of a word", tag=t.div)
-
-        with st_block(_calc_box):
+        # NG, 2026-11-22: right panel removed; the token rule moves under the title, in orange;
+        # the single panel at 160 % and the line below zoomed too.
+        st_write(bs.rule, "1 token ≈ ¾ of a word", tag=t.div)
+        with st_zoom(160), st_block(_panel):
+            st_write(bs.panel_title, "What your key gives you", tag=t.div)
+            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                with l.item():
+                    st_write(bs.body, (bs.key, "≈ 200 million tokens"),
+                             " — when they are spent, calls stop.")
+                with l.item():
+                    st_write(bs.body, (bs.key, "Main model"), ": ", (bs.code, "deepseek-v4.1-flash"))
+                with l.item():
+                    st_write(bs.body, (bs.key, "Backup model"), ": ", (bs.code, "minimax-m3.1-flash"))
+                with l.item():
+                    st_write(bs.body, (bs.key, "A secret"), " — never in a prompt, a commit or an issue.")
+                with l.item():
+                    st_write(bs.body, "Cost grows with ", (bs.key, "context size"), " × ",
+                             (bs.key, "number of turns"), ".")
+        with st_zoom(115), st_block(_calc_box):
             st_write(
                 bs.calc,
                 "Back of the envelope — a long agent session re-sends ",
@@ -168,5 +152,5 @@ def build():
     # as in streamtex-all-trainings. The second one gets its own listed marker.
     with st_slide():
         _families_slide()
-    with st_slide(cut=True, marker="Your Key · Tokens = Cost"):
+    with st_slide(cut=True, marker="Your Key · Tokens = Cost", style=_slide_top):
         _cost_slide()
