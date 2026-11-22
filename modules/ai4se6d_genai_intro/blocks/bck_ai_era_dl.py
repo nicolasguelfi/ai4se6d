@@ -47,7 +47,7 @@ def build():
             st_write(bs.heading, "2010s — Deep Learning", tag=t.div, toc_lvl="1")
 
             with st_grid(
-                cols="2fr 3fr",
+                cols="1.5fr 3.5fr",
                 gap="24px",
                 cell_styles=_cell,
             ) as g:
@@ -67,6 +67,7 @@ def build():
                         with st_list(
                             list_type=lt.unordered,
                             li_style=bs.body,
+                            item_gap=0.6,  # 0.6 em between items — streamtex st_list(item_gap=), 0.7.85 (NG, 2026-11-22)
                         ) as l:
                             with l.item():
                                 st_write(
