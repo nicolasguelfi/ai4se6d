@@ -161,6 +161,26 @@ class ContainerStylesCustom:
     cell_pad_sm = Style("padding: 8px 12px;", "cell_pad_sm")
     cell_pad_md = Style("padding: 12px 16px;", "cell_pad_md")
 
+    # Alternating row fills — motif « lignes-alternées » (L2 + fonds f1) of streamtex-all-trainings
+    # (_project/MOTIFS.md §2; trainings_pack palette row_1/row_2, _base.make_rows). NG, 2026-11-22.
+    # Neutral fills, so the text keeps its own colours. Usage in a block:
+    #     cols = "5% 90% 5%"; cells = s.project.containers.rows(len(ITEMS), cols, filled=(2,))
+    #     with st_grid(cols=cols, gap="2vh 1vw", cell_styles=cells) as g: ...
+    row_fill_1 = Style("background-color: #1F2531; padding: 0.3vh 1vw; border-radius: 0.6vw;", "row_fill_1")
+    row_fill_2 = Style("background-color: #2A3242; padding: 0.3vh 1vw; border-radius: 0.6vw;", "row_fill_2")
+    row_cell_left = Style.create(Container.layouts.vertical_center_layout + Style("text-align: left;", "txt_left_rows"),
+                                 "row_cell_left")
+
+    @staticmethod
+    def rows(n_rows, cols, filled=(2,), fills=None, base=None):
+        """Cell styles of a grid with ALTERNATING ROW FILLS, row after row: row i takes fills[i % len(fills)]
+        on the `filled` columns (numbered from 1); the other columns stay plain (margins)."""
+        ncols = len(cols.split()) if isinstance(cols, str) else int(cols)
+        fills = fills or (ContainerStylesCustom.row_fill_1, ContainerStylesCustom.row_fill_2)
+        base = base or ContainerStylesCustom.row_cell_left
+        return [base + fills[i % len(fills)] if j + 1 in filled else base
+                for i in range(n_rows) for j in range(ncols)]
+
     # Grid cell centering (shared across all balanced/grid blocks)
     grid_cell_centered = Style.create(
         Container.layouts.vertical_center_layout + StxStyles.center_txt,
