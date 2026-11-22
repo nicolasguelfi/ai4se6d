@@ -4,6 +4,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -38,27 +39,51 @@ _ROW_CELLS = [s.project.containers.table_header_cell, s.project.containers.table
 ] * 4
 
 
+_NOTES = [
+    ("The message",
+     "Five agents, the same five ideas under different names: which models, where the project rules live, how to "
+     "plan before acting, how to extend the agent, and whether the code is open."),
+    ("Reading the table",
+     "The opencode column is highlighted: it is the tool of the week. AGENTS.md is read by opencode, Codex CLI, "
+     "Cursor and Copilot; Claude Code uses CLAUDE.md. Every agent has a plan-first mode and speaks MCP."),
+    ("The trap",
+     "Comparing menus. The table ages (state November 2026); the concepts in the first column do not."),
+    ("Link to the course",
+     "Next slide: MCP, the extension column shared by all five."),
+    ("Ask the room",
+     "« Which line of this table matters most to your company? » (often: models, or open source)"),
+]
+
+
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_block(s.center_txt):
-            st_write(bs.heading, "Same Ideas, New Names", tag=t.div, toc_lvl="1")
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(85):
+                st_write(bs.heading, "Same Ideas, New Names", tag=t.div, toc_lvl="1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Same Ideas, New Names", entries=_NOTES,
+                                 position="left", width="50vw")
+        st_space("v", "3vh")
 
-            with st_zoom(72):
-                # Header row
-                with st_grid(cols=_COLS, gap="8px", cell_styles=s.project.containers.table_header_cell) as g:
-                    for header in _HEADERS:
+        with st_zoom(82):
+            # Header row
+            with st_grid(cols=_COLS, gap="8px", cell_styles=s.project.containers.table_header_cell) as g:
+                for header in _HEADERS:
+                    with g.cell():
+                        st_write(bs.header_text, header)
+
+            # Data rows: the opencode column is highlighted
+            for row in _ROWS:
+                with st_grid(cols=_COLS, gap="8px", cell_styles=_ROW_CELLS) as g:
+                    with g.cell():
+                        st_write(bs.row_label, row[0])
+                    for value in row[1:]:
                         with g.cell():
-                            st_write(bs.header_text, header)
+                            st_write(bs.cell_text, value)
 
-                # Data rows: the opencode column is highlighted
-                for row in _ROWS:
-                    with st_grid(cols=_COLS, gap="8px", cell_styles=_ROW_CELLS) as g:
-                        with g.cell():
-                            st_write(bs.row_label, row[0])
-                        for value in row[1:]:
-                            with g.cell():
-                                st_write(bs.cell_text, value)
-
+        st_space("v", "3vh")
+        with st_zoom(130):
             st_write(
                 bs.caption,
                 "Learn the concept, not the menu.",

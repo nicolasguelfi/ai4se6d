@@ -14,18 +14,21 @@ class BlockStyles:
     heading = s.project.titles.slide_title + s.center_txt
     stat = s.project.titles.stat_hero
     sub_stat = Style.create(
-        s.Large + s.project.colors.muted + s.center_txt,
+        s.Large + s.project.colors.muted,
         "vc_danger_trust_sub",
     )
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.primary
     keyword_warn = s.bold + s.project.colors.highlight
-    source = s.project.citation + s.large + s.center_txt
+    source = s.project.citation + s.large
     closing = Style.create(
-        s.Large + s.bold + s.center_txt + s.project.colors.accent,
+        s.Large + s.bold + s.project.colors.accent,
         "vc_danger_trust_closing",
     )
 bs = BlockStyles
+
+# Text cell: vertically centred, left-aligned (NG, 2026-11-23: recipes of the intro module)
+_text_cell = Style.create(s.container.layouts.vertical_center_layout + Style("text-align:left;", "txt_left"), "vc_danger_trust_text_cell")
 
 _PROMPT = (
     f"{_PREFIX} A large downward-trending graph line in amber, starting high on the left "
@@ -40,7 +43,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
-                with h.cell():
+                with h.cell(), st_zoom(80):   # one-line title
                     st_write(bs.heading, "The Trust Crisis", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(
@@ -78,9 +81,9 @@ def build():
                     )
 
             with st_grid(
-                cols="1.7fr 3.3fr",
-                gap="24px",
-                cell_styles=s.project.containers.grid_cell_centered,
+                cols="1.5fr 3.5fr",
+                gap="3vw",
+                cell_styles=[s.project.containers.grid_cell_centered, _text_cell],
             ) as g:
                 with g.cell():
                     st_image(
@@ -94,51 +97,52 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(60):
-                        st_write(bs.stat, "33%")
-                    st_write(
-                        bs.sub_stat,
-                        "of developers trust AI output accuracy (2025)",
-                    )
-                    st_write(
-                        bs.sub_stat,
-                        "down from 43% in 2024",
-                    )
-                    st_space("v", 0.5)
+                    with st_zoom(85):   # text cell fills the slide (NG, 2026-11-23)
+                        with st_zoom(60):
+                            st_write(bs.stat, "33%")
+                        st_write(
+                            bs.sub_stat,
+                            "of developers trust AI output accuracy (2025)",
+                        )
+                        st_write(
+                            bs.sub_stat,
+                            "down from 43% in 2024",
+                        )
+                        st_space("v", 0.5)
 
-                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword_warn, "46%"),
-                                " ",
-                                (bs.keyword_warn, "distrust"),
-                                " the accuracy of AI output",
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword_warn, "66%"),
-                                " top frustration: ",
-                                "\u201calmost right, but not quite\u201d",
-                            )
-                        with l.item():
-                            st_write(
-                                bs.body,
-                                (bs.keyword, "45%"),
-                                ": ",
-                                (bs.keyword_warn, "debugging AI code"),
-" takes longer",
-                            )
+                        with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered, text_align="left", item_gap=0.6) as l:
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword_warn, "46%"),
+                                    " ",
+                                    (bs.keyword_warn, "distrust"),
+                                    " the accuracy of AI output",
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword_warn, "66%"),
+                                    " top frustration: ",
+                                    "\u201calmost right, but not quite\u201d",
+                                )
+                            with l.item():
+                                st_write(
+                                    bs.body,
+                                    (bs.keyword, "45%"),
+                                    ": ",
+                                    (bs.keyword_warn, "debugging AI code"),
+    " takes longer",
+                                )
 
-                    st_space("v", 0.5)
-                    # REF: Stack Overflow Developer Surveys 2024, 2025, 2026
-                    st_write(
-                        bs.source,
-                        cite("so-survey2025"), " · ", cite("so-survey2026"),
-                    )
-                    st_space("v", 0.5)
-                    st_write(
-                        bs.closing,
-                        "Adoption is rising. Trust is falling. Verify before you trust.",
-                    )
+                        st_space("v", 0.5)
+                        # REF: Stack Overflow Developer Surveys 2024, 2025, 2026
+                        st_write(
+                            bs.source,
+                            cite("so-survey2025"), " · ", cite("so-survey2026"),
+                        )
+                        st_space("v", 0.5)
+                        st_write(
+                            bs.closing,
+                            "Adoption is rising. Trust is falling. Verify before you trust.",
+                        )

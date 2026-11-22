@@ -5,6 +5,7 @@ from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 class BlockStyles:
     """Copilot RCT stat-hero styles."""
@@ -21,12 +22,31 @@ class BlockStyles:
     )
 bs = BlockStyles
 
+_NOTES = [
+    ('The message',
+     'The same tool can save half the time or cost time: it depends on the task.'),
+    ('−55.8%',
+     'Peng et al. (2023), a randomized controlled trial on GitHub Copilot: developers with Copilot finished a simple, well-defined lab task in 55.8% less time.'),
+    ('+19%',
+     'METR (2025): experienced developers on their own real repositories took 19% MORE time with AI tools (see « The METR Paradox »; the February 2026 update follows newer tools).'),
+    ('The difference',
+     'Complexity and discipline: a small, closed task suits generation; a large code base with its history and constraints needs context, review and tests — the VibeEngineering principles.'),
+    ('Ask the room',
+     '« Which of your tasks look like the lab task, and which like the real repo? »'),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "The Copilot Effect", tag=t.div, toc_lvl="1")
-            st_space("v", 2)
+            # title and « i » on the same line, title smaller (NG, 2026-11-23)
+            with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell(), st_zoom(80):
+                    st_write(bs.heading, "The Copilot Effect", tag=t.div, toc_lvl="1")
+                with h.cell():
+                    st_hover_tooltip(title="Trainer notes — The Copilot Effect", entries=_NOTES,
+                                     position="left", width="50vw")
+            st_space("v", 1)
 
             with st_grid(
                 cols="1fr 1fr",

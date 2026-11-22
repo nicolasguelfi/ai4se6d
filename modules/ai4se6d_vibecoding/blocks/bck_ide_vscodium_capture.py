@@ -12,4 +12,4 @@ from custom.styles import Styles as s
 def build():
     st_marker("VSCodium — screenshot")  # its own page, with no visible title
     with st_block(s.project.containers.page_fill_center_wide):
-        st_image(uri="images/ide/ide_vscodium_diff.png", width="100%", max_vh=85, align="center")
+        st_image(uri="images/ide/ide_vscodium_diff.png", width="100%", max_vh=92, align="center")   # maximised, alone on its slide (NG, 2026-11-23)

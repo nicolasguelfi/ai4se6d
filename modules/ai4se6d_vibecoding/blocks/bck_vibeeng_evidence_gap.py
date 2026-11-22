@@ -5,6 +5,7 @@ from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 class BlockStyles:
     """Experience Gap stat-hero styles."""
@@ -31,12 +32,33 @@ class BlockStyles:
     )
 bs = BlockStyles
 
+_NOTES = [
+    ('The message',
+     'AI does not help everyone equally: short-tenure developers gain +27–39%, long-tenure developers +8–13%.'),
+    ('The study',
+     'Cui et al. (2024): three field experiments, 4,867 developers in total, with access to an AI coding assistant in their real jobs.'),
+    ('Reading it',
+     'AI compensates for missing experience: it fills gaps in syntax, libraries and patterns. Experts gain less because those gaps are small for them.'),
+    ('The trap',
+     'Gaining speed is not gaining judgment: the junior who ships faster still needs to know what to check — AI cannot replace expert judgment.'),
+    ('Link to the course',
+     'This is why review (P5) and requirements (P1) matter most for those who gain most.'),
+    ('Ask the room',
+     '« Where does AI make you faster — and where would you not notice its mistakes? »'),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "The Experience Gap", tag=t.div, toc_lvl="1")
-            st_space("v", 2)
+            # title and « i » on the same line, title smaller (NG, 2026-11-23)
+            with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell(), st_zoom(80):
+                    st_write(bs.heading, "The Experience Gap", tag=t.div, toc_lvl="1")
+                with h.cell():
+                    st_hover_tooltip(title="Trainer notes — The Experience Gap", entries=_NOTES,
+                                     position="left", width="50vw")
+            st_space("v", 4)
 
             with st_grid(
                 cols="1fr 1fr",
@@ -61,7 +83,7 @@ def build():
                 # REF: Cui et al. 2024, SSRN 4945566
                 st_write(bs.source, cite("cui-fieldexperiments2024"))
 
-            st_space("v", 2)
+            st_space("v", 4)
             with st_zoom(150):
                 st_write(
                     bs.closing,

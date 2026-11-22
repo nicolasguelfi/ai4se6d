@@ -8,8 +8,9 @@ with paid API keys and enterprise licences), Cursor product pages.
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.bib import cite
-from streamtex.enums import Tags as t, ListTypes as lt
+from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -26,39 +27,65 @@ class BlockStyles:
     source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
+_NOTES = [
+    ("The message",
+     "At work you will meet other agents than opencode. One line each, to recognise them (state of November 2026)."),
+    ("The four",
+     "Cursor: an AI-native editor with agent and plan modes. GitHub Copilot: an agent in the IDE, and a cloud agent "
+     "that turns an issue into a pull request. Codex CLI: OpenAI's terminal agent, open source, reads AGENTS.md. "
+     "Gemini CLI: Google's, succeeded by Antigravity CLI (May 2026)."),
+    ("The trap",
+     "This landscape changes every few months (Gemini CLI replaced, Copilot's agent renamed): the names age, the "
+     "concepts stay."),
+    ("Link to the course",
+     "Next slide: the same concepts lined up across five agents."),
+    ("Ask the room",
+     "« Which of these does your company allow? Which data may it see? »"),
+]
+
+_ITEMS = [
+    # REF: cursor-ainative2025
+    ((bs.keyword, "Cursor"), " — AI-native editor, agent and plan modes"),
+    # REF: copilot-plans2025
+    ((bs.keyword, "GitHub Copilot"), " — IDE agent; cloud agent: issue → pull request"),
+    # REF: openai-codex-cli2025
+    ((bs.keyword, "Codex CLI"), " — OpenAI, open source, reads AGENTS.md"),
+    ((bs.keyword, "Gemini CLI"), " — Google; succeeded by ", (bs.keyword_warn, "Antigravity CLI"), " (May 2026)"),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_block(s.center_txt):
-            st_write(bs.heading, "Other Agents", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(85):
+                st_write(bs.heading, "Other Agents", tag=t.div, toc_lvl="1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Other Agents", entries=_NOTES, position="left", width="50vw")
+        st_space("v", "3vh")
 
-            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-                # REF: cursor-ainative2025
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "Cursor"), " — AI-native editor, agent and plan modes")
-                # REF: copilot-plans2025
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "GitHub Copilot"), " — IDE agent; cloud agent: issue → pull request")
-                # REF: openai-codex-cli2025
-                with l.item():
-                    st_write(bs.body, (bs.keyword, "Codex CLI"), " — OpenAI, open source, reads AGENTS.md")
-                with l.item():
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Gemini CLI"), " — Google; succeeded by ",
-                        (bs.keyword_warn, "Antigravity CLI"), " (May 2026)",
-                    )
+        # one row per agent, alternating fills (motif L2 + fonds f1), margins 5 %
+        cols = "5% 90% 5%"
+        cells = s.project.containers.rows(len(_ITEMS), cols, filled=(2,))
+        with st_zoom(100), st_grid(cols=cols, gap="2.5vh 1vw", cell_styles=cells) as g:
+            for parts in _ITEMS:
+                with g.cell():
+                    pass  # left margin
+                with g.cell():
+                    st_write(bs.body, *parts, tag=t.div)
+                with g.cell():
+                    pass  # right margin
 
-            st_space("v", 1)
+        st_space("v", "3vh")
+        with st_zoom(110):
             st_write(
                 bs.takeaway,
                 "Not exclusive: know which one to reach for.",
                 tag=t.div,
             )
-            st_write(
-                bs.source,
-                cite("cursor-ainative2025"), " · ", cite("copilot-plans2025"),
-                " · ", cite("openai-codex-cli2025"),
-                " · developers.googleblog.com, 19 May 2026",
-            )
+        st_write(
+            bs.source,
+            cite("cursor-ainative2025"), " · ", cite("copilot-plans2025"),
+            " · ", cite("openai-codex-cli2025"),
+            " · developers.googleblog.com, 19 May 2026",
+        )

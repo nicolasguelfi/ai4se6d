@@ -4,6 +4,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -22,14 +23,40 @@ class BlockStyles:
     )
 bs = BlockStyles
 
-_LEAD_ZOOM = 75
-_GRID_ZOOM = 50  # eight bullets in two columns: scaled to fit one screen like the neighbouring slides
+_LEAD_ZOOM = 90
+_GRID_ZOOM = 65  # eight bullets in two columns: scaled to fit one screen like the neighbouring slides
+
+_NOTES = [
+    ("The message",
+     "Two tools, two roles: opencode CHANGES the project, the editor is for READING it. No step of the course "
+     "requires an editor."),
+    ("Four uses",
+     "Read the whole tree at a glance; see what the agent changed (Source Control, green/red diff); read the "
+     "Markdown plans, requirements and reviews in preview; fix one line by hand — save, then tell opencode."),
+    ("Why the editor's AI stays off",
+     "Two agents overwrite each other; the editor's agent also reads AGENTS.md; completion writes your test for you "
+     "(day 2); agent extensions such as Cline, Continue or Kilo bring a second agent back."),
+    ("The trap",
+     "Committing or syncing from the editor bypasses opencode and GSE-One: commits, branches and merges stay with "
+     "them — no Commit or Sync button in the editor."),
+    ("Source",
+     "The course kit's IDE guide: ai4se-kit/syllabus/ide-guide.md."),
+    ("Ask the room",
+     "« Who already uses an editor with an AI assistant? What happens if it and opencode edit the same file? »"),
+]
 
 
 def build():
     with st_block(s.project.containers.page_fill_top):
+        # title and « i » on the same line, title smaller (NG, 2026-11-23)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(75):
+                st_write(bs.heading, "Where an IDE Fits in This Course", tag=t.div, toc_lvl="1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Where an IDE Fits in This Course", entries=_NOTES,
+                                 position="left", width="50vw")
+        st_space("v", "2vh")
         with st_block(s.center_txt):
-            st_write(bs.heading, "Where an IDE Fits in This Course", tag=t.div, toc_lvl="1")
             with st_zoom(_LEAD_ZOOM):
                 st_write(
                     bs.lead,
@@ -45,7 +72,8 @@ def build():
             ) as g:
                 with g.cell():
                     st_write(bs.column_title, "Four uses", tag=t.div)
-                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered, text_align="left",
+                                 item_gap=0.6) as l:
                         with l.item():
                             st_write(bs.body, (bs.keyword_accent, "Read the code"), " — the whole tree at a glance")
                         with l.item():
@@ -65,7 +93,8 @@ def build():
                             )
                 with g.cell():
                     st_write(bs.column_title, "Workshops: the editor's AI stays off", tag=t.div)
-                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered, text_align="left",
+                                 item_gap=0.6) as l:
                         with l.item():
                             st_write(bs.body, (bs.keyword_critical, "Two agents"), " overwrite each other")
                         with l.item():
@@ -81,6 +110,7 @@ def build():
                                 " (Cline, Continue, Kilo) bring a second agent back",
                             )
 
+            st_space("v", "3vh")
             st_write(
                 bs.takeaway,
                 "Commits, branches and merges stay with opencode and GSE-One: "

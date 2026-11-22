@@ -15,6 +15,7 @@ Do NOT reuse the dates of streamtex-all-trainings' bck_ethics_european_parliamen
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -66,6 +67,50 @@ _MILESTONES = [
 ]
 
 
+_NOTES_RISK = [
+    ("The message",
+     "The EU AI Act regulates AI by risk level. Your coding assistant is generally not high-risk; what you build "
+     "with it may be."),
+    ("Three levels",
+     "Unacceptable (contrary to EU values, e.g. social scoring): banned. High-risk (safety or fundamental rights: "
+     "hiring, credit, exams…): strict requirements and a conformity assessment. Low or minimal (all other AI "
+     "systems): no obligation, or transparency."),
+    ("The trap",
+     "The tool's risk level is not your product's: an app that screens job candidates or grades exams is high-risk, "
+     "even if it was written with a harmless assistant."),
+    ("Source",
+     "Regulation (EU) 2024/1689 (the AI Act)."),
+    ("Ask the room",
+     "« Which of your own projects would fall into the high-risk row? »"),
+]
+
+_NOTES_TIMELINE = [
+    ("The message",
+     "The AI Act applies in stages. On the course dates, the first four milestones already apply."),
+    ("Already in force",
+     "Entry into force 1 Aug 2024; prohibited practices and AI literacy (Art. 4) from 2 Feb 2025; general-purpose AI "
+     "models (LLMs) from 2 Aug 2025; most other rules (transparency, penalties) from 2 Aug 2026."),
+    ("What moved",
+     "The Digital Omnibus on AI (proposed 19 Nov 2025) is now law: Regulation (EU) 2026/1744, in force 27 Jul 2026. "
+     "High-risk rules move to 2 Dec 2027 (stand-alone, Annex III; was 2 Aug 2026) and 2 Aug 2028 (in products, "
+     "Annex I; was 2 Aug 2027)."),
+    ("AI literacy",
+     "Art. 4 already asks organisations that use AI to make sure their staff understand it — this course is part "
+     "of that."),
+    ("Checked",
+     "Status checked on EUR-Lex on 9 Nov 2026."),
+]
+
+
+def _header(title, notes, toc_lvl, zoom=80):
+    """Title (one line) with the « i » at the top right, in the 95% / 5% header grid (NG, 2026-11-23)."""
+    with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+        with h.cell(), st_zoom(zoom):
+            st_write(bs.heading, title, tag=t.div, toc_lvl=toc_lvl)
+        with h.cell():
+            st_hover_tooltip(title=f"Trainer notes — {title}", entries=notes, position="left", width="50vw")
+
+
 def _table(cols, headers, rows):
     """Header row + data rows; highlighted rows use the active cell style."""
     with st_grid(cols=cols, gap="8px", cell_styles=s.project.containers.table_header_cell) as g:
@@ -88,13 +133,14 @@ def build():
     # Slide 1 — risk-based approach, and where your coding assistant sits
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.heading, "EU AI Act", tag=t.div, toc_lvl="1")
-            st_write(bs.tagline, "What it means for you this week", tag=t.div)
-
-            with st_zoom(85):
+            _header("EU AI Act", _NOTES_RISK, "1")
+            with st_zoom(110):
+                st_write(bs.tagline, "What it means for you this week", tag=t.div)
+            st_space("v", "2vh")
+            with st_zoom(95):
                 _table(_RISK_COLS, _RISK_HEADERS, _RISKS)
-
-            with st_block(s.project.containers.callout):
+            st_space("v", "3vh")
+            with st_zoom(100), st_block(s.project.containers.callout):
                 st_write(
                     bs.message,
                     "Your coding assistant: generally ", (bs.keyword_accent, "not high-risk"),
@@ -102,15 +148,19 @@ def build():
                     tag=t.div,
                 )
 
+    # empty space below slide 1: the next slide's title stays off screen on slide 1, and slide 1's callout stays
+    # off screen on slide 2 (NG, 2026-11-23: each slide on its own screen)
+    st_space("v", "18vh")
     st_slide_break()
 
     # Slide 2 — official timeline + Digital Omnibus status
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-            st_write(bs.subheading, "AI Act Timeline", tag=t.div, toc_lvl="2")
-
-            with st_zoom(85):
+            _header("AI Act Timeline", _NOTES_TIMELINE, "2")
+            st_space("v", "1vh")
+            with st_zoom(90):
                 _table(_TIME_COLS, _TIME_HEADERS, _MILESTONES)
+            st_space("v", "2vh")
 
             st_write(
                 bs.body,

@@ -14,8 +14,11 @@ class BlockStyles:
     heading = s.project.titles.slide_title + s.center_txt
     stat = s.project.titles.stat_hero
     body = s.project.titles.body
-    source = s.project.citation + s.large + s.center_txt
+    source = s.project.citation + s.large
 bs = BlockStyles
+
+# Text cell: vertically centred, left-aligned (NG, 2026-11-23: recipes of the intro module)
+_text_cell = Style.create(s.container.layouts.vertical_center_layout + Style("text-align:left;", "txt_left"), "vc_danger_vuln_text_cell")
 
 _PROMPT = (
     f"{_PREFIX} A shield icon in electric blue with deep cracks running through it, "
@@ -28,7 +31,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
-                with h.cell():
+                with h.cell(), st_zoom(80):   # one-line title
                     st_write(bs.heading, "Security Vulnerabilities", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(
@@ -56,9 +59,9 @@ def build():
                     )
 
             with st_grid(
-                cols="2fr 3fr",
-                gap="24px",
-                cell_styles=s.project.containers.grid_cell_centered,
+                cols="1.5fr 3.5fr",
+                gap="3vw",
+                cell_styles=[s.project.containers.grid_cell_centered, _text_cell],
             ) as g:
                 with g.cell():
                     st_image(
@@ -72,25 +75,26 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(60):
-                        st_write(bs.stat, "45%")
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "of AI code samples failed security tests (100+ models).",
-                    )
-                    # REF: https://www.veracode.com/blog/genai-code-security-report/
-                    st_write(bs.source, cite("veracode-genai2025"))
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "\u2265 62% of 331,000 AI-generated C programs: vulnerable.",
-                    )
-                    # REF: https://arxiv.org/abs/2404.18353
-                    st_write(bs.source, cite("tihanyi-secure2024"))
-                    st_space("v", 1)
-                    with st_zoom(150):
+                    with st_zoom(105):   # text cell fills the slide (NG, 2026-11-23)
+                        with st_zoom(60):
+                            st_write(bs.stat, "45%")
+                        st_space("v", 1)
                         st_write(
-                            bs.body+s.project.colors.muted,
-                            "We'll see yours soon!",
+                            bs.body,
+                            "of AI code samples failed security tests (100+ models).",
                         )
+                        # REF: https://www.veracode.com/blog/genai-code-security-report/
+                        st_write(bs.source, cite("veracode-genai2025"))
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            "\u2265 62% of 331,000 AI-generated C programs: vulnerable.",
+                        )
+                        # REF: https://arxiv.org/abs/2404.18353
+                        st_write(bs.source, cite("tihanyi-secure2024"))
+                        st_space("v", 1)
+                        with st_zoom(150):
+                            st_write(
+                                bs.body+s.project.colors.muted,
+                                "We'll see yours soon!",
+                            )

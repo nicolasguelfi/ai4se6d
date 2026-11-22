@@ -16,8 +16,11 @@ class BlockStyles:
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.primary
     keyword_warn = s.bold + s.project.colors.highlight
-    source = s.project.citation + s.large + s.center_txt
+    source = s.project.citation + s.large
 bs = BlockStyles
+
+# Text cell: vertically centred, left-aligned (NG, 2026-11-23: recipes of the intro module)
+_text_cell = Style.create(s.container.layouts.vertical_center_layout + Style("text-align:left;", "txt_left"), "vc_danger_metr_text_cell")
 
 _PROMPT = (
     f"{_PREFIX} A brain split in two halves: left half is bright and optimistic with "
@@ -31,7 +34,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
-                with h.cell():
+                with h.cell(), st_zoom(80):   # one-line title
                     st_write(bs.heading, "The METR Paradox", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(
@@ -80,8 +83,8 @@ def build():
 
             with st_grid(
                 cols="1.5fr 3.5fr",
-                gap="24px",
-                cell_styles=s.project.containers.grid_cell_centered,
+                gap="3vw",
+                cell_styles=[s.project.containers.grid_cell_centered, _text_cell],
             ) as g:
                 with g.cell():
                     st_image(
@@ -95,27 +98,28 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(60):
-                        st_write(bs.stat, "+19%")
-                    st_space("v", 0.5)
-                    st_write(
-                        bs.body,
-                        "more time with AI \u2014 experienced devs, own repos, early 2025.",
-                    )
-                    st_space("v", 0.5)
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Perception gap: "),
-                        "forecast 24% faster; afterwards ",
-                        (bs.keyword_warn, "still believed"),
-                        " 20% faster.",
-                    )
-                    st_space("v", 0.5)
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Feb 2026 update: "),
-                        "newer tools likely faster, not yet measurable.",
-                    )
-                    st_space("v", 0.5)
-                    # REF: METR, arXiv 2507.09089, July 2025 + METR blog 2026-02-24
-                    st_write(bs.source, cite("metr2025"), " · ", cite("metr-uplift2026"))
+                    with st_zoom(105):   # text cell fills the slide (NG, 2026-11-23)
+                        with st_zoom(60):
+                            st_write(bs.stat, "+19%")
+                        st_space("v", 0.5)
+                        st_write(
+                            bs.body,
+                            "more time with AI \u2014 experienced devs, own repos, early 2025.",
+                        )
+                        st_space("v", 0.5)
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Perception gap: "),
+                            "forecast 24% faster; afterwards ",
+                            (bs.keyword_warn, "still believed"),
+                            " 20% faster.",
+                        )
+                        st_space("v", 0.5)
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Feb 2026 update: "),
+                            "newer tools likely faster, not yet measurable.",
+                        )
+                        st_space("v", 0.5)
+                        # REF: METR, arXiv 2507.09089, July 2025 + METR blog 2026-02-24
+                        st_write(bs.source, cite("metr2025"), " · ", cite("metr-uplift2026"))

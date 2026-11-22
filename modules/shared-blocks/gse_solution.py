@@ -36,12 +36,25 @@ _FOOT = Style.create(s.project.titles.caption + s.italic + s.center_txt, "gse_so
 DEFAULT_FOOT = "Concept only — you will use GSE-One from day 3."
 
 
-def gse_solution(*, cycle, label, problem, solution, foot=DEFAULT_FOOT, zoom=60):
-    """Render the slide: cycle tag, heading, the problem, GSE-One's solution, a footnote."""
+def gse_solution(*, cycle, label, problem, solution, foot=DEFAULT_FOOT, zoom=60, notes=None):
+    """Render the slide: cycle tag, heading, the problem, GSE-One's solution, a footnote.
+
+    ``notes``: optional trainer notes, a list of (heading, text); when given, the « i » sits on the title line
+    (header grid 95% / 5%, NG 2026-11-23). Without it the slide is drawn as before.
+    """
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(zoom):
             st_write(_CYCLE, cycle, tag=t.div)
-            st_write(_HEADING, "How GSE-One Solves It", tag=t.div, toc_lvl="+1", label=label)
+            if notes:
+                from shared_widgets import st_hover_tooltip
+                with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+                    with h.cell():
+                        st_write(_HEADING, "How GSE-One Solves It", tag=t.div, toc_lvl="+1", label=label)
+                    with h.cell():
+                        st_hover_tooltip(title=f"Trainer notes — {label}", entries=notes,
+                                         position="left", width="50vw")
+            else:
+                st_write(_HEADING, "How GSE-One Solves It", tag=t.div, toc_lvl="+1", label=label)
             with st_block(s.project.containers.callout):
                 st_write(_BODY, (_LABEL, "The problem — "), problem, tag=t.div)
             st_write(_LABEL, "The solution GSE-One chose", tag=t.div)

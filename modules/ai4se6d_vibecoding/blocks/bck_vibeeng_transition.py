@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 class BlockStyles:
     """Transition slide styles."""
@@ -20,30 +21,60 @@ class BlockStyles:
     )
 bs = BlockStyles
 
+_NOTES_Q = [
+    ("The message", "After the dangers of naive VibeCoding: which software-engineering practices must survive when an "
+                    "AI writes the code?"),
+    ("Run it", "Let the room answer before the next slide: requirements, tests, design, review, version control… "
+               "Write their answers down; the six principles will match most of them."),
+    ("The idea", "AI changes who types the code, not what makes software reliable."),
+    ("Ask the room", "« Name one practice you would keep even if the AI wrote 100% of your code. »"),
+]
+
+_NOTES_A = [
+    ("The message", "The practices the room just listed are exactly what VibeEngineering keeps: the speed of AI, with "
+                    "the discipline of engineering."),
+    ("The metaphor", "What separates the home cook from the starred chef: not the oven, but the menu, the recipes, the "
+                     "tasting at every step and the responsibility for every plate."),
+    ("Next", "From Coding to Engineering, then the six principles (P1 to P6)."),
+    ("Ask the room", "« Which of your answers would a starred chef call a recipe, which a check? »"),
+]
+
 def build():
     # Sub-slide 1: Question
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
-                st_write(
-                    bs.question,
-                    "What Practices Remain Essential?",
-                    tag=t.div,
-                    toc_lvl="1",
-                )
+            # question and « i » on the same line, one line (NG, 2026-11-23)
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell(), st_zoom(60):
+                    st_write(
+                        bs.question,
+                        "What Practices Remain Essential?",
+                        tag=t.div,
+                        toc_lvl="1",
+                    )
+                with h.cell():
+                    st_hover_tooltip(title="Trainer notes — What Practices Remain Essential?", entries=_NOTES_Q,
+                                     position="left", width="50vw")
     st_space("v", "20vh")
     st_slide_break()
 
     # Sub-slide 2: Affirmation
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
-            st_write(
-                bs.affirmation,
-                "Exactly \u2014 That\u2019s VibeEngineering",
-                tag=t.div,
-                toc_lvl="2",
-            )
+            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell(), st_zoom(60):   # one line (NG, 2026-11-23)
+                    st_write(
+                        bs.affirmation,
+                        "Exactly \u2014 That\u2019s VibeEngineering",
+                        tag=t.div,
+                        toc_lvl="2",
+                    )
+                with h.cell():
+                    st_hover_tooltip(title="Trainer notes — Exactly, that's VibeEngineering", entries=_NOTES_A,
+                                     position="left", width="50vw")
             st_space("v", 2)
-            st_write(
-                bs.subtitle,
-                "What separates the home cook from the starred chef.",
-            )
+            with st_zoom(160):
+                st_write(
+                    bs.subtitle,
+                    "What separates the home cook from the starred chef.",
+                )

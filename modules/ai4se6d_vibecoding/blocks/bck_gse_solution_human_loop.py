@@ -8,6 +8,23 @@ class BlockStyles:
 bs = BlockStyles
 
 
+_NOTES = [
+    ("The message",
+     "The dangers seen this morning (insecure code, hallucinated packages, technical debt) share one cause: the "
+     "agent took every decision alone. GSE-One keeps the human in the loop where it matters."),
+    ("Auto, Inform, Gate",
+     "Each decision gets a level. Auto: the agent acts. Inform: it acts and tells you. Gate: it stops, shows the "
+     "options and their consequences, and waits for your choice. Risky decisions are always Gates."),
+    ("Guardrails",
+     "Some actions are blocked before they happen, whatever the prompt says."),
+    ("Link to the principles",
+     "The six VibeEngineering principles become the steps of one lifecycle: requirements, design, tests, "
+     "production, review, delivery."),
+    ("Ask the room",
+     "« Which decision of your last AI-assisted task should have been a Gate? »"),
+]
+
+
 def build():
     gse_solution(
         cycle="CCSET02 · From VibeCoding to VibeEngineering",
@@ -22,4 +39,6 @@ def build():
             "The six VibeEngineering principles become the steps of one lifecycle: "
             "requirements, design, tests, production, review, delivery.",
         ],
+        notes=_NOTES,
+        zoom=82,   # fills the slide (default 60 left the lower half empty) — NG, 2026-11-23
     )

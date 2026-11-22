@@ -8,6 +8,22 @@ class BlockStyles:
 bs = BlockStyles
 
 
+_NOTES = [
+    ("The message",
+     "Every coding agent has its own settings and commands; rules set in one are lost in the next. GSE-One is a "
+     "plugin: the method moves with you from one agent to another."),
+    ("Which agents",
+     "The same rules, commands and specialised agents for opencode, Claude Code, Cursor, Codex CLI and Gemini CLI."),
+    ("In opencode",
+     "Its rules live in AGENTS.md (the project rules seen on « opencode — Our Tool ») and its commands start with "
+     "/gse-."),
+    ("Guardrails",
+     "They act before the agent does: a commit straight on main is blocked, a force push is intercepted."),
+    ("When",
+     "Installed this afternoon, used from day 3. This slide is the concept only: no demo yet."),
+]
+
+
 def build():
     gse_solution(
         cycle="CCSET03 · The tools ecosystem, the AI Act, practical rules",
@@ -23,4 +39,6 @@ def build():
             "a force push is intercepted.",
         ],
         foot="You install it this afternoon. You use it from day 3.",
+        notes=_NOTES,
+        zoom=82,   # fills the slide (default 60 left the lower half empty) — NG, 2026-11-23
     )

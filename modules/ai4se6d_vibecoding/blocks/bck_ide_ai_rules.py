@@ -6,6 +6,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -27,10 +28,34 @@ class BlockStyles:
 bs = BlockStyles
 
 
+_NOTES = [
+    ("The message",
+     "Two short lists for the week: what never goes into a prompt, and what the agent may do on your machine. The AI "
+     "proposes; you answer for what goes out."),
+    ("Never in a prompt",
+     "Secrets (API keys — yours too —, passwords, .env files), personal data (names, e-mails, health), code under "
+     "NDA unless anonymised first. A prompt leaves your machine."),
+    ("What the agent may do",
+     "Work in one project folder, never your home directory; ask before any shell command; never run with a "
+     "« bypass permissions » option on a real machine; review every diff before you commit."),
+    ("Link to the course",
+     "These are the same rules opencode's permissions and GSE-One's guardrails enforce in the workshops."),
+    ("Ask the room",
+     "« Where is your course key stored right now? Could the agent read it? »"),
+]
+
+
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_block(s.center_txt):
-            st_write(bs.heading, "Rules for This Week", tag=t.div, toc_lvl="2")
+        # title and « i » on the same line, title smaller (NG, 2026-11-23)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(80):
+                st_write(bs.heading, "Rules for This Week", tag=t.div, toc_lvl="1")   # its own stop in the Markers (was 2: skipped by the arrows)
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Rules for This Week", entries=_NOTES, position="left",
+                                 width="50vw")
+        st_space("v", "4vh")
+        with st_zoom(85), st_block(s.center_txt):
 
             with st_grid(
                 cols="1fr 1fr",
@@ -39,7 +64,8 @@ def build():
             ) as g:
                 with g.cell():
                     st_write(bs.column_title, "Never in a prompt", tag=t.div)
-                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered, text_align="left",
+                                 item_gap=0.6) as l:
                         with l.item():
                             st_write(bs.body, (bs.keyword_critical, "Secrets"), " — keys (yours too), passwords, .env")
                         with l.item():
@@ -50,7 +76,8 @@ def build():
                             st_write(bs.body, (bs.keyword_warn, "Remember"), " — a prompt leaves your machine")
                 with g.cell():
                     st_write(bs.column_title, "What the agent may do", tag=t.div)
-                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered, text_align="left",
+                                 item_gap=0.6) as l:
                         with l.item():
                             st_write(bs.body, (bs.keyword_accent, "One project folder"), " — never your home")
                         with l.item():
@@ -60,6 +87,7 @@ def build():
                         with l.item():
                             st_write(bs.body, (bs.keyword_accent, "Review every diff"), " before commit")
 
+            st_space("v", "4vh")
             st_write(
                 bs.takeaway,
                 "The AI proposes. You answer for what goes out.",

@@ -15,8 +15,11 @@ class BlockStyles:
     stat = s.project.titles.stat_hero
     body = s.project.titles.body
     keyword = s.bold + s.project.colors.highlight
-    source = s.project.citation + s.large + s.center_txt
+    source = s.project.citation + s.large
 bs = BlockStyles
+
+# Text cell: vertically centred, left-aligned (NG, 2026-11-23: recipes of the intro module)
+_text_cell = Style.create(s.container.layouts.vertical_center_layout + Style("text-align:left;", "txt_left"), "vc_danger_halluc_text_cell")
 
 _PROMPT = (
     f"{_PREFIX} A package box icon in electric blue with a ghost-like phantom duplicate "
@@ -29,7 +32,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
-                with h.cell():
+                with h.cell(), st_zoom(80):   # one-line title
                     st_write(bs.heading, "Phantom Packages", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(
@@ -68,9 +71,9 @@ def build():
                     )
 
             with st_grid(
-                cols="2fr 3fr",
-                gap="24px",
-                cell_styles=s.project.containers.grid_cell_centered,
+                cols="1.5fr 3.5fr",
+                gap="3vw",
+                cell_styles=[s.project.containers.grid_cell_centered, _text_cell],
             ) as g:
                 with g.cell():
                     st_image(
@@ -84,21 +87,22 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(60):
-                        st_write(bs.stat, "5.2\u201321.7%")
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        "of packages in LLM-generated code do not exist.",
-                    )
-                    st_space("v", 1)
-                    st_write(
-                        bs.body,
-                        (bs.keyword, "Supply-chain attack: "),
-                        "adversaries upload malicious code under hallucinated "
-                        "package names.",
-                    )
-                    st_space("v", 1)
-                    # REF: https://arxiv.org/abs/2406.10279
-                    st_write(bs.source, cite("spracklen-packages2025"))
-                    st_write(bs.body, "Commercial vs open-source models.")
+                    with st_zoom(110):   # text cell fills the slide (NG, 2026-11-23)
+                        with st_zoom(60):
+                            st_write(bs.stat, "5.2\u201321.7%")
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            "of packages in LLM-generated code do not exist.",
+                        )
+                        st_space("v", 1)
+                        st_write(
+                            bs.body,
+                            (bs.keyword, "Supply-chain attack: "),
+                            "adversaries upload malicious code under hallucinated "
+                            "package names.",
+                        )
+                        st_space("v", 1)
+                        # REF: https://arxiv.org/abs/2406.10279
+                        st_write(bs.source, cite("spracklen-packages2025"))
+                        st_write(bs.body, "Commercial vs open-source models.")

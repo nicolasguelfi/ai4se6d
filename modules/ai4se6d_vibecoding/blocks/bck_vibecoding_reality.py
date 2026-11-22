@@ -22,13 +22,25 @@ class BlockStyles:
     )
 bs = BlockStyles
 
+_NOTES_PLACE = [
+    ("The message", "Naive VibeCoding is not banned: it is the right tool at home — personal prototypes, throwaway "
+                    "demos, learning, exploring an idea."),
+    ("Where it is not", "Production, enterprise, regulated environments, shared code: there, someone else will run, "
+                        "maintain or audit what was generated."),
+    ("The gala dinner", "Cooking for yourself, you can improvise. A gala dinner for 200 guests, with individual dietary "
+                        "requirements and the press in attendance, needs a menu, a plan and checks: that is engineering."),
+    ("The idea", "The choice depends on the stakes, not on the tool: the same agent can serve both, used differently."),
+    ("Link to the course", "Next: what practices remain essential — VibeEngineering and its six principles."),
+    ("Ask the room", "« Your project at work: home kitchen or gala dinner? »"),
+]
+
 def build():
     # Slide 27 — Anthropic Finding
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell():
-                    with st_zoom(105):
+                    with st_zoom(80):   # one-line title (NG, 2026-11-23)
                         st_write(bs.heading, "What Can Actually Be Delegated?", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(
@@ -90,7 +102,7 @@ def build():
         with st_block(s.center_txt):
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell():
-                    with st_zoom(120):
+                    with st_zoom(80):   # one-line title (NG, 2026-11-23)
                         st_write(bs.heading, "New Tools -> New Processes", tag=t.div, toc_lvl="2")
                 with h.cell():
                     st_hover_tooltip(
@@ -145,8 +157,14 @@ def build():
     with st_block(s.project.containers.page_fill_center_noalign):
         with st_zoom(110):
             with st_block(s.center_txt):
-                st_write(bs.heading, "It Has Its Place", tag=t.div, toc_lvl="2")
-                st_space("v", 1)
+                # title and « i » on the same line (NG, 2026-11-23)
+                with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+                    with h.cell(), st_zoom(75):
+                        st_write(bs.heading, "It Has Its Place", tag=t.div, toc_lvl="2")
+                    with h.cell():
+                        st_hover_tooltip(title="Trainer notes — It Has Its Place", entries=_NOTES_PLACE,
+                                         position="left", width="50vw")
+                st_space("v", 3)
                 st_write(
                     bs.body,
                     (bs.keyword_ok, "At home: "),
