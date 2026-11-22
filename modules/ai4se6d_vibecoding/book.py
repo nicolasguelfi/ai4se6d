@@ -66,7 +66,7 @@ set_presentation_config(PresentationConfig(
 
 # Slide breaks
 set_slide_break_config(SlideBreakConfig(
-    mode=SlideBreakMode.HIDDEN,
+    mode=SlideBreakMode.MARKER_ONLY,  # a hidden stop per break: arrows reach every slide of a block (NG, 2026-11-22)
     space="1vh",
     rule_margin_top="1vh",
     rule_margin_bottom="1vh",
