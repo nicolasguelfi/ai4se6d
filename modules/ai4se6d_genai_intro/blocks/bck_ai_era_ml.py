@@ -5,6 +5,7 @@ from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
 from custom.config import IS_EDITABLE
 from custom.prompts import AI_PREFIX as _PREFIX, AI_SUFFIX_PORTRAIT as _SUFFIX
+from shared_widgets import st_hover_tooltip
 
 
 _page_fill = s.project.containers.page_fill_top
@@ -43,10 +44,41 @@ _PROMPT = (
 )
 
 
+# Trainer notes behind the "i" (NG, 2026-11-22): the "Limitation" bullet in detail.
+_NOTES = [
+    ("Manual feature engineering",
+     "Classical methods (logistic regression, SVMs, decision trees, random forests) do not see raw pixels, "
+     "sound or text. A human first turns the raw data into a fixed list of measured features: edges or "
+     "SIFT/HOG descriptors for images, word counts and n-grams for text, MFCC coefficients for speech."),
+    ("Why it limits",
+     "The model can only be as good as the features someone thought of. Designing them takes domain "
+     "experts weeks or months, and they rarely transfer: features built for spam filtering are useless "
+     "for medical images."),
+    ("Neural networks already existed",
+     "Backpropagation was popularised in 1986 and LeCun's LeNet read handwritten digits around 1989-1998. "
+     "Neural networks can learn their own features, but only with many layers, lots of data and lots "
+     "of computation."),
+    ("Why they could not scale",
+     "In the 1990s training ran on CPUs, labelled datasets were small, and deep networks were slow and "
+     "unstable to train (vanishing gradients). So shallow, hand-fed classical methods usually won."),
+    ("What changed next",
+     "Around 2010: GPUs, very large datasets such as ImageNet (2009) and better training techniques. In 2012 "
+     "AlexNet learned its features from raw pixels and beat hand-crafted ones by a wide margin: the deep "
+     "learning era of the next slide."),
+    ("Ask the room",
+     "\"Who has written rules or regexes to pre-process data before a model?\" That was feature engineering."),
+]
+
+
 def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.heading, "1990s — Machine Learning", tag=t.div, toc_lvl="1")
+            with st_grid(cols="92% 8%", cell_styles=s.project.containers.grid_cell_centered) as h:
+                with h.cell():
+                    st_write(bs.heading, "1990s — Machine Learning", tag=t.div, toc_lvl="1")
+                with h.cell():
+                    st_hover_tooltip(title="Trainer notes — the limitation in detail", entries=_NOTES,
+                                     position="left", width="45vw")
             st_space("v", 1.5)
 
             with st_grid(
