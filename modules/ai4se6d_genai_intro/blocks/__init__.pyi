@@ -40,6 +40,8 @@ from . import bck_intro_title as bck_intro_title
 from . import bck_lists_demo as bck_lists_demo
 from . import bck_llm_alignment as bck_llm_alignment
 from . import bck_llm_attention as bck_llm_attention
+from . import bck_llm_attention_mouse as bck_llm_attention_mouse
+from . import bck_llm_attention_mouse_prediction as bck_llm_attention_mouse_prediction
 from . import bck_llm_attention_viz as bck_llm_attention_viz
 from . import bck_llm_autoregressive as bck_llm_autoregressive
 from . import bck_llm_benchmarks as bck_llm_benchmarks

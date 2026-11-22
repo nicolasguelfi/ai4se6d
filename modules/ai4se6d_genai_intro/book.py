@@ -156,6 +156,8 @@ st_book(
         blocks.bck_llm_semantic_space,
         blocks.bck_llm_attention,
         blocks.bck_llm_attention_viz,
+        blocks.bck_llm_attention_mouse,             # all-trainings « mouse » videos (NG, 2026-11-22)
+        blocks.bck_llm_attention_mouse_prediction,
         blocks.bck_llm_prediction,
         blocks.bck_llm_autoregressive,
         blocks.bck_llm_context_window,
