@@ -17,6 +17,11 @@ _cell = Style.create(
 )
 
 
+# Space between list items (NG, 2026-11-22). st_list has no spacing option yet: padding written by hand.
+# TODO streamtex: replace with the st_list spacing option the library session (ss2-ul-stx) is adding.
+_item = Style("padding-bottom:0.6em;", "ai_vs_genai_item")
+
+
 class BlockStyles:
     """Slide: AI vs GenAI — maximize-viewport archetype: balanced."""
     heading = s.project.titles.slide_title + s.center_txt
@@ -69,7 +74,7 @@ def build():
                 with g.cell():
                     with st_list(
                         list_type=lt.unordered,
-                        li_style=bs.body,
+                        li_style=bs.body + _item,
                     ) as l:
                         with l.item():
                             st_write(
