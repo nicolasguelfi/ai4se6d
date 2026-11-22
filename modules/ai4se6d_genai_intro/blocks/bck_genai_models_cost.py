@@ -15,7 +15,9 @@ from custom.styles import Styles as s
 from shared_widgets import st_hover_tooltip
 
 
-_page_fill = s.project.containers.page_fill_top
+# Inside each st_slide box (min-height 80vh, centred, 10vh margins = one screen per slide): stack the
+# content from the top, without page_fill_top's own 85vh, which would make each slide taller than the screen.
+_slide_body = Style("display:flex;flex-direction:column;justify-content:flex-start;gap:1.5rem;", "mc_slide_body")
 
 _family = Style.create(
     s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md,
@@ -94,7 +96,7 @@ def _header(title, lvl, notes):
 
 
 def _families_slide():
-    with st_block(_page_fill):
+    with st_block(_slide_body):
         _header("Four Model Families", "1", _NOTES_FAMILIES)
         st_write(bs.asof, "As of Nov 2026 — names change fast, families do not.", tag=t.div)
         with st_grid(cols="1fr 1fr", gap="16px", cell_styles=_family) as g:
@@ -113,7 +115,7 @@ def _families_slide():
 
 
 def _cost_slide():
-    with st_block(_page_fill):
+    with st_block(_slide_body):
         _header("Your Key · Tokens = Cost", "2", _NOTES_COST)
         with st_grid(cols="1fr 1fr", gap="16px", cell_styles=_panel) as g:
             with g.cell():
@@ -153,6 +155,9 @@ def _cost_slide():
 
 
 def build():
-    _families_slide()
-    st_slide_break()
-    _cost_slide()
+    # Two slides, each in its own st_slide box (NG, 2026-11-22: "bien séparer les deux slides"),
+    # as in streamtex-all-trainings. The second one gets its own listed marker.
+    with st_slide():
+        _families_slide()
+    with st_slide(cut=True, marker="Your Key · Tokens = Cost"):
+        _cost_slide()
