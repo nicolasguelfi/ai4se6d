@@ -39,5 +39,15 @@ def build():
                     st_write(bs.body, "the course syllabus and the GSE-One v0.92.1 docs")
                 with l.item():
                     st_write(bs.body, "the default model for the workshops (never your key)")
+            # Kit 2026-11-22.4: the folder holding the kit is the course folder (ss2-ul-gse, NG).
+        with st_zoom(70):
+            st_write(
+                bs.body, (bs.label, "Another folder? "), "Clone the kit elsewhere: its folder replaces ",
+                (bs.cmd, "~/ai4se"), " in every command. Never in Dropbox / iCloud / OneDrive.",
+            )
+        with st_zoom(85):
             with st_block(bs.done_box):
-                st_write(bs.body, (bs.done_label, "Done when: "), "it ends with “Next: open your tutor window”.")
+                st_write(
+                    bs.body, (bs.done_label, "Done when: "), "it ends with ", (bs.cmd, "Done. Next steps:"),
+                    " — then open a second terminal, your tutor window.",
+                )
