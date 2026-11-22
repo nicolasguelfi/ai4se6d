@@ -19,6 +19,11 @@ Font size hierarchy (projection-safe):
 
 from streamtex.styles import Container, StxStyles, Style, Text
 
+# Line spacing of 48pt (Large) text — one place for the whole project (NG, 2026-11-22: line spacing
+# too large on almost every slide). s.text.leading comes from streamtex#158
+# (https://github.com/nicolasguelfi/streamtex/issues/158), shipped in streamtex 0.7.85.
+_LARGE = Text.sizes.Large_size + Text.leading.snug   # 48pt, line-height 1.25
+
 
 class ColorsCustom:
     """Presentation text colors — high contrast only."""
@@ -46,15 +51,15 @@ class TextStylesCustom:
         "section_title"
     )
     subtitle = Style.create(
-        ColorsCustom.highlight + Text.weights.bold_weight + Text.sizes.Large_size,
+        ColorsCustom.highlight + Text.weights.bold_weight + _LARGE,
         "subtitle"
     )
     body = Style.create(
-        Text.sizes.Large_size,
+        _LARGE,
         "body"
     )
     body_accent = Style.create(
-        ColorsCustom.accent + Text.weights.bold_weight + Text.sizes.Large_size,
+        ColorsCustom.accent + Text.weights.bold_weight + _LARGE,
         "body_accent"
     )
     caption = Style.create(
@@ -69,15 +74,15 @@ class TextStylesCustom:
         "heading"
     )
     keyword = Style.create(
-        Text.weights.bold_weight + ColorsCustom.accent + Text.sizes.Large_size,
+        Text.weights.bold_weight + ColorsCustom.accent + _LARGE,
         "keyword"
     )
     label = Style.create(
-        Text.weights.bold_weight + ColorsCustom.primary + Text.sizes.Large_size,
+        Text.weights.bold_weight + ColorsCustom.primary + _LARGE,
         "label"
     )
     stat = Style.create(
-        Text.weights.bold_weight + ColorsCustom.highlight + Text.sizes.Large_size,
+        Text.weights.bold_weight + ColorsCustom.highlight + _LARGE,
         "stat"
     )
 
@@ -214,3 +219,5 @@ class Custom:
 class Styles(StxStyles):
     """Main Styles class — inherits all StreamTeX styles + presentation overrides."""
     project = Custom
+    # s.Large carries the project's line spacing too (211 blocks write s.Large directly).
+    Large = Style.create(_LARGE, "Large_snug")

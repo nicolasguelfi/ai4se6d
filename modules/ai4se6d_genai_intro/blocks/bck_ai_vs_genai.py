@@ -17,25 +17,19 @@ _cell = Style.create(
 )
 
 
-# Line spacing: StreamTeX has no line-height style in s.text yet, so it is written here by hand.
-# TODO streamtex#158 (https://github.com/nicolasguelfi/streamtex/issues/158): replace _lh with
-# s.text.leading.snug once the library ships the leading family (NG, 2026-11-22: line spacing too large).
-_lh = Style("line-height:1.25;", "ai_vs_genai_lh")
-
-
 class BlockStyles:
     """Slide: AI vs GenAI — maximize-viewport archetype: balanced."""
     heading = s.project.titles.slide_title + s.center_txt
     body = Style.create(
-        s.Large + s.text.wrap.hyphens + _lh,
+        s.Large + s.text.wrap.hyphens,
         "ai_vs_genai_body",
     )
     keyword = Style.create(
-        s.Large + s.bold + s.project.colors.primary + s.text.wrap.hyphens + _lh,
+        s.Large + s.bold + s.project.colors.primary + s.text.wrap.hyphens,
         "ai_vs_genai_keyword",
     )
     quote_highlight = Style.create(
-        s.Large + s.italic + s.project.colors.highlight + s.text.wrap.hyphens + _lh,
+        s.Large + s.italic + s.project.colors.highlight + s.text.wrap.hyphens,
         "ai_vs_genai_quote",
     )
 bs = BlockStyles
