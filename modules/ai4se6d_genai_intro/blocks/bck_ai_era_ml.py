@@ -78,7 +78,7 @@ def build():
                     st_write(bs.heading, "1990s — Machine Learning", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(title="Trainer notes — the limitation in detail", entries=_NOTES,
-                                     position="left", width="45vw")
+                                     position="left", width="50vw")
             st_space("v", 1.5)
 
             with st_grid(

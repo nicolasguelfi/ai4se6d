@@ -74,7 +74,7 @@ def build():
             with h.cell():
                 st_write(bs.heading, "What You Will Be Able to Do", tag=t.div, toc_lvl="1")
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — objectives", entries=_NOTES, position="left", width="45vw")
+                st_hover_tooltip(title="Trainer notes — objectives", entries=_NOTES, position="left", width="50vw")
 
         with st_grid(cols="1fr 1fr 1fr", gap="16px", cell_styles=_card) as g:
             for days, verb, detail in _OBJECTIVES:

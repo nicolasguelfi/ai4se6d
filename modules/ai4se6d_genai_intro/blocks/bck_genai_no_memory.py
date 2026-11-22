@@ -59,7 +59,7 @@ def build():
             with h.cell():
                 st_write(bs.heading, "The Model Has No Memory", tag=t.div, toc_lvl="1")
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — no memory", entries=_NOTES, position="left", width="45vw")
+                st_hover_tooltip(title="Trainer notes — no memory", entries=_NOTES, position="left", width="50vw")
 
         with st_grid(cols="1fr 1fr 1fr", gap="16px", cell_styles=_col) as g:
             with g.cell():

@@ -79,7 +79,7 @@ def build():
             with h.cell():
                 st_write(bs.heading, "From LLM to AI Agent", tag=t.div, toc_lvl="1")
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — LLM to agent", entries=_NOTES, position="left", width="45vw")
+                st_hover_tooltip(title="Trainer notes — LLM to agent", entries=_NOTES, position="left", width="50vw")
 
         cells = sg.create("A1:C1", _step) + sg.create("D1", _step_last)
         with st_grid(cols="1fr 1fr 1fr 1fr", gap="14px", cell_styles=cells) as g:

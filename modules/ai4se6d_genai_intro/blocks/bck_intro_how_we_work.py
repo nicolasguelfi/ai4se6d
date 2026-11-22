@@ -57,7 +57,7 @@ def build():
             with h.cell():
                 st_write(bs.heading, "How We Work This Week", tag=t.div, toc_lvl="1")
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — how we work", entries=_NOTES, position="left", width="45vw")
+                st_hover_tooltip(title="Trainer notes — how we work", entries=_NOTES, position="left", width="50vw")
 
         with st_grid(cols="22% 78%", gap="10px", cell_styles=_ROWS) as g:
             with g.cell():

@@ -90,7 +90,7 @@ def _header(title, lvl, notes):
         with h.cell():
             st_write(bs.heading, title, tag=t.div, toc_lvl=lvl)
         with h.cell():
-            st_hover_tooltip(title=f"Trainer notes — {title}", entries=notes, position="left", width="45vw")
+            st_hover_tooltip(title=f"Trainer notes — {title}", entries=notes, position="left", width="50vw")
 
 
 def _families_slide():
