@@ -16,7 +16,7 @@ bs = BlockStyles
 
 # Date of the Artificial Analysis screenshots below. UPDATE when the images in
 # _SHARED/images/ai-index-*.{png,webp} are re-captured (planned 23-24/11/2026).
-# Source sheet: docs/trainer/sources-day1.md
+# Source sheet: docs/trainer/day1/sources.md
 _SNAPSHOT = "April 2026"
 
 # (title, image filename, has_tooltip)

@@ -149,7 +149,7 @@ Source : `2026-11-10-012-six-days-cycles-plan.html` (déroulé minuté, 25 fiche
 - 2026-11-09 — **Phase 1 rédigée** (branche `edition2`) :
   - jour 1 matin : objectifs réels, parcours 6 jours, « How we work », 3 notions adaptées d'all-trainings@7707c1c5 ;
   - Acte IV opencode + LLM locaux + AI Act (règlement (UE) 2026/1744 « Omnibus » : haut risque annexe III au 2/12/2027, annexe I au 2/08/2028) ;
-  - chiffres revérifiés + `docs/trainer/sources-day1.md` ;
+  - chiffres revérifiés + `docs/trainer/day1/sources.md` ;
   - module `ai4se6d_setup` (installation en salle, FreeSelfApp, débrief) ;
   - module `ai4se6d_day2` (plan B, 104 blocs).
   - `stx validate --build` : 7 livres OK.
@@ -163,7 +163,7 @@ Source : `2026-11-10-012-six-days-cycles-plan.html` (déroulé minuté, 25 fiche
     - l'outil grep lisait des `.env` : il est désactivé, remplacé par `git grep` ;
     - `git -C` et `ls` atteignaient des dossiers non listés : ils sont limités par une règle générée.
   - Test de bout en bout depuis GitHub (HOME isolé, modèle gratuit) : réponse en français qui cite le syllabus, `.env` refusé, `tutor update` OK.
-- 2026-11-09 — Diapositives des jours 1-2 alignées sur le tuteur v2. Corrections de cohérence : `npm run test:run`, reprise dans `~/ai4se/calcapp-restart`, montants décimaux, syntaxe opencode 2. Ajout de `docs/trainer/sources-day2.md`.
+- 2026-11-09 — Diapositives des jours 1-2 alignées sur le tuteur v2. Corrections de cohérence : `npm run test:run`, reprise dans `~/ai4se/calcapp-restart`, montants décimaux, syntaxe opencode 2. Ajout de `docs/trainer/day2/sources.md`.
 
 **À sauter en direct au jour 1 (GenAI, pour tenir 50 min)** :
 - `bck_ai_discriminative`, `bck_ai_generative`, `bck_ai_mccarthy` ;

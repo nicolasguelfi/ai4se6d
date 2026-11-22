@@ -22,7 +22,7 @@ _CSV_PATH = (
 )
 
 # Date of the Context Arena export in _CSV_PATH. UPDATE when the CSV is
-# re-downloaded (planned 23-24/11/2026). Source sheet: docs/trainer/sources-day1.md
+# re-downloaded (planned 23-24/11/2026). Source sheet: docs/trainer/day1/sources.md
 _SNAPSHOT = "April 2026"
 
 _CONTEXT_ORDER = ["8k", "16k", "32k", "64k", "128k", "256k", "512k", "1M"]
