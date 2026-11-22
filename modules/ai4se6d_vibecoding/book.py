@@ -164,6 +164,7 @@ st_book(
         blocks.bck_ide_opencode_choice,          # Block 38 — Why opencode for this course
         blocks.bck_ide_editor_role,              # Block 38a — Where an IDE fits: the editor reads, opencode writes
         blocks.bck_ide_vscodium,                 # Block 38a' — VSCodium: install, AI off, mini guide
+        blocks.bck_ide_vscodium_capture,         # Block 38a'' — VSCodium screenshot alone (diff view)
         blocks.bck_ide_ai_act,                   # Block 38b — EU AI Act: risk levels + timeline
         blocks.bck_ide_ai_rules,                 # Block 38c — Practical rules for this week
         blocks.bck_gse_solution_plugin,          # CCSET03 — how GSE-One solves it
