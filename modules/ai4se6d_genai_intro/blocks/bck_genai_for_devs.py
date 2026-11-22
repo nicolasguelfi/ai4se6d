@@ -66,6 +66,7 @@ def build():
                     with st_list(
                         list_type=lt.unordered,
                         li_style=bs.body,
+                        text_align="left",  # bullets and wrapped lines start at the left edge (NG, 2026-11-22)
                         item_gap=0.6,  # 0.6 em between items — streamtex st_list(item_gap=), 0.7.85 (NG, 2026-11-22)
                     ) as l:
                         with l.item():
