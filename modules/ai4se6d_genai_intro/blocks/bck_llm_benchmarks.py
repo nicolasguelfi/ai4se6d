@@ -38,12 +38,43 @@ _TOKEN_ENTRIES = [
     ("Reading it", "A verbose model costs more and takes longer per task, even at the same price per token."),
 ]
 
+_CODING_ENTRIES = [
+    ("What the chart shows",
+     "The two coding evaluations inside the index, for the same 16 models (same generation, released Sep–Nov 2026), "
+     "measured by Artificial Analysis itself with the same harness for every model. Models are ordered by the mean "
+     "of the two scores."),
+    ("Terminal-Bench 4.0 — what it measures",
+     "Can an agent finish real work in a terminal? 66 hard tasks across software, machine learning, science, "
+     "operations, security, hardware and media — e.g. migrate a live API from MySQL to PostgreSQL with zero downtime. "
+     "Each task has its own tests and passes only if every test passes. Score: % of tasks passed (pass@1, mean of "
+     "three runs, mini-swe-agent harness). By the Laude Institute, Stanford and open-source contributors "
+     "(arXiv 2601.11868)."),
+    ("FrontierCode-AA 2.0 — what it measures",
+     "Would a maintainer merge the agent's change? 132 private tasks (kept private to avoid contamination), each a "
+     "change to a real open-source repository, built by Cognition with the maintainers. Graded with the task's tests "
+     "and a rubric of blocking and non-blocking checks: a failed blocking check, or a solution looked up instead of "
+     "written, scores 0; otherwise a weighted partial score. Mean over three attempts, up to 500 turns, "
+     "LLM judge GPT-6 Luna (medium)."),
+    ("Reading it",
+     "Terminal-Bench says whether the agent can drive tools and environments end to end (our git, npm and test "
+     "work); FrontierCode says whether the change is good enough for a reviewer (our /gse-review). A model can be "
+     "strong on one and weak on the other: Kimi K3.1 Pro passes 67% of the terminal tasks but scores 26% on "
+     "FrontierCode."),
+    ("Our course model",
+     "DeepSeek V4.1 Flash: 34% and 28%, mid-table; GPT-6.2 Sol does better (60% and 44%). But each key is capped at "
+     "$30: about 15 million tokens sent with Sol ($2 per million) against about 600 million with DeepSeek, and an "
+     "agent session re-sends ~2 million. Our bench of 21 Nov 2026 on the real workshops: DeepSeek followed GSE-One "
+     "most faithfully (sub-agent reviews) for the lowest sprint cost. No public benchmark measures fidelity to a "
+     "method."),
+]
+
 # (title, image, tooltip entries)
 _VIEWS = [
     ("AI Index: Results", "ai-index-score", None),
     ("AI Index: Token Usage", "ai-index-tokens", _TOKEN_ENTRIES),
     ("AI Index: Cost per Task", "ai-index-cost", None),
     ("AI Index: Score vs. Cost", "ai-index-score-vs-cost", None),
+    ("AI Index: Coding Benchmarks", "ai-index-coding", _CODING_ENTRIES),   # NG, 2026-11-22
 ]
 
 
@@ -56,7 +87,8 @@ def build():
                     with h.cell():
                         st_write(bs.heading, title, tag=t.div, toc_lvl=lvl)
                     with h.cell():
-                        st_hover_tooltip(title="Token Types", entries=notes, position="left", width="50vw")
+                        st_hover_tooltip(title=f"Trainer notes — {title}" if notes is not _TOKEN_ENTRIES
+                                         else "Token Types", entries=notes, position="left", width="50vw")
             else:
                 with st_block(s.center_txt):
                     st_write(bs.heading, title, tag=t.div, toc_lvl=lvl)

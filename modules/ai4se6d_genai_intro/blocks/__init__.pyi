@@ -8,9 +8,6 @@ from streamtex import BlockImportError as BlockImportError
 from streamtex import BlockNotFoundError as BlockNotFoundError
 from streamtex import ProjectBlockRegistry
 
-registry: ProjectBlockRegistry
-__all__: list[str]
-
 from . import bck_ai_definition as bck_ai_definition
 from . import bck_ai_discriminative as bck_ai_discriminative
 from . import bck_ai_era_dl as bck_ai_era_dl
@@ -79,6 +76,9 @@ from . import bck_title as bck_title
 from . import bck_trainer_ng as bck_trainer_ng
 from . import bck_trainer_team as bck_trainer_team
 from . import bck_trainer_ts as bck_trainer_ts
+
+registry: ProjectBlockRegistry
+__all__: list[str]
 
 
 def __getattr__(name: str) -> ModuleType: ...   # blocks of modules/shared-blocks/blocks, resolved at run time

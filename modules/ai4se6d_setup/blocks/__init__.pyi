@@ -8,9 +8,6 @@ from streamtex import BlockImportError as BlockImportError
 from streamtex import BlockNotFoundError as BlockNotFoundError
 from streamtex import ProjectBlockRegistry
 
-registry: ProjectBlockRegistry
-__all__: list[str]
-
 from . import bck_setup_agenda as bck_setup_agenda
 from . import bck_setup_build_stuck as bck_setup_build_stuck
 from . import bck_setup_challenge as bck_setup_challenge
@@ -44,6 +41,9 @@ from . import bck_setup_tutor_sees as bck_setup_tutor_sees
 from . import bck_setup_workshop_continue as bck_setup_workshop_continue
 from . import bck_setup_workshop_intro as bck_setup_workshop_intro
 from . import bck_setup_workshop_sheet as bck_setup_workshop_sheet
+
+registry: ProjectBlockRegistry
+__all__: list[str]
 
 
 def __getattr__(name: str) -> ModuleType: ...   # blocks of modules/shared-blocks/blocks, resolved at run time

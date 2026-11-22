@@ -8,9 +8,6 @@ from streamtex import BlockImportError as BlockImportError
 from streamtex import BlockNotFoundError as BlockNotFoundError
 from streamtex import ProjectBlockRegistry
 
-registry: ProjectBlockRegistry
-__all__: list[str]
-
 from . import bck_ai_agent_concepts as bck_ai_agent_concepts
 from . import bck_case_study_maria as bck_case_study_maria
 from . import bck_generic_architecture as bck_generic_architecture
@@ -19,6 +16,9 @@ from . import bck_maria_architecture as bck_maria_architecture
 from . import bck_maria_execution as bck_maria_execution
 from . import bck_tool_control as bck_tool_control
 from . import bck_where_slides as bck_where_slides
+
+registry: ProjectBlockRegistry
+__all__: list[str]
 
 
 def __getattr__(name: str) -> ModuleType: ...   # blocks of modules/shared-blocks/blocks, resolved at run time

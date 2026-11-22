@@ -26,11 +26,11 @@ from streamtex import BlockImportError as BlockImportError
 from streamtex import BlockNotFoundError as BlockNotFoundError
 from streamtex import ProjectBlockRegistry
 
+'''
+FOOTER = '''
 registry: ProjectBlockRegistry
 __all__: list[str]
 
-'''
-FOOTER = '''
 
 def __getattr__(name: str) -> ModuleType: ...   # blocks of modules/shared-blocks/blocks, resolved at run time
 def __dir__() -> list[str]: ...

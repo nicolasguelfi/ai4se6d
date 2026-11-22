@@ -8,10 +8,10 @@ from streamtex import BlockImportError as BlockImportError
 from streamtex import BlockNotFoundError as BlockNotFoundError
 from streamtex import ProjectBlockRegistry
 
+from . import bck_shared_glossary as bck_shared_glossary
+
 registry: ProjectBlockRegistry
 __all__: list[str]
-
-from . import bck_shared_glossary as bck_shared_glossary
 
 
 def __getattr__(name: str) -> ModuleType: ...   # blocks of modules/shared-blocks/blocks, resolved at run time

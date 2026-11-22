@@ -8,9 +8,6 @@ from streamtex import BlockImportError as BlockImportError
 from streamtex import BlockNotFoundError as BlockNotFoundError
 from streamtex import ProjectBlockRegistry
 
-registry: ProjectBlockRegistry
-__all__: list[str]
-
 from . import bck_bridge_debrief as bck_bridge_debrief
 from . import bck_bridge_loop as bck_bridge_loop
 from . import bck_bridge_quiz as bck_bridge_quiz
@@ -119,6 +116,9 @@ from . import bck_welcome_chain as bck_welcome_chain
 from . import bck_welcome_compare as bck_welcome_compare
 from . import bck_welcome_discipline as bck_welcome_discipline
 from . import bck_welcome_recap as bck_welcome_recap
+
+registry: ProjectBlockRegistry
+__all__: list[str]
 
 
 def __getattr__(name: str) -> ModuleType: ...   # blocks of modules/shared-blocks/blocks, resolved at run time

@@ -48,6 +48,25 @@ _NUM = r"([\d.,]+)"
 _UNIT = {"K": 1e-3, "M": 1.0, "B": 1e3, "T": 1e6}   # → millions
 
 
+#: The two coding evaluations drawn on their own slide (NG, 2026-11-22): page slug -> JSON key
+CODING = {"terminalbench-4-0": "terminal_bench_4", "frontiercode-2-0": "frontiercode_2"}
+
+
+def eval_scores(text: str) -> dict[str, float]:
+    """Scores of an evaluation page: its first chart lists N model names, then N values ("67.2%")."""
+    lines = [x.strip() for x in text.splitlines() if x.strip()]
+    start = next(i for i, x in enumerate(lines) if re.fullmatch(r"\d+ of \d+ models", x))
+    names, values, i = [], [], start + 1
+    while i < len(lines) and not re.fullmatch(r"[\d.]+%", lines[i]):
+        if lines[i] not in ("No publicly available API", "Add model from specific provider"):
+            names.append(re.sub(r"\s*\(.*\)$", "", lines[i]))      # "GPT-6.2 Sol (max)" -> "GPT-6.2 Sol"
+        i += 1
+    while i < len(lines) and re.fullmatch(r"[\d.]+%", lines[i]):
+        values.append(float(lines[i].rstrip("%")))
+        i += 1
+    return dict(zip(names, values))
+
+
 def _millions(text: str) -> float:
     m = re.fullmatch(r"([\d.,]+)\s*([KMBT])?", text.strip())
     if not m:
@@ -105,12 +124,21 @@ def main() -> int:
                       wait_until="domcontentloaded", timeout=90000)
             page.wait_for_timeout(6000)
             text = page.inner_text("body")
+            if ev in CODING:
+                scores = eval_scores(text)
+                for r in rows:
+                    if r["model"] in scores:
+                        r[CODING[ev]] = scores[r["model"]]
             for r in rows:
                 if r["model"].split(" (")[0] not in text:
                     missing.setdefault(r["model"], []).append(ev_name)
         browser.close()
     if not rows:
         return 1
+    for r in rows:                     # a coding score missing from its chart counts as a missing result
+        for ev, key in CODING.items():
+            if key not in r and r["model"] not in missing:
+                missing[r["model"]] = [EVALS[ev]]
     left_out = [f"{m} left out: no result on {', '.join(evs)}." for m, evs in missing.items()]
     rows = [r for r in rows if r["model"] not in missing]
     # rule "same generation"
@@ -139,6 +167,19 @@ def main() -> int:
                       "tokens = tokens sent, re-sent at every turn of the agent loop",
             "measures": "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index",
             "measured_by": "Artificial Analysis, third party, same harness for every model",
+            "coding": {
+                "terminal_bench_4": "Terminal-Bench 4.0 (Laude Institute, Stanford and open-source contributors; "
+                                    "arXiv 2601.11868): 66 hard tasks of real terminal work across software, machine "
+                                    "learning, science, operations, security, hardware and media; each task has its "
+                                    "own tests and passes only if every test passes; run with the mini-swe-agent "
+                                    "harness, pass@1 averaged over three repeats.",
+                "frontiercode_2": "FrontierCode-AA 2.0 (Cognition, built with open-source maintainers; Artificial "
+                                  "Analysis implementation): 132 private tasks, each a change to a real open-source "
+                                  "repository, graded on whether a maintainer would merge it (tests + rubric of "
+                                  "blocking and non-blocking checks; a failed blocking check or a looked-up solution "
+                                  "scores 0); Stirrup harness, up to 500 turns, three attempts per task, LLM judge "
+                                  "GPT-6 Luna (medium).",
+            },
             "notes": [
                 f"Same generation: models released {start} .. {newest}.",
                 "Complete results: each model is listed on the page of each of the nine evaluations.",
@@ -157,6 +198,10 @@ def main() -> int:
                               "fr": "Coût moyen d'une tâche de l'indice (USD)"},
             "score_vs_cost": {"en": "Cost per task (USD, log scale)", "fr": "Coût par tâche (USD, échelle log)"},
             "course": {"en": "course model", "fr": "modèle du cours"},
+            "terminal_bench_4": {"en": "Terminal-Bench 4.0 (% of tasks passed)",
+                                 "fr": "Terminal-Bench 4.0 (% de tâches réussies)"},
+            "frontiercode_2": {"en": "FrontierCode-AA 2.0 (mean score, %)",
+                               "fr": "FrontierCode-AA 2.0 (score moyen, %)"},
             "source": {"en": "Source: Artificial Analysis, Intelligence Index v5.0.1 — models released {window}, "
                              "read on {updated} · ◆ open weights",
                        "fr": "Source : Artificial Analysis, Intelligence Index v5.0.1 — modèles sortis {window}, "

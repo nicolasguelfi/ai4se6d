@@ -7,7 +7,8 @@ tool draws the images from it. Updating = refresh the JSON, then:
     uv run python scripts/draw_ai_index_charts.py
 
 Charts: score, output tokens, cost per task (horizontal bars, one colour per main provider, the course model
-outlined, ◆ = open weights) and score vs cost per task (log scale).
+outlined, ◆ = open weights), score vs cost per task (log scale), and the two coding evaluations of the index side by
+side (Terminal-Bench 4.0, FrontierCode-AA 2.0; NG, 2026-11-22).
 """
 from __future__ import annotations
 
@@ -115,6 +116,37 @@ def score_vs_cost(d: dict, lang: str, out: Path) -> None:
     plt.close(fig)
 
 
+def coding(d: dict, lang: str, out: Path) -> None:
+    """The two coding evaluations side by side, same model order (by their mean), one panel each."""
+    keys = ["terminal_bench_4", "frontiercode_2"]
+    models = sorted(d["models"], key=lambda m: -(m[keys[0]] + m[keys[1]]))
+    plt.rcParams.update({"font.size": FONT, "text.color": TEXT, "axes.labelcolor": TEXT,
+                         "xtick.color": TEXT, "ytick.color": TEXT})
+    fig, axes = plt.subplots(1, 2, figsize=(19.2, 8.6), dpi=100, facecolor=BG, sharey=True,
+                             gridspec_kw={"wspace": 0.08})
+    y = range(len(models))
+    for ax, key in zip(axes, keys):
+        ax.set_facecolor(BG)
+        ax.grid(color=GRID, lw=1.2, axis="x")
+        ax.set_axisbelow(True)
+        for side in ("top", "right", "left", "bottom"):
+            ax.spines[side].set_visible(False)
+        vals = [m[key] for m in models]
+        ax.barh(y, vals, color=[_color(m) for m in models], height=0.75,
+                edgecolor=[COURSE if m["course_model"] else "none" for m in models], linewidth=4)
+        for yi, v in enumerate(vals):
+            ax.text(v + 0.8, yi, f"{v:.0f}%", va="center", fontsize=FONT - 2, color=TEXT)
+        ax.set_xlim(0, 80)
+        ax.set_title(d["labels"][key][lang], fontsize=FONT + 2, color=TEXT, pad=14)
+    axes[0].set_yticks(list(y))
+    axes[0].set_yticklabels([_label(m) for m in models], fontsize=FONT - 2)
+    axes[0].invert_yaxis()
+    _source(fig, d, lang)
+    fig.subplots_adjust(left=0.215, right=0.985, top=0.90, bottom=0.10)   # tight_layout cannot handle sharey here
+    fig.savefig(out, facecolor=BG)
+    plt.close(fig)
+
+
 def main() -> int:
     d = json.loads(DATA.read_text(encoding="utf-8"))
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -122,7 +154,8 @@ def main() -> int:
         jobs = [("ai-index-score", lambda o: bars(d, "score", "{:.0f}", lang, o)),
                 ("ai-index-tokens", lambda o: bars(d, "output_tokens_m", "{:.0f}M", lang, o)),
                 ("ai-index-cost", lambda o: bars(d, "cost_per_task", "${:.2f}", lang, o)),
-                ("ai-index-score-vs-cost", lambda o: score_vs_cost(d, lang, o))]
+                ("ai-index-score-vs-cost", lambda o: score_vs_cost(d, lang, o)),
+                ("ai-index-coding", lambda o: coding(d, lang, o))]
         for name, job in jobs:
             out = OUT_DIR / f"{name}-{lang}.png"
             job(out)

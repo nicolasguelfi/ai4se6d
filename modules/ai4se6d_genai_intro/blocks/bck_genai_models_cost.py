@@ -8,9 +8,9 @@ disagree on model names, so only names checked on the web (Nov 2026) appear — 
 Gemini, Llama, Gemma, gpt-oss, Qwen, Kimi) and two dated flagships (Mistral Large 4 — API preview 2026-10-06,
 open weights end of Oct 2026, re-checked 2026-11-22; DeepSeek V4, Apr 2026).
 Course models (ai4se-kit opencode.base.json, syllabus hd09): main openrouter/deepseek/deepseek-v4.1-flash,
-backup openrouter/minimax/minimax-m3.1-flash. Key budget: $10 per learner (NG, 2026-11-22), shown in tokens only:
+backup openrouter/minimax/minimax-m3.1-flash. Key budget: $30 per learner (NG, 2026-11-22; first given as $10), shown in tokens only:
 OpenRouter prices 2026-11-22 — DeepSeek $0.0498 / $0.1992 per M tokens in / out, MiniMax $0.075 / $0.30
-→ $10 ≈ 200 M tokens sent to the main model (≈ 130 M on the backup, ≈ 50 M generated).
+→ $30 ≈ 600 M tokens sent to the main model (≈ 400 M on the backup, ≈ 150 M generated).
 """
 # @guideline: maximize-viewport
 from streamtex import *
@@ -84,9 +84,10 @@ _NOTES_FAMILIES = [
 _NOTES_COST = [
     ("Message", "You pay for every token sent and received; an agent re-sends the context at every turn."),
     ("Habits", "One task per session, short AGENTS.md, point to the files needed (@file) instead of the whole repo."),
-    ("The budget", "Each key is capped at $10 on OpenRouter. DeepSeek V4.1 Flash costs about $0.05 per million tokens "
-                   "sent and $0.20 per million generated: $10 ≈ 200 M tokens sent (≈ 130 M on the MiniMax backup). "
-                   "An agent mostly sends: ≈ 100 long sessions of 2M tokens."),
+    ("The budget", "Each key is capped at $30 on OpenRouter. DeepSeek V4.1 Flash costs about $0.05 per million tokens "
+                   "sent and $0.20 per million generated: $30 ≈ 600 M tokens sent (≈ 400 M on the MiniMax backup). "
+                   "An agent mostly sends: ≈ 300 long sessions of 2M tokens. With GPT-6.2 Sol ($2 per million) the "
+                   "same key would send ≈ 15 M tokens: 7 or 8 long sessions."),
 ]
 
 
@@ -127,7 +128,7 @@ def _cost_slide():
             st_write(bs.panel_title, "What your key gives you", tag=t.div)
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item():
-                    st_write(bs.body, (bs.key, "≈ 200 million tokens"),
+                    st_write(bs.body, (bs.key, "≈ 600 million tokens"),
                              " — when they are spent, calls stop.")
                 with l.item():
                     st_write(bs.body, (bs.key, "Main model"), ": ", (bs.code, "deepseek-v4.1-flash"))

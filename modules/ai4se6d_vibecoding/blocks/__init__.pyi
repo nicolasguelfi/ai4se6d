@@ -8,9 +8,6 @@ from streamtex import BlockImportError as BlockImportError
 from streamtex import BlockNotFoundError as BlockNotFoundError
 from streamtex import ProjectBlockRegistry
 
-registry: ProjectBlockRegistry
-__all__: list[str]
-
 from . import bck_closing as bck_closing
 from . import bck_exercise_vibecoding as bck_exercise_vibecoding
 from . import bck_exercise_vibeeng as bck_exercise_vibeeng
@@ -75,6 +72,9 @@ from . import bck_vibeeng_principles as bck_vibeeng_principles
 from . import bck_vibeeng_rebranding as bck_vibeeng_rebranding
 from . import bck_vibeeng_spectrum as bck_vibeeng_spectrum
 from . import bck_vibeeng_transition as bck_vibeeng_transition
+
+registry: ProjectBlockRegistry
+__all__: list[str]
 
 
 def __getattr__(name: str) -> ModuleType: ...   # blocks of modules/shared-blocks/blocks, resolved at run time

@@ -8,9 +8,6 @@ from streamtex import BlockImportError as BlockImportError
 from streamtex import BlockNotFoundError as BlockNotFoundError
 from streamtex import ProjectBlockRegistry
 
-registry: ProjectBlockRegistry
-__all__: list[str]
-
 from . import bck_closing_monday_plan as bck_closing_monday_plan
 from . import bck_closing_questionnaire as bck_closing_questionnaire
 from . import bck_closing_resources as bck_closing_resources
@@ -307,6 +304,9 @@ from . import bck_vv_pyramid as bck_vv_pyramid
 from . import bck_vv_static_dynamic as bck_vv_static_dynamic
 from . import bck_vv_test_design as bck_vv_test_design
 from . import bck_vv_title as bck_vv_title
+
+registry: ProjectBlockRegistry
+__all__: list[str]
 
 
 def __getattr__(name: str) -> ModuleType: ...   # blocks of modules/shared-blocks/blocks, resolved at run time
