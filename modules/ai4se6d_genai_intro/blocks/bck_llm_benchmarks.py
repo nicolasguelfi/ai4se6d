@@ -50,11 +50,16 @@ _VIEWS = [
 def build():
     for idx, (title, image, notes) in enumerate(_VIEWS):
         with st_slide(cut=idx > 0, marker=(title if idx > 0 else None), style=_slide_top):
-            with st_block(s.center_txt):
-                st_write(bs.heading, title, tag=t.div, toc_lvl="1" if idx == 0 else "2")
-                if notes:
-                    st_hover_tooltip(title="Token Types", entries=notes, scale="2vw", width="65vw",
-                                     position="center")
+            lvl = "1" if idx == 0 else "2"
+            if notes:   # the "i" on the title line: two-column header grid (NG, 2026-11-22)
+                with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+                    with h.cell():
+                        st_write(bs.heading, title, tag=t.div, toc_lvl=lvl)
+                    with h.cell():
+                        st_hover_tooltip(title="Token Types", entries=notes, position="left", width="50vw")
+            else:
+                with st_block(s.center_txt):
+                    st_write(bs.heading, title, tag=t.div, toc_lvl=lvl)
             with st_zoom(110):   # NG, 2026-11-22
                 st_image(uri=f"{_IMAGES}/{image}-en.png", width="100%", max_vh=70, align="center")
             with st_block(s.center_txt):

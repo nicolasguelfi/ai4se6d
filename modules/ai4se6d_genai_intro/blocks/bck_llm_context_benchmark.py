@@ -35,39 +35,42 @@ def build():
     updated = json.loads(_DATA.read_text(encoding="utf-8"))["updated"]
     snapshot = dt.date.fromisoformat(updated).strftime("%B %Y")
     with st_block(_page_fill):
-        with st_block(s.center_txt):
-            st_write(bs.heading, "Context Performance Benchmark", tag=t.div, toc_lvl="1")
-            st_hover_tooltip(
-                title="MRCR 8 Needles — What this test measures",
-                entries=[
-                    (
-                        "MRCR",
-                        "Multi-Round Co-reference Resolution (OpenAI). A long "
-                        "conversation contains several near-identical requests, "
-                        "e.g. 'write a poem about tapirs'. The model is then asked: "
-                        "'return the 2nd poem about tapirs'.",
-                    ),
-                    (
-                        "8 Needles",
-                        "8 identical requests ('needles') are hidden in the "
-                        "conversation ('haystack'). The model must pick the right "
-                        "one by its order. More needles = harder.",
-                    ),
-                    (
-                        "Context sizes",
-                        "Each model is tested at 8k, 16k, 32k, 64k, 128k, 256k, 512k, "
-                        "and 1M tokens. A score drop at larger sizes means the model "
-                        "'forgets' information buried deep in its context window.",
-                    ),
-                    (
-                        "Score",
-                        "Text similarity between the answer and the expected one "
-                        "(0-100%). A perfect model scores 100% at all context sizes.",
-                    ),
-                ],
-                scale="1.5vw",
-                width="50vw",
-            )
+        # the "i" on the title line: two-column header grid (NG, 2026-11-22)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell():
+                st_write(bs.heading, "Context Performance Benchmark", tag=t.div, toc_lvl="1")
+            with h.cell():
+                st_hover_tooltip(
+                    title="MRCR 8 Needles — What this test measures",
+                    entries=[
+                        (
+                            "MRCR",
+                            "Multi-Round Co-reference Resolution (OpenAI). A long "
+                            "conversation contains several near-identical requests, "
+                            "e.g. 'write a poem about tapirs'. The model is then asked: "
+                            "'return the 2nd poem about tapirs'.",
+                        ),
+                        (
+                            "8 Needles",
+                            "8 identical requests ('needles') are hidden in the "
+                            "conversation ('haystack'). The model must pick the right "
+                            "one by its order. More needles = harder.",
+                        ),
+                        (
+                            "Context sizes",
+                            "Each model is tested at 8k, 16k, 32k, 64k, 128k, 256k, 512k, "
+                            "and 1M tokens. A score drop at larger sizes means the model "
+                            "'forgets' information buried deep in its context window.",
+                        ),
+                        (
+                            "Score",
+                            "Text similarity between the answer and the expected one "
+                            "(0-100%). A perfect model scores 100% at all context sizes.",
+                        ),
+                    ],
+                    position="left",
+                    width="50vw",
+                )
 
         st_image(uri=_IMAGE, width="100%", max_vh=56, align="center")   # the title takes two lines
 
