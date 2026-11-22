@@ -52,7 +52,7 @@ _NOTES = [
 
 
 def build():
-    with st_block(_page_fill):
+    with st_zoom(125),st_block(_page_fill):
         with st_grid(cols="92% 8%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell():
                 st_write(bs.heading, "How We Work This Week", tag=t.div, toc_lvl="1")

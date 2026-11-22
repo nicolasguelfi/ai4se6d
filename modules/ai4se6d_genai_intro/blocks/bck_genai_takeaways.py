@@ -36,7 +36,7 @@ def build():
             ]
             cols = "5% 40% 50% 5%"
             cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
-            with st_zoom(90):   # the four rows and the "Next" line fit one screen
+            with st_zoom(110):   # the four rows and the "Next" line fit one screen
                 with st_grid(cols=cols, gap="5vh 0.5vw", cell_styles=cells) as g:
                     for key, text in items:
                         with g.cell():

@@ -47,7 +47,7 @@ def build():
             st_space("v", 1.5)
 
             with st_grid(
-                cols="2fr 3fr",
+                cols="1.5fr 3.5fr",
                 gap="24px",
                 cell_styles=_cell,
             ) as g:

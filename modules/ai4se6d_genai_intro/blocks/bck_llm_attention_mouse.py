@@ -57,9 +57,9 @@ def build():
         chosen = st.session_state.get(_KEY)
         narrated = next((v for k, _, v in _LEVELS if k == chosen), None)
         if narrated:
-            video(narrated, max_vh=70, muted=False)   # the click lets the browser play the sound
+            video(narrated, max_vh=85, muted=False)   # the click lets the browser play the sound
         else:
-            video("attention-mouse-en.mp4", max_vh=70)
+            video("attention-mouse-en.mp4", max_vh=85)
         with st_zoom(160), st_grid(cols="1fr auto 1fr", cell_styles=s.project.containers.grid_cell_centered) as g:
             with g.cell():
                 pass

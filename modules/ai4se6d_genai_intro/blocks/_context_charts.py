@@ -27,7 +27,7 @@ def chart_slide(title, image, notes, refs, toc_lvl):
                 st_write(_heading, title, tag=t.div, toc_lvl=toc_lvl)
             with h.cell():
                 st_hover_tooltip(title=f"Trainer notes — {title}", entries=notes, position="left", width="50vw")
-        st_image(uri=f"{_IMAGES}/{image}-en.png", width="100%", max_vh=77, align="center")   # +20 % (NG, 2026-11-22)
+        st_image(uri=f"{_IMAGES}/{image}-en.png", width="100%", max_vh=85, align="center")   # +20 % (NG, 2026-11-22)
         with st_block(s.center_txt):
             parts = []
             for i, key in enumerate(refs):

@@ -5,6 +5,7 @@ plus the framing line (the published programme mentions Cursor; this edition use
 """
 # @guideline: maximize-viewport
 from streamtex import *
+from streamtex import st_zoom
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
 from shared_widgets import st_hover_tooltip
@@ -78,7 +79,7 @@ def build():
 
         with st_grid(cols="1fr 1fr 1fr", gap="16px", cell_styles=_card) as g:
             for days, verb, detail in _OBJECTIVES:
-                with g.cell():
+                with st_zoom(130),g.cell():
                     st_write(bs.days, days, tag=t.div)
                     st_write(bs.verb, verb, tag=t.div)
                     st_write(bs.detail, detail, tag=t.div)

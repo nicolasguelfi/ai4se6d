@@ -47,7 +47,7 @@ def build():
             st_write(bs.heading, "Artificial Intelligence", tag=t.div, toc_lvl="1")
 
             with st_grid(
-                cols="2fr 3fr",
+                cols="1.8fr 3.2fr",
                 gap="24px",
                 cell_styles=_cell,
             ) as g:
@@ -63,14 +63,14 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(120):
+                    with st_zoom(110):
                         st_write(
                             bs.quote,
                             "\u201CCan machines think?\u201D",
                         )
                         st_write(bs.attribution, cite("turing1950computing"))
 
-                        st_space("v", 1.5)
+                        st_space("v", 2.5)
 
                         st_write(
                             bs.quote,
@@ -79,7 +79,7 @@ def build():
                         )
                         st_write(bs.attribution, cite("mccarthy1955dartmouth"))
 
-                        st_space("v", 1.5)
+                        st_space("v", 2.5)
 
                         st_write(
                             bs.quote,

@@ -48,6 +48,7 @@ def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "Context Windows", tag=t.div, toc_lvl="1")
+            st_space("v","3vh")
 
             with st_grid(
                 cols="1.5fr 3.5fr",
@@ -66,7 +67,7 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(120):
+                    with st_zoom(110):
                         with st_list(
                             list_type=lt.unordered,
                             li_style=bs.body,

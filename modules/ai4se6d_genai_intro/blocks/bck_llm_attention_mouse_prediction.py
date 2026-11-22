@@ -36,4 +36,4 @@ _NOTES = [
 def build():
     with slide():
         header("Predicting the next word", "How « cheese » is found", _NOTES)
-        video("attention-mouse-prediction-en.mp4", max_vh=76)
+        video("attention-mouse-prediction-en.mp4", max_vh=85)

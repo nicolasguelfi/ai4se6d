@@ -61,7 +61,7 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — no memory", entries=_NOTES, position="left", width="50vw")
 
-        with st_grid(cols="1fr 1fr 1fr", gap="16px", cell_styles=_col) as g:
+        with st_zoom(130),st_grid(cols="1fr 1fr 1fr", gap="16px", cell_styles=_col) as g:
             with g.cell():
                 st_write(bs.col_title, "What really happens", tag=t.div)
                 _bullets([

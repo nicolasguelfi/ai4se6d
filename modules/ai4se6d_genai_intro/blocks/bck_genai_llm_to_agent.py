@@ -84,7 +84,7 @@ def build():
         cells = sg.create("A1:C1", _step) + sg.create("D1", _step_last)
         with st_grid(cols="1fr 1fr 1fr 1fr", gap="14px", cell_styles=cells) as g:
             for num, name, what, trap in _STEPS:
-                with g.cell():
+                with st_zoom(130),g.cell():
                     st_write(bs.num, f"Step {num}", tag=t.div)
                     st_write(bs.name, name, tag=t.div)
                     st_space("v", 1)
@@ -92,7 +92,7 @@ def build():
                     st_space("v", 1)
                     st_write(bs.trap, trap, tag=t.div)
 
-        with st_block(_example):
+        with st_zoom(130),st_block(_example):
             st_write(
                 bs.ex,
                 (bs.ex_key, "opencode is step 4, in your terminal: "),

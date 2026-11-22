@@ -66,20 +66,20 @@ _ROWS = [
     (
         "OpenAI",
         "GPT-6 — Astra, Sol, Luna",
-        "Widest reach (ChatGPT), answers with charts and forms, office documents",
-        "General-purpose assistant, documents and spreadsheets, coding with Codex",
+        "Widest reach (ChatGPT)",
+        "General-purpose home assistant, coding with Codex",
     ),
     (
         "Anthropic",
         "Claude 5 — Fable, Opus, Sonnet",
-        "Careful reasoning, long autonomous agent sessions, safety-focused design",
-        "Agentic coding (Claude Code), complex analysis, long document review",
+        "Careful reasoning, long autonomous agent sessions",
+        "Agentic coding (Claude Code), complex analysis",
     ),
     (
         "Google",
         "Gemini 4 — Carbon, Argon, Hydrogen",
         "Natively multimodal, built into Search and Workspace",
-        "Long-horizon engineering, workspace productivity, search-augmented tasks",
+        "Workspace productivity, search-augmented tasks",
     ),
     (
         "Open weights",
@@ -91,12 +91,12 @@ _ROWS = [
 
 
 def build():
-    with st_zoom(120), st_block(_page_fill):
+    with st_zoom(100), st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "LLM Comparison", tag=t.div, toc_lvl="1")
 
             st_write(
-                bs.warning_text,
+                bs.warning_text+"zoom:0.7;",
                 "⚠ This landscape evolves rapidly ⚠ ",
                 (s.project.citation + s.Large, cite("artificialanalysis2026")),
             )
@@ -115,7 +115,7 @@ def build():
 
             # Data rows
             for provider, models, known_for, use_cases in _ROWS:
-                with st_zoom(105),st_grid(
+                with st_zoom(100),st_grid(
                     cols="20% 40% 40%",
                     gap="12px",
                     cell_styles=_normal_cell,

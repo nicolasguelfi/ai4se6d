@@ -133,7 +133,8 @@ def build():
     # ── Slide 3: More information + LinkedIn QR ──
     with st_zoom(200), st_block(_page_fill):
         with st_block(s.center_txt):
-            st_write(bs.heading, "More Information", tag=t.div)
-            st_image(s.none, uri=f"{_IMG}/image1.png", width="200px", link=_LINKEDIN)
+            st_write(bs.heading+"zoom: .7;", "More Information", tag=t.div)
+            with st_zoom(70):
+                st_image(s.none, uri=f"{_IMG}/image1.png", width="200px", link=_LINKEDIN)
             st_write(bs.link_label, "Connect on LinkedIn", link=_LINKEDIN)
             st_write(bs.emails, "  \u25cf  ".join(_EMAILS))

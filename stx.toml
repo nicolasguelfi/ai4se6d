@@ -4,3 +4,6 @@
 [claude]
 mode = "project"
 profile = "project"
+
+[book.defaults.source]
+live = "on"

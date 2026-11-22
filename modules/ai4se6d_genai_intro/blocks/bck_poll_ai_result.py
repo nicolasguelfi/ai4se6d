@@ -58,7 +58,7 @@ def build():
             st_write(bs.heading, "You're Not Alone", tag=t.div, toc_lvl="1")
 
             with st_grid(
-                cols="2fr 3fr",
+                cols="1.5fr 3.5fr",
                 gap="24px",
                 cell_styles=_cell,
             ) as g:
@@ -76,7 +76,7 @@ def build():
                 with g.cell():
                     st_write(bs.stat_hero, "83%")
                     st_space("v", 0.5)
-                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
+                    with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered,item_gap=0.5) as l:
                         with l.item():
                             st_write(
                                 bs.body,

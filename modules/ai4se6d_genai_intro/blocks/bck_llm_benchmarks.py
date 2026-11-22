@@ -85,14 +85,14 @@ def build():
             if notes:   # the "i" on the title line: two-column header grid (NG, 2026-11-22)
                 with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
                     with h.cell():
-                        st_write(bs.heading, title, tag=t.div, toc_lvl=lvl)
+                        st_write(bs.heading+"zoom:0.75;", title, tag=t.div, toc_lvl=lvl)
                     with h.cell():
                         st_hover_tooltip(title=f"Trainer notes — {title}" if notes is not _TOKEN_ENTRIES
                                          else "Token Types", entries=notes, position="left", width="50vw")
             else:
                 with st_block(s.center_txt):
-                    st_write(bs.heading, title, tag=t.div, toc_lvl=lvl)
-            with st_zoom(110):   # NG, 2026-11-22
+                    st_write(bs.heading+"zoom:0.75;", title, tag=t.div, toc_lvl=lvl)
+            with st_zoom(120):   # NG, 2026-11-22
                 st_image(uri=f"{_IMAGES}/{image}-en.png", width="100%", max_vh=70, align="center")
             with st_block(s.center_txt):
                 st_write(bs.source, cite("artificialanalysis2026"))

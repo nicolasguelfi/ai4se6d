@@ -35,7 +35,7 @@ def build():
             st_image(
                 s.none,
                 uri="_SHARED/images/transformer_explained.png",
-                width="100%",
+                width="70%",
                 link=_DEMO_URL,
                 editable=IS_EDITABLE,
                 name="transformer_demo",

@@ -84,11 +84,11 @@ def build():
             # the "i" on the title line: two-column header grid (NG, 2026-11-22)
             with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell():
-                    st_write(bs.heading, "Phase 3: Alignment (RLHF/RLAIF)", tag=t.div, toc_lvl="1")
+                    st_write(bs.heading+"zoom:0.8;", "Phase 3: Alignment (RLHF/RLAIF)", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(title="Trainer notes — Alignment (RLHF/RLAIF)", entries=_NOTES,
                                      position="left", width="50vw")
-
+            st_space("v","5vh")
             with st_grid(
                 cols="1.5fr 3.5fr",
                 gap="24px",

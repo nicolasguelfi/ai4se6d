@@ -25,15 +25,15 @@ class BlockStyles:
         "round_table_subtitle",
     )
     label = Style.create(
-        s.Large + s.text.wrap.hyphens,
+        s.Large + s.text.leading.relaxed + s.text.wrap.hyphens,
         "round_table_label",
     )
     keyword = Style.create(
-        s.Large + s.bold + s.project.colors.highlight + s.text.wrap.hyphens,
+        s.Large + s.text.leading.relaxed + s.bold + s.project.colors.highlight + s.text.wrap.hyphens,
         "round_table_keyword",
     )
     keyword_accent = Style.create(
-        s.Large + s.bold + s.project.colors.accent + s.text.wrap.hyphens,
+        s.Large + s.text.leading.relaxed + s.bold + s.project.colors.accent + s.text.wrap.hyphens,
         "round_table_keyword_accent",
     )
 bs = BlockStyles

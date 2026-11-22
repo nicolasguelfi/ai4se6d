@@ -38,7 +38,7 @@ def build():
         # the "i" on the title line: two-column header grid (NG, 2026-11-22)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell():
-                st_write(bs.heading, "Context Performance Benchmark", tag=t.div, toc_lvl="1")
+                st_write(bs.heading+"zoom:0.7;", "Context Performance Benchmark", tag=t.div, toc_lvl="1")
             with h.cell():
                 st_hover_tooltip(
                     title="MRCR 8 Needles — What this test measures",
@@ -75,7 +75,7 @@ def build():
                     width="50vw",
                 )
 
-        st_image(uri=_IMAGE, width="100%", max_vh=56, align="center")   # the title takes two lines
+        st_image(uri=_IMAGE, width="100%", max_vh=80, align="center")   # the title takes two lines
 
         with st_block(s.center_txt):
             st_write(

@@ -56,7 +56,7 @@ def build():
             st_write(bs.heading, "AI vs Generative AI", tag=t.div, toc_lvl="1")
 
             with st_grid(
-                cols="2fr 3fr",
+                cols="1.5fr 3.5fr",
                 gap="24px",
                 cell_styles=_cell,
             ) as g:
@@ -71,7 +71,7 @@ def build():
                         ai_size="1024x1536",
                     )
 
-                with g.cell():
+                with st_zoom(95),g.cell():
                     with st_list(
                         list_type=lt.unordered,
                         li_style=bs.body + _item,

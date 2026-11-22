@@ -2,6 +2,7 @@
 # @guideline: maximize-viewport
 # @pattern: ptn_comparison_table
 from streamtex import *
+from streamtex import st_zoom
 from streamtex.styles import Style as ns
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
@@ -77,17 +78,18 @@ def _render_day(day_num, am_label, pm_label, is_today):
     day_style = bs.day_label_active if is_today else bs.day_label
     label_style = bs.session_active if is_today else bs.session
 
-    # Row 1: Day label — full width
-    with st_grid(cols="1fr", gap="12px", cell_styles=cell) as g:
-        with g.cell():
-            st_write(day_style, f"Day {day_num}")
+    with st_zoom(150):
+        # Row 1: Day label — full width
+        with st_grid(cols="1fr", gap="12px", cell_styles=cell) as g:
+            with g.cell():
+                st_write(day_style, f"Day {day_num}")
 
-    # Row 2: AM / PM — 2 columns
-    with st_grid(cols="1fr 1fr", gap="12px", cell_styles=cell) as g:
-        with g.cell():
-            st_write(label_style, am_label)
-        with g.cell():
-            st_write(label_style, pm_label)
+        # Row 2: AM / PM — 2 columns
+        with st_grid(cols="1fr 1fr", gap="12px", cell_styles=cell) as g:
+            with g.cell():
+                st_write(label_style, am_label)
+            with g.cell():
+                st_write(label_style, pm_label)
 
 
 def build():
