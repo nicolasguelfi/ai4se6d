@@ -61,8 +61,15 @@ _NOTES = [
     ("Why they could not scale",
      "In the 1990s training ran on CPUs, labelled datasets were small, and deep networks were slow and "
      "unstable to train (vanishing gradients). So shallow, hand-fed classical methods usually won."),
+    ("The missing piece: ReLU",
+     "1990s networks used sigmoid or tanh activations. They saturate: for large inputs their slope is almost "
+     "zero, so the error signal fades layer after layer (vanishing gradients) and deep networks barely learn. "
+     "The rectified linear unit, ReLU(x) = max(0, x), keeps a slope of 1 for positive inputs. The idea was old, "
+     "but its value for deep networks was only understood around 2010-2011 (Nair & Hinton 2010; Glorot, Bordes "
+     "& Bengio 2011). AlexNet (2012) used it and trained several times faster."),
     ("What changed next",
-     "Around 2010: GPUs, very large datasets such as ImageNet (2009) and better training techniques. In 2012 "
+     "Around 2010: GPUs, very large datasets such as ImageNet (2009) and better training techniques (ReLU, "
+     "dropout). In 2012 "
      "AlexNet learned its features from raw pixels and beat hand-crafted ones by a wide margin: the deep "
      "learning era of the next slide."),
     ("Ask the room",
