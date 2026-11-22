@@ -1,4 +1,4 @@
-"""Slides — Artificial Analysis Intelligence Index: four charts drawn from data.
+"""Slides — Artificial Analysis Intelligence Index: five charts drawn from data (score, output tokens, cost per task, score vs cost, coding benchmarks).
 
 Method of streamtex-all-trainings (NG, 2026-11-22): the figures live in a JSON with their sources and the
 selection rules (modules/shared-blocks/data/ai_index_scores.json) and the images are drawn from it:
