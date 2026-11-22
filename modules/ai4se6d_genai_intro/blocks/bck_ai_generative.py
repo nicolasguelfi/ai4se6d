@@ -44,6 +44,7 @@ def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "Generative Models", tag=t.div, toc_lvl="1")
+            st_space("v", 1.5)
 
             with st_grid(
                 cols="2fr 3fr",

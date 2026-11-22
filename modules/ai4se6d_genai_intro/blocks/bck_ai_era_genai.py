@@ -45,6 +45,7 @@ def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "2022+ — Generative AI", tag=t.div, toc_lvl="1")
+            st_space("v", 1.5)
 
             with st_grid(
                 cols="1.5fr 3.5fr",

@@ -43,6 +43,7 @@ def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.heading, "The GenAI Revolution", tag=t.div, toc_lvl="1")
+            st_space("v", 1.5)
 
             st_image(
                 s.none,
