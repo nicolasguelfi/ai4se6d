@@ -28,7 +28,7 @@ _CODE_ZOOM = 190  # st_code font_size is not applied by Pygments: zoom instead
 _INSTALL = (
     "brew install --cask vscodium                  # macOS\n"
     "winget install VSCodium.VSCodium              # Windows\n"
-    "flatpak install flathub com.vscodium.codium   # Linux"
+    "sudo snap install codium --classic            # Ubuntu"
 )
 _NOTES = [
     ("Trainer action",
@@ -37,7 +37,9 @@ _NOTES = [
      "VSCodium is the recommended editor for the course: the open-source build of VS Code — free, no Copilot "
      "account, no Microsoft telemetry."),
     ("Install",
-     "One command per system: brew (macOS), winget (Windows), flatpak (Linux)."),
+     "One command per system: brew (macOS), winget (Windows), snap (Ubuntu: snap is there by default; the "
+     "VSCodium snap needs --classic and sudo). Other Linux: flatpak install flathub com.vscodium.codium "
+     "(flatpak must be installed first). Commands from vscodium.com, Install section."),
     ("Once: switch its AI off",
      "Settings → disable AI features (chat.disableAIFeatures: true). In the workshops opencode is the only agent: a "
      "second agent in the editor would overwrite its work (previous slide)."),
