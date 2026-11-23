@@ -228,13 +228,13 @@ def build():
         st_space("v", "2vh")
 
         with st_grid(
-            cols="2fr 1fr",
+            cols="3fr 2fr",
             gap="3vw",
             cell_styles=[s.project.containers.grid_cell_centered, _text_cell],
         ) as g:
             with g.cell(), st_zoom(135):
                 st_code(s.none, code=_CONFIG, language="json")
-            with g.cell(), st_zoom(125):
+            with g.cell(), st_zoom(110):
                 with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered,
                              text_align="left", item_gap=0.6) as l:
                     with l.item():

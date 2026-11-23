@@ -67,7 +67,7 @@ def build():
         # one row per agent, alternating fills (motif L2 + fonds f1), margins 5 %
         cols = "5% 90% 5%"
         cells = s.project.containers.rows(len(_ITEMS), cols, filled=(2,))
-        with st_zoom(100), st_grid(cols=cols, gap="2.5vh 1vw", cell_styles=cells) as g:
+        with st_zoom(110), st_grid(cols=cols, gap="0.5vh 1vw", cell_styles=cells) as g:
             for parts in _ITEMS:
                 with g.cell():
                     pass  # left margin
