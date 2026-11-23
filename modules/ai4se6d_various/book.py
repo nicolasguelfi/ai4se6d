@@ -102,7 +102,7 @@ st_book(
     marker_config=marker_config,
     paginate=True,
     banner=BannerConfig.hidden(),
-    page_width=90,
+    page_width=100,
     zoom=90,
     exports=[
         ExportConfig(
