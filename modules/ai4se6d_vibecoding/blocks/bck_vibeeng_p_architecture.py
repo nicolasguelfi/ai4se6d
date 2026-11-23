@@ -27,7 +27,7 @@ _NOTES = [
     ('The message',
      'Design decisions (patterns, components, boundaries) are taken BEFORE generation, by the humans.'),
     ('The idea explained',
-     'Context files carry these decisions to the agent at every session: AGENTS.md (the shared standard), CLAUDE.md or Cursor rules in other tools. The agent then generates inside the architecture instead of inventing one.'),
+     'The decisions are written once in a project file that the agent reads at every session; it then generates inside the architecture instead of inventing one. Do not name the files yet: they (AGENTS.md, CLAUDE.md, Cursor rules) are introduced in the tools part (opencode, /init) and used on day 2.'),
     ('The analogy',
      'The menu is designed before the kitchen opens.'),
     ('The trap',
@@ -80,10 +80,10 @@ def build():
                         st_space("v", "2vh")
                         st_write(
                             bs.body,
-                            "Context files (",
-                            (bs.accent, "AGENTS.md"),
-                            "; CLAUDE.md, Cursor rules elsewhere"
-                            ") communicate these constraints to the AI.",
+                            "Written down ",
+                            (bs.accent, "once"),
+                            ", they reach the AI at every session: it builds inside your architecture "
+                            "instead of inventing one.",
                         )
                         st_space("v", "2vh")
                         st_write(
