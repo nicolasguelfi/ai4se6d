@@ -63,7 +63,7 @@ _ENTRIES = [
     ("SDLC", "Software Development Life Cycle"),
     ("SE 3.0", "Intent-centric, conversation-oriented software development paradigm (Hassan et al.)"),
     ("SOP", "Standard Operating Procedure \u2014 encoded workflow discipline in multi-agent systems (e.g., MetaGPT)"),
-    ("TDD", "Test-Driven Development \u2014 define expected behavior before implementation (Red-Green-Refactor). In GenAI workflows, the developer specifies acceptance criteria; AI generates both tests and code"),
+    ("TDD", "Test-Driven Development \u2014 define expected behavior before implementation (Red-Green-Refactor). In GenAI workflows, the developer owns the acceptance criteria and reviews each test before the AI writes the code (ATDD when the tests come from the acceptance criteria)"),
     ("Traceability", "Ability to link every artifact (requirement, test, code, review) back to its origin and forward to its verification"),
     ("V-Bounce", "AI-native SDLC model where humans validate at V-model checkpoints while AI implements between them"),
     ("V&V", "Verification and Validation \u2014 ensuring software meets specs (verification) and user needs (validation)"),

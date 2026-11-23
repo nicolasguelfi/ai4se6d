@@ -13,10 +13,11 @@ _NOTES = [
      "An agent can write code that looks right, and tests that prove nothing. GSE-One makes tests a step with "
      "its own evidence."),
     ("Strategy first",
-     "/gse-tests sets a test strategy from the requirements before any code: which levels, which cases."),
+     "/gse-tests sets a test strategy from the requirements before any code: which levels, which cases, one "
+     "acceptance (validation) test per Given/When/Then criterion."),
     ("Production",
-     "/gse-produce builds each task on its own branch and runs the tests; the results are kept as evidence — "
-     "one branch per task, as in the demo."),
+     "/gse-produce builds each code task on its own branch as in the demo: the acceptance test first, run and "
+     "seen failing, committed; then the code until it passes. The results are kept as evidence."),
     ("Delivery is blocked",
      "While a requirement's tests have not been run and passed, delivery is blocked."),
     ("Ask the room",
@@ -31,9 +32,9 @@ def build():
         problem="An agent can write code that looks right, and tests that prove nothing.",
         solution=[
             ((CMD, "/gse-tests"), " sets a test strategy from the requirements before any code: "
-             "which levels, which cases."),
-            ((CMD, "/gse-produce"), " builds each task on its own branch and runs the tests; "
-             "the results are kept as evidence."),
+             "which levels, which acceptance tests."),
+            ((CMD, "/gse-produce"), ", for each code task: the acceptance test first, seen failing, "
+             "then the code — on its own branch, results kept as evidence."),
             "Delivery is blocked while a requirement's tests have not been run and passed.",
         ],
         notes=_NOTES,

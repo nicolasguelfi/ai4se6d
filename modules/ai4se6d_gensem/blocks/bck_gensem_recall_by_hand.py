@@ -34,4 +34,4 @@ def build():
                         with l.item(): st_write(bs.body, "Keeping the plan up to date yourself")
                         with l.item(): st_write(bs.body, "Remembering every check, every time")
                         with l.item(): st_write(bs.body, "No trace of your decisions")
-            st_write(bs.foot, "Today: why a method helps — then a method that carries this discipline for you.", tag=t.div)
+            st_write(bs.foot, "Today: why a method helps — then a method that runs this loop for you, and shows you each step.", tag=t.div)

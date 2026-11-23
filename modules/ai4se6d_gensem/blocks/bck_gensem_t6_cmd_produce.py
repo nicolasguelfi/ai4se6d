@@ -30,7 +30,7 @@ def build():
                     title="/gse:produce \u2014 Isolated Production",
                     entries=[
                         ("Step 2", "Git Setup — create a feature branch + worktree for the task. All work is isolated from main and other tasks."),
-                        ("Step 3", "Execute the production plan in the isolated worktree. Code, tests, and docs are committed to the feature branch."),
+                        ("Step 3", "Execute the task in the isolated worktree. For a code task with acceptance criteria (testing.strategy auto/atdd): the acceptance test first, run and seen failing, committed gse(…/test); then the code until it passes, committed gse(…/feat). Unit tests come with the code."),
                         ("Step 4", "Run the test suite after production (canonical test run). Results attached as evidence (screenshots, coverage) + campaign report in docs/sprints/sprint-NN/test-reports/."),
                         ("Complexity tracking", "New dependencies detected during production are logged, their complexity cost checked against the sprint budget (P10)."),
                         ("Guardrails", "If the sprint goes over budget: Soft warning at 80%, Gate at 100%. The agent never silently exceeds the budget."),

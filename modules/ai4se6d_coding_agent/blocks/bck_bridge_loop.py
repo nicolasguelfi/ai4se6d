@@ -20,9 +20,14 @@ _NOTES = [
     ("The message",
      "Everything done by hand today has a GSE-One command tomorrow. Same loop, same severities."),
     ("Row by row",
-     "Plan → tasks in docs/plan.md: /gse-plan. Test first, one branch per task: /gse-tests + /gse-produce. "
-     "Review and triage HIGH / MEDIUM / LOW: /gse-review. Fix on a branch, test first: /gse-fix. "
+     "Plan → tasks in docs/plan.md: /gse-plan. Test first, from the acceptance criteria, one branch per task: "
+     "/gse-produce writes the acceptance test, shows it failing, commits it, then the code (/gse-tests plans "
+     "the tests in Full mode). Review and triage HIGH / MEDIUM / LOW: /gse-review. Fix on a branch, regression "
+     "test first: /gse-fix. "
      "Merge and tag v0.1: /gse-deliver."),
+    ("The golden rule",
+     "GSE-One shows you each failing acceptance test before it writes the code: read it, it is your spec; say "
+     "stop to change it. With a beginner profile (or hands-on), it waits for your confirmation."),
     ("The guardrail",
      "GSE-One will not deliver over an open HIGH finding without your explicit decision."),
     ("Why by hand first",
@@ -34,9 +39,9 @@ _NOTES = [
 
 _ROWS = [
     (('Plan → tasks in ', (bs.cmd, 'docs/plan.md')), ((bs.cmd, '/gse-plan'),)),
-    (('Test first, one branch per task',), ((bs.cmd, '/gse-tests'), ' + ', (bs.cmd, '/gse-produce'))),
+    (('Test first (acceptance test), one branch per task',), ((bs.cmd, '/gse-produce'),)),
     (('Review, triage HIGH / MEDIUM / LOW',), ((bs.cmd, '/gse-review'),)),
-    (('Fix on a branch, test first',), ((bs.cmd, '/gse-fix'),)),
+    (('Fix on a branch, regression test first',), ((bs.cmd, '/gse-fix'),)),
     (('Merge + tag ', (bs.cmd, 'v0.1')), ((bs.cmd, '/gse-deliver'),)),
 ]
 
@@ -74,6 +79,6 @@ def build():
         with st_zoom(90):
             st_write(
                 bs.foot,
-                'Same loop, same severities — and GSE-One will not deliver over an open HIGH without your explicit decision.',
+                'Same loop — GSE-One shows you each failing acceptance test before the code: read it.',
                 tag=t.div,
             )

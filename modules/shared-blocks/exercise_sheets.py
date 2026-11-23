@@ -74,7 +74,7 @@ SHEETS = {
         "steps": [
             "On paper, 5 lines: your test strategy for the next requirement — which levels, which edge cases.",
             "`/gse-tests`: compare with your strategy; accept or refuse at least one point.",
-            "`/gse-produce`: the tests run; how many pass?",
+            "`/gse-produce`: read the failing acceptance test it shows you before the code (commit `gse(…/test)`) — is it your requirement? Then: how many tests pass?",
             "Part 2 (11:00): `/gse-review`; read the 3 most severe findings in `review.md`.",
             "Do you agree with the triage? Refuse at least one finding, with a written reason.",
         ],
@@ -107,7 +107,7 @@ SHEETS = {
         "title": "Full Cycle and Continuity",
         "goal": "Close the sprint loop, and know how to pick your work up again.",
         "steps": [
-            "`/gse-fix` on 2 findings, test first.",
+            "`/gse-fix` on 2 findings, regression test first.",
             "`/gse-deliver`: choose the merge strategy at the Gate and justify it.",
             "`/gse-compound`: read the lessons captured, add your own.",
             "`/gse-health`: compare with this morning.",
@@ -165,7 +165,8 @@ SHEETS = {
             "`/gse-reqs`: 2 to 5 requirements with Given / When / Then criteria, at least one of them a measurable "
             "non-functional requirement (sheet E21: you run it on two models).",
             "Show your plan and requirements to the trainer: day 5, 15:15-16:30, one by one.",
-            "`/gse-produce`, task by task: each task on its branch, its tests run. Lightweight has no `/gse-tests` "
+            "`/gse-produce`, task by task: each task on its branch, its acceptance test first (taken from the Given/When/Then "
+            "of `reqs.md`, seen failing), then the code, its tests run. Lightweight has no `/gse-tests` "
             "step: a minimal test strategy is generated for you.",
             "At every Gate, the 3-question grid: at least one change or one refusal per activity, in the tracking sheet.",
             "Every evening: `/gse-pause`, then `git push --all origin`.",

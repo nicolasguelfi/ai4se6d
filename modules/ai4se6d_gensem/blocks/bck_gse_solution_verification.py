@@ -17,6 +17,8 @@ def build():
             ((CMD, "/gse-tests"), " derives a test strategy from the requirements first: "
              "verification and validation, level by level."),
             "Validation tests trace to the requirements, verification tests to the design.",
+            ((CMD, "/gse-produce"), " writes each code task's acceptance test first and runs it red: "
+             "the requirement, not the code, decides what is checked."),
             "Test runs leave evidence; delivery is blocked while a requirement's tests have not passed.",
             ((CMD, "/gse-review"), " is the static side: several reviewers, findings ranked HIGH / MEDIUM / LOW."),
         ],

@@ -28,6 +28,10 @@ _NOTES = [
      "The minimal code that passes — nothing more."),
     ("REFACTOR",
      "Clean up; the tests stay green, so you know the clean-up broke nothing."),
+    ("Here: ATDD at the scale of a task",
+     "In our tasks the failing test comes from the task's acceptance criteria: acceptance-test-driven "
+     "development (ATDD) at the scale of one task. Textbook TDD (Beck) goes further: many tiny steps driven by "
+     "unit tests, and a refactor after each green. From day 3, GSE-One runs this same loop for you."),
     ("Link to what follows",
      "Code first, theory later: the live demo runs one full cycle in opencode."),
 ]

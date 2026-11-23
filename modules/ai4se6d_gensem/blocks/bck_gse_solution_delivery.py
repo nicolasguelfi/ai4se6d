@@ -14,7 +14,7 @@ def build():
         label="GSE-One solution — delivery and learning",
         problem="Delivery is rushed, nobody knows what was shipped, and the lessons vanish with the session.",
         solution=[
-            ((CMD, "/gse-fix"), " fixes the findings you keep, test first, each on its branch."),
+            ((CMD, "/gse-fix"), " fixes the findings you keep, each on its branch, regression test first."),
             ((CMD, "/gse-deliver"), ": the merge strategy is a Gate; a tag, a change log; "
              "no delivery over an open HIGH finding or untested requirement without your decision."),
             ((CMD, "/gse-compound"), " captures lessons on three axes: the project, the method, your competencies."),
