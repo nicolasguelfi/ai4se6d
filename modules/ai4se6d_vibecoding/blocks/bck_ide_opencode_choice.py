@@ -64,7 +64,7 @@ def build():
         # alternating rows (motif L2 + fonds f1): margins 5 %, numbering column, text column
         cols = "5% 6% 84% 5%"
         cells = s.project.containers.rows(len(_REASONS), cols, filled=(2, 3))
-        with st_zoom(100), st_grid(cols=cols, gap="2.5vh 0.4vw", cell_styles=cells) as g:
+        with st_zoom(120), st_grid(cols=cols, gap="1vh 0.4vw", cell_styles=cells) as g:
             for num, key, key_style, rest in _REASONS:
                 with g.cell():
                     pass  # left margin

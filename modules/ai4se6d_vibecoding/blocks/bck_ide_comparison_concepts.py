@@ -64,9 +64,9 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Same Ideas, New Names", entries=_NOTES,
                                  position="left", width="50vw")
-        st_space("v", "3vh")
+        st_space("v", "0.5vh")
 
-        with st_zoom(82):
+        with st_zoom(90):
             # Header row
             with st_grid(cols=_COLS, gap="8px", cell_styles=s.project.containers.table_header_cell) as g:
                 for header in _HEADERS:
@@ -82,7 +82,7 @@ def build():
                         with g.cell():
                             st_write(bs.cell_text, value)
 
-        st_space("v", "3vh")
+        st_space("v", "1vh")
         with st_zoom(130):
             st_write(
                 bs.caption,

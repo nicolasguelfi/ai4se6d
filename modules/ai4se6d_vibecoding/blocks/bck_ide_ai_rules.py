@@ -55,7 +55,7 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Rules for This Week", entries=_NOTES, position="left",
                                  width="50vw")
         st_space("v", "4vh")
-        with st_zoom(85), st_block(s.center_txt):
+        with st_zoom(95), st_block(s.center_txt):
 
             with st_grid(
                 cols="1fr 1fr",

@@ -137,7 +137,7 @@ def build():
             with st_zoom(110):
                 st_write(bs.tagline, "What it means for you this week", tag=t.div)
             st_space("v", "2vh")
-            with st_zoom(95):
+            with st_zoom(110):
                 _table(_RISK_COLS, _RISK_HEADERS, _RISKS)
             st_space("v", "3vh")
             with st_zoom(100), st_block(s.project.containers.callout):
