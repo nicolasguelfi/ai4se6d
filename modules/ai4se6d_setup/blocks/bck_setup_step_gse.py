@@ -1,4 +1,4 @@
-"""Slide — Installation step 5: install GSE-One, pinned to v0.92.1 (after opencode)."""
+"""Slide — Installation step 5: install GSE-One, pinned to v0.93.0 (after opencode)."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -21,13 +21,13 @@ _CODE_ZOOM = 140  # st_code font_size is not applied by Pygments: zoom instead
 # One block (folder + pinned install), split with "\" so no line wraps on screen.
 _GSE = (
     "mkdir -p ~/ai4se/gse-check && cd ~/ai4se/gse-check\n"
-    "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.92.1/install.sh \\\n"
-    "  | GSE_PLATFORM=opencode GSE_VERSION=v0.92.1 sh"
+    "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.93.0/install.sh \\\n"
+    "  | GSE_PLATFORM=opencode GSE_VERSION=v0.93.0 sh"
 )
 
 _NOTES = [
     ("The message",
-     "GSE-One is installed now, pinned to v0.92.1, so that everyone has the same version for the rest of the "
+     "GSE-One is installed now, pinned to v0.93.0, so that everyone has the same version for the rest of the "
      "course."),
     ("Why a test folder",
      "GSE-One installs into a project folder: ~/ai4se/gse-check is only there to check that the install works."),
@@ -47,9 +47,9 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, "5 · GSE-One v0.92.1", tag=t.div, toc_lvl="1")
+                st_write(bs.heading, "5 · GSE-One v0.93.0", tag=t.div, toc_lvl="1")
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — 5 · GSE-One v0.92.1", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — 5 · GSE-One v0.93.0", entries=_NOTES,
                                  position="left", width="50vw")
         with st_zoom(140):
             st_write(bs.caption, "Needs opencode 2 (step 1). Installs into this test folder.", tag=t.div)

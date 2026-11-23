@@ -24,7 +24,7 @@ _NOTES = [
      "This afternoon in three moves: Install your toolchain, Build a first prototype, Debrief together."),
     ("Install",
      "75 min in the room, one step per slide (0 to 8): terminal, opencode 2, Node.js, model key, course kit, "
-     "GSE-One v0.92.1, GitHub, check, tutor window."),
+     "GSE-One v0.93.0, GitHub, check, tutor window."),
     ("Build",
      "The FreeSelfApp workshop: 2 × 45 min, a first prototype by pure prompting — no rules, no plan, on purpose."),
     ("Debrief",
@@ -53,4 +53,4 @@ def build():
                 tag=t.div,
             )
             st_space("v", "9vh")
-            st_write(bs.info, "AI for Software Engineering · opencode 2 + GSE-One v0.92.1", tag=t.div)
+            st_write(bs.info, "AI for Software Engineering · opencode 2 + GSE-One v0.93.0", tag=t.div)
