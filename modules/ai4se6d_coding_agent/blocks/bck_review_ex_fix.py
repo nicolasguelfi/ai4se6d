@@ -23,7 +23,7 @@ _NOTES = [
     ("Why test first",
      "The test proves the finding was real and stays fixed. Without it, « fixed » is only the agent's word."),
     ("Build agent, fix branch",
-     "Shift+Tab back to the build agent (the plan agent is read-only), on the fix/review branch. "
+     "Shift+Tab back to the build agent (the plan agent does not edit your files), on the fix/review branch. "
      "« Change nothing else » keeps the diff small and readable."),
     ("Close the loop",
      "Read the diff, run npm run test:run, commit « fix: RVW-1 … », and mark RVW-1 as fixed in docs/review.md."),

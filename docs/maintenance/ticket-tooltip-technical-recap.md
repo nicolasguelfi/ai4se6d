@@ -36,14 +36,13 @@ tool's documentation.
 setup, coding_agent (git, opencode plan/build, review, tests), gensem (GSE-One commands, CI/CD, deployment).
 Blocks without a tooltip get one first (title-line « i », 95 % / 5 % header grid).
 
-## Known fact to fix in the same pass
+## Known fact fixed (2026-11-23)
 
 opencode's plan agent is **not** read-only (opencode.ai/docs/agents: it explores without editing normal project
-files, may write its plan files, shell commands stay permission-controlled). Still written « read-only » in:
-- `modules/ai4se6d_coding_agent/blocks/bck_review_ex_fix.py:26`
-- `modules/ai4se6d_coding_agent/blocks/bck_review_ex_steps.py:26`, `:63` (on the slide)
-- `modules/ai4se6d_coding_agent/blocks/bck_review_prompts.py:27`
-- `modules/ai4se6d_vibecoding/blocks/bck_ide_comparison_concepts.py:31` (table cell)
+files, may write its plan files, shell commands stay permission-controlled). Fixed in 5ccf346 (bck_ide_opencode)
+and in the next commit (coding_agent: `bck_review_ex_fix.py`, `bck_review_ex_steps.py` ×2, `bck_review_prompts.py`
+×2 — on-slide wording now « no file edits »). `bck_ide_comparison_concepts.py:31` keeps « read-only mode »: that
+cell is the Codex CLI column, whose read-only sandbox mode is real.
 
 ## Done when
 

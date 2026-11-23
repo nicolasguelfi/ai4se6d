@@ -24,7 +24,7 @@ _NOTES = [
      "« Review this code. » gives vague, generic findings. An effective review prompt names one file, one "
      "concern and the context the agent cannot guess."),
     ("Why the plan agent",
-     "Shift+Tab switches to the plan agent, which is read-only: the review reports findings and edits nothing. "
+     "Shift+Tab switches to the plan agent, which does not edit your project files: the review reports findings and edits nothing. "
      "You decide later what gets fixed."),
     ("The two examples",
      "The first targets user input in AddExpense (empty, negative, huge amounts). The second targets storage: "
@@ -60,7 +60,7 @@ def build():
                 bs.body,
                 (bs.label, 'Effective: '),
                 (bs.keyword, 'plan'),
-                ' agent (Shift+Tab — read-only), one file, one concern, the context:',
+                ' agent (Shift+Tab — no file edits), one file, one concern, the context:',
                 tag=t.div,
             )
             st_code(s.none, code=_GOOD1, language='text', line_numbers=False, font_size="36pt")

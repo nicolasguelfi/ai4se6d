@@ -23,7 +23,7 @@ _NOTES = [
      "35 minutes to review everything you changed today, triage it, and fix what matters — the whole review "
      "loop on your own code."),
     ("The steps",
-     "Back on mywork, see what changed since j2-start; review it with the read-only plan agent; write the "
+     "Back on mywork, see what changed since j2-start; review it with the plan agent (it explores, it does not edit your files); write the "
      "triage in docs/review.md; fix 2-3 HIGH/MEDIUM findings on a fix/review branch, test first; refuse at "
      "least one finding with a written reason."),
     ("The trap",
@@ -60,7 +60,7 @@ def build():
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         steps = [
             ((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git diff j2-start --stat')),
-            ('Shift+Tab → ', (bs.keyword, 'plan'), ' agent (read-only): run the review prompt'),
+            ('Shift+Tab → ', (bs.keyword, 'plan'), ' agent (no file edits): run the review prompt'),
             ('Write the triage in ', (bs.cmd, 'docs/review.md')),
             ((bs.cmd, 'git switch -c fix/review'), ': fix 2-3 HIGH/MEDIUM, test first'),
             ('Refuse at least ', (bs.keyword, 'one'), ' finding, with a written reason'),
