@@ -178,13 +178,14 @@ def build():
                             ("Analogy", "Like having 3 expert reviewers on every PR — but it takes 2 minutes, not 2 days."),
                             ("7 perspectives", "Correctness (code-reviewer), Security (auditor), Requirements (requirements-analyst), Architecture (architect), Test implementation (test-strategist), UX (advocate, conditional — UI projects), Self-critique (devil-advocate P16)."),
                             ("Findings", "Each finding gets an RVW- ID, severity (HIGH/MEDIUM/LOW), and a proposed fix. HIGH or MEDIUM findings block delivery (TASK → fixing, /gse:fix required)."),
+                            ("Read-only, all reports awaited", "The reviewers are separate sub-agents that change no file (on opencode, by permission). GSE-One waits for every report, then the orchestrator alone writes review.md."),
                             ("Health update", "The health score updates after review. Findings impact the Design Debt dimension."),
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
             with st_zoom(120):
                 st_space("v", 2)
-                st_write(bs.accent, "6 agents review your code in parallel, then the devil's advocate challenges it.")
+                st_write(bs.accent, "6 read-only agents review your code in parallel, then the devil's advocate challenges it.")
                 st_space("v", "2vh")
                 with st_grid(cols="repeat(auto-fit, minmax(200px, 1fr))", gap="12px", cell_styles=_cell) as g:
                     with g.cell():

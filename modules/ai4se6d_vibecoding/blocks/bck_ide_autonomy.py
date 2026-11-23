@@ -55,7 +55,8 @@ _NOTES_SPECTRUM = [
      "The higher the level, the more is done between two looks from you: autonomy moves the work from writing to "
      "reviewing, it does not remove it."),
     ("Link to the course",
-     "This week you work at the agent levels with opencode (plan / build agents, @subagents): next slide."),
+     "This week you work at the agent levels with opencode (plan / build agents, @subagents that run in the background "
+     "and report when they finish): next slide."),
     ("Ask the room",
      "« At which level is the tool you use at work? Who reviews what it does? »"),
 ]
@@ -65,7 +66,7 @@ _NOTES_AGENTIC = [
      "The turn: the tool no longer completes your line, it plans, edits files and runs commands. Your job becomes "
      "framing the task and reviewing the result."),
     ("The examples",
-     "opencode (plan, build, @subagents), Claude Code (subagents, background tasks), GitHub Copilot (from an issue "
+     "opencode (plan, build, @subagents in the background), Claude Code (subagents, background tasks), GitHub Copilot (from an issue "
      "to a pull request), Cursor (IDE, CLI and cloud agents)."),
     ("The trap",
      "An agent that « runs » can also break: read the plan before letting it build, and the diff before you commit."),
@@ -140,7 +141,7 @@ def _agentic_slide():
                          text_align="left", item_gap=0.6) as l:
                 # REF: opencode-sst2024
                 with l.item():
-                    st_write(bs.body, (bs.keyword_warn, "opencode"), " — plan, build, @subagents")
+                    st_write(bs.body, (bs.keyword_warn, "opencode"), " — plan, build, background @subagents")
                 # REF: anthropic-claude-code2025
                 with l.item():
                     st_write(bs.body, (bs.keyword_accent, "Claude Code"), " — subagents, background tasks")

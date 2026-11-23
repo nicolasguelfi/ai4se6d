@@ -45,6 +45,7 @@ def build():
                         ("All artefact types", "Requirements, design, code, tests, docs \u2014 complete review of the current sprint."),
                         ("Devil\u2019s advocate (P16)", "The agent challenges its own productions: hunts hallucinations, verifies libraries/APIs exist, questions assumptions."),
                         ("RVW- findings", "Each finding gets a RVW- ID with severity. Findings are persisted in docs/sprints/sprint-NN/review.md — /gse:fix reads them there (the TASK just flips to status: fixing)."),
+                        ("Independent, read-only reviewers", "Each perspective is a separate sub-agent, launched together when the tool allows it (opencode 2.3+: in the background). Reviewers change no file \u2014 on opencode their permissions forbid edits. GSE-One waits for every report; only the orchestrator writes review.md."),
                         ("Cross-sprint regression", "Full test suite runs; tests that passed last sprint but fail now are flagged [REGRESSION] HIGH."),
                         ("Health update", "Health score is recalculated after review."),
                     ],
