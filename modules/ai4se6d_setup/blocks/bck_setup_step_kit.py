@@ -32,7 +32,7 @@ _NOTES = [
      "One command installs the course kit in ~/ai4se: it clones the ai4se-kit repository and runs "
      "setup-learner.sh."),
     ("What you get",
-     "tutor — an AI helper prepared by the trainer (step 8); the course syllabus and the GSE-One v0.93.2 docs; "
+     "tutor — an AI helper prepared by the trainer (step 8); the course syllabus and the GSE-One v0.93.3 docs; "
      "the default model for the workshops."),
     ("Your key stays yours",
      "The kit sets a default model, never your key: the key was connected in step 3."),
@@ -64,7 +64,7 @@ def build():
                 with l.item():
                     st_write(bs.body, (bs.cmd, "tutor"), " — an AI helper prepared by the trainer (step 8)")
                 with l.item():
-                    st_write(bs.body, "the course syllabus and the GSE-One v0.93.2 docs")
+                    st_write(bs.body, "the course syllabus and the GSE-One v0.93.3 docs")
                 with l.item():
                     st_write(bs.body, "the default model for the workshops (never your key)")
             # Kit 2026-11-22.4: the folder holding the kit is the course folder (ss2-ul-gse, NG).
