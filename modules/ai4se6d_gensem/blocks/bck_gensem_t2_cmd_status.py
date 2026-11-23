@@ -40,7 +40,7 @@ def build():
                     )
 
             st_write(bs.accent, "Your project dashboard \u2014 always available, never modifies state.")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         with st_zoom(90):
             _status_left = [

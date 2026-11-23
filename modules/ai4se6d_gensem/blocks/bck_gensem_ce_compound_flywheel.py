@@ -46,7 +46,7 @@ def build():
                     ],
                     scale="2vw", width="70vw", position="left",
                 )
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_zoom(120):
             with st_grid(
@@ -66,7 +66,7 @@ def build():
 
             st_space("v", 0.5)
             st_write(bs.label, "Illustrative trajectory — not measured data.")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_block(s.project.containers.callout):
                 st_write(

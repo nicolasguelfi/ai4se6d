@@ -40,7 +40,7 @@ def build():
 
         st_code(s.none, code=_RULES_EXAMPLE, language="markdown")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_block(s.project.containers.callout):
             st_write(

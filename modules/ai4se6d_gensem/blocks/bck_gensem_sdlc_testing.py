@@ -26,12 +26,12 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Testing in the GenAI Era", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_block(s.center_txt):
             st_write(bs.stat_hero, "102", tag=t.div)
             st_write(bs.hero_label, "studies surveyed")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
             with l.item():

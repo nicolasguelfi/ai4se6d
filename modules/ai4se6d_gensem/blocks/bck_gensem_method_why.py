@@ -22,7 +22,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Why GenSEMOne?", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_block(s.project.containers.callout):
             st_write(
@@ -31,7 +31,7 @@ def build():
                 "VibeCoding \u2192 debt \u2192 run out of time.",
             )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.body, (bs.keyword, "Solution: "), "GenSEMOne maps CE principles to Cursor native features:")
         st_space("v", 0.5)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:

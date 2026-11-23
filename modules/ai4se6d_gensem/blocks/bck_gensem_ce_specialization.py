@@ -38,11 +38,11 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         with st_zoom(100):
             st_write(bs.body, "Two paths to make GSE-One your own:")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             st_write(bs.body, (bs.path_title, "Path 1 — Configure"), " (per project, no fork) — everything in ", (bs.keyword, ".gse/config.yaml"), " (spec §13):")
             with st_list(li_style=bs.body, list_type=lt.unordered) as l:
@@ -57,7 +57,7 @@ def build():
                 with l.item():
                     st_write(bs.body, (bs.keyword, "Domain & team"), " — ", (bs.locator, "project.domain"), " (9 values), per-user profiles in ", (bs.locator, ".gse/profiles/"))
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             st_write(bs.body, (bs.path_title, "Path 2 — Derive your own methodology"), " (fork the methodology repo):")
             with st_list(li_style=bs.body, list_type=lt.ordered) as l:
@@ -71,7 +71,7 @@ def build():
                     st_write(bs.body, (bs.keyword, "Install & audit your fork"), " — ", (bs.locator, "install.py"), " from your fork; the meta-audit tool ships for forkers")
             st_write(bs.body, (bs.locator, "License note: Business Source License 1.1 — check its terms before distributing a derivative."))
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_block(s.project.containers.callout):
                 st_write(

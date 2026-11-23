@@ -52,5 +52,5 @@ def build():
                             st_write(bs.body, f"{icon} ", (bs.keyword, label))
                             st_write(bs.body, desc)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "REQ \u2192 DES \u2192 DEC \u2014 every design choice is traceable and justified.")

@@ -75,7 +75,7 @@ def build():
                         with g.cell():
                             st_write(bs.table_txt + s.center_txt, pts)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.body + s.center_txt,
                 (bs.keyword, "Reminder — "),
@@ -93,7 +93,7 @@ def build():
         with st_block(s.center_txt):
             with st_zoom(90):
                 st_write(bs.heading, "P8: Autonomous Sprint \u2014 Beginner", tag=t.div, toc_lvl="+1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_grid(
                 cols="1fr 1fr",
@@ -115,9 +115,9 @@ def build():
                             with l.item():
                                 st_write(bs.body + _left, (bs.keyword, "4. "), (bs.keyword, "If stuck: "), "ask the agent \u201cwhat should I do next?\u201d")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Goal: complete your first solo sprint from start to finish.")
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.timer, "45 minutes")
 
     st_slide_break(marker_label="P8: Intermediate")
@@ -127,7 +127,7 @@ def build():
         with st_block(s.center_txt):
             with st_zoom(90):
                 st_write(bs.heading, "P8: Autonomous Sprint \u2014 Intermediate", tag=t.div, toc_lvl="+1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_grid(
                 cols="1fr 1fr",
@@ -149,9 +149,9 @@ def build():
                             with l.item():
                                 st_write(bs.body + _left, (bs.keyword, "4. "), (bs.keyword, "Challenge: "), "stay within your complexity budget")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Goal: demonstrate mastery of all individual commands in sequence.")
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.timer, "45 minutes")
 
     st_slide_break(marker_label="P8: Advanced / Expert")
@@ -161,7 +161,7 @@ def build():
         with st_block(s.center_txt):
             with st_zoom(90):
                 st_write(bs.heading, "P8: Autonomous Sprint \u2014 Advanced / Expert", tag=t.div, toc_lvl="+1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_grid(
                 cols="1fr 1fr",
@@ -183,9 +183,9 @@ def build():
                             with l.item():
                                 st_write(bs.body + _left, (bs.keyword, "4. "), (bs.keyword, "Challenge: "), "write methodology feedback (Axe 2) in /gse:compound")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Goal: push the methodology to its limits and provide feedback on GSE-One itself.")
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.timer, "45 minutes")
 
     st_slide_break(marker_label="Go!")

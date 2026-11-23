@@ -55,5 +55,5 @@ def build():
                         st_write(bs.body, "Applies fixes in worktree")
                         st_write(bs.body, "Traces to RVW- IDs")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Review \u2192 Fix \u2192 Review \u2014 iterate until clean (FIX skipped when review is clean).")

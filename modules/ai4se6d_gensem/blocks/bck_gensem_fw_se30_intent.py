@@ -21,7 +21,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "SE 3.0: Intent-Centric + Conversation-Oriented", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_grid(
             cols=s.project.containers.responsive_2col,
@@ -35,7 +35,7 @@ def build():
                     + s.project.containers.cell_pad_md,
                 ):
                     st_write(bs.label, "Intent-Centric", tag=t.div)
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         "Describe ", (bs.keyword, "WHAT"), ", not HOW. "
@@ -52,7 +52,7 @@ def build():
                     + s.project.containers.cell_pad_md,
                 ):
                     st_write(bs.label, "Conversation-Oriented", tag=t.div)
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         "Multi-turn dialogue replaces text editing as the ",
@@ -62,5 +62,5 @@ def build():
                         " of development time spent in conversational exchanges with AI.",
                     )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.source, cite("hassan-se30-2025"))

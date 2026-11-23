@@ -59,5 +59,5 @@ def build():
                         st_write(bs.body, "docs/learning/ notes")
                         st_write(bs.body, "Competency map update")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "COMPOUND identifies \u2014 INTEGRATE operationalizes. Nothing is forgotten.")

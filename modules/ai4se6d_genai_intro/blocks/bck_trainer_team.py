@@ -57,7 +57,7 @@ def build():
                 with st_block(s.center_txt):
                     with st_block(bs.photo_placeholder):
                         st_write(s.giant + s.center_txt + s.project.colors.primary, "NG")
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(bs.name, "Dr. Prof. Nicolas Guelfi")
                     st_space("v", 0.5)
                     st_write(bs.role, "Universite du Luxembourg")
@@ -67,7 +67,7 @@ def build():
                 with st_block(s.center_txt):
                     with st_block(bs.photo_placeholder):
                         st_write(s.giant + s.center_txt + s.project.colors.primary, "TS")
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(bs.name, "Tiago Sousa")
                     st_space("v", 0.5)
                     st_write(bs.role, "ROS")

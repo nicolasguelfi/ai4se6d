@@ -96,7 +96,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             _table_hdr = s.project.titles.table_header
             _table_txt = s.project.titles.table_cell
@@ -155,7 +155,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "The agent codes WITHIN the plan. Deviation = plan revision.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(bs.body, "No scope creep. No 'while we're at it'. Budget-constrained.")
 
     st_slide_break(marker_label="/gse:review — 7 Perspectives")
@@ -185,7 +185,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "6 agents review your code in parallel, then the devil's advocate challenges it.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 with st_grid(cols="repeat(auto-fit, minmax(200px, 1fr))", gap="12px", cell_styles=_cell) as g:
                     with g.cell():
                         st_write(bs.body, "\U0001f4dd Correctness")
@@ -229,6 +229,6 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "REVIEW → [FIX] → REVIEW → [FIX] → ... until quality.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(bs.body, "[FIX] is conditional — inserted only when REVIEW flags HIGH/MEDIUM findings.")
                 st_write(bs.body, "0 open HIGH/MEDIUM findings = ready to deliver.")

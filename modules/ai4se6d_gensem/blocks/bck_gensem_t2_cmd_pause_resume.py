@@ -43,7 +43,7 @@ def build():
                 with g.cell():
                     with st_block(_cell_acc):
                         st_write(bs.keyword + s.center_txt, "/gse:pause")
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(bs.body, "\u2705 Auto-commit all WIP")
                         st_write(bs.body, "\U0001f4be Save full checkpoint")
                         st_write(bs.body, "\U0001f5c2\ufe0f Snapshot worktree map")
@@ -51,7 +51,7 @@ def build():
                 with g.cell():
                     with st_block(_cell):
                         st_write(bs.keyword + s.center_txt, "/gse:resume")
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(bs.body, "\U0001f504 Reload checkpoint")
                         st_write(bs.body, "\U0001f50d Verify worktree integrity")
                         st_write(bs.body, "\U0001f4dd Brief: where you stopped")

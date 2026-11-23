@@ -20,7 +20,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "SE 3.0: Adaptive Partnership + Multi-Objective", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
             with l.item():

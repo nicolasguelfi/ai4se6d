@@ -66,6 +66,6 @@ def build():
         st_space("v", 0.5)
         _render_dim_row(_DIMENSIONS[4:], 4)
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.critical, "Any dimension < 7/10 \u2192 risk alert")
         st_write(bs.accent, "Soft check: health < 5 \u2192 warning before /gse:deliver (you may proceed)")

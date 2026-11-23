@@ -19,7 +19,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Before You Start", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_block(s.project.containers.callout):
             st_write(
@@ -32,7 +32,7 @@ def build():
                 "What context would you load? What constraints would you set?",
             )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(
             bs.closing,

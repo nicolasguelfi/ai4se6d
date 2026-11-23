@@ -51,7 +51,7 @@ def build():
                     ],
                     scale="2vw", width="70vw", position="left",
                 )
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_zoom(120):
             with st_block(bs.dont_callout):
@@ -67,7 +67,7 @@ def build():
                     (bs.stat, "The AI will wander."),
                 )
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_block(bs.do_callout):
                 st_write(
@@ -76,7 +76,7 @@ def build():
                     "Explicit task decomposition, file-level changes, interface contracts.",
                 )
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_block(s.project.containers.callout):
                 st_write(

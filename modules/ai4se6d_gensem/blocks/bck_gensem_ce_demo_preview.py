@@ -17,7 +17,7 @@ def build():
         with st_block(s.center_txt):
             with st_zoom(90):
                 st_write(bs.heading, "CE in Action \u2014 What You'll See on Day 6", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         st_write(bs.body, "Live demo with Claude Code \u2014 full 6-phase cycle:")
         st_space("v", 0.5)

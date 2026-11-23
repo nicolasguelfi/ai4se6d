@@ -29,14 +29,14 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Layer 2: Knowledge (C4-C8)", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
             for name, desc in _CONCEPTS:
                 with l.item():
                     st_write(bs.body, (bs.label, name), f" \u2014 {desc}")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(s.project.containers.callout):
             st_write(
                 bs.callout_text,

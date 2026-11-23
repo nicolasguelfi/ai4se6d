@@ -87,12 +87,12 @@ def build():
                             (bs.critical, "-19%"),
                             (bs.body, " on familiar code"),
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.takeaway,
                             "Scale, context, and expertise determine whether AI helps or hinders.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.source,
                             cite("peng-copilot2023"), " | ",

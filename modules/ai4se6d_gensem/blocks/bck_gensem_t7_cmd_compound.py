@@ -62,5 +62,5 @@ def build():
                         st_write(bs.body, "Competency map update")
                         st_write(bs.body, "\u2192 docs/learning/")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Deeper than a retrospective \u2014 knowledge transfer + methodology feedback.")

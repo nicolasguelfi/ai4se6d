@@ -87,11 +87,11 @@ bs = BlockStyles
 def _render_card(project: dict) -> None:
     """Render a single project card from a project dict."""
     with st_block(bs.card_container):
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(s.huge + "text-align:center;", project["emoji"])
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.project_title + "text-align:center;", project["title"])
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.card_description + "text-align:center;", project["description"])
         st_space("v", 2)
         col1, col2, col3 = st.columns([1, 2, 1])
@@ -101,14 +101,14 @@ def _render_card(project: dict) -> None:
                 project["url"],
                 use_container_width=True,
             )
-        st_space("v", 1)
+        st_space("v", "2vh")
 
 
 def build():
     """Render the collection home: header, level badge, project cards."""
 
     # === Gradient header ===
-    st_space("v", 1)
+    st_space("v", "2vh")
     with st_block(bs.header):
         st_write(
             stx.StxStyles.Huge + stx.StxStyles.text.colors.white,
@@ -121,7 +121,7 @@ def build():
             "Formation en ingenierie logicielle augmentee par IA",
             tag=t.div,
         )
-    st_space("v", 1)
+    st_space("v", "2vh")
 
     # === Level badge ===
     with st_block(bs.level_box):
@@ -131,13 +131,13 @@ def build():
             s.Large + s.text.weights.bold_weight,
             "Explore the AI4SE 6D Learning Paths",
         )
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.description,
             "Browse the AI4SE 6D training modules. "
             "Each module is self-contained and can be launched independently.",
         )
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_list(list_type="ul") as l:
             for proj in _PROJECTS:
                 with l.item():
@@ -156,7 +156,7 @@ def build():
                 _render_card(proj)
 
         if row_idx < num_rows - 1:
-            st_space("v", 1)
+            st_space("v", "2vh")
 
     # === Footer ===
     st_space("v", 3)

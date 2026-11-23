@@ -81,6 +81,6 @@ def build():
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Key insight: "), "Validation gates prevent AI drift; humans stay in control")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.assessment, "First formal AI-native SDLC \u2014 promising but early-stage.")
             st_write(bs.source, cite("hymel-vbounce2025"))

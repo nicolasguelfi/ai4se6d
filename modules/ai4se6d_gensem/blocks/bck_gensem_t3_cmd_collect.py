@@ -58,5 +58,5 @@ def build():
                         st_write(bs.body, "\U0001f50d Reusability assessment")
                         st_write(bs.body, "\U0001f4dc License check")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Output: console inventory summary (ephemeral) + .gse/sources.yaml (SRC- IDs)")

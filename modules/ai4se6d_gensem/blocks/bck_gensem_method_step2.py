@@ -26,20 +26,20 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Step 2: Architecture Plan \u2014 The Roadmap", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.body, (bs.label, "Plan Mode prompt:"))
         st_space("v", 0.5)
         st_code(s.none, code=_PLAN_PROMPT, language="text")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.body,
             (bs.label, "Output: "),
             ".gse/plan.yaml. Maintained by the orchestrator throughout the sprint.",
         )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "Architecture Decisions to Make", tag=t.div)
         st_space("v", 0.5)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
@@ -52,7 +52,7 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.keyword, "API patterns"), " \u2014 REST, GraphQL, or mock")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.body,
             (bs.timing, "Time: 15 min."),

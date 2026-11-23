@@ -60,5 +60,5 @@ def build():
                             st_write(bs.body, f"{icon} ", (bs.keyword, agent))
                             st_write(bs.body, focus)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.highlight, "The agent reviews its own work \u2014 and challenges its own assumptions.")

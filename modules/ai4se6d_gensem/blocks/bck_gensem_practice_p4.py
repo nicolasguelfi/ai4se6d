@@ -91,9 +91,9 @@ def build():
                             with l.item():
                                 st_write(bs.body + _left, (bs.keyword, "3. "), (bs.keyword, "Discussion: "), "why did the agent refuse? What is a guardrail protecting?")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Question: Can you explain the difference between Auto, Inform, and Gate?")
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.timer, "45 minutes")
 
     st_slide_break(marker_label="P4: Intermediate")
@@ -130,7 +130,7 @@ def build():
                         with g.cell():
                             st_write(bs.table_txt + s.center_txt, "Auto / Inform / Gate")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Then: write Now / 3 months / 1 year consequences for 2 Gate decisions.")
             st_write(bs.timer, "45 minutes")
 
@@ -175,7 +175,7 @@ def build():
                                 with l.item():
                                     st_write(bs.body + _left, (bs.keyword, "4. "), (bs.keyword, "Calibration: "), "how would you set Auto/Inform/Gate thresholds for your professional project?")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Question: Should experts have fewer Gates? When should you override a guardrail?")
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.timer, "45 minutes")

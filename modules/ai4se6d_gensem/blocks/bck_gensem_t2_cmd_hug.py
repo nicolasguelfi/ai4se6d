@@ -68,5 +68,5 @@ def build():
                             with inner.cell():
                                 st_write(bs.body, f"{icon} ", (bs.keyword, label))
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "4\u20135 questions on existing code \u2014 up to a dozen quick ones on greenfield.")

@@ -29,7 +29,7 @@ def build():
                 tag=t.div,
                 toc_lvl="1",
                 )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.subtitle,
                 "From theory to practice: applying Compound Engineering "

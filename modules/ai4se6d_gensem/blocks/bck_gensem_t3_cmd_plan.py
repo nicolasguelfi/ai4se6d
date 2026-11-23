@@ -68,5 +68,5 @@ def build():
                     with g.cell():
                         st_write(bs.table_txt, approval)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Sprint plan = filtered view of the backlog + live workflow state \u2014 not a separate document.")

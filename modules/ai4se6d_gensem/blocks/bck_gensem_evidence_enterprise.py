@@ -139,7 +139,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             _studies = [
                 ("Cui et al.", "4,867 devs, enterprise", "Juniors +27-39%, Seniors +8-13%",
@@ -162,7 +162,7 @@ def build():
                             st_space("v", 0.5)
                             st_write(bs.body, finding)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.accent,
                 "The relationship is more nuanced than any single study suggests.",

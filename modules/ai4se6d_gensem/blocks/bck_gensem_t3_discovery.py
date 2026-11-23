@@ -67,7 +67,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "Before building, understand what you have.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 with st_grid(cols="1fr 1fr", gap="16px") as g:
                     with g.cell():
                         with st_grid(cols="1fr", gap="12px") as inner:
@@ -159,7 +159,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "The plan is a CONTRACT between you and the agent.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 with st_grid(cols="repeat(auto-fit, minmax(280px, 1fr))", gap="16px") as g:
                     with g.cell():
                         with st_block(s.project.containers.callout):

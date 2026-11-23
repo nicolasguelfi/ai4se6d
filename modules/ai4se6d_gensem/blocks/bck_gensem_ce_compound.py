@@ -58,7 +58,7 @@ def build():
                         st_space("v", 0.3)
                         st_write(bs.body, description)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_block(s.project.containers.callout):
                 st_write(

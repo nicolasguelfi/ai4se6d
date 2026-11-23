@@ -105,7 +105,7 @@ def build():
                             with st_block(_desc):
                                 st_write(bs.body, desc)
 
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(
                     bs.source,
                     cite("basic-codesecurity-slr2025"), " | ",
@@ -221,13 +221,13 @@ def build():
                             (bs.critical, "VibeCoding"),
                             (bs.body, " — fast but fragile"),
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (bs.accent, "VibeEngineering"),
                             (bs.body, " \u2014 rigorous but incomplete"),
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.highlight,
                             "Methodologies are emerging. The discipline that unifies them is not \u2014 yet.",

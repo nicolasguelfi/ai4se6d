@@ -76,5 +76,5 @@ def build():
                     with g.cell():
                         st_write(bs.table_txt, traces)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Test pyramid calibrated by project domain \u2014 not one-size-fits-all.")

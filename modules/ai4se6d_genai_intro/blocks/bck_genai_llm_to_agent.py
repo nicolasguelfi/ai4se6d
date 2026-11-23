@@ -87,9 +87,9 @@ def build():
                 with st_zoom(130),g.cell():
                     st_write(bs.num, f"Step {num}", tag=t.div)
                     st_write(bs.name, name, tag=t.div)
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(bs.what, what, tag=t.div)
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(bs.trap, trap, tag=t.div)
 
         with st_zoom(130),st_block(_example):

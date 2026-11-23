@@ -46,7 +46,7 @@ def build():
                 with g.cell():
                     with st_block(_cell):
                         st_write(bs.keyword + s.center_txt, "/gse:task")
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(bs.body, "Branch + worktree created")
                         st_write(bs.body, "Added to backlog (TASK-)")
                         st_write(bs.body, "Consumes complexity budget")
@@ -55,7 +55,7 @@ def build():
                 with g.cell():
                     with st_block(_cell_act):
                         st_write(bs.highlight, "/gse:task --spike")
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(bs.body, "Max 3 complexity points")
                         st_write(bs.body, "Non-deliverable (branch deleted)")
                         st_write(bs.body, "Bypasses REQS/TESTS")

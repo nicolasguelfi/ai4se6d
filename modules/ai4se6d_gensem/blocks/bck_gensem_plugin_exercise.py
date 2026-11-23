@@ -42,7 +42,7 @@ def build():
             "What questions does it ask? What risks does it surface?",
         )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_block(s.project.containers.callout):
             st_write(

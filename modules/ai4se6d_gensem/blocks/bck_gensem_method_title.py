@@ -43,7 +43,7 @@ def build():
                 provider="openai",
                 ai_size="1536x1024",
             )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.subtitle,
                 "A practical, Cursor-native method for your professional mini-project. "

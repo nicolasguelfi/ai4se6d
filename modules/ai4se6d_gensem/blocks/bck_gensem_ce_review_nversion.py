@@ -54,7 +54,7 @@ def build():
                 " \u2014 correctness, security, requirements, architecture, test implementation, UX, adversarial self-review.",
             )
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_block(s.project.containers.callout):
                 st_write(

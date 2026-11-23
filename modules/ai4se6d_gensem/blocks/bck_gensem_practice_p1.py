@@ -75,7 +75,7 @@ def build():
                             ],
                             scale="2vw", width="70vw", position="left",
                         )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             _left = Style("text-align: left;", "p1_left")
             with st_grid(cols="3fr 7fr", gap="24px") as g:
@@ -107,7 +107,7 @@ def build():
                                     with l.item():
                                         st_write(bs.body + _left, (bs.keyword, "5. "), (bs.keyword, "Note your observations"))
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_block(_cell_accent):
                 st_write(
                     bs.body,
@@ -154,7 +154,7 @@ def build():
                             ],
                             scale="2vw", width="70vw", position="left",
                         )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             _cell_alt = (
                 s.project.containers.cell_active_bg

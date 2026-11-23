@@ -88,7 +88,7 @@ def build():
                             ' "Run all tests for FR-001. Show traceability."',
                         )
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             # BAD prompting
             with st_block(_callout_warn):

@@ -80,15 +80,15 @@ def build():
                     position="left", width="50vw",
                 )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.accent, "Architecture")
         _render_modes_table(_ROWS_ARCHITECTURE)
 
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.accent, "Discipline")
         _render_modes_table(_ROWS_DISCIPLINE)
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.accent, "Start Lightweight. Escalate to Full when complexity demands it.")

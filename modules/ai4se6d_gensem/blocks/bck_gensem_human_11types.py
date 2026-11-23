@@ -37,7 +37,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "11 Types of Human-AI Interaction", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_grid(
             cols="repeat(auto-fit, minmax(280px, 1fr))",
@@ -49,10 +49,10 @@ def build():
                 with g.cell():
                     st_write(bs.body, (bs.label, f"{i}. "), name)
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.takeaway,
             "Establishes vocabulary for designing human-AI interaction patterns.",
         )
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.source, cite("treude-interactions2025"))

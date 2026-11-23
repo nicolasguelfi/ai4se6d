@@ -26,13 +26,13 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Step 1: Requirements \u2014 Before Any Code", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.body, (bs.label, "Plan Mode prompt:"))
         st_space("v", 0.5)
         st_code(s.none, code=_PLAN_PROMPT, language="text")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.body,
             (bs.label, "Output: "),
@@ -47,7 +47,7 @@ def build():
             ".",
         )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(s.project.containers.callout):
             st_write(
                 bs.callout_text,
@@ -55,7 +55,7 @@ def build():
                 "between ask and output.",
             )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.body,
             (bs.timing, "Time budget: 30 min."),

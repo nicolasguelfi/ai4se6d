@@ -27,7 +27,7 @@ def build():
         with st_block(s.center_txt):
             with st_zoom(90):
                 st_write(bs.heading, "The Human Factor", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         with st_grid(
             cols="2fr 3fr",

@@ -40,7 +40,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         with st_zoom(90):
             with st_grid(

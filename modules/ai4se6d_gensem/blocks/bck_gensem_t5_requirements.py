@@ -50,7 +50,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "The agent asks the questions. You validate the answers.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 with st_grid(cols="repeat(auto-fit, minmax(300px, 1fr))", gap="16px") as g:
                     with g.cell():
                         with st_block(s.project.containers.callout):
@@ -88,7 +88,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "AI proposes. You decide. Every decision is traced.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(bs.body, "Output: design.md + decisions.md with DEC- IDs")
 
     st_slide_break(marker_label="Preview & Traceability")
@@ -118,7 +118,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "Everything is linked. Change one, see all impacts.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(
                     bs.body,
                     (bs.keyword, "REQ-"),

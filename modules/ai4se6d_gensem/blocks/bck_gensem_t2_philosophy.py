@@ -61,7 +61,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "80% planning & review = quality")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(bs.body, "20% execution = code generation")
                 st_space("v", 2)
                 st_write(bs.body, "Remember FreeSelfApp Day 1? That was the 20/80 — fast but fragile.")
@@ -90,7 +90,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_zoom(120):
                 with st_grid(cols="1fr 1fr 1fr", gap="16px", cell_styles=_cell) as g:
                     with g.cell():
@@ -130,7 +130,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_block(s.center_txt):
                 st_image(
                     s.none, width="50%",
@@ -140,7 +140,7 @@ def build():
                     provider="openai",
                     ai_size="1536x1024",
                 )
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_grid(cols="repeat(auto-fit, minmax(200px, 1fr))", gap="12px") as g:
                 with g.cell():
                     with st_block(_cell_acc):
@@ -183,7 +183,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             _dims_left = [
                 ("User name", "How the agent addresses you"),
                 ("IT expertise", "Beginner → Expert"),
@@ -237,7 +237,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_zoom(100):
                 _hdr = s.project.containers.table_header_cell
@@ -321,7 +321,7 @@ def build():
                                 "PLAN \u00b7 STATUS \u00b7 HEALTH \u00b7 AUDIT \u00b7 BACKLOG \u00b7 TASK \u00b7 LEARN \u00b7 PAUSE \u00b7 RESUME \u00b7 DEPLOY",
                             )
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_block(s.project.containers.callout + s.center_txt):
                 st_write(
                     bs.body,
@@ -368,7 +368,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_zoom(120):
                 with st_grid(cols="repeat(auto-fit, minmax(280px, 1fr))", gap="16px") as g:
                     with g.cell():

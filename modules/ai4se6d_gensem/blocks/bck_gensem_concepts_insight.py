@@ -23,7 +23,7 @@ def build():
     with st_block(s.project.containers.page_fill_center_noalign):
         with st_zoom(90):
             st_write(bs.heading, "The Process Insight", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_block(s.project.containers.callout):
             st_write(

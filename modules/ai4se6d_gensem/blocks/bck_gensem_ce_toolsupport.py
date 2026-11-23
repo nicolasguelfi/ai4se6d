@@ -30,10 +30,10 @@ def build():
         with st_block(s.center_txt):
             with st_zoom(90):
                 st_write(bs.heading, "Tool Support \u2014 10+ Environments", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         st_write(bs.body, (bs.keyword, "Plugin architecture: "), ".claude-plugin/ + .cursor-plugin/ manifests, native plugin installation per platform (marketplace or CLI).")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.tool_name, "Supported Tools", tag=t.div)
         st_space("v", 0.5)
@@ -48,7 +48,7 @@ def build():
                 with g.cell():
                     st_write(bs.body, tool)
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.tool_name, "Tool-Specific Notes", tag=t.div)
         st_space("v", 0.5)
         with st_list(li_style=bs.note_body, list_type=lt.unordered) as l:

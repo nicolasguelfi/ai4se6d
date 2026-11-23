@@ -36,7 +36,7 @@ def build():
                     ],
                     scale="2vw", width="70vw", position="left",
                 )
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_zoom(100):
             with st_grid(
@@ -45,7 +45,7 @@ def build():
             ) as g:
                 with g.cell():
                     st_write(bs.label, "Cursor", tag=t.div)
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Rules: "), ".cursor/rules/*.mdc with glob-scoped activation")
@@ -60,7 +60,7 @@ def build():
 
                 with g.cell():
                     st_write(bs.label, "Claude Code", tag=t.div)
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Rules: "), "Layered CLAUDE.md (project, user, global)")

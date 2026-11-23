@@ -32,7 +32,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Anti-pattern: Jumping to Code", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_block(bs.dont_callout):
             st_write(bs.body, (bs.stat, "DON'T: "), '"Add budget alerts to the app"')
@@ -44,7 +44,7 @@ def build():
                 ".",
             )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_block(bs.do_callout):
             st_write(bs.body, (bs.keyword, "DO: "), '"/ce-brainstorm budget alerts"')

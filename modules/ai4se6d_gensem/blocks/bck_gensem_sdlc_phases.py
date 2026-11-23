@@ -76,11 +76,11 @@ def build():
                         entries=tt_entries,
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         with st_zoom(90):
             _render_table(_PHASES[:3])
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.source, cite("soen101-2024"), "  ", cite("esposito-architecture2025"))
 
     st_slide_break(marker_label="GenAI Impact Across SDLC (2/2)")
@@ -102,10 +102,10 @@ def build():
                         entries=tt_entries,
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
         with st_zoom(90):
             _render_table(_PHASES[3:])
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.source, cite("soen101-2024"), "  ", cite("gao-maintenance2025"), "  ", cite("esposito-architecture2025"))
 
     st_space("v", "30vh")

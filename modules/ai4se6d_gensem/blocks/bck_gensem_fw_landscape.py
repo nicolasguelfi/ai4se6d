@@ -45,7 +45,7 @@ def build():
                     scale="2vw", width="70vw", position="left",
                 )
         with st_zoom(90):
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             # Row 1 — Adaptations (primary bg)
             with st_block(

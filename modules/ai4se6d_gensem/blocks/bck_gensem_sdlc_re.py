@@ -24,7 +24,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Requirements Engineering Transformed", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
             with l.item():
@@ -55,7 +55,7 @@ def build():
                     (bs.stat, "(57.1%)"),
                 )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(s.project.containers.callout):
             st_write(
                 bs.body,
@@ -64,5 +64,5 @@ def build():
                 " of studies remain early-stage.",
             )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.source, "238 articles analyzed \u2014 ", cite("cheng-genai-re2025"))

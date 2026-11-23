@@ -38,7 +38,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         with st_zoom(75):
             with st_block(s.project.containers.callout):
@@ -50,7 +50,7 @@ def build():
                 )
 
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_grid(
                 cols=s.project.containers.responsive_2col,
@@ -83,5 +83,5 @@ def build():
                             with l.item():
                                 st_write(bs.body, (bs.keyword, "Guardrail-bounded flexibility"), " \u2014 phases follow constraints, not a rigid sequence")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 

@@ -53,7 +53,7 @@ def build():
 
         with st_zoom(90):
             st_write(bs.accent, "Plan 80%, execute 20% \u2014 preview closes the 80%.")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             # Preview types table
             with st_grid(cols="25% 75%", gap="8px", cell_styles=_hdr_cell) as g:

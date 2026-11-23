@@ -36,7 +36,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Steps 4\u20135: Review & Compound", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_grid(
             cols=s.project.containers.responsive_2col,
@@ -61,6 +61,6 @@ def build():
                 st_space("v", 0.5)
                 st_code(s.none, code=_EXAMPLE_RULES, language="markdown")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(s.center_txt):
             st_write(bs.closing, "These rules travel with you \u2014 copy to next project.")

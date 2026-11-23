@@ -23,7 +23,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Step 3: Iterate \u2014 The Development Loop", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.body, "For ", (bs.keyword, "each FR"), ", follow these 5 sub-steps:")
         st_space("v", 0.5)
@@ -40,7 +40,7 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.keyword, "Update todo: "), "check off FR in Cursor todo list")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(s.project.containers.callout):
             st_write(
                 bs.callout_text,
@@ -48,7 +48,7 @@ def build():
                 "Never 2 FRs at once. Stuck > 15 min? Simplify and move on.",
             )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(s.project.containers.callout):
             st_write(
                 bs.warning,

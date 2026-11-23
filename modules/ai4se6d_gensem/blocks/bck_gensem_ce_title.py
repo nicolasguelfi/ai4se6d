@@ -41,7 +41,7 @@ def build():
                 provider="openai",
                 ai_size="1536x1024",
             )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 s.project.titles.body + s.center_txt + s.project.colors.muted,
                 "Named after compound interest: each development cycle makes "

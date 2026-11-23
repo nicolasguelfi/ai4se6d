@@ -17,11 +17,11 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, 'Live Demo: /ce-brainstorm', tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.body, (bs.label, "Scenario: "), 'Adding a "budget alerts" feature to CalcApp.')
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "What Happens", tag=t.div)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
             with l.item():
@@ -33,9 +33,9 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.keyword, "Surfaces risks"), " \u2014 performance impact on large datasets, notification spam, false positives")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.body, (bs.label, "Artifact produced: "), "brainstorm document saved to docs/brainstorm/budget-alerts.md")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(s.project.containers.callout):
             st_write(bs.callout_text, "5-minute conversation replaces 30 minutes of ambiguous back-and-forth.")

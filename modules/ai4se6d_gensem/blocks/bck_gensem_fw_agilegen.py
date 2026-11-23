@@ -54,9 +54,9 @@ def build():
                 with g.cell():
                     with st_block(s.project.containers.callout):
                         st_write(bs.callout_title, "The Gherkin Bridge", tag=t.div)
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(bs.callout_body, "Natural-language user stories are translated into Gherkin scenarios (Given/When/Then) that serve as both specification and acceptance test.")
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(bs.callout_body, "This creates a ", (bs.keyword, "formal bridge"), " between stakeholder intent and generated code.")
 
                 # Right — bullet list

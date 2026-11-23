@@ -65,7 +65,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_grid(
                 cols="repeat(auto-fit, minmax(250px, 1fr))",
@@ -124,14 +124,14 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.stat, "7h / week")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(bs.body, "lost per team member to AI-related inefficiencies")
                 st_space("v", 2)
                 st_write(
                     bs.body,
                     "Faster coding creates bottlenecks elsewhere: review, debugging, integration.",
                 )
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(bs.source, cite("gitlab-devsecops2025"))
 
     st_slide_break(marker_label="The 160,000-Developer Study")
@@ -161,12 +161,12 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.stat_primary, "160K+")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(bs.body, "GitHub developers analyzed by Daniotti et al.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(
                     bs.accent,
                     "Seniors capture ALL gains. Juniors show NO significant benefits.",
                 )
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(bs.source, cite("daniotti-github2025"))

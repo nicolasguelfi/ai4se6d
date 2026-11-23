@@ -79,11 +79,11 @@ def build():
                             (bs.keyword, "Yesterday"),
                             (bs.body, " — write code, debug, deploy"),
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (bs.accent, "Tomorrow"),
                             (bs.body, " — specify intent, orchestrate agents, validate results"),
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(bs.highlight, "Code recedes. Orchestration advances.")

@@ -53,7 +53,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         with st_grid(cols="40% 1fr", gap="16px", cell_styles=s.project.containers.grid_cell_centered) as g:
             with g.cell():

@@ -59,5 +59,5 @@ def build():
                         st_write(bs.body, "Auto-run test suite")
                         st_write(bs.body, "Save TCP-NNN report")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Every task in its own worktree \u2014 parallel work without interference.")

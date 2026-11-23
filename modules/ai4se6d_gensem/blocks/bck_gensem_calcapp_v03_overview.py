@@ -39,7 +39,7 @@ def build():
                 tag=t.div,
                 toc_lvl="1",
                 )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         with st_grid(
             cols=s.project.containers.responsive_2col,

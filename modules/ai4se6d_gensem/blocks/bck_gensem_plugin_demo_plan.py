@@ -17,11 +17,11 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Live Demo: /ce-plan", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.body, "Continues from the brainstorm output. The plan phase transforms exploration into a ", (bs.keyword, "contract"), ".")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "Plan Produces", tag=t.div)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
             with l.item():
@@ -33,7 +33,7 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.keyword, "Risk mitigation"), " \u2014 identified blockers with fallback strategies")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "Key Properties", tag=t.div)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
             with l.item():
@@ -43,6 +43,6 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.keyword, "Traceability"), " \u2014 plan references brainstorm output for full audit trail")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(s.project.containers.callout):
             st_write(bs.callout_text, "A good plan is the single highest-leverage artifact in generative SE.")

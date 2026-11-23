@@ -67,7 +67,7 @@ def build():
                     with g.cell():
                         st_write(bs.table_txt, desc)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Single source of truth \u2014 auto-populated by review, collect, and plan.")
             st_space("v", 0.3)
             st_write(bs.accent, "/gse:backlog sprint warns when backlog items diverge from the active plan.yaml.")

@@ -21,7 +21,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "AgileGen: Research Roadmap", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_grid(
             cols=s.project.containers.responsive_2col,

@@ -17,11 +17,11 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Live Demo: /ce-compound", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.body, "The knowledge flywheel \u2014 each cycle feeds the next.")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "What Gets Compounded", tag=t.div)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
             with l.item():
@@ -33,6 +33,6 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.keyword, "ADR created"), " \u2014 Architecture Decision Record for significant design choices")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(s.project.containers.callout):
             st_write(bs.callout_text, "In 5 cycles, your project rules become comprehensive enough that AI generates correct code 90%+ on first attempt.")

@@ -54,5 +54,5 @@ def build():
                             st_write(bs.body, f"{icon} ", (bs.keyword, step))
                             st_write(bs.body, desc)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "Every requirement is testable \u2014 acceptance criteria = validation test specs.")

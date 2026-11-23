@@ -24,7 +24,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "AgileGen: Memory Pool + Frustrations", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_grid(
             cols=s.project.containers.responsive_2col,
@@ -35,7 +35,7 @@ def build():
             with g.cell():
                 with st_block(s.project.containers.callout):
                     st_write(bs.callout_title, "Memory Pool Mechanism", tag=t.div)
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         "Collects decision-making scenarios from past sprints. "
@@ -58,5 +58,5 @@ def build():
                     with l.item():
                         st_write(bs.body, (bs.keyword, "Skill deficits: "), "teams lack prompt engineering and AI literacy")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.source, cite("zhang-agilegen2025"))

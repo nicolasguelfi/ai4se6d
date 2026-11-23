@@ -31,7 +31,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "V-Bounce: The Diagram", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         # V-shape as 3-column grid: left descending, center AI, right ascending
         with st_grid(
@@ -76,7 +76,7 @@ def build():
                     st_write(bs.body, "\u2714 Human validation")
 
         # Bottom — AI Implementation Engine
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(
             s.project.containers.cell_active_bg
             + s.project.containers.cell_pad_md

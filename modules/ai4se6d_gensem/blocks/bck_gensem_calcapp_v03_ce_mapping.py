@@ -33,7 +33,7 @@ def build():
                 tag=t.div,
                 toc_lvl="1",
                 )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         # Header row
         with st_grid(

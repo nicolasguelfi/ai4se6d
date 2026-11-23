@@ -38,9 +38,9 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Where Your Changes Live", entries=_NOTES,
                                  position="left", width="50vw")
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_image(uri="images/am/bck_git_areas_image_00.png", width="100%", max_vh=72, align="center")
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.caption, (bs.keyword, "git add"), " chooses what goes into the next snapshot — ",
             (bs.keyword, "git commit"), " takes it.", tag=t.div,

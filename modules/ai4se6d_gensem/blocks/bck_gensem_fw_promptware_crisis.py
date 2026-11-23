@@ -29,7 +29,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "The Promptware Crisis", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         # Historical parallel callout
         with st_block(s.project.containers.callout):
@@ -42,7 +42,7 @@ def build():
                 "Ad hoc management, no versioning, no testing, no governance.",
             )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         # Full lifecycle as ordered list
         st_write(bs.body, "The full ", (bs.keyword, "promptware lifecycle"), ":")
@@ -65,11 +65,11 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.keyword, "Monitoring"), " \u2014 track drift and degradation in production")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.message,
             "Ad hoc prompt management fails at scale. "
             "Context Engineering is the evolution.",
         )
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.source, cite("chen-promptware2025"))

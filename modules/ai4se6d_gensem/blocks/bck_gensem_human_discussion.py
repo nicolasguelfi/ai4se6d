@@ -27,7 +27,7 @@ def build():
             "Based on your Days 1-2 experience: where on the junior-senior "
             "spectrum did AI help you most?",
         )
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.question,
             "Where did it slow you down?",

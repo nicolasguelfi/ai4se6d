@@ -50,7 +50,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "Merge → Tag → Deploy → Clean. Main stays stable.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 with st_grid(cols="repeat(auto-fit, minmax(200px, 1fr))", gap="12px", cell_styles=_cell) as g:
                     with g.cell():
                         st_write(bs.body, "\U0001f500 Merge")
@@ -88,7 +88,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.highlight, "The phase no one does — that changes everything.")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 with st_grid(cols="repeat(auto-fit, minmax(280px, 1fr))", gap="16px") as g:
                     with g.cell():
                         with st_block(_cell):
@@ -130,7 +130,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "Solutions become operational. Health monitors progress.")
-                st_space("v", 1)
+                st_space("v", "2vh")
 
                 st_write(bs.keyword + s.center_txt, "Code quality")
                 with st_grid(cols="1fr 1fr 1fr 1fr", gap="12px", cell_styles=_cell) as g:

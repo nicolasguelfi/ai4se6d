@@ -105,5 +105,5 @@ def build():
                     with g.cell():
                         st_write(bs.table_txt, desc)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "LRN- artifacts accumulate \u2014 your personal course, in your language.")

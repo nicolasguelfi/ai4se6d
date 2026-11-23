@@ -17,7 +17,7 @@ def build():
         with st_block(s.center_txt):
             with st_zoom(90):
                 st_write(bs.heading, "Fowler\u2019s Warning", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         with st_block(s.project.containers.callout):
             st_write(
@@ -33,7 +33,7 @@ def build():
             "Coding assistants are ", (bs.keyword, "NOT"),
             " replacing pair programming.",
         )
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.body,
             "Writing code \u2260 building software.",

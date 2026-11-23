@@ -59,7 +59,7 @@ def build():
                         (bs.stat, "beyond productivity metrics"),
                     )
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_block(s.project.containers.callout):
                 st_write(
                     bs.body,
@@ -68,5 +68,5 @@ def build():
                     ". Knowledge-sharing dynamics disrupted.",
                 )
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.source, cite("xiao-longitudinal2025"))

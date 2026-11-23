@@ -42,7 +42,7 @@ def build():
                 (bs.title_e, "E"), "ngineering",
                 tag=t.div, toc_lvl="1",
                 )
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_grid(cols="1fr 2fr 1fr", gap="0px") as g:
                 with g.cell():
                     pass
@@ -50,7 +50,7 @@ def build():
                     st_video(_VIDEO_PATH, autoplay=True, loop=True, muted=True)
                 with g.cell():
                     pass
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.sub,
                 "GSE-One — Built by AI. Governed by Humans.",

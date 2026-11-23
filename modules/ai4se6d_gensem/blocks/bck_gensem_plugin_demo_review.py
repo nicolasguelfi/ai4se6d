@@ -19,11 +19,11 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Live Demo: /ce-code-review", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.body, "Multi-perspective review \u2014 analogous to N-version verification in safety-critical systems.")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "Four Review Perspectives", tag=t.div)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
             with l.item():
@@ -35,7 +35,7 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.keyword, "Learning extraction"), " \u2014 patterns worth capitalizing, mistakes to prevent next time")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "Output: Severity-Rated Findings", tag=t.div)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
             with l.item():

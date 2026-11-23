@@ -25,9 +25,9 @@ def build():
                 "The 160,000-Developer Study",
                 tag=t.div, toc_lvl="1",
                 )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.stat, "160K+")
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.body,
                 "Daniotti et al. analyzed GitHub developers. "
@@ -45,12 +45,12 @@ def build():
                 " significant benefits.",
             )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.body,
             "Controlled enterprise settings (juniors get structured support) "
             "vs. open-source (AI tools reward existing expertise).",
         )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.source, cite("daniotti-github2025"))

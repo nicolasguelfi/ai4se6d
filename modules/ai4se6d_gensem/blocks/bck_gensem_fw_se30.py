@@ -44,7 +44,7 @@ def build():
 
         with st_zoom(90):
             st_write(bs.body, "Hassan et al. propose a paradigm shift with ", (bs.keyword, "5 characteristics"), ":")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
                 with l.item():

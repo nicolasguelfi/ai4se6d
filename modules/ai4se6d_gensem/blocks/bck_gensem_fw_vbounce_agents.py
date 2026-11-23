@@ -22,7 +22,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "V-Bounce: Multi-Agent Role Assignments", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_grid(
             cols="repeat(auto-fit, minmax(300px, 1fr))",
@@ -57,5 +57,5 @@ def build():
                 " with explicit agent role assignments.",
             )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.source, cite("hymel-vbounce2025"))

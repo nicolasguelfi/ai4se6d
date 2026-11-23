@@ -86,7 +86,7 @@ def build():
                 with g.cell():
                     st_write(bs.body_c, (bs.keyword, "Agentic DevOps"), (bs.body, " — Microsoft vision"))
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             # Row 2: AI-Native
             st_write(bs.cat_label, "AI-Native — Built for GenAI from scratch")
@@ -104,7 +104,7 @@ def build():
                 with g.cell():
                     st_write(bs.body_c, (bs.keyword, "MAISTRO"), (bs.body, " — 7-phase agile"))
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             # Row 3: Process Plugins
             st_write(bs.cat_label, "Process Plugins — Portable methodology")
@@ -273,7 +273,7 @@ def build():
                 bs.heading, "Key Takeaways",
                 tag=t.div, toc_lvl="+1",
                 )
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_zoom(120):
                 with st_list(li_style=bs.body) as l:
                     with l.item():

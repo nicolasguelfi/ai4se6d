@@ -108,7 +108,7 @@ def _families_slide():
                 with st_zoom(130),g.cell():
                     st_write(bs.fam_title, family, tag=t.div)
                     st_write(bs.names, names, tag=t.div)
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(bs.body, meaning, tag=t.div)
         st_write(
             bs.footer,

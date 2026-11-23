@@ -45,7 +45,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_zoom(110):
                 with st_grid(cols=s.project.containers.responsive_2col, gap="32px") as g:
@@ -70,5 +70,5 @@ def build():
                             st_space("v", 0.5)
                             st_write(bs.body, "Does the product solve the user's problem?")
 
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(bs.accent, "Regression covers both \u2014 a regressed behavior may be a design defect (verification) or a scope drift (validation).")

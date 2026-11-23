@@ -56,7 +56,7 @@ def build():
                 with g.cell():
                     with st_block(s.project.containers.callout):
                         st_write(bs.callout_title, "Prompt Lifecycle", tag=t.div)
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         with st_list(l_style=bs.callout_body, li_style=bs.callout_body, list_type=lt.ordered) as l:
                             with l.item():
                                 st_write(bs.callout_body, "Requirements \u2192 Define prompt objectives")

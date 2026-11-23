@@ -49,7 +49,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_zoom(120):
                 with st_grid(cols="repeat(auto-fit, minmax(280px, 1fr))", gap="16px") as g:
                     with g.cell():
@@ -92,7 +92,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_zoom(120):
                 with st_grid(cols="repeat(auto-fit, minmax(280px, 1fr))", gap="16px") as g:
                     with g.cell():
@@ -132,7 +132,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_zoom(120):
                 with st_grid(cols="repeat(auto-fit, minmax(280px, 1fr))", gap="16px") as g:
                     with g.cell():
@@ -213,7 +213,7 @@ def build():
             with st_zoom(120):
                 st_space("v", 2)
                 st_write(bs.accent, "Every Gate interaction follows: Question → Context → Options → Decide")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 with st_grid(cols="repeat(auto-fit, minmax(200px, 1fr))", gap="12px") as g:
                     with g.cell():
                         with st_block(_cell):

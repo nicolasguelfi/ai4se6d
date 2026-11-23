@@ -74,5 +74,5 @@ def build():
                     "We systematically overestimate AI\u2019s current impact on productivity.",
                 )
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.source, cite("metr2025"), ", ", cite("stackoverflow-survey2026"))

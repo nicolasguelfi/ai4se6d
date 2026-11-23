@@ -51,7 +51,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         with st_zoom(90):
             with st_grid(
@@ -62,7 +62,7 @@ def build():
                 # Left column — Tool alone (amber)
                 with g.cell():
                     st_write(bs.col_title_warn, "Tool Alone", tag=t.div)
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
                             st_write(bs.body, (bs.stat_warn, "+55.8%"), " productivity on simple tasks")
@@ -70,7 +70,7 @@ def build():
                             st_write(bs.body, (bs.stat_warn, "\u221219%"), " slower for experienced devs on real projects")
                         with l.item():
                             st_write(bs.body, (bs.stat_warn, "7h/week"), " lost to AI-generated technical debt")
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(bs.source, cite("peng-copilot2023"))
                     st_write(bs.source, cite("metr2025"))
                     st_write(bs.source, cite("gitlab-devsecops2025"))
@@ -78,7 +78,7 @@ def build():
                 # Right column — Tool + Process (teal)
                 with g.cell():
                     st_write(bs.col_title_ok, "Tool + Process", tag=t.div)
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
                             st_write(bs.body, (bs.stat_ok, "25\u201330%"), " gains with transformation program")
@@ -86,7 +86,7 @@ def build():
                             st_write(bs.body, (bs.stat_ok, "15%"), " fewer code smells with FlowGen structured process")
                         with l.item():
                             st_write(bs.body, (bs.stat_ok, "75.2%"), " genCode Pass@1 on HumanEval (FlowGenScrum)")
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(bs.source, cite("soen101-2024"))
 
             st_space("v", 2)

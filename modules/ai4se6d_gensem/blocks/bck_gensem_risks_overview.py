@@ -55,7 +55,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Risks of Generative SE", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_grid(
             cols="repeat(auto-fit, minmax(350px, 1fr))",
@@ -68,7 +68,7 @@ def build():
                     st_space("v", 0.5)
                     st_write(bs.body, description)
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(
             bs.source,
             cite("basic-codesecurity-slr2025"), " | ",

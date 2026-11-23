@@ -25,7 +25,7 @@ def build():
                 tag=t.div,
                 toc_lvl="1",
                 )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
         st_write(bs.body, (bs.keyword, "Today\u2019s 4 workshop sessions:"))
         st_space("v", 0.5)
@@ -64,7 +64,7 @@ def build():
                     ": Verification & validation, traceability matrix",
                 )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_block(s.project.containers.callout):
             st_write(

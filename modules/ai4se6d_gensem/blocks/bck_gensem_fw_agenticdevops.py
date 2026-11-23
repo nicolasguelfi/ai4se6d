@@ -54,9 +54,9 @@ def build():
                 with g.cell():
                     with st_block(s.project.containers.callout):
                         st_write(bs.callout_title, "The AI Paradox", tag=t.div)
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(bs.callout_body, "Developers report saving time with AI coding assistants, yet ", (bs.stat, "7h/week"), " are lost to AI-generated technical debt.")
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(bs.callout_body, (bs.stat, "85%"), " of organizations need platform engineering to manage the complexity AI introduces.")
 
                 # Right — bullet list
@@ -71,5 +71,5 @@ def build():
                         with l.item():
                             st_write(bs.body, (bs.keyword, "Status: "), "Emerging \u2014 few production-grade implementations")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.source, cite("microsoft-agenticdevops2025"))

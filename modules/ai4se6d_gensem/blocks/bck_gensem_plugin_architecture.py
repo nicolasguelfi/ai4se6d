@@ -36,7 +36,7 @@ def build():
                     ],
                     scale="2vw", width="70vw", position="left",
                 )
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_zoom(100):
             with st_grid(
@@ -66,7 +66,7 @@ def build():
                         ),
                         language="text",
                     )
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(bs.label, "Five Core Components", tag=t.div)
                     with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                         with l.item():
@@ -97,7 +97,7 @@ def build():
                         ),
                         language="bash",
                     )
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         "The curl default is a project install \u2014 everything inside the project folder "

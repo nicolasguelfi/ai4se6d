@@ -91,5 +91,5 @@ def build():
                                 st_space("v", 0.3)
                                 st_write(bs.body_left, (bs.label, "Blocks: "), tier["blocks"])
 
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(bs.accent, "Shift-left quality \u2014 strategy defects caught before code is written.")

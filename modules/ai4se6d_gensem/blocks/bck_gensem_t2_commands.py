@@ -55,7 +55,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             _cmds_left = [
                 ("Orchestration", "/gse:go  /gse:status  /gse:health"),
                 ("Session", "/gse:pause  /gse:resume"),
@@ -109,7 +109,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             _orchestrator = ("\U0001f3bc", "gse-orchestrator", "Identity \u2014 Always On (lifecycle, decisions, coherence)")
             _agents_left = [
                 ("\U0001f50d", "requirements-analyst", "Completeness"),
@@ -168,7 +168,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             _gse_left = [
                 (".gse/config.yaml", "Project settings"),
                 (".gse/profile.yaml", "Your profile (HUG output)"),
@@ -226,7 +226,7 @@ def build():
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_zoom(120):
                 with st_grid(cols="repeat(auto-fit, minmax(280px, 1fr))", gap="16px") as g:
                     with g.cell():

@@ -62,7 +62,7 @@ def build():
                         with st_block(_cell):
                             st_write(bs.body, f"{icon} ", (bs.keyword, step))
 
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_grid(cols="30% 70%", gap="8px", cell_styles=_hdr_cell) as g:
                 with g.cell():

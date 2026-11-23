@@ -61,7 +61,7 @@ def build():
                         scale="2vw", width="70vw", position="left",
                     )
             with st_zoom(95):
-                st_space("v", 1)
+                st_space("v", "2vh")
 
                 # Header row
                 with st_grid(

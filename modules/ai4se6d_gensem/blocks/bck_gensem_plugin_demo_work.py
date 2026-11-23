@@ -17,11 +17,11 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Live Demo: /ce-work", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.body, "Execution with guardrails \u2014 the AI follows the plan as a strict contract.")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "Execution Steps", tag=t.div)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered) as l:
             with l.item():
@@ -33,6 +33,6 @@ def build():
             with l.item():
                 st_write(bs.body, (bs.keyword, "Scope enforcement"), " \u2014 AI refuses to implement anything not in the plan without re-planning")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         with st_block(s.project.containers.callout):
             st_write(bs.callout_text, "~10 min for a well-planned feature vs ~45 min unplanned.")

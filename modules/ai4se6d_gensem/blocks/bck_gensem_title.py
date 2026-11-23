@@ -62,6 +62,6 @@ def build():
                 provider="openai",
                 ai_size="1536x1024",
             )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.subtitle, "GSE-One \u2014 From VibeCoding to Disciplined Generative Engineering", tag=t.div)
             st_write(bs.info, "AI for Software Engineering \u2014 4 Sessions \u00d7 3h", tag=t.div)

@@ -21,20 +21,20 @@ def build():
         with st_block(s.center_txt):
             with st_zoom(90):
                 st_write(bs.heading, "The AI Paradox", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.stat, "7h")
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.body,
                 "Lost per team member weekly to AI-related inefficiencies (GitLab 2025). "
                 "Faster coding creates bottlenecks elsewhere: review, debugging, integration.",
             )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.body,
                 (bs.keyword, "85%"),
                 " recognize platform engineering as essential to manage the complexity.",
             )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.source, cite("gitlab-devsecops2025"))

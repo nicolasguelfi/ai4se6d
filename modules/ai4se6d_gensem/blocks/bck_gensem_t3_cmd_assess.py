@@ -62,5 +62,5 @@ def build():
                         st_space("v", 0.5)
                         st_write(bs.body, "High-complexity or security-sensitive")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, "GAP-NN items feed directly into /gse:plan as candidate tasks.")

@@ -16,15 +16,15 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90):
             st_write(bs.heading, "Cross-Tool Synchronization", tag=t.div, toc_lvl="1")
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         st_write(bs.body, "One process definition, multiple IDE implementations. The ", (bs.keyword, "ce sync"), " command keeps all tools aligned.")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "The Problem", tag=t.div)
         st_write(bs.body, "Teams use Cursor, Claude Code, and Copilot simultaneously. Rules defined in one tool are invisible to the others.")
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "The Solution", tag=t.div)
         st_code(
             s.none,
@@ -45,7 +45,7 @@ def build():
             language="bash",
         )
 
-        st_space("v", 1)
+        st_space("v", "2vh")
         st_write(bs.label, "Sync Targets", tag=t.div)
         with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
             with l.item():

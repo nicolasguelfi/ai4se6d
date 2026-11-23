@@ -48,7 +48,7 @@ def _scenario_slide(level_label, cell_style, steps, question, reminder=False):
                         ],
                         scale="2vw", width="70vw", position="left",
                     )
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_grid(
                 cols="1fr 1fr",
@@ -68,12 +68,12 @@ def _scenario_slide(level_label, cell_style, steps, question, reminder=False):
                                 with l.item():
                                     st_write(bs.body + _left, (bs.keyword, f"{i}. "), step)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.accent, question)
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.timer, "45 minutes")
             if reminder:
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(
                     bs.body + s.center_txt,
                     (bs.keyword, "Reminder — "),

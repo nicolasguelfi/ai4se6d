@@ -65,7 +65,7 @@ def build():
                     ],
                     scale="2vw", width="70vw", position="left",
                 )
-        st_space("v", 1)
+        st_space("v", "2vh")
 
         with st_zoom(120):
             with st_grid(
@@ -78,15 +78,15 @@ def build():
                         with st_block(bg + s.project.containers.cell_pad_md):
                             st_write(bs.card_title, name, tag=t.div)
                             st_write(bs.card_sub, scope)
-                            st_space("v", 1)
+                            st_space("v", "2vh")
                             st_write(bs.body, finding)
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.takeaway,
                 "The relationship is more nuanced than any single study suggests.",
             )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.source, cite("cui-fieldexperiments2024"))
             st_write(bs.source, cite("metr2025"))
             st_write(bs.source, cite("daniotti-github2025"))
