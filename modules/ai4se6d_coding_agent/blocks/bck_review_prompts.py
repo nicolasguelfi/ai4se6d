@@ -20,6 +20,9 @@ bs = BlockStyles
 _left = Style("text-align:left;", "review_prompts_left")
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Show the weak vs effective prompts; learners run a review prompt"
+     " with the plan agent in the 15:15 exercise."),
     ("The message",
      "« Review this code. » gives vague, generic findings. An effective review prompt names one file, one "
      "concern and the context the agent cannot guess."),

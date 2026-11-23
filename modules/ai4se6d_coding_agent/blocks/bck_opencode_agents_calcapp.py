@@ -26,6 +26,9 @@ tests/ mirrors src/ · docs/ = your plan and documentation
 4. Never commit secrets (.env* stays out of git)"""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Read the starter's AGENTS.md excerpt; learners open it on their machine "
+     "in Try it 1 (next slide)."),
     ("The message",
      "The CalcApp starter already ships an AGENTS.md: participants do not start from a blank page. Read it before "
      "the first prompt."),

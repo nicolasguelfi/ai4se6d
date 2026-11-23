@@ -9,6 +9,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Concept only (CCSET07): learners use /gse-tests and /gse-produce"
+     " from day 3."),
     ("The message",
      "An agent can write code that looks right, and tests that prove nothing. GSE-One makes tests a step with "
      "its own evidence."),

@@ -37,6 +37,9 @@ _AFTERNOON = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Everyone runs ~/ai4se/ai4se-kit/tutor update now (the « First » line) "
+     "while you walk through the agenda."),
     ("The message",
      "The day follows the artifact chain: Git, opencode, a plan, the build, the review, the delivery — then the "
      "bridge to GSE-One."),

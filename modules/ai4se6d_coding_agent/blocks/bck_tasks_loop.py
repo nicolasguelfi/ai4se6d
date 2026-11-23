@@ -18,6 +18,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. The loop they apply to every task; they run it from 13:30 in the"
+     " Part 2 exercise."),
     ("The message",
      "Every task of the afternoon follows the same six steps — the AI-TDD loop of this morning plus a branch, "
      "a review and a merge."),

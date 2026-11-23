@@ -17,6 +17,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Everyone creates notes.md in their project folder now and writes "
+     "the four items while building; it feeds the 16:15 debrief."),
     ("The message",
      "While building, participants keep a notes.md in their project folder: four things to write down."),
     ("Why notes",

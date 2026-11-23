@@ -16,6 +16,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Walk through the five checks; learners apply them to the agent's"
+     " routing code during the 13:30 exercise."),
     ("The message",
      "Five checks on the agent's routing code, each answerable in seconds — the first review habit of the "
      "afternoon."),

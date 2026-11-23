@@ -18,6 +18,9 @@ bs = BlockStyles
 _left = Style("text-align:left;", "review_judgment_left")
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Read the three example decisions; learners must refuse one "
+     "finding with a written reason in the 15:15 exercise."),
     ("The message",
      "The AI review output is input to your judgment, not a verdict. Each finding ends in one of three "
      "decisions: fix, defer, or refuse — with a written reason."),

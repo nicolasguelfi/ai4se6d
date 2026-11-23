@@ -26,6 +26,9 @@ _SHEET = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine, 5 min, after your 3-min live demo (/init on a copy vs the starter's "
+     "AGENTS.md). Everyone adds the euro rule, runs /new and commits AGENTS.md."),
     ("The message",
      "One rule written in AGENTS.md visibly changes what the agent proposes. Participants see it on their own "
      "project in five minutes."),

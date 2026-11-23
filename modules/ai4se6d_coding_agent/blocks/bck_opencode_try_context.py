@@ -26,6 +26,9 @@ _SHEET = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine, 5 min, after your 3-min live demo (the same question, vague then with "
+     "@files). Everyone compares the two answers and runs !npm run test:run."),
     ("The message",
      "The same question gets a guess without context and a grounded answer with @files. Participants measure the "
      "difference themselves."),

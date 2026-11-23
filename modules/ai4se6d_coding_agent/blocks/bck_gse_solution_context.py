@@ -9,6 +9,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Concept only: show how GSE-One handles context; learners use GSE-One "
+     "from day 3."),
     ("The message",
      "The agent only knows what is in its context. Re-explaining your project at every session wastes time and "
      "tokens; GSE-One organises the context instead."),

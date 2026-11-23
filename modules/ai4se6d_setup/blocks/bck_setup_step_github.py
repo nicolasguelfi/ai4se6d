@@ -26,6 +26,9 @@ _GH = (
 )
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 6 of the installation, first half: everyone logs in with gh "
+     "auth login; wait until gh auth status says « Logged in »."),
     ("The message",
      "A GitHub account and the gh command line, logged in: git can then push without asking for a password."),
     ("No account yet",

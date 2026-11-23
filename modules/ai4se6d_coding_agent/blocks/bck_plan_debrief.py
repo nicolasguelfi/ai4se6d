@@ -17,6 +17,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — in pairs, out loud. Ask the two questions, then neighbours compare plans: different is "
+     "fine, both must be testable."),
     ("The message",
      "Five minutes to compare plans before building: what the agent brought, what you changed."),
     ("Question 1",

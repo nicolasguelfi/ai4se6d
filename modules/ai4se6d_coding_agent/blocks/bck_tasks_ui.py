@@ -22,6 +22,9 @@ form fields with spacing, centred layout with a max-width.
 No animations, no CSS library. Keep all tests green."""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Show the one CSS prompt and its 10-min cap; learners run it as "
+     "the last task of the 13:30 exercise."),
     ("The message",
      "The last task of Part 2, capped at 10 minutes: plain CSS so that the app is readable and functional — "
      "not production-ready."),

@@ -26,6 +26,9 @@ _GSE = (
 )
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 5 of the installation: everyone installs GSE-One v0.93.0 in "
+     "~/ai4se/gse-check; wait until cat .gse/registry prints .opencode."),
     ("The message",
      "GSE-One is installed now, pinned to v0.93.0, so that everyone has the same version for the rest of the "
      "course."),

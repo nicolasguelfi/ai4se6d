@@ -22,6 +22,8 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES_Q = [
+    ("Trainer action",
+     "Learners do it — they answer aloud. Collect the practices they would keep and write them down before you show the next slide."),
     ("The message", "After the dangers of naive VibeCoding: which software-engineering practices must survive when an "
                     "AI writes the code?"),
     ("Run it", "Let the room answer before the next slide: requirements, tests, design, review, version control… "

@@ -19,6 +19,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Same exercise: they check themselves against « Done when »; walk "
+     "around at the 15:35 mid-point and ask who has no triage yet."),
     ("The message",
      "When the review exercise is finished, and what to do when it is not."),
     ("Done when",

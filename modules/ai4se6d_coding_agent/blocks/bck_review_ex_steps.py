@@ -19,6 +19,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Exercise 15:15 → 15:50: review today's diff, triage it, fix 2-3 "
+     "findings test first; leave this slide on screen while they work."),
     ("The message",
      "35 minutes to review everything you changed today, triage it, and fix what matters — the whole review "
      "loop on your own code."),

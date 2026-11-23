@@ -22,6 +22,9 @@ _CODE_ZOOM = 190  # st_code font_size is not applied by Pygments: zoom instead
 _CHECK = "sh ~/ai4se/ai4se-kit/check-learner.sh"
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 7 of the installation: everyone runs check-learner.sh from "
+     "~/ai4se/gse-check and redoes any red step until all lines are green."),
     ("The message",
      "One script checks the whole toolchain: check-learner.sh, shipped with the course kit (step 4)."),
     ("Red line",

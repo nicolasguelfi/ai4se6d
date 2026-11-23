@@ -18,6 +18,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Live demo — you type it in opencode on CalcApp. One full red-green-refactor cycle on ExpenseItem in "
+     "10 min max; learners repeat every step at 11:45 on task 1 of their plan."),
     ("The message",
      "One full cycle, live, in 10 minutes or less, on the demo feature: ExpenseItem shows « Lunch » and « €25.50 »."),
     ("RED",

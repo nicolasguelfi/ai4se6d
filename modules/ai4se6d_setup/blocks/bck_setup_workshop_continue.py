@@ -15,6 +15,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Part 2 at 15:30: everyone adds one feature, asks the agent to "
+     "explain one file and commits after each working step."),
     ("The message",
      "After the break, the same app, one step further: one feature you really want, one file explained, "
      "a commit after each working step, notes kept up to date."),

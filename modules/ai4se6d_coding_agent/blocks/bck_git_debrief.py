@@ -22,6 +22,9 @@ _QUESTIONS = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — in pairs, on their machine. Ask the two questions, then neighbours compare their git log "
+     "--oneline."),
     ("The message",
      "Five minutes to fix the reflex: see the change, then decide to keep it or throw it away."),
     ("Question 1",

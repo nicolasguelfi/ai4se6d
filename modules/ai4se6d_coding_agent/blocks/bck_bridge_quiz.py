@@ -14,6 +14,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — hands up. Read each question aloud, they raise a hand for « yes »; count, do not "
+     "comment yet."),
     ("How to run it",
      "Read each question aloud; hands up for « yes », hands down for « no ». Count, do not comment yet: the "
      "answers are on the next slide."),

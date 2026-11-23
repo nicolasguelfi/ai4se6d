@@ -22,6 +22,9 @@ _SHEET = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Leave this sheet on screen during the Git exercise; check the 7-min mid-"
+     "point (tests green, * feat/hello) by walking around."),
     ("The message",
      "Participants check themselves: a clear « done when », a mid-point at 7 minutes, and what to do if stuck."),
     ("Done when",

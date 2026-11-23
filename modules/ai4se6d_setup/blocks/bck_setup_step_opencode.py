@@ -27,6 +27,9 @@ _ALTERNATIVES = (
 )
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 1 of the installation: everyone runs one install command, "
+     "opens a NEW terminal and checks opencode --version prints 2.x.y."),
     ("The message",
      "opencode 2 is the coding agent of the week: one install command, then a version check."),
     ("Three ways",

@@ -20,6 +20,9 @@ bs = BlockStyles
 _CODE_ZOOM = 200  # st_code font_size is not applied by Pygments: zoom instead
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 8, the last one: everyone opens a second terminal, starts "
+     "the tutor and asks « what are we doing this afternoon? »."),
     ("The message",
      "Your tutor is an AI prepared by the trainer, in its own opencode session: a second terminal, on the right "
      "of your screen."),

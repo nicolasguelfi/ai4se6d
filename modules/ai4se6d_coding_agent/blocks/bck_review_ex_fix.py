@@ -18,6 +18,9 @@ bs = BlockStyles
 _left = Style("text-align:left;", "review_ex_fix_left")
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 4 of the review exercise: on fix/review, back to the build "
+     "agent, they fix one finding test first."),
     ("The message",
      "A review finding is fixed like any task this morning: a failing test first (RED), then the fix (GREEN)."),
     ("Why test first",

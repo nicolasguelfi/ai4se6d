@@ -9,6 +9,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Concept only (CCSET08): learners use /gse-review and /gse-fix "
+     "from day 3."),
     ("The message",
      "AI review is fast but uneven: it misses some problems, invents others, and nobody decides what to do with "
      "its findings. GSE-One turns the review into numbered findings that you decide on."),

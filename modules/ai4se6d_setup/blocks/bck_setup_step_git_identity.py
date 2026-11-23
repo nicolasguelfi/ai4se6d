@@ -25,6 +25,9 @@ _GIT = (
 )
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 6 of the installation, second half: everyone types the three "
+     "git config --global commands with their GitHub e-mail."),
     ("The message",
      "Every commit carries a name and an email: tell git who you are, once, for all your repositories (--global)."),
     ("The email",

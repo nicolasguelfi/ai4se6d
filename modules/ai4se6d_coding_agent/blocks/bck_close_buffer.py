@@ -15,6 +15,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Buffer 17:00 → 17:30: they finish missed exercises, ask "
+     "questions, use the tutor window; before leaving, git status clean and v0.1 tagged."),
     ("The message",
      "The last half hour (17:00 → 17:30) is a buffer: catch up, ask, use the tutor window."),
     ("Catch up",

@@ -15,6 +15,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Only those who lost 15+ min on a broken setup: they run the "
+     "rescue commands now, then restart at step 1 of the exercise."),
     ("The message",
      "A participant who has lost 15 minutes or more on a broken setup stops debugging it and restarts from the "
      "course's clean start: the tag j2-start of calcapp-starter."),

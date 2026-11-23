@@ -16,6 +16,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Walk through the five checks; learners apply them during the "
+     "13:30 exercise (the browser refresh check is the decisive one)."),
     ("The message",
      "Five checks on the agent's data layer: types, storage, form, navigation, persistence."),
     ("What each check catches",

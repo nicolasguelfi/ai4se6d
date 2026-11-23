@@ -15,6 +15,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Preview of day 3; ask who has a setup problem tonight, not "
+     "tomorrow."),
     ("The message",
      "Tomorrow (Day 3, Thursday 3 December), GSE-One drives the loop you ran by hand today."),
     ("How it starts",

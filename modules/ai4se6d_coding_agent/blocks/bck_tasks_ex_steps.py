@@ -19,6 +19,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Exercise 13:30 → 14:20: the next tasks of their plan, one branch "
+     "each, test first; leave this slide on screen while they work."),
     ("The message",
      "The exercise of Part 2: 50 minutes, 13:30 → 14:20, to deliver the next tasks of the participant's plan "
      "(routing, data, UI)."),

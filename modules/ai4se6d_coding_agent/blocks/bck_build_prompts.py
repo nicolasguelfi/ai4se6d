@@ -23,6 +23,9 @@ Implement the minimal code that makes tests/<file>.test.tsx pass.
 Do not modify the test file. Run npm run test:run."""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Show the two prompts and the review between them; learners copy "
+     "them in the 11:45 exercise on task 1 of their plan."),
     ("The message",
      "Each task takes two prompts, never one: RED (the test only), then GREEN (the code) once you have "
      "reviewed the test."),

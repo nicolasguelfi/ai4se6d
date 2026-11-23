@@ -16,6 +16,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — 1 min, while learners build. Point out « Done when », the mid-point and the stuck "
+     "order; then walk around the room."),
     ("The message",
      "The contract of the workshop on one slide: the goal, when it is done, the mid-point, what to do if stuck, "
      "and what to bring to the debrief."),

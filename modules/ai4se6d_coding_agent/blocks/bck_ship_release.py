@@ -22,6 +22,9 @@ bs = BlockStyles
 _left = Style("text-align:left;", "ship_release_left")
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Exercise 16:15 → 16:30: merge, run the tests, tag v0.1, move "
+     "main; wait until all see v0.1 in git tag."),
     ("The message",
      "15 minutes to ship v0.1: all the green work on your main line, tagged v0.1."),
     ("The commands",

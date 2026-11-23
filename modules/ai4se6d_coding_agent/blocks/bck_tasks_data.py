@@ -28,6 +28,9 @@ a total; AddExpense saves, then navigates to "/" with useNavigate.
 Do not modify the test."""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Show the integration-test prompts; learners use them in the "
+     "13:30 exercise, after routing."),
     ("The message",
      "The second task: the data layer — an Expense type, a small storage module on localStorage, and the two "
      "pages wired to it. localStorage is enough for v0.1."),

@@ -27,6 +27,9 @@ _LTS = "# open a NEW terminal, then:\nnvm install --lts         # skip if you us
 _CHECK = "node --version && npm --version"
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 2 of the installation: those without Node v20+ install it "
+     "now (needed tomorrow for CalcApp); the others skip to step 3."),
     ("The message",
      "Node.js is not needed this afternoon: it runs CalcApp tomorrow (npm). Installing it now saves time tomorrow."),
     ("Already done?",

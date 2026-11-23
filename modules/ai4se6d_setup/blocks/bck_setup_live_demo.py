@@ -16,6 +16,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Live demo — you type it in your terminal. 5 min of opencode in an empty folder: one plain sentence, "
+     "files created, the agent's questions read aloud, something that runs."),
     ("The message",
      "Five minutes of live demo before the participants start: the trainer drives opencode in an empty folder "
      "and the room watches five things."),

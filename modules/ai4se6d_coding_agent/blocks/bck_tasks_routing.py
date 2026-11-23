@@ -29,6 +29,9 @@ from src/App.tsx (Layout with nav Links + Outlet; "/" Dashboard,
 One file per page in src/pages/. Do not modify the test."""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Show the RED and GREEN prompts; learners use them in the 13:30 "
+     "exercise when their plan's wording is unclear."),
     ("The message",
      "The first task of Part 2: two pages, / (Dashboard) and /add (Add Expense), with the two prompts of the "
      "loop ready to copy — RED first, then GREEN."),

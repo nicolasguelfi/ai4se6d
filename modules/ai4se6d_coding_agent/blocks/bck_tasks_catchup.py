@@ -20,6 +20,9 @@ git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-resta
 cd ~/ai4se/calcapp-restart && git checkout -b mywork j2-part1 && npm ci"""
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Only those who failed a re-orientation check: they restart from "
+     "the tag j2-part1 now."),
     ("The message",
      "For whoever failed a re-orientation check: restart from the tag j2-part1, the end of Part 1 (first "
      "features, tests green)."),

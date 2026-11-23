@@ -9,6 +9,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Concept only: show how GSE-One automates the three Git habits; learners "
+     "use GSE-One from day 3."),
     ("The message",
      "The three Git habits of this session — one branch per task, a checkpoint before a risky change, names that "
      "tell the story — are what GSE-One applies for you."),

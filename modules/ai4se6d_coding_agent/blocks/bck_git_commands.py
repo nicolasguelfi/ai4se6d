@@ -22,6 +22,9 @@ git restore <file>          # throw an unwanted change away"""
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Explain the six commands; learners run all six in the Git exercise a few"
+     " slides later."),
     ("The message",
      "Six commands cover the whole day: status, diff, add, commit, log, restore."),
     ("See",

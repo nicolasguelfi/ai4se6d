@@ -16,6 +16,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — they answer aloud. Debrief 14:20 → 14:30: two questions to the room, then "
+     "neighbours compare their code for the same task."),
     ("The message",
      "Ten minutes, 14:20 → 14:30, on what the agent did beyond the request and what the review checklists "
      "really caught."),

@@ -9,6 +9,8 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Concept only: Auto / Inform / Gate and guardrails; learners use GSE-One from day 3."),
     ("The message",
      "The dangers seen this morning (insecure code, hallucinated packages, technical debt) share one cause: the "
      "agent took every decision alone. GSE-One keeps the human in the loop where it matters."),

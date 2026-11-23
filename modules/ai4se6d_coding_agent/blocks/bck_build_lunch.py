@@ -18,6 +18,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Before leaving for lunch at 12:15, everyone runs git status and "
+     "commits until it says « nothing to commit »."),
     ("The message",
      "One hour of lunch, and a clean repository before leaving: git status must say « nothing to commit »."),
     ("Why a clean status",

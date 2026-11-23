@@ -30,6 +30,9 @@ experiment/<idea>    may be thrown away"""
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Explain the naming rules; learners write their first conventional "
+     "message (« docs: say hello ») in the Git exercise."),
     ("The message",
      "Names tell the story: a reader understands the history from the commit messages and branch names alone."),
     ("Commits",

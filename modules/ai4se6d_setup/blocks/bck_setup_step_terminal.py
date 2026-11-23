@@ -27,6 +27,9 @@ _OS = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 0 of the installation: everyone opens a terminal and runs "
+     "echo $SHELL now; wait until all see bash or zsh."),
     ("The message",
      "Everything this afternoon happens in a terminal: every later step is a command to paste there."),
     ("Per system",

@@ -14,6 +14,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Before the 15:00 break, everyone commits their work: the review "
+     "exercise starts at 15:15 from git diff j2-start."),
     ("The message",
      "A 15-minute break, 15:00 → 15:15. Right after it, everyone reviews the diff of everything they changed "
      "today."),

@@ -17,6 +17,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Map today's manual loop onto the GSE-One commands; learners run "
+     "them from day 3."),
     ("The message",
      "Everything done by hand today has a GSE-One command tomorrow. Same loop, same severities."),
     ("Row by row",

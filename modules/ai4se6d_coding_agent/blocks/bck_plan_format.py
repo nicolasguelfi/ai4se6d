@@ -24,6 +24,9 @@ Accept: a test saves an expense and loads it back
 Branch: feat/expense-storage"""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Show the docs/plan.md format; learners have the build agent write theirs"
+     " in the plan exercise (step 4)."),
     ("The message",
      "The plan lives in the repository, in docs/plan.md, in one fixed format: the agent and you read the same "
      "file in every session."),

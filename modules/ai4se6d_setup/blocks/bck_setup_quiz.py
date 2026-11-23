@@ -25,6 +25,9 @@ _STATEMENTS = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — hands up for TRUE. Read each of the five statements and count the hands; give no "
+     "answer before the next slide."),
     ("The message",
      "Five true/false statements on day 1: hands up for TRUE. Answers on the next slide."),
     ("What it checks",

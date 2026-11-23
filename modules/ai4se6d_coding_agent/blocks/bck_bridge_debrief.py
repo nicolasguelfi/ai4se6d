@@ -14,6 +14,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — they answer aloud. Debrief of the day, 10 min: neighbours compare first, then 2-3 "
+     "answers for the room."),
     ("The message",
      "Ten minutes on the whole day: plan, test first, build, review, ship — which step was skipped, and which "
      "one must stay human."),

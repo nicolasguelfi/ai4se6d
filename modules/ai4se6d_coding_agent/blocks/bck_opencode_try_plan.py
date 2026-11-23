@@ -26,6 +26,9 @@ _SHEET = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine, 5 min, after your 3-min live demo (plan agent, todo list, a Context7 "
+     "call). Everyone adds Context7 and gets a plan for /budgets — no build."),
     ("The message",
      "Plan agent, todo list and Context7 together: a plan grounded in current docs, reviewed by you, and no code "
      "yet."),

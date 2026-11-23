@@ -27,6 +27,9 @@ _TAGS = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type now. The clone-from-a-tag commands are for whoever falls behind later; "
+     "nobody runs them unless lost."),
     ("The message",
      "Nobody stays behind for the whole day: the CalcApp starter has a recovery tag at each checkpoint."),
     ("Who to ask, in order",

@@ -24,6 +24,9 @@ amount as a number. Use getByLabelText / getByRole.
 Do NOT write the component. Run npm run test:run."""
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Only those who finished fallback A: same loop on ExpenseForm "
+     "during the 11:45 exercise."),
     ("The message",
      "The second fallback feature: the form that adds an expense, tested through what the user does."),
     ("RED prompt",

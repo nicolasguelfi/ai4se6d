@@ -31,6 +31,8 @@ _INSTALL = (
     "flatpak install flathub com.vscodium.codium   # Linux"
 )
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to install now. VSCodium is optional (no installation step of the course needs an editor): learners who want it use these commands on their own and switch its AI off."),
     ("The message",
      "VSCodium is the recommended editor for the course: the open-source build of VS Code — free, no Copilot "
      "account, no Microsoft telemetry."),

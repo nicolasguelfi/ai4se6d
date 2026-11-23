@@ -22,6 +22,9 @@ Add the subtitle "Track your expenses" to Home,
 test first. Do not touch other files."""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Contrast the vague and the precise prompt; learners try both in Try it 2"
+     " (Context)."),
     ("The message",
      "Typing @ opens a fuzzy file search; the chosen file joins the conversation. You decide what the agent reads "
      "instead of hoping it finds it."),

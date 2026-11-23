@@ -17,6 +17,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — they answer aloud. Debrief 12:10 → 12:15: two questions to the room, then "
+     "neighbours compare their git log --oneline."),
     ("The message",
      "Five minutes to turn the morning's practice into two observations, before lunch: did the AI-TDD discipline "
      "hold, and did the tests really test something?"),

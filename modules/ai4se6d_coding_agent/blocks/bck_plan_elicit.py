@@ -22,6 +22,9 @@ Ask me 3 clarifying questions first. Then propose 4-6 user stories:
 title, "As a user, I want...", testable acceptance criteria."""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type yet. Explain the elicitation prompt; learners paste it into the plan "
+     "agent in the plan exercise (step 2, about 11:05)."),
     ("The message",
      "Requirements come from a conversation, not from one shot: switch to the plan agent (Shift+Tab → plan), "
      "adapt the prompt with your own ideas, paste it."),

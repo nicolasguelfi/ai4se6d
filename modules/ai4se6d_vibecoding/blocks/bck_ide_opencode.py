@@ -64,6 +64,8 @@ _CONFIG = """\
 _one_screen = Style("min-height:104vh;", "ide_opencode_one_screen")
 
 _NOTES_OVERVIEW = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Present opencode (build / plan, AGENTS.md, opencode.json); learners install it at 13:15 and use it from 14:30 (FreeSelfApp)."),
     ("The message",
      "opencode is the agent of the week: it runs in the terminal, in the project folder, and works with any model "
      "provider. This week it uses your capped course key."),
@@ -103,6 +105,8 @@ _NOTES_OVERVIEW = [
 ]
 
 _NOTES_SESSION = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Learners install opencode only at 13:15 and practise these gestures at 14:30 (FreeSelfApp); /gse-status comes on day 3."),
     ("The message",
      "The gestures of a first session, in order: start in a dedicated folder, /init, plan, then build."),
     ("Line by line",
@@ -132,6 +136,8 @@ _NOTES_SESSION = [
 ]
 
 _NOTES_CONFIG = [
+    ("Trainer action",
+     "Read and comment — nothing to type. The file is an example only: the course kit sets the model and permissions stay at opencode defaults, so learners never edit it."),
     ("The message",
      "opencode.json is the agent's configuration: the model, the permissions, the MCP servers."),
     ("The three parts",

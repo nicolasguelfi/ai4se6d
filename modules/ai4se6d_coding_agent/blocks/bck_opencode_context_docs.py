@@ -24,6 +24,9 @@ _CONFIG = """\
 }"""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Show the command and the opencode.json it writes; learners run it "
+     "themselves in Try it 3 (next slide)."),
     ("The message",
      "The model learned APIs at training time; libraries such as React Router 7 move fast. Context7 is an MCP "
      "server that brings the current docs into the context."),

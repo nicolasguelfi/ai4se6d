@@ -25,6 +25,9 @@ _RULES = """\
 - Run tests with `npm run test:run` (never watch mode)"""
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. 2 min: everyone opens AGENTS.md, checks the six testing rules, "
+     "adds the missing ones and commits « docs: testing rules » before the 11:45 exercise."),
     ("The message",
      "opencode reads AGENTS.md in every session: the testing rules written there apply to every prompt, "
      "without repeating them."),

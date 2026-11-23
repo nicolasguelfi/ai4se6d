@@ -24,6 +24,9 @@ _SHEET = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Leave this sheet on screen during the plan exercise; at the 11:15 mid-"
+     "point ask for hands up on testable criteria."),
     ("The message",
      "Participants check themselves: one line tells them when they are done, the others what to do on the way."),
     ("Done when",

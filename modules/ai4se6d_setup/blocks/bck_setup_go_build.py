@@ -24,6 +24,9 @@ _START = (
 _SAVE = 'git add -A && git commit -m "it works"'
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Everyone creates ~/ai4se/freeselfapp, runs git init and opencode, "
+     "pastes a first prompt and starts iterating now."),
     ("The message",
      "Start the workshop: a fresh folder ~/ai4se/freeselfapp, git init, then opencode inside it. Paste the first "
      "prompt and iterate."),

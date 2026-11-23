@@ -21,6 +21,9 @@ bs = BlockStyles
 _CODE_ZOOM = 220  # st_code font_size is not applied by Pygments: zoom instead
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 3 of the installation: everyone runs opencode auth login "
+     "with their key sheet; wait until opencode auth list shows the provider."),
     ("The message",
      "opencode needs a model to talk to: opencode auth login stores YOUR key for the provider written on your "
      "key sheet."),

@@ -22,6 +22,9 @@ git restore .     # back to the checkpoint (uncommitted work is lost)"""
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Explain the checkpoint pattern; learners do the break-then-restore part "
+     "in the Git exercise."),
     ("The message",
      "Second habit: commit a checkpoint before letting the agent attempt something risky — « save the game before "
      "the boss fight »."),

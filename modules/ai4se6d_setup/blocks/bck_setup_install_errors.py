@@ -28,6 +28,9 @@ _ERRORS = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Go through the six symptoms and their fixes; learners come back "
+     "to this slide whenever a step fails."),
     ("The message",
      "Six common symptoms, each with its fix: read the left column, do the right one."),
     ("The most frequent",

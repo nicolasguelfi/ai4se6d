@@ -32,6 +32,9 @@ my-app/
   README.md"""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Compare the flat and the structured project; learners see the structured"
+     " CalcApp starter in Try it 1."),
     ("The message",
      "Before any prompt, the agent reads your folders and file names. The project structure is the first prompt "
      "it receives."),

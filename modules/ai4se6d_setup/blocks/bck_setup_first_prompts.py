@@ -20,6 +20,9 @@ _PROMPTS = [
 ]
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type yet. Show the three ready-made prompts; learners paste theirs "
+     "into opencode once their folder is set up (next slide)."),
     ("The message",
      "One first prompt per idea, ready to copy: one sentence saying WHAT the app does, nothing about how."),
     ("How to use them",

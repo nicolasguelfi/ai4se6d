@@ -48,6 +48,8 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES_USAGE = [
+    ("Trainer action",
+     "Learners do it — show of hands, in the room. Everyone places themselves on the 0–100 % line of the next slide; read two or three answers aloud."),
     ("The question",
      "An opening poll, by show of hands or on the 0–100 % line of the next slide: how much of the code you wrote "
      "last month came from an AI?"),
@@ -59,6 +61,8 @@ _NOTES_USAGE = [
 ]
 
 _NOTES_REVIEW = [
+    ("Trainer action",
+     "Learners do it — show of hands, in the room. Everyone places themselves between « Never review » and « Always review » on the next slide; ask one person from each end why."),
     ("The question",
      "Second poll: when an AI gives you code, do you read it before you use it? Never, sometimes, always?"),
     ("Why it matters",

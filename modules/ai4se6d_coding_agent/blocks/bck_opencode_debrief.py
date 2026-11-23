@@ -16,6 +16,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — in pairs, out loud. Ask the two questions, then neighbours compare their /budgets plans: "
+     "same files? same tests?"),
     ("The message",
      "Five minutes to turn the three try-its into lessons: what context changed, and what the plan agent taught."),
     ("Question 1",

@@ -25,6 +25,9 @@ _KIT = (
 )
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 4 of the installation: everyone pastes the clone + "
+     "setup-learner.sh command; it must end with no red line (mid-point 13:50: step 4 or beyond)."),
     ("The message",
      "One command installs the course kit in ~/ai4se: it clones the ai4se-kit repository and runs "
      "setup-learner.sh."),

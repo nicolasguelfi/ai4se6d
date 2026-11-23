@@ -9,6 +9,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Concept only: show how GSE-One plans (/gse-reqs, /gse-plan); learners "
+     "use GSE-One from day 3."),
     ("The message",
      "A vague request gives a vague result. Without a written plan of small, testable tasks, the agent decides "
      "the scope for you. GSE-One makes planning a step of its own."),

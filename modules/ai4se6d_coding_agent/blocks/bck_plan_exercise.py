@@ -17,6 +17,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine, 20 min. Everyone elicits with the plan agent, splits into 5-8 tasks and "
+     "commits docs/plan.md on mywork; walk around."),
     ("The message",
      "20 minutes, one deliverable: docs/plan.md committed on your mywork branch."),
     ("The steps",

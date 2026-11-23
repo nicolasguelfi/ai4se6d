@@ -17,6 +17,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Only those behind near 14:20: merge what is green, catch up from "
+     "a tag if the app is broken, so that npm test and npm run dev work for 14:30."),
     ("The message",
      "Not finishing Part 2 is fine: the review section at 14:30 works on whatever code the participant has."),
     ("What to do",

@@ -21,6 +21,9 @@ _COLS = "5% 44.5% 44.5% 5%"  # a two-column table between outer 5 % margins
 _CELL_H = Style("min-height:15vh;", "setup_debrief_cell_h")
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — aloud, round the room. At 16:15 each participant gives one example in 30 seconds: "
+     "by hand vs. what the AI did; you write a few on the board."),
     ("The message",
      "Debrief round: each participant gives ONE example, 30 seconds — what they would have done by hand, and "
      "what the AI did instead."),

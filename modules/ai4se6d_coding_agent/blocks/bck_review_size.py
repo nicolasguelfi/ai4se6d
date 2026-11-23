@@ -21,6 +21,9 @@ _STAT = """\
 git diff j2-start --stat    # how many lines did you change today?"""
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. One command only: git diff j2-start --stat, to see how many lines"
+     " they changed today; then you comment on the 200-400 rule."),
     ("The message",
      "A review has a useful size: 200 to 400 lines at a time, and no more than 60 minutes per session — beyond "
      "that, defect detection drops."),

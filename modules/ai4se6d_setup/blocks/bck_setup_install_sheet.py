@@ -29,6 +29,9 @@ _text_cell = Style.create(s.container.layouts.vertical_center_layout + Style("te
                           "setup_sheet_text_cell")
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — 2 min, nothing to type yet. Present the nine steps and the 13:50 mid-point; "
+     "learners start typing at step 0, on the next slide."),
     ("The message",
      "Nine steps, 0 to 8, one slide each: follow them in order, each one ends with a « Done when » check."),
     ("The goal",

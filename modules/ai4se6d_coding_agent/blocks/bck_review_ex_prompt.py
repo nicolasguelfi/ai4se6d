@@ -18,6 +18,9 @@ bs = BlockStyles
 _left = Style("text-align:left;", "review_ex_prompt_left")
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Step 2 of the review exercise: they paste !git diff j2-start, "
+     "then the review prompt, in the plan agent."),
     ("The message",
      "Two steps: put the diff into the conversation, then ask for a structured review of it against the plan."),
     ("The « ! » prefix",

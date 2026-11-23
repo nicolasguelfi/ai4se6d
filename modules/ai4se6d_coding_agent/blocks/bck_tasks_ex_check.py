@@ -18,6 +18,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Same exercise: they check themselves against « Done when »; walk "
+     "around at 13:55 and ask who has not merged routing yet."),
     ("The message",
      "How a participant knows Part 2 is finished, where they should be at mid-time, and what to do when stuck."),
     ("Done when",

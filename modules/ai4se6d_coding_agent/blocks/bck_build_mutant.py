@@ -21,6 +21,9 @@ ExpenseItem:  amount.toFixed(2)  →  amount.toFixed(0)
 "€25.50" becomes "€26": the test must go red."""
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. You did the sabotage in the demo; learners do their own mutant "
+     "check in step 4 of the 11:45 exercise."),
     ("The message",
      "A green test is only worth something if it can go red. After GREEN, sabotage your own code to check it."),
     ("How",

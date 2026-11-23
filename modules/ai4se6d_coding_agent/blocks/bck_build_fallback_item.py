@@ -25,6 +25,9 @@ Implement the minimal ExpenseItem (default export) that passes
 tests/components/ExpenseItem.test.tsx. Do not modify the test."""
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Only those whose plan is unclear or empty: they paste fallback A "
+     "instead of their own task 1 during the 11:45 exercise."),
     ("The message",
      "Plan unclear or empty? Nobody stays blocked: start with the canonical first feature, the one of the demo."),
     ("RED prompt",

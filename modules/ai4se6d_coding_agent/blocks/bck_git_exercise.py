@@ -28,6 +28,9 @@ git restore <that-file> && npm run test:run"""
 
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine, 15 min in a terminal. Everyone clones the starter, commits on feat/hello,"
+     " breaks a file and restores it; walk around."),
     ("The message",
      "15 minutes in a terminal: commit on a branch, break a file, restore it."),
     ("Steps",

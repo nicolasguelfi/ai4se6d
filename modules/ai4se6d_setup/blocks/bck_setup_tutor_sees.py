@@ -18,6 +18,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Explain what the tutor window can and cannot read, right after "
+     "learners opened it in step 8."),
     ("The message",
      "The tutor sees the course, not your secrets — and it only reads."),
     ("Its folders",

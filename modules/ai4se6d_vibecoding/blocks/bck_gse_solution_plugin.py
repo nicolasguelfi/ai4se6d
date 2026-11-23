@@ -9,6 +9,8 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to type. Concept only: learners install GSE-One this afternoon (step 5 of the installation) and use it from day 3."),
     ("The message",
      "Every coding agent has its own settings and commands; rules set in one are lost in the next. GSE-One is a "
      "plugin: the method moves with you from one agent to another."),

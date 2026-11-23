@@ -17,6 +17,9 @@ bs = BlockStyles
 
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. The four re-orientation checks now, 5 min; wait for all hands up "
+     "before moving on."),
     ("The message",
      "Four checks, five minutes, before anyone types a prompt after lunch: the repository, the tests, the app, "
      "the plan."),

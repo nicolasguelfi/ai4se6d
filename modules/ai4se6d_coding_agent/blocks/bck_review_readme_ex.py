@@ -20,6 +20,9 @@ class BlockStyles:
 bs = BlockStyles
 
 _NOTES = [
+    ("Trainer action",
+     "Learners do it — on their machine. Exercise 15:50 → 16:05: the agent drafts the README, they run "
+     "every command in it and add their own Why section."),
     ("The message",
      "15 minutes to apply the 80/20 rule: the agent drafts the README, you check it and add the Why."),
     ("The prompt",
