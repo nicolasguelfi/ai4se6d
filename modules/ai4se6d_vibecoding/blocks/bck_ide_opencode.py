@@ -37,7 +37,7 @@ $ cd ~/ai4se/my-project       # always start in a dedicated project folder
 $ opencode                    # the agent works in this folder
 
 > /init                       # reads the code, writes AGENTS.md
-[Shift+Tab] -> plan           # read-only: propose a plan first
+[Shift+Tab] -> plan           # plan agent: explores, does not edit your files
 [Shift+Tab] -> build          # now it may edit and run commands
 > explain @src/export.js      # @file adds a file to the context
 > /gse-status                 # GSE-One commands start with /gse-
@@ -66,14 +66,38 @@ _NOTES_OVERVIEW = [
      "opencode is the agent of the week: it runs in the terminal, in the project folder, and works with any model "
      "provider. This week it uses your capped course key."),
     ("The idea explained",
-     "Two agents: plan (read-only, proposes) and build (edits files, runs commands); Shift+Tab switches. AGENTS.md "
-     "holds the project rules, /init drafts it. Permissions and MCP servers are set in opencode.json."),
+     "Two agents come built in, with no configuration: build (the default at start-up: edits files, runs commands) "
+     "and plan (explores and proposes, does not edit your project files). Shift+Tab switches from one to the other. "
+     "AGENTS.md holds the project rules, /init drafts it. Permissions and MCP servers are set in opencode.json."),
     ("The trap",
      "Staying in build all the time: the agent then edits before you have agreed on what it should do."),
     ("Link to the course",
      "GSE-One runs inside opencode: its commands start with /gse-. Day 2 starts from AGENTS.md."),
     ("Ask the room",
      "« Why would a team want the project rules in a file, rather than in each person's prompt? »"),
+    ("Technical recap — terminal agent",
+     "A program you start by typing « opencode » in a terminal window, inside a project folder. You talk to it in "
+     "plain text; it reads the files of that folder and, when allowed, changes them and runs commands. Open source "
+     "(MIT licence): free to use, the code is public."),
+    ("Technical recap — model provider, capped key",
+     "opencode is not itself an AI model: it sends your requests to a model chosen in its settings (OpenAI, "
+     "Anthropic, DeepSeek… through a provider). This week every learner has a course key with a spending cap."),
+    ("Technical recap — agents plan and build",
+     "In opencode an « agent » is a working mode with its own permissions. Two come with every installation, "
+     "nothing to configure: build, active when opencode starts, may edit files and run commands; plan explores the "
+     "code and proposes, without editing your project files (it may write its own plan notes, and any command it "
+     "wants to run still asks for permission)."),
+    ("Technical recap — Shift+Tab",
+     "The keyboard shortcut that switches to the next agent: press Shift and Tab together in opencode; the active "
+     "agent's name is shown at the bottom of the window. Press it again to come back."),
+    ("Technical recap — AGENTS.md and /init",
+     "AGENTS.md is a plain text file at the root of the project, read by the agent at the start of every session: "
+     "the project rules (language, structure, commands, conventions). /init is an opencode command (typed in the "
+     "chat, it starts with a slash) that reads the code and writes a first draft of AGENTS.md."),
+    ("Technical recap — permissions, MCP, opencode.json",
+     "Permissions say what the agent may do without asking (edit files, run shell commands): allow, ask or deny. "
+     "MCP (Model Context Protocol) servers give the agent extra tools, e.g. a browser. Both are written in "
+     "opencode.json, the configuration file of the project."),
 ]
 
 _NOTES_SESSION = [
@@ -88,6 +112,21 @@ _NOTES_SESSION = [
      "Plan first, build second, review the diff before you commit."),
     ("Ask the room",
      "« Which of these lines protects you from an unwanted edit? » (plan, then the diff review)"),
+    ("Technical recap — $ and >",
+     "Lines starting with $ are typed in the terminal (the shell); lines starting with > are typed in opencode's "
+     "chat. [Shift+Tab] is a key press, not text."),
+    ("Technical recap — cd, folder",
+     "cd ~/ai4se/my-project moves the terminal into the project folder; opencode then works only on that folder. "
+     "~ is your home folder."),
+    ("Technical recap — /init, /gse-status",
+     "Commands typed in the chat start with a slash. /init writes AGENTS.md; /gse-status is a GSE-One command "
+     "(GSE-One adds its own /gse-… commands to opencode)."),
+    ("Technical recap — @file",
+     "Typing @ followed by a file path adds that file to what the agent reads for this request (its context), "
+     "instead of letting it search the whole project."),
+    ("Technical recap — tutor",
+     "A small course program from the ai4se-kit folder, run in a second terminal: it reads your project and "
+     "answers questions, without changing anything (read-only)."),
 ]
 
 _NOTES_CONFIG = [
@@ -103,6 +142,19 @@ _NOTES_CONFIG = [
      "MCP comes back a few slides later (Model Context Protocol)."),
     ("Ask the room",
      "« Which actions would you set to ask, and which to allow, on a real project? »"),
+    ("Technical recap — JSON",
+     "opencode.json is written in JSON: names in quotes, a colon, then a value; { } groups settings, [ ] holds a "
+     "list."),
+    ("Technical recap — model",
+     "\"<provider>/<reference model>\" names the AI model, e.g. a provider followed by a model name; the course kit "
+     "fills it in for you."),
+    ("Technical recap — permissions",
+     "Each rule says, for an action (edit = change a file, shell = run a command) on a resource (* = everything), "
+     "what happens: allow (do it), ask (ask you first) or deny (never)."),
+    ("Technical recap — MCP server",
+     "An MCP (Model Context Protocol) server is a small program that offers the agent extra tools. Here « local » "
+     "means it runs on your machine, started by the command npx -y @playwright/mcp, and lets the agent drive a "
+     "web browser."),
 ]
 
 
