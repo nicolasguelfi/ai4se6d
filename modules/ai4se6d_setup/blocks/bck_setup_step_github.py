@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -24,15 +25,38 @@ _GH = (
     "gh auth login           # GitHub.com, HTTPS, browser"
 )
 
+_NOTES = [
+    ("The message",
+     "A GitHub account and the gh command line, logged in: git can then push without asking for a password."),
+    ("No account yet",
+     "github.com/signup — a personal account is fine."),
+    ("The login",
+     "gh auth login: choose GitHub.com, HTTPS, and log in with the browser."),
+    ("No browser",
+     "In WSL or the VM: copy the one-time code, open the link yourself in a browser."),
+    ("The trap and the check",
+     "« git asks for a password » = not logged in: redo this step. Done when gh auth status says « Logged in »."),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
         st_write(bs.step, "Installation · step 6 of 8 · ~10 min", tag=t.div)
-        st_write(bs.heading, "6 · GitHub Login", tag=t.div, toc_lvl="1")
-        with st_zoom(85):
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(80):
+                st_write(bs.heading, "6 · GitHub Login", tag=t.div, toc_lvl="1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — 6 · GitHub Login", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(110):
             st_write(bs.body, (bs.label, "No account? "), (bs.cmd, "github.com/signup"), " (personal is fine)")
+        st_space("v", "4vh")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_GH, language="bash", line_numbers=False)
-        with st_zoom(85), st_block(bs.done_box):
+        st_space("v", "5vh")
+        with st_zoom(130), st_block(bs.done_box):
             st_write(bs.body, (bs.done_label, "Done when: "), (bs.cmd, "gh auth status"), " says “Logged in”.")
-        st_write(bs.caption, "No browser (WSL, VM)? Copy the code, open the link yourself.", tag=t.div)
+        st_space("v", "4vh")
+        with st_zoom(130):
+            st_write(bs.caption, "No browser (WSL, VM)? Copy the code, open the link yourself.", tag=t.div)

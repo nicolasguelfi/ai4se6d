@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -25,18 +26,42 @@ _ALTERNATIVES = (
     "npm install -g @opencode/cli             # if you already use Node"
 )
 
+_NOTES = [
+    ("The message",
+     "opencode 2 is the coding agent of the week: one install command, then a version check."),
+    ("Three ways",
+     "The official install script (checked on opencode.ai/docs on 2026-11-09); on macOS, Homebrew as an "
+     "alternative; npm if you already use Node."),
+    ("The trap",
+     "The install changes your PATH, but the open terminal does not see it: « command not found » means "
+     "« open a NEW terminal » (see Common Errors)."),
+    ("The check",
+     "opencode --version prints 2.x.y (e.g. 2.2.6). A 1.x version is not the one of the course."),
+    ("Link to the next steps",
+     "Step 3 connects your model key to opencode; step 5 (GSE-One) needs opencode 2 installed first."),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
         st_write(bs.step, "Installation · step 1 of 8 · ~10 min", tag=t.div)
-        st_write(bs.heading, "1 · Install opencode 2", tag=t.div, toc_lvl="1")
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(80):
+                st_write(bs.heading, "1 · Install opencode 2", tag=t.div, toc_lvl="1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — 1 · Install opencode 2", entries=_NOTES,
+                                 position="left", width="50vw")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_INSTALL, language="bash", line_numbers=False)
-        with st_zoom(130):
+        st_space("v", "4vh")
+        with st_zoom(170):
             st_code(s.none, code=_ALTERNATIVES, language="bash", line_numbers=False)
-        with st_zoom(85):
+        st_space("v", "4vh")
+        with st_zoom(140):
             st_write(bs.body, (bs.warn, "Open a NEW terminal"), ", then:")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code="opencode --version", language="bash", line_numbers=False)
-        with st_zoom(85), st_block(bs.done_box):
+        st_space("v", "4vh")
+        with st_zoom(140), st_block(bs.done_box):
             st_write(bs.body, (bs.done_label, "Done when: "), "it prints ", (bs.cmd, "2.x.y"), " (e.g. 2.2.6).")

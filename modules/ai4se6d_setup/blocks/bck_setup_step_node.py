@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -25,16 +26,39 @@ _INSTALL = (
 _LTS = "# open a NEW terminal, then:\nnvm install --lts         # skip if you used brew"
 _CHECK = "node --version && npm --version"
 
+_NOTES = [
+    ("The message",
+     "Node.js is not needed this afternoon: it runs CalcApp tomorrow (npm). Installing it now saves time tomorrow."),
+    ("Already done?",
+     "node --version shows v20 or more: skip to step 3."),
+    ("Two ways",
+     "macOS: Homebrew. Otherwise nvm, the installer recommended on nodejs.org (v0.41.0, checked on 2026-11-09), "
+     "then nvm install --lts in a NEW terminal."),
+    ("The trap",
+     "« node missing, or older than v20 »: redo this step, then open a new terminal (see Common Errors)."),
+    ("The check",
+     "node shows v20 or more, and npm prints a version."),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_block(s.none):
-            st_write(bs.step, "Installation · step 2 of 8 · ~5 min", tag=t.div)
-            st_write(bs.heading, "2 · Node.js (LTS)", tag=t.div, toc_lvl="1")
+        st_write(bs.step, "Installation · step 2 of 8 · ~5 min", tag=t.div)
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(80):
+                st_write(bs.heading, "2 · Node.js (LTS)", tag=t.div, toc_lvl="1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — 2 · Node.js (LTS)", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(130):
             st_write(bs.caption, "Needed tomorrow to run CalcApp (npm). Already ≥ 20? Skip to step 3.", tag=t.div)
+        st_space("v", "4vh")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_INSTALL, language="bash", line_numbers=False)
+        st_space("v", "4vh")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_LTS + "\n" + _CHECK, language="bash", line_numbers=False)
-        with st_zoom(85), st_block(bs.done_box):
+        st_space("v", "4vh")
+        with st_zoom(130), st_block(bs.done_box):
             st_write(bs.body, (bs.done_label, "Done when: "), "node shows ", (bs.cmd, "v20"), " or more, npm a version.")
