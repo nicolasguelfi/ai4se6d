@@ -31,9 +31,8 @@ _PROMPT = (
 _text_cell = Style.create(s.container.layouts.vertical_center_layout + Style("text-align:left;", "txt_left"),
                           "ide_autonomy_text_cell")
 
-# One screen per slide: the box is a full screen (the book zoom is 90 %), so the next slide's title does not show
-# at the bottom (NG, 2026-11-23)
-_one_screen = Style("min-height:104vh;", "ide_autonomy_one_screen")
+# Both slides top-aligned in their st_slide box (the box is one screen: the next slide never shows at the bottom)
+_slide_top = Style("justify-content:flex-start;", "ide_autonomy_slide_top")
 
 # (number, keyword, style, explanation)
 _LEVELS = [
@@ -80,71 +79,79 @@ def _header(style, title, lvl, notes, zoom):
     """Title and « i » on the same line (header grid 95% / 5%), title smaller (NG, 2026-11-23)."""
     with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
         with h.cell(), st_zoom(zoom):
-            st_write(style, title, tag=t.div, toc_lvl=lvl)
+            st_write(style, title, tag=t.div, toc_lvl=lvl, marker="attach")   # the stop is the slide's own
         with h.cell():
             st_hover_tooltip(title=f"Trainer notes — {title}", entries=notes, position="left", width="50vw")
 
 
 def build():
+    # Two slides, each in its own st_slide box with its own marker (NG, 2026-11-23), as bck_vibeeng_transition:
+    # the arrows stop on each whole slide and one slide fills one screen.
+    with st_slide(marker="The Autonomy Spectrum", style=_slide_top):
+        _autonomy_slide()
+    with st_slide(cut=True, marker="The Agentic Turn", style=_slide_top):
+        _agentic_slide()
+
+
+def _autonomy_slide():
     # Slide 1 — The Autonomy Spectrum (Lines 455-461)
-    with st_block(s.project.containers.page_fill_top + _one_screen):
-        _header(bs.heading, "The Autonomy Spectrum", "1", _NOTES_SPECTRUM, 85)
-        st_space("v", "2vh")
-        # one row per level, alternating fills, a narrow numbering column (motif L2 + fonds f1)
-        cols = "5% 6% 84% 5%"
-        cells = s.project.containers.rows(len(_LEVELS), cols, filled=(2, 3))
-        cells = [c + s.center_txt if k % 4 == 1 else c for k, c in enumerate(cells)]
-        with st_zoom(100), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
-            for num, key, style, text in _LEVELS:
-                with g.cell():
-                    pass  # left margin
-                with g.cell():
-                    st_write(bs.number, num, tag=t.div)
-                with g.cell():
-                    st_write(bs.body, (style, key), text, tag=t.div)
-                with g.cell():
-                    pass  # right margin
-
-    st_slide_break()
-
-    # Slide 2 — The Agentic Turn
-    with st_block(s.project.containers.page_fill_top):
-        _header(bs.subheading, "The Agentic Turn", "2", _NOTES_AGENTIC, 85)
-
-        with st_grid(
-            cols="1.5fr 3.5fr",
-            gap="3vw",
-            cell_styles=[s.project.containers.grid_cell_centered, _text_cell],
-        ) as g:
+    _header(bs.heading, "The Autonomy Spectrum", "1", _NOTES_SPECTRUM, 85)
+    st_space("v", "8vh")
+    # one row per level, alternating fills, a narrow numbering column (motif L2 + fonds f1)
+    cols = "5% 6% 84% 5%"
+    cells = s.project.containers.rows(len(_LEVELS), cols, filled=(2, 3))
+    cells = [c + s.center_txt if k % 4 == 1 else c for k, c in enumerate(cells)]
+    with st_zoom(100), st_grid(cols=cols, gap=".5vh 0.5vw", cell_styles=cells) as g:
+        for num, key, style, text in _LEVELS:
             with g.cell():
-                st_image(
-                    s.none,
-                    width="80%",
-                    editable=IS_EDITABLE,
-                    name="ide_autonomy_agentic",
-                    prompt=_PROMPT,
-                    provider="openai",
-                    ai_size="1024x1536",
-                )
+                pass  # left margin
+            with g.cell():
+                st_write(bs.number, num, tag=t.div)
+            with g.cell():
+                st_write(bs.body, (style, key), text, tag=t.div)
+            with g.cell():
+                pass  # right margin
 
-            with g.cell(), st_zoom(105):
-                with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered,
-                             text_align="left", item_gap=0.6) as l:
-                    # REF: opencode-sst2024
-                    with l.item():
-                        st_write(bs.body, (bs.keyword_warn, "opencode"), " — plan, build, @subagents")
-                    # REF: anthropic-claude-code2025
-                    with l.item():
-                        st_write(bs.body, (bs.keyword_accent, "Claude Code"), " — subagents, background tasks")
-                    with l.item():
-                        st_write(bs.body, (bs.keyword, "GitHub Copilot"), " — issue → pull request")
-                    with l.item():
-                        st_write(bs.body, (bs.keyword, "Cursor"), " — IDE, CLI and cloud agents")
-                st_space("v", "2vh")
-                st_write(
-                    bs.body,
-                    "It ", (bs.keyword_warn, "plans, edits, runs"),
-                    ". You ", (bs.keyword_accent, "frame and review"), ".",
-                )
 
-        st_write(bs.source, cite("opencode-sst2024"), " · ", cite("anthropic-claude-code2025"))
+def _agentic_slide():
+    # Slide 2 — The Agentic Turn
+    _header(bs.subheading, "The Agentic Turn", "2", _NOTES_AGENTIC, 100)
+    st_space("v", "8vh")
+
+    with st_grid(
+        cols="1.5fr 3.5fr",
+        gap="3vw",
+        cell_styles=[s.project.containers.grid_cell_centered, _text_cell],
+    ) as g:
+        with g.cell():
+            st_image(
+                s.none,
+                width="80%",
+                editable=IS_EDITABLE,
+                name="ide_autonomy_agentic",
+                prompt=_PROMPT,
+                provider="openai",
+                ai_size="1024x1536",
+            )
+
+        with g.cell(), st_zoom(90):   # fits the st_slide box (2026-11-23)
+            with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered,
+                         text_align="left", item_gap=0.6) as l:
+                # REF: opencode-sst2024
+                with l.item():
+                    st_write(bs.body, (bs.keyword_warn, "opencode"), " — plan, build, @subagents")
+                # REF: anthropic-claude-code2025
+                with l.item():
+                    st_write(bs.body, (bs.keyword_accent, "Claude Code"), " — subagents, background tasks")
+                with l.item():
+                    st_write(bs.body, (bs.keyword, "GitHub Copilot"), " — issue → pull request")
+                with l.item():
+                    st_write(bs.body, (bs.keyword, "Cursor"), " — IDE, CLI and cloud agents")
+            st_space("v", "2vh")
+            st_write(
+                bs.body,
+                "It ", (bs.keyword_warn, "plans, edits, runs"),
+                ". You ", (bs.keyword_accent, "frame and review"), ".",
+            )
+
+    st_write(bs.source, cite("opencode-sst2024"), " · ", cite("anthropic-claude-code2025"))
