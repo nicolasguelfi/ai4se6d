@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -25,23 +26,57 @@ _TAGS = [
     ("j2-v0.1", "v0.1 ready for delivery (16:15)"),
 ]
 
+_NOTES = [
+    ("The message",
+     "Nobody stays behind for the whole day: the CalcApp starter has a recovery tag at each checkpoint."),
+    ("Who to ask, in order",
+     "1. the tutor window, 2. a recovery tag, 3. raise your hand. Running ~/ai4se/ai4se-kit/tutor update first "
+     "gets today's course notes."),
+    ("How a tag works",
+     "Clone the starter into ~/ai4se/calcapp-restart, then git checkout -b mywork <tag> and npm ci: you continue "
+     "from that point on your own branch."),
+    ("The three tags",
+     "j2-start (09:15, start of the day), j2-part1 (13:15, end of the morning build), j2-v0.1 (16:15, v0.1 ready "
+     "for delivery)."),
+    ("Reassure",
+     "Cloning in a new folder leaves the work in ~/ai4se/calcapp safe. No ~/ai4se/calcapp yet? Clone there instead."),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(75):
-            st_write(bs.heading, "Late or Lost? Catch Up", tag=t.div, toc_lvl="+1")
-        st_write(
-            bs.td, (bs.tl, "Ask: "),
-            "1. your tutor window  →  2. a recovery tag  →  3. raise your hand", tag=t.div,
-        )
-        st_write(
-            bs.td, (bs.cmd, "~/ai4se/ai4se-kit/tutor update"), " — get today's course notes", tag=t.div,
-        )
-        st_code(s.none, code=_RECOVER, language="bash", line_numbers=False, font_size="24pt")
-        with st_grid(cols="auto 1fr", gap="6px 32px") as g:
-            for tag, when in _TAGS:
-                with g.cell():
-                    st_write(bs.tl, tag)
-                with g.cell():
-                    st_write(bs.td, when)
-        st_write(bs.td + s.project.colors.muted, "No ~/ai4se/calcapp yet? Clone there instead. Otherwise your work in it stays safe.", tag=t.div)
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(70):
+                st_write(bs.heading, "Late or Lost? Catch Up", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Late or Lost? Catch Up", entries=_NOTES,
+                                 position="left", width="50vw")
+        st_space("v", "2vh")
+        with st_zoom(112):
+            st_write(
+                bs.td, (bs.tl, "Ask: "),
+                "1. your tutor window  →  2. a recovery tag  →  3. raise your hand", tag=t.div,
+            )
+            st_write(
+                bs.td, (bs.cmd, "~/ai4se/ai4se-kit/tutor update"), " — get today's course notes", tag=t.div,
+            )
+            st_space("v", "2vh")
+            st_code(s.none, code=_RECOVER, language="bash", line_numbers=False, font_size="24pt")
+
+            st_space("v", "2vh")
+            # one row per tag, alternating fills — motif L2 + fonds f1 (margins 5 %)
+            cols = "5% 22% 68% 5%"
+            cells = s.project.containers.rows(len(_TAGS), cols, filled=(2, 3))
+            with st_grid(cols=cols, gap="1.2vh 0.4vw", cell_styles=cells) as g:
+                for tag, when in _TAGS:
+                    with g.cell():
+                        pass  # left margin
+                    with g.cell():
+                        st_write(bs.tl, tag)
+                    with g.cell():
+                        st_write(bs.td, when)
+                    with g.cell():
+                        pass  # right margin
+            st_space("v", "2vh")
+            st_write(bs.td + s.project.colors.muted, "No ~/ai4se/calcapp yet? Clone there instead. Otherwise your work in it stays safe.", tag=t.div)

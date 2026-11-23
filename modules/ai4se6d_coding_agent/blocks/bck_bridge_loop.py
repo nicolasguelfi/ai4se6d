@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -11,45 +12,66 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "bridge_loop_cmd")
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "bridge_loop_foot")
     table_hdr = Style.create(s.project.titles.table_header + s.center_txt, "bridge_loop_th")
-    table_txt = Style.create(s.project.titles.table_cell + s.center_txt, "bridge_loop_td")
-    table_lbl = Style.create(s.project.titles.table_label + s.center_txt, "bridge_loop_tl")
+    table_txt = Style.create(s.project.titles.table_cell, "bridge_loop_td")
+    table_lbl = Style.create(s.project.titles.table_label, "bridge_loop_tl")
 bs = BlockStyles
+
+_NOTES = [
+    ("The message",
+     "Everything done by hand today has a GSE-One command tomorrow. Same loop, same severities."),
+    ("Row by row",
+     "Plan → tasks in docs/plan.md: /gse-plan. Test first, one branch per task: /gse-tests + /gse-produce. "
+     "Review and triage HIGH / MEDIUM / LOW: /gse-review. Fix on a branch, test first: /gse-fix. "
+     "Merge and tag v0.1: /gse-deliver."),
+    ("The guardrail",
+     "GSE-One will not deliver over an open HIGH finding without your explicit decision."),
+    ("Why by hand first",
+     "Having run each step yourself, you know what the command does and can judge its output — the plugin "
+     "automates the loop, it does not replace your decisions."),
+    ("Ask the room",
+     "« Which of today's steps do you most want automated, and which would you never hand over? »"),
+]
+
+_ROWS = [
+    (('Plan → tasks in ', (bs.cmd, 'docs/plan.md')), ((bs.cmd, '/gse-plan'),)),
+    (('Test first, one branch per task',), ((bs.cmd, '/gse-tests'), ' + ', (bs.cmd, '/gse-produce'))),
+    (('Review, triage HIGH / MEDIUM / LOW',), ((bs.cmd, '/gse-review'),)),
+    (('Fix on a branch, test first',), ((bs.cmd, '/gse-fix'),)),
+    (('Merge + tag ', (bs.cmd, 'v0.1')), ((bs.cmd, '/gse-deliver'),)),
+]
 
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(80):
-            st_write(bs.heading, 'Today by Hand → GSE-One', tag=t.div, toc_lvl='1', label='Bridge to GSE-One')
-            with st_grid(cols='50% 45%', gap="6px", cell_styles=s.project.containers.table_header_cell) as g:
+        # title and « i » on the same line, title smaller (NG, 2026-11-23)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(62):
+                st_write(bs.heading, 'Today by Hand → GSE-One', tag=t.div, toc_lvl='1', label='Bridge to GSE-One')
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Today by Hand → GSE-One", entries=_NOTES,
+                                 position="left", width="50vw")
+        st_space("v", "2vh")
+
+        # header row + one row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        cols = "5% 47% 43% 5%"
+        cells = s.project.containers.rows(len(_ROWS) + 1, cols, filled=(2, 3))
+        cells[1:3] = [s.project.containers.table_header_cell] * 2
+        with st_zoom(100), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
+            for cell in ('', 'Today, by hand', 'GSE-One (Day 3)', ''):
                 with g.cell():
-                    st_write(bs.table_hdr, 'Today, by hand')
+                    if cell:
+                        st_write(bs.table_hdr, cell)
+            for left, right in _ROWS:
                 with g.cell():
-                    st_write(bs.table_hdr, 'GSE-One (Day 3)')
-            with st_grid(cols='50% 45%', gap="6px", cell_styles=s.project.containers.table_normal_cell) as g:
+                    pass  # left margin
                 with g.cell():
-                    st_write(bs.table_lbl, 'Plan → tasks in ', (bs.cmd, 'docs/plan.md'))
+                    st_write(bs.table_lbl, *left, tag=t.div)
                 with g.cell():
-                    st_write(bs.table_txt, (bs.cmd, '/gse-plan'))
-            with st_grid(cols='50% 45%', gap="6px", cell_styles=s.project.containers.table_normal_cell) as g:
+                    st_write(bs.table_txt, *right, tag=t.div)
                 with g.cell():
-                    st_write(bs.table_lbl, 'Test first, one branch per task')
-                with g.cell():
-                    st_write(bs.table_txt, (bs.cmd, '/gse-tests'), ' + ', (bs.cmd, '/gse-produce'))
-            with st_grid(cols='50% 45%', gap="6px", cell_styles=s.project.containers.table_normal_cell) as g:
-                with g.cell():
-                    st_write(bs.table_lbl, 'Review, triage HIGH / MEDIUM / LOW')
-                with g.cell():
-                    st_write(bs.table_txt, (bs.cmd, '/gse-review'))
-            with st_grid(cols='50% 45%', gap="6px", cell_styles=s.project.containers.table_normal_cell) as g:
-                with g.cell():
-                    st_write(bs.table_lbl, 'Fix on a branch, test first')
-                with g.cell():
-                    st_write(bs.table_txt, (bs.cmd, '/gse-fix'))
-            with st_grid(cols='50% 45%', gap="6px", cell_styles=s.project.containers.table_normal_cell) as g:
-                with g.cell():
-                    st_write(bs.table_lbl, 'Merge + tag ', (bs.cmd, 'v0.1'))
-                with g.cell():
-                    st_write(bs.table_txt, (bs.cmd, '/gse-deliver'))
+                    pass  # right margin
+        st_space("v", "2vh")
+        with st_zoom(90):
             st_write(
                 bs.foot,
                 'Same loop, same severities — and GSE-One will not deliver over an open HIGH without your explicit decision.',

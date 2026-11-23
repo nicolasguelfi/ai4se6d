@@ -8,6 +8,22 @@ class BlockStyles:
 bs = BlockStyles
 
 
+_NOTES = [
+    ("The message",
+     "An agent can write code that looks right, and tests that prove nothing. GSE-One makes tests a step with "
+     "its own evidence."),
+    ("Strategy first",
+     "/gse-tests sets a test strategy from the requirements before any code: which levels, which cases."),
+    ("Production",
+     "/gse-produce builds each task on its own branch and runs the tests; the results are kept as evidence — "
+     "one branch per task, as in the demo."),
+    ("Delivery is blocked",
+     "While a requirement's tests have not been run and passed, delivery is blocked."),
+    ("Ask the room",
+     "« In the demo, what proved that the task was done? »"),
+]
+
+
 def build():
     gse_solution(
         cycle="CCSET07 · Testing with AI",
@@ -20,4 +36,6 @@ def build():
              "the results are kept as evidence."),
             "Delivery is blocked while a requirement's tests have not been run and passed.",
         ],
+        notes=_NOTES,
+        zoom=92,   # fills the slide (default 60 left the lower half empty) — NG, 2026-11-23
     )

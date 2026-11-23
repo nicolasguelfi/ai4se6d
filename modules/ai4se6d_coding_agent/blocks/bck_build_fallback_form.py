@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -22,12 +23,32 @@ description (Coffee), category (Food), date (2026-03-01), click
 amount as a number. Use getByLabelText / getByRole.
 Do NOT write the component. Run npm run test:run."""
 
+_NOTES = [
+    ("The message",
+     "The second fallback feature: the form that adds an expense, tested through what the user does."),
+    ("RED prompt",
+     "Render the form, fill the labelled inputs, click « Add Expense », and assert that onSubmit received the "
+     "data with the amount as a number. Queries by label and role (getByLabelText / getByRole)."),
+    ("Review the test",
+     "Correct import paths? Accessible queries? The behaviour YOU want? The test is your specification."),
+    ("GREEN and mutant",
+     "GREEN: same prompt as fallback A. Mutant: remove the parseFloat on the amount — the test must go red."),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(70):
-            st_write(bs.heading, 'Fallback B: ExpenseForm', tag=t.div, toc_lvl='+1')
-            st_code(s.none, code=_FORM_RED, language='text', line_numbers=False, font_size="36pt")
+        # title and « i » on the same line, title smaller (NG, 2026-11-23)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(65):
+                st_write(bs.heading, 'Fallback B: ExpenseForm', tag=t.div, toc_lvl='+1')
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Fallback B: ExpenseForm", entries=_NOTES,
+                                 position="left", width="50vw")
+        st_space("v", "2vh")
+        st_code(s.none, code=_FORM_RED, language='text', line_numbers=False, font_size="30pt")
+        st_space("v", "5vh")
+        with st_zoom(125):
             st_write(
                 bs.body,
                 'Review: correct import paths? accessible queries? the behaviour ',
@@ -35,6 +56,7 @@ def build():
                 ' want?',
                 tag=t.div,
             )
+            st_space("v", "3vh")
             st_write(
                 bs.foot,
                 'GREEN: same prompt as A. Mutant: remove the parseFloat on the amount.',

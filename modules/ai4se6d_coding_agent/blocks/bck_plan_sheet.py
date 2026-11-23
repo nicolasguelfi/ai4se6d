@@ -4,6 +4,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -22,17 +23,42 @@ _SHEET = [
     ("New file?", "git diff ignores untracked files: git add first, then git diff --staged"),
 ]
 
+_NOTES = [
+    ("The message",
+     "Participants check themselves: one line tells them when they are done, the others what to do on the way."),
+    ("Done when",
+     "The commit « docs: v0.1 plan » is on mywork and docs/plan.md has 5-8 tasks with exactly one [next]."),
+    ("The check most people miss",
+     "A plan of features can forget the wiring: entry point, assembly of the parts. Without that task the app "
+     "never runs end to end."),
+    ("Mid-point and rescue",
+     "At 11:15 the stories should have testable criteria. Stuck: the tutor window, then docs/plan-example.md "
+     "copied and adapted, then a raised hand."),
+    ("Ask the room",
+     "At the mid-point: « Hands up if your stories have testable acceptance criteria. »"),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(75):
-            st_write(bs.heading, "Your Plan — Check Yourself", tag=t.div, toc_lvl="+1")
-        st_space("v", 1)
-        with st_grid(cols="28% 72%", gap="10px") as g:
+        # title and « i » on the same line, title smaller (NG, 2026-11-23)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(65):
+                st_write(bs.heading, "Your Plan — Check Yourself", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Your Plan — Check Yourself", entries=_NOTES,
+                                 position="left", width="50vw")
+        st_space("v", "3vh")
+        # One row per item, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        cols = "5% 22% 68% 5%"
+        cells = s.project.containers.rows(len(_SHEET), cols, filled=(2, 3))
+        with st_zoom(95), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
             for label, text in _SHEET:
                 with g.cell():
-                    with st_block(s.project.containers.table_header_cell):
-                        st_write(bs.done if label == "Done when" else bs.label, label)
+                    pass  # left margin
                 with g.cell():
-                    with st_block(s.project.containers.table_normal_cell):
-                        st_write(bs.text, text)
+                    st_write(bs.done if label == "Done when" else bs.label, label, tag=t.div)
+                with g.cell():
+                    st_write(bs.text, text, tag=t.div)
+                with g.cell():
+                    pass  # right margin

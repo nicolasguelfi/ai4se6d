@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -28,16 +29,44 @@ fix/<bug>            a bug fix
 experiment/<idea>    may be thrown away"""
 
 
+_NOTES = [
+    ("The message",
+     "Names tell the story: a reader understands the history from the commit messages and branch names alone."),
+    ("Commits",
+     "type(scope): what changed — e.g. feat(expenses): reject negative amounts. Types: feat, fix, test, refactor, "
+     "docs, chore."),
+    ("Assisted-by",
+     "A trailer Assisted-by: opencode records that the agent took part in the change."),
+    ("Branches",
+     "mywork is your main line today; feat/<task> for a task of the plan; fix/<bug> for a bug fix; "
+     "experiment/<idea> may be thrown away."),
+    ("Link to GSE-One",
+     "GSE-One makes every commit follow one convention, so the history tells the story."),
+    ("Ask the room",
+     "« Read your git log --oneline from yesterday: does it tell what happened? »"),
+]
+
+
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(75):
-            st_write(bs.heading, "Names That Tell the Story", tag=t.div, toc_lvl="+1")
-        st_space("v", 0.5)
-        with st_grid(cols=s.project.containers.responsive_2col, grid_style=s.project.containers.gap_24) as g:
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(70):
+                st_write(bs.heading, "Names That Tell the Story", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Names That Tell the Story", entries=_NOTES,
+                                 position="left", width="50vw")
+        st_space("v", "2vh")
+        # commits above branches: side by side, the code had to stay too small to fit (NG, 2026-11-23)
+        with st_zoom(118), st_grid(cols="5% 90% 5%", gap="1vh 0") as g:
+            with g.cell():
+                pass  # left margin
             with g.cell():
                 st_write(bs.col_title, "Commits", tag=t.div)
                 st_code(s.none, code=_COMMITS, language="text", line_numbers=False, font_size="22pt")
-            with g.cell():
+                st_space("v", "2vh")
                 st_write(bs.col_title, "Branches", tag=t.div)
                 st_code(s.none, code=_BRANCHES, language="text", line_numbers=False, font_size="22pt")
                 st_write(bs.text, "Types: feat, fix, test, refactor, docs, chore.", tag=t.div)
+            with g.cell():
+                pass  # right margin

@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -20,12 +21,32 @@ list (description, category, amount, date) with a total, labelled
 form fields with spacing, centred layout with a max-width.
 No animations, no CSS library. Keep all tests green."""
 
+_NOTES = [
+    ("The message",
+     "The last task of Part 2, capped at 10 minutes: plain CSS so that the app is readable and functional — "
+     "not production-ready."),
+    ("One prompt, no RED",
+     "Pure styling has no test: here the rule is that all existing tests stay green after the change."),
+    ("The prompt's limits",
+     "One file (src/App.css), a short list of what to style, and explicit exclusions: no animations, no CSS "
+     "library."),
+    ("The trap",
+     "Polishing the look for half an hour: the time box protects the review section at 14:30."),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(70):
-            st_write(bs.heading, 'Task: Minimal UI', tag=t.div, toc_lvl='+1')
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(65):
+                st_write(bs.heading, 'Task: Minimal UI', tag=t.div, toc_lvl='+1')
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Task: Minimal UI", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(100):
             st_write(bs.timer, '10 min max', tag=t.div)
+            st_space("v", "2vh")
             st_write(
                 bs.body,
                 'Target: ',
@@ -33,7 +54,9 @@ def build():
                 ', not production-ready.',
                 tag=t.div,
             )
+            st_space("v", "2vh")
             st_code(s.none, code=_UI, language='text', line_numbers=False, font_size="36pt")
+            st_space("v", "2vh")
             st_write(
                 bs.body,
                 'Pure styling has no test: the rule is ',

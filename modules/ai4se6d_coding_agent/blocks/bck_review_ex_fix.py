@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -13,6 +14,22 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "review_ex_fix_cmd")
 bs = BlockStyles
 
+# Text left-aligned (NG, 2026-11-23: same recipes as the intro module)
+_left = Style("text-align:left;", "review_ex_fix_left")
+
+_NOTES = [
+    ("The message",
+     "A review finding is fixed like any task this morning: a failing test first (RED), then the fix (GREEN)."),
+    ("Why test first",
+     "The test proves the finding was real and stays fixed. Without it, « fixed » is only the agent's word."),
+    ("Build agent, fix branch",
+     "Shift+Tab back to the build agent (the plan agent is read-only), on the fix/review branch. "
+     "« Change nothing else » keeps the diff small and readable."),
+    ("Close the loop",
+     "Read the diff, run npm run test:run, commit « fix: RVW-1 … », and mark RVW-1 as fixed in docs/review.md."),
+    ("Ask the room",
+     "« The agent's fix also touched another file. Do you keep it? »"),
+]
 
 _FIX = """\
 Fix RVW-1 from docs/review.md. First write a failing test that exposes
@@ -22,8 +39,14 @@ Change nothing else."""
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(70):
-            st_write(bs.heading, 'Fix One Finding — Test First', tag=t.div, toc_lvl='+1')
+        # title and « i » on the same line, title smaller (NG, 2026-11-23)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(55):
+                st_write(bs.heading, 'Fix One Finding — Test First', tag=t.div, toc_lvl='+1')
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Fix One Finding — Test First", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(100), st_block(_left):
             st_write(
                 bs.body,
                 'Shift+Tab back to the ',
@@ -34,7 +57,9 @@ def build():
                 tag=t.div,
             )
             st_code(s.none, code=_FIX, language='text', line_numbers=False, font_size="36pt")
-            with st_list(list_type=lt.unordered, l_style=bs.body, li_style=bs.body) as l:
+            st_space("v", "2vh")
+            with st_list(list_type=lt.unordered, l_style=bs.body, li_style=bs.body,
+                         text_align="left", item_gap=0.6) as l:
                 with l.item():
                     st_write(bs.body, 'Read the diff: did it touch anything else?')
                 with l.item():

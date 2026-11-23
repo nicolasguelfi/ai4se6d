@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -35,11 +36,31 @@ _AFTERNOON = [
     ("17:00", "Buffer, questions", True),
 ]
 
+_NOTES = [
+    ("The message",
+     "The day follows the artifact chain: Git, opencode, a plan, the build, the review, the delivery — then the "
+     "bridge to GSE-One."),
+    ("First thing",
+     "Everyone runs ~/ai4se/ai4se-kit/tutor update to get today's course notes in their tutor window."),
+    ("Morning",
+     "Git first (09:15), driving opencode (09:50), technical planning (11:00), then the first part of the CalcApp "
+     "v0.1 build (11:30)."),
+    ("Afternoon",
+     "The build continues (13:15), code review with AI (14:30), review of today's diff (15:15), delivery of v0.1 "
+     "(16:15), bridge to GSE-One (16:30), buffer and questions at 17:00."),
+    ("If someone falls behind",
+     "Recovery tags of the CalcApp starter let anyone restart at the start of the day, after the morning build or at "
+     "v0.1 (next slides)."),
+]
+
 
 def _column(title, rows):
     st_write(bs.col_title, title, tag=t.div)
-    st_space("v", 0.5)
-    with st_grid(cols="auto 1fr", gap="6px 24px") as g:
+    st_space("v", "1.5vh")
+    # one row per slot, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+    cols = "22% 78%"
+    cells = s.project.containers.rows(len(rows), cols, filled=(1, 2))
+    with st_grid(cols=cols, gap="1.6vh 0.3vw", cell_styles=cells) as g:
         for time, label, is_pause in rows:
             with g.cell():
                 st_write(bs.time, time)
@@ -49,14 +70,23 @@ def _column(title, rows):
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(75):
-            st_write(bs.heading, "Today’s Agenda", tag=t.div, toc_lvl="+1")
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(70):
+                st_write(bs.heading, "Today’s Agenda", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Today’s Agenda", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(85):
             st_write(bs.first, (bs.label, "First: "), (bs.cmd, "~/ai4se/ai4se-kit/tutor update"),
                      " — get today's course notes", tag=t.div)
-        with st_zoom(90), st_grid(cols=s.project.containers.responsive_2col, grid_style=s.project.containers.gap_32) as g:
+        st_space("v", "1vh")
+        with st_zoom(105), st_grid(cols="5% 42.5% 42.5% 5%", gap="2vw") as g:
             with g.cell():
-                with st_block(s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md):
-                    _column("Morning", _MORNING)
+                pass  # left margin
             with g.cell():
-                with st_block(s.project.containers.cell_primary_bg + s.project.containers.cell_pad_md):
-                    _column("Afternoon", _AFTERNOON)
+                _column("Morning", _MORNING)
+            with g.cell():
+                _column("Afternoon", _AFTERNOON)
+            with g.cell():
+                pass  # right margin

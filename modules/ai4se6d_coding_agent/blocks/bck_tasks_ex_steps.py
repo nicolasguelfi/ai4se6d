@@ -1,9 +1,9 @@
 """Slide — Exercise sheet — next tasks of your plan (goal and steps)."""
 # @guideline: minimalist-visual + maximize-viewport
-# @pattern: ptn_exercise_flow
 from streamtex import *
-from streamtex.enums import Tags as t, ListTypes as lt
+from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -14,29 +14,68 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "tasks_ex_steps_cmd")
     timer = Style.create(s.project.titles.stat + s.center_txt, "tasks_ex_steps_timer")
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "tasks_ex_steps_foot")
+    number = s.bold + s.project.colors.highlight
 bs = BlockStyles
+
+
+_NOTES = [
+    ("The message",
+     "The exercise of Part 2: 50 minutes, 13:30 → 14:20, to deliver the next tasks of the participant's plan "
+     "(routing, data, UI)."),
+    ("The four steps",
+     "One branch per task; RED → review → commit test: …; GREEN → review checklist → commit feat: …; merge into "
+     "mywork when green, then the next task."),
+    ("Where the prompts are",
+     "The plan gives the tasks; the previous slides give ready-made RED / GREEN prompts when the plan's wording "
+     "is unclear."),
+    ("What to watch while walking around",
+     "Commits that mix test and code, a branch that was never merged, a review checklist skipped."),
+    ("Link",
+     "The next slide says when Part 2 is done, the mid-point at 13:55, and what to do if stuck."),
+]
 
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(70):
-            st_write(bs.heading, 'Exercise — Your Next Tasks', tag=t.div, toc_lvl='+1')
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(65):
+                st_write(bs.heading, 'Exercise — Your Next Tasks', tag=t.div, toc_lvl='+1')
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Exercise, Your Next Tasks", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(100):
             st_write(bs.timer, '13:30 → 14:20 · 50 min', tag=t.div)
+            st_space("v", "2vh")
             st_write(
                 bs.body,
                 (bs.label, 'Goal: '),
                 "deliver your plan's next tasks (routing, data, UI), one branch each, test first.",
                 tag=t.div,
             )
-            with st_list(list_type=lt.ordered, l_style=bs.body, li_style=bs.body) as l:
-                with l.item():
-                    st_write(bs.body, 'One task = one branch ', (bs.cmd, 'feat/&lt;task-name&gt;'))
-                with l.item():
-                    st_write(bs.body, 'RED → review → commit ', (bs.cmd, 'test: …'))
-                with l.item():
-                    st_write(bs.body, 'GREEN → review checklist → commit ', (bs.cmd, 'feat: …'))
-                with l.item():
-                    st_write(bs.body, 'Merge into ', (bs.cmd, 'mywork'), ' when green, next task')
+        st_space("v", "2vh")
+
+        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        items = [
+            ('One task = one branch ', (bs.cmd, 'feat/&lt;task-name&gt;')),
+            ('RED → review → commit ', (bs.cmd, 'test: …')),
+            ('GREEN → review checklist → commit ', (bs.cmd, 'feat: …')),
+            ('Merge into ', (bs.cmd, 'mywork'), ' when green, next task'),
+        ]
+        cols = "5% 5% 85% 5%"
+        cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
+        with st_zoom(110), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
+            for n, parts in enumerate(items, 1):
+                with g.cell():
+                    pass  # left margin
+                with g.cell():
+                    st_write(bs.body + bs.number, f"{n}", tag=t.div)
+                with g.cell():
+                    st_write(bs.body, *parts, tag=t.div)
+                with g.cell():
+                    pass  # right margin
+        st_space("v", "3vh")
+        with st_zoom(100):
             st_write(
                 bs.foot,
                 "Your plan's wording is unclear? Use the prompts of the previous slides.",

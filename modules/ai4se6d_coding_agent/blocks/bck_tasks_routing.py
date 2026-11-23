@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -27,11 +28,33 @@ from src/App.tsx (Layout with nav Links + Outlet; "/" Dashboard,
 "/add" AddExpense); App keeps createBrowserRouter(routes).
 One file per page in src/pages/. Do not modify the test."""
 
+_NOTES = [
+    ("The message",
+     "The first task of Part 2: two pages, / (Dashboard) and /add (Add Expense), with the two prompts of the "
+     "loop ready to copy — RED first, then GREEN."),
+    ("The RED prompt",
+     "A test only, in tests/App.test.tsx: it renders the exported routes in a memory router, expects the two "
+     "links, and a second test starts directly at /add."),
+    ("The GREEN prompt",
+     "Precise constraints the agent would not guess: react-router, NOT react-router-dom; routes exported from "
+     "src/App.tsx; one file per page in src/pages/; « Do not modify the test »."),
+    ("Why export routes",
+     "The test can then mount the same routes in a memory router, while the app keeps createBrowserRouter."),
+    ("Link",
+     "The next slide is the review checklist for exactly these constraints."),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(70):
-            st_write(bs.heading, 'Task: Routing & Navigation', tag=t.div, toc_lvl='+1')
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(65):
+                st_write(bs.heading, 'Task: Routing & Navigation', tag=t.div, toc_lvl='+1')
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Task: Routing & Navigation", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(85):
             st_write(
                 bs.body,
                 'Two pages: ',
@@ -45,6 +68,7 @@ def build():
                 ' (the form).',
                 tag=t.div,
             )
+            st_space("v", "1vh")
             st_write(bs.label, 'RED', tag=t.div)
             st_code(s.none, code=_ROUTING_RED, language='text', line_numbers=False, font_size="36pt")
             st_write(bs.label, 'GREEN', tag=t.div)

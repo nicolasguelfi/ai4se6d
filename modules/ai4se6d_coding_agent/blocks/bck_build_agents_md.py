@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -23,11 +24,33 @@ _RULES = """\
 - Never install Jest; never skip, weaken or delete a test
 - Run tests with `npm run test:run` (never watch mode)"""
 
+_NOTES = [
+    ("The message",
+     "opencode reads AGENTS.md in every session: the testing rules written there apply to every prompt, "
+     "without repeating them."),
+    ("What the rules fix",
+     "Test file before implementation; the tools of the project (Vitest + React Testing Library, tests in "
+     "tests/, fireEvent, react-router not react-router-dom); never install Jest; never skip, weaken or delete "
+     "a test."),
+    ("Why npm run test:run",
+     "npm test is watch mode: it never ends, and the agent would wait. test:run runs once."),
+    ("Link to this morning",
+     "Same mechanism as the AGENTS.md rules of the opencode part: the project's memory for the agent."),
+    ("Action",
+     "Missing? Add it, then commit: docs: testing rules."),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(80):
-            st_write(bs.heading, 'Testing Rules in AGENTS.md', tag=t.div, toc_lvl='+1')
+        # title and « i » on the same line, title smaller (NG, 2026-11-23)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(65):
+                st_write(bs.heading, 'Testing Rules in AGENTS.md', tag=t.div, toc_lvl='+1')
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Testing Rules in AGENTS.md", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(110):
             st_write(
                 bs.body,
                 'opencode reads ',
@@ -35,5 +58,8 @@ def build():
                 ' in every session. Check that it contains:',
                 tag=t.div,
             )
-            st_code(s.none, code=_RULES, language='markdown', line_numbers=False, font_size="36pt")
+        st_space("v", "2vh")
+        st_code(s.none, code=_RULES, language='markdown', line_numbers=False, font_size="38pt")
+        st_space("v", "3vh")
+        with st_zoom(110):
             st_write(bs.foot, 'Missing? Add it, then commit: docs: testing rules.', tag=t.div)

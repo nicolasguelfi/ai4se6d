@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -26,11 +27,32 @@ Make it pass: Expense type; getExpenses/saveExpenses in storage.ts
 a total; AddExpense saves, then navigates to "/" with useNavigate.
 Do not modify the test."""
 
+_NOTES = [
+    ("The message",
+     "The second task: the data layer — an Expense type, a small storage module on localStorage, and the two "
+     "pages wired to it. localStorage is enough for v0.1."),
+    ("The RED prompt",
+     "An INTEGRATION test this time: start at /add, fill the form (42.50, Food, Lunch), click Add, and expect "
+     "the Dashboard to show the expense. localStorage is cleared before each test."),
+    ("The GREEN prompt",
+     "Names the files and the key (calcapp-data), the functions (getExpenses / saveExpenses), the redirect to / "
+     "with useNavigate — and « Do not modify the test »."),
+    ("The trap",
+     "The agent may keep the data in React state only: the test can pass, and the expense vanishes at the first "
+     "browser refresh. The review checklist of the next slide checks it."),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(70):
-            st_write(bs.heading, 'Task: Data Layer', tag=t.div, toc_lvl='+1')
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(65):
+                st_write(bs.heading, 'Task: Data Layer', tag=t.div, toc_lvl='+1')
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Task: Data Layer", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(85):
             st_write(
                 bs.body,
                 (bs.cmd, 'Expense'),
@@ -41,6 +63,7 @@ def build():
                 '. localStorage is enough for v0.1.',
                 tag=t.div,
             )
+            st_space("v", "1vh")
             st_write(bs.label, 'RED', tag=t.div)
             st_code(s.none, code=_DATA_RED, language='text', line_numbers=False, font_size="36pt")
             st_write(bs.label, 'GREEN', tag=t.div)

@@ -2,8 +2,9 @@
 # @guideline: minimalist-visual + maximize-viewport
 # @pattern: ptn_exercise_flow
 from streamtex import *
-from streamtex.enums import Tags as t, ListTypes as lt
+from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -12,16 +13,39 @@ class BlockStyles:
     body = Style.create(s.project.titles.body + s.text.wrap.hyphens, "build_ex_steps_body")
     label = s.project.titles.label
     keyword = s.bold + s.project.colors.highlight
+    number = s.bold + s.project.colors.highlight
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "build_ex_steps_cmd")
     timer = Style.create(s.project.titles.stat + s.center_txt, "build_ex_steps_timer")
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_ex_steps_foot")
 bs = BlockStyles
 
+_NOTES = [
+    ("The message",
+     "25 minutes, 11:45 → 12:10: deliver the first task of docs/plan.md, test first, on its own branch."),
+    ("The loop",
+     "New branch feat/<task-1-name>; RED prompt, read the test, commit test: …; GREEN prompt, npm run "
+     "test:run green, commit feat: …; mutant check, undo; back to mywork and merge."),
+    ("Why its own branch",
+     "One task = one branch: if the task goes wrong, mywork is untouched. mywork is the main line since this "
+     "morning: every finished task is merged into it."),
+    ("The trap",
+     "Skipping the reading of the test, or one commit for test and code together: you lose the proof that the "
+     "test came first."),
+    ("Link to what follows",
+     "The next slide says when you are done, what to do at the mid-point and if stuck."),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(70):
-            st_write(bs.heading, 'Exercise — Task 1 of YOUR Plan', tag=t.div, toc_lvl='+1')
+        # title and « i » on the same line, title smaller (NG, 2026-11-23)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(65):
+                st_write(bs.heading, 'Exercise — Task 1 of YOUR Plan', tag=t.div, toc_lvl='+1')
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Exercise — Task 1 of YOUR Plan", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(80):
             st_write(bs.timer, '11:45 → 12:10 · 25 min', tag=t.div)
             st_write(
                 bs.body,
@@ -31,34 +55,29 @@ def build():
                 ', test first, on its own branch.',
                 tag=t.div,
             )
-            with st_list(list_type=lt.ordered, l_style=bs.body, li_style=bs.body) as l:
-                with l.item():
-                    st_write(bs.body, (bs.cmd, 'git switch -c feat/&lt;task-1-name&gt;'))
-                with l.item():
-                    st_write(
-                        bs.body,
-                        'RED prompt → ',
-                        (bs.keyword, 'read the test'),
-                        ' → commit ',
-                        (bs.cmd, 'test: …'),
-                    )
-                with l.item():
-                    st_write(
-                        bs.body,
-                        'GREEN prompt → ',
-                        (bs.cmd, 'npm run test:run'),
-                        ' green → commit ',
-                        (bs.cmd, 'feat: …'),
-                    )
-                with l.item():
-                    st_write(bs.body, 'Mutant check, then undo the sabotage')
-                with l.item():
-                    st_write(
-                        bs.body,
-                        (bs.cmd, 'git switch mywork'),
-                        ' → ',
-                        (bs.cmd, 'git merge feat/&lt;task-1-name&gt;'),
-                    )
+        st_space("v", "1vh")
+        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        steps = [
+            ((bs.cmd, 'git switch -c feat/&lt;task-1-name&gt;'),),
+            ('RED prompt → ', (bs.keyword, 'read the test'), ' → commit ', (bs.cmd, 'test: …')),
+            ('GREEN prompt → ', (bs.cmd, 'npm run test:run'), ' green → commit ', (bs.cmd, 'feat: …')),
+            ('Mutant check, then undo the sabotage',),
+            ((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git merge feat/&lt;task-1-name&gt;')),
+        ]
+        cols = "5% 5% 85% 5%"
+        cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
+        with st_zoom(95), st_grid(cols=cols, gap="1.2vh 0.5vw", cell_styles=cells) as g:
+            for n, parts in enumerate(steps, 1):
+                with g.cell():
+                    pass  # left margin
+                with g.cell():
+                    st_write(bs.body + bs.number, f"{n}", tag=t.div)
+                with g.cell():
+                    st_write(bs.body, *parts, tag=t.div)
+                with g.cell():
+                    pass  # right margin
+        st_space("v", "1vh")
+        with st_zoom(75):
             st_write(
                 bs.foot,
                 'mywork is your main line since this morning: every finished task is merged into it.',

@@ -3,6 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -30,18 +31,47 @@ my-app/
   docs/architecture.md
   README.md"""
 
+_NOTES = [
+    ("The message",
+     "Before any prompt, the agent reads your folders and file names. The project structure is the first prompt "
+     "it receives."),
+    ("Before",
+     "Same request, « Add sign-up with email validation », in a flat project (app.ts, helpers.ts, stuff.ts): "
+     "the agent has to guess where the route, the validation and the tests go. Anywhere is possible."),
+    ("After",
+     "With routes/, services/, validators/ and tests/ mirroring src/, the agent sees the pattern: right folder, "
+     "same names, tests mirrored. docs/architecture.md and README.md tell it the rest."),
+    ("The trap",
+     "Thinking structure is cosmetic. For an agent it decides where new code lands and whether tests follow."),
+    ("What comes next",
+     "Five habits for an AI-friendly project, then AGENTS.md: the rules the agent reads at every start."),
+    ("Ask the room",
+     "« In your current project, where would an agent put a new validator? »"),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(75):
-            st_write(bs.heading, "Structure = First Prompt", tag=t.div, toc_lvl="+1")
-        st_write(bs.body, "Prompt: \u201cAdd sign-up with email validation.\u201d", tag=t.div)
-        with st_grid(cols="repeat(auto-fit, minmax(500px, 1fr))", grid_style=s.project.containers.gap_24) as g:
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(75):
+                st_write(bs.heading, "Structure = First Prompt", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Structure = First Prompt", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(110):
+            st_write(bs.body, "Prompt: “Add sign-up with email validation.”", tag=t.div)
+        st_space("v", "4vh")
+        with st_zoom(105), st_grid(cols="5% 0.9fr 1.6fr 5%", gap="2vw") as g:
+            with g.cell():
+                pass  # left margin
             with g.cell():
                 st_write(bs.bad, "Before: it guesses", tag=t.div)
-                st_code(s.none, code=_BEFORE, language="text", line_numbers=False, font_size="22pt")
+                st_code(s.none, code=_BEFORE, language="text", line_numbers=False, font_size="30pt")
                 st_write(bs.note, "Route? Validation? Tests? Anywhere.", tag=t.div)
             with g.cell():
                 st_write(bs.good, "After: it sees the pattern", tag=t.div)
-                st_code(s.none, code=_AFTER, language="text", line_numbers=False, font_size="22pt")
+                st_code(s.none, code=_AFTER, language="text", line_numbers=False, font_size="30pt")
                 st_write(bs.note, "Right folder, same names, tests mirrored.", tag=t.div)
+            with g.cell():
+                pass  # right margin

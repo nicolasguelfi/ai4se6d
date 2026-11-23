@@ -8,6 +8,25 @@ class BlockStyles:
 bs = BlockStyles
 
 
+_NOTES = [
+    ("The message",
+     "The agent only knows what is in its context. Re-explaining your project at every session wastes time and "
+     "tokens; GSE-One organises the context instead."),
+    ("A standing prompt",
+     "GSE-One's orchestrator is itself an AGENTS.md, loaded at every session — the same mechanism participants "
+     "just used with the CalcApp AGENTS.md."),
+    ("One command per activity",
+     "/gse-plan, /gse-tests, … each loads only what its activity needs, so the context window stays focused."),
+    ("Specialised agents",
+     "Each brings one point of view: architect, code reviewer, security auditor, test strategist…"),
+    ("State in files",
+     "The project state lives in files: the context is rebuilt from them, not from the chat — the same idea as "
+     "/new per task."),
+    ("Ask the room",
+     "« What would you keep in files rather than in the conversation for your own project? »"),
+]
+
+
 def build():
     gse_solution(
         cycle="CCSET05 · Driving an agent: context engineering",
@@ -23,4 +42,6 @@ def build():
             "security auditor, test strategist…",
             "The project state lives in files: the context is rebuilt from them, not from the chat.",
         ],
+        notes=_NOTES,
+        zoom=82,   # fills the slide (default 60 left the lower half empty) — NG, 2026-11-23
     )

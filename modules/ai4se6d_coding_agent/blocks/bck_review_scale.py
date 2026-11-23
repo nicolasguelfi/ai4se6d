@@ -4,6 +4,7 @@ from streamtex import *
 from streamtex.bib import cite
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -18,11 +19,36 @@ class BlockStyles:
 bs = BlockStyles
 
 
+_NOTES = [
+    ("The message",
+     "AI review is already mainstream: 60 million Copilot code reviews by March 2026, more than one in five "
+     "code reviews on GitHub."),
+    ("The figure",
+     "From the GitHub Blog (5 March 2026): Copilot code review usage grew 10× since its April 2025 launch."),
+    ("Why it matters",
+     "The volume of generated code is enormous: someone — or something — must check all of it. Humans alone "
+     "cannot keep up, so AI review becomes part of the loop."),
+    ("The trap",
+     "Reading the figure as « AI review is enough »: the next slides show what tests and review each remove, "
+     "and what AI review misses."),
+    ("Ask the room",
+     "« Does your team already use an AI reviewer on pull requests? What does it catch? »"),
+]
+
+
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(80):
-            st_write(bs.heading, 'Review at Scale', tag=t.div, toc_lvl='+1')
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(65):
+                st_write(bs.heading, 'Review at Scale', tag=t.div, toc_lvl='+1')
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Review at Scale", entries=_NOTES,
+                                 position="left", width="50vw")
+        with st_zoom(95):
+            st_space("v", "3vh")
             st_write(bs.stat, '60 million', tag=t.div)
+            st_space("v", "2vh")
             st_write(
                 bs.body_center,
                 'Copilot code reviews by March 2026 — ',
@@ -31,9 +57,11 @@ def build():
                 tag=t.div,
             )
             st_write(bs.source, cite('github-ccr-60m2026'), tag=t.div)
+            st_space("v", "4vh")
             st_write(
                 bs.body,
                 'The volume of generated code is enormous: someone — or something — must check all of it.',
                 tag=t.div,
             )
+            st_space("v", "3vh")
             st_write(bs.foot, 'Speed without review is just faster failure.', tag=t.div)

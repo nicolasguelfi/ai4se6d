@@ -1,8 +1,9 @@
 """Slide — Project rules = AGENTS.md (opencode)."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
-from streamtex.enums import Tags as t, ListTypes as lt
+from streamtex.enums import Tags as t
 from custom.styles import Styles as s
+from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
@@ -13,17 +14,54 @@ class BlockStyles:
     closing = Style.create(s.project.titles.body_accent + s.center_txt, "ocagents_closing")
 bs = BlockStyles
 
+_NOTES = [
+    ("The message",
+     "AGENTS.md is where the project's rules live for opencode: a Markdown file at the project root, read at "
+     "every start."),
+    ("How to get one",
+     "/init drafts one from your project; you then edit it. Commit it so everyone in the team works with the same "
+     "rules."),
+    ("Two levels",
+     "Personal rules go in ~/.config/opencode/AGENTS.md; extra rule files can be listed under « instructions » "
+     "in opencode.json."),
+    ("The trap",
+     "Expecting a special syntax. It is plain Markdown: write it as you would brief a colleague."),
+    ("What comes next",
+     "The AGENTS.md shipped with the CalcApp starter, then a try-it: one rule of yours changes the agent's answer."),
+    ("Ask the room",
+     "« What is the first rule you would write for your own project? »"),
+]
+
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        with st_zoom(75):
-            st_write(bs.heading, "Project Rules = AGENTS.md", tag=t.div, toc_lvl="+1")
-        st_space("v", 1)
-        with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
-            with l.item(): st_write(bs.body, "Markdown at the project root, read at every start")
-            with l.item(): st_write(bs.body, (bs.keyword, "/init"), " drafts one from your project")
-            with l.item(): st_write(bs.body, (bs.keyword, "Commit it"), ": same rules for everyone")
-            with l.item(): st_write(bs.body, "Personal: ", (bs.keyword, "~/.config/opencode/AGENTS.md"))
-            with l.item(): st_write(bs.body, "Extra files: ", (bs.keyword, "instructions"), " in opencode.json")
-        st_space("v", 1)
-        st_write(bs.closing, "Plain Markdown. No special syntax.", tag=t.div)
+        # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
+        with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(75):
+                st_write(bs.heading, "Project Rules = AGENTS.md", tag=t.div, toc_lvl="+1")
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Project Rules = AGENTS.md", entries=_NOTES,
+                                 position="left", width="50vw")
+        st_space("v", "3vh")
+
+        # One row per fact, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        items = [
+            ("Markdown at the project root, read at every start",),
+            ((bs.keyword, "/init"), " drafts one from your project"),
+            ((bs.keyword, "Commit it"), ": same rules for everyone"),
+            ("Personal: ", (bs.keyword, "~/.config/opencode/AGENTS.md")),
+            ("Extra files: ", (bs.keyword, "instructions"), " in opencode.json"),
+        ]
+        cols = "5% 90% 5%"
+        cells = s.project.containers.rows(len(items), cols, filled=(2,))
+        with st_zoom(115), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
+            for parts in items:
+                with g.cell():
+                    pass  # left margin
+                with g.cell():
+                    st_write(bs.body, *parts, tag=t.div)
+                with g.cell():
+                    pass  # right margin
+        st_space("v", "4vh")
+        with st_zoom(115):
+            st_write(bs.closing, "Plain Markdown. No special syntax.", tag=t.div)
