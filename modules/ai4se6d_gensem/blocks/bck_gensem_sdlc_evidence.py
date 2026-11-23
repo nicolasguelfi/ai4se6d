@@ -44,7 +44,7 @@ def build():
                         title="Evidence: Tool Alone vs Tool + Process",
                         entries=[
                             ("Tool alone", "+55.8% on simple tasks but -19% on real projects and 7h/week lost to AI-generated tech debt."),
-                            ("Tool + process", "25-30% gains with transformation program. FlowGen: 15% fewer code smells when design + code review are part of the process; FlowGenScrum achieves 75.2% Pass@1 on HumanEval."),
+                            ("Tool + process", "25-30% gains with transformation program. FlowGen: GPT-3.5 agents that emulate Scrum pass 15% more benchmark tests (Pass@1) than without a process, and design + code review also cut code smells; FlowGenScrum achieves 75.2% Pass@1 on HumanEval."),
                             ("Pass@1", "The percentage of AI-generated code that passes all tests on the first attempt, without retries. A higher Pass@1 means the AI produces correct code more often."),
                             ("HumanEval", "A benchmark of 164 programming problems created by OpenAI, used as the standard reference to compare code-generation models. 75.2% means FlowGenScrum solves 3 out of 4 problems correctly on the first try."),
                             ("Key takeaway", "The methodology is the multiplier, not the tool \u2014 process discipline determines whether AI helps or hinders."),
@@ -83,7 +83,7 @@ def build():
                         with l.item():
                             st_write(bs.body, (bs.stat_ok, "25\u201330%"), " gains with transformation program")
                         with l.item():
-                            st_write(bs.body, (bs.stat_ok, "15%"), " fewer code smells with FlowGen structured process")
+                            st_write(bs.body, (bs.stat_ok, "15%"), " higher Pass@1 when GPT-3.5 agents emulate Scrum (FlowGen)")
                         with l.item():
                             st_write(bs.body, (bs.stat_ok, "75.2%"), " genCode Pass@1 on HumanEval (FlowGenScrum)")
                     st_space("v", "2vh")

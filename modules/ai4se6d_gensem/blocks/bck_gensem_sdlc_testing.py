@@ -45,9 +45,9 @@ def build():
                 st_write(
                     bs.body,
                     (bs.keyword, "FlowGen"),
-                    ": structured SE processes improve quality \u2014 design + code review = ",
+                    ": GPT-3.5 agents that emulate Scrum pass ",
                     (bs.stat, "15%"),
-                    " reduction in code smells",
+                    " more benchmark tests (Pass@1); design + code review also cut code smells",
                 )
 
         st_space("v", 2)

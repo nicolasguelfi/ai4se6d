@@ -16,7 +16,7 @@ _PHASES = [
     ("Requirements Engineering", "GPT-dominated generation of user stories, acceptance criteria, and Gherkin specs", "67.3% GPT"),
     ("Architecture & Design", "AI-assisted design decisions, pattern selection, and trade-off analysis", "Is the focus of 38% of GenAI studies"),
     ("Code Generation", "Three paradigms: completion, chat-based, agentic autonomous coding", "3 paradigms"),
-    ("Testing", "Automated test generation, mutation testing, property-based testing with LLMs", "15% improvement"),
+    ("Testing", "Automated test generation, mutation testing, property-based testing with LLMs", "102 studies"),
     ("Maintenance", "Bug localization, refactoring suggestions, documentation generation", "less mature"),
     ("Deployment", "Agentic DevOps: AI agents managing CI/CD pipelines and infrastructure", "Emerging"),
 ]
@@ -106,6 +106,6 @@ def build():
         with st_zoom(90):
             _render_table(_PHASES[3:])
             st_space("v", "2vh")
-            st_write(bs.source, cite("soen101-2024"), "  ", cite("gao-maintenance2025"), "  ", cite("esposito-architecture2025"))
+            st_write(bs.source, cite("wang-llm-testing2025"), "  ", cite("gao-maintenance2025"), "  ", cite("esposito-architecture2025"))
 
     st_space("v", "30vh")
