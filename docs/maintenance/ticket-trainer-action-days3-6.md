@@ -3,12 +3,13 @@
 - **Status**: open, scheduled from the weekend of 28-29 November 2026 (NG, 2026-11-23: « fais un ticket pour
   le faire pour les autres journées à partir du prochain week-end »).
 - **Owner**: ss2-ul-stx (slides). Tell ss2-ul-gse before editing gensem blocks.
-- **Done already**: days 1-2 (modules genai_intro, vibecoding, setup, coding_agent), 2026-11-23 — use them as
+- **Done already**: days 1-2 (commit e074e80, 2026-11-23: coding_agent 66, setup 22, vibecoding 9; genai_intro has none) — use them as
   the model (see `git log --grep "Trainer action"`).
 
 ## Request
 
-For every slide the trainer must know, from the tooltip, what he does with it — exactly one of:
+Only for slides that show **code / commands, an exercise or a demo** (pure concept slides are left alone —
+NG, 2026-11-23): the trainer must know, from the tooltip, what he does with it — exactly one of:
 
 1. **Read and comment** — he reads and comments; nobody types anything.
 2. **Live demo** — he types / shows it live himself (terminal, browser, on-screen widget).
@@ -16,7 +17,7 @@ For every slide the trainer must know, from the tooltip, what he does with it �
 
 Form: first entry of each tooltip's entries list —
 `("Trainer action", "<Action> — <short tail>. <why: concrete what / when>")`.
-A slide without a tooltip gets one on the title line (95 % / 5 % header grid, « i » on the right).
+Such a slide without a tooltip gets one on the title line (95 % / 5 % header grid, « i » on the right).
 
 ## Scope (measured 2026-11-23)
 
@@ -39,6 +40,6 @@ slides before an exercise are « Read and comment » or « Live demo », exercis
 
 ## Done when
 
-- Every wired gensem slide's tooltip starts with its Trainer action entry; slides still fit 1920×1080.
+- Every wired gensem slide with code, an exercise or a demo has a tooltip that starts with its Trainer action entry; slides still fit 1920×1080.
 - Walk of the gensem book: all stops, 0 exceptions; `uv run ruff check`; walk-through audit OK.
 - No on-slide wording change, so no syllabus delta (tooltips only).
