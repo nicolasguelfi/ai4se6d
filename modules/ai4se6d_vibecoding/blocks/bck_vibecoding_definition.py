@@ -35,7 +35,7 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(85):
-                st_write(bs.heading, "VibeCoding \u2014 Definition", tag=t.div, toc_lvl="1")
+                st_write(bs.heading+"zoom:1.3;", "VibeCoding \u2014 Definition", tag=t.div, toc_lvl="1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — VibeCoding — Definition", entries=_NOTES,
                                  position="left", width="50vw")
@@ -45,12 +45,12 @@ def build():
                 bs.body,
                 "A practice where developers <br>describe tasks to LLMs, accept generated code",
             )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.highlight,
                 "without closely reviewing",
             )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.body,
                 "its internal structure, and rely on results "

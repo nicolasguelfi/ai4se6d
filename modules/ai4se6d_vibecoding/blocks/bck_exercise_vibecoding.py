@@ -76,7 +76,7 @@ def build():
 
             with g.cell(), st_zoom(130):
                 st_write(bs.body + bs.keyword, "FreeSelfApp Workshop", tag=t.div)
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(
                     bs.body,
                     "This afternoon, you will practice self-generated code with VibeCoding first-hand. "

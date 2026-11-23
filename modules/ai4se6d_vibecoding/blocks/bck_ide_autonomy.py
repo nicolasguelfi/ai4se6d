@@ -140,7 +140,7 @@ def build():
                         st_write(bs.body, (bs.keyword, "GitHub Copilot"), " — issue → pull request")
                     with l.item():
                         st_write(bs.body, (bs.keyword, "Cursor"), " — IDE, CLI and cloud agents")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(
                     bs.body,
                     "It ", (bs.keyword_warn, "plans, edits, runs"),

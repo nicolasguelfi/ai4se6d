@@ -78,7 +78,7 @@ def build():
                             (bs.keyword, "acceptance criteria"),
                             ", and review gates.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             "Not ",
@@ -87,7 +87,7 @@ def build():
                             (bs.keyword, "validated increment"),
                             ".",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (s.project.colors.muted, "A tasting menu — each course refined "

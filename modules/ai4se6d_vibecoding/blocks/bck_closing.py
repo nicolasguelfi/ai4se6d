@@ -21,7 +21,7 @@ def build():
     with st_block(s.project.containers.page_fill_center):
         with st_block(s.center_txt):
             st_write(bs.heading, "Questions?", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             st_image(
                 s.none,

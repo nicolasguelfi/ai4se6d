@@ -71,20 +71,20 @@ def build():
 
             with g.cell():
                 st_write(bs.number, "2")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 with st_zoom(112):
                     st_write(
                         bs.body,
                         (bs.keyword, "If it works = good enough."),
                     )
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         "The developer accepts generated code based on whether "
                         "the application works, not on whether the code is correct, "
                         "efficient, or maintainable.",
                     )
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         "The code itself is not read.",

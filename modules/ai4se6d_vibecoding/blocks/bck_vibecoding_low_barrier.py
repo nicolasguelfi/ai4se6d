@@ -72,21 +72,21 @@ def build():
 
             with g.cell():
                 st_write(bs.number, "4")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 with st_zoom(100):
                     st_write(
                         bs.body,
                         (bs.keyword, "Anyone with an idea "),
                         "can build a working prototype.",
                     )
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         "Non-programmers can produce functional prototypes, "
                         "blurring the traditional boundary between developers "
                         "and non-developers.",
                     )
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         (s.project.colors.accent + s.LARGE + s.bold,

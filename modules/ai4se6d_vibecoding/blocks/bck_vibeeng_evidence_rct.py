@@ -46,7 +46,7 @@ def build():
                 with h.cell():
                     st_hover_tooltip(title="Trainer notes — The Copilot Effect", entries=_NOTES,
                                      position="left", width="50vw")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_grid(
                 cols="1fr 1fr",
@@ -87,5 +87,5 @@ def build():
                     (bs.keyword_accent, "discipline"),
                     ".",
                 )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(bs.transition, "Who benefits the most? \u2192")

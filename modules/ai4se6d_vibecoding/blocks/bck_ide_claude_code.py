@@ -74,7 +74,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.subheading, "Claude Code: Unique Strengths", tag=t.div, toc_lvl="2")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item():

@@ -49,7 +49,7 @@ def build():
             # title and « i » on the same line, title smaller (NG, 2026-11-23)
             with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell(), st_zoom(80):
-                    st_write(bs.heading, "Demo vs. Production", tag=t.div, toc_lvl="1")
+                    st_write(bs.heading+"zoom:1.3;", "Demo vs. Production", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(title="Trainer notes — Demo vs. Production", entries=_NOTES,
                                      position="left", width="50vw")
@@ -71,13 +71,13 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(125):   # text cell fills the slide (NG, 2026-11-23)
+                    with st_zoom(115):   # text cell fills the slide (NG, 2026-11-23)
                         with st_zoom(110):
                             st_write(
                                 bs.body,
                                 (bs.keyword_ok, "The demo works."),
                             )
-                            st_space("v", 1)
+                            st_space("v", "2vh")
                             st_write(
                                 bs.body,
                                 (bs.keyword_warn, "Production requires: "),

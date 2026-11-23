@@ -83,7 +83,7 @@ def build():
                     "Tomorrow, you'll apply these 6 principles to a real project. "
                     "Requirements first, acceptance criteria before generation, architecture declared.",
                 )
-                st_space("v", 1)
+                st_space("v", "2vh")
 
                 st_write(bs.body, (bs.keyword_warn, "Compare Both Approaches"), tag=t.div)
                 st_space("v", 0.5)

@@ -90,7 +90,7 @@ def build():
                     with l.item():
                         st_write(bs.body, (bs.keyword_warn, "Trust"), " \u2014 a local server runs code on your machine")
 
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(
                     bs.emphasis,
                     "Your certified suppliers \u2014 vetted, traceable, always available.",

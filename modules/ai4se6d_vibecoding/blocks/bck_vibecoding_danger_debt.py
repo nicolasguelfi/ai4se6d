@@ -53,7 +53,7 @@ def build():
             # title and « i » on the same line, title smaller (NG, 2026-11-23)
             with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell(), st_zoom(80):
-                    st_write(bs.heading, "The Iceberg", tag=t.div, toc_lvl="1")
+                    st_write(bs.heading+"zoom:1.3;", "The Iceberg", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(title="Trainer notes — The Iceberg", entries=_NOTES,
                                      position="left", width="50vw")
@@ -82,7 +82,7 @@ def build():
                                 (bs.keyword_ok, "What you see: "),
                                 "working prototype.",
                             )
-                            st_space("v", 1)
+                            st_space("v", "2vh")
                             st_write(
                                 bs.body,
                                 (bs.keyword, "What\u2019s hidden: "),

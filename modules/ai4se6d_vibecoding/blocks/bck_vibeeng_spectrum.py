@@ -84,4 +84,4 @@ def build():
                         with g.cell():
                             st_write(bs.cell_text, best_for)
 
-            st_space("v", 1)
+            st_space("v", "2vh")

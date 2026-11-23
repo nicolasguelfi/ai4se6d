@@ -46,7 +46,7 @@ def build():
                 bs.emphasis,
                 "VibeCoding and VibeEngineering are practices.",
             )
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.body,
                 "The TOOLS bring them to life — this week, yours is opencode.",

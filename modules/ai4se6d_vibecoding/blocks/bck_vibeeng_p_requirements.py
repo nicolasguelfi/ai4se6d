@@ -78,7 +78,7 @@ def build():
                             (bs.keyword, "before"),
                             " engaging the AI agent.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (s.project.colors.muted, "The client's order — allergies, "

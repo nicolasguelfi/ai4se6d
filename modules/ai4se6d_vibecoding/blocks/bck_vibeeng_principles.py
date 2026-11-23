@@ -23,16 +23,18 @@ class BlockStyles:
     heading = s.project.titles.slide_title + s.center_txt
     body = s.project.titles.body
     keyword = Style.create(s.bold + s.project.colors.primary + s.Large, "vibeeng_pr_keyword")
+    # even rows: the theme's text colour, so that rows 1-5 alternate blue / text colour (NG, 2026-11-23)
+    keyword_alt = Style.create(s.bold + s.Large, "vibeeng_pr_keyword_alt")
     keyword_accent = Style.create(s.bold + s.project.colors.accent + s.Large, "vibeeng_pr_keyword_accent")
     number = Style.create(s.bold + s.project.colors.highlight + s.Large, "vibeeng_pr_number")
 bs = BlockStyles
 
-# The six principles, in order; the last one in the accent colour (as before)
+# The six principles, in order: rows 1-5 alternate their colour, the last one keeps the accent colour (NG, 2026-11-23)
 _ITEMS = [
     ("Requirements Before Prompts", bs.keyword),
-    ("Test-Driven Generation", bs.keyword),
+    ("Test-Driven Generation", bs.keyword_alt),
     ("Architectural Intent", bs.keyword),
-    ("Iterative Refinement", bs.keyword),
+    ("Iterative Refinement", bs.keyword_alt),
     ("Human Review at Boundaries", bs.keyword),
     ("Context Engineering", bs.keyword_accent),
 ]
@@ -72,6 +74,7 @@ def build():
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
                 st_write(bs.heading, "6 Principles of VibeEngineering", tag=t.div, toc_lvl="1")
+                st_space("v", "15vh")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — 6 Principles of VibeEngineering", entries=_NOTES,
                                  position="left", width="50vw")
@@ -92,7 +95,7 @@ def build():
                 # one grid row per principle, alternating fills, a number column (motif L2 + fonds f1)
                 cols = "8% 92%"
                 cells = s.project.containers.rows(len(_ITEMS), cols, filled=(1, 2))
-                with st_zoom(95), st_grid(cols=cols, gap="5.5vh 0.4vw", cell_styles=cells) as r:   # rows spread over the slide
+                with st_zoom(115), st_grid(cols=cols, gap="1.5vh 0.4vw", cell_styles=cells) as r:   # rows spread over the slide
                     for i, (name, style) in enumerate(_ITEMS, start=1):
                         with r.cell():
                             st_write(bs.number, str(i), tag=t.div)

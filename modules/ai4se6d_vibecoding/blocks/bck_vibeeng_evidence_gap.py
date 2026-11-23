@@ -73,7 +73,7 @@ def build():
                     st_write(bs.stat_senior, "+8\u201313%")
                     st_write(bs.label, "Long-tenure developers")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             with st_zoom(130):
                 st_write(
                     bs.body,

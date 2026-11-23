@@ -41,7 +41,7 @@ def build():
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell():
                     with st_zoom(80):   # one-line title (NG, 2026-11-23)
-                        st_write(bs.heading, "What Can Actually Be Delegated?", tag=t.div, toc_lvl="1")
+                        st_write(bs.heading+"zoom:1.3;", "What Can Actually Be Delegated?", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(
                         title="Anthropic internal study (Dec 2025)",
@@ -86,7 +86,7 @@ def build():
                 )
 
             st_space("v", 2)
-            with st_zoom(170):
+            with st_zoom(150):
                 st_write(
                     bs.body,
                     "Most work still needs human judgment, review, and direction.",
@@ -103,7 +103,7 @@ def build():
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell():
                     with st_zoom(80):   # one-line title (NG, 2026-11-23)
-                        st_write(bs.heading, "New Tools -> New Processes", tag=t.div, toc_lvl="2")
+                        st_write(bs.heading+"zoom:1.3;", "New Tools -> New Processes", tag=t.div, toc_lvl="2")
                 with h.cell():
                     st_hover_tooltip(
                         title="Bain Technology Report (Sept 2025)",
@@ -111,8 +111,9 @@ def build():
                             (
                                 "10\u201315% with tools alone",
                                 "Teams using AI coding assistants see 10\u201315% "
-                                "productivity boosts \u2014 often without "
-                                "redirecting the time saved.",
+                                "productivity gains, but the time saved is often not "
+                                "reassigned to other work, so it rarely shows up as "
+                                "faster delivery.",
                             ),
                             (
                                 "25\u201330% with process redesign",
@@ -123,8 +124,9 @@ def build():
                             (
                                 "Why the gap?",
                                 "Writing and testing code is only ~25\u201335% "
-                                "of the time from idea to launch. Speeding up "
-                                "coding alone moves the bottleneck elsewhere.",
+                                "of the time from idea to launch. Making coding faster "
+                                "just moves the queue to the slower steps (requirements, "
+                                "review, QA, release): the whole process has to change.",
                             ),
                         ],
                         position="left", width="50vw",
@@ -160,7 +162,7 @@ def build():
                 # title and « i » on the same line (NG, 2026-11-23)
                 with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
                     with h.cell(), st_zoom(75):
-                        st_write(bs.heading, "It Has Its Place", tag=t.div, toc_lvl="2")
+                        st_write(bs.heading+"zoom:1.3;", "It Has Its Place", tag=t.div, toc_lvl="2")
                     with h.cell():
                         st_hover_tooltip(title="Trainer notes — It Has Its Place", entries=_NOTES_PLACE,
                                          position="left", width="50vw")
@@ -170,7 +172,7 @@ def build():
                     (bs.keyword_ok, "At home: "),
                     "personal prototypes, throwaway demos, learning, exploring ideas.",
                 )
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(
                     bs.body,
                     (bs.keyword_warn, "Not for: "),
@@ -178,7 +180,7 @@ def build():
                 )
                 st_space("v", 2)
                 st_write(
-                    bs.emphasis,
+                    bs.emphasis+s.project.colors.muted,
                     "A gala dinner for 200 guests. "
                     "Individual dietary requirements. Press in attendance. "
                     "Would you cook the same way?",

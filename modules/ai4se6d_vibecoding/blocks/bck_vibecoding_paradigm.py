@@ -68,6 +68,7 @@ def build():
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
                 st_write(bs.heading, "From Cook to Customer", tag=t.div, toc_lvl="1")
+                st_space("v", "3vh")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — From Cook to Customer", entries=_NOTES,
                                  position="left", width="50vw")
@@ -85,21 +86,21 @@ def build():
                     ai_size="1024x1536",
                 )
 
-            with g.cell(), st_zoom(125):
+            with g.cell(), st_zoom(110):
                 st_write(
                     bs.body,
                     (bs.keyword, "Traditional SE: "),
                     "You are the cook \u2014 you choose ingredients, "
                     "follow the recipe, control every step.",
                 )
-                st_space("v", 1)
+                st_space("v", "3vh")
                 st_write(
                     bs.body,
                     (bs.keyword_accent, "VibeCoding: "),
                     "You become the customer \u2014 you describe what you want, "
                     "the kitchen prepares it, you taste the result.",
                 )
-                st_space("v", 1)
+                st_space("v", "3vh")
                 st_write(
                     bs.body+s.project.colors.muted,
                     "The implementation stays behind the kitchen door.",

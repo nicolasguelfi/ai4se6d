@@ -88,14 +88,14 @@ def build():
                     (s.project.colors.highlight + s.LARGE + s.bold, "1960s: "),
                     (bs.body, "High-level languages replaced assembly."),
                 )
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(
                     bs.body,
                     (s.project.colors.muted,
                      "The compiler became the trusted intermediary \u2014 "
                      "programmers stopped writing machine code."),
                 )
-                st_space("v", 1)
+                st_space("v", "2vh")
                 st_write(
                     bs.body,
                     (s.project.colors.highlight + s.LARGE + s.bold, "2025: "),
@@ -109,7 +109,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.subheading, "The Critical Difference", tag=t.div, toc_lvl="2")
+                st_write(bs.subheading+"zoom:1.3;", "The Critical Difference", tag=t.div, toc_lvl="2")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — The Critical Difference", entries=_NOTES_DIFF,
                                  position="left", width="50vw")

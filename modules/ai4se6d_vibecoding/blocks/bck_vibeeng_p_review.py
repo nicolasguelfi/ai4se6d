@@ -83,7 +83,7 @@ def build():
                             (bs.keyword, "validation results"),
                             ".",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (s.project.colors.muted, "Quality control at critical "

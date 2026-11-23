@@ -79,23 +79,24 @@ def build():
                                 " drew the line: ",
                                 (bs.accent, '"vibe coding"'),
                                 " is when you don't read the code. ",
-                                "Engineering is when you ",
+                                (bs.accent, '"Engineering"'),
+                                " is when you ",
                                 (bs.keyword, "own"),
                                 " every decision.",
                             )
-                            st_space("v", 1)
+                            st_space("v", "2vh")
                             st_write(
                                 bs.body,
                                 "Karpathy's term has been evolving toward ",
                                 (bs.highlight, '"agentic engineering"'),
                                 " — AI agents executing, humans steering.",
                             )
-                            st_space("v", 1)
+                            st_space("v", "2vh")
                             st_write(
                                 bs.body,
                                 (s.project.colors.muted, "The kitchen upgrades its tools — "
                                 "but the chef still designs and serves the menu."),
                             )
-                            st_space("v", 1)
+                            st_space("v", "2vh")
                             # REF: beck2025-augmented-coding
                             st_write(bs.source, cite("beck2025-augmented-coding"))

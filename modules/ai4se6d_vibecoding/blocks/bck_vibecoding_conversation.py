@@ -72,13 +72,12 @@ def build():
 
             with g.cell():
                 st_write(bs.number, "3")
-                st_space("v", 1)
-                with st_zoom(100):
+                with st_zoom(105):
                     st_write(
                         bs.body,
                         (bs.keyword, "Bug? Describe the symptom.\nThe AI fixes it."),
                     )
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         (s.project.colors.muted,
@@ -86,7 +85,7 @@ def build():
                         "to the LLM rather than by reading and debugging "
                         "the code directly."),
                     )
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         "No need to understand the implementation.",

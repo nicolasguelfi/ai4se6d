@@ -32,7 +32,7 @@ def build():
         with st_block(s.center_txt):
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell(), st_zoom(80):   # one-line title
-                    st_write(bs.heading, "Security Vulnerabilities", tag=t.div, toc_lvl="1")
+                    st_write(bs.heading+"zoom:1.3;", "Security Vulnerabilities", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(
                         title="Trainer notes \u2014 Security Vulnerabilities",
@@ -78,21 +78,20 @@ def build():
                     with st_zoom(105):   # text cell fills the slide (NG, 2026-11-23)
                         with st_zoom(60):
                             st_write(bs.stat, "45%")
-                        st_space("v", 1)
                         st_write(
                             bs.body,
                             "of AI code samples failed security tests (100+ models).",
                         )
                         # REF: https://www.veracode.com/blog/genai-code-security-report/
                         st_write(bs.source, cite("veracode-genai2025"))
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             "\u2265 62% of 331,000 AI-generated C programs: vulnerable.",
                         )
                         # REF: https://arxiv.org/abs/2404.18353
                         st_write(bs.source, cite("tihanyi-secure2024"))
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         with st_zoom(150):
                             st_write(
                                 bs.body+s.project.colors.muted,

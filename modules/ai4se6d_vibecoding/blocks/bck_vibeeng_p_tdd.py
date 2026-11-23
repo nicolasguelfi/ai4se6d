@@ -80,7 +80,7 @@ def build():
                             (bs.keyword, "contract"),
                             ". AI generates code that must pass.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (s.project.colors.muted, "Taste at every step, not just "

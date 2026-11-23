@@ -21,7 +21,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_block(s.center_txt):
             st_write(bs.heading, "Windsurf", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item():
@@ -45,7 +45,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90), st_block(s.center_txt):
             st_write(bs.heading, "GitHub Copilot", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 # REF: copilot-plans2025
@@ -68,7 +68,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         with st_zoom(90), st_block(s.center_txt):
             st_write(bs.heading, "OpenAI Codex", tag=t.div, toc_lvl="1")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item():

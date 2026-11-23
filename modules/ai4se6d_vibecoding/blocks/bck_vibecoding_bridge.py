@@ -29,12 +29,12 @@ _NOTES = [
 
 def build():
     with st_block(s.project.containers.page_fill_center_wide):
-        with st_block(s.center_txt), st_zoom(130):   # fills the screen (NG, 2026-11-23)
+        with st_block(s.center_txt), st_zoom(110):   # fills the screen (NG, 2026-11-23)
             # the « i » on the first line (NG, 2026-11-23)
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell():
                     st_write(
-                        bs.question,
+                        bs.question+"zoom:1.3;",
                         "Speed",
                         tag=t.div,
                         toc_lvl="1",
@@ -43,5 +43,5 @@ def build():
                 with h.cell(), st_zoom(70):
                     st_hover_tooltip(title="Trainer notes — Speed AND Quality?", entries=_NOTES,
                                      position="left", width="50vw")
-            st_write(bs.highlight, "AND")
-            st_write(bs.question, "Quality?")
+            st_write(bs.highlight+"zoom:0.8;", "AND")
+            st_write(bs.question+"zoom:1.3;", "Quality?")

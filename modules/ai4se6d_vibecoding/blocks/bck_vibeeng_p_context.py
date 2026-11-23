@@ -77,7 +77,7 @@ def build():
                             (bs.keyword, "Systematically managing"),
                             " the information fed to AI agents.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             "Not clever prompting \u2014 structured ",
@@ -88,7 +88,7 @@ def build():
                             (bs.keyword, "tool configurations"),
                             ".",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (bs.accent, "Project rules"),
@@ -98,7 +98,7 @@ def build():
                             (bs.accent, "memory systems"),
                             " \u2014 the agent sees what you curate.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (s.project.colors.muted, "Your pantry, your prep, your standards "

@@ -67,7 +67,7 @@ def build():
                 with l.item(): st_write(bs.body, (bs.keyword_accent, "Day 3\u20134"), " \u2014 SE Foundations for Generative SE")
                 with l.item(): st_write(bs.body, (bs.keyword, "Day 5\u20136"), " \u2014 Mini-project + Ethics + Presentations")
 
-            st_space("v", 1)
+            st_space("v", "2vh")
             st_write(
                 bs.transition,
                 "Next sessions: Requirements, V&V, NFRs",

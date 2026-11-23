@@ -77,7 +77,7 @@ def build():
                             (bs.keyword, "Design decisions BEFORE generation"),
                             " \u2014 patterns, components, boundaries.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             "Context files (",
@@ -85,7 +85,7 @@ def build():
                             "; CLAUDE.md, Cursor rules elsewhere"
                             ") communicate these constraints to the AI.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (s.project.colors.muted, "The menu is designed before "

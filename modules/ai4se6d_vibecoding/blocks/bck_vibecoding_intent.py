@@ -70,14 +70,14 @@ def build():
 
             with g.cell():
                 st_write(bs.number, "1")
-                st_space("v", 1)
+                st_space("v", "2vh")
                 with st_zoom(120):
                     st_write(
                         bs.body,
                         (bs.keyword, "Describe WHAT you want,<br> "),
                         "not HOW to build it.",
                     )
-                    st_space("v", 1)
+                    st_space("v", "2vh")
                     st_write(
                         bs.body,
                         (s.project.colors.muted, "You specify the goal. The AI determines the implementation."),

@@ -89,7 +89,7 @@ def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.subheading, "Cursor", tag=t.div, toc_lvl="2")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item(): st_write(bs.body, (bs.keyword, "AI-native IDE"), " \u2014 built from the ground up for AI")
@@ -104,7 +104,7 @@ def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.subheading, "Claude Code", tag=t.div, toc_lvl="2")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item(): st_write(bs.body, (bs.keyword, "Terminal CLI-first"), " \u2014 runs in your shell")
@@ -118,7 +118,7 @@ def build():
     with st_block(_page_fill):
         with st_block(s.center_txt):
             st_write(bs.subheading, "Other Notable Tools", tag=t.div, toc_lvl="2")
-            st_space("v", 1)
+            st_space("v", "2vh")
 
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.unordered) as l:
                 with l.item(): st_write(bs.body, (bs.keyword, "Windsurf"), " \u2014 VS Code fork with guided AI flows")

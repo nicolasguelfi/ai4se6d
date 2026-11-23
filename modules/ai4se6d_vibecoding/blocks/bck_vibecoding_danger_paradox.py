@@ -33,7 +33,7 @@ def build():
         with st_block(s.center_txt):
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell(), st_zoom(80):   # one-line title
-                    st_write(bs.heading, "The AI Paradox", tag=t.div, toc_lvl="1")
+                    st_write(bs.heading+"zoom:1.3;", "The AI Paradox", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(
                         title="Trainer notes \u2014 The AI Paradox",
@@ -84,21 +84,20 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(110):   # text cell fills the slide (NG, 2026-11-23)
+                    with st_zoom(105):   # text cell fills the slide (NG, 2026-11-23)
                         with st_zoom(60):
                             st_write(bs.stat, "7 hours")
-                        st_space("v", 1)
                         st_write(
                             bs.body,
                             "lost per team member weekly to inefficient processes.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (bs.keyword, "Faster coding "),
                             "creates new bottlenecks: code review of AI output, "
                             "debugging hallucinations, fixing integration issues.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         # REF: https://about.gitlab.com/developer-survey/
                         st_write(bs.source, cite("gitlab-devsecops2025"))

@@ -40,41 +40,50 @@ _NOTES_A = [
 ]
 
 def build():
-    # Sub-slide 1: Question
-    with st_block(s.project.containers.page_fill_top):
-        with st_block(s.center_txt):
-            # question and « i » on the same line, one line (NG, 2026-11-23)
-            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
-                with h.cell(), st_zoom(60):
-                    st_write(
-                        bs.question,
-                        "What Practices Remain Essential?",
-                        tag=t.div,
-                        toc_lvl="1",
-                    )
-                with h.cell():
-                    st_hover_tooltip(title="Trainer notes — What Practices Remain Essential?", entries=_NOTES_Q,
-                                     position="left", width="50vw")
-    st_space("v", "20vh")
-    st_slide_break()
+    # Two slides, each in its own st_slide box (NG, 2026-11-23), as in streamtex-all-trainings:
+    # the box fills the screen and centres its content; the second slide gets its break and its listed marker.
+    # the stops sit on the slide boxes (marker=), the headings only attach their TOC entry to them:
+    # the arrows show each whole slide, not the heading scrolled to the top (NG, 2026-11-23)
+    with st_slide(marker="What Practices Remain Essential?"):
+        _question_slide()
+    with st_slide(cut=True, marker="Exactly \u2014 That\u2019s VibeEngineering"):
+        _affirmation_slide()
 
-    # Sub-slide 2: Affirmation
-    with st_block(s.project.containers.page_fill_center):
-        with st_block(s.center_txt):
-            with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
-                with h.cell(), st_zoom(60):   # one line (NG, 2026-11-23)
-                    st_write(
-                        bs.affirmation,
-                        "Exactly \u2014 That\u2019s VibeEngineering",
-                        tag=t.div,
-                        toc_lvl="2",
-                    )
-                with h.cell():
-                    st_hover_tooltip(title="Trainer notes — Exactly, that's VibeEngineering", entries=_NOTES_A,
-                                     position="left", width="50vw")
-            st_space("v", 2)
-            with st_zoom(160):
+
+def _question_slide():
+    with st_block(s.center_txt):
+        # question and « i » on the same line, one line (NG, 2026-11-23)
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(60):
                 st_write(
-                    bs.subtitle,
-                    "What separates the home cook from the starred chef.",
+                    bs.question,
+                    "What Practices Remain Essential?",
+                    tag=t.div,
+                    toc_lvl="1",
+                    marker="attach",
                 )
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — What Practices Remain Essential?", entries=_NOTES_Q,
+                                 position="left", width="50vw")
+
+
+def _affirmation_slide():
+    with st_block(s.center_txt):
+        with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
+            with h.cell(), st_zoom(60):   # one line (NG, 2026-11-23)
+                st_write(
+                    bs.affirmation,
+                    "Exactly \u2014 That\u2019s VibeEngineering",
+                    tag=t.div,
+                    toc_lvl="2",
+                    marker="attach",
+                )
+            with h.cell():
+                st_hover_tooltip(title="Trainer notes — Exactly, that's VibeEngineering", entries=_NOTES_A,
+                                 position="left", width="50vw")
+        st_space("v", 2)
+        with st_zoom(160):
+            st_write(
+                bs.subtitle,
+                "What separates the home cook from the starred chef.",
+            )

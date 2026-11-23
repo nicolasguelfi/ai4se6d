@@ -33,7 +33,7 @@ def build():
         with st_block(s.center_txt):
             with st_grid(cols="95% 5%", gap="0px", cell_styles=s.project.containers.grid_cell_centered) as h:
                 with h.cell(), st_zoom(80):   # one-line title
-                    st_write(bs.heading, "Phantom Packages", tag=t.div, toc_lvl="1")
+                    st_write(bs.heading+"zoom:1.3;", "Phantom Packages", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(
                         title="Trainer notes \u2014 Phantom Packages",
@@ -87,22 +87,23 @@ def build():
                     )
 
                 with g.cell():
-                    with st_zoom(110):   # text cell fills the slide (NG, 2026-11-23)
+                    with st_zoom(100):   # text cell fills the slide (NG, 2026-11-23)
                         with st_zoom(60):
-                            st_write(bs.stat, "5.2\u201321.7%")
-                        st_space("v", 1)
+                            st_write(bs.stat, "5.2% vs 21.7%")
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
-                            "of packages in LLM-generated code do not exist.",
+                            "of packages in LLM-generated code do not exist",
+                            (bs.body+s.project.colors.muted, " (Commercial vs open-source models).")
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         st_write(
                             bs.body,
                             (bs.keyword, "Supply-chain attack: "),
                             "adversaries upload malicious code under hallucinated "
                             "package names.",
                         )
-                        st_space("v", 1)
+                        st_space("v", "2vh")
                         # REF: https://arxiv.org/abs/2406.10279
                         st_write(bs.source, cite("spracklen-packages2025"))
-                        st_write(bs.body, "Commercial vs open-source models.")
+                        

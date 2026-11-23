@@ -38,7 +38,7 @@ def build():
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(62):
                 st_write(
-                    bs.question,
+                    bs.question+"zoom:1.3;",
                     "It Works\u2026 But at What Cost?",
                     tag=t.div,
                     toc_lvl="1",
