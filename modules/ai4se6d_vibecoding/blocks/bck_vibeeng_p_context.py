@@ -49,7 +49,7 @@ def build():
         with st_block(s.center_txt):
             # title and « i » on the same line, title smaller (NG, 2026-11-23)
             with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-                with h.cell(), st_zoom(80):
+                with h.cell(), st_zoom(100):
                     st_write(bs.heading, "P6 — Context Engineering", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(title="Trainer notes — P6 — Context Engineering", entries=_NOTES,
@@ -71,34 +71,28 @@ def build():
                 with g.cell():
                     with st_zoom(70):   # the number smaller: more room for the text
                         st_write(bs.number, "6")
-                    with st_zoom(90):
+                    with st_zoom(88):
                         st_write(
                             bs.body,
                             (bs.keyword, "Systematically managing"),
                             " the information fed to AI agents.",
                         )
                         st_space("v", "2vh")
+                        # NG, 2026-11-23: one paragraph; accent = the idea, blue = the three levers, muted = the example
                         st_write(
                             bs.body,
-                            "Not clever prompting \u2014 structured ",
+                            "An agent\u2019s ",
+                            (bs.accent, "context goes beyond the prompt"),
+                            ". You shape it through ",
                             (bs.keyword, "project rules"),
                             ", ",
                             (bs.keyword, "memory"),
                             ", and ",
-                            (bs.keyword, "tool configurations"),
+                            (bs.keyword, "the tools you give the agent"),
+                            (bs.body, " (for example, through MCP servers)"),
                             ".",
                         )
-                        st_space("v", "2vh")
-                        st_write(
-                            bs.body,
-                            (bs.accent, "Project rules"),
-                            ", ",
-                            (bs.accent, "MCP servers"),
-                            ", ",
-                            (bs.accent, "memory systems"),
-                            " \u2014 the agent sees what you curate.",
-                        )
-                        st_space("v", "2vh")
+                        st_space("v", "6vh")
                         st_write(
                             bs.body,
                             (s.project.colors.muted, "Your pantry, your prep, your standards "
