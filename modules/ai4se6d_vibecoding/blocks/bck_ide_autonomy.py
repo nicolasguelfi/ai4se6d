@@ -31,8 +31,9 @@ _PROMPT = (
 _text_cell = Style.create(s.container.layouts.vertical_center_layout + Style("text-align:left;", "txt_left"),
                           "ide_autonomy_text_cell")
 
-# Both slides top-aligned in their st_slide box (the box is one screen: the next slide never shows at the bottom)
-_slide_top = Style("justify-content:flex-start;", "ide_autonomy_slide_top")
+# Both slides top-aligned in their st_slide box, title at the top of the screen (the box is one screen: the next slide never shows at the bottom)
+# no 10vh gap above the title; min-height 102vh (+ 10vh bottom margin) = one screen at the book zoom of 90 %
+_slide_top = Style("justify-content:flex-start;margin-top:0;min-height:102vh;", "ide_autonomy_slide_top")
 
 # (number, keyword, style, explanation)
 _LEVELS = [
