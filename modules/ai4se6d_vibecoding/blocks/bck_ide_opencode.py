@@ -33,15 +33,17 @@ _text_cell = Style.create(s.container.layouts.vertical_center_layout + Style("te
 
 
 _SESSION = """\
+# Terminal 1 — your work session
 $ cd ~/ai4se/my-project       # always start in a dedicated project folder
 $ opencode                    # the agent works in this folder
-
 > /init                       # reads the code, writes AGENTS.md
 [Shift+Tab] -> plan           # plan agent: explores, does not edit your files
 [Shift+Tab] -> build          # now it may edit and run commands
 > explain @src/export.js      # @file adds a file to the context
 > /gse-status                 # GSE-One commands start with /gse-
-$ ~/ai4se/ai4se-kit/tutor     # 2nd terminal: the course tutor (read-only)"""
+
+# Terminal 2 — open a NEW terminal window, outside opencode
+$ ~/ai4se/ai4se-kit/tutor     # the course tutor (read-only)"""
 
 _CONFIG = """\
 {
