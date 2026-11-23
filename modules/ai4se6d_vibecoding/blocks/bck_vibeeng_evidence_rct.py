@@ -41,7 +41,7 @@ def build():
         with st_block(s.center_txt):
             # title and « i » on the same line, title smaller (NG, 2026-11-23)
             with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-                with h.cell(), st_zoom(80):
+                with h.cell(), st_zoom(100):
                     st_write(bs.heading, "The Copilot Effect", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(title="Trainer notes — The Copilot Effect", entries=_NOTES,
@@ -54,7 +54,7 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.stat, "\u221255.8%")
+                    st_write(bs.stat + s.project.colors.success + "zoom:0.7;", "\u221255.8%")   # green: a gain (NG, 2026-11-23)
                     st_space("v", 0.5)
                     st_write(
                         bs.body,
@@ -66,7 +66,7 @@ def build():
                     st_write(bs.source, cite("peng-copilot2023"))
 
                 with g.cell():
-                    st_write(bs.stat, "+19%")
+                    st_write(bs.stat + s.project.colors.critical + "zoom:0.7;", "+19%")   # crimson: a loss (NG, 2026-11-23)
                     st_space("v", 0.5)
                     st_write(
                         bs.body,

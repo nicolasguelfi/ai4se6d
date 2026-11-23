@@ -21,8 +21,8 @@ class BlockStyles:
 bs = BlockStyles
 
 
-# Colour per row, red (level 1) → green (level 4); the header takes the former yellow of level 4 and level 4 the
-# former green of the header (NG, 2026-11-23). Block-local: only this slide uses them.
+# Colour per row, red (level 1) → green (level 4), level 4 in the former green of the header; the header in blue,
+# a colour far from the four rows (NG, 2026-11-23). Block-local: only this slide uses them.
 def _tone(rgb, hexa, key):
     """Cell (tinted fill + border) and label (bold text) styles of one colour."""
     cell = Style.create(
@@ -36,7 +36,7 @@ def _tone(rgb, hexa, key):
     return cell, label
 
 
-_HEADER_TONE = _tone("243, 156, 18", "#F39C12", "header")   # yellow-orange (was level 4)
+_HEADER_TONE = _tone("122, 184, 245", "#7AB8F5", "header")   # blue: apart from the red → green rows (NG, 2026-11-23)
 _ROW_TONES = [
     _tone("231, 76, 60", "#E74C3C", "red"),       # 1 — Naive VibeCoding
     _tone("230, 126, 34", "#E67E22", "orange"),   # 2 — Guided
@@ -81,7 +81,7 @@ def build():
 
             # Header row
             with st_zoom(105), st_grid(
-                cols="4% 24% 39% 28%",
+                cols="6% 24% 42% 28%",
                 gap="8px",
                 cell_styles=_HEADER_TONE[0],
             ) as g:
@@ -93,7 +93,7 @@ def build():
             for (level, name, characteristics, best_for, _active), (cell, name_style) in zip(_ROWS, _ROW_TONES):
                 with st_zoom(105):
                     with st_grid(
-                        cols="9% 24% 39% 28%",
+                        cols="6% 24% 42% 28%",
                         gap="8px",
                         cell_styles=cell,
                     ) as g:
@@ -102,8 +102,8 @@ def build():
                         with g.cell():
                             st_write(name_style, name)
                         with g.cell():
-                            st_write(bs.cell_text, characteristics)
+                            st_write(name_style, characteristics)
                         with g.cell():
-                            st_write(bs.cell_text, best_for)
+                            st_write(name_style, best_for)
 
             st_space("v", "2vh")
