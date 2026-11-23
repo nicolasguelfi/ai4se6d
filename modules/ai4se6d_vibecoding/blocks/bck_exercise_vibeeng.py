@@ -29,6 +29,9 @@ _text_cell = Style.create(s.container.layouts.vertical_center_layout + Style("te
                           "ex_ve_text_cell")
 
 _NOTES = [
+    ("Trainer action",
+     "Read and comment — nothing to do now. Ask learners to keep the four questions (Quality, Confidence, Speed, "
+     "Trade-off) in mind: they note them for FreeSelfApp this afternoon and answer again after CalcApp on day 2."),
     ("The message",
      "Today was pure VibeCoding (FreeSelfApp); tomorrow the same people build CalcApp v0.1 with the six "
      "VibeEngineering principles. Same tools, different discipline."),
@@ -83,20 +86,20 @@ def build():
                     "Tomorrow, you'll apply these 6 principles to a real project. "
                     "Requirements first, acceptance criteria before generation, architecture declared.",
                 )
-                st_space("v", "2vh")
+                st_space("v", "7vh")
+                with st_zoom(110):
+                    st_write(bs.body, (bs.keyword_warn, "Compare Both Approaches"), tag=t.div)
+                    st_space("v", 0.5)
+                    with st_list(l_style=bs.watch_q, li_style=bs.watch_q, list_type=lt.unordered,
+                                text_align="left", item_gap=0.6) as l:
+                        with l.item(): st_write(bs.watch_q, (bs.keyword, "Quality"), " \u2014 which result is more robust?")
+                        with l.item(): st_write(bs.watch_q, (bs.keyword, "Confidence"), " \u2014 which do you trust more?")
+                        with l.item(): st_write(bs.watch_q, (bs.keyword, "Speed"), " \u2014 was the overhead worth it?")
+                        with l.item(): st_write(bs.watch_q, (bs.keyword_warn, "Trade-off"), " \u2014 where is the sweet spot?")
 
-                st_write(bs.body, (bs.keyword_warn, "Compare Both Approaches"), tag=t.div)
-                st_space("v", 0.5)
-                with st_list(l_style=bs.watch_q, li_style=bs.watch_q, list_type=lt.unordered,
-                             text_align="left", item_gap=0.6) as l:
-                    with l.item(): st_write(bs.watch_q, (bs.keyword, "Quality"), " \u2014 which result is more robust?")
-                    with l.item(): st_write(bs.watch_q, (bs.keyword, "Confidence"), " \u2014 which do you trust more?")
-                    with l.item(): st_write(bs.watch_q, (bs.keyword, "Speed"), " \u2014 was the overhead worth it?")
-                    with l.item(): st_write(bs.watch_q, (bs.keyword_warn, "Trade-off"), " \u2014 where is the sweet spot?")
-
-        st_space("v", 4)
+        st_space("v", 2)
         with st_block(s.center_txt):
             st_write(
-                bs.transition,
+                bs.transition+"zoom:1.04;",   # one line, fits the screen (1.2 wrapped and was cut)
                 "After today's FreeSelfApp and tomorrow's CalcApp \u2014 you'll have experienced both sides",
             )

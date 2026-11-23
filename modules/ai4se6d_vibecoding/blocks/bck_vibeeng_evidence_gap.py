@@ -53,7 +53,7 @@ def build():
         with st_block(s.center_txt):
             # title and « i » on the same line, title smaller (NG, 2026-11-23)
             with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-                with h.cell(), st_zoom(80):
+                with h.cell(), st_zoom(100):
                     st_write(bs.heading, "The Experience Gap", tag=t.div, toc_lvl="1")
                 with h.cell():
                     st_hover_tooltip(title="Trainer notes — The Experience Gap", entries=_NOTES,
@@ -66,7 +66,7 @@ def build():
                 cell_styles=s.project.containers.grid_cell_centered,
             ) as g:
                 with g.cell():
-                    st_write(bs.stat_junior, "+27\u201339%")
+                    st_write(bs.stat_junior+ s.project.colors.success , "+27\u201339%")
                     st_write(bs.label, "Short-tenure developers")
 
                 with g.cell():
