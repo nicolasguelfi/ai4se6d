@@ -10,29 +10,16 @@ from custom.styles import Styles as s
 from shared_widgets import st_hover_tooltip
 
 
-def _tone(rgb, hexa, key):
-    """Card (tinted fill + coloured border), title, chip and commit-dot styles of one area colour."""
-    card = Style.create(
-        Style(f"background-color: rgba({rgb}, 0.13); border: 3px solid {hexa}; border-radius: 16px; "
-              "padding: 2.5vh 0.8vw; min-height: 60vh; box-sizing: border-box;", f"gitareas_card_{key}")
-        + s.container.layouts.vertical_center_layout + s.center_txt,
-        f"gitareas_card_{key}_c",
-    )
-    title = Style.create(s.project.titles.table_label + s.bold + Style(f"color: {hexa};", f"gitareas_fg_{key}"),
-                         f"gitareas_title_{key}")
-    chip = Style(f"background-color: rgba({rgb}, 0.28); border-radius: 8px; padding: 2px 10px; margin: 3px 4px; "
-                 "white-space: nowrap; display: inline-block;",
-                 f"gitareas_chip_{key}")
-    dot = Style(f"background-color: {hexa}; border-radius: 50%; padding: 4px 9px; margin: 0 3px; "
-                "font-weight: bold; display: inline-block;", f"gitareas_dot_{key}")
-    return card, title, chip, dot
+def _tone(tone):
+    """(card, title, chip, dot) of a shared diagram colour (custom styles: s.project.tone_*)."""
+    return Style.create(tone.card + Style("min-height: 60vh;", "gitareas_card_h"), f"{tone.card.style_id}_areas"), \
+        tone.title, tone.chip, tone.dot
 
 
-# Same colours as the old diagram: blue, amber, green, purple
-_WORK = _tone("122, 184, 245", "#7AB8F5", "work")
-_STAGE = _tone("243, 156, 18", "#F39C12", "stage")
-_LOCAL = _tone("39, 174, 96", "#27AE60", "local")
-_REMOTE = _tone("155, 89, 182", "#B07CD8", "remote")
+_WORK = _tone(s.project.tone_blue)
+_STAGE = _tone(s.project.tone_amber)
+_LOCAL = _tone(s.project.tone_green)
+_REMOTE = _tone(s.project.tone_purple)
 
 
 class BlockStyles:
@@ -135,9 +122,9 @@ def build():
             st_write(bs.sub, "How your code travels from your editor to GitHub", tag=t.div)
         st_space("v", "3vh")
 
-        blue = Style("color: #7AB8F5;", "gitareas_c_blue")
-        green = Style("color: #27AE60;", "gitareas_c_green")
-        purple = Style("color: #B07CD8;", "gitareas_c_purple")
+        blue = s.project.tone_blue.fg
+        green = s.project.tone_green.fg
+        purple = s.project.tone_purple.fg
         arrows = [
             [("→", "git add", blue)],
             [("→", "git commit", green)],
@@ -153,7 +140,7 @@ def build():
                         with g.cell():
                             _arrow(arrows[i])
         st_space("v", "4vh")
-        amber = Style("color: #F39C12;", "gitareas_c_amber")
+        amber = s.project.tone_amber.fg
         with st_zoom(_ANALOGY_ZOOM), st_block(bs.analogy_box):
             st_write(
                 bs.caption, (s.bold, "Photography analogy: "),

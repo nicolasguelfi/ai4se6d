@@ -227,12 +227,45 @@ class ContainerStylesCustom:
     )
 
 
+class DiagramTone:
+    """Styles of ONE colour of a native diagram (NG, 2026-11-24: diagrams drawn with StreamTeX instead of PNGs).
+
+    Usage: blue = s.project.tone("122, 184, 245", "#7AB8F5", "blue") then blue.card, blue.title, blue.fg,
+    blue.chip, blue.dot, blue.line. Same key = same CSS class, so a colour can be shared by several blocks.
+    """
+
+    def __init__(self, rgb, hexa, key):
+        self.fg = Style(f"color: {hexa};", f"tone_fg_{key}")
+        self.card = Style.create(
+            Style(f"background-color: rgba({rgb}, 0.13); border: 3px solid {hexa}; border-radius: 16px; "
+                  "padding: 2.5vh 0.8vw; box-sizing: border-box;", f"tone_card_{key}")
+            + Container.layouts.vertical_center_layout + StxStyles.center_txt,
+            f"tone_card_{key}_c",
+        )
+        self.title = Style.create(TextStylesCustom.table_label + StxStyles.bold + self.fg, f"tone_title_{key}")
+        self.chip = Style(f"background-color: rgba({rgb}, 0.28); border-radius: 8px; padding: 2px 10px; "
+                          "margin: 3px 4px; white-space: nowrap; display: inline-block;", f"tone_chip_{key}")
+        self.dot = Style(f"background-color: {hexa}; border-radius: 50%; padding: 4px 12px; margin: 0 3px; "
+                         "font-weight: bold; display: inline-block;", f"tone_dot_{key}")
+        self.line = Style(f"background-color: {hexa}; height: 8px; border-radius: 4px; width: 100%;",
+                          f"tone_line_{key}")
+
+
+# The four diagram colours of the course (blue, amber, green, purple)
+TONE_BLUE = DiagramTone("122, 184, 245", "#7AB8F5", "blue")
+TONE_AMBER = DiagramTone("243, 156, 18", "#F39C12", "amber")
+TONE_GREEN = DiagramTone("39, 174, 96", "#27AE60", "green")
+TONE_PURPLE = DiagramTone("155, 89, 182", "#B07CD8", "purple")
+
+
 class Custom:
     """Aggregation class for all presentation-specific styles."""
     colors = ColorsCustom
     backgrounds = BackgroundsCustom
     titles = TextStylesCustom
     containers = ContainerStylesCustom
+    tone = DiagramTone
+    tone_blue, tone_amber, tone_green, tone_purple = TONE_BLUE, TONE_AMBER, TONE_GREEN, TONE_PURPLE
     citation = Style("color: #81C784; font-style: italic;", "citation")
 
 
