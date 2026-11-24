@@ -141,7 +141,10 @@ SHEETS = {
         "goal": "Your mini-project started under GSE-One and validated by the trainer.",
         "steps": [
             "Create the project folder, `git init`, and its GitHub repository. Private? Invite the trainer to read it: "
-            "on GitHub, Settings → Collaborators → add `nicolasguelfi`.",
+            "on GitHub, Settings → Collaborators → add `nicolasguelfi`. Send the repository address to the trainer by "
+            "a Teams direct message to the trainer or an e-mail to nicolas.guelfi@ros.lu. The trainer may leave you "
+            "advice as GitHub issues labelled `gse-advisor`: GSE-One shows them when you open your next sprint "
+            "(`/gse-plan`), and you decide — accept, keep for later, or decline with a reason.",
             "Install GSE-One in the folder; run `/gse-go` and choose Lightweight mode. Commit the `.gse/` folder "
             "(never list it in `.gitignore`): it is your project's memory, and what the trainer reads.",
             "Put every extra idea in the backlog, not in the plan.",

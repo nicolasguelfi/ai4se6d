@@ -27,5 +27,6 @@ def build():
             st_write(bs.body, "Your work goes to your own repository, pushed before each break and every evening.", tag=t.div)
             with st_zoom(140):
                 st_code(s.none, code=_CMD, language="bash", line_numbers=False)
-            st_write(bs.body, "Write the repository address in the tracking sheet.", tag=t.div)
+            st_write(bs.body, "Send the repository address to the trainer by a Teams direct message to the trainer or an e-mail to "
+                     "nicolas.guelfi@ros.lu (with your GitHub account name).", tag=t.div)
             st_write(bs.foot, "No secret in the repository: it is public.", tag=t.div)

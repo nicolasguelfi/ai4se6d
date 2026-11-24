@@ -25,7 +25,7 @@ _NOTES = [
      "Today everyone built a different app; tomorrow everyone works on CalcApp, so results can be compared and "
      "the debriefs are concrete."),
     ("Practical",
-     "No homework — but keep your key sheet: the same key is used tomorrow."),
+     "No homework — but keep your key (the trainer's Teams message or e-mail): the same key is used tomorrow."),
     ("Ask the room",
      "« After this afternoon, which of the four do you think you need most? »"),
 ]
@@ -62,4 +62,4 @@ def build():
                     with g.cell():
                         pass  # right margin
             st_space("v", "7vh")
-            st_write(bs.caption, "Same tools, different discipline. No homework — keep your key sheet.", tag=t.div)
+            st_write(bs.caption, "Same tools, different discipline. No homework — keep your key.", tag=t.div)

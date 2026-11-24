@@ -18,18 +18,19 @@ class BlockStyles:
     done_label = Style.create(s.bold + s.project.colors.success, "setup_done_label")
 bs = BlockStyles
 
-_CODE_ZOOM = 220  # st_code font_size is not applied by Pygments: zoom instead
+_CODE_ZOOM = 170  # st_code font_size is not applied by Pygments: zoom instead
 
 _NOTES = [
     ("Trainer action",
      "Learners do it — on their machine. Step 3 of the installation: everyone runs opencode auth login "
-     "with their key sheet, type openrouter and choose OpenRouter; wait until opencode auth list shows it."),
+     "with the key the trainer sent them (Teams direct message or e-mail), type openrouter and choose OpenRouter; "
+     "wait until opencode auth list shows it."),
     ("The message",
-     "opencode needs a model to talk to: opencode auth login stores YOUR key for the provider written on your "
-     "key sheet."),
+     "opencode needs a model to talk to: opencode auth login stores YOUR OpenRouter key. The trainer sends each "
+     "learner's key by Teams direct message or e-mail (nicolas.guelfi@ros.lu) — never on paper."),
     ("How",
      "Run the command; in the provider list type openrouter to filter it and choose OpenRouter (the provider of "
-     "the course key sheet); paste the key when asked."),
+     "the course key); paste the key the trainer sent you when asked."),
     ("The rule",
      "A key is a secret: never in a committed file, a prompt, a screenshot or an issue. Whoever has it spends "
      "your budget."),
@@ -50,9 +51,13 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — 3 · Your Model Key", entries=_NOTES,
                                  position="left", width="50vw")
+        with st_zoom(100):
+            st_write(bs.body, "Your key: sent by the trainer by ", (bs.label, "Teams direct message or e-mail"), ".",
+                     tag=t.div)
+        st_space("v", "1vh")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code="opencode auth login", language="bash", line_numbers=False)
-        st_space("v", "3vh")
+        st_space("v", "2vh")
         with st_zoom(120):
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered,
                          text_align="left", item_gap=0.6) as l:
@@ -60,8 +65,8 @@ def build():
                     st_write(bs.body, "Type ", (bs.cmd, "openrouter"), ", then choose ", (bs.label, "OpenRouter"))
                 with l.item():
                     st_write(bs.body, "Paste your key when asked")
-            st_space("v", "3vh")
+            st_space("v", "2vh")
             st_write(bs.body, (bs.critical, "Never"), " in a committed file, a prompt, a screenshot, an issue.")
-            st_space("v", "3vh")
+            st_space("v", "2vh")
             with st_block(bs.done_box):
                 st_write(bs.body, (bs.done_label, "Done when: "), (bs.cmd, "opencode auth list"), " shows it.")
