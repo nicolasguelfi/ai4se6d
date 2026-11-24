@@ -57,7 +57,8 @@ _NOTES = [
      "Committing or syncing from the editor bypasses opencode and GSE-One: commits, branches and merges stay with "
      "them — no Commit or Sync button in the editor."),
     ("Source",
-     "The course kit's IDE guide: ai4se-kit/syllabus/ide-guide.md."),
+     "The course kit's IDE guide: ai4se-kit/syllabus/ide-guide.md; for opencode itself: syllabus/opencode-guide.md "
+     "(cheat sheet)."),
     ("Ask the room",
      "« Who already uses an editor with an AI assistant? What happens if it and opencode edit the same file? »"),
 ]

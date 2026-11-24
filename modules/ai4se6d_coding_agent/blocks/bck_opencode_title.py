@@ -26,6 +26,9 @@ _NOTES = [
      "Everything the agent does from now on goes through the Git reflex just practised: status, diff, then commit."),
     ("Ask the room",
      "« What would you tell a new colleague on their first morning on CalcApp? »"),
+    ("Cheat sheet",
+     "Mini guide + cheat sheet for opencode 2 in the course kit: syllabus/opencode-guide.md (same shape as the IDE "
+     "guide, ide-guide.md)."),
 ]
 
 

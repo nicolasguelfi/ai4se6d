@@ -102,6 +102,9 @@ _NOTES_OVERVIEW = [
      "Permissions say what the agent may do without asking (edit files, run shell commands): allow, ask or deny. "
      "MCP (Model Context Protocol) servers give the agent extra tools, e.g. a browser. Both are written in "
      "opencode.json, the configuration file of the project."),
+    ("Cheat sheet",
+     "Mini guide + cheat sheet for opencode 2 in the course kit: syllabus/opencode-guide.md (same shape as the IDE "
+     "guide, ide-guide.md)."),
 ]
 
 _NOTES_SESSION = [
@@ -133,6 +136,9 @@ _NOTES_SESSION = [
     ("Technical recap — tutor",
      "A small course program from the ai4se-kit folder, run in a second terminal: it reads your project and "
      "answers questions, without changing anything (read-only)."),
+    ("Cheat sheet",
+     "Mini guide + cheat sheet for opencode 2 in the course kit: syllabus/opencode-guide.md (same shape as the IDE "
+     "guide, ide-guide.md)."),
 ]
 
 _NOTES_CONFIG = [
@@ -163,6 +169,9 @@ _NOTES_CONFIG = [
      "An MCP (Model Context Protocol) server is a small program that offers the agent extra tools. Here « local » "
      "means it runs on your machine, started by the command npx -y @playwright/mcp, and lets the agent drive a "
      "web browser."),
+    ("Cheat sheet",
+     "Mini guide + cheat sheet for opencode 2 in the course kit: syllabus/opencode-guide.md (same shape as the IDE "
+     "guide, ide-guide.md)."),
 ]
 
 

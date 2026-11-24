@@ -47,7 +47,8 @@ _NOTES = [
     ("What it is for",
      "Reading the code and the agent's changes — the next slide shows the Source Control diff."),
     ("Mini guide",
-     "ai4se-kit/syllabus/ide-guide.md in the course kit."),
+     "ai4se-kit/syllabus/ide-guide.md in the course kit; its twin for opencode 2: syllabus/opencode-guide.md (mini "
+     "guide + cheat sheet)."),
     ("Ask the room",
      "« Who already has VS Code? What would you have to switch off in it to follow the same rule? »"),
 ]
