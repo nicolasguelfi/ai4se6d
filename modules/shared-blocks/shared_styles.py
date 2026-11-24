@@ -251,11 +251,12 @@ class DiagramTone:
                           f"tone_line_{key}")
 
 
-# The four diagram colours of the course (blue, amber, green, purple)
+# The diagram colours of the course (blue, amber, green, purple, red)
 TONE_BLUE = DiagramTone("122, 184, 245", "#7AB8F5", "blue")
 TONE_AMBER = DiagramTone("243, 156, 18", "#F39C12", "amber")
 TONE_GREEN = DiagramTone("39, 174, 96", "#27AE60", "green")
 TONE_PURPLE = DiagramTone("155, 89, 182", "#B07CD8", "purple")
+TONE_RED = DiagramTone("239, 83, 80", "#EF5350", "red")
 
 
 class Custom:
@@ -266,6 +267,7 @@ class Custom:
     containers = ContainerStylesCustom
     tone = DiagramTone
     tone_blue, tone_amber, tone_green, tone_purple = TONE_BLUE, TONE_AMBER, TONE_GREEN, TONE_PURPLE
+    tone_red = TONE_RED
     citation = Style("color: #81C784; font-style: italic;", "citation")
 
 
