@@ -43,7 +43,8 @@ _NOTES = [
     ("The point",
      "Break a file in src/ on purpose, look at git diff, then git restore it and run the tests again: green."),
     ("Watch for",
-     "Participants who skip git diff before git add: the review reflex is the goal of the exercise."),
+     "Participants who skip git status / git diff before git add: checking before staging is the goal of the "
+     "exercise (here the diff is one line, so they read all of it)."),
     ("If stuck",
      "Tutor window, then a fresh clone at j2-start in a new folder, then a raised hand (next slide)."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)

@@ -118,7 +118,8 @@ _NOTES_SESSION = [
     ("The trap",
      "Launching opencode in your home folder: the agent works in the folder where it starts."),
     ("The rule",
-     "Plan first, build second, review the diff before you commit."),
+     "Plan first, build second, check the changes before you commit: which files changed, do the tests pass, "
+     "then read what is risky. Day 2 turns this into a method."),
     ("Ask the room",
      "« Which of these lines protects you from an unwanted edit? » (plan, then the diff review)"),
     ("Technical recap — $ and >",
@@ -295,7 +296,7 @@ def build():
         with st_zoom(130):
             st_write(
                 bs.caption,
-                "Plan first, build second, review the diff before you commit.",
+                "Plan first, build second, check the changes before you commit.",
                 tag=t.div,
             )
 

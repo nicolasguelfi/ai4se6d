@@ -40,6 +40,7 @@ from . import bck_git_debrief as bck_git_debrief
 from . import bck_git_exercise as bck_git_exercise
 from . import bck_git_starter as bck_git_starter
 from . import bck_git_review as bck_git_review
+from . import bck_git_review_scale as bck_git_review_scale
 from . import bck_git_sheet as bck_git_sheet
 from . import bck_git_title as bck_git_title
 from . import bck_git_why as bck_git_why

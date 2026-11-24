@@ -35,7 +35,8 @@ _NOTES = [
     ("Pair check",
      "Comparing git log --oneline with a neighbour shows whether both made the same commit on feat/hello."),
     ("Link to what follows",
-     "Next session: driving opencode — every change the agent makes will now go through this review."),
+     "Next session: driving opencode — every change the agent makes will now go through this check: scope first, then reading what "
+     "matters."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — git diff",
      "Shows, line by line, what changed in your files since the last commit and that is not staged yet: lines "

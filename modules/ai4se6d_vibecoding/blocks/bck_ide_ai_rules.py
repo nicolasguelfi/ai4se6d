@@ -37,7 +37,8 @@ _NOTES = [
      "NDA unless anonymised first. A prompt leaves your machine."),
     ("What the agent may do",
      "Work in one project folder, never your home directory; ask before any shell command; never run with a "
-     "« bypass permissions » option on a real machine; review every diff before you commit."),
+     "« bypass permissions » option on a real machine; check every change before you commit — which files, do the "
+     "tests pass, then read the risky parts (security, data, configuration). Reading every line does not scale."),
     ("Link to the course",
      "These are the same rules opencode's permissions and GSE-One's guardrails enforce in the workshops."),
     ("Ask the room",
@@ -85,7 +86,7 @@ def build():
                         with l.item():
                             st_write(bs.body, (bs.keyword_critical, "Never --bypass"), " on a real machine")
                         with l.item():
-                            st_write(bs.body, (bs.keyword_accent, "Review every diff"), " before commit")
+                            st_write(bs.body, (bs.keyword_accent, "Check every change"), " — files, tests, risky parts")
 
             st_space("v", "4vh")
             st_write(

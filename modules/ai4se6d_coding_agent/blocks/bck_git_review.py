@@ -17,7 +17,8 @@ bs = BlockStyles
 
 _STEPS = [
     ((bs.keyword, "git status"), " — which files did the agent touch?"),
-    ((bs.keyword, "git diff"), " — read every change"),
+    ((bs.keyword, "git diff --stat"), " — how many lines, in which files? As expected?"),
+    ((bs.keyword, "git diff"), " — read what is small or risky"),
     ((bs.keyword, "git add src/App.tsx"), " — only what you approve"),
     ((bs.keyword, "git diff --staged"), " — last look"),
     ((bs.keyword, "git commit"), " — a message that says what and why"),
@@ -25,12 +26,19 @@ _STEPS = [
 
 _NOTES = [
     ("The message",
-     "First habit of the day: nothing the agent wrote goes into a commit before you have read it."),
+     "First habit of the day: nothing the agent wrote goes into a commit before you have checked it. You own every "
+     "change — you check its scope first, then read what matters."),
     ("The five steps",
-     "git status (which files), git diff (every change), git add src/App.tsx (one file, e.g.: only what you approve), "
+     "git status (which files), git diff --stat (how much, where), git diff (read), git add src/App.tsx (one file, e.g.: only what you approve), "
      "git diff --staged (last look), git commit (what and why)."),
-    ("The key step",
-     "Step 2: the diff IS your review. Skipping it means committing code nobody has read."),
+    ("The key steps",
+     "Steps 2 and 3. --stat is the scope check: a 3-line task that touched 40 files, or a test file changed, is a "
+     "red flag before reading anything. Then git diff: today the tasks are small, so read all of it; on a big change, "
+     "read the risky parts (security, data, money, configuration, tests) — the rest is checked by tests and, this "
+     "afternoon, by an AI review (slide « Too Big to Read Every Line? » at the end of this section)."),
+    ("Command — git diff --stat",
+     "Summary of git diff: one line per changed file with the number of lines added (+) and removed (-), then a "
+     "total. --stat = statistics only, no content. Works on big changes too: the first thing to read."),
     ("The trap",
      "git add . after the agent worked: it stages everything, including changes you never saw."),
     ("Link to the afternoon",
@@ -75,7 +83,7 @@ def build():
         # one numbered row per step, alternating fills — motif L2 + fonds f1 (margins 5 %, numbering column)
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(_STEPS), cols, filled=(2, 3))
-        with st_zoom(114), st_grid(cols=cols, gap="4.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(96), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
             for n, step in enumerate(_STEPS, 1):
                 with g.cell():
                     pass  # left margin
@@ -85,6 +93,6 @@ def build():
                     st_write(bs.body, *step, tag=t.div)
                 with g.cell():
                     pass  # right margin
-        st_space("v", "5vh")
-        with st_zoom(126):
-            st_write(bs.closing, "Never skip step 2: the diff is your review.", tag=t.div)
+        st_space("v", "4vh")
+        with st_zoom(115):
+            st_write(bs.closing, "You own every change: check its scope, read what matters.", tag=t.div)

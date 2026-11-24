@@ -69,7 +69,8 @@ _NOTES_AGENTIC = [
      "opencode (plan, build, @subagents in the background), Claude Code (subagents, background tasks), GitHub Copilot (from an issue "
      "to a pull request), Cursor (IDE, CLI and cloud agents)."),
     ("The trap",
-     "An agent that « runs » can also break: read the plan before letting it build, and the diff before you commit."),
+     "An agent that « runs » can also break: read the plan before letting it build, and check its changes before you commit (which files, tests, risky "
+     "parts)."),
     ("Link to the course",
      "VibeEngineering P5, human review at boundaries, is the answer to this turn."),
     ("Ask the room",

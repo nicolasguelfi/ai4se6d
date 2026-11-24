@@ -20,7 +20,7 @@ _NOTES = [
      "Day 1 was exploration, day 2 is engineering. The tool does not change: opencode is still opencode."),
     ("The idea",
      "What changes is how you drive it: a plan before the build, tests before the code, Git as a safety net, a "
-     "review of every diff."),
+     "check of every change, sized to its risk."),
     ("The trap",
      "Expecting a better result from a better tool or a better model. The gain of the day comes from the method."),
     ("Link to the rest of the day",
