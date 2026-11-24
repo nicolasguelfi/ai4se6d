@@ -19,7 +19,7 @@ bs = BlockStyles
 _CODE_ZOOM = 110  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _RECOVER = """\
-git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart
+git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart   # clones into ~/ai4se, from any folder
 TAG=j2-start               # the tag your half-day sheet names
 cd ~/ai4se/calcapp-restart && git checkout -b mywork "$TAG" && npm ci"""
 
@@ -46,6 +46,32 @@ _NOTES = [
      "for delivery)."),
     ("Reassure",
      "Cloning in a new folder leaves the work in ~/ai4se/calcapp safe. No ~/ai4se/calcapp yet? Clone there instead."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — ~/ai4se/ai4se-kit/tutor update",
+     "Runs the course kit's tutor script with « update »: it downloads the latest version of the kit (course notes, "
+     "sheets) with git pull, then checks GSE-One. Close and reopen the tutor window afterwards."),
+    ("Command — git clone (address) (folder)",
+     "git clone copies a project from GitHub onto your machine, with its whole history and its tags. First argument: "
+     "the address of the project (here the CalcApp starter). Second argument: the folder to create "
+     "(~/ai4se/calcapp-restart); it must not exist yet. Because the folder is given in full, the command works from "
+     "any folder. Without it, git would create « calcapp-starter » in the current folder."),
+    ("Command — TAG=j2-start",
+     "Not a git command: it stores the text « j2-start » in a variable named TAG, for this terminal only (until you "
+     "close it). Later, \"$TAG\" is replaced by that text; the quotes keep it as one word. Your half-day sheet tells "
+     "you which tag to use."),
+    ("Command — cd ~/ai4se/calcapp-restart",
+     "cd = change directory: the terminal now works inside that folder. ~ is your home folder (/home/student in the "
+     "course VM)."),
+    ("Symbol — &&",
+     "Runs the next command only if the previous one succeeded. If cd fails, nothing else runs."),
+    ("Command — git checkout -b mywork \"$TAG\"",
+     "A tag is a fixed label on one commit (a checkpoint of the course). git checkout -b mywork \"$TAG\" creates a "
+     "new branch named mywork that starts at that commit, and switches to it: -b = create the branch, mywork = its "
+     "name, \"$TAG\" = where it starts. Newer equivalent: git switch -c mywork \"$TAG\"."),
+    ("Command — npm ci",
+     "Installs the project's libraries (into node_modules/) exactly at the versions written in package-lock.json. "
+     "ci = « clean install »: it first deletes any old node_modules, so everybody gets the same setup. Needed once per "
+     "fresh clone, before npm run test:run or npm run dev."),
 ]
 
 
