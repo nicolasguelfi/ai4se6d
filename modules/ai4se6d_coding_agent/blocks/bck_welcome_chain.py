@@ -20,7 +20,7 @@ _CHAIN = [
     ("2", "opencode", "AGENTS.md + the right context"),
     ("3", "Plan", "docs/plan.md, 5-8 atomic tasks"),
     ("4", "Build", "tests then code, one branch per task"),
-    ("5", "Review", "findings triaged HIGH / MEDIUM / LOW"),
+    ("5", "Review", "a list of problems, ranked HIGH / MEDIUM / LOW"),
     ("6", "Deliver", "v0.1 merged and tagged"),
 ]
 
@@ -29,8 +29,19 @@ _NOTES = [
      "Each session of the day produces an artifact that the next session uses. Nothing is thrown away."),
     ("The chain",
      "Git gives the safety net; opencode gets AGENTS.md and the right context; the plan lists 5-8 atomic tasks in "
-     "docs/plan.md; the build writes tests then code, one branch per task; the review triages findings HIGH / "
-     "MEDIUM / LOW; the delivery merges and tags v0.1."),
+     "docs/plan.md; the build writes tests then code, one branch per task; the review lists the problems found and "
+     "ranks them HIGH / MEDIUM / LOW; the delivery merges and tags v0.1."),
+    ("Review — the words",
+     "« Findings » = the problems the review finds in the code (an unhandled error, a bad input accepted, a test that "
+     "proves nothing). « Triaged » = each one ranked by severity, the scale of the 14:30 « Triage » slide. In "
+     "practice (15:15): the plan agent reviews the day's diff without editing files; findings go to docs/review.md; "
+     "2-3 HIGH / MEDIUM are fixed; the delivery (step 6) never ships with an open HIGH."),
+    ("HIGH",
+     "Crash, data loss, security hole → fix before delivering."),
+    ("MEDIUM",
+     "Missing error handling, hard to maintain → fix, or decide explicitly not to (and say why)."),
+    ("LOW",
+     "Naming, style, documentation gap → note it; fix if cheap."),
     ("The trap",
      "Skipping a link: without the plan the build has no tasks, without tests the review has nothing to check "
      "against, without Git nothing can be restored."),
