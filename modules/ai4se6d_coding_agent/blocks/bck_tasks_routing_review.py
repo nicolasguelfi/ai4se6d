@@ -27,7 +27,7 @@ _NOTES = [
      "page; pages not in their own file under src/pages/; a test silently modified; a navigation that only "
      "looks right."),
     ("The key check",
-     "git diff -- tests/ must show nothing: the GREEN prompt said « Do not modify the test ». If the agent "
+     "git diff HEAD -- tests/ must show nothing: the GREEN prompt said « Do not modify the test ». If the agent "
      "changed it, the green result means nothing."),
     ("Try it in the browser",
      "npm run dev, click both links, use the back button: the tests do not cover everything."),
@@ -40,12 +40,12 @@ _NOTES = [
     ("Words — Link vs a href",
      "Link is react-router's link component: it changes the page without reloading the app. A plain HTML « a href"
      " » link reloads the whole page (and loses in-memory state)."),
-    ("Command — git diff -- tests/",
-     "git diff shows line by line what changed (- removed, + added); « -- » means « what follows is a path, not a"
-     " branch name »; tests/ limits the output to that folder. Empty output = nothing changed. Trap: without a "
-     "commit name it compares with the staging area, so it misses changes already added (git add) or committed. "
-     "Safer: git diff HEAD -- tests/ (HEAD = your last commit), or after the feat: commit, git diff HEAD~1 -- "
-     "tests/ (HEAD~1 = the commit before it). q quits a long diff."),
+    ("Command — git diff HEAD -- tests/",
+     "git diff shows line by line what changed (- removed, + added). HEAD = your last commit (here the test: "
+     "commit of RED): the comparison covers every change since then, added with git add or not. « -- » means "
+     "« what follows is a path, not a branch name »; tests/ limits the output to that folder. Empty output = the "
+     "test was not touched. Run it BEFORE the feat: commit; after it, use git diff HEAD~1 -- tests/ (HEAD~1 = the "
+     "commit before). Plain git diff -- tests/ would miss changes already added. q quits a long diff."),
     ("Command — npm run dev",
      "Runs the « dev » script of package.json = vite: starts a development web server and prints its address, "
      "http://localhost:5173/ — open it in the browser. It reloads the page at every save and keeps the terminal "
@@ -69,12 +69,12 @@ def build():
             ((bs.cmd, 'react-router'), ' in ', (bs.cmd, 'package.json'), ', no ', (bs.cmd, 'react-router-dom'), '?'),
             ('Navigation with ', (bs.cmd, 'Link'), ', not ', (bs.cmd, '&lt;a href&gt;'), ' (no full reload)?'),
             ('One file per page in ', (bs.cmd, 'src/pages/'), '?'),
-            ('Test untouched? ', (bs.cmd, 'git diff -- tests/'), ' shows nothing'),
+            ('Test untouched? ', (bs.cmd, 'git diff HEAD -- tests/'), ' shows nothing'),
             ((bs.cmd, 'npm run dev'), ': click both links, back button works?'),
         ]
         cols = "5% 90% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2,))
-        with st_zoom(108), st_grid(cols=cols, gap="3.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(108), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
             for parts in items:
                 with g.cell():
                     pass  # left margin

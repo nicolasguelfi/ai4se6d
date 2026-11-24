@@ -52,7 +52,7 @@ _NOTES = [
      "concern. « The input comes from a user form: empty, negative, huge amounts? » = the context and the cases "
      "to try, which the agent cannot guess."),
     ("Prompt — effective 2 (storage)",
-     "@src/utils/storage.ts = the file. « corrupt JSON » = the stored text is not valid JSON (the data format "
+     "@src/storage.ts = the file. « corrupt JSON » = the stored text is not valid JSON (the data format "
      "localStorage holds), so JSON.parse throws an error. « full » = localStorage is limited (about 5 MB per "
      "site), setItem then throws. « Classify each finding HIGH / MEDIUM / LOW » = the triage scale of the next "
      "slide."),
@@ -63,7 +63,7 @@ _GOOD1 = """\
 The input comes from a user form: empty, negative, huge amounts?"""
 
 _GOOD2 = """\
-@src/utils/storage.ts What happens if localStorage holds corrupt JSON
+@src/storage.ts What happens if localStorage holds corrupt JSON
 or is full? Classify each finding HIGH / MEDIUM / LOW."""
 
 

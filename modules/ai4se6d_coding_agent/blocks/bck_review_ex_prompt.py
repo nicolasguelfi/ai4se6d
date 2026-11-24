@@ -33,7 +33,7 @@ _NOTES = [
      "reaching storage unvalidated, tests that prove nothing. Each finding: RVW-n, HIGH/MEDIUM/LOW, file, why it "
      "matters, suggested fix. « Edit nothing »: the review only reports."),
     ("The trap",
-     "A diff too long for one review. Then review one task at a time, e.g. !git diff j2-start -- src/utils/."),
+     "A diff too long for one review. Then review one task at a time, e.g. !git diff j2-start -- src/storage.ts."),
     ("Ask the room",
      "« Why review against docs/plan.md and not only the code? »"),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
@@ -45,9 +45,10 @@ _NOTES = [
      "« against @docs/plan.md » = judge the diff by your plan (and add the plan to the context). « Focus: » = the"
      " four concerns. « For each finding: RVW-n, HIGH/MEDIUM/LOW, file, why it matters, suggested fix » = the "
      "exact format, ready for docs/review.md. « Edit nothing » = report only."),
-    ("Command — !git diff j2-start -- src/utils/",
-     "Same diff, limited to one folder: « -- » means « what follows are paths », src/utils/ = the folder of the "
-     "storage task. Use the folder of the task you want to review."),
+    ("Command — !git diff j2-start -- src/storage.ts",
+     "Same diff, limited to one file: « -- » means « what follows are paths », src/storage.ts = the file of the "
+     "storage task (CalcApp keeps it at the root of src/). Use the file or folder of the task you want to review, "
+     "e.g. src/pages/ for the routing task."),
 ]
 
 _DIFF = """\
@@ -86,6 +87,6 @@ def build():
             st_space("v", "4vh")
             st_write(
                 bs.foot,
-                'Diff too long? One task at a time: !git diff j2-start -- src/utils/',
+                'Diff too long? One task at a time: !git diff j2-start -- src/storage.ts',
                 tag=t.div,
             )

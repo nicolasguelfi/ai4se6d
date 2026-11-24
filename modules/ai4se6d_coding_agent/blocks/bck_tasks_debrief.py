@@ -24,7 +24,7 @@ _NOTES = [
      "really caught."),
     ("Question 1",
      "Collect the cases where the agent changed a test or did more than asked — the evidence that the GREEN "
-     "prompt's « Do not modify the test » and the git diff -- tests/ check matter."),
+     "prompt's « Do not modify the test » and the git diff HEAD -- tests/ check matter."),
     ("Question 2",
      "Which checklist item caught something real: React state instead of localStorage, <a href> instead of Link, "
      "a test modified…"),

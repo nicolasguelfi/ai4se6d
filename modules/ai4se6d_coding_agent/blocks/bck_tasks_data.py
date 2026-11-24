@@ -76,9 +76,9 @@ def build():
                 bs.body,
                 (bs.cmd, 'Expense'),
                 ' type in ',
-                (bs.cmd, 'src/types/expense.ts'),
+                (bs.cmd, 'src/expense.ts'),
                 ', storage in ',
-                (bs.cmd, 'src/utils/storage.ts'),
+                (bs.cmd, 'src/storage.ts'),
                 '. localStorage is enough for v0.1.',
                 tag=t.div,
             )

@@ -61,7 +61,7 @@ def build():
 
         # One row per check, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ('Types in ', (bs.cmd, 'src/types/expense.ts'), ', no ', (bs.cmd, 'any'), '?'),
+            ('Types in ', (bs.cmd, 'src/expense.ts'), ', no ', (bs.cmd, 'any'), '?'),
             ('Storage really uses localStorage — not just React state?',),
             ('Form inputs controlled (', (bs.cmd, 'value'), ' + ', (bs.cmd, 'onChange'), ')?'),
             ('After Add, back to ', (bs.cmd, '/'), ' with ', (bs.cmd, 'useNavigate'), '?'),
