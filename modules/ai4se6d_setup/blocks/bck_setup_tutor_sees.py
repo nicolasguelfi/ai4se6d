@@ -27,7 +27,7 @@ _NOTES = [
      "The list is in ~/.config/ai4se/tutor-paths. Default: ~/ai4se, all the course repos. Add a folder of yours "
      "with « tutor add »."),
     ("Its material",
-     "The course syllabus and the GSE-One v0.93.3 docs: it cites a syllabus sheet or a GSE-One section."),
+     "The course syllabus and the GSE-One v0.93.4 docs: it cites a syllabus sheet or a GSE-One section."),
     ("Never",
      "Your secrets: .env files, keys, ~/.ssh, the opencode credentials."),
     ("Read-only",
@@ -41,7 +41,7 @@ _ROWS = [
     ("Sees:", bs.sees, ("the folders in ", (bs.cmd, "~/.config/ai4se/tutor-paths"))),
     ("Default:", bs.label, ((bs.cmd, "~/ai4se"), " — all the course repos")),
     ("Add:", bs.label, ((bs.cmd, "~/ai4se/ai4se-kit/tutor add ~/work/repo"),)),
-    ("Sees:", bs.sees, ("the course syllabus and the GSE-One v0.93.3 docs",)),
+    ("Sees:", bs.sees, ("the course syllabus and the GSE-One v0.93.4 docs",)),
     ("Never:", bs.never, ("your secrets — ", (bs.cmd, ".env"), ", keys, ", (bs.cmd, "~/.ssh"),
                           ", opencode credentials")),
     ("Read-only:", bs.label, ("it never changes your files",)),
