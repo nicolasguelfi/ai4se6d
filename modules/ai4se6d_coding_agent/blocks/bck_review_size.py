@@ -44,12 +44,12 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(65):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'How Much per Review?', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — How Much per Review?", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(104):
+        with st_zoom(106):
             st_space("v", "2vh")
             st_write(bs.stat, '200–400 lines', tag=t.div)
             st_space("v", "2vh")

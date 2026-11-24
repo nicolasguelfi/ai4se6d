@@ -44,13 +44,13 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(75):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "The Context Window", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — The Context Window", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
-        with st_zoom(125), st_grid(cols="5% 40% 50% 5%", gap="2vw",
+        with st_zoom(130), st_grid(cols="5% 40% 50% 5%", gap="2vw",
                                     cell_styles=[s.none, s.none, s.project.containers.grid_cell_centered
                                                  + Style("text-align:left;", "txt_left"), s.none]) as g:
             with g.cell():

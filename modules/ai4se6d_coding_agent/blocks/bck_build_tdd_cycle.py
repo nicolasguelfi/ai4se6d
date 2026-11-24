@@ -41,7 +41,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(65):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'TDD in One Picture', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — TDD in One Picture", entries=_NOTES,
@@ -50,7 +50,7 @@ def build():
                      cell_styles=[s.project.containers.grid_cell_centered, _text_cell]) as g:
             with g.cell():
                 st_image(s.none, width='100%', uri='images/pm/red_green_refactor_cycle.png')
-            with g.cell(), st_zoom(125):
+            with g.cell(), st_zoom(123):
                 with st_list(list_type=lt.ordered, l_style=bs.body, li_style=bs.body,
                              text_align="left", item_gap=0.6) as l:
                     with l.item():
@@ -68,5 +68,5 @@ def build():
                     tag=t.div,
                 )
         st_space("v", "2vh")
-        with st_zoom(110):
+        with st_zoom(108):
             st_write(bs.foot, 'Code first, theory later: watch one full cycle.', tag=t.div)

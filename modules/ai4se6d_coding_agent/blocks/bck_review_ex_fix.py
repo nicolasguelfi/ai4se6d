@@ -44,12 +44,12 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(55):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'Fix One Finding — Test First', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Fix One Finding — Test First", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(100), st_block(_left):
+        with st_zoom(115), st_block(_left):
             st_write(
                 bs.body,
                 'Shift+Tab back to the ',

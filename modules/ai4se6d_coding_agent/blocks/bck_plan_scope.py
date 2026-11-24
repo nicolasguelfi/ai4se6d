@@ -34,13 +34,13 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(65):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "v0.1 Today, the Rest Later", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — v0.1 Today, the Rest Later", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
-        with st_zoom(100), st_grid(cols="5% 1fr 1fr 5%", gap="2vw") as g:
+        with st_zoom(105), st_grid(cols="5% 1fr 1fr 5%", gap="2vw") as g:
             with g.cell():
                 pass  # left margin
             with g.cell():
@@ -63,5 +63,5 @@ def build():
             with g.cell():
                 pass  # right margin
         st_space("v", "5vh")
-        with st_zoom(120):
+        with st_zoom(126):
             st_write(bs.ask, "2 minutes, on paper: 2-3 features you would want as a user.", tag=t.div)

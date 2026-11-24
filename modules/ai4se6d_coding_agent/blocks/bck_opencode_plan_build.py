@@ -37,13 +37,13 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(75):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "Plan Agent, Then Build Agent", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Plan Agent, Then Build Agent", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
-        with st_zoom(115), st_grid(cols="5% 1fr 1fr 5%", gap="2vw") as g:
+        with st_zoom(128), st_grid(cols="5% 1fr 1fr 5%", gap="2vw") as g:
             with g.cell():
                 pass  # left margin
             with g.cell():
@@ -65,5 +65,5 @@ def build():
             with g.cell():
                 pass  # right margin
         st_space("v", "5vh")
-        with st_zoom(110):
+        with st_zoom(123):
             st_write(bs.closing, "Press Shift+Tab to switch agents: opencode shows which one is active.", tag=t.div)

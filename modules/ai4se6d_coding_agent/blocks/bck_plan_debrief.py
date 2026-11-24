@@ -37,7 +37,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(65):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "Debrief — 5 min", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Debrief — 5 min", entries=_NOTES,
@@ -50,7 +50,7 @@ def build():
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(questions), cols, filled=(2, 3))
-        with st_zoom(125), st_grid(cols=cols, gap="3vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(133), st_grid(cols=cols, gap="3vh 0.5vw", cell_styles=cells) as g:
             for n, q in enumerate(questions, 1):
                 with g.cell():
                     pass  # left margin
@@ -61,7 +61,7 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "4vh")
-        with st_zoom(115):
+        with st_zoom(122):
             st_write(bs.pair, "Compare with your neighbour: different plans are normal. Are both testable?", tag=t.div)
             st_space("v", "3vh")
             st_write(bs.next_step, "11:30 — TDD on your [next] task, on its own branch.", tag=t.div)

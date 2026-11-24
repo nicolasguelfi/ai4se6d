@@ -40,7 +40,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(65):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'Task 1 — Am I Done?', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Task 1 — Am I Done?", entries=_NOTES,

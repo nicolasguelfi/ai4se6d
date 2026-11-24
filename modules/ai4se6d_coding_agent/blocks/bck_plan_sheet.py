@@ -46,7 +46,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(65):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "Your Plan — Check Yourself", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Your Plan — Check Yourself", entries=_NOTES,
@@ -55,7 +55,7 @@ def build():
         # One row per item, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         cols = "5% 22% 68% 5%"
         cells = s.project.containers.rows(len(_SHEET), cols, filled=(2, 3))
-        with st_zoom(95), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(100), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
             for label, text in _SHEET:
                 with g.cell():
                     pass  # left margin

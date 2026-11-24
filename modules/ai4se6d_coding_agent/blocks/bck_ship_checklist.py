@@ -43,7 +43,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(62):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'v0.1 — What You Just Built', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — v0.1 — What You Just Built", entries=_NOTES,
@@ -53,7 +53,7 @@ def build():
         # one row per item, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         cols = "5% 90% 5%"
         cells = s.project.containers.rows(len(_ITEMS), cols, filled=(2,))
-        with st_zoom(115), st_grid(cols=cols, gap="3.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(113), st_grid(cols=cols, gap="3.5vh 0.5vw", cell_styles=cells) as g:
             for parts in _ITEMS:
                 with g.cell():
                     pass  # left margin
@@ -62,5 +62,5 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "4vh")
-        with st_zoom(110):
+        with st_zoom(108):
             st_write(bs.foot, 'You drove, the agent typed. That is VibeEngineering.', tag=t.div)

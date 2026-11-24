@@ -43,12 +43,12 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(65):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'Lost 15+ Minutes? Rescue', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Lost 15+ Minutes? Rescue", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(95):
+        with st_zoom(116):
             st_write(bs.body, "Don't fight a broken setup: restart from the course's clean start.", tag=t.div)
             st_space("v", "3vh")
             st_code(s.none, code=_RESCUE, language="bash", line_numbers=False, font_size="26pt")   # one line per command at this zoom

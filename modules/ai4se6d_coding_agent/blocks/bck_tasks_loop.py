@@ -44,7 +44,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(65):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'Same Loop, Every Task', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Same Loop, Every Task", entries=_NOTES,
@@ -62,7 +62,7 @@ def build():
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
-        with st_zoom(100), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(109), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
             for n, parts in enumerate(items, 1):
                 with g.cell():
                     pass  # left margin
@@ -73,5 +73,5 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "3vh")
-        with st_zoom(100):
+        with st_zoom(109):
             st_write(bs.foot, "Typical order: routing → data → UI. Follow your plan's order.", tag=t.div)

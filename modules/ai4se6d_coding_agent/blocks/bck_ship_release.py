@@ -53,14 +53,14 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(55):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'Exercise — Ship v0.1', tag=t.div, toc_lvl='1', label='Ship v0.1 (16:15)')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Exercise — Ship v0.1", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(70):
+        with st_zoom(69):
             st_write(bs.timer, '16:15 → 16:30 · 15 min', tag=t.div)
-        with st_zoom(80), st_block(_left):
+        with st_zoom(78), st_block(_left):
             st_write(
                 bs.body,
                 (bs.label, 'Goal: '),

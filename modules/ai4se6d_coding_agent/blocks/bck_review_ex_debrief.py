@@ -36,12 +36,12 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(62):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'Debrief — Review (10 min)', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Debrief — Review", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(90):
+        with st_zoom(117):
             st_write(bs.timer, '16:05 → 16:15', tag=t.div)
         st_space("v", "4vh")
 
@@ -52,7 +52,7 @@ def build():
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(questions), cols, filled=(2, 3))
-        with st_zoom(115), st_grid(cols=cols, gap="4vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(149), st_grid(cols=cols, gap="4vh 0.5vw", cell_styles=cells) as g:
             for n, q in enumerate(questions, 1):
                 with g.cell():
                     pass  # left margin
@@ -63,5 +63,5 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "6vh")
-        with st_zoom(115), st_block(s.project.containers.callout):
+        with st_zoom(149), st_block(s.project.containers.callout):
             st_write(bs.body, 'Compare with your neighbour: similar code, similar findings? Why not?')

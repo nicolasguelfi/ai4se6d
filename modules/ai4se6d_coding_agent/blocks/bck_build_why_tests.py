@@ -34,13 +34,13 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(65):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'Why Start with Tests?', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Why Start with Tests?", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
-        with st_zoom(120):
+        with st_zoom(125):
             st_write(
                 bs.body,
                 'The #1 risk with a coding agent: ',

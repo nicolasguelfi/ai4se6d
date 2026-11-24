@@ -53,7 +53,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(62):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'Today by Hand → GSE-One', tag=t.div, toc_lvl='1', label='Bridge to GSE-One')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Today by Hand → GSE-One", entries=_NOTES,
@@ -64,7 +64,7 @@ def build():
         cols = "5% 47% 43% 5%"
         cells = s.project.containers.rows(len(_ROWS) + 1, cols, filled=(2, 3))
         cells[1:3] = [s.project.containers.table_header_cell] * 2
-        with st_zoom(100), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(107), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
             for cell in ('', 'Today, by hand', 'GSE-One (Day 3)', ''):
                 with g.cell():
                     if cell:
@@ -79,7 +79,7 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "2vh")
-        with st_zoom(90):
+        with st_zoom(96):
             st_write(
                 bs.foot,
                 'Same loop — GSE-One shows you each failing acceptance test before the code: read it.',

@@ -47,14 +47,14 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(55):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'Exercise — README 80/20', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Exercise — README 80/20", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(75):
+        with st_zoom(98):
             st_write(bs.timer, '15:50 → 16:05 · 15 min', tag=t.div)
-        with st_zoom(80):
+        with st_zoom(105):
             st_code(s.none, code=_README, language='text', line_numbers=False, font_size="36pt")
         st_space("v", "1vh")
 
@@ -66,7 +66,7 @@ def build():
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
-        with st_zoom(85), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(111), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
             for n, parts in enumerate(steps, 1):
                 with g.cell():
                     pass  # left margin
@@ -77,7 +77,7 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "1vh")
-        with st_zoom(85), st_block(bs.done_box):
+        with st_zoom(111), st_block(bs.done_box):
             st_write(
                 bs.body,
                 (bs.done_label, 'Done when: '),

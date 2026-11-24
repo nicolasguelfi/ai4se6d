@@ -44,7 +44,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(70):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "By 10:45 You Can", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — By 10:45 You Can", entries=_NOTES,
@@ -54,7 +54,7 @@ def build():
         # one numbered row per objective, alternating fills — motif L2 + fonds f1 (margins 5 %, numbering column)
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(_ITEMS), cols, filled=(2, 3))
-        with st_zoom(110), st_grid(cols=cols, gap="3.4vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(123), st_grid(cols=cols, gap="3.4vh 0.5vw", cell_styles=cells) as g:
             for n, item in enumerate(_ITEMS, 1):
                 with g.cell():
                     pass  # left margin

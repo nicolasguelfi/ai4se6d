@@ -43,12 +43,12 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(75):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "CalcApp: Budget Tracker", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — CalcApp: Budget Tracker", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(115):
+        with st_zoom(128):
             st_write(bs.pitch, "Track expenses, set budgets, see what is left.", tag=t.div)
         st_space("v", "3vh")
 
@@ -57,7 +57,7 @@ def build():
         base = s.project.containers.row_cell_left
         head = [base, s.project.containers.table_header_cell, s.project.containers.table_header_cell, base]
         cells = head + s.project.containers.rows(len(_FEATURES), cols, filled=(2, 3))
-        with st_zoom(110), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(123), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
             for h in ("", "Feature", "What it means", ""):
                 with g.cell():
                     if h:
@@ -72,5 +72,5 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "3vh")
-        with st_zoom(115):
+        with st_zoom(128):
             st_write(bs.note, "React + TypeScript in the browser, built test-first.", tag=t.div)

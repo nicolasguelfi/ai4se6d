@@ -52,7 +52,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(75):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "Try It (5 min) — Rules", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Try It (5 min) — Rules", entries=_NOTES,
@@ -69,7 +69,7 @@ def build():
         ]
         cols = "5% 4% 86% 5%"
         cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
-        with st_zoom(85), st_grid(cols=cols, gap="1.2vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(98), st_grid(cols=cols, gap="1.2vh 0.5vw", cell_styles=cells) as g:
             for n, parts in enumerate(steps, 1):
                 with g.cell():
                     pass  # left margin
@@ -79,7 +79,7 @@ def build():
                     st_write(bs.step, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
-        with st_zoom(85), st_grid(cols="5% 90% 5%") as m:
+        with st_zoom(98), st_grid(cols="5% 90% 5%") as m:
             with m.cell():
                 pass  # left margin
             with m.cell():

@@ -51,12 +51,12 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(55):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, 'Weak vs Effective Prompts', tag=t.div, toc_lvl='+1')
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Weak vs Effective Prompts", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(95), st_block(_left):
+        with st_zoom(103), st_block(_left):
             st_write(bs.body, (bs.label, 'Weak: '), (bs.cmd, 'Review this code.'), tag=t.div)
             st_space("v", "5vh")
             st_write(
