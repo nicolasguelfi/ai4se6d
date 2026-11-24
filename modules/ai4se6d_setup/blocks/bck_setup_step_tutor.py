@@ -17,7 +17,7 @@ class BlockStyles:
     done_label = Style.create(s.bold + s.project.colors.success, "setup_done_label")
 bs = BlockStyles
 
-_CODE_ZOOM = 200  # st_code font_size is not applied by Pygments: zoom instead
+_CODE_ZOOM = 150  # st_code font_size is not applied by Pygments: zoom instead
 
 _NOTES = [
     ("Trainer action",
@@ -35,6 +35,9 @@ _NOTES = [
      "your hand."),
     ("The check",
      "It answers and cites the syllabus."),
+    ("Then, if time allows",
+     "~5 min: the course editor. Install VSCodium and turn its AI off — ide-guide § 2. In the course VM it is VS "
+     "Code, already installed: nothing to do. Not done today? Do it tomorrow morning before the first exercise."),
 ]
 
 
@@ -50,16 +53,20 @@ def build():
                                  position="left", width="50vw")
         with st_zoom(120):
             st_write(bs.caption, "Your tutor: an AI prepared by the trainer — not the trainer.", tag=t.div)
-        st_space("v", "4vh")
+        st_space("v", "2vh")
         with st_zoom(120):
             st_write(bs.body, (bs.label, "Open a second terminal (on the right), then:"))
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code="~/ai4se/ai4se-kit/tutor", language="bash", line_numbers=False)
-        st_space("v", "4vh")
+        st_space("v", "2vh")
         with st_zoom(120):
             st_write(bs.body, (bs.label, "Then ask it:"))
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code="what are we doing this afternoon?", language="text", line_numbers=False)
-        st_space("v", "5vh")
+        st_space("v", "2vh")
         with st_zoom(120), st_block(bs.done_box):
             st_write(bs.body, (bs.done_label, "Done when: "), "it answers and cites the syllabus.")
+        st_space("v", "2vh")
+        with st_zoom(105):
+            st_write(bs.caption, "Then, if time allows (~5 min): the course editor — VSCodium, AI off (ide-guide § 2). "
+                     "In the VM: VS Code, nothing to do.", tag=t.div)

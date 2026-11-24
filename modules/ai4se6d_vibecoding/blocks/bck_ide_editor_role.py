@@ -28,8 +28,8 @@ _GRID_ZOOM = 62  # two columns (right one rewritten 2026-11-23, longer): scaled 
 
 _NOTES = [
     ("The message",
-     "Two tools, two roles: opencode CHANGES the project, the editor is for READING it. No step of the course "
-     "requires an editor."),
+     "Two tools, two roles: opencode CHANGES the project, the editor is for READING it. The course editor is "
+     "VSCodium (in the course VM: VS Code, already installed, its AI already off)."),
     ("Four uses",
      "Read the whole tree at a glance; see what the agent changed (Source Control, green/red diff); read the "
      "Markdown plans, requirements and reviews in preview; fix one line by hand — save, then tell opencode."),
@@ -79,7 +79,8 @@ def build():
                 st_write(
                     bs.lead,
                     (bs.keyword, "opencode"), " changes the project. The editor is for ",
-                    (bs.keyword_accent, "reading"), " it. No step requires an editor.",
+                    (bs.keyword_accent, "reading"), " it. The course editor: ",
+                    (bs.keyword, "VSCodium"), " (in the VM: VS Code, AI already off).",
                     tag=t.div,
                 )
 

@@ -33,9 +33,11 @@ _INSTALL_BOXES = [
 ]
 _NOTES = [
     ("Trainer action",
-     "Read and comment — nothing to install now. VSCodium is optional (no installation step of the course needs an editor): learners who want it use these commands on their own and switch its AI off."),
+     "Read and comment — nothing to install now. VSCodium is the course editor: learners install it this afternoon "
+     "after the 8 installation steps if time allows, at the latest tomorrow morning before the first exercise, and "
+     "switch its AI off. In the course VM it is VS Code, already installed, AI already off."),
     ("The message",
-     "VSCodium is the recommended editor for the course: the open-source build of VS Code — free, no Copilot "
+     "VSCodium is the course editor: the open-source build of VS Code — free, no Copilot "
      "account, no Microsoft telemetry."),
     ("Install",
      "One command per system: brew (macOS), winget (Windows), snap (Ubuntu: snap is there by default; the "
@@ -44,6 +46,9 @@ _NOTES = [
     ("Once: switch its AI off",
      "Settings → disable AI features (chat.disableAIFeatures: true). In the workshops opencode is the only agent: a "
      "second agent in the editor would overwrite its work (previous slide)."),
+    ("Open your project",
+     "cd ~/ai4se/calcapp then codium . (in the course VM: code .). Windows: Start menu → VSCodium → File → Open "
+     "Folder; for a WSL project, \\\\wsl$\\Ubuntu\\home\\…\\ai4se\\calcapp."),
     ("What it is for",
      "Reading the code and the agent's changes — the next slide shows the Source Control diff."),
     ("Mini guide",
@@ -67,7 +72,7 @@ def build():
         with st_zoom(105):
             st_write(
                 bs.caption,
-                "The open-source build of VS Code: free, no Copilot account, no Microsoft telemetry.",
+                "The course editor (VM: VS Code). Install it today if time allows, at the latest tomorrow morning.",
                 tag=t.div,
             )
         st_space("v", "1.5vh")
