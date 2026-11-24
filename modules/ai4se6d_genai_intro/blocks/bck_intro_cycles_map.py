@@ -31,6 +31,8 @@ def build():
         with st_zoom(60):
             st_write(bs.heading, "How Every Topic Works", tag=t.div, toc_lvl="+1", label="The 16 cycles")
             st_write(bs.steps, "Theory → How GSE-One solves it → Exercise → Debrief", tag=t.div)
+            # CCSET = Course Concept Set (NG, 2026-11-24; NG's proposal of 2026-11-10: « un ensemble de concepts »)
+            st_write(bs.tool, "Each cycle is a Course Concept Set: CCSET01 to CCSET16.", tag=t.div)
             with st_grid(cols="repeat(auto-fit, minmax(260px, 1fr))", gap="16px", cell_styles=bs.card) as g:
                 for day, tool, items in DAYS:
                     with g.cell():
