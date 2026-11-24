@@ -38,6 +38,7 @@ from . import bck_git_concepts as bck_git_concepts
 from . import bck_git_conventions as bck_git_conventions
 from . import bck_git_debrief as bck_git_debrief
 from . import bck_git_exercise as bck_git_exercise
+from . import bck_git_starter as bck_git_starter
 from . import bck_git_review as bck_git_review
 from . import bck_git_sheet as bck_git_sheet
 from . import bck_git_title as bck_git_title

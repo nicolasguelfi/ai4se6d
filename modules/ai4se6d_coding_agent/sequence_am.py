@@ -25,6 +25,7 @@ BLOCKS_AM = [
     blocks.bck_git_branches,
     blocks.bck_git_conventions,
     blocks.bck_gse_solution_git,  # CCSET04 — how GSE-One solves it
+    blocks.bck_git_starter,       # what the clone contains (NG, 2026-11-24)
     blocks.bck_git_exercise,
     blocks.bck_git_sheet,
     blocks.bck_git_debrief,
