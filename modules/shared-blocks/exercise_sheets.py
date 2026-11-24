@@ -178,7 +178,7 @@ SHEETS = {
         "done_when": "Day 5, 16:30: requirements and plan validated by the trainer. "
                      "Day 6, 11:30: the first delivery is on `main`.",
         "midpoint": "Day 5, 12:15 — the plan is validated and the requirements are written.",
-        "if_stuck": "Your tutor window (project outside `~/ai4se`? `~/ai4se/ai4se-kit/tutor add <path>`) → the back of "
+        "if_stuck": "Your tutor window (project outside `~/ai4se`? `~/ai4se/ai4se-kit/tutor add ~/path/to/your-project`) → the back of "
                     "your orientation page, \"when the agent drifts\" → raise your hand. No recovery tag: the project is yours.",
         "debrief": "Day 5, 16:30: what did you move to the backlog to hold the 11:30 delivery? Which Gate did you change, and why?",
     },
@@ -188,7 +188,7 @@ SHEETS = {
         "title": "Compare Two Models",
         "goal": "Keep the better version of your requirements, by giving the same instruction to two models.",
         "steps": [
-            "After `/gse-plan`, copy your project next to it, for the second model: `cp -R . ../<project>-model-b`.",
+            "After `/gse-plan`, copy your project next to it, for the second model: `cp -R . \"../$(basename \"$PWD\")-model-b\"`.",
             "Model A, in your project — the course model `openrouter/deepseek/deepseek-v4.1-flash`: run `/gse-reqs` "
             "and write down your answers to its questions.",
             "Model B, in the copy: start `opencode`, type `/models`, pick `openrouter/minimax/minimax-m3.1-flash`, "

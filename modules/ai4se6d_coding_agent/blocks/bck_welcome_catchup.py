@@ -18,7 +18,8 @@ bs = BlockStyles
 
 _RECOVER = """\
 git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart
-cd ~/ai4se/calcapp-restart && git checkout -b mywork <tag> && npm ci"""
+TAG=j2-start               # the tag your half-day sheet names
+cd ~/ai4se/calcapp-restart && git checkout -b mywork "$TAG" && npm ci"""
 
 _TAGS = [
     ("j2-start", "start of the day (09:15)"),
@@ -36,7 +37,7 @@ _NOTES = [
      "1. the tutor window, 2. a recovery tag, 3. raise your hand. Running ~/ai4se/ai4se-kit/tutor update first "
      "gets today's course notes."),
     ("How a tag works",
-     "Clone the starter into ~/ai4se/calcapp-restart, then git checkout -b mywork <tag> and npm ci: you continue "
+     "Clone the starter into ~/ai4se/calcapp-restart, then git checkout -b mywork \"$TAG\" (TAG set to the tag your sheet names, e.g. j2-start) and npm ci: you continue "
      "from that point on your own branch."),
     ("The three tags",
      "j2-start (09:15, start of the day), j2-part1 (13:15, end of the morning build), j2-v0.1 (16:15, v0.1 ready "

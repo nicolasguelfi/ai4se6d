@@ -15,7 +15,8 @@ bs = BlockStyles
 
 _START = (
     "~/ai4se/ai4se-kit/tutor update     # in the tutor window\n"
-    "cd <your-project>\n"
+    "PROJECT=~/ai4se/my-project         # your project's folder\n"
+    'cd "$PROJECT"\n'
     "opencode\n"
     "/gse-resume                        # in opencode"
 )
@@ -30,5 +31,5 @@ def build():
             with st_zoom(130):
                 st_code(s.none, code=_START, language="bash", line_numbers=False)
             st_write(bs.body, "Project outside ", (bs.cmd, "~/ai4se"), "? Once: ",
-                     (bs.cmd, "~/ai4se/ai4se-kit/tutor add <path>"), " — so your tutor window can read it.", tag=t.div)
+                     (bs.cmd, "~/ai4se/ai4se-kit/tutor add ~/path/to/your-project"), " — so your tutor window can read it.", tag=t.div)
             st_write(bs.foot, "/gse-resume should say: Lightweight mode, card validated, next step the plan.", tag=t.div)

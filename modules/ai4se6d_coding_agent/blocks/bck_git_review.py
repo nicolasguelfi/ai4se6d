@@ -18,7 +18,7 @@ bs = BlockStyles
 _STEPS = [
     ((bs.keyword, "git status"), " — which files did the agent touch?"),
     ((bs.keyword, "git diff"), " — read every change"),
-    ((bs.keyword, "git add &lt;file&gt;"), " — only what you approve"),
+    ((bs.keyword, "git add src/App.tsx"), " — only what you approve"),
     ((bs.keyword, "git diff --staged"), " — last look"),
     ((bs.keyword, "git commit"), " — a message that says what and why"),
 ]
@@ -27,7 +27,7 @@ _NOTES = [
     ("The message",
      "First habit of the day: nothing the agent wrote goes into a commit before you have read it."),
     ("The five steps",
-     "git status (which files), git diff (every change), git add <file> (only what you approve), "
+     "git status (which files), git diff (every change), git add src/App.tsx (one file, e.g.: only what you approve), "
      "git diff --staged (last look), git commit (what and why)."),
     ("The key step",
      "Step 2: the diff IS your review. Skipping it means committing code nobody has read."),

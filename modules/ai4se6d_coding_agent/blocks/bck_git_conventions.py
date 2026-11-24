@@ -24,9 +24,9 @@ Assisted-by: opencode"""
 
 _BRANCHES = """\
 mywork               your main line today
-feat/<task>          one task of your plan
-fix/<bug>            a bug fix
-experiment/<idea>    may be thrown away"""
+feat/add-history     one task of your plan
+fix/rounding         a bug fix
+experiment/new-layout  may be thrown away"""
 
 
 _NOTES = [
@@ -41,8 +41,8 @@ _NOTES = [
     ("Assisted-by",
      "A trailer Assisted-by: opencode records that the agent took part in the change."),
     ("Branches",
-     "mywork is your main line today; feat/<task> for a task of the plan; fix/<bug> for a bug fix; "
-     "experiment/<idea> may be thrown away."),
+     "mywork is your main line today; feat/add-history for a task of the plan; fix/rounding for a bug fix; "
+     "experiment/new-layout may be thrown away."),
     ("Link to GSE-One",
      "GSE-One makes every commit follow one convention, so the history tells the story."),
     ("Ask the room",

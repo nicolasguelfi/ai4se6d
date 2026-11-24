@@ -25,7 +25,7 @@ _NOTES = [
      "Every task of the afternoon follows the same six steps — the AI-TDD loop of this morning plus a branch, "
      "a review and a merge."),
     ("Branch, then RED",
-     "One branch per task (feat/<task-name>). The agent writes the test only; YOU review it — it is your spec — "
+     "One branch per task (feat/routing). The agent writes the test only; YOU review it — it is your spec — "
      "then commit test: …"),
     ("GREEN and the mutant",
      "Minimal code, the test untouched, commit feat: …; then break the code on purpose: a test must fail. Undo."),
@@ -53,7 +53,7 @@ def build():
 
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ('Branch: ', (bs.cmd, 'git switch -c feat/&lt;task-name&gt;')),
+            ('Branch: ', (bs.cmd, 'git switch -c feat/routing')),
             ('RED: test only → ', (bs.keyword, 'you'), ' review → commit ', (bs.cmd, 'test: …')),
             ('GREEN: minimal code, test untouched → commit ', (bs.cmd, 'feat: …')),
             ('Mutant check → undo',),

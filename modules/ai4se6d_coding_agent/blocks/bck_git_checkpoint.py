@@ -15,7 +15,7 @@ class BlockStyles:
 bs = BlockStyles
 
 _CHECKPOINT = """\
-git add <files> && git commit -m "chore: checkpoint before refactor"
+git add -A && git commit -m "chore: checkpoint before refactor"
 # ... let the agent work ...
 git diff          # happy? test and commit.   not happy?
 git restore .     # back to the checkpoint (uncommitted work is lost)"""

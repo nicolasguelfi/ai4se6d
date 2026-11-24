@@ -15,10 +15,10 @@ bs = BlockStyles
 _COMMANDS = """\
 git status                  # what changed? run it all the time
 git diff                    # the exact lines: your review tool
-git add <file>              # stage what you have reviewed
+git add src/App.tsx         # one file, e.g.: stage what you reviewed
 git commit -m "feat: ..."   # snapshot with a message
 git log --oneline           # the timeline
-git restore <file>          # throw an unwanted change away"""
+git restore src/App.tsx     # throw an unwanted change away"""
 
 
 _NOTES = [
@@ -30,10 +30,10 @@ _NOTES = [
     ("See",
      "git status tells what changed — run it all the time; git diff shows the exact lines: it is the review tool."),
     ("Save",
-     "git add <file> stages what you have reviewed; git commit -m \"feat: ...\" takes the snapshot with a message; "
+     "git add src/App.tsx (one file, e.g.) stages what you have reviewed; git commit -m \"feat: ...\" takes the snapshot with a message; "
      "git log --oneline shows the timeline."),
     ("Undo",
-     "git restore <file> throws an unwanted change away."),
+     "git restore src/App.tsx throws an unwanted change away."),
     ("The trap",
      "After the agent worked: never git add . without reading the diff."),
     ("Ask the room",

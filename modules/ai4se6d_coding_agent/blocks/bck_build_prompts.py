@@ -19,7 +19,7 @@ _RED = """\
 Do NOT write the implementation. Run npm run test:run and show the failure."""
 
 _GREEN = """\
-Implement the minimal code that makes tests/<file>.test.tsx pass.
+Implement the minimal code that makes the new test in tests/ pass.
 Do not modify the test file. Run npm run test:run."""
 
 _NOTES = [

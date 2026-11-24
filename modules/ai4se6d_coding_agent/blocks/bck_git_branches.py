@@ -18,7 +18,7 @@ _NOTES = [
     ("The message",
      "Third habit: one branch per task. The agent never works directly on your main line."),
     ("How",
-     "git switch -c feat/<task> creates the branch. It works: merge it back. It does not: delete it — nothing is lost."),
+     "git switch -c feat/add-history (name it after your task) creates the branch. It works: merge it back. It does not: delete it — nothing is lost."),
     ("Why it matters with an agent",
      "Each task of the plan becomes a branch, so each change of the agent stays isolated and easy to review."),
     ("Link to the day",
@@ -39,6 +39,6 @@ def build():
                                  position="left", width="50vw")
         st_image(uri="images/am/bck_git_branches_image_00.png", width="100%", max_vh=70, align="center")
         st_write(
-            bs.body, (bs.keyword, "git switch -c feat/&lt;task&gt;"),
+            bs.body, (bs.keyword, "git switch -c feat/add-history"),
             " — works? merge it back. Doesn’t? delete it: nothing is lost.", tag=t.div,
         )

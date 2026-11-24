@@ -26,7 +26,7 @@ _NOTES = [
     ("The message",
      "25 minutes, 11:45 → 12:10: deliver the first task of docs/plan.md, test first, on its own branch."),
     ("The loop",
-     "New branch feat/<task-1-name>; RED prompt, read the test, commit test: …; GREEN prompt, npm run "
+     "New branch feat/task-1; RED prompt, read the test, commit test: …; GREEN prompt, npm run "
      "test:run green, commit feat: …; mutant check, undo; back to mywork and merge."),
     ("Why its own branch",
      "One task = one branch: if the task goes wrong, mywork is untouched. mywork is the main line since this "
@@ -61,11 +61,11 @@ def build():
         st_space("v", "1vh")
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         steps = [
-            ((bs.cmd, 'git switch -c feat/&lt;task-1-name&gt;'),),
+            ((bs.cmd, 'git switch -c feat/task-1'),),
             ('RED prompt → ', (bs.keyword, 'read the test'), ' → commit ', (bs.cmd, 'test: …')),
             ('GREEN prompt → ', (bs.cmd, 'npm run test:run'), ' green → commit ', (bs.cmd, 'feat: …')),
             ('Mutant check, then undo the sabotage',),
-            ((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git merge feat/&lt;task-1-name&gt;')),
+            ((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git merge feat/task-1')),
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))

@@ -24,7 +24,8 @@ git switch -c feat/hello
 git status && git diff
 git add README.md && git commit -m "docs: say hello"
 # break a file in src/ on purpose, look at git diff, then:
-git restore <that-file> && npm run test:run"""
+BROKEN=src/App.tsx          # the file you broke
+git restore "$BROKEN" && npm run test:run"""
 
 
 _NOTES = [

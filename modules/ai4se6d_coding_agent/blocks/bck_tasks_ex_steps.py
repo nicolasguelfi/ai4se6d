@@ -60,7 +60,7 @@ def build():
 
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ('One task = one branch ', (bs.cmd, 'feat/&lt;task-name&gt;')),
+            ('One task = one branch ', (bs.cmd, 'feat/routing')),
             ('RED → review → commit ', (bs.cmd, 'test: …')),
             ('GREEN → review checklist → commit ', (bs.cmd, 'feat: …')),
             ('Merge into ', (bs.cmd, 'mywork'), ' when green, next task'),
