@@ -148,7 +148,7 @@ SHEETS = {
             "Install GSE-One in the folder; run `/gse-go` and choose Lightweight mode. Commit the `.gse/` folder "
             "(never list it in `.gitignore`): it is your project's memory, and what the trainer reads.",
             "Put every extra idea in the backlog, not in the plan.",
-            "Folder outside `~/ai4se`? Run `~/ai4se/ai4se-kit/tutor add <path>`.",
+            "Folder outside `~/ai4se`? Run `~/ai4se/ai4se-kit/tutor add ~/path/to/your-project`.",
             "Show your card to the trainer: \"green\" or \"reduce\".",
         ],
         "done_when": "`/gse-status` shows Lightweight mode, the card is \"green\", the repository is pushed.",
