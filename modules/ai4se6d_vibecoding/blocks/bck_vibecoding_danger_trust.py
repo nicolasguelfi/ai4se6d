@@ -34,8 +34,9 @@ _PROMPT = (
     f"{_PREFIX} A large downward-trending graph line in amber, starting high on the left "
     "and dropping sharply to the right. A broken trust icon (handshake with a crack "
     "through it) in electric blue at the bottom of the curve. "
-    "Represents declining developer confidence "
-    f"in AI accuracy over time. {_SUFFIX}"
+    "Represents declining developer confidence in AI accuracy over time. The curve has no axes, no tick marks, "
+    "no numbers, no digits and no percent signs "   # NG, 2026-11-25: invented figures contradicted the slide
+    f"{_SUFFIX}"
 )
 
 

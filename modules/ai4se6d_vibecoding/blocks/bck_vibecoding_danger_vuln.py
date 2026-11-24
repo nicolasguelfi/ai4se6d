@@ -22,9 +22,10 @@ _text_cell = Style.create(s.container.layouts.vertical_center_layout + Style("te
 
 _PROMPT = (
     f"{_PREFIX} A shield icon in electric blue with deep cracks running through it, "
-    "revealing amber danger glow beneath. Percentage numbers float around the shield "
-    "in teal. Represents security vulnerabilities hidden in AI-generated code "
-    f"that appears to work correctly. {_SUFFIX}"
+    "revealing amber danger glow beneath. Small teal code brackets and dots float around the shield. "
+    "Represents security vulnerabilities hidden in AI-generated code that appears to work correctly. "
+    "No numbers, no digits, no percent signs anywhere "   # NG, 2026-11-25: invented figures contradicted the slide
+    f"{_SUFFIX}"
 )
 
 def build():
