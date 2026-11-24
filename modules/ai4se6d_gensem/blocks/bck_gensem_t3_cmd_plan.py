@@ -45,6 +45,7 @@ def build():
                         ("Living document", "The orchestrator updates .gse/plan.yaml after every activity transition: workflow state, budget consumption, coherence checks. No Markdown parsing \u2014 YAML only."),
                         ("Coherence alerts", "Non-blocking alerts surface when the plan drifts: budget_pressure (>80% consumed), significant_scope_drift (>50% tasks changed), velocity_risk. Inform-tier, never Hard guardrail."),
                         ("Re-planning", "Auto-triggered when: task exceeds 2x estimate, new dependency found, assumption invalidated, budget at risk (>80%), or user changes priorities."),
+                        ("Advisor tickets (v0.93.4)", "The trainer, as an external advisor, leaves advice as GitHub issues labelled gse-advisor on the learner's repository and never writes in it. Once per sprint, /gse:plan --strategic (step 0.4) groups them in one question: accept into the sprint, keep in the pool, or decline with a reason. The decision is recorded (DEC-) and posted back on the issue; declined ones are closed."),
                         ("Planning debt", "If planning is skipped ('just do it'), the agent records planning debt \u2014 reviewed during /gse:compound."),
                     ],
                     position="left", width="50vw",
@@ -70,3 +71,9 @@ def build():
 
             st_space("v", "2vh")
             st_write(bs.accent, "Sprint plan = filtered view of the backlog + live workflow state \u2014 not a separate document.")
+            st_space("v", "1.5vh")
+            st_write(
+                bs.body, (bs.keyword, "Advisor tickets: "),
+                "once per sprint, the trainer's ", (bs.keyword, "gse-advisor"),
+                " issues \u2014 accept, keep in the pool, or decline with a reason.",
+            )
