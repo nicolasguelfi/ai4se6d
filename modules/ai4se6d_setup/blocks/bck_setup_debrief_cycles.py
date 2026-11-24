@@ -17,7 +17,7 @@ class BlockStyles:
 bs = BlockStyles
 
 ROWS = [
-    ("You had to explain your app again", "The model has no memory", "CCSET01"),
+    ("It filled what you did not say with its own guesses", "An LLM predicts the most likely continuation", "CCSET01"),
     ("The agent did more than you asked", "Autonomy needs a human in the loop", "CCSET02"),
     ("It works — would you ship it?", "VibeCoding is not engineering", "CCSET02"),
     ("Your key, its permissions, what you pasted", "Practical rules, the AI Act", "CCSET03"),
@@ -27,8 +27,10 @@ _NOTES = [
     ("The message",
      "Each experience of the afternoon matches an idea of the morning: the debrief closes the loop between "
      "theory and practice."),
-    ("No memory (CCSET01)",
-     "Having to explain your app again = the model has no memory: the context is resent every time."),
+    ("Prediction (CCSET01)",
+     "A stack, a layout or features nobody asked for = an LLM predicts the most likely continuation and fills the "
+     "gaps of the prompt. Tomorrow they meet the other face of CCSET01: a NEW session knows nothing of the project "
+     "(no memory) — hence AGENTS.md."),
     ("Human in the loop (CCSET02)",
      "The agent did more than you asked = autonomy needs a human in the loop; « it works — would you ship it? » "
      "= VibeCoding is not engineering."),
