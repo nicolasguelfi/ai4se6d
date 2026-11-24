@@ -36,9 +36,11 @@ BLOCKS = [
     blocks.bck_setup_build_stuck,
     blocks.bck_setup_workshop_continue,  # 14:45 iteration 2 — the client wants more
     blocks.bck_setup_present_prep,       # 14:55 iteration 3 — the presentation
-    # ── Presentations (15:30, 60 min) and questions (16:30, 20 min) — NG, 2026-11-24 ──
+    # ── Break (15:15, 15 min): late installs are helped here ──
+    # ── Presentations (15:30, 60 min): 9 × 6 min on Google Meet — NG, 2026-11-24 ──
     blocks.bck_setup_presentations,
-    blocks.bck_setup_debrief_questions,  # « Questions on Any Project »
+    # ── Questions on any project (16:30, 20 min) ──
+    blocks.bck_setup_debrief_questions,
     # ── Wrap-up (16:50, 10 min) — bck_setup_debrief_compare left out (no time) ──
     blocks.bck_setup_debrief_cycles,  # link to the morning cycles 01-03
     blocks.bck_setup_quiz,
