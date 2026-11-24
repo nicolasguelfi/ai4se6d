@@ -13,6 +13,8 @@ class BlockStyles:
     text = s.project.titles.table_cell
 bs = BlockStyles
 
+_CODE_ZOOM = 101  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _COMMITS = """\
 type(scope): what changed
 
@@ -66,10 +68,12 @@ def build():
                 pass  # left margin
             with g.cell():
                 st_write(bs.col_title, "Commits", tag=t.div)
-                st_code(s.none, code=_COMMITS, language="text", line_numbers=False, font_size="22pt")
+                with st_zoom(_CODE_ZOOM):
+                    st_code(s.none, code=_COMMITS, language="text", line_numbers=False, font_size="22pt")
                 st_space("v", "2vh")
                 st_write(bs.col_title, "Branches", tag=t.div)
-                st_code(s.none, code=_BRANCHES, language="text", line_numbers=False, font_size="22pt")
+                with st_zoom(_CODE_ZOOM):
+                    st_code(s.none, code=_BRANCHES, language="text", line_numbers=False, font_size="22pt")
                 st_write(bs.text, "Types: feat, fix, test, refactor, docs, chore.", tag=t.div)
             with g.cell():
                 pass  # right margin

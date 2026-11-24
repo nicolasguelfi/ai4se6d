@@ -12,6 +12,8 @@ class BlockStyles:
     warning = Style.create(s.project.titles.body + s.project.colors.critical + s.bold + s.center_txt, "gitcmd_warn")
 bs = BlockStyles
 
+_CODE_ZOOM = 107  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _COMMANDS = """\
 git status                  # what changed? run it all the time
 git diff                    # the exact lines: your review tool
@@ -51,8 +53,9 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Six Commands for Today", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "12vh")
-        with st_zoom(125):
-            st_code(s.none, code=_COMMANDS, language="bash", line_numbers=False, font_size="28pt")
+        with st_zoom(120):
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_COMMANDS, language="bash", line_numbers=False, font_size="28pt")
         st_space("v", "12vh")
         with st_zoom(120):
             st_write(bs.warning, "After the agent worked: never git add . without reading the diff.", tag=t.div)

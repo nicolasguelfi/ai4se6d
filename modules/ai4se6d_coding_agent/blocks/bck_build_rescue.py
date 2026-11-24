@@ -14,6 +14,8 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_rescue_foot")
 bs = BlockStyles
 
+_CODE_ZOOM = 102  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _NOTES = [
     ("Trainer action",
      "Learners do it — on their machine. Only those who lost 15+ min on a broken setup: they run the "
@@ -51,7 +53,8 @@ def build():
         with st_zoom(116):
             st_write(bs.body, "Don't fight a broken setup: restart from the course's clean start.", tag=t.div)
             st_space("v", "3vh")
-            st_code(s.none, code=_RESCUE, language="bash", line_numbers=False, font_size="26pt")   # one line per command at this zoom
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_RESCUE, language="bash", line_numbers=False, font_size="26pt")   # one line per command at this zoom
             st_space("v", "3vh")
             with st_list(list_type=lt.unordered, l_style=bs.body, li_style=bs.body,
                          text_align="left", item_gap=0.6) as l:

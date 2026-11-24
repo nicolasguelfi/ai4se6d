@@ -16,6 +16,8 @@ class BlockStyles:
     source = s.project.citation + s.large + s.center_txt
 bs = BlockStyles
 
+_CODE_ZOOM = 95  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 
 _STAT = """\
 git diff j2-start --stat    # how many lines did you change today?"""
@@ -60,7 +62,8 @@ def build():
             )
             st_write(bs.source, cite('cohen2006-peer-review'), tag=t.div)
             st_space("v", "3vh")
-            st_code(s.none, code=_STAT, language='bash', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_STAT, language='bash', line_numbers=False, font_size="36pt")
             st_space("v", "3vh")
             st_write(
                 bs.foot,

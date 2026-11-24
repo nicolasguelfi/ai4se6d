@@ -14,6 +14,8 @@ class BlockStyles:
     label = s.project.titles.label
 bs = BlockStyles
 
+_CODE_ZOOM = 115  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _CMD = "opencode mcp add context7 --url https://mcp.context7.com/mcp"
 
 _CONFIG = """\
@@ -62,10 +64,12 @@ def build():
                 )
                 st_space("v", "1.5vh")
                 st_write(bs.body, "In the project folder, one command (no hand-written JSON):", tag=t.div)
-                st_code(s.none, code=_CMD, language="bash", line_numbers=False, font_size="24pt")
+                with st_zoom(_CODE_ZOOM):
+                    st_code(s.none, code=_CMD, language="bash", line_numbers=False, font_size="24pt")
                 st_space("v", "1.5vh")
                 st_write(bs.body, "It writes ", (bs.label, "opencode.json"), " at the project root:", tag=t.div)
-                st_code(s.none, code=_CONFIG, language="json", line_numbers=False, font_size="22pt")
+                with st_zoom(_CODE_ZOOM):
+                    st_code(s.none, code=_CONFIG, language="json", line_numbers=False, font_size="22pt")
                 st_space("v", "1.5vh")
                 st_write(
                     bs.body, "Check: restart opencode, the sidebar shows ", (bs.keyword, "context7 Connected"),

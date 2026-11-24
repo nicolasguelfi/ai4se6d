@@ -13,6 +13,8 @@ class BlockStyles:
     keyword = s.project.titles.keyword
 bs = BlockStyles
 
+_CODE_ZOOM = 123  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _PROMPT = """\
 I'm building CalcApp v0.1, a personal budget tracker (see @AGENTS.md).
 v0.1: add an expense (amount, category, date), list expenses with a
@@ -50,10 +52,11 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Elicit with the Plan Agent", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(169):
+        with st_zoom(120):
             st_write(bs.body, (bs.keyword, "Shift+Tab → plan"), ", then adapt and paste:", tag=t.div)
         st_space("v", "3vh")
-        st_code(s.none, code=_PROMPT, language="text", line_numbers=False, font_size="30pt")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_PROMPT, language="text", line_numbers=False, font_size="30pt")
         st_space("v", "2vh")
-        with st_zoom(169):
+        with st_zoom(120):
             st_write(bs.body, "Read critically. Ask back: errors? fixed or free categories? currency?", tag=t.div)

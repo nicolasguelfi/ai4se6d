@@ -13,6 +13,8 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_prompts_foot")
 bs = BlockStyles
 
+_CODE_ZOOM = 113  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 
 _RED = """\
 @docs/plan.md Task 1 only. Write the failing test first, in tests/.
@@ -51,15 +53,17 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Two Prompts per Task", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
-        with st_zoom(138):
+        with st_zoom(120):
             st_write(bs.label, '1 · RED — test only (build agent)', tag=t.div)
-        st_code(s.none, code=_RED, language='text', line_numbers=False, font_size="30pt")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_RED, language='text', line_numbers=False, font_size="30pt")
         st_space("v", "5vh")
-        with st_zoom(138):
+        with st_zoom(120):
             st_write(bs.label, '2 · GREEN — once you have reviewed the test', tag=t.div)
-        st_code(s.none, code=_GREEN, language='text', line_numbers=False, font_size="30pt")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_GREEN, language='text', line_numbers=False, font_size="30pt")
         st_space("v", "5vh")
-        with st_zoom(126):
+        with st_zoom(120):
             st_write(
                 bs.foot,
                 'In prompts, ask for npm run test:run (one shot): npm test is watch mode (q to quit), the agent would wait.',

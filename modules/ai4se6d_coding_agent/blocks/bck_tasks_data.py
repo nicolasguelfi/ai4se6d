@@ -14,6 +14,8 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "tasks_data_cmd")
 bs = BlockStyles
 
+_CODE_ZOOM = 101  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 
 _DATA_RED = """\
 Write a failing integration test: `routes` in a memory router at "/add",
@@ -68,6 +70,8 @@ def build():
             )
             st_space("v", "1vh")
             st_write(bs.label, 'RED', tag=t.div)
-            st_code(s.none, code=_DATA_RED, language='text', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_DATA_RED, language='text', line_numbers=False, font_size="36pt")
             st_write(bs.label, 'GREEN', tag=t.div)
-            st_code(s.none, code=_DATA_GREEN, language='text', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_DATA_GREEN, language='text', line_numbers=False, font_size="36pt")

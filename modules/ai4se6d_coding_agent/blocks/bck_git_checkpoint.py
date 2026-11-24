@@ -14,6 +14,8 @@ class BlockStyles:
     quote = Style.create(s.project.titles.subtitle + s.center_txt, "gitcp_quote")
 bs = BlockStyles
 
+_CODE_ZOOM = 132  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _CHECKPOINT = """\
 git add -A && git commit -m "chore: checkpoint before refactor"
 # ... let the agent work ...
@@ -52,13 +54,14 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Checkpoint Commits", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
-        with st_zoom(136):
+        with st_zoom(120):
             st_write(bs.quote, "Save the game before the boss fight.", tag=t.div)
         st_space("v", "9vh")
-        with st_zoom(149):
-            st_code(s.none, code=_CHECKPOINT, language="bash", line_numbers=False, font_size="24pt")
+        with st_zoom(120):
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_CHECKPOINT, language="bash", line_numbers=False, font_size="24pt")
         st_space("v", "9vh")
-        with st_zoom(125):
+        with st_zoom(120):
             st_write(
                 bs.body, (bs.label, "Use it before: "),
                 "a big refactor, an approach you doubt, a multi-file change.", tag=t.div,

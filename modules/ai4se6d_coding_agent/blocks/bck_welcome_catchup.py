@@ -16,6 +16,8 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "catchup_cmd")
 bs = BlockStyles
 
+_CODE_ZOOM = 110  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _RECOVER = """\
 git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart
 TAG=j2-start               # the tag your half-day sheet names
@@ -66,7 +68,8 @@ def build():
                 bs.td, (bs.cmd, "~/ai4se/ai4se-kit/tutor update"), " — get today's course notes", tag=t.div,
             )
             st_space("v", "2vh")
-            st_code(s.none, code=_RECOVER, language="bash", line_numbers=False, font_size="24pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_RECOVER, language="bash", line_numbers=False, font_size="24pt")
 
             st_space("v", "2vh")
             # one row per tag, alternating fills — motif L2 + fonds f1 (margins 5 %)

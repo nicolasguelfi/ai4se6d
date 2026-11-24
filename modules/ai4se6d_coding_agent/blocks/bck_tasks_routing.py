@@ -15,6 +15,8 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "tasks_routing_cmd")
 bs = BlockStyles
 
+_CODE_ZOOM = 99  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 
 _ROUTING_RED = """\
 Write a failing test in tests/App.test.tsx: render `routes` from
@@ -73,6 +75,8 @@ def build():
             )
             st_space("v", "1vh")
             st_write(bs.label, 'RED', tag=t.div)
-            st_code(s.none, code=_ROUTING_RED, language='text', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_ROUTING_RED, language='text', line_numbers=False, font_size="36pt")
             st_write(bs.label, 'GREEN', tag=t.div)
-            st_code(s.none, code=_ROUTING_GREEN, language='text', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_ROUTING_GREEN, language='text', line_numbers=False, font_size="36pt")

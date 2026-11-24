@@ -15,6 +15,8 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_mutant_foot")
 bs = BlockStyles
 
+_CODE_ZOOM = 112  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 
 _MUTANT = """\
 ExpenseItem:  amount.toFixed(2)  →  amount.toFixed(0)
@@ -72,7 +74,8 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "2vh")
-        st_code(s.none, code=_MUTANT, language='text', line_numbers=False, font_size="32pt")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_MUTANT, language='text', line_numbers=False, font_size="32pt")
         st_space("v", "2vh")
         with st_zoom(105):
             st_write(bs.foot, 'Ten seconds of sabotage saves hours of false confidence.', tag=t.div)

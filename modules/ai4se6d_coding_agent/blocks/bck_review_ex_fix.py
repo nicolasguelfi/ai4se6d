@@ -14,6 +14,8 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "review_ex_fix_cmd")
 bs = BlockStyles
 
+_CODE_ZOOM = 100  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 # Text left-aligned (NG, 2026-11-23: same recipes as the intro module)
 _left = Style("text-align:left;", "review_ex_fix_left")
 
@@ -59,7 +61,8 @@ def build():
                 ':',
                 tag=t.div,
             )
-            st_code(s.none, code=_FIX, language='text', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_FIX, language='text', line_numbers=False, font_size="36pt")
             st_space("v", "2vh")
             with st_list(list_type=lt.unordered, l_style=bs.body, li_style=bs.body,
                          text_align="left", item_gap=0.6) as l:

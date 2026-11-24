@@ -15,6 +15,8 @@ class BlockStyles:
     timer = Style.create(s.project.titles.stat + s.center_txt, "git_ex_timer")
 bs = BlockStyles
 
+_CODE_ZOOM = 118  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _STEPS = """\
 git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp
 cd ~/ai4se/calcapp && git checkout -b mywork j2-start && npm ci
@@ -56,7 +58,7 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Try it: Git on CalcApp", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
-        with st_zoom(125):
+        with st_zoom(120):
             st_write(bs.timer, "15 min — in a terminal", tag=t.div)
             st_write(
                 bs.body,
@@ -65,5 +67,6 @@ def build():
                 tag=t.div,
             )
         st_space("v", "7vh")
-        with st_zoom(137):
-            st_code(s.none, code=_STEPS, language="bash", line_numbers=False, font_size="24pt")
+        with st_zoom(120):
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_STEPS, language="bash", line_numbers=False, font_size="24pt")

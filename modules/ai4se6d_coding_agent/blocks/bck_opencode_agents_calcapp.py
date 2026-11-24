@@ -12,6 +12,8 @@ class BlockStyles:
     closing = Style.create(s.project.titles.body_accent + s.center_txt, "occalc_closing")
 bs = BlockStyles
 
+_CODE_ZOOM = 140  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _AGENTS_MD = """\
 # CalcApp — project conventions for coding agents   (excerpt)
 ## Stack (pinned)
@@ -59,9 +61,10 @@ def build():
             with g.cell():
                 pass  # left margin
             with g.cell():
-                st_code(s.none, code=_AGENTS_MD, language="markdown", line_numbers=False, font_size="26pt")
+                with st_zoom(_CODE_ZOOM):
+                    st_code(s.none, code=_AGENTS_MD, language="markdown", line_numbers=False, font_size="26pt")
             with g.cell():
                 pass  # right margin
         st_space("v", "2vh")
-        with st_zoom(186):
+        with st_zoom(120):
             st_write(bs.closing, "Already in your starter: read it before your first prompt.", tag=t.div)

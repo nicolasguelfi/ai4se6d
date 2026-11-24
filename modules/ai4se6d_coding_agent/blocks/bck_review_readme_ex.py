@@ -19,6 +19,8 @@ class BlockStyles:
     number = Style.create(s.bold + s.project.colors.highlight + s.center_txt, "review_readme_ex_num")
 bs = BlockStyles
 
+_CODE_ZOOM = 97  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _NOTES = [
     ("Trainer action",
      "Learners do it — on their machine. Exercise 15:50 → 16:05: the agent drafts the README, they run "
@@ -55,7 +57,8 @@ def build():
         with st_zoom(98):
             st_write(bs.timer, '15:50 → 16:05 · 15 min', tag=t.div)
         with st_zoom(105):
-            st_code(s.none, code=_README, language='text', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_README, language='text', line_numbers=False, font_size="36pt")
         st_space("v", "1vh")
 
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)

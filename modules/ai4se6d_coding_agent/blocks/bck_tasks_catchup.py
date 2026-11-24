@@ -14,6 +14,8 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "tasks_catchup_foot")
 bs = BlockStyles
 
+_CODE_ZOOM = 95  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 
 _CATCHUP = """\
 git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart
@@ -50,7 +52,8 @@ def build():
         with st_zoom(115):
             st_write(bs.body, 'Restart from the end of Part 1 (first features, tests green):', tag=t.div)
             st_space("v", "3vh")
-            st_code(s.none, code=_CATCHUP, language="bash", line_numbers=False, font_size="26pt")   # one line per command at this zoom
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_CATCHUP, language="bash", line_numbers=False, font_size="26pt")   # one line per command at this zoom
             st_space("v", "3vh")
             with st_list(list_type=lt.unordered, l_style=bs.body, li_style=bs.body,
                          text_align="left", item_gap=0.6) as l:

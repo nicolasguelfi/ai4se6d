@@ -14,6 +14,8 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_fallback_form_foot")
 bs = BlockStyles
 
+_CODE_ZOOM = 125  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 
 _FORM_RED = """\
 Write a failing Vitest test in tests/components/ExpenseForm.test.tsx.
@@ -49,9 +51,10 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Fallback B: ExpenseForm", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
-        st_code(s.none, code=_FORM_RED, language='text', line_numbers=False, font_size="30pt")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_FORM_RED, language='text', line_numbers=False, font_size="30pt")
         st_space("v", "5vh")
-        with st_zoom(147):
+        with st_zoom(120):
             st_write(
                 bs.body,
                 'Review: correct import paths? accessible queries? the behaviour ',

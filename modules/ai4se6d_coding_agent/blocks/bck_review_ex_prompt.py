@@ -14,6 +14,8 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "review_ex_prompt_foot")
 bs = BlockStyles
 
+_CODE_ZOOM = 97  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 # Text left-aligned (NG, 2026-11-23: same recipes as the intro module)
 _left = Style("text-align:left;", "review_ex_prompt_left")
 
@@ -63,10 +65,12 @@ def build():
                 ' runs a shell command:',
                 tag=t.div,
             )
-            st_code(s.none, code=_DIFF, language='text', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_DIFF, language='text', line_numbers=False, font_size="36pt")
             st_space("v", "4vh")
             st_write(bs.body, 'Then:', tag=t.div)
-            st_code(s.none, code=_REVIEW, language='text', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_REVIEW, language='text', line_numbers=False, font_size="36pt")
             st_space("v", "4vh")
             st_write(
                 bs.foot,

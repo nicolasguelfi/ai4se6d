@@ -12,6 +12,8 @@ class BlockStyles:
     closing = Style.create(s.project.titles.body_accent + s.center_txt, "fmt_closing")
 bs = BlockStyles
 
+_CODE_ZOOM = 114  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _PLAN_MD = """\
 # CalcApp v0.1 - plan
 
@@ -52,7 +54,8 @@ def build():
                 st_hover_tooltip(title="Trainer notes — docs/plan.md — the Format", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
-        st_code(s.none, code=_PLAN_MD, language="markdown", line_numbers=False, font_size="34pt")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_PLAN_MD, language="markdown", line_numbers=False, font_size="34pt")
         st_space("v", "3vh")
-        with st_zoom(136):
+        with st_zoom(120):
             st_write(bs.closing, "5-8 tasks, each with acceptance criteria. Exactly one [next].", tag=t.div)

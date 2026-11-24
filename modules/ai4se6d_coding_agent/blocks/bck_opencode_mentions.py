@@ -15,6 +15,8 @@ class BlockStyles:
     keyword = s.project.titles.keyword
 bs = BlockStyles
 
+_CODE_ZOOM = 140  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _VAGUE = "Make the home page nicer."
 _PRECISE = """\
 Read @src/pages/Home.tsx and @tests/App.test.tsx.
@@ -50,17 +52,19 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — @file — Point, Don’t Hope", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(140):
+        with st_zoom(120):
             st_write(bs.body, (bs.keyword, "@"), " = fuzzy file search; the file joins the conversation.", tag=t.div)
         st_space("v", "2vh")
-        with st_zoom(140), st_grid(cols="5% 90% 5%") as g:
+        with st_zoom(120), st_grid(cols="5% 90% 5%") as g:
             with g.cell():
                 pass  # left margin
             with g.cell():
                 st_write(bs.bad, "Vague — the agent searches and guesses", tag=t.div)
-                st_code(s.none, code=_VAGUE, language="text", line_numbers=False, font_size="28pt")
+                with st_zoom(_CODE_ZOOM):
+                    st_code(s.none, code=_VAGUE, language="text", line_numbers=False, font_size="28pt")
                 st_space("v", "3vh")
                 st_write(bs.good, "Precise — exactly the context it needs", tag=t.div)
-                st_code(s.none, code=_PRECISE, language="text", line_numbers=False, font_size="28pt")
+                with st_zoom(_CODE_ZOOM):
+                    st_code(s.none, code=_PRECISE, language="text", line_numbers=False, font_size="28pt")
             with g.cell():
                 pass  # right margin

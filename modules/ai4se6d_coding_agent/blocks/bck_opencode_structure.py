@@ -15,6 +15,8 @@ class BlockStyles:
     note = s.project.titles.table_cell
 bs = BlockStyles
 
+_CODE_ZOOM = 109  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 _BEFORE = """\
 my-app/
   app.ts
@@ -62,7 +64,7 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Structure = First Prompt", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(122):
+        with st_zoom(120):
             st_write(bs.body, "Prompt: “Add sign-up with email validation.”", tag=t.div)
         st_space("v", "4vh")
         with st_zoom(116), st_grid(cols="5% 0.9fr 1.6fr 5%", gap="2vw") as g:
@@ -70,11 +72,13 @@ def build():
                 pass  # left margin
             with g.cell():
                 st_write(bs.bad, "Before: it guesses", tag=t.div)
-                st_code(s.none, code=_BEFORE, language="text", line_numbers=False, font_size="30pt")
+                with st_zoom(_CODE_ZOOM):
+                    st_code(s.none, code=_BEFORE, language="text", line_numbers=False, font_size="30pt")
                 st_write(bs.note, "Route? Validation? Tests? Anywhere.", tag=t.div)
             with g.cell():
                 st_write(bs.good, "After: it sees the pattern", tag=t.div)
-                st_code(s.none, code=_AFTER, language="text", line_numbers=False, font_size="30pt")
+                with st_zoom(_CODE_ZOOM):
+                    st_code(s.none, code=_AFTER, language="text", line_numbers=False, font_size="30pt")
                 st_write(bs.note, "Right folder, same names, tests mirrored.", tag=t.div)
             with g.cell():
                 pass  # right margin

@@ -12,6 +12,8 @@ class BlockStyles:
     body = Style.create(s.project.titles.body + s.text.wrap.hyphens, "build_fallback_item_body")
 bs = BlockStyles
 
+_CODE_ZOOM = 126  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 
 _ITEM_RED = """\
 Write a failing Vitest test in tests/components/ExpenseItem.test.tsx.
@@ -51,9 +53,11 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Fallback A: ExpenseItem", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(199):
+        with st_zoom(120):
             st_write(bs.body, 'Plan unclear or empty? Start with the canonical first feature.', tag=t.div)
         st_space("v", "2vh")
-        st_code(s.none, code=_ITEM_RED, language='text', line_numbers=False, font_size="30pt")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_ITEM_RED, language='text', line_numbers=False, font_size="30pt")
         st_space("v", "5vh")
-        st_code(s.none, code=_ITEM_GREEN, language='text', line_numbers=False, font_size="30pt")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_ITEM_GREEN, language='text', line_numbers=False, font_size="30pt")

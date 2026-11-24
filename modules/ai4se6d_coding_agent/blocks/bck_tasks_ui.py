@@ -14,6 +14,8 @@ class BlockStyles:
     timer = Style.create(s.project.titles.stat + s.center_txt, "tasks_ui_timer")
 bs = BlockStyles
 
+_CODE_ZOOM = 104  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 
 _UI = """\
 Add minimal plain CSS in src/App.css: horizontal nav bar, Dashboard
@@ -58,7 +60,8 @@ def build():
                 tag=t.div,
             )
             st_space("v", "2vh")
-            st_code(s.none, code=_UI, language='text', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_UI, language='text', line_numbers=False, font_size="36pt")
             st_space("v", "2vh")
             st_write(
                 bs.body,

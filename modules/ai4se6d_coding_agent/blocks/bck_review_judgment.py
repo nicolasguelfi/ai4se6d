@@ -14,6 +14,8 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "review_judgment_foot")
 bs = BlockStyles
 
+_CODE_ZOOM = 99  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+
 # Text left-aligned (NG, 2026-11-23: same recipes as the intro module)
 _left = Style("text-align:left;", "review_judgment_left")
 
@@ -66,7 +68,8 @@ def build():
                 tag=t.div,
             )
             st_space("v", "6vh")
-            st_code(s.none, code=_TRIAGE, language='markdown', line_numbers=False, font_size="36pt")
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=_TRIAGE, language='markdown', line_numbers=False, font_size="36pt")
             st_space("v", "8vh")
             st_write(
                 bs.foot,
