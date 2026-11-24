@@ -4,7 +4,7 @@ import tomllib
 import streamlit as st
 import streamtex as stx
 from streamtex import (
-    st_book, TOCConfig, NumberingMode, MarkerConfig, BannerConfig,
+    st_book, TOCConfig, NumberingMode, MarkerConfig, MarkerRoles, BannerConfig,
     PresentationConfig, set_presentation_config,
     PdfConfig, ExportConfig, ExportMode,
     set_ai_image_config, AIImageConfig,
@@ -66,7 +66,7 @@ set_presentation_config(PresentationConfig(
 
 # Slide breaks
 set_slide_break_config(SlideBreakConfig(
-    mode=SlideBreakMode.HIDDEN,
+    mode=SlideBreakMode.MARKER_ONLY,  # a hidden stop per break: arrows reach every slide of a block (as day 1)
     space="1vh",
     rule_margin_top="1vh",
     rule_margin_bottom="1vh",
@@ -83,8 +83,11 @@ toc = TOCConfig(
 )
 
 # Navigation
+# Slide titles here are level 2 (toc_lvl="+1" under a level-1 section title): every level-2 title is a stop,
+# listed sections stay the 16 level-1 titles (NG, 2026-11-24: the arrows skipped all the content).
 marker_config = MarkerConfig(
-    auto_marker_on_toc=1,
+    auto_marker_on_toc=2,
+    toc_marker_roles={1: MarkerRoles.NAMED, 2: MarkerRoles.HIDDEN},
     next_keys=["PageDown", "ArrowRight"],
     prev_keys=["PageUp", "ArrowLeft"],
     draggable=True,
