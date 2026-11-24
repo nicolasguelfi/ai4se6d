@@ -25,15 +25,16 @@ _ERRORS = [
     ("git asks for a password", "Not logged in: redo step 6"),
     ("GSE-One before opencode 2", "Install opencode 2, then redo step 5"),
     ("node missing, or older than v20", "Redo step 2"),
+    ("gh auth login: « update.go … mount namespace »", "Harmless (Firefox snap): wait, no Ctrl+C — or the code at github.com/login/device"),
     ("“libatomic.so.1: cannot open shared object file”", "sudo apt-get install -y libatomic1 (Ubuntu / WSL)"),
 ]
 
 _NOTES = [
     ("Trainer action",
-     "Read and comment — nothing to type. Go through the seven symptoms and their fixes; learners come back "
+     "Read and comment — nothing to type. Go through the eight symptoms and their fixes; learners come back "
      "to this slide whenever a step fails."),
     ("The message",
-     "Seven common symptoms, each with its fix: read the left column, do the right one."),
+     "Eight common symptoms, each with its fix: read the left column, do the right one."),
     ("The most frequent",
      "« command not found » right after an install: the open terminal has the old PATH: exec $SHELL reloads it."),
     ("Network",
@@ -56,7 +57,7 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Common Errors", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
-        with st_zoom(86):   # seven rows fit one screen
+        with st_zoom(78):   # eight rows fit one screen
             header = [s.none, s.project.containers.table_header_cell, s.project.containers.table_header_cell, s.none]
             with st_grid(cols=_COLS, gap="0.5vw", cell_styles=header) as g:
                 with g.cell():

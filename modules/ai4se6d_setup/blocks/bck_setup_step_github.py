@@ -18,7 +18,7 @@ class BlockStyles:
     done_label = Style.create(s.bold + s.project.colors.success, "setup_done_label")
 bs = BlockStyles
 
-_CODE_ZOOM = 140  # st_code font_size is not applied by Pygments: zoom instead
+_CODE_ZOOM = 118  # st_code font_size is not applied by Pygments: zoom instead
 # One box per environment, always Windows, Ubuntu, macOS last (NG, 2026-11-24: learners copy the wrong lines)
 _GH_WIN_UBUNTU = "# Windows (WSL) | Ubuntu\nsudo apt install gh"
 _GH_MACOS = "# macOS\nbrew install gh"
@@ -35,7 +35,12 @@ _NOTES = [
     ("The login",
      "gh auth login: choose GitHub.com, HTTPS, and log in with the browser."),
     ("No browser",
-     "In WSL or the VM: copy the one-time code, open the link yourself in a browser."),
+     "In WSL or the VM: copy the one-time code, open github.com/login/device yourself in ANY browser (even on your "
+     "own computer) and type the code."),
+    ("Ubuntu: Firefox messages",
+     "On Ubuntu, gh opens Firefox, a snap: it prints many « update.go:193: cannot change mount namespace … » lines "
+     "and Gtk / Glycin messages. They are harmless: do NOT press Ctrl+C (it kills gh and Firefox, the login is "
+     "lost). Wait, or enter the code at github.com/login/device from any browser."),
     ("The trap and the check",
      "« git asks for a password » = not logged in: redo this step. Done when gh auth status says « Logged in »."),
 ]
@@ -62,9 +67,10 @@ def build():
         st_space("v", "1.5vh")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_GH_LOGIN, language="bash", line_numbers=False)
-        st_space("v", "5vh")
-        with st_zoom(130), st_block(bs.done_box):
+        st_space("v", "2vh")
+        with st_zoom(115), st_block(bs.done_box):
             st_write(bs.body, (bs.done_label, "Done when: "), (bs.cmd, "gh auth status"), " says “Logged in”.")
         st_space("v", "2vh")
-        with st_zoom(130):
-            st_write(bs.caption, "No browser (WSL, VM)? Copy the code, open the link yourself.", tag=t.div)
+        with st_zoom(105):
+            st_write(bs.caption, "Ubuntu: « update.go … mount namespace » lines are harmless (Firefox snap): "
+                     "no Ctrl+C. No browser? Type the code at github.com/login/device, any browser.", tag=t.div)
