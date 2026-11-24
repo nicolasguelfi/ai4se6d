@@ -18,12 +18,11 @@ class BlockStyles:
     done_label = Style.create(s.bold + s.project.colors.success, "setup_done_label")
 bs = BlockStyles
 
-_CODE_ZOOM = 190  # st_code font_size is not applied by Pygments: zoom instead
-_GH = (
-    "brew install gh         # macOS\n"
-    "sudo apt install gh     # Linux / WSL\n"
-    "gh auth login           # GitHub.com, HTTPS, browser"
-)
+_CODE_ZOOM = 140  # st_code font_size is not applied by Pygments: zoom instead
+# One box per environment, always Windows, Ubuntu, macOS last (NG, 2026-11-24: learners copy the wrong lines)
+_GH_WIN_UBUNTU = "# Windows (WSL) | Ubuntu\nsudo apt install gh"
+_GH_MACOS = "# macOS\nbrew install gh"
+_GH_LOGIN = "# then, every system:\ngh auth login           # GitHub.com, HTTPS, browser"
 
 _NOTES = [
     ("Trainer action",
@@ -54,12 +53,18 @@ def build():
                                  position="left", width="50vw")
         with st_zoom(110):
             st_write(bs.body, (bs.label, "No account? "), (bs.cmd, "github.com/signup"), " (personal is fine)")
-        st_space("v", "4vh")
+        st_space("v", "2vh")
         with st_zoom(_CODE_ZOOM):
-            st_code(s.none, code=_GH, language="bash", line_numbers=False)
+            st_code(s.none, code=_GH_WIN_UBUNTU, language="bash", line_numbers=False)
+        st_space("v", "1.5vh")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_GH_MACOS, language="bash", line_numbers=False)
+        st_space("v", "1.5vh")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_GH_LOGIN, language="bash", line_numbers=False)
         st_space("v", "5vh")
         with st_zoom(130), st_block(bs.done_box):
             st_write(bs.body, (bs.done_label, "Done when: "), (bs.cmd, "gh auth status"), " says “Logged in”.")
-        st_space("v", "4vh")
+        st_space("v", "2vh")
         with st_zoom(130):
             st_write(bs.caption, "No browser (WSL, VM)? Copy the code, open the link yourself.", tag=t.div)

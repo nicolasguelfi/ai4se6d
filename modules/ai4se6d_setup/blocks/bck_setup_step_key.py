@@ -23,12 +23,13 @@ _CODE_ZOOM = 220  # st_code font_size is not applied by Pygments: zoom instead
 _NOTES = [
     ("Trainer action",
      "Learners do it — on their machine. Step 3 of the installation: everyone runs opencode auth login "
-     "with their key sheet; wait until opencode auth list shows the provider."),
+     "with their key sheet, type openrouter and choose OpenRouter; wait until opencode auth list shows it."),
     ("The message",
      "opencode needs a model to talk to: opencode auth login stores YOUR key for the provider written on your "
      "key sheet."),
     ("How",
-     "Run the command, choose the provider on your key sheet, paste the key when asked."),
+     "Run the command; in the provider list type openrouter to filter it and choose OpenRouter (the provider of "
+     "the course key sheet); paste the key when asked."),
     ("The rule",
      "A key is a secret: never in a committed file, a prompt, a screenshot or an issue. Whoever has it spends "
      "your budget."),
@@ -56,7 +57,7 @@ def build():
             with st_list(l_style=bs.body, li_style=bs.body, list_type=lt.ordered,
                          text_align="left", item_gap=0.6) as l:
                 with l.item():
-                    st_write(bs.body, "Choose the ", (bs.label, "provider on your key sheet"))
+                    st_write(bs.body, "Type ", (bs.cmd, "openrouter"), ", then choose ", (bs.label, "OpenRouter"))
                 with l.item():
                     st_write(bs.body, "Paste your key when asked")
             st_space("v", "3vh")

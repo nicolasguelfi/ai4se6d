@@ -20,10 +20,11 @@ class BlockStyles:
 bs = BlockStyles
 
 _CODE_ZOOM = 190  # st_code font_size is not applied by Pygments: zoom instead
+# Always Windows, Ubuntu, macOS last (NG, 2026-11-24)
 _OS = [
-    ("macOS", "Cmd + Space → type Terminal → Enter"),
-    ("Linux", "Ctrl + Alt + T"),
     ("Windows", "Ubuntu (WSL) app or the VM (see your VM access sheet). Not PowerShell."),
+    ("Ubuntu", "Ctrl + Alt + T"),
+    ("macOS", "Cmd + Space → type Terminal → Enter"),
 ]
 
 _NOTES = [

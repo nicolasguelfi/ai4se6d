@@ -24,12 +24,13 @@ class BlockStyles:
     box = s.project.containers.callout
 bs = BlockStyles
 
-_CODE_ZOOM = 190  # st_code font_size is not applied by Pygments: zoom instead
-_INSTALL = (
-    "brew install --cask vscodium                  # macOS\n"
-    "winget install VSCodium.VSCodium              # Windows\n"
-    "sudo snap install codium --classic            # Ubuntu"
-)
+_CODE_ZOOM = 120  # st_code font_size is not applied by Pygments: zoom instead
+# One box per environment, always Windows, Ubuntu, macOS last (NG, 2026-11-24: learners copy the wrong lines)
+_INSTALL_BOXES = [
+    "# Windows\nwinget install VSCodium.VSCodium",
+    "# Ubuntu\nsudo snap install codium --classic",
+    "# macOS\nbrew install --cask vscodium",
+]
 _NOTES = [
     ("Trainer action",
      "Read and comment — nothing to install now. VSCodium is optional (no installation step of the course needs an editor): learners who want it use these commands on their own and switch its AI off."),
@@ -68,10 +69,12 @@ def build():
                 "The open-source build of VS Code: free, no Copilot account, no Microsoft telemetry.",
                 tag=t.div,
             )
-        st_space("v", "2.5vh")
-        with st_zoom(_CODE_ZOOM):
-            st_code(s.none, code=_INSTALL, language="bash", line_numbers=False)
-        st_space("v", "2.5vh")
+        st_space("v", "1.5vh")
+        for box in _INSTALL_BOXES:
+            with st_zoom(_CODE_ZOOM):
+                st_code(s.none, code=box, language="bash", line_numbers=False)
+            st_space("v", "1vh")
+        st_space("v", "1.5vh")
         with st_zoom(110), st_block(bs.box):
             st_write(
                 bs.body, (bs.keyword_warn, "Once: "), "Settings → ",
@@ -79,7 +82,7 @@ def build():
                 tag=t.div,
             )
             st_write(bs.cmd, "chat.disableAIFeatures: true", tag=t.div)
-        st_space("v", "2.5vh")
+        st_space("v", "1.5vh")
         with st_zoom(110), st_block(s.center_txt):
             st_write(bs.body, "Mini guide in the course kit:", tag=t.div)
             st_write(bs.cmd, "ai4se-kit/syllabus/ide-guide.md", link=_GUIDE_URL, tag=t.div)

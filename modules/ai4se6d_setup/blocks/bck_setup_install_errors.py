@@ -19,27 +19,28 @@ bs = BlockStyles
 _COLS = "5% 40% 50% 5%"
 _HEADERS = ("You see…", "Do this")
 _ERRORS = [
-    ("“command not found”", "Open a new terminal (PATH not reloaded)"),
+    ("“command not found”", "Reload the terminal: exec $SHELL (PATH not reloaded)"),
     ("Downloads hang (SSL, timeout)", "Proxy: try another network, or hand up"),
     ("“401”, “invalid API key”", "Wrong key or provider: redo step 3"),
     ("git asks for a password", "Not logged in: redo step 6"),
     ("GSE-One before opencode 2", "Install opencode 2, then redo step 5"),
-    ("node missing, or older than v20", "Redo step 2, then open a new terminal"),
+    ("node missing, or older than v20", "Redo step 2"),
+    ("“libatomic.so.1: cannot open shared object file”", "sudo apt-get install -y libatomic1 (Ubuntu / WSL)"),
 ]
 
 _NOTES = [
     ("Trainer action",
-     "Read and comment — nothing to type. Go through the six symptoms and their fixes; learners come back "
+     "Read and comment — nothing to type. Go through the seven symptoms and their fixes; learners come back "
      "to this slide whenever a step fails."),
     ("The message",
-     "Six common symptoms, each with its fix: read the left column, do the right one."),
+     "Seven common symptoms, each with its fix: read the left column, do the right one."),
     ("The most frequent",
-     "« command not found » right after an install: the open terminal has the old PATH. Open a new terminal."),
+     "« command not found » right after an install: the open terminal has the old PATH: exec $SHELL reloads it."),
     ("Network",
      "Downloads that hang (SSL, timeout) usually come from a proxy: try another network, or raise your hand."),
     ("Redo a step",
      "A wrong key (« 401 ») → step 3; git asking for a password → step 6; GSE-One installed before opencode 2 → "
-     "step 5 again; node missing or older than v20 → step 2."),
+     "step 5 again; node missing or older than v20 → step 2; « libatomic.so.1 » on Ubuntu / WSL → sudo apt-get install -y libatomic1, then node again."),
     ("Ask the room",
      "« Which error did you meet that is not on this list? » — tell the trainer."),
 ]
@@ -55,7 +56,7 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Common Errors", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
-        with st_zoom(95):
+        with st_zoom(86):   # seven rows fit one screen
             header = [s.none, s.project.containers.table_header_cell, s.project.containers.table_header_cell, s.none]
             with st_grid(cols=_COLS, gap="0.5vw", cell_styles=header) as g:
                 with g.cell():
@@ -67,7 +68,7 @@ def build():
                     pass  # right margin
             st_space("v", "3vh")
             cells = s.project.containers.rows(len(_ERRORS), _COLS, filled=(2, 3))
-            with st_grid(cols=_COLS, gap="4.5vh 0.5vw", cell_styles=cells) as g:
+            with st_grid(cols=_COLS, gap="2.5vh 0.5vw", cell_styles=cells) as g:
                 for symptom, fix in _ERRORS:
                     with g.cell():
                         pass  # left margin

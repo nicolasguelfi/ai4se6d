@@ -17,14 +17,18 @@ class BlockStyles:
     done_label = Style.create(s.bold + s.project.colors.success, "setup_done_label")
 bs = BlockStyles
 
-_CODE_ZOOM = 150  # st_code font_size is not applied by Pygments: zoom instead
+_CODE_ZOOM = 118  # st_code font_size is not applied by Pygments: zoom instead
 # nvm = the installer recommended on nodejs.org/en/download (v0.41.0 checked 2026-11-09).
-_INSTALL = (
-    "brew install node        # macOS, or:\n"
-    "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash"
+# One box per environment, always Windows, Ubuntu, macOS last (NG, 2026-11-24: learners copy the wrong lines)
+_WIN_UBUNTU = (
+    "# Windows (WSL) | Ubuntu — nvm\n"
+    "sudo apt-get install -y libatomic1\n"
+    "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash\n"
+    '. "$HOME/.nvm/nvm.sh"          # load nvm in this terminal\n'
+    "nvm install --lts"
 )
-_LTS = "# open a NEW terminal, then:\nnvm install --lts         # skip if you used brew"
-_CHECK = "node --version && npm --version"
+_MACOS = "# macOS\nbrew install node"
+_CHECK = "# check — every system\nnode --version && npm --version"
 
 _NOTES = [
     ("Trainer action",
@@ -36,9 +40,11 @@ _NOTES = [
      "node --version shows v20 or more: skip to step 3."),
     ("Two ways",
      "macOS: Homebrew. Otherwise nvm, the installer recommended on nodejs.org (v0.41.0, checked on 2026-11-09), "
-     "then nvm install --lts in a NEW terminal."),
+     "then nvm install --lts after loading nvm in the same terminal (. \"$HOME/.nvm/nvm.sh\", as nvm's README "
+     "gives): no new terminal. Ubuntu also needs libatomic1 (minimal Ubuntu: « libatomic.so.1: cannot open shared "
+     "object file »). brew needs nothing else."),
     ("The trap",
-     "« node missing, or older than v20 »: redo this step, then open a new terminal (see Common Errors)."),
+     "« node missing, or older than v20 »: redo this step (see Common Errors)."),
     ("The check",
      "node shows v20 or more, and npm prints a version."),
 ]
@@ -56,12 +62,15 @@ def build():
                                  position="left", width="50vw")
         with st_zoom(130):
             st_write(bs.caption, "Needed tomorrow to run CalcApp (npm). Already ≥ 20? Skip to step 3.", tag=t.div)
-        st_space("v", "4vh")
+        st_space("v", "2vh")
         with st_zoom(_CODE_ZOOM):
-            st_code(s.none, code=_INSTALL, language="bash", line_numbers=False)
-        st_space("v", "4vh")
+            st_code(s.none, code=_WIN_UBUNTU, language="bash", line_numbers=False)
+        st_space("v", "1.5vh")
         with st_zoom(_CODE_ZOOM):
-            st_code(s.none, code=_LTS + "\n" + _CHECK, language="bash", line_numbers=False)
-        st_space("v", "4vh")
-        with st_zoom(130), st_block(bs.done_box):
+            st_code(s.none, code=_MACOS, language="bash", line_numbers=False)
+        st_space("v", "1.5vh")
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_CHECK, language="bash", line_numbers=False)
+        st_space("v", "2vh")
+        with st_zoom(115), st_block(bs.done_box):
             st_write(bs.body, (bs.done_label, "Done when: "), "node shows ", (bs.cmd, "v20"), " or more, npm a version.")
