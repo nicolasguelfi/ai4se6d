@@ -35,18 +35,21 @@ class BlockStyles:
 bs = BlockStyles
 
 _GRAPH_ZOOM = 80    # commit graph; tuned by measure (content bottom <= 1000 px at 1920x1080)
-_GLYPH_ZOOM = 250   # the ↘ / ↗ arrows of the branch
+_GLYPH_ZOOM = 300   # the ↘ / ↗ arrows of the branch
 _DEF_ZOOM = 60      # the three definition cards
-_CAPTION_ZOOM = 88
+_CAPTION_ZOOM = 76
+_DEF_TITLE_ZOOM = 200   # Commit / Branch / Merge titles (NG: twice as big)
 
 # One column per position: N = commit, L = line, . = empty, D/U = branch leaves / comes back
 _COLS = "2.2fr 1fr 0.55fr 1fr 0.55fr 1fr 0.55fr 1fr 0.55fr 1fr 0.55fr 1fr 0.55fr 1fr 0.55fr 1fr"
 # main line: (kind, text, label)
 _MAIN_ROW = [("tag", "mywork", ""), ("N", "c1", "j2-start"), ("L",), ("N", "c2", "plan"), ("L",),
-             ("N", "c3", "expense type"), ("L",), ("L",), ("L",), ("N", "c4", "fix total"), ("L",),
-             ("N", "c5", "style"), ("L",), ("M", "M", "merge"), ("L",), ("N", "c8", "continue")]
-_TASK_ROW = [("tag", "feat/add-history", ""), (".",), (".",), (".",), (".",), (".",), ("D",), ("N", "c6", "test: history"), ("L",),
-             ("N", "c7", "feat: history"), ("L",), ("L",), ("U",), (".",), (".",), (".",)]
+             ("N", "c3", "expense"), ("L",), ("L",), ("L",), ("N", "c4", "fix total"), ("L",),
+             ("N", "c5", "style"), ("L",), ("M", "M", ""), ("L",), ("N", "c8", "continue")]
+_TASK_ROW = [("tag", "feat/add-history", ""), (".",), (".",), (".",), (".",), (".",), (".",), ("N", "c6", "test: history"),
+             ("L",), ("N", "c7", "feat: history"), ("L",), ("L",), (".",), (".",), (".",), (".",)]
+# Row between the two lines: the branch leaves after c3 (column 6) and comes back into M (column 12)
+_BRANCH_ARROWS = {6: "↘", 12: "↗"}
 
 _DEFS = [
     (_MAIN, "Commit", "A snapshot of the project at one moment: an ID, a message, a link to the commit before."),
@@ -105,10 +108,13 @@ def _row(cells, tone, g):
                 st_write(bs.tag + tone.chip + tone.fg, cell[1], tag=t.div)
 
 
-def _labels(cells, g):
-    for cell in cells:
+def _labels(cells, g, arrows=None):
+    for i, cell in enumerate(cells):
         with g.cell():
-            if cell[0] in ("N", "M"):
+            if arrows and i in arrows:
+                with st_zoom(_GLYPH_ZOOM):
+                    st_write(bs.glyph + _TASK.fg, arrows[i], tag=t.div)
+            elif cell[0] in ("N", "M"):
                 st_write(bs.label, cell[2], tag=t.div)
 
 
@@ -122,10 +128,10 @@ def build():
                 st_hover_tooltip(title="Trainer notes — One Branch per Task", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
-        with st_zoom(_GRAPH_ZOOM), st_grid(cols=_COLS, gap="1vh 0",
+        with st_zoom(_GRAPH_ZOOM), st_grid(cols=_COLS, gap="0 0",
                                            cell_styles=s.project.containers.grid_cell_centered) as g:
             _row(_MAIN_ROW, _MAIN, g)
-            _labels(_MAIN_ROW, g)
+            _labels(_MAIN_ROW, g, _BRANCH_ARROWS)
             _row(_TASK_ROW, _TASK, g)
             _labels(_TASK_ROW, g)
         st_space("v", "3vh")
@@ -133,7 +139,8 @@ def build():
                                          cell_styles=s.project.containers.grid_cell_centered) as g:
             for tone, word, text in _DEFS:
                 with g.cell(), st_block(tone.card + bs.def_card):
-                    st_write(tone.title, word, tag=t.div)
+                    with st_zoom(_DEF_TITLE_ZOOM):
+                        st_write(tone.title, word, tag=t.div)
                     st_write(bs.def_text, text, tag=t.div)
         st_space("v", "3vh")
         with st_zoom(_CAPTION_ZOOM):
