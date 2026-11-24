@@ -27,7 +27,8 @@ _KIT = (
 _NOTES = [
     ("Trainer action",
      "Learners do it — on their machine. Step 4 of the installation: everyone pastes the clone + "
-     "setup-learner.sh command; it must end with no red line (mid-point 13:50: step 4 or beyond)."),
+     "setup-learner.sh command; it must end with « Done. » (mid-point 13:50: step 4 or beyond). Then straight to "
+     "step 5, not to the script's next steps."),
     ("The message",
      "One command installs the course kit in ~/ai4se: it clones the ai4se-kit repository and runs "
      "setup-learner.sh."),
@@ -40,7 +41,9 @@ _NOTES = [
      "The kit can live elsewhere: its folder then replaces ~/ai4se in every command. Never in a synchronised "
      "folder (Dropbox, iCloud, OneDrive)."),
     ("The check",
-     "The script ends with « Done. Next steps: ». Then open a second terminal: it becomes your tutor window."),
+     "The script ends with « Done. Next steps: ». Those next steps (check-learner.sh, the tutor window) are steps "
+     "7 and 8: go on with step 5. Run now, check-learner.sh shows GSE-One, git identity and gh in red — normal "
+     "until steps 5 and 6."),
 ]
 
 
@@ -78,6 +81,6 @@ def build():
         with st_zoom(90):
             with st_block(bs.done_box):
                 st_write(
-                    bs.body, (bs.done_label, "Done when: "), "it ends with ", (bs.cmd, "Done. Next steps:"),
-                    " — then open a second terminal, your tutor window.",
+                    bs.body, (bs.done_label, "Done when: "), "it ends with ", (bs.cmd, "Done."),
+                    " — its next steps come later (steps 7 and 8): go on with step 5.",
                 )
