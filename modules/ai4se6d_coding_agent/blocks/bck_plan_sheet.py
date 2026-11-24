@@ -39,6 +39,16 @@ _NOTES = [
      "copied and adapted, then a raised hand."),
     ("Ask the room",
      "At the mid-point: « Hands up if your stories have testable acceptance criteria. »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git log --oneline",
+     "Shows the history of the current branch, newest commit first. --oneline = one line per commit: a short id (7"
+     " characters, e.g. a1b2c3d) then the first line of the message. Long output opens in a viewer: q to quit."),
+    ("Command — cp docs/plan-example.md docs/plan.md",
+     "cp = copy. First argument = the file to copy (the example shipped in the starter), second = the new file. "
+     "Trap: if docs/plan.md already exists it is overwritten without warning."),
+    ("Command — git add, then git diff --staged",
+     "A new file is « untracked »: git diff ignores it. git add docs/plan.md stages it, then git diff --staged "
+     "shows its content as it will be committed."),
 ]
 
 

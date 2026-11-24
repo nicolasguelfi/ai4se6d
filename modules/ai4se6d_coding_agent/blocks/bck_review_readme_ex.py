@@ -37,6 +37,14 @@ _NOTES = [
      "trade-offs. Then commit on fix/review as « docs: README »."),
     ("Ask the room",
      "« Did any command in your generated README fail? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Prompt — README",
+     "« Write README.md for CalcApp » = the file at the root of the project, shown by GitHub on the project's "
+     "page. The list (what and for whom, tech stack, install and run, scripts, structure, features) = the 80 % "
+     "WHAT. « Use only the code and @docs/plan.md as sources. Invent nothing » = no made-up feature or command. "
+     "Build agent: it writes the file."),
+    ("Command — commit docs: README on fix/review",
+     "git status (check « On branch fix/review »), then git add README.md && git commit -m \"docs: README\"."),
 ]
 
 _README = """\

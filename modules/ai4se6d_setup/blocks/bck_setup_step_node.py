@@ -47,6 +47,31 @@ _NOTES = [
      "« node missing, or older than v20 »: redo this step (see Common Errors)."),
     ("The check",
      "node shows v20 or more, and npm prints a version."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — sudo apt-get install -y libatomic1",
+     "sudo = run the command as administrator: it asks YOUR password (nothing shows while you type: normal). apt-get "
+     "is Ubuntu's software installer (WSL runs Ubuntu too); install = add a package; -y = answer « yes » to the "
+     "confirmation question. libatomic1 is a small system library that recent Node.js versions need; minimal Ubuntu "
+     "images lack it. Already installed? apt-get says so and changes nothing."),
+    ("Command — curl -o- (address of install.sh) | bash",
+     "curl downloads nvm's official install script (version v0.41.0, from the nvm GitHub project); -o- = write the "
+     "download to the screen output (- means « standard output ») instead of a file, so that | hands it to bash, "
+     "which runs it. The script copies nvm into ~/.nvm and adds two loading lines to ~/.bashrc (or ~/.zshrc). nvm "
+     "= Node Version Manager: installs Node in your home folder, no sudo needed."),
+    ("Command — . \"$HOME/.nvm/nvm.sh\"",
+     "The lone dot means « read this file and run it inside THIS terminal » (also written source). It loads the nvm "
+     "command now, so no new terminal is needed. $HOME = your home folder (same as ~); the quotes keep the path in one "
+     "piece even if it contains a space. The comment after # is ignored."),
+    ("Command — nvm install --lts",
+     "Downloads and installs the current Node.js LTS (Long-Term Support: the stable version, v20 or newer) with its "
+     "npm, and switches to it. --lts = « the latest LTS » instead of a number. The first version nvm installs becomes "
+     "the default in every new terminal."),
+    ("Command — brew install node",
+     "macOS: Homebrew installs the current Node.js and npm in one go. No Homebrew? Use nvm (the box above works on "
+     "macOS too, without the sudo apt-get line)."),
+    ("Command — node --version && npm --version",
+     "Each prints its version: node must show v20 or more (e.g. v22.11.0), npm any number. && runs the second command "
+     "only if the first succeeded: « node: command not found » stops there (then exec $SHELL, or redo the step)."),
 ]
 
 

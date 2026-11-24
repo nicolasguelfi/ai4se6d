@@ -38,6 +38,23 @@ _NOTES = [
      "automates the loop, it does not replace your decisions."),
     ("Ask the room",
      "« Which of today's steps do you most want automated, and which would you never hand over? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Symbol — /gse-… commands",
+     "Typed in opencode's input box, not in the terminal: a message starting with / runs a command; the GSE-One "
+     "plugin adds the /gse-… ones (typing / shows the list). Each accepts --help for its options."),
+    ("Command — /gse-plan (GSE-One, day 3)",
+     "Selects backlog items for the sprint and writes the sprint plan in .gse/plan.yaml (not docs/plan.md). "
+     "--strategic = sprint level, --tactical = reorder or adjust within the current plan."),
+    ("Command — /gse-produce (GSE-One, day 3)",
+     "Runs the next pending task: its own branch (by default its own working folder too), acceptance test "
+     "written, seen failing, committed, then the code. --task TASK-ID = a given task; --dry-run = show only."),
+    ("Command — /gse-review (GSE-One, day 3)",
+     "Numbered findings RVW-… ranked HIGH / MEDIUM / LOW on the sprint's branches, plus a devil's advocate pass."),
+    ("Command — /gse-fix (GSE-One, day 3)",
+     "Fixes the kept findings on a separate branch; --finding RVW-001 = one finding."),
+    ("Command — /gse-deliver (GSE-One, day 3)",
+     "Merges the finished branches, tags the version, cleans up; stops on an open HIGH finding for your decision."
+     " --dry-run = show the plan only."),
 ]
 
 _ROWS = [

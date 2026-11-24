@@ -37,6 +37,13 @@ _NOTES = [
      "@file mentions to choose what enters the window, then what NOT to put in it."),
     ("Ask the room",
      "« In your last long AI session, when did the answers start to drift? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — /compact",
+     "Typed in opencode: the agent replaces the conversation so far by a summary, which frees room in the context "
+     "window. Details may be lost in the summary. Shortcut: Ctrl+X then C."),
+    ("Command — /new",
+     "Typed in the opencode prompt box: starts a new, empty session (conversation). AGENTS.md is read again, the "
+     "previous chat is forgotten, your files are unchanged. Shortcut: Ctrl+X then N."),
 ]
 
 

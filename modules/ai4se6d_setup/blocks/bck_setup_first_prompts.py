@@ -35,6 +35,21 @@ _NOTES = [
      "Day 2 starts from a plan instead of a one-line prompt: the same intent, written down before the agent works."),
     ("Ask the room",
      "« What would you add to this sentence to get the app YOU want? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Prompt — Create a Recipe Finder web app: type ingredients, see recipes.",
+     "« Create a … web app » = the agent writes files for an app that runs in the browser, with technologies it "
+     "chooses. Before the colon: the product; after it: the one behaviour wanted (enter ingredients, get matching "
+     "recipes). Nothing says where the recipes come from: the agent will invent a small list or propose a service."),
+    ("Prompt — Build a Habit Tracker web app: daily check-off and streaks.",
+     "« daily check-off » = tick each habit done today; « streaks » = count of days in a row. Nothing says where the "
+     "data is kept: the agent usually picks the browser's local storage (lost if you clear the browser)."),
+    ("Prompt — Create a Movie Watchlist web app: save movies, rate them 1-5.",
+     "Two behaviours: keep a list of movies and give each a rating from 1 to 5. Nothing about posters or a movie "
+     "database: the agent decides (often you type titles by hand)."),
+    ("Where to paste",
+     "In the opencode window started in ~/ai4se/freeselfapp (next slide), not in the shell and not in the tutor "
+     "window. Enter sends it; the agent then reads the folder, writes files and may ask permission to run "
+     "commands (e.g. npm install): read each request before accepting."),
 ]
 
 

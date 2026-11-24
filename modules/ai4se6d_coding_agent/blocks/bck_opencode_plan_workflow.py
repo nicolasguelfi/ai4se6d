@@ -30,6 +30,15 @@ _NOTES = [
      "the plan stage."),
     ("Ask the room",
      "« What would you push back on in a plan that has no test step? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Key — Shift+Tab",
+     "In opencode, hold Shift and press Tab: it switches to the next primary agent (plan → build → plan). The "
+     "active agent's name is shown near the prompt box. « Shift+Tab → plan » = press it until plan is shown."),
+    ("Prompt — « implement step 1 only »",
+     "Sent to the build agent after you approved the plan: it limits the work to the first step, so the diff stays"
+     " small enough to review."),
+    ("Command — git diff, tests, commit",
+     "git diff to read the changes, npm run test:run to check, then git add (files) and git commit -m \"feat: …\"."),
 ]
 
 

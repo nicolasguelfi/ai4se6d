@@ -28,6 +28,10 @@ _NOTES = [
      "MCP adds tools; Context7 adds live docs — enable few."),
     ("Ask the room",
      "« Which of the five will you apply first in the planning workshop? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Reminder — @, /new, Shift+Tab",
+     "@ attaches a file to your message; /new starts an empty session (AGENTS.md read again); Shift+Tab switches "
+     "between the plan and build agents."),
 ]
 
 

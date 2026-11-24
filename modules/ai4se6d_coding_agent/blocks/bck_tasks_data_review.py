@@ -32,6 +32,19 @@ _NOTES = [
      "refresh."),
     ("Ask the room",
      "« Who found something with this checklist that the tests did not catch? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Words — any",
+     "In TypeScript, any means « any type »: it switches type checking off. Search for it: grep -rn \"any\" src/ "
+     "(-r = in all sub-folders, -n = with line numbers)."),
+    ("Words — value + onChange",
+     "A « controlled » input: value = what the input shows comes from React state, onChange = the function that "
+     "updates that state at each keystroke. Without them React does not know the form's content."),
+    ("Words — useNavigate",
+     "react-router function that returns navigate; navigate(\"/\") goes to the Dashboard from code, e.g. after "
+     "saving."),
+    ("Check — the refresh",
+     "In the browser (npm run dev): add an expense, press F5 (Cmd+R on Mac) to reload the page. Still there = "
+     "really stored in localStorage; gone = kept only in React state, which is erased by a reload."),
 ]
 
 

@@ -23,6 +23,14 @@ _NOTES = [
      "They act before the agent does: a commit straight on main is blocked, a force push is intercepted."),
     ("When",
      "Installed this afternoon, used from day 3. This slide is the concept only: no demo yet."),
+    # Command recap: every command shown on the slide, in plain words (NG, 2026-11-24)
+    ("Text — AGENTS.md",
+     "Not a command: the project-rules file at the root of the project, read by opencode at the start of every "
+     "session. GSE-One writes its rules there; /init (an opencode command) drafts a first version."),
+    ("Prompt — /gse- (prefix)",
+     "Not a full command: the start shared by all GSE-One commands, typed in opencode's chat (e.g. /gse-status, "
+     "« where are we? »). The slash marks a command rather than a request in plain words; typing /gse- shows the "
+     "list of GSE-One commands to choose from. They exist only once GSE-One is installed."),
 ]
 
 

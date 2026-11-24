@@ -38,6 +38,24 @@ _NOTES = [
      "The severity scale is the one of the next slide, and the one you use in the review exercise at 15:15."),
     ("Ask the room",
      "« What context does the agent need that is not in the file itself? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Key — Shift+Tab (in opencode)",
+     "Switches the primary agent: build (edits files, runs commands) ↔ plan (explores and proposes; by default it"
+     " asks before any file edit or shell command, so it does not change your project). Tab does the same in the "
+     "other direction; with two agents both just toggle. The current agent's name is shown under the input box."),
+    ("Symbol — @docs/plan.md (in opencode)",
+     "@ followed by a path adds that file to the agent's context: the agent reads its content with your message. "
+     "Typing @ opens a fuzzy file search; Enter or Tab picks the file. The path is relative to the project folder"
+     " (docs/plan.md = file plan.md in folder docs)."),
+    ("Prompt — effective 1 (AddExpense)",
+     "@src/pages/AddExpense.tsx = the one file to review. « Review edge cases and error handling » = the one "
+     "concern. « The input comes from a user form: empty, negative, huge amounts? » = the context and the cases "
+     "to try, which the agent cannot guess."),
+    ("Prompt — effective 2 (storage)",
+     "@src/utils/storage.ts = the file. « corrupt JSON » = the stored text is not valid JSON (the data format "
+     "localStorage holds), so JSON.parse throws an error. « full » = localStorage is limited (about 5 MB per "
+     "site), setItem then throws. « Classify each finding HIGH / MEDIUM / LOW » = the triage scale of the next "
+     "slide."),
 ]
 
 _GOOD1 = """\

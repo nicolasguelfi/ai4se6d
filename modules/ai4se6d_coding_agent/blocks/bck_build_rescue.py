@@ -33,6 +33,30 @@ _NOTES = [
      "Running opencode in the old folder afterwards: from now on, everything happens in calcapp-restart."),
     ("Link to the rest of the day",
      "Same mechanism after lunch with the tag j2-part1: a recovery tag is a safety net, not a failure."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git clone (address) ~/ai4se/calcapp-restart",
+     "Copies the CalcApp starter from GitHub onto the machine, with its whole history and its tags. First "
+     "argument: the project's address; second: the folder to create (it must not exist yet — if it does, pick "
+     "another name such as calcapp-restart2, and use that name in the next line). ~ = your home folder."),
+    ("Command — cd ~/ai4se/calcapp-restart",
+     "cd = change directory: the terminal now works inside the new folder, so the next commands act on it."),
+    ("Symbol — &&",
+     "Runs the next command only if the previous one succeeded: if cd fails, nothing else runs."),
+    ("Command — git checkout -b mywork j2-start",
+     "A tag is a fixed label on one commit — here a checkpoint of the course: j2-start (start of day 2), j2-part1"
+     " (end of Part 1), j2-v0.1 (v0.1 reference). -b = create a new branch, mywork = its name, j2-start = the "
+     "commit it starts from; git then switches to it. Newer equivalent: git switch -c mywork j2-start."),
+    ("Command — npm ci",
+     "Installs the project's libraries (into node_modules/) exactly at the versions of package-lock.json. ci = « "
+     "clean install »: it deletes any old node_modules first. Needed once per fresh clone, before npm run "
+     "test:run or npm run dev."),
+    ("Command — copy back plan and rules",
+     "From inside calcapp-restart: cp ~/ai4se/calcapp/docs/plan.md docs/ then cp ~/ai4se/calcapp/AGENTS.md . — cp"
+     " (source) (destination) copies a file; . = the current folder; an existing file of the same name is "
+     "replaced without warning. Then git add docs/plan.md AGENTS.md && git commit -m \"docs: my plan and rules\"."),
+    ("Command — opencode (in the new folder)",
+     "Quit the old opencode (Ctrl+C or /exit), then cd ~/ai4se/calcapp-restart and type opencode: the agent works"
+     " in the folder where it is started."),
 ]
 
 

@@ -52,6 +52,14 @@ _NOTES = [
      "Next slide: MCP, the extension column shared by all five."),
     ("Ask the room",
      "« Which line of this table matters most to your company? » (often: models, or open source)"),
+    # Command recap: every command and key of the slide, in plain words (NG, 2026-11-24)
+    ("Key — Shift+Tab (opencode column)",
+     "In opencode, press Shift and Tab together to switch to the next agent: build → plan, press again for plan → "
+     "build. The active agent's name shows at the bottom of the window. plan explores and proposes without editing "
+     "your project files; build edits and runs commands."),
+    ("Text — AGENTS.md / CLAUDE.md",
+     "Not commands: the names of the project-rules file each agent reads at the start of a session, a plain text "
+     "file at the root of the project. opencode also falls back to CLAUDE.md when there is no AGENTS.md."),
 ]
 
 

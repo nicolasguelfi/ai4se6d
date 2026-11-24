@@ -34,6 +34,14 @@ _NOTES = [
      "Relying on the agent's own undo: opencode's /undo relies on Git — no repository, no undo."),
     ("Ask the room",
      "« After the agent worked yesterday, how did you know what it had changed? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git diff",
+     "Shows, line by line, what changed in your files since the last commit and that is not staged yet: lines "
+     "starting with - (red) were removed, lines with + (green) were added. Nothing is modified. Long output opens "
+     "in a viewer: arrows to scroll, q to quit. Trap: a brand-new file (« untracked ») does not appear."),
+    ("Command — /undo (opencode)",
+     "Typed in the opencode prompt box: cancels your last message and the file changes the agent made after it "
+     "(shortcut Ctrl+X then U). opencode uses Git to track those file changes, hence « no repo, no undo »."),
 ]
 
 

@@ -27,6 +27,9 @@ _NOTES = [
      "engineer."),
     ("Ask the room",
      "« Which item of this list would be missing if you had just vibe-coded the app? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Tag — v0.1",
+     "The label put with git tag v0.1 on the release commit; git tag lists it. Day 3 starts from it."),
 ]
 
 _ITEMS = [

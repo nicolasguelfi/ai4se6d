@@ -44,6 +44,24 @@ _NOTES = [
      "The script ends with « Done. Next steps: ». Those next steps (check-learner.sh, the tutor window) are steps "
      "7 and 8: go on with step 5. Run now, check-learner.sh shows GSE-One, git identity and gh in red — normal "
      "until steps 5 and 6."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git clone https://github.com/nicolasguelfi/ai4se-kit ~/ai4se/ai4se-kit",
+     "git clone copies a project (a « repository ») from GitHub onto your machine, with its history. First argument: "
+     "its address. Second argument: the folder to create, ~/ai4se/ai4se-kit (missing parent folders are created); it "
+     "must not exist yet: « already exists » = the kit is already there, run only the sh part."),
+    ("Symbol — ~",
+     "~ is your home folder: /home/(your name) on Ubuntu and WSL, /Users/(your name) on macOS. ~/ai4se = a folder "
+     "ai4se inside it."),
+    ("Symbol — \\ at the end of a line",
+     "The backslash, last character of the line, means « the command goes on at the next line »: the two lines are "
+     "ONE command, split only to fit the slide. Copy both lines together (copy button of the box)."),
+    ("Symbol — &&",
+     "Runs the next command only if the previous one succeeded: if the clone fails, setup-learner.sh does not run."),
+    ("Command — sh ~/ai4se/ai4se-kit/setup-learner.sh",
+     "sh runs a shell script, i.e. a text file of commands. setup-learner.sh: clones GSE-One v0.93.4 into "
+     "~/ai4se/gensem (read by the tutor), writes the tutor's folder list (~/.config/ai4se/tutor-paths), adds the "
+     "course default model and safety settings to opencode's settings without overwriting yours. It never reads or "
+     "writes keys. Safe to run again: it only completes what is missing."),
 ]
 
 

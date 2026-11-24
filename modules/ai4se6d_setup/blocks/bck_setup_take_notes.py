@@ -32,6 +32,11 @@ _NOTES = [
      "At 16:30 the notes feed the questions on any project (surprise, what broke, would you give it to a client)."),
     ("Ask the room",
      "« How many prompts do you think you will need? Write your guess now, compare at 16:30. »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("File — notes.md",
+     "A plain text file in your project folder (~/ai4se/freeselfapp). .md = Markdown: plain text where # starts a "
+     "heading and - starts a list item. Create it in any editor (or: touch notes.md in the folder, which creates an "
+     "empty file). It sits next to the app: commit it with the rest (git add -A)."),
 ]
 
 _ITEMS = [

@@ -35,6 +35,24 @@ _NOTES = [
      "Commits that mix test and code, a branch that was never merged, a review checklist skipped."),
     ("Link",
      "The next slide says when Part 2 is done, the mid-point at 13:55, and what to do if stuck."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git switch -c feat/routing",
+     "Creates a new branch named feat/routing and moves onto it. A branch is a named line of commits: work on it "
+     "does not touch the other branches. -c = create; the branch starts from the commit you are on, so be on "
+     "mywork first. The prefix before the slash is only a naming habit (feat/ = feature, fix/ = correction). « "
+     "already exists »? Use git switch feat/routing (without -c)."),
+    ("Symbol — test: / feat: / fix: / docs: (commit messages)",
+     "Not commands: the first word of a commit message (the « Conventional Commits » habit). test: = only tests, "
+     "feat: = a new feature, fix: = a bug fix, docs: = documentation. The … on the slide is your own short "
+     "description. A commit is a saved snapshot of the project, with that message."),
+    ("Command — git add -A && git commit -m \"test: …\"",
+     "How to make the commit. git add -A puts every change (new, modified, deleted files) in the staging area, "
+     "the list of what goes into the next commit; -A = all. git commit -m \"…\" saves that snapshot; -m = the "
+     "message, in quotes. && = run the second command only if the first succeeded. You can also ask the agent to "
+     "commit, then check with git log --oneline."),
+    ("Command — merge into mywork, next task",
+     "git switch mywork then git merge feat/routing; then git switch -c feat/data for the next task (each new "
+     "branch starts from mywork, which now contains the previous task)."),
 ]
 
 

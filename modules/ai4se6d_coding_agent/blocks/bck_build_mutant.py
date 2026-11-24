@@ -39,6 +39,15 @@ _NOTES = [
      "confidence."),
     ("Ask the room",
      "« Which line of your own code would you break to test your test? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Code — amount.toFixed(2) → amount.toFixed(0)",
+     "toFixed(n) is a JavaScript function that turns a number into text with n decimals, rounding: "
+     "(25.5).toFixed(2) = « 25.50 », (25.5).toFixed(0) = « 26 ». The → only means « change this into that » — it "
+     "is the sabotage you type in the component, not a command. Undo it after: Ctrl+Z in the editor, or git "
+     "restore (file) to drop every uncommitted change in that file."),
+    ("Command — npm run test:run",
+     "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
+     "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
 ]
 
 

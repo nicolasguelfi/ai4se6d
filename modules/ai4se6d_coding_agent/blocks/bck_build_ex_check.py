@@ -33,6 +33,21 @@ _NOTES = [
      "j2-start, raised hand."),
     ("Ahead",
      "Task 2 of the plan, same loop."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — npm run test:run",
+     "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
+     "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
+    ("Command — git log --oneline",
+     "Lists the commits of the branch you are on. --oneline = one line per commit: short id (7 characters, e.g. "
+     "a1b2c3d) then the message. Newest at the TOP: « test: before feat: » in time means the feat: line is ABOVE "
+     "the test: line. Long list? Space scrolls, q quits."),
+    ("Symbol — test: / feat:",
+     "The first word of the commit messages: test: = the commit with the test only, feat: = the commit with the "
+     "code. Seeing both, in that order, proves the test came first."),
+    ("Tag — j2-start",
+     "A tag is a fixed label on one commit — here a checkpoint of the course: j2-start (start of day 2), j2-part1"
+     " (end of Part 1), j2-v0.1 (v0.1 reference). Restarting from it uses the rescue commands two slides further "
+     "(clone into a new folder, git checkout -b mywork j2-start, npm ci)."),
 ]
 
 

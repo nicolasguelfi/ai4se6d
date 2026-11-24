@@ -38,6 +38,20 @@ _NOTES = [
     ("Then, if time allows",
      "~5 min: the course editor. Install VSCodium and turn its AI off — ide-guide § 2. In the course VM it is VS "
      "Code, already installed: nothing to do. Not done today? Do it tomorrow morning before the first exercise."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — ~/ai4se/ai4se-kit/tutor",
+     "Runs the kit's tutor script: a full path, so it works from any folder. It writes the tutor's own opencode "
+     "settings (allowed folders, secret files refused), then starts opencode inside the kit folder with them, in a "
+     "private session (opencode's --standalone option) so it does not mix with your work session. « opencode not "
+     "found » = step 1 not finished (or exec $SHELL). « Permission denied »? sh ~/ai4se/ai4se-kit/tutor works too."),
+    ("Prompt — what are we doing this afternoon?",
+     "Typed in the tutor window, not in the shell. It asks the tutor to read the course material it was given and "
+     "summarise the afternoon plan: installation, the FreeSelfApp workshop, presentations, questions. A good answer "
+     "names a syllabus sheet as its source."),
+    ("Other tutor commands",
+     "~/ai4se/ai4se-kit/tutor update = get the latest course kit (start of each half-day); tutor version = show the "
+     "kit, GSE-One and opencode versions; tutor paths = list the folders it may read; tutor add / tutor remove "
+     "(folder) = change that list. To leave the tutor: Ctrl+C or type /exit."),
 ]
 
 

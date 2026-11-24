@@ -27,6 +27,10 @@ _NOTES = [
      "Done = tests green + diff reviewed. The same rule returns in the build and review sessions this afternoon."),
     ("Ask the room",
      "« What would make you press Esc while the agent is working? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Key — Esc",
+     "In opencode, Esc interrupts the agent while it works. Changes it already made stay in your files: check them"
+     " with git diff (and git restore if needed)."),
 ]
 
 

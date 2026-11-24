@@ -47,6 +47,20 @@ _NOTES = [
      "The test can then mount the same routes in a memory router, while the app keeps createBrowserRouter."),
     ("Link",
      "The next slide is the review checklist for exactly these constraints."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Prompt — routing, RED",
+     "Asks for a test only, in tests/App.test.tsx. « render `routes` from src/App.tsx with createMemoryRouter + "
+     "RouterProvider » = mount the app's page list in a router kept in memory (no real browser address bar). It "
+     "expects two links (Dashboard, Add Expense); a second test starts directly at /add (initialEntries = the "
+     "starting address) and expects the « Add Expense » heading."),
+    ("Prompt — routing, GREEN",
+     "« react-router (NOT react-router-dom) » = the package to import from. « export `routes` » = make the page "
+     "list importable by the test. Layout = the shared frame with the nav Links and an Outlet (the place where "
+     "the current page is drawn). « / » shows Dashboard, « /add » shows AddExpense. createBrowserRouter = the "
+     "real router of the running app. « One file per page in src/pages/ »; « Do not modify the test »."),
+    ("Words — /, /add, routes",
+     "/ and /add are paths in the address bar: http://localhost:5173/ and http://localhost:5173/add. routes = the"
+     " list that tells which page to show for which path."),
 ]
 
 

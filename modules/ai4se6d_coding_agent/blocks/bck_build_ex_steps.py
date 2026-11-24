@@ -36,6 +36,35 @@ _NOTES = [
      "test came first."),
     ("Link to what follows",
      "The next slide says when you are done, what to do at the mid-point and if stuck."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git switch -c feat/task-1",
+     "Creates a new branch named feat/task-1 and moves onto it. A branch is a named line of commits: work on it "
+     "does not touch the other branches. -c = create; the branch starts from the commit you are on, so be on "
+     "mywork first. The prefix before the slash is only a naming habit (feat/ = feature, fix/ = correction). « "
+     "already exists »? Use git switch feat/task-1 (without -c)."),
+    ("Symbol — test: / feat: / fix: / docs: (commit messages)",
+     "Not commands: the first word of a commit message (the « Conventional Commits » habit). test: = only tests, "
+     "feat: = a new feature, fix: = a bug fix, docs: = documentation. The … on the slide is your own short "
+     "description. A commit is a saved snapshot of the project, with that message."),
+    ("Command — git add -A && git commit -m \"test: …\"",
+     "How to make the commit. git add -A puts every change (new, modified, deleted files) in the staging area, "
+     "the list of what goes into the next commit; -A = all. git commit -m \"…\" saves that snapshot; -m = the "
+     "message, in quotes. && = run the second command only if the first succeeded. You can also ask the agent to "
+     "commit, then check with git log --oneline."),
+    ("Command — npm run test:run",
+     "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
+     "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
+    ("Command — git switch mywork",
+     "Moves you onto the existing branch mywork (your main line since this morning): the files in the folder "
+     "become mywork's version. Git refuses if uncommitted changes would be lost: commit first (git status shows "
+     "them)."),
+    ("Command — git merge feat/task-1",
+     "Brings the commits of branch feat/task-1 into the branch you are on (mywork). If mywork has not moved "
+     "meanwhile, git just moves it forward (« Fast-forward »). Otherwise it creates a merge commit and may open a"
+     " text editor for its message: save and close it (nano: Ctrl+O, Enter, Ctrl+X; vim: Esc then :wq). « "
+     "CONFLICT » = both branches changed the same lines: raise your hand."),
+    ("Symbol — →",
+     "Only means « then » on the slide: type the two commands one after the other, not the arrow."),
 ]
 
 

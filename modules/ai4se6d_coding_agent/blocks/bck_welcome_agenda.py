@@ -54,6 +54,12 @@ _NOTES = [
     ("If someone falls behind",
      "Recovery tags of the CalcApp starter let anyone restart at the start of the day, after the morning build or at "
      "v0.1 (next slides)."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — ~/ai4se/ai4se-kit/tutor update",
+     "Runs the course kit's tutor script with « update »: it downloads the latest version of the kit (course "
+     "notes, sheets) with git pull, then checks GSE-One. ~ = your home folder (/home/student in the course VM); "
+     "~/ai4se/ai4se-kit/ = the folder of the course kit; tutor = the script; update = what we ask it to do. Close "
+     "and reopen the tutor window afterwards."),
 ]
 
 

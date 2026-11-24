@@ -56,6 +56,38 @@ _NOTES = [
      "guide + cheat sheet)."),
     ("Ask the room",
      "« Who already has VS Code? What would you have to switch off in it to follow the same rule? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Symbol — # Windows / # Ubuntu / # macOS",
+     "A comment line: it only says which system the box is for. Type only the line under it, in that system's "
+     "terminal."),
+    ("Command — winget install VSCodium.VSCodium",
+     "winget = Windows' own package manager (a program that downloads and installs other programs), already "
+     "present on Windows 10 and 11. Type it in PowerShell or the Terminal app, not in WSL. install = the action; "
+     "VSCodium.VSCodium = the package's exact identifier (publisher.name), so winget cannot pick a look-alike. "
+     "Windows may ask to confirm (administrator prompt) and winget may ask to accept the source's terms: answer Y."),
+    ("Command — sudo snap install codium --classic",
+     "snap = Ubuntu's package manager for applications (the Snap Store), there by default. sudo = run the command "
+     "as administrator: it asks for YOUR password (nothing shows while you type, that is normal). install codium "
+     "= install the package named codium (VSCodium's name in the Snap Store). --classic = let the application see "
+     "your whole disk like an ordinary program, outside the snap sandbox; an editor needs it to open your project "
+     "folders, and snap refuses to install it without that flag."),
+    ("Command — brew install --cask vscodium",
+     "brew = Homebrew, the usual package manager on macOS; it must be installed first (brew.sh). install vscodium "
+     "= install the package vscodium. --cask = the package is a graphical application (it lands in Applications), "
+     "not a command-line tool. No sudo with brew."),
+    ("Setting — chat.disableAIFeatures: true",
+     "A setting, not a terminal command. Open Settings (Cmd+, on macOS, Ctrl+, elsewhere), type disable AI "
+     "features in the search box, tick the box. It hides and turns off the editor's chat, its inline suggestions "
+     "(completion) and the Copilot extension. chat.disableAIFeatures is its internal name; true = on. In the "
+     "settings.json file the same line reads \"chat.disableAIFeatures\": true. Set it at user level (all your "
+     "projects)."),
+    ("Command — codium . (course VM: code .)",
+     "Opens the editor on a folder. codium = the command that starts VSCodium from the terminal (code for VS "
+     "Code); . (dot) = the current folder, so run cd ~/ai4se/calcapp first. If the terminal answers « command not "
+     "found », open the folder from the editor's File → Open Folder instead."),
+    ("Text — ai4se-kit/syllabus/ide-guide.md",
+     "Not a command: the path of the mini guide in the course kit (file ide-guide.md, folder syllabus, inside "
+     "ai4se-kit — on disk ~/ai4se/ai4se-kit). On the slide it is a link to the same file on GitHub."),
 ]
 _GUIDE_URL = "https://github.com/nicolasguelfi/ai4se-kit/blob/main/syllabus/ide-guide.md"
 

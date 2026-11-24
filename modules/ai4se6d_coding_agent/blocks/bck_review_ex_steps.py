@@ -36,6 +36,27 @@ _NOTES = [
      "The fix/review branch is merged into mywork when you ship v0.1 at 16:15."),
     ("Ask the room",
      "« How many lines did you change today? Is one review pass enough for that? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git switch mywork",
+     "Moves you onto the existing branch mywork (your main line since this morning): the files in the folder "
+     "become mywork's version. Git refuses if uncommitted changes would be lost: commit first (git status shows "
+     "them)."),
+    ("Command — git diff j2-start --stat",
+     "Compares your files now with the tag j2-start (start of the day). --stat = a summary only: one line per "
+     "changed file with its count of changed lines, and a total. New files never added with git add are not "
+     "counted."),
+    ("Key — Shift+Tab (in opencode)",
+     "Switches the primary agent: build (edits files, runs commands) ↔ plan (explores and proposes; by default it"
+     " asks before any file edit or shell command, so it does not change your project). Tab does the same in the "
+     "other direction; with two agents both just toggle. The current agent's name is shown under the input box."),
+    ("File — docs/review.md",
+     "Create it in the editor (or ask the build agent after the review): one line per finding, RVW-n, severity, "
+     "file, decision (fix / defer / refuse + reason), as on the « You Are the Judge » slide."),
+    ("Command — git switch -c fix/review",
+     "Creates a new branch named fix/review and moves onto it. A branch is a named line of commits: work on it "
+     "does not touch the other branches. -c = create; the branch starts from the commit you are on, so be on "
+     "mywork first. The prefix before the slash is only a naming habit (feat/ = feature, fix/ = correction). « "
+     "already exists »? Use git switch fix/review (without -c)."),
 ]
 
 

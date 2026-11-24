@@ -45,6 +45,29 @@ _NOTES = [
      "named the test command."),
     ("If stuck",
      "Tutor window first, then raise your hand."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git switch mywork",
+     "Moves to the existing branch mywork (your main line today): your files now show that branch. No -c here "
+     "because the branch already exists. Git refuses if uncommitted changes would be overwritten: commit them "
+     "first."),
+    ("Command — opencode",
+     "Starts opencode in the current folder: run it inside the project folder (~/ai4se/calcapp), because that "
+     "folder is what the agent sees and edits. Quit with /exit or Ctrl+C."),
+    ("Command — /init (demo)",
+     "Typed in opencode: the agent studies the project and drafts AGENTS.md. Run it on a copy so it does not "
+     "overwrite the starter's file: cp -r ~/ai4se/calcapp ~/ai4se/calcapp-copy (-r = copy the whole folder), then "
+     "opencode in the copy."),
+    ("Prompt — « Which test command and folders must you use? »",
+     "Checks what the agent took from AGENTS.md: it should answer npm run test:run and tests/ mirroring src/."),
+    ("Command — /new",
+     "Typed in the opencode prompt box: starts a new, empty session (conversation). AGENTS.md is read again, the "
+     "previous chat is forgotten, your files are unchanged. Shortcut: Ctrl+X then N."),
+    ("Prompt — « Propose formatAmount. Code only, no file. »",
+     "Asks for a function that formats an amount, shown in the answer only: « Code only, no file » = do not create"
+     " or edit files. With the euro rule it should give €25.50 for 25.5."),
+    ("Command — git diff AGENTS.md",
+     "git diff limited to one file: only the changes in AGENTS.md. Then git add AGENTS.md && git commit -m \"docs: "
+     "euro rule\"."),
 ]
 
 

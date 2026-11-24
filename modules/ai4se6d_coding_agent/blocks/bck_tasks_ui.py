@@ -37,6 +37,12 @@ _NOTES = [
      "library."),
     ("The trap",
      "Polishing the look for half an hour: the time box protects the review section at 14:30."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Prompt — minimal UI",
+     "Plain CSS (no framework) in one file, src/App.css: a horizontal nav bar, the Dashboard list (description, "
+     "category, amount, date) with a total, labelled form fields with spacing, a centred layout with a max-width "
+     "(the content stops growing on wide screens). « No animations, no CSS library » forbids extras; « Keep all "
+     "tests green » = run npm run test:run after the change."),
 ]
 
 

@@ -43,6 +43,22 @@ _NOTES = [
      "Same mechanism as the AGENTS.md rules of the opencode part: the project's memory for the agent."),
     ("Action",
      "Missing? Add it, then commit: docs: testing rules."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("File — AGENTS.md (Markdown)",
+     "A text file at the root of the project that opencode adds to every session (/init drafts one). ## Testing "
+     "rules = a level-2 title; each line starting with - is a bullet; text between backticks (`npm run test:run`)"
+     " is shown as code. Edit it in any editor, then git add AGENTS.md && git commit -m \"docs: testing rules\"."),
+    ("Words — Vitest, React Testing Library, fireEvent, tests/",
+     "Vitest = the test runner of this Vite project (it finds and runs the *.test.tsx files). React Testing "
+     "Library = renders a component in a fake browser and finds elements as a user would (by text, label, role). "
+     "fireEvent = its function to simulate a click or a typing. tests/ = the folder where the test files go."),
+    ("Words — react-router vs react-router-dom; Jest",
+     "react-router is the routing library already in package.json (version 7); since v7 everything is imported "
+     "from « react-router », react-router-dom is an older name the agent often reaches for. Jest is another test "
+     "runner: installing it next to Vitest creates two competing setups."),
+    ("Words — « never watch mode »",
+     "npm test = vitest, which in a terminal stays in watch mode (waits and re-runs at every save; q quits). npm "
+     "run test:run = vitest run: one pass, then it stops — what you want from an agent and in a check."),
 ]
 
 

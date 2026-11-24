@@ -30,6 +30,14 @@ _NOTES = [
      "tomorrow morning."),
     ("Ask the room",
      "« Is anyone's setup not working right now? Tell us tonight, not tomorrow morning. »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — /gse-go (GSE-One, day 3)",
+     "The entry point, typed in opencode's input box inside the project folder: it reads the project's state "
+     "(.gse/ folder) and proposes the next activity. --adopt = take over an existing project not created with "
+     "GSE-One (the case of CalcApp); --status = show the state only."),
+    ("Tag — p3-start",
+     "Recovery tag of the starter for day 3 (p = part): same clone + git checkout -b mywork p3-start + npm ci as "
+     "today."),
 ]
 
 _ITEMS = [

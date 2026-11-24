@@ -32,6 +32,28 @@ _NOTES = [
      "A new file is untracked: git diff ignores it. git add first, then git diff --staged shows what you commit."),
     ("Link to what follows",
      "Task 1 of this plan is the exercise of the next part: test first, on its own branch."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git switch mywork",
+     "Moves to the existing branch mywork (your main line today): your files now show that branch. No -c here "
+     "because the branch already exists. Git refuses if uncommitted changes would be overwritten: commit them "
+     "first."),
+    ("Command — opencode",
+     "Starts opencode in the current folder: run it inside the project folder (~/ai4se/calcapp), because that "
+     "folder is what the agent sees and edits. Quit with /exit or Ctrl+C."),
+    ("Key — Shift+Tab",
+     "In opencode, hold Shift and press Tab: it switches to the next primary agent (plan → build → plan). The "
+     "active agent's name is shown near the prompt box. « Shift+Tab → plan » = press it until plan is shown."),
+    ("Prompt — « Split into 5-8 atomic tasks, tests first, with acceptance criteria. »",
+     "Sent to the plan agent: 5-8 small tasks, one thing each, each starting with its test, each with a checkable "
+     "« done » condition."),
+    ("Prompt — « Write docs/plan.md in the slide format. »",
+     "Sent to the build agent (plan does not edit project files): it creates the file with the T1/T2 headings, "
+     "[next]/[todo], Accept and Branch lines."),
+    ("Command — git add docs/plan.md, then git diff --staged",
+     "git add stages the new file; git diff --staged shows what will be committed (--staged = compare the staging "
+     "area with the last commit). Plain git diff shows nothing for a new file."),
+    ("Command — git commit -m \"docs: v0.1 plan\"",
+     "Saves the staged plan as a commit on mywork. -m = the message in quotes; « docs: » = a documentation change."),
 ]
 
 

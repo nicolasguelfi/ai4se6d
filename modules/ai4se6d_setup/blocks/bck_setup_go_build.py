@@ -40,6 +40,30 @@ _NOTES = [
      "No git lesson today: two commands are enough. « We learn it properly tomorrow » (day 2 starts with git)."),
     ("Ask the room",
      "« Who has already lost working code after one change too many? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — mkdir -p ~/ai4se/freeselfapp",
+     "mkdir = make directory (create a folder). -p = also create missing parent folders, no error if it already "
+     "exists. ~ = your home folder."),
+    ("Command — cd ~/ai4se/freeselfapp",
+     "cd = change directory: the terminal now works inside the new folder; the next commands act there."),
+    ("Command — git init",
+     "Turns the current folder into a git repository: creates a hidden .git folder that will hold all the save "
+     "points. It saves nothing yet. Prints « Initialized empty Git repository in … ». The first branch is « main » "
+     "(set in step 6)."),
+    ("Command — opencode",
+     "Without arguments, starts the agent's full-screen window in the current folder: it reads and writes this "
+     "folder. Paste the first prompt at the bottom, Enter to send. Shift+Tab switches between build (edits files, "
+     "runs commands) and plan (explores and proposes, does not edit project files). Leave with /exit or Ctrl+C."),
+    ("Command — git add -A",
+     "Prepares the next save point: puts every change of the folder (new, modified and deleted files) into the "
+     "« staging area » (the list of what the next commit will contain). -A = all. Run it in a 2nd terminal, in "
+     "~/ai4se/freeselfapp (cd there first)."),
+    ("Symbol — &&",
+     "Runs git commit only if git add succeeded."),
+    ("Command — git commit -m \"it works\"",
+     "Records a commit: a save point of the staged files, with your name, the date and a message. -m = the message "
+     "follows, in quotes; write what works, e.g. \"v1: list and add\". « nothing to commit » = no change since the "
+     "last commit. « Please tell me who you are » = step 6 not done."),
 ]
 
 

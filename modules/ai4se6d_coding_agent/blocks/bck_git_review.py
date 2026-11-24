@@ -37,6 +37,27 @@ _NOTES = [
      "The code review session (14:30) builds on the same reflex, with the AI helping to read the diff."),
     ("Ask the room",
      "« What would you do if git status shows a file you did not expect? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git status",
+     "Lists the files that changed: « Changes to be committed » (staged, green), « Changes not staged » (modified,"
+     " red) and « Untracked files » (new files Git does not follow yet). It changes nothing: run it as often as "
+     "you like. « nothing to commit, working tree clean » = everything is committed."),
+    ("Command — git diff",
+     "Shows, line by line, what changed in your files since the last commit and that is not staged yet: lines "
+     "starting with - (red) were removed, lines with + (green) were added. Nothing is modified. Long output opens "
+     "in a viewer: arrows to scroll, q to quit. Trap: a brand-new file (« untracked ») does not appear."),
+    ("Command — git add src/App.tsx",
+     "Puts the current content of that file into the staging area: it will be part of the next commit. Argument = "
+     "the file to stage (path from the project folder); you can list several files. Edit the file again after git "
+     "add? Run git add again, or the new edit is not included."),
+    ("Command — git diff --staged",
+     "Same as git diff, but shows what is already staged, i.e. exactly what git commit will save. --staged (same "
+     "as --cached) = compare the staging area with the last commit. Only way to see a new file before committing "
+     "it."),
+    ("Command — git commit",
+     "Saves the staged changes as a commit. Without -m, Git opens a text editor (often nano or vim) for the "
+     "message: write it, save, close. In vim: press i to type, then Esc, :wq and Enter. Quicker: git commit -m "
+     "\"fix(list): round the total\"."),
 ]
 
 

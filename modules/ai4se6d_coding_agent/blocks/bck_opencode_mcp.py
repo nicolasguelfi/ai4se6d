@@ -29,6 +29,14 @@ _NOTES = [
      "Context7, one MCP server that brings live library docs into the context."),
     ("Ask the room",
      "« Which tool would you plug in first for your own project? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — opencode mcp add",
+     "Typed in the terminal (not in opencode): registers an MCP server, e.g. opencode mcp add context7 --url "
+     "https://mcp.context7.com/mcp (name, then its address). Saved in the project's opencode.json; --global for "
+     "every project. opencode mcp list shows the servers and whether they are ready."),
+    ("Key — mcp.servers",
+     "Dot notation: the key servers inside the key mcp of opencode.json. Each server sits under its own name "
+     "there."),
 ]
 
 

@@ -27,6 +27,10 @@ _NOTES = [
      "/new per task."),
     ("Ask the room",
      "« What would you keep in files rather than in the conversation for your own project? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Commands — /gse-plan, /gse-tests",
+     "GSE-One commands, typed in the agent's prompt box like /new; each starts one activity (planning, tests…) and"
+     " loads only what it needs. Used from day 3 — nothing to type today."),
 ]
 
 

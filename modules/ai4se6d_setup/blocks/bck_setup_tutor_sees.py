@@ -34,6 +34,18 @@ _NOTES = [
      "It never changes your files: to change code, you work in your own opencode session."),
     ("Ask the room",
      "« It cites its sources: what do you do when the source does not say what the tutor says? » — it can be wrong."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — ~/ai4se/ai4se-kit/tutor add ~/work/repo",
+     "add = let the tutor also read this folder; ~/work/repo is an example: give the path of YOUR project folder. "
+     "The folder must exist; the whole home folder, the disk or system / private folders (~/.ssh, ~/.config…) are "
+     "refused. It is written as one line in ~/.config/ai4se/tutor-paths. Close and reopen the tutor window to use "
+     "it. Not a git repository: added anyway, with a warning. Undo: tutor remove (same folder)."),
+    ("File — ~/.config/ai4se/tutor-paths",
+     "A plain text file: one folder per line, a line starting with # is a comment. Default content: ~/ai4se. "
+     "tutor paths prints it. .config is hidden (its name starts with a dot)."),
+    ("Name — .env and ~/.ssh",
+     ".env = a file where projects keep secrets such as API keys and passwords. ~/.ssh = the folder of your SSH "
+     "keys (the keys that open servers and GitHub). The tutor's settings refuse them on purpose, wherever they are."),
 ]
 
 # (label, label style, text parts) — one row each, alternating fills (NG, 2026-11-23)

@@ -16,17 +16,17 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "catchup_cmd")
 bs = BlockStyles
 
-_CODE_ZOOM = 110  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 92  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _RECOVER = """\
-git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart   # clones into ~/ai4se, from any folder
+git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart
 TAG=j2-start               # the tag your half-day sheet names
 cd ~/ai4se/calcapp-restart && git checkout -b mywork "$TAG" && npm ci"""
 
 _TAGS = [
-    ("j2-start", "start of the day (09:15)"),
-    ("j2-part1", "end of the morning build (13:15)"),
-    ("j2-v0.1", "v0.1 ready for delivery (16:15)"),
+    ("j2-start", "starter: empty app, 1 test (09:15)"),
+    ("j2-part1", "first task done (13:15)"),
+    ("j2-v0.1", "CalcApp v0.1 shipped (16:15)"),
 ]
 
 _NOTES = [
@@ -35,6 +35,20 @@ _NOTES = [
      "nobody runs them unless lost."),
     ("The message",
      "Nobody stays behind for the whole day: the CalcApp starter has a recovery tag at each checkpoint."),
+    ("What calcapp-starter is",
+     "The public GitHub repository of CalcApp, the budget-tracker app everyone builds on day 2 (and continues on days "
+     "3-4). At tag j2-start it is a minimal React + TypeScript app (Vite 7, React 19, React Router 7, Vitest 4): "
+     "it only shows « CalcApp » on / and has one passing test, plus AGENTS.md (the project rules) and "
+     "docs/plan-example.md. Everybody clones it at 09:15 in the Git exercise (into ~/ai4se/calcapp) and builds the "
+     "rest during the day. Its README lists the same commands and tags."),
+    ("Why clone it again here",
+     "Only to catch up: whoever is late, lost or broke their copy clones it a second time into a NEW folder "
+     "(calcapp-restart) and starts at the checkpoint of the current exercise, instead of debugging under time "
+     "pressure. The first copy (~/ai4se/calcapp) is not touched."),
+    ("What each tag contains",
+     "j2-start = the starter itself (empty app, 1 test). j2-part1 = the first task of CalcApp v0.1 done (expense model "
+     "with validation, its tests, docs/plan.md). j2-v0.1 = CalcApp v0.1 shipped (two pages, add an expense saved in "
+     "localStorage, tests, docs/review.md)."),
     ("Who to ask, in order",
      "1. the tutor window, 2. a recovery tag, 3. raise your hand. Running ~/ai4se/ai4se-kit/tutor update first "
      "gets today's course notes."),
@@ -45,7 +59,9 @@ _NOTES = [
      "j2-start (09:15, start of the day), j2-part1 (13:15, end of the morning build), j2-v0.1 (16:15, v0.1 ready "
      "for delivery)."),
     ("Reassure",
-     "Cloning in a new folder leaves the work in ~/ai4se/calcapp safe. No ~/ai4se/calcapp yet? Clone there instead."),
+     "Cloning into a NEW folder (calcapp-restart) leaves your first copy, ~/ai4se/calcapp, untouched: nothing you did "
+     "is lost. Missed the 09:15 Git exercise entirely, so you have no ~/ai4se/calcapp at all? Then simply clone into "
+     "~/ai4se/calcapp, as in that exercise."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — ~/ai4se/ai4se-kit/tutor update",
      "Runs the course kit's tutor script with « update »: it downloads the latest version of the kit (course notes, "
@@ -85,7 +101,7 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Late or Lost? Catch Up", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
-        with st_zoom(117):
+        with st_zoom(110):
             st_write(
                 bs.td, (bs.tl, "Ask: "),
                 "1. your tutor window  →  2. a recovery tag  →  3. raise your hand", tag=t.div,
@@ -101,7 +117,7 @@ def build():
             # one row per tag, alternating fills — motif L2 + fonds f1 (margins 5 %)
             cols = "5% 22% 68% 5%"
             cells = s.project.containers.rows(len(_TAGS), cols, filled=(2, 3))
-            with st_grid(cols=cols, gap="1.2vh 0.4vw", cell_styles=cells) as g:
+            with st_grid(cols=cols, gap="0.6vh 0.4vw", cell_styles=cells) as g:
                 for tag, when in _TAGS:
                     with g.cell():
                         pass  # left margin
@@ -112,4 +128,5 @@ def build():
                     with g.cell():
                         pass  # right margin
             st_space("v", "2vh")
-            st_write(bs.td + s.project.colors.muted, "No ~/ai4se/calcapp yet? Clone there instead. Otherwise your work in it stays safe.", tag=t.div)
+            st_write(bs.td + s.project.colors.muted, "calcapp-starter = the course project, one tag per checkpoint. "
+                     "~/ai4se/calcapp stays safe.", tag=t.div)

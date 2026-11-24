@@ -45,6 +45,20 @@ _NOTES = [
     ("The trap",
      "The agent may keep the data in React state only: the test can pass, and the expense vanishes at the first "
      "browser refresh. The review checklist of the next slide checks it."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Prompt — data, RED",
+     "An integration test: it mounts the app's routes in a memory router at /add, fills the form with fireEvent "
+     "(amount 42.50, category Food, description Lunch), clicks Add, and expects the Dashboard to show « 42.50 » "
+     "and « Food ». « Clear localStorage before each test » = start every test with empty storage "
+     "(localStorage.clear() in a beforeEach). « Test only »."),
+    ("Prompt — data, GREEN",
+     "Expense type = the TypeScript description of an expense. getExpenses / saveExpenses = two functions in "
+     "storage.ts that read and write the list in localStorage under the key « calcapp-data ». Dashboard lists the"
+     " expenses with a total; AddExpense saves then goes back to / with useNavigate (react-router's function to "
+     "change page from code). « Do not modify the test »."),
+    ("Words — localStorage",
+     "A small storage space of the browser, per site, that survives a page refresh: text values saved under a "
+     "name (the key). Visible in the browser's developer tools (F12 → Application → Local Storage)."),
 ]
 
 

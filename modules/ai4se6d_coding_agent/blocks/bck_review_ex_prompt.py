@@ -36,6 +36,18 @@ _NOTES = [
      "A diff too long for one review. Then review one task at a time, e.g. !git diff j2-start -- src/utils/."),
     ("Ask the room",
      "« Why review against docs/plan.md and not only the code? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — !git diff j2-start (in opencode)",
+     "Typed in opencode's input box: a message starting with ! runs that shell command and puts its output into "
+     "the conversation. git diff j2-start = every line changed since the tag j2-start (- removed, + added), "
+     "uncommitted changes included. Run it in the plan agent, before the prompt."),
+    ("Prompt — the review",
+     "« against @docs/plan.md » = judge the diff by your plan (and add the plan to the context). « Focus: » = the"
+     " four concerns. « For each finding: RVW-n, HIGH/MEDIUM/LOW, file, why it matters, suggested fix » = the "
+     "exact format, ready for docs/review.md. « Edit nothing » = report only."),
+    ("Command — !git diff j2-start -- src/utils/",
+     "Same diff, limited to one folder: « -- » means « what follows are paths », src/utils/ = the folder of the "
+     "storage task. Use the folder of the task you want to review."),
 ]
 
 _DIFF = """\

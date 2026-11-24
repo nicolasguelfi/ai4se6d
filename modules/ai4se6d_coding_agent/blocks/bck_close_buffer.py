@@ -29,6 +29,21 @@ _NOTES = [
      "state Day 3 starts from."),
     ("Ask the room",
      "« Who does not yet have v0.1 tagged? Let us fix it before you leave. »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Words — issue, nicolasguelfi/gensem, label",
+     "An issue is a ticket on a GitHub project: github.com/nicolasguelfi/gensem → tab Issues → New issue "
+     "(owner/name = the project's address). A label is a tag on the issue (here ai4se-ed2). Trap: only the "
+     "project's members can set labels; a learner who cannot should write « ai4se-ed2 » in the title."),
+    ("Command — git status",
+     "Read-only: changes nothing. Shows the branch you are on (« On branch mywork ») and what changed since the "
+     "last commit: « Changes not staged » (modified, not yet added), « Changes to be committed » (added with git "
+     "add), « Untracked files » (new files git does not follow yet). « nothing to commit, working tree clean » = "
+     "everything is saved in a commit."),
+    ("Command — git tag",
+     "Without argument, lists all tags of the project; v0.1 must appear (next to the course tags j2-…)."),
+    ("Command — git branch -v",
+     "Lists the local branches; -v = with each branch's last commit (short id + message); * = the current branch."
+     " main and mywork must show the same short id."),
 ]
 
 _ITEMS = [

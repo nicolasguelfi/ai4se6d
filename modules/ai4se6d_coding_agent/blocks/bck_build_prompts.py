@@ -40,6 +40,23 @@ _NOTES = [
      "Your review of the test — the golden rule. Skip it and the test only mirrors the code."),
     ("Detail",
      "In prompts, ask for npm run test:run (one shot): npm test is watch mode (q to quit), the agent would wait."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Prompt — RED (test only)",
+     "@docs/plan.md adds your plan to the agent's context; « Task 1 only » limits it to one task. « Write the "
+     "failing test first, in tests/ » = a test that must fail now, because the code does not exist. « Do NOT "
+     "write the implementation » forbids the code. « Run npm run test:run and show the failure » makes the agent "
+     "prove the test is red."),
+    ("Prompt — GREEN (minimal code)",
+     "« Minimal code » = just enough for the new test to pass, nothing more. « Do not modify the test file » "
+     "forbids changing the test to make it pass. « Run npm run test:run » makes the agent show the green result. "
+     "Paste it only after you have read the test."),
+    ("Symbol — @docs/plan.md (in opencode)",
+     "@ followed by a path adds that file to the agent's context: the agent reads its content with your message. "
+     "Typing @ opens a fuzzy file search; Enter or Tab picks the file. The path is relative to the project folder"
+     " (docs/plan.md = file plan.md in folder docs)."),
+    ("Command — npm run test:run",
+     "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
+     "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
 ]
 
 

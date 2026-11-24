@@ -37,6 +37,13 @@ _NOTES = [
      "MCP connects the agent to tools; Context7 gives it the current documentation of a library."),
     ("Ask the room",
      "« Which of the six did you miss most yesterday? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Syntax — @file",
+     "In the opencode prompt box, type @ then part of a file name and pick it from the list: the file is attached "
+     "to your message, so the agent reads it."),
+    ("File — AGENTS.md",
+     "A plain Markdown file at the project root with the project's rules; opencode reads it at the start of every "
+     "session."),
 ]
 
 

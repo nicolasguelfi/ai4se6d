@@ -30,6 +30,13 @@ _NOTES = [
      "The plan-then-build workflow, step by step, and when a plan is worth it."),
     ("Ask the room",
      "« Which agent would you use to understand an unfamiliar codebase? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Key — Shift+Tab",
+     "In opencode, hold Shift and press Tab: it switches to the next primary agent (plan → build → plan). The "
+     "active agent's name is shown near the prompt box. « Shift+Tab → plan » = press it until plan is shown."),
+    ("Agents — plan and build",
+     "plan explores and plans without editing your project files; it may write opencode plan files and asks before"
+     " shell commands. build is the default agent: it edits files and runs commands."),
 ]
 
 

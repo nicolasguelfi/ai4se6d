@@ -44,6 +44,25 @@ _NOTES = [
      "step 5 again; node missing or older than v20 → step 2; « libatomic.so.1 » on Ubuntu / WSL → sudo apt-get install -y libatomic1, then node again."),
     ("Ask the room",
      "« Which error did you meet that is not on this list? » — tell the trainer."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — exec $SHELL",
+     "Replaces the current shell by a fresh copy of itself in the same window: it re-reads ~/.bashrc or ~/.zshrc, "
+     "where installers add their folder to the PATH (the list of folders where the terminal looks for commands). "
+     "$SHELL = your shell program (bash or zsh). Same effect as closing and reopening the terminal."),
+    ("Command — sudo apt-get install -y libatomic1",
+     "sudo = as administrator (asks your password; nothing shows while you type). apt-get install = Ubuntu's "
+     "installer adds a package (WSL is Ubuntu too); -y = answer yes to the confirmation. libatomic1 = the system "
+     "library whose file libatomic.so.1 the error says is missing; Node.js needs it. Then run node --version again."),
+    ("Address — github.com/login/device",
+     "The page where you type the one-time code shown by gh auth login. Any browser on any device works, logged "
+     "into your GitHub account: handy when the terminal (WSL, the VM) cannot open a browser itself."),
+    ("Key — Ctrl+C",
+     "Stops the running command. During gh auth login it kills the login (and Firefox): the update.go lines are only "
+     "noise from the Firefox snap, so wait instead."),
+    ("Word — 401 / proxy",
+     "401 = the server's code for « not authorised »: the key is wrong, or was given to the wrong provider. A proxy "
+     "= a company relay between your machine and the internet; it may block or slow downloads (SSL errors, "
+     "timeouts)."),
 ]
 
 

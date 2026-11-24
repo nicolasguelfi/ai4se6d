@@ -42,6 +42,19 @@ _NOTES = [
      "is recent or fast-moving."),
     ("What comes next",
      "Try-it 3 uses it: plan a /budgets page with context7 for React Router 7."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — opencode mcp add context7 --url https://mcp.context7.com/mcp",
+     "Typed in the terminal (not in opencode), in the project folder. mcp add = register an MCP server; context7 ="
+     " the name you give it; --url = the address of the remote server. It writes the entry under mcp.servers in "
+     "the project's opencode.json. Add --global to have it in every project instead. Check with opencode mcp list."),
+    ("Config — the opencode.json lines",
+     "{ } = a group of keys. mcp → servers → context7 = the server's name. \"type\": \"remote\" = a server on the web "
+     "(not a program on your machine). \"url\" = its address. You do not need to type this: the command writes it."),
+    ("Prompt — « use context7 »",
+     "Words to put in your prompt so the agent calls Context7 to fetch the current docs of the library."),
+    ("If it does not connect",
+     "Run opencode mcp list in the terminal. If it says « needs authentication », open opencode, type /mcps, pick "
+     "context7 and sign in (remote servers use sign-in by default)."),
 ]
 
 

@@ -44,6 +44,19 @@ _NOTES = [
      "The plan names files and tests and a Context7 call appears. Mid-point at 2 min: context7 shows as connected."),
     ("If stuck",
      "Tutor window first, then raise your hand."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — opencode mcp add context7 --url https://mcp.context7.com/mcp",
+     "Typed in the terminal (not in opencode), in the project folder. mcp add = register an MCP server; context7 ="
+     " the name you give it; --url = the address of the remote server. It writes the entry under mcp.servers in "
+     "the project's opencode.json. Add --global to have it in every project instead. Check with opencode mcp list."),
+    ("Restart opencode",
+     "Quit (/exit or Ctrl+C) and run opencode again: new servers are loaded at start."),
+    ("Key — Shift+Tab",
+     "In opencode, hold Shift and press Tab: it switches to the next primary agent (plan → build → plan). The "
+     "active agent's name is shown near the prompt box. « Shift+Tab → plan » = press it until plan is shown."),
+    ("Prompt — « Plan a /budgets page. Use context7 for React Router 7. Tests first. »",
+     "/budgets is the web address of the new page (http://localhost:5173/budgets), not an opencode command. « Use "
+     "context7 » asks for the live React Router 7 docs; « Tests first » = tests planned before code."),
 ]
 
 

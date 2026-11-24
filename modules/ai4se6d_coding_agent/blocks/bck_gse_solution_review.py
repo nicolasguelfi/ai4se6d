@@ -27,6 +27,20 @@ _NOTES = [
      "ship."),
     ("Ask the room",
      "« Which reviewer of the list would have caught the problem you missed today? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Symbol — /gse-… commands",
+     "Typed in opencode's input box, not in the terminal: a message starting with / runs a command; the GSE-One "
+     "plugin adds the /gse-… ones (typing / shows the list). Each accepts --help for its options."),
+    ("Command — /gse-review (GSE-One, day 3)",
+     "Reviews the current sprint's work on its branches: numbered findings RVW-…, ranked HIGH / MEDIUM / LOW, "
+     "then a devil's advocate pass. --task TASK-ID = one task; --severity HIGH = only the serious ones."),
+    ("Command — /gse-fix (GSE-One, day 3)",
+     "Fixes the review findings on a separate branch. --finding RVW-001 = one finding; --severity HIGH = only the"
+     " serious ones; --dry-run = show the fix plan without changing anything."),
+    ("Command — /gse-deliver (GSE-One, day 3)",
+     "Merges the finished task branches, tags the release, cleans up the branches (after creating backup tags). "
+     "It first checks for open HIGH findings and stops for your decision. --dry-run shows the plan; --skip-tag "
+     "skips the tag."),
 ]
 
 

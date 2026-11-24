@@ -40,6 +40,14 @@ _NOTES = [
      "the task needs."),
     ("Ask the room",
      "« Rewrite your last vague prompt: which files would you @mention? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Symbol — @ (in opencode)",
+     "Type @ in the prompt box, keep typing part of a file name to narrow the list, pick the file: it is attached "
+     "to the message. @src/pages/Home.tsx = path from the project folder."),
+    ("Prompt — the precise one",
+     "« Read @src/pages/Home.tsx and @tests/App.test.tsx » = the files to read. « Add the subtitle … to Home » = "
+     "the exact change. « test first » = write the failing test before the code. « Do not touch other files » = "
+     "the limit."),
 ]
 
 

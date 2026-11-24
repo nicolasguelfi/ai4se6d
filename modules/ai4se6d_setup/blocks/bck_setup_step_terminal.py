@@ -42,6 +42,20 @@ _NOTES = [
      "echo $SHELL must end in bash or zsh. Anything else: ask your neighbour before going on."),
     ("Ask the room",
      "« Who has never typed a command in a terminal? » — pair them with a neighbour who has."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — echo $SHELL",
+     "echo prints on the screen what follows it. $SHELL is a variable that holds the program reading your commands "
+     "(your « shell »), so the line prints its path, e.g. /bin/bash (Ubuntu, WSL) or /bin/zsh (macOS). bash and zsh "
+     "understand the same commands for this course. In PowerShell, $SHELL is unknown: the line prints nothing."),
+    ("Symbol — $",
+     "A $ in front of a name means « the value of this variable », not the name itself: echo SHELL prints the word "
+     "SHELL, echo $SHELL prints its content."),
+    ("Symbol — # then type this",
+     "Everything after # is a comment: the shell ignores it. Pasting the whole line is harmless; only echo $SHELL "
+     "runs."),
+    ("Key — Ctrl + Alt + T / Cmd + Space",
+     "Ubuntu: Ctrl + Alt + T opens a new terminal window. macOS: Cmd + Space opens Spotlight search; type Terminal and "
+     "press Enter. Windows: open the « Ubuntu » app from the Start menu (that is WSL, a real Linux inside Windows)."),
 ]
 
 

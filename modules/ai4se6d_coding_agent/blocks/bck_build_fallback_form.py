@@ -38,6 +38,19 @@ _NOTES = [
      "Correct import paths? Accessible queries? The behaviour YOU want? The test is your specification."),
     ("GREEN and mutant",
      "GREEN: same prompt as fallback A. Mutant: remove the parseFloat on the amount — the test must go red."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Prompt — fallback B, RED",
+     "The test renders ExpenseForm, fills the inputs found by their label (amount 4.50, description Coffee, "
+     "category Food, date 2026-03-01), clicks the « Add Expense » button, and checks that the onSubmit function "
+     "received that data with amount as a number (4.5, not the text « 4.50 »). « Do NOT write the component. Run "
+     "npm run test:run » = see it red."),
+    ("Words — getByLabelText / getByRole",
+     "React Testing Library queries: getByLabelText(\"Amount\") finds the input whose label says Amount; "
+     "getByRole(\"button\", { name: \"Add Expense\" }) finds the button by its role and text. They find elements as a"
+     " user (or a screen reader) does, so the form must have real labels."),
+    ("Words — parseFloat",
+     "JavaScript function that turns text into a number: parseFloat(\"4.50\") = 4.5. Form inputs always give text; "
+     "removing parseFloat (the mutant) sends « 4.50 » as text and the test must go red."),
 ]
 
 

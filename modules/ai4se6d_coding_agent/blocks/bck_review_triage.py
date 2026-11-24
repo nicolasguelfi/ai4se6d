@@ -30,6 +30,11 @@ _NOTES = [
      "It is the same scale as GSE-One's /gse-review: what you do by hand today, the plugin does tomorrow."),
     ("Ask the room",
      "« A finding says the code is hard to maintain. HIGH, MEDIUM or LOW — and who decides? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — /gse-review (GSE-One, day 3)",
+     "Typed in opencode's input box. Reviews the work of the current sprint and lists numbered findings (RVW-…) "
+     "ranked HIGH / MEDIUM / LOW, plus a devil's advocate pass. --task TASK-ID reviews one task; --severity HIGH "
+     "shows only the serious ones."),
 ]
 
 _ROWS = [

@@ -36,6 +36,17 @@ _NOTES = [
      "Comparing git log --oneline with a neighbour shows whether both made the same commit on feat/hello."),
     ("Link to what follows",
      "Next session: driving opencode — every change the agent makes will now go through this review."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git diff",
+     "Shows, line by line, what changed in your files since the last commit and that is not staged yet: lines "
+     "starting with - (red) were removed, lines with + (green) were added. Nothing is modified. Long output opens "
+     "in a viewer: arrows to scroll, q to quit. Trap: a brand-new file (« untracked ») does not appear."),
+    ("Command — git restore (file)",
+     "Puts the file back to its last committed version and throws away your uncommitted change (no undo). After "
+     "it, git diff shows nothing for that file."),
+    ("Command — git log --oneline",
+     "Shows the history of the current branch, newest commit first. --oneline = one line per commit: a short id (7"
+     " characters, e.g. a1b2c3d) then the first line of the message. Long output opens in a viewer: q to quit."),
 ]
 
 

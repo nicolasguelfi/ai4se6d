@@ -32,6 +32,14 @@ _NOTES = [
      "microphones and speakers OFF in Meet (echo)."),
     ("Timing",
      "14:55 prompt · ~15:10 presentation checked in the browser · 15:15 break · 15:30 presentations."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Prompt — Make a 6-minute presentation of my project for a team meeting — one HTML file I open in my browser.",
+     "Typed in the opencode window of the project (build agent). « of my project » = the agent reads the folder to "
+     "decide what to say; « 6-minute … team meeting » = length and audience; « one HTML file » = a single web page, "
+     "with no install, that the agent writes into the folder. Open it by double-clicking it, or from the terminal: "
+     "open (file).html on macOS, xdg-open (file).html on Ubuntu, usually explorer.exe (file).html in WSL."),
+    ("Then commit",
+     "git add -A && git commit -m \"presentation\": saves the HTML file and the app as one more save point."),
 ]
 
 

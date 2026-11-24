@@ -32,6 +32,20 @@ _NOTES = [
      "The tutor window first, then the recovery tag j2-part1, then a raised hand."),
     ("Ahead?",
      "Delete an expense (onDelete) with the same loop: test first, then code, then review."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — npm run test:run",
+     "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
+     "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
+    ("Check — « routing merged into mywork »",
+     "git switch mywork then git log --oneline: the routing commits (test: …, feat: …) appear in the list. git "
+     "branch --merged lists the branches already merged into the current one."),
+    ("Tag — j2-part1",
+     "A tag is a fixed label on one commit — here a checkpoint of the course: j2-start (start of day 2), j2-part1"
+     " (end of Part 1), j2-v0.1 (v0.1 reference). Restart from it with the catch-up commands (clone into a new "
+     "folder, git checkout -b mywork j2-part1, npm ci)."),
+    ("Words — onDelete",
+     "The function ExpenseItem calls when its delete button is clicked; the « ahead » task wires it so that an "
+     "expense can be removed (and removed from localStorage)."),
 ]
 
 

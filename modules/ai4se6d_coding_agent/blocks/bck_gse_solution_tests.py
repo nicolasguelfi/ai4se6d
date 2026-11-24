@@ -25,6 +25,18 @@ _NOTES = [
      "While a requirement's tests have not been run and passed, delivery is blocked."),
     ("Ask the room",
      "« In the demo, what proved that the task was done? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Symbol — /gse-… commands",
+     "Typed in opencode's input box, not in the terminal: a message starting with / runs a command; the GSE-One "
+     "plugin adds the /gse-… ones (typing / shows the list). Each accepts --help for its options."),
+    ("Command — /gse-tests (GSE-One, day 3)",
+     "Without argument: shows the test status and proposes the next step. --strategy defines the test strategy "
+     "(levels: unit, integration, end-to-end; one acceptance test per Given/When/Then criterion), --run runs the "
+     "suite, --evidence packages the results."),
+    ("Command — /gse-produce (GSE-One, day 3)",
+     "Runs the next task of the sprint: creates its branch (by default also a separate working folder, a git "
+     "worktree), writes the acceptance test, shows it failing, commits it, then writes the code until it passes. "
+     "--task TASK-ID picks a task; --dry-run only shows what it would do."),
 ]
 
 

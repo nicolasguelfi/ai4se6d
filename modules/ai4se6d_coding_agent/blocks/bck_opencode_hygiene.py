@@ -31,6 +31,19 @@ _NOTES = [
      "side."),
     ("Ask the room",
      "« Has anyone already pasted a key into a chat? What did you do next? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("File — .env",
+     "A hidden file (starts with a dot) holding secrets such as API keys, as NAME=value lines. Never pasted, never"
+     " @mentioned, never committed."),
+    ("File — .gitignore",
+     "Lists the files and folders Git must ignore (one per line). In the starter: node_modules, dist, .env, "
+     ".env.*. Ignored files never show in git status."),
+    ("Folders — node_modules/ and dist/",
+     "node_modules/ = the libraries installed by npm ci (thousands of files, rebuilt any time). dist/ = the built "
+     "app produced by npm run build. Generated, so not worth any context."),
+    ("Command — /new",
+     "Typed in the opencode prompt box: starts a new, empty session (conversation). AGENTS.md is read again, the "
+     "previous chat is forgotten, your files are unchanged. Shortcut: Ctrl+X then N."),
 ]
 
 

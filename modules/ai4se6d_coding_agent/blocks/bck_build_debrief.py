@@ -33,6 +33,11 @@ _NOTES = [
      "makes a missing step visible at a glance."),
     ("Link to the afternoon",
      "Part 2 runs the same loop on routing, data and UI, then the review section at 14:30."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git log --oneline",
+     "Lists the commits of the branch you are on. --oneline = one line per commit: short id (7 characters, e.g. "
+     "a1b2c3d) then the message. Newest at the TOP: « test: before feat: » in time means the feat: line is ABOVE "
+     "the test: line. Long list? Space scrolls, q quits."),
 ]
 
 

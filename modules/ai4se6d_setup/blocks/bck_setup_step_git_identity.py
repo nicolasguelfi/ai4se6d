@@ -36,6 +36,20 @@ _NOTES = [
      "init.defaultBranch main: new repositories start on « main », the name used in the course."),
     ("The check",
      "git config --global --list shows the three values."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git config --global user.name \"Your Name\"",
+     "git config changes a git setting. --global = for all your repositories on this machine (saved in ~/.gitconfig), "
+     "not just one project. user.name = the author name written in each commit (a commit = one saved snapshot of "
+     "the project). The quotes keep first and last name as one value: replace Your Name, keep the quotes."),
+    ("Command — git config --global user.email \"you@example.com\"",
+     "user.email = the e-mail written in each commit. Use the one of your GitHub account: GitHub links the commits "
+     "to your profile."),
+    ("Command — git config --global init.defaultBranch main",
+     "A branch is a named line of work in a repository. init.defaultBranch = the name of the first branch that git "
+     "init creates. main = the name used in the course and on GitHub (older git versions say « master »)."),
+    ("Command — git config --global --list",
+     "Prints all your global settings, one name=value per line: look for user.name, user.email and "
+     "init.defaultbranch (git writes it in small letters)."),
 ]
 
 

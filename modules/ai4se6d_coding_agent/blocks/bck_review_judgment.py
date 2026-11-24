@@ -36,6 +36,11 @@ _NOTES = [
      "In the review exercise you must refuse at least one finding, with a written reason in docs/review.md."),
     ("Ask the room",
      "« Which finding would you refuse in your own code, and what is the reason? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Format — the triage lines (docs/review.md)",
+     "Not a command: a model of what you write in docs/review.md. RVW-1 = the finding's number; [HIGH] = its "
+     "severity; storage.ts = the file; then the problem; → FIX / REFUSED = your decision; « reason: » = why, with"
+     " the source (docs/plan.md). DEFER would mean « later, noted »."),
 ]
 
 _TRIAGE = """\

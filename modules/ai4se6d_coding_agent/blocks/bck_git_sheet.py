@@ -35,6 +35,21 @@ _NOTES = [
      "Tutor window first, then a fresh clone at j2-start in a new folder, then a raised hand."),
     ("Frequent snag",
      "Git asks who you are on the first commit: git config --global user.name \"Your Name\", then user.email."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git log --oneline",
+     "Shows the history of the current branch, newest commit first. --oneline = one line per commit: a short id (7"
+     " characters, e.g. a1b2c3d) then the first line of the message. Long output opens in a viewer: q to quit."),
+    ("Command — git status (clean)",
+     "« nothing to commit, working tree clean » means every change is in a commit: nothing left to add."),
+    ("Command — npm run test:run",
+     "Runs the starter's test:run script (vitest run): all tests once, then stops. Green = all pass."),
+    ("Command — git branch",
+     "Lists your local branches; the * marks the one you are on. * feat/hello = you are on the right branch. Long "
+     "list opens a viewer: q to quit."),
+    ("Command — git config --global user.name \"Your Name\"",
+     "Tells Git the name written in your commits. --global = for every repository of this user on this machine "
+     "(saved in ~/.gitconfig). Quotes keep the two words together. Then git config --global user.email "
+     "\"you@example.com\". Run git commit again afterwards."),
 ]
 
 

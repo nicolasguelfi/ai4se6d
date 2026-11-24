@@ -44,6 +44,21 @@ _NOTES = [
      "The answer quotes the test command and folder from the files. Mid-point at 2 min: the vague answer is noted."),
     ("If stuck",
      "Tutor window first, then raise your hand."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — /new",
+     "Typed in the opencode prompt box: starts a new, empty session (conversation). AGENTS.md is read again, the "
+     "previous chat is forgotten, your files are unchanged. Shortcut: Ctrl+X then N."),
+    ("Prompt — « How are tests organised here? »",
+     "Deliberately vague: no file given, so the agent explores or guesses. Note its answer to compare."),
+    ("Prompt — « From @package.json and @AGENTS.md: test command, folder, naming? »",
+     "Same question, grounded: @ attaches the two files. package.json holds the scripts (test:run = vitest run); "
+     "AGENTS.md holds the layout rules (tests/ mirrors src/)."),
+    ("Symbol — ! (shell mode)",
+     "Typing ! at the start of an empty prompt switches opencode to shell mode: what follows runs in the terminal,"
+     " in the project folder, and its output stays in the session for the agent. Esc leaves shell mode without "
+     "running anything."),
+    ("Command — !npm run test:run",
+     "Runs the tests (vitest run, once) from inside opencode; the real results join the conversation."),
 ]
 
 

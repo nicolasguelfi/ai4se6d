@@ -39,6 +39,15 @@ _NOTES = [
      "git diff j2-start --stat shows how many lines each participant changed today."),
     ("Ask the room",
      "« How many lines did you change today? How many did you actually read? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git diff j2-start --stat",
+     "git diff (commit) compares your files now with that commit; j2-start = the tag of this morning's start. "
+     "--stat = only a summary: one line per file with the number of changed lines and +/- bars, then a total (« "
+     "12 files changed, 480 insertions(+), 35 deletions(-) »). It counts uncommitted changes too, but not new "
+     "files never added with git add."),
+    ("Symbol — # (comment)",
+     "Everything after # on a shell line is a comment: ignored by the terminal, there only to explain. Copying it"
+     " is harmless."),
 ]
 
 

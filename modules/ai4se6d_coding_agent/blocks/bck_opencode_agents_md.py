@@ -30,6 +30,19 @@ _NOTES = [
      "The AGENTS.md shipped with the CalcApp starter, then a try-it: one rule of yours changes the agent's answer."),
     ("Ask the room",
      "« What is the first rule you would write for your own project? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — /init",
+     "Typed in the opencode prompt box, in the project: the agent looks at the project and drafts (or updates) "
+     "AGENTS.md. Read and edit the draft: it is a first version, not the truth."),
+    ("Path — ~/.config/opencode/AGENTS.md",
+     "Your personal rules, for every project on this machine. ~ = your home folder; .config starts with a dot, so "
+     "it is hidden (ls -a shows it). Loaded before the project's AGENTS.md."),
+    ("Key — instructions in opencode.json",
+     "A list of extra rule files read after AGENTS.md, e.g. \"instructions\": [\"docs/style.md\"]. Each entry is a "
+     "path, a pattern such as docs/*.md, a ~/ path or a web address."),
+    ("Command — commit it",
+     "git add AGENTS.md && git commit -m \"docs: add project rules\": the file goes into the history, so everyone "
+     "who clones the project gets the same rules."),
 ]
 
 

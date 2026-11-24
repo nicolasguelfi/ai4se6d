@@ -24,6 +24,11 @@ _NOTES = [
      "Commit messages follow one convention, so the history tells the story."),
     ("Ask the room",
      "« Which of the three habits are you most likely to forget without a tool? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Name — gse-backup/…",
+     "A Git tag: a fixed label on one commit, here set by GSE-One before a risky operation (the … stands for the "
+     "rest of the name GSE-One gives it). git tag --list \"gse-backup/*\" lists them (* = any text); git switch -c "
+     "rescue (tag name) starts a branch from that point."),
 ]
 
 

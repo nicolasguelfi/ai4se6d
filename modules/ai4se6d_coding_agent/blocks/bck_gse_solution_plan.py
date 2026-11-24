@@ -25,6 +25,10 @@ _NOTES = [
      "not into the code."),
     ("Ask the room",
      "« Compare with your docs/plan.md: what would a Gate have changed? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Commands — /gse-reqs, /gse-plan",
+     "GSE-One commands, typed in the agent's prompt box like /new: /gse-reqs = write the requirements, /gse-plan ="
+     " turn them into tasks. Used from day 3 — nothing to type today."),
 ]
 
 

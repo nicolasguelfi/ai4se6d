@@ -34,6 +34,24 @@ _NOTES = [
      "Read the diff, run npm run test:run, commit « fix: RVW-1 … », and mark RVW-1 as fixed in docs/review.md."),
     ("Ask the room",
      "« The agent's fix also touched another file. Do you keep it? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Key — Shift+Tab (in opencode)",
+     "Switches the primary agent: build (edits files, runs commands) ↔ plan (explores and proposes; by default it"
+     " asks before any file edit or shell command, so it does not change your project). Tab does the same in the "
+     "other direction; with two agents both just toggle. The current agent's name is shown under the input box."),
+    ("Prompt — fix RVW-1",
+     "« Fix RVW-1 from docs/review.md » = which finding (the agent reads it in that file). « First write a "
+     "failing test that exposes it and run npm run test:run (RED) » = prove the problem. « then fix the code "
+     "(GREEN) ». « Change nothing else » = keep the diff small."),
+    ("Command — read the diff",
+     "git diff (no argument) shows the uncommitted changes the agent made; git diff --stat lists only the files "
+     "touched. q quits."),
+    ("Command — npm run test:run",
+     "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
+     "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
+    ("Command — commit fix: RVW-1 …",
+     "git add -A then git commit -m \"fix: RVW-1 corrupt JSON no longer crashes\": fix: = a correction, then the "
+     "finding's number and a short description."),
 ]
 
 _FIX = """\

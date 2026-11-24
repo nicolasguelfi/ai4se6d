@@ -40,6 +40,36 @@ _NOTES = [
      "After the agent worked: never git add . without reading the diff."),
     ("Ask the room",
      "« Which of the six have you never used? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git status",
+     "Lists the files that changed: « Changes to be committed » (staged, green), « Changes not staged » (modified,"
+     " red) and « Untracked files » (new files Git does not follow yet). It changes nothing: run it as often as "
+     "you like. « nothing to commit, working tree clean » = everything is committed."),
+    ("Command — git diff",
+     "Shows, line by line, what changed in your files since the last commit and that is not staged yet: lines "
+     "starting with - (red) were removed, lines with + (green) were added. Nothing is modified. Long output opens "
+     "in a viewer: arrows to scroll, q to quit. Trap: a brand-new file (« untracked ») does not appear."),
+    ("Command — git add src/App.tsx",
+     "Puts the current content of that file into the staging area: it will be part of the next commit. Argument = "
+     "the file to stage (path from the project folder); you can list several files. Edit the file again after git "
+     "add? Run git add again, or the new edit is not included."),
+    ("Command — git commit -m \"feat: ...\"",
+     "Saves the staged changes as one commit (a snapshot). -m = the message follows, in quotes so that several "
+     "words stay one argument. « feat: » = the type of change (see the conventions slide). The first commit may "
+     "ask who you are: git config --global user.name / user.email."),
+    ("Command — git log --oneline",
+     "Shows the history of the current branch, newest commit first. --oneline = one line per commit: a short id (7"
+     " characters, e.g. a1b2c3d) then the first line of the message. Long output opens in a viewer: q to quit."),
+    ("Command — git restore src/App.tsx",
+     "Throws away the uncommitted changes of that file: it goes back to its last committed (or staged) version. "
+     "Argument = the file (path from the project folder). No undo: the discarded lines are gone. Only for files "
+     "Git already tracks — a new file is not removed."),
+    ("Symbol — #",
+     "Starts a comment: the shell ignores everything after it on the line. The comments on the slide are "
+     "explanations, you do not type them."),
+    ("Symbol — . in git add .",
+     "The dot means « the current folder and everything inside »: git add . stages every change, including the "
+     "ones you never read."),
 ]
 
 

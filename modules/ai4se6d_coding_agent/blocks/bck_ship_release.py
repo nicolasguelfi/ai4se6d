@@ -39,6 +39,39 @@ _NOTES = [
      "to your own repository tomorrow morning."),
     ("If stuck",
      "Tutor window first; else the recovery tag j2-v0.1, then git tag v0.1 on it; else raise your hand."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git switch mywork",
+     "Moves you onto the existing branch mywork (your main line since this morning): the files in the folder "
+     "become mywork's version. Git refuses if uncommitted changes would be lost: commit first (git status shows "
+     "them)."),
+    ("Command — git merge fix/review",
+     "Brings the commits of branch fix/review into the branch you are on (mywork). If mywork has not moved "
+     "meanwhile, git just moves it forward (« Fast-forward »). Otherwise it creates a merge commit and may open a"
+     " text editor for its message: save and close it (nano: Ctrl+O, Enter, Ctrl+X; vim: Esc then :wq). « "
+     "CONFLICT » = both branches changed the same lines: raise your hand."),
+    ("Symbol — # (comment)",
+     "Everything after # on a line is a comment for you, ignored by the terminal."),
+    ("Command — npm run test:run",
+     "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
+     "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
+    ("Command — git tag v0.1",
+     "Puts the label v0.1 on the commit you are on (the tip of mywork after the merge). A tag never moves, unlike"
+     " a branch. git tag alone lists the tags. Wrong commit? git tag -d v0.1 deletes it, then tag again."),
+    ("Command — git switch -C main mywork",
+     "-C = create the branch main, or if it already exists (it does: it held the starter) reset it, so that it "
+     "points to the same commit as mywork; then switch to it. main's old position is dropped — nothing of yours "
+     "is lost, it was only the starter. Without capital C (-c) git refuses because main exists."),
+    ("Command — git log --oneline --graph --decorate -10",
+     "Shows the history. --oneline = one line per commit; --graph = lines on the left drawing the branches and "
+     "merges; --decorate = shows branch and tag names next to their commit, e.g. (HEAD -> main, tag: v0.1, "
+     "mywork); -10 = the last 10 commits only. HEAD -> main = you are on main."),
+    ("Command — git tag / git branch -v",
+     "git tag lists all tags (alphabetical): v0.1 must be there, next to the course tags. git branch -v lists "
+     "your local branches with each one's last commit (short id + message); * marks the current branch. main and "
+     "mywork must show the same id."),
+    ("Message — « main and origin/main have diverged »",
+     "origin = the GitHub project you cloned (the starter); origin/main = its main as last seen. Your main now "
+     "has commits it lacks, and the other way round: expected. Do not run git pull."),
 ]
 
 

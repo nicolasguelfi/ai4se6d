@@ -41,6 +41,21 @@ _NOTES = [
      "Read the test between the two prompts, two commits, mutant check — as for a task of your own plan."),
     ("Link to what follows",
      "Fallback B (ExpenseForm) is the second feature, for those who finish A."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Prompt — fallback A, RED",
+     "« Write a failing Vitest test in tests/components/ExpenseItem.test.tsx » = the exact file to create (the "
+     "folder is created if missing). It then describes the component's inputs (props): `expense`, an object with "
+     "id, amount, description, category, date, createdAt, and `onDelete`, a function called to delete. Expected "
+     "display: « Lunch » and « €25.50 » for 25.50. « Do NOT write the component » + « Run npm run test:run » = "
+     "see it red."),
+    ("Prompt — fallback A, GREEN",
+     "« Minimal ExpenseItem (default export) » = the smallest component that passes; default export = the file's "
+     "main export, imported as « import ExpenseItem from … ». « Do not modify the test » keeps your specification"
+     " intact."),
+    ("Words — prop, handler, .tsx",
+     "A prop is a value given to a React component (like a function argument). A handler is a function the "
+     "component calls when something happens (here onDelete). .tsx = a TypeScript file that contains React "
+     "markup."),
 ]
 
 

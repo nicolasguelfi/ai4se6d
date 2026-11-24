@@ -34,6 +34,11 @@ _NOTES = [
     ("15:30 — presentations",
      "6 min each on Google Meet, no questions; all questions at 16:30, where notes.md gives each one a concrete "
      "example."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git log",
+     "Lists the commits of the current branch, newest first: an identifier (hash), author, date and message for each. "
+     "2+ commits = 2+ entries. If the list is long, it stops with « : » at the bottom: arrows to scroll, q to quit. "
+     "Shorter: git log --oneline = one line per commit."),
 ]
 
 

@@ -41,6 +41,26 @@ _NOTES = [
      "cat .gse/registry prints .opencode: GSE-One found opencode as its platform."),
     ("Ask the room",
      "« Whose registry prints something else? » — fix it now, before the workshop."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — mkdir -p ~/ai4se/gse-check",
+     "mkdir = make directory (create a folder). -p = also create the missing parent folders, and no error if the "
+     "folder already exists."),
+    ("Command — cd ~/ai4se/gse-check",
+     "cd = change directory: the terminal now works inside that folder; the install goes into the current folder. "
+     "&& runs cd only if mkdir succeeded."),
+    ("Command — curl -fsSL (address of install.sh)",
+     "Downloads GSE-One's install script from GitHub, at the tag v0.93.4 in its address (a tag = a fixed, named "
+     "version). -f = fail on a server error, -s = silent, -S = still show errors, -L = follow redirects. The \\ at "
+     "the end of the line continues the command on the next line: copy the two lines together."),
+    ("Command — | GSE_PLATFORM=opencode GSE_VERSION=v0.93.4 sh",
+     "| hands the downloaded script to sh, which runs it. NAME=value written just before a command gives a setting "
+     "to that command only: GSE_PLATFORM=opencode = install for opencode (otherwise the script looks for the agents "
+     "it finds); GSE_VERSION=v0.93.4 = this exact version (otherwise the latest). It installs into the current "
+     "project folder, nothing in the home folder."),
+    ("Command — cat .gse/registry",
+     "cat prints the content of a file. .gse is the folder the installer created in the project (a name starting "
+     "with a dot is hidden: ls -a shows it). registry holds the path of the installed GSE-One, here .opencode, the "
+     "opencode folder of the project. « No such file » = you are not in ~/ai4se/gse-check, or the install failed."),
 ]
 
 

@@ -43,6 +43,24 @@ _NOTES = [
      "lost). Wait, or enter the code at github.com/login/device from any browser."),
     ("The trap and the check",
      "« git asks for a password » = not logged in: redo this step. Done when gh auth status says « Logged in »."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — sudo apt install gh",
+     "sudo = as administrator (asks your password, nothing shows while you type). apt install = Ubuntu's installer "
+     "adds a package (it asks « Do you want to continue? »: press Enter or Y). gh = the GitHub command line, "
+     "published by GitHub. If « Unable to locate package gh »: sudo apt update first, then again."),
+    ("Command — brew install gh",
+     "macOS: Homebrew installs gh. No Homebrew? Raise your hand."),
+    ("Command — gh auth login",
+     "Logs gh into your GitHub account, with questions to answer by arrow keys + Enter: where = GitHub.com; protocol "
+     "= HTTPS; « Authenticate Git with your GitHub credentials? » = Yes (this is what lets git push without a "
+     "password); how = Login with a web browser. It prints a one-time code (8 characters), then opens the browser on "
+     "github.com/login/device where you paste the code and authorise."),
+    ("Command — gh auth status",
+     "Shows which GitHub account gh is logged into and the protocol used: « Logged in to github.com account "
+     "(your login) »."),
+    ("Key — Ctrl+C",
+     "Stops the command running in the terminal. During gh auth login it kills the login: start again. Use it only "
+     "to stop something on purpose."),
 ]
 
 

@@ -26,6 +26,16 @@ _NOTES = [
      "Thinking that a saved file is a committed file: until git commit, the change is not in the history."),
     ("Ask the room",
      "« After git add, where is your change? And after git commit? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Words — working folder, staging area, repository",
+     "Working folder = your files as you edit them. Staging area (also « index ») = the changes you selected for "
+     "the next commit. Repository = the saved history, in the hidden .git/ folder. Remote = a copy on GitHub."),
+    ("Command — git add (file)",
+     "Copies the current state of the file into the staging area. Argument = the file, e.g. git add src/App.tsx. "
+     "git add . (dot = this folder and everything below) stages everything: avoid it after the agent worked."),
+    ("Command — git commit",
+     "Saves everything in the staging area as one commit in the repository. Usually with -m \"message\"; without -m,"
+     " Git opens a text editor for the message (save and close it to finish)."),
 ]
 
 

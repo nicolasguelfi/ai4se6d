@@ -30,6 +30,21 @@ _NOTES = [
     ("The tone",
      "Being behind on code must never block the learning — say it explicitly to the participants who are "
      "behind."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — merge what is green",
+     "On a branch whose tests pass: git switch mywork then git merge (branch). A red branch stays as it is: "
+     "nothing is lost, you can come back to it with git switch (branch)."),
+    ("Tag — j2-part1 / j2-v0.1",
+     "A tag is a fixed label on one commit — here a checkpoint of the course: j2-start (start of day 2), j2-part1"
+     " (end of Part 1), j2-v0.1 (v0.1 reference). Same commands as the catch-up slide, with the tag name changed:"
+     " git checkout -b mywork j2-v0.1 gives the reference v0.1 code to review."),
+    ("Command — npm run test:run",
+     "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
+     "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
+    ("Command — npm run dev",
+     "Runs the « dev » script of package.json = vite: starts a development web server and prints its address, "
+     "http://localhost:5173/ — open it in the browser. It reloads the page at every save and keeps the terminal "
+     "busy until Ctrl+C stops it: run it in a second terminal tab, or stop it before typing other commands."),
 ]
 
 

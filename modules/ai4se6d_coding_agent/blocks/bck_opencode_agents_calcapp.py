@@ -45,6 +45,15 @@ _NOTES = [
      "(build session), review before merge."),
     ("Ask the room",
      "« Which of these rules would the agent break first if the file were missing? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — npm run test:run",
+     "Runs the test:run script of package.json: vitest run = every test once, then stop."),
+    ("Command — npm run lint",
+     "Runs the lint script: eslint . = checks the code of the whole project (the dot) for errors and bad patterns,"
+     " without running it. No output = no problem."),
+    ("Symbol — backticks and .env*",
+     "In Markdown, `text` between backticks shows as code: the backticks are not part of the command. In .env*, "
+     "the * means « any text »: .env, .env.local, .env.production… — files that hold secrets."),
 ]
 
 

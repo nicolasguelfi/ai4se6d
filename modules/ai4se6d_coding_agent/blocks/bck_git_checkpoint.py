@@ -41,6 +41,24 @@ _NOTES = [
      "GSE-One applies the same idea with a safety tag gse-backup/… before a risky operation."),
     ("Ask the room",
      "« Which change of yesterday would have deserved a checkpoint? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git add -A",
+     "Stages every change of the project: modified, new and deleted files. -A = --all. Fine here because you save "
+     "the state you already trust, before the agent works."),
+    ("Symbol — &&",
+     "Runs the next command only if the previous one succeeded: no commit if git add failed."),
+    ("Command — git commit -m \"chore: checkpoint before refactor\"",
+     "Saves the staged state as a commit: that commit is the checkpoint. -m = the message, in quotes. « chore: » ="
+     " type for housekeeping work that adds no feature."),
+    ("Command — git diff",
+     "After the agent worked: shows every line changed since the checkpoint (- removed, + added). q to quit the "
+     "viewer."),
+    ("Command — git restore .",
+     "Throws away all uncommitted changes to tracked files in this folder and below (the dot): the files go back "
+     "to the checkpoint. No undo. Trap: new files the agent created are not removed — git status lists them as "
+     "untracked; delete them by hand (or git clean -n to list, git clean -f to delete)."),
+    ("Symbol — #",
+     "Starts a comment: the shell ignores the rest of the line. Not typed."),
 ]
 
 

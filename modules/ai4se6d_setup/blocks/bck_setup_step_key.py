@@ -38,6 +38,18 @@ _NOTES = [
      "« 401 » or « invalid API key » = wrong key or wrong provider: redo this step (see Common Errors)."),
     ("The check",
      "opencode auth list shows the provider you chose."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — opencode auth login",
+     "opencode = the coding agent; auth = its credentials (logins) commands; login = add one. It shows a list of "
+     "model providers (companies that run the AI models). Typing openrouter filters the list; Enter picks "
+     "OpenRouter; then paste the key (Ctrl+Shift+V in the Ubuntu terminal, right-click or Ctrl+V in Windows "
+     "Terminal for WSL, Cmd+V on macOS; the key may stay hidden). opencode stores it on your machine, outside every project folder."),
+    ("Command — opencode auth list",
+     "Lists the providers opencode has a credential for: names only, never the key itself. Done when OpenRouter "
+     "is in the list. Inside the agent, /connect does the same as auth login."),
+    ("Word — OpenRouter",
+     "A service that gives access to many AI models (Claude, GPT, open models…) through one key. The trainer's key "
+     "has a spending limit: whoever copies it spends that budget."),
 ]
 
 

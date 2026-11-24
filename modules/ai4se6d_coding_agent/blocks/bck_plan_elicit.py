@@ -40,6 +40,17 @@ _NOTES = [
      "The stories are split into atomic tasks, then written to docs/plan.md."),
     ("Ask the room",
      "« Which question did the agent ask you that you had not thought of? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Key — Shift+Tab",
+     "In opencode, hold Shift and press Tab: it switches to the next primary agent (plan → build → plan). The "
+     "active agent's name is shown near the prompt box. « Shift+Tab → plan » = press it until plan is shown."),
+    ("Prompt — the elicitation prompt",
+     "Lines 1-3 give the context: @AGENTS.md attaches the rules file, then the v0.1 scope. « My extra ideas: » — "
+     "replace the placeholder after it with your 2-3 ideas. « Ask me 3 clarifying questions first » = no answer "
+     "before your replies. Then 4-6 user stories, each with a title, « As a user, I want… » and testable "
+     "acceptance criteria."),
+    ("Word — localStorage",
+     "Storage inside the browser: the data survives a page reload, with no server."),
 ]
 
 

@@ -32,6 +32,25 @@ _NOTES = [
      "Break the code on purpose: a test must fail. Then two commits — test: … first, then feat: …"),
     ("Link to what follows",
      "Each step of the demo returns in the exercise on task 1 of your own plan."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — npm run test:run",
+     "npm run (name) runs a script written in package.json; test:run = « vitest run »: Vitest runs every test "
+     "file once (in tests/), prints ✓ or ✗ per test and a summary (« Tests 4 passed »), then gives the prompt "
+     "back. Green = all pass; red = at least one fails, with the expected and the received value. Not to be "
+     "confused with npm test (= vitest): in your terminal it stays in watch mode and re-runs at every save (q "
+     "quits)."),
+    ("Key — build agent (Shift+Tab)",
+     "Step 1 uses the build agent, the one that edits files and runs commands; Shift+Tab switches between plan "
+     "and build in opencode. Its name is shown under the input box."),
+    ("Symbol — test: / feat: / fix: / docs: (commit messages)",
+     "Not commands: the first word of a commit message (the « Conventional Commits » habit). test: = only tests, "
+     "feat: = a new feature, fix: = a bug fix, docs: = documentation. The … on the slide is your own short "
+     "description. A commit is a saved snapshot of the project, with that message."),
+    ("Command — git add -A && git commit -m \"test: …\"",
+     "How to make the commit. git add -A puts every change (new, modified, deleted files) in the staging area, "
+     "the list of what goes into the next commit; -A = all. git commit -m \"…\" saves that snapshot; -m = the "
+     "message, in quotes. && = run the second command only if the first succeeded. You can also ask the agent to "
+     "commit, then check with git log --oneline."),
 ]
 
 

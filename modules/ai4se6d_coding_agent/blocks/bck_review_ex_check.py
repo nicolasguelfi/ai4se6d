@@ -34,6 +34,17 @@ _NOTES = [
      "reference code instead of your own."),
     ("Next",
      "15:50: README 80/20 — the agent writes the what, you write the why."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — npm run test:run",
+     "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
+     "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
+    ("Branch — fix/review",
+     "Check you are on it: git status (first line « On branch fix/review ») or git branch (the current branch has"
+     " a *)."),
+    ("Tag — j2-v0.1",
+     "A tag is a fixed label on one commit — here a checkpoint of the course: j2-start (start of day 2), j2-part1"
+     " (end of Part 1), j2-v0.1 (v0.1 reference). Same rescue commands with this tag name (git checkout -b mywork"
+     " j2-v0.1): you get the reference v0.1 and review it instead of your code."),
 ]
 
 

@@ -25,6 +25,18 @@ _NOTES = [
      "The build this afternoon uses one branch per task of docs/plan.md."),
     ("Ask the room",
      "« What happens to your main line if the agent's attempt fails on a branch? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git switch -c feat/add-history",
+     "Creates a new branch and moves onto it, starting from where you are now. -c = create. feat/add-history = its"
+     " name; the / is just part of the name (a « feat/ » prefix groups task branches), not a folder. Older "
+     "equivalent: git checkout -b feat/add-history."),
+    ("Command — merge it back",
+     "git switch mywork (go back to your main line), then git merge feat/add-history: brings the commits of the "
+     "task branch into mywork. If both changed the same lines, Git stops and asks you to choose (« conflict »)."),
+    ("Command — delete it",
+     "git branch -d feat/add-history deletes the branch once it is merged; -d refuses if it is not. -D (capital) "
+     "deletes anyway and drops its commits: use it to throw away a failed attempt. You cannot delete the branch "
+     "you are on — switch first. git branch alone lists the branches, * marks the current one."),
 ]
 
 

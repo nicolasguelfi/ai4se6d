@@ -32,6 +32,25 @@ _NOTES = [
      "Not fixed in 5 minutes? The next slide restarts from the tag j2-part1."),
     ("Ask the room",
      "« Hands up when all four checks pass. » — wait for the room before moving on."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — cd ~/ai4se/calcapp",
+     "cd = change directory: the terminal now works in your project folder (~ = your home folder). Those who "
+     "restarted this morning use ~/ai4se/calcapp-restart instead."),
+    ("Command — git status",
+     "Read-only: changes nothing. Shows the branch you are on (« On branch mywork ») and what changed since the "
+     "last commit: « Changes not staged » (modified, not yet added), « Changes to be committed » (added with git "
+     "add), « Untracked files » (new files git does not follow yet). « nothing to commit, working tree clean » = "
+     "everything is saved in a commit."),
+    ("Command — npm run test:run",
+     "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
+     "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
+    ("Command — npm run dev",
+     "Runs the « dev » script of package.json = vite: starts a development web server and prints its address, "
+     "http://localhost:5173/ — open it in the browser. It reloads the page at every save and keeps the terminal "
+     "busy until Ctrl+C stops it: run it in a second terminal tab, or stop it before typing other commands."),
+    ("Command — opencode, then @docs/plan.md",
+     "Type opencode in the project folder (not in the terminal busy with npm run dev). In its input box, "
+     "@docs/plan.md adds the plan to the context; ask « which task is next? »."),
 ]
 
 

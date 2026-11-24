@@ -33,6 +33,15 @@ _NOTES = [
      "Show your neighbour: a second pair of eyes, and the neighbour knows you can now help."),
     ("Done when",
      "Every line is green. With the tutor answering (step 8), this is the « Done when » of the whole installation."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — sh ~/ai4se/ai4se-kit/check-learner.sh",
+     "sh runs a shell script (a text file of commands); the path is the script shipped with the kit, so it works "
+     "from any folder. It changes nothing on the machine and never prints a key: it only checks. One green ✓ or red "
+     "✗ line per check: opencode 2, model key stored, kit settings, GSE-One v0.93.4, tutor files, git identity, gh "
+     "logged in, node v20+ and npm. Each ✗ line ends with the fix to run."),
+    ("Why from ~/ai4se/gse-check",
+     "GSE-One is installed per project: the script looks for it in the current folder first. Run elsewhere, the "
+     "GSE-One line may be red although the install worked. So first: cd ~/ai4se/gse-check."),
 ]
 
 

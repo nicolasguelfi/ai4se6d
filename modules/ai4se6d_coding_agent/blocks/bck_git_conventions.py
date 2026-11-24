@@ -49,6 +49,21 @@ _NOTES = [
      "GSE-One makes every commit follow one convention, so the history tells the story."),
     ("Ask the room",
      "« Read your git log --oneline from yesterday: does it tell what happened? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Format — type(scope): what changed",
+     "Conventional Commits. type = kind of change: feat (new feature), fix (bug fix), test (tests only), refactor "
+     "(same behaviour, cleaner code), docs (documentation), chore (housekeeping). scope = the part of the app, in "
+     "brackets, optional. After « : » a short summary in the present tense."),
+    ("Trailer — Assisted-by: opencode",
+     "A trailer is a « Key: value » line at the end of the message, after a blank line. To write it: git commit -m"
+     " \"feat(expenses): reject negative amounts\" -m \"Assisted-by: opencode\" (each -m makes a new paragraph), or "
+     "add --trailer \"Assisted-by: opencode\"."),
+    ("Names — feat/add-history, fix/rounding, experiment/new-layout",
+     "Branch names: lowercase, words joined by -, a prefix and / to say what kind of work it is. The / is part of "
+     "the name. Created with git switch -c feat/add-history."),
+    ("Command — git log --oneline",
+     "Shows the history of the current branch, newest commit first. --oneline = one line per commit: a short id (7"
+     " characters, e.g. a1b2c3d) then the first line of the message. Long output opens in a viewer: q to quit."),
 ]
 
 

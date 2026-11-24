@@ -33,6 +33,23 @@ _NOTES = [
      "npm run dev, click both links, use the back button: the tests do not cover everything."),
     ("Link",
      "« Trust, but verify » — the habit the review section practises at 14:30."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Check — react-router in package.json",
+     "Open package.json, section « dependencies »: react-router must be there, react-router-dom must not. Quick "
+     "check in the terminal: grep react-router package.json (grep prints the lines containing that text)."),
+    ("Words — Link vs a href",
+     "Link is react-router's link component: it changes the page without reloading the app. A plain HTML « a href"
+     " » link reloads the whole page (and loses in-memory state)."),
+    ("Command — git diff -- tests/",
+     "git diff shows line by line what changed (- removed, + added); « -- » means « what follows is a path, not a"
+     " branch name »; tests/ limits the output to that folder. Empty output = nothing changed. Trap: without a "
+     "commit name it compares with the staging area, so it misses changes already added (git add) or committed. "
+     "Safer: git diff HEAD -- tests/ (HEAD = your last commit), or after the feat: commit, git diff HEAD~1 -- "
+     "tests/ (HEAD~1 = the commit before it). q quits a long diff."),
+    ("Command — npm run dev",
+     "Runs the « dev » script of package.json = vite: starts a development web server and prints its address, "
+     "http://localhost:5173/ — open it in the browser. It reloads the page at every save and keeps the terminal "
+     "busy until Ctrl+C stops it: run it in a second terminal tab, or stop it before typing other commands."),
 ]
 
 

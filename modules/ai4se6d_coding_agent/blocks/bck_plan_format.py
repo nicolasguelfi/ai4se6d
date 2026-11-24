@@ -41,6 +41,13 @@ _NOTES = [
      "This afternoon the RED prompt starts with « @docs/plan.md Task 1 only »: the plan drives the build."),
     ("Ask the room",
      "« Why only one [next] at a time? »"),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Format — docs/plan.md",
+     "Markdown: # = the title, ## = one heading per task (T1, T2…). [next] = the task to build now (exactly one), "
+     "[todo] = later. Accept: = the acceptance criteria, Branch: = the branch to create for it (git switch -c "
+     "feat/expense-type). The sign in T1 (less-than then equals) reads « 0 or below »."),
+    ("Syntax — @docs/plan.md",
+     "In opencode, attaches the plan file to the prompt, so the agent reads the same plan as you."),
 ]
 
 

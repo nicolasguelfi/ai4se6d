@@ -31,6 +31,15 @@ _NOTES = [
      "renders, the next task of the plan."),
     ("Ask the room",
      "« Who has uncommitted changes right now? » — fix it before leaving the room."),
+    # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Command — git status",
+     "Read-only: changes nothing. Shows the branch you are on (« On branch mywork ») and what changed since the "
+     "last commit: « Changes not staged » (modified, not yet added), « Changes to be committed » (added with git "
+     "add), « Untracked files » (new files git does not follow yet). « nothing to commit, working tree clean » = "
+     "everything is saved in a commit."),
+    ("Command — make it clean",
+     "If git status lists changes: git add -A (stage all changes) then git commit -m \"wip: before lunch\" (wip = "
+     "work in progress). Run git status again: « nothing to commit, working tree clean »."),
 ]
 
 
