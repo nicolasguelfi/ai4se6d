@@ -23,7 +23,7 @@ BLOCKS = [
     blocks.bck_setup_tutor_sees,
     blocks.bck_setup_stuck,
     blocks.bck_setup_install_errors,
-    # ── FreeSelfApp workshop (14:30 + 15:30, 2 × 45 min) ──
+    # ── FreeSelfApp workshop (14:30, 45 min: 3 iterations + the presentation) ──
     blocks.bck_setup_workshop_intro,
     blocks.bck_setup_core_loop,
     blocks.bck_setup_live_demo,
@@ -34,10 +34,12 @@ BLOCKS = [
     blocks.bck_setup_workshop_sheet,
     blocks.bck_setup_take_notes,
     blocks.bck_setup_build_stuck,
-    blocks.bck_setup_workshop_continue,
-    # ── Debrief (16:15, 30 min) ──
-    blocks.bck_setup_debrief_compare,
-    blocks.bck_setup_debrief_questions,
+    blocks.bck_setup_workshop_continue,  # 14:45 iteration 2 — the client wants more
+    blocks.bck_setup_present_prep,       # 14:55 iteration 3 — the presentation
+    # ── Presentations (15:30, 60 min) and questions (16:30, 20 min) — NG, 2026-11-24 ──
+    blocks.bck_setup_presentations,
+    blocks.bck_setup_debrief_questions,  # « Questions on Any Project »
+    # ── Wrap-up (16:50, 10 min) — bck_setup_debrief_compare left out (no time) ──
     blocks.bck_setup_debrief_cycles,  # link to the morning cycles 01-03
     blocks.bck_setup_quiz,
     blocks.bck_setup_quiz_answers,

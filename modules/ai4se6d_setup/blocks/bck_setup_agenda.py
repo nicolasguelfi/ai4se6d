@@ -22,24 +22,25 @@ _HEADERS = ("Time", "What", "Duration")
 # (time, what, duration, hands-on)
 _ROWS = [
     ("13:15", "Installation in the room", "75 min", True),
-    ("14:30", "FreeSelfApp — part 1", "45 min", True),
+    ("14:30", "FreeSelfApp: build, change, present", "45 min", True),
     ("15:15", "Break", "15 min", False),
-    ("15:30", "FreeSelfApp — part 2", "45 min", True),
-    ("16:15", "Debrief + hands-up quiz", "30 min", False),
-    ("16:45", "Buffer: late installs, questions", "15 min", False),
+    ("15:30", "Presentations (6 min each, Meet)", "60 min", True),
+    ("16:30", "Questions on any project", "20 min", False),
+    ("16:50", "Wrap-up + hands-up quiz", "10 min", False),
 ]
 
 _NOTES = [
     ("The message",
-     "Three and a half hours, mostly hands-on: the highlighted rows (install, FreeSelfApp part 1 and part 2) are "
-     "the ones where you work at your machine."),
+     "Three and a half hours, mostly hands-on: the highlighted rows (install, FreeSelfApp, presentations) are "
+     "the ones where you work at your machine or present."),
     ("Installation first",
      "75 min in the room. Mid-point at 13:50: you should be at step 4 or beyond."),
     ("FreeSelfApp",
-     "Two blocks of 45 min around the break: a first prototype by pure prompting."),
-    ("Debrief and buffer",
-     "16:15: debrief and a hands-up quiz. 16:45: buffer for late installs and questions — nobody leaves without a "
-     "working toolchain."),
+     "45 min before the break: build v1 (14:30), add the client's feature (14:45), let opencode make a 6-minute "
+     "presentation (14:55)."),
+    ("Presentations, questions, wrap-up",
+     "15:30: 9 × 6 min on Google Meet, no questions. 16:30: questions on any project. 16:50: back to this morning + "
+     "hands-up quiz. Late installs: during the break and the questions — nobody leaves without a working toolchain."),
     ("Ask the room",
      "« Whose laptop is managed by an IT department? » — those are the installs to start first."),
 ]
@@ -55,7 +56,7 @@ def build():
                 st_hover_tooltip(title="Trainer notes — This Afternoon", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
-        with st_zoom(130):
+        with st_zoom(112):
             _timetable()
 
 

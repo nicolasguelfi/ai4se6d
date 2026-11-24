@@ -31,7 +31,7 @@ _NOTES = [
     ("The rule to repeat",
      "Use made-up data only: no real personal or company data goes into a prompt (it leaves your machine)."),
     ("Why small",
-     "The workshop lasts the afternoon, with a mid-point at 14:55 (it opens + 1 commit). A small app reaches "
+     "45 minutes for v1, a client's feature and a presentation (v1 + 1 commit at 14:45). A small app reaches "
      "« done » and leaves time to iterate."),
     ("Ask the room",
      "« Hands up: who takes one of the three, who brings their own? »"),

@@ -39,6 +39,8 @@ from . import bck_setup_title as bck_setup_title
 from . import bck_setup_tomorrow_preview as bck_setup_tomorrow_preview
 from . import bck_setup_tutor_sees as bck_setup_tutor_sees
 from . import bck_setup_workshop_continue as bck_setup_workshop_continue
+from . import bck_setup_present_prep as bck_setup_present_prep
+from . import bck_setup_presentations as bck_setup_presentations
 from . import bck_setup_workshop_intro as bck_setup_workshop_intro
 from . import bck_setup_workshop_sheet as bck_setup_workshop_sheet
 

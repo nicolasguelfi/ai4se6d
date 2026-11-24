@@ -19,7 +19,8 @@ _NOTES = [
     ("No rules, no plan — on purpose",
      "No method is imposed this time. What works and what goes wrong is the material of the debrief."),
     ("Timing",
-     "2 × 45 min, around the break (14:30 and 15:30), then the debrief and a hands-up quiz at 16:15."),
+     "14:30-15:15: v1, the client's feature (14:45), the presentation (14:55). 15:30 presentations, 16:30 questions, "
+     "16:50 wrap-up and quiz."),
     ("Ask the room",
      "« What will you build? » — one sentence each, before the first prompt."),
 ]
@@ -39,4 +40,4 @@ def build():
         # Reused from the vibecoding module (ex_vibecoding) — no new AI image.
         st_image(uri="images/setup_freeselfapp.webp", width="65%", max_vh=68, align="center")
         with st_zoom(130):
-            st_write(bs.caption, "2 × 45 min · no rules, no plan — on purpose", tag=t.div)
+            st_write(bs.caption, "45 min · build, change, present · no rules, no plan — on purpose", tag=t.div)

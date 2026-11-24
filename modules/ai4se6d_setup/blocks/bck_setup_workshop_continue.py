@@ -1,4 +1,4 @@
-"""Slide — FreeSelfApp part 2 (after the break): keep going."""
+"""Slide — FreeSelfApp iteration 2 (14:45): the client wants one more feature (NG, 2026-11-24)."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -7,55 +7,66 @@ from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
-    """Part 2 slide styles."""
+    """Iteration 2 slide styles."""
     heading = s.project.titles.slide_title + s.center_txt
     body = s.project.titles.body
     label = s.project.titles.label
     keyword = s.bold + s.project.colors.accent
 bs = BlockStyles
 
+# The menu shown on the slide: generic features any small personal web app can take (NG, 2026-11-24:
+# the coding agent may already have added the one announced, e.g. an export — then the learner picks another).
+_MENU = [
+    "data survives a page reload",
+    "export to a file (CSV or JSON)",
+    "search or filter the list",
+    "edit an existing item",
+    "undo the last action",
+    "clear error messages on bad input",
+    "a summary: counts or totals",
+    "works on a phone screen",
+]
+
 _NOTES = [
     ("Trainer action",
-     "Learners do it — on their machine. Part 2 at 15:30: everyone adds one feature, asks the agent to "
-     "explain one file and commits after each working step."),
+     "Learners do it — on their machine. At 14:45 announce ONE extra feature for everybody (e.g. « the data must "
+     "survive a page reload »). Whoever already has it picks another one from the menu on the slide."),
     ("The message",
-     "After the break, the same app, one step further: one feature you really want, one file explained, "
-     "a commit after each working step, notes kept up to date."),
-    ("Explain one file",
-     "Ask the agent to explain one file of YOUR app — do you get it? This is the first time the participants "
-     "look at the code they did not write."),
-    ("Commit rhythm",
-     "One commit after each working step: a broken next prompt then costs one step, not the afternoon."),
+     "A real client always asks for more once they see v1. The point is not the feature: it is whether v1 still "
+     "works afterwards, and who checks it."),
+    ("Menu — more ideas if needed",
+     "Import a file; sort by any column; tags or categories; confirm before delete; dark mode toggle; keyboard "
+     "shortcuts; two languages (EN/FR); works offline; a chart of the data; share a link to one item."),
+    ("What to watch while you walk around",
+     "Does anyone re-test v1 before committing? Does anyone read the diff? Does the agent rewrite everything for a "
+     "small feature? Note it for the questions at 16:30."),
     ("Timing",
-     "Mid-point at 15:50 (1 new feature + 1 commit); at 16:10 last commit and notes ready for the 16:15 debrief."),
-    ("Ask the room",
-     "« Who understood the file the agent explained? Who would dare change it by hand? »"),
+     "14:45 feature announced · 14:55 feature done + commit · then iteration 3, the presentation."),
 ]
 
 _ITEMS = [
-    ("Add ", (bs.keyword, "one feature"), " you really want"),
-    ("Ask the agent to ", (bs.keyword, "explain one file"), " — do you get it?"),
-    ((bs.keyword, "Commit"), " after each working step"),
-    ("Update ", (bs.keyword, "notes.md")),
+    ("The client wants ", (bs.keyword, "one more feature"), " — the trainer names it"),
+    ("Already there? ", (bs.keyword, "Pick another"), " from the menu below"),
+    ("Check ", (bs.keyword, "v1 still works"), ", then ", (bs.keyword, "commit")),
 ]
 
 
 def build():
     with st_block(s.project.containers.page_fill_top):
-        # title and « i » on the same line, title smaller (NG, 2026-11-23)
+        # title and « i » on the same line (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, "Part 2 — Keep Going", tag=t.div, toc_lvl="1")
+                st_write(bs.heading, "Iteration 2 — The Client Wants More", tag=t.div, toc_lvl="1")
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Part 2 — Keep Going", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Iteration 2 — The Client Wants More", entries=_NOTES,
                                  position="left", width="50vw")
-        st_space("v", "3vh")
+        st_space("v", "2vh")
 
         # One row per task, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         cols = "5% 90% 5%"
         cells = s.project.containers.rows(len(_ITEMS), cols, filled=(2,))
-        with st_zoom(110):
-            with st_grid(cols=cols, gap="6vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(105):
+            with st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
                 for parts in _ITEMS:
                     with g.cell():
                         pass  # left margin
@@ -63,13 +74,13 @@ def build():
                         st_write(bs.body, *parts, tag=t.div)
                     with g.cell():
                         pass  # right margin
-            st_space("v", "6vh")
-            with st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=s.project.containers.row_cell_left) as g:
-                for label, text in [("Mid-point (15:50): ", "1 new feature + 1 commit."),
-                                    ("16:10: ", "last commit, notes ready for the debrief.")]:
+        st_space("v", "3vh")
+        with st_zoom(90):
+            st_write(bs.body, (bs.label, "Menu:"), tag=t.div)
+            with st_grid(cols="1fr 1fr", gap="1vh 3vw", cell_styles=s.project.containers.row_cell_left) as g:
+                for item in _MENU:
                     with g.cell():
-                        pass
-                    with g.cell():
-                        st_write(bs.body, (bs.label, label), text, tag=t.div)
-                    with g.cell():
-                        pass
+                        st_write(bs.body, "• ", item, tag=t.div)
+        st_space("v", "3vh")
+        with st_zoom(100):
+            st_write(bs.body, (bs.label, "14:55: "), "feature done + commit.", tag=t.div)

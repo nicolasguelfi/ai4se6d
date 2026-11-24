@@ -1,4 +1,4 @@
-"""Slide — Take notes as you build (feeds the 16:15 debrief)."""
+"""Slide — Take notes as you build (feeds the questions at 16:30)."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -19,19 +19,19 @@ bs = BlockStyles
 _NOTES = [
     ("Trainer action",
      "Learners do it — on their machine. Everyone creates notes.md in their project folder now and writes "
-     "the four items while building; it feeds the 16:15 debrief."),
+     "the four items while building; it feeds the questions at 16:30."),
     ("The message",
      "While building, participants keep a notes.md in their project folder: four things to write down."),
     ("Why notes",
-     "Without notes, the debrief turns into impressions. With them, each participant brings a concrete example: "
+     "Without notes, the questions turn into impressions. With them, each participant brings a concrete example: "
      "a surprise, a breakage, a count of prompts."),
     ("The key question",
      "« What broke — and who fixed it: you or the AI? » It shows how much of the app the participant "
      "actually controls."),
-    ("Link to the debrief",
-     "At 16:15 the notes feed « By Hand vs. AI » and the three debrief questions."),
+    ("Link to the questions",
+     "At 16:30 the notes feed the questions on any project (surprise, what broke, would you give it to a client)."),
     ("Ask the room",
-     "« How many prompts do you think you will need? Write your guess now, compare at 16:15. »"),
+     "« How many prompts do you think you will need? Write your guess now, compare at 16:30. »"),
 ]
 
 _ITEMS = [
@@ -79,6 +79,6 @@ def build():
                 with g.cell():
                     pass
                 with g.cell():
-                    st_write(bs.caption, "We use these notes in the debrief at 16:15.", tag=t.div)
+                    st_write(bs.caption, "Keep them: they feed the questions at 16:30.", tag=t.div)
                 with g.cell():
                     pass

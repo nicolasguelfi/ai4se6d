@@ -1,4 +1,4 @@
-"""Slide — Debrief: three questions, neighbour first."""
+"""Slide — Questions on any project (16:30, 20 min): prompts for learners + the trainer's SE questions."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -17,20 +17,26 @@ bs = BlockStyles
 
 _NOTES = [
     ("Trainer action",
-     "Learners do it — in pairs, then aloud. 3 minutes with the neighbour on the three questions, then "
-     "together in plenary."),
-    ("The message",
-     "Three questions: 3 minutes with the neighbour first, then together. Pairs first, so everyone has spoken "
-     "before the plenary."),
-    ("1 — surprise",
-     "Good or bad: what the agent did that the participant did not expect (often: it did more than asked)."),
-    ("2 — what broke, who fixed it",
-     "If the AI fixed everything, did the participant understand the fix? If they fixed it, how?"),
-    ("3 — the client question",
-     "« Would you give this app to a client tomorrow? Why not? » The answers (no tests, unread code, unknown "
-     "decisions, data) are exactly the gap between vibe coding and engineering."),
-    ("Link to the next slide",
-     "« Back to This Morning » maps these experiences to the morning cycles (CCSET01-03)."),
+     "Learners do it — aloud, in plenary. 20 minutes of questions on ANY project seen at 15:30. Start with the "
+     "learners' own questions; use yours below to open software-engineering topics."),
+    ("Your questions — requirements",
+     "« Where is the specification? Who wrote it, you or the agent? » · « How do you know the client's feature is "
+     "done? » → day 2 (plan.md), day 3 (/gse-reqs)."),
+    ("Your questions — architecture",
+     "« What is the architecture? Which files, why? » · « Where is the data kept? » · « Could a colleague take over "
+     "tomorrow? » → day 2 (AGENTS.md, structure), day 3."),
+    ("Your questions — tests",
+     "« What is the test coverage? » · « What is your test method — did you test by hand, how? » · « After the "
+     "client's feature, how do you know v1 still works? » (regression) → day 2 (TDD), day 4 (quality)."),
+    ("Your questions — code and history",
+     "« Who read the code? » · « What do your commits tell? » · « What did the agent do that you did not ask "
+     "for? » → day 2 (git, AI code review)."),
+    ("Your questions — production",
+     "« Would you give it to a client tomorrow? Why not? » · « How would it go to production? » · « What does it "
+     "cost (tokens)? Which licences? » → days 4-6 (CI, deployment, ethics)."),
+    ("Your questions — process",
+     "« Through which phases did you go? Which did your slides show, which did they skip? » → the hidden goal of "
+     "the presentation; link to the morning cycles at 16:50."),
 ]
 
 _QUESTIONS = [
@@ -45,9 +51,9 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, "Three Questions", tag=t.div, toc_lvl="1")
+                st_write(bs.heading, "Questions on Any Project", tag=t.div, toc_lvl="1")
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Three Questions", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Questions on Any Project", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
 
@@ -59,7 +65,7 @@ def build():
                 with g.cell():
                     pass
                 with g.cell():
-                    st_write(bs.body, (bs.label, "3 min with your neighbour, then together:"), tag=t.div)
+                    st_write(bs.body, (bs.label, "Any project you saw — for example:"), tag=t.div)
                 with g.cell():
                     pass
             st_space("v", "5vh")

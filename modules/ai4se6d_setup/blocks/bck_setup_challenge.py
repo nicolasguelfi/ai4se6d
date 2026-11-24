@@ -24,7 +24,7 @@ _NOTES = [
      "Participants choose; HTML + JS is the simplest because it opens in the browser with nothing to install."),
     ("No rules, no plan — on purpose",
      "Today they FEEL vibe coding: no requirements, no tests, no review. The surprises and breakages are the "
-     "material of the 16:15 debrief."),
+     "material of the questions at 16:30."),
     ("Link to tomorrow",
      "« Today you feel vibe coding. Tomorrow you engineer it. » Day 2 takes the same loop on CalcApp, with git, "
      "a plan and an AI code review."),

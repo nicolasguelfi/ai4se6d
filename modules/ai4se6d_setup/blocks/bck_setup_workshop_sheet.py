@@ -21,18 +21,19 @@ _NOTES = [
      "order; then walk around the room."),
     ("The message",
      "The contract of the workshop on one slide: the goal, when it is done, the mid-point, what to do if stuck, "
-     "and what to bring to the debrief."),
+     "and when you present."),
     ("Done when",
-     "Three checks anyone can verify: it opens in the browser, it does one thing you wanted, and git log shows "
-     "2+ commits."),
-    ("Mid-point (14:55)",
-     "It opens + 1 commit. Walk around at that time: whoever has nothing running gets help first."),
+     "Three checks anyone can verify: v1 and the client's feature run, git log shows 2+ commits, the presentation "
+     "opens in the browser."),
+    ("14:45 — the client's feature",
+     "v1 runs + 1 commit. Walk around at that time: whoever has nothing running gets help first. Then announce the "
+     "client's feature (see « Iteration 2 »)."),
     ("If stuck",
      "In this order: the tutor window, then rephrase or paste the error to the agent, then raise your hand — "
      "the trainer is the last resort, not the first."),
-    ("Debrief (16:15)",
-     "Participants bring their notes (notes.md) and one example: what they would have done by hand vs. what "
-     "the AI did."),
+    ("15:30 — presentations",
+     "6 min each on Google Meet, no questions; all questions at 16:30, where notes.md gives each one a concrete "
+     "example."),
 ]
 
 
@@ -50,11 +51,11 @@ def build():
         rows = [
             ((bs.label, "Goal:"), ("your small web app, by prompting only.",)),
             ((bs.done_label, "Done when:"),
-             ("it opens in the browser, does one thing you wanted, and ", (bs.cmd, "git log"), " shows 2+ commits.")),
-            ((bs.label, "Mid-point (14:55):"), ("it opens + 1 commit.",)),
+             ("v1 and the client's feature both run, ", (bs.cmd, "git log"), " shows 2+ commits, and your presentation opens in the browser.")),
+            ((bs.label, "14:45:"), ("v1 runs + 1 commit — then the client's feature.",)),
             ((bs.label, "If stuck:"),
              ("1. your tutor window  2. rephrase or paste the error to the agent  3. raise your hand.",)),
-            ((bs.label, "Debrief (16:15):"), ("your notes + one example.",)),
+            ((bs.label, "15:30:"), ("you present 6 min, sharing your screen on Google Meet.",)),
         ]
         # One row per item of the sheet, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         cols = "5% 30% 60% 5%"

@@ -21,14 +21,16 @@ bs = BlockStyles
 
 _NOTES = [
     ("The message",
-     "This afternoon in three moves: Install your toolchain, Build a first prototype, Debrief together."),
+     "This afternoon in three moves: Install your toolchain, Build a first prototype and present it, Debrief together."),
     ("Install",
      "75 min in the room, one step per slide (0 to 8): terminal, opencode 2, Node.js, model key, course kit, "
      "GSE-One v0.93.4, GitHub, check, tutor window."),
     ("Build",
-     "The FreeSelfApp workshop: 2 × 45 min, a first prototype by pure prompting — no rules, no plan, on purpose."),
+     "The FreeSelfApp workshop: 45 min, 3 iterations (v1, a client's feature, a presentation made by opencode) — no "
+     "rules, no plan, on purpose."),
     ("Debrief",
-     "Compare what was built, a hands-up quiz, and a preview of tomorrow."),
+     "9 presentations of 6 min on Google Meet, questions on any project, back to this morning, a hands-up quiz and a "
+     "preview of tomorrow."),
     ("Ask the room",
      "« Who has already installed opencode or GSE-One? » — they can help their neighbours during the install."),
 ]
