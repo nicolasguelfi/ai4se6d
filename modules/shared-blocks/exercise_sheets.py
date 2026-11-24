@@ -267,7 +267,7 @@ SHEETS = {
             "AI Act: does your app use AI? If so, which risk level (day 1: unacceptable, high, low or minimal)? "
             "Does the user know they deal with an AI, or with AI-made content (transparency)?",
             "Licences: a `LICENSE` file in your repository? The licence of each direct dependency "
-            "(`npm view <package> license`, `pip show <package>`): does one forbid your use?",
+            "(e.g. `npm view react license`, `pip show requests`): does one forbid your use?",
             "Secrets: `git log --all --oneline -- .env` prints nothing; `git grep -n -i -E \"api.?key|secret|password|token\"` "
             "shows no real value. A leaked key is revoked, not just deleted.",
             "Personal data: which ones does your app keep (names, e-mails, health…), where, why, for how long? "
