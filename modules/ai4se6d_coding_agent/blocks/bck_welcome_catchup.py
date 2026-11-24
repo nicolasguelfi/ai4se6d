@@ -16,12 +16,13 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "catchup_cmd")
 bs = BlockStyles
 
-_CODE_ZOOM = 92  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 85  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _RECOVER = """\
-git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart
+cd ~/ai4se
+git clone https://github.com/nicolasguelfi/calcapp-starter calcapp-restart
 TAG=j2-start               # the tag your half-day sheet names
-cd ~/ai4se/calcapp-restart && git checkout -b mywork "$TAG" && npm ci"""
+cd calcapp-restart && git checkout -b mywork "$TAG" && npm ci"""
 
 _TAGS = [
     ("j2-start", "starter: empty app, 1 test (09:15)"),
@@ -66,16 +67,19 @@ _NOTES = [
     ("Command — ~/ai4se/ai4se-kit/tutor update",
      "Runs the course kit's tutor script with « update »: it downloads the latest version of the kit (course notes, "
      "sheets) with git pull, then checks GSE-One. Close and reopen the tutor window afterwards."),
-    ("Command — git clone (address) (folder)",
+    ("Command — cd ~/ai4se",
+     "cd = change directory: the terminal now works inside ~/ai4se, the course folder (~ = your home folder, "
+     "/home/student in the course VM). Every course project is cloned here, so the tutor window can read it."),
+    ("Command — git clone (address) calcapp-restart",
      "git clone copies a project from GitHub onto your machine, with its whole history and its tags. First argument: "
-     "the address of the project (here the CalcApp starter). Second argument: the folder to create "
-     "(~/ai4se/calcapp-restart); it must not exist yet. Because the folder is given in full, the command works from "
-     "any folder. Without it, git would create « calcapp-starter » in the current folder."),
+     "the project's address (the CalcApp starter). Second argument: the name of the folder to create inside the "
+     "current folder (~/ai4se, thanks to the cd just before); it must not exist yet — if it does, git refuses: pick "
+     "another name such as calcapp-restart2 and use it in the next line."),
     ("Command — TAG=j2-start",
      "Not a git command: it stores the text « j2-start » in a variable named TAG, for this terminal only (until you "
      "close it). Later, \"$TAG\" is replaced by that text; the quotes keep it as one word. Your half-day sheet tells "
      "you which tag to use."),
-    ("Command — cd ~/ai4se/calcapp-restart",
+    ("Command — cd calcapp-restart",
      "cd = change directory: the terminal now works inside that folder. ~ is your home folder (/home/student in the "
      "course VM)."),
     ("Symbol — &&",

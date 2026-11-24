@@ -14,7 +14,7 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_rescue_foot")
 bs = BlockStyles
 
-_CODE_ZOOM = 102  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 94  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _NOTES = [
     ("Trainer action",
@@ -34,11 +34,15 @@ _NOTES = [
     ("Link to the rest of the day",
      "Same mechanism after lunch with the tag j2-part1: a recovery tag is a safety net, not a failure."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
-    ("Command — git clone (address) ~/ai4se/calcapp-restart",
-     "Copies the CalcApp starter from GitHub onto the machine, with its whole history and its tags. First "
-     "argument: the project's address; second: the folder to create (it must not exist yet — if it does, pick "
-     "another name such as calcapp-restart2, and use that name in the next line). ~ = your home folder."),
-    ("Command — cd ~/ai4se/calcapp-restart",
+    ("Command — cd ~/ai4se",
+     "cd = change directory: the terminal now works inside ~/ai4se, the course folder (~ = your home folder, "
+     "/home/student in the course VM). Every course project is cloned here, so the tutor window can read it."),
+    ("Command — git clone (address) calcapp-restart",
+     "git clone copies a project from GitHub onto your machine, with its whole history and its tags. First argument: "
+     "the project's address (the CalcApp starter). Second argument: the name of the folder to create inside the "
+     "current folder (~/ai4se, thanks to the cd just before); it must not exist yet — if it does, git refuses: pick "
+     "another name such as calcapp-restart2 and use it in the next line."),
+    ("Command — cd calcapp-restart",
      "cd = change directory: the terminal now works inside the new folder, so the next commands act on it."),
     ("Symbol — &&",
      "Runs the next command only if the previous one succeeded: if cd fails, nothing else runs."),
@@ -61,8 +65,9 @@ _NOTES = [
 
 
 _RESCUE = """\
-git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart
-cd ~/ai4se/calcapp-restart && git checkout -b mywork j2-start && npm ci"""
+cd ~/ai4se
+git clone https://github.com/nicolasguelfi/calcapp-starter calcapp-restart
+cd calcapp-restart && git checkout -b mywork j2-start && npm ci"""
 
 
 def build():

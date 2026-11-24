@@ -15,11 +15,12 @@ class BlockStyles:
     timer = Style.create(s.project.titles.stat + s.center_txt, "git_ex_timer")
 bs = BlockStyles
 
-_CODE_ZOOM = 118  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 109  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _STEPS = """\
-git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp
-cd ~/ai4se/calcapp && git checkout -b mywork j2-start && npm ci
+cd ~/ai4se
+git clone https://github.com/nicolasguelfi/calcapp-starter calcapp
+cd calcapp && git checkout -b mywork j2-start && npm ci
 npm run test:run            # all green?
 git switch -c feat/hello
 # change one line of README.md, then:
@@ -46,11 +47,15 @@ _NOTES = [
     ("If stuck",
      "Tutor window, then a fresh clone at j2-start in a new folder, then a raised hand (next slide)."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
-    ("Command — git clone (address) ~/ai4se/calcapp",
-     "Copies the CalcApp starter from GitHub onto your machine, with its history and tags. First argument: the "
-     "project address. Second: the folder to create, ~/ai4se/calcapp (~ = your home folder); it must not exist "
-     "yet, otherwise git refuses."),
-    ("Command — cd ~/ai4se/calcapp && git checkout -b mywork j2-start && npm ci",
+    ("Command — cd ~/ai4se",
+     "cd = change directory: the terminal now works inside ~/ai4se, the course folder (~ = your home folder, "
+     "/home/student in the course VM). Every course project is cloned here, so the tutor window can read it."),
+    ("Command — git clone (address) calcapp",
+     "git clone copies a project from GitHub onto your machine, with its whole history and its tags. First argument: "
+     "the project's address (the CalcApp starter). Second argument: the name of the folder to create inside the "
+     "current folder (~/ai4se, thanks to the cd just before); it must not exist yet — if it does, git refuses: pick "
+     "another name such as calcapp2 and use it in the next line."),
+    ("Command — cd calcapp && git checkout -b mywork j2-start && npm ci",
      "cd = change directory, into the project. && = run the next command only if the previous one succeeded. git "
      "checkout -b mywork j2-start creates the branch mywork starting at the tag j2-start (-b = create the branch) "
      "and moves onto it. npm ci installs the libraries exactly as in package-lock.json (ci = clean install)."),

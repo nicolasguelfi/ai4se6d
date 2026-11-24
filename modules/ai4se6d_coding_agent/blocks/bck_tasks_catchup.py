@@ -18,8 +18,9 @@ _CODE_ZOOM = 95  # code readable in the room; tuned by measure so the slide fill
 
 
 _CATCHUP = """\
-git clone https://github.com/nicolasguelfi/calcapp-starter ~/ai4se/calcapp-restart
-cd ~/ai4se/calcapp-restart && git checkout -b mywork j2-part1 && npm ci"""
+cd ~/ai4se
+git clone https://github.com/nicolasguelfi/calcapp-starter calcapp-restart
+cd calcapp-restart && git checkout -b mywork j2-part1 && npm ci"""
 
 _NOTES = [
     ("Trainer action",
@@ -38,11 +39,15 @@ _NOTES = [
      "A recovery tag is a safety net, not a failure: the goal of the afternoon is the loop and the review, "
      "not finishing at all costs."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
-    ("Command — git clone (address) ~/ai4se/calcapp-restart",
-     "Copies the CalcApp starter from GitHub onto the machine, with its whole history and its tags. First "
-     "argument: the project's address; second: the folder to create (it must not exist yet — if it does, pick "
-     "another name such as calcapp-restart2, and use that name in the next line). ~ = your home folder."),
-    ("Command — cd ~/ai4se/calcapp-restart",
+    ("Command — cd ~/ai4se",
+     "cd = change directory: the terminal now works inside ~/ai4se, the course folder (~ = your home folder, "
+     "/home/student in the course VM). Every course project is cloned here, so the tutor window can read it."),
+    ("Command — git clone (address) calcapp-restart",
+     "git clone copies a project from GitHub onto your machine, with its whole history and its tags. First argument: "
+     "the project's address (the CalcApp starter). Second argument: the name of the folder to create inside the "
+     "current folder (~/ai4se, thanks to the cd just before); it must not exist yet — if it does, git refuses: pick "
+     "another name such as calcapp-restart2 and use it in the next line."),
+    ("Command — cd calcapp-restart",
      "cd = change directory: the terminal now works inside the new folder, so the next commands act on it."),
     ("Symbol — &&",
      "Runs the next command only if the previous one succeeded: if cd fails, nothing else runs."),
