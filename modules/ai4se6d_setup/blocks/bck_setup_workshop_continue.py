@@ -1,5 +1,6 @@
 """Slide — FreeSelfApp iteration 2 (14:45): the client wants one more feature (NG, 2026-11-24)."""
 # @guideline: maximize-viewport
+import streamlit as st
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
@@ -46,7 +47,7 @@ _NOTES = [
 
 _ITEMS = [
     ("The client wants ", (bs.keyword, "one more feature"), " — the trainer names it"),
-    ("Already there? ", (bs.keyword, "Pick another"), " from the menu below"),
+    ("Already there? ", (bs.keyword, "Pick another"), " from the menu below (open it)"),
     ("Check ", (bs.keyword, "v1 still works"), ", then ", (bs.keyword, "commit")),
 ]
 
@@ -75,8 +76,9 @@ def build():
                     with g.cell():
                         pass  # right margin
         st_space("v", "3vh")
-        with st_zoom(90):
-            st_write(bs.body, (bs.label, "Menu:"), tag=t.div)
+        # Menu in a collapsed accordion: the trainer opens it only when needed (NG, 2026-11-24).
+        # st.expander is interactivity (allowed); its content stays stx.
+        with st_zoom(90), st.expander("**Menu — other features to pick from**", expanded=False):
             with st_grid(cols="1fr 1fr", gap="1vh 3vw", cell_styles=s.project.containers.row_cell_left) as g:
                 for item in _MENU:
                     with g.cell():
