@@ -54,14 +54,14 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(70):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "Names That Tell the Story", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Names That Tell the Story", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
         # commits above branches: side by side, the code had to stay too small to fit (NG, 2026-11-23)
-        with st_zoom(118), st_grid(cols="5% 90% 5%", gap="1vh 0") as g:
+        with st_zoom(115), st_grid(cols="5% 90% 5%", gap="1vh 0") as g:
             with g.cell():
                 pass  # left margin
             with g.cell():

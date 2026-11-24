@@ -50,13 +50,13 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(70):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "Try it: Git on CalcApp", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Try it: Git on CalcApp", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
-        with st_zoom(110):
+        with st_zoom(125):
             st_write(bs.timer, "15 min — in a terminal", tag=t.div)
             st_write(
                 bs.body,
@@ -65,5 +65,5 @@ def build():
                 tag=t.div,
             )
         st_space("v", "7vh")
-        with st_zoom(120):
+        with st_zoom(137):
             st_code(s.none, code=_STEPS, language="bash", line_numbers=False, font_size="24pt")

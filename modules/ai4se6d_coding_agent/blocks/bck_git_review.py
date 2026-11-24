@@ -44,7 +44,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(70):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "1 · Review Before Stage", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Review Before Stage", entries=_NOTES,
@@ -54,7 +54,7 @@ def build():
         # one numbered row per step, alternating fills — motif L2 + fonds f1 (margins 5 %, numbering column)
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(_STEPS), cols, filled=(2, 3))
-        with st_zoom(100), st_grid(cols=cols, gap="4.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(114), st_grid(cols=cols, gap="4.5vh 0.5vw", cell_styles=cells) as g:
             for n, step in enumerate(_STEPS, 1):
                 with g.cell():
                     pass  # left margin
@@ -65,5 +65,5 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "5vh")
-        with st_zoom(110):
+        with st_zoom(126):
             st_write(bs.closing, "Never skip step 2: the diff is your review.", tag=t.div)

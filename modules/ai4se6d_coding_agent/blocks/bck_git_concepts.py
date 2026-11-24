@@ -41,7 +41,7 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(70):
+            with h.cell(), st_zoom(80):
                 st_write(bs.heading, "Four Words to Know", tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Four Words to Know", entries=_NOTES,
@@ -51,7 +51,7 @@ def build():
         # one row per word, alternating fills — motif L2 + fonds f1 (margins 5 %)
         cols = "5% 25% 65% 5%"
         cells = s.project.containers.rows(len(_CARDS), cols, filled=(2, 3))
-        with st_zoom(108), st_grid(cols=cols, gap="4.5vh 0.4vw", cell_styles=cells) as g:
+        with st_zoom(116), st_grid(cols=cols, gap="3vh 0.4vw", cell_styles=cells) as g:
             for term, text in _CARDS:
                 with g.cell():
                     pass  # left margin
