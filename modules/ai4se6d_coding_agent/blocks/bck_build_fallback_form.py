@@ -14,7 +14,7 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_fallback_form_foot")
 bs = BlockStyles
 
-_CODE_ZOOM = 104  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 96  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 
 _FORM_RED = """\
@@ -23,7 +23,8 @@ Render ExpenseForm, fill the labelled inputs amount (4.50),
 description (Coffee), category (Food), date (2026-03-01), click
 "Add Expense", and assert onSubmit was called with that data,
 amount as a number. Use getByLabelText / getByRole.
-Do NOT write the component. Run npm run test:run."""
+Create only an empty ExpenseForm shell (default export returning null).
+Do NOT implement it. Run npm run test:run."""
 
 _NOTES = [
     ("Trainer action",
@@ -42,8 +43,9 @@ _NOTES = [
     ("Prompt — fallback B, RED",
      "The test renders ExpenseForm, fills the inputs found by their label (amount 4.50, description Coffee, "
      "category Food, date 2026-03-01), clicks the « Add Expense » button, and checks that the onSubmit function "
-     "received that data with amount as a number (4.5, not the text « 4.50 »). « Do NOT write the component. Run "
-     "npm run test:run » = see it red."),
+     "received that data with amount as a number (4.5, not the text « 4.50 »). « Create only an empty ExpenseForm "
+     "shell … Do NOT implement it. Run npm run test:run » = see it red on the expected behaviour, not on a missing "
+     "file."),
     ("Words — getByLabelText / getByRole",
      "React Testing Library queries: getByLabelText(\"Amount\") finds the input whose label says Amount; "
      "getByRole(\"button\", { name: \"Add Expense\" }) finds the button by its role and text. They find elements as a"

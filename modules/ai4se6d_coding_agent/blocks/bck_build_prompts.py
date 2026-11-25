@@ -13,13 +13,15 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_prompts_foot")
 bs = BlockStyles
 
-_CODE_ZOOM = 104  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 86  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 
 _RED = """\
 @docs/plan.md Build only the task marked [next].
-Write a failing test for its Accept: line, in tests/.
-Do NOT write the implementation. Run npm run test:run and show the failure."""
+Write a failing test for its Accept: line, in tests/, plus an
+empty shell of the code (exists, does nothing yet): the test must
+fail on its expected value, not on a missing file.
+Do NOT write the implementation. Run npm run test:run, show the failure."""
 
 _GREEN = """\
 Implement the minimal code that makes the new test in tests/ pass.
@@ -46,7 +48,9 @@ _NOTES = [
     ("Prompt — RED (test only)",
      "@docs/plan.md adds your plan to the agent's context; « Build only the task marked [next] » limits it to "
      "one task (T1 this morning). « Write a failing test for its Accept: line, in tests/ » = the acceptance "
-     "criteria of that task become a test that must fail now, because the code does not exist. « Do NOT "
+     "criteria of that task become a test that must fail now. « plus an empty shell … not on a missing file » = "
+     "the function or component exists but does nothing, so red comes from the expected value, not from « cannot "
+     "find module », because the code does not exist. « Do NOT "
      "write the implementation » forbids the code. « Run npm run test:run and show the failure » makes the agent "
      "prove the test is red."),
     ("Prompt — GREEN (minimal code)",
@@ -74,7 +78,7 @@ def build():
                                  position="left", width="50vw")
         st_space("v", "2vh")
         with st_zoom(120):
-            st_write(bs.label, '1 · RED — test only (build agent)', tag=t.div)
+            st_write(bs.label, '1 · RED — test + empty shell (build agent)', tag=t.div)
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_RED, language='text', line_numbers=False, font_size="30pt")
         st_space("v", "5vh")

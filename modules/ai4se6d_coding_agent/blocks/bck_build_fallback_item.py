@@ -20,7 +20,8 @@ Write a failing Vitest test in tests/components/ExpenseItem.test.tsx.
 ExpenseItem receives an `expense` prop (id, amount, description,
 category, date, createdAt) and an `onDelete` handler. It must show
 the description and the amount in euros: "Lunch" and "€25.50"
-for 25.50. Do NOT write the component. Run npm run test:run."""
+for 25.50. Create only an empty ExpenseItem shell (default export
+returning null). Do NOT implement it. Run npm run test:run."""
 
 _ITEM_GREEN = """\
 Implement the minimal ExpenseItem (default export) that passes
@@ -34,7 +35,8 @@ _NOTES = [
      "Plan unclear or empty? Nobody stays blocked: start with the canonical first feature, the one of the demo."),
     ("RED prompt",
      "A failing Vitest test in tests/components/ExpenseItem.test.tsx: the component receives an expense and "
-     "an onDelete handler, and must show « Lunch » and « €25.50 » for 25.50. The component is not written."),
+     "an onDelete handler, and must show « Lunch » and « €25.50 » for 25.50. Only an empty shell of the "
+     "component exists (returns null), so the test fails on the expected text, not on a missing file."),
     ("GREEN prompt",
      "The minimal ExpenseItem (default export) that passes the test, without modifying it."),
     ("Same loop",
@@ -46,8 +48,8 @@ _NOTES = [
      "« Write a failing Vitest test in tests/components/ExpenseItem.test.tsx » = the exact file to create (the "
      "folder is created if missing). It then describes the component's inputs (props): `expense`, an object with "
      "id, amount, description, category, date, createdAt, and `onDelete`, a function called to delete. Expected "
-     "display: « Lunch » and « €25.50 » for 25.50. « Do NOT write the component » + « Run npm run test:run » = "
-     "see it red."),
+     "display: « Lunch » and « €25.50 » for 25.50. « Create only an empty ExpenseItem shell … Do NOT "
+     "implement it » + « Run npm run test:run » = see it red on the expected text, not on a missing file."),
     ("Prompt — fallback A, GREEN",
      "« Minimal ExpenseItem (default export) » = the smallest component that passes; default export = the file's "
      "main export, imported as « import ExpenseItem from … ». « Do not modify the test » keeps your specification"

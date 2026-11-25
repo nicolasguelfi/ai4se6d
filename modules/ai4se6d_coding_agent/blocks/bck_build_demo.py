@@ -24,8 +24,12 @@ _NOTES = [
     ("The message",
      "One full cycle, live, in 10 minutes or less, on the demo feature: ExpenseItem shows « Lunch » and « €25.50 »."),
     ("RED",
-     "Ask the build agent for the test only, read it, run npm run test:run: it fails because the component "
-     "does not exist."),
+     "Ask the build agent for the test plus an empty ExpenseItem shell (returns null), read the test, run npm run "
+     "test:run: it fails on the expected value (« Lunch » and « €25.50 » not found), not on a missing file."),
+    ("Empty shell first",
+     "« Do NOT write the component » alone makes the test fail for the wrong reason: the import finds no file, so "
+     "red only says « missing ». With an empty shell (the component exists and returns null), the test runs and "
+     "fails on the expected value: red then proves the test checks the behaviour."),
     ("GREEN",
      "Ask for the minimal code, without touching the test; npm run test:run goes green."),
     ("The proof",
@@ -67,8 +71,9 @@ def build():
             st_write(bs.timer, '≤ 10 min', tag=t.div)
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         steps = [
-            ((bs.keyword, 'build'), ' agent: ask for the ', (bs.keyword, 'test only'), ' → read it'),
-            ((bs.cmd, 'npm run test:run'), ' → ', (bs.keyword, 'RED'), ' (the component does not exist)'),
+            ((bs.keyword, 'build'), ' agent: the ', (bs.keyword, 'test'), ' + an ', (bs.keyword, 'empty shell'),
+             ' of the component → read the test'),
+            ((bs.cmd, 'npm run test:run'), ' → ', (bs.keyword, 'RED'), ' on the expected value, not a missing file'),
             ('Ask for the minimal code — ', (bs.keyword, 'do not touch the test')),
             ((bs.cmd, 'npm run test:run'), ' → ', (bs.keyword, 'GREEN')),
             ('Break the code on purpose → a test must fail',),
@@ -76,7 +81,7 @@ def build():
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
-        with st_zoom(105), st_grid(cols=cols, gap="1.8vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(96), st_grid(cols=cols, gap="1.4vh 0.5vw", cell_styles=cells) as g:
             for n, parts in enumerate(steps, 1):
                 with g.cell():
                     pass  # left margin
