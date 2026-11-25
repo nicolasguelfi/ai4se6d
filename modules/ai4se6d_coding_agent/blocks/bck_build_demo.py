@@ -34,7 +34,8 @@ _NOTES = [
      "Ask for the minimal code, without touching the test; npm run test:run goes green."),
     ("REFACTOR (step 5)",
      "Prompt: « Move the euro formatting into a named function formatAmount and call it from ExpenseItem. The "
-     "screen must not change. Do not touch the test. Run npm run test:run. » The tests stay green: the structure "
+     "screen must not change. Do not change what the test checks; if you rename something the test uses, rename it "
+     "in the test too. Run npm run test:run. » The tests stay green: the structure "
      "changed, not the behaviour. Then commit refactor: extract formatAmount."),
     ("REFACTOR — the code before and after",
      "Before, inside ExpenseItem: <span>€{amount.toFixed(2)}</span>. After: function formatAmount(amount: number) "
@@ -85,7 +86,7 @@ def build():
             ((bs.keyword, 'build'), ' agent: the ', (bs.keyword, 'test'), ' + an ', (bs.keyword, 'empty shell'),
              ' of the component → read the test'),
             ((bs.cmd, 'npm run test:run'), ' → ', (bs.keyword, 'RED'), ' on the expected value, not a missing file'),
-            ('Ask for the minimal code — ', (bs.keyword, 'do not touch the test')),
+            ('Ask for the minimal code — ', (bs.keyword, 'do not change what the test checks')),
             ((bs.cmd, 'npm run test:run'), ' → ', (bs.keyword, 'GREEN')),
             ((bs.keyword, 'REFACTOR'), ': “Move the euro formatting into a named function formatAmount… The screen '
              'must not change” → still ', (bs.keyword, 'GREEN')),

@@ -31,7 +31,7 @@ _NOTES = [
     ("The loop",
      "New branch, named on the Branch: line of T1 in docs/plan.md (e.g. feat/expense-type); RED prompt, read the "
      "test, commit test: …; GREEN prompt, npm run test:run green, commit feat: …; then (next slide) "
-     "REFACTOR, mutant check, merge into mywork, plan labels."),
+     "optional REFACTOR, mutant check, merge into mywork, plan labels."),
     ("Why its own branch",
      "One task = one branch: if the task goes wrong, mywork is untouched. mywork is the main line since this "
      "morning: every finished task is merged into it."),

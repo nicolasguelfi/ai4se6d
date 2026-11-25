@@ -25,7 +25,8 @@ returning null). Do NOT implement it. Run npm run test:run."""
 
 _ITEM_GREEN = """\
 Implement the minimal ExpenseItem (default export) that passes
-tests/components/ExpenseItem.test.tsx. Do not modify the test."""
+tests/components/ExpenseItem.test.tsx.
+Do not change what the test checks."""
 
 _NOTES = [
     ("Trainer action",
@@ -52,7 +53,7 @@ _NOTES = [
      "implement it » + « Run npm run test:run » = see it red on the expected text, not on a missing file."),
     ("Prompt — fallback A, GREEN",
      "« Minimal ExpenseItem (default export) » = the smallest component that passes; default export = the file's "
-     "main export, imported as « import ExpenseItem from … ». « Do not modify the test » keeps your specification"
+     "main export, imported as « import ExpenseItem from … ». « Do not change what the test checks » keeps your specification"
      " intact."),
     ("Words — prop, handler, .tsx",
      "A prop is a value given to a React component (like a function argument). A handler is a function the "
@@ -75,6 +76,6 @@ def build():
         st_space("v", "2vh")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_ITEM_RED, language='text', line_numbers=False, font_size="30pt")
-        st_space("v", "5vh")
+        st_space("v", "2vh")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_ITEM_GREEN, language='text', line_numbers=False, font_size="30pt")

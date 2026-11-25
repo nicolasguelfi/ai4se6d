@@ -27,7 +27,7 @@ _NOTES = [
      "page; pages not in their own file under src/pages/; a test silently modified; a navigation that only "
      "looks right."),
     ("The key check",
-     "git diff HEAD -- tests/ must show nothing: the GREEN prompt said « Do not modify the test ». If the agent "
+     "git diff HEAD -- tests/ must show nothing: the GREEN prompt said « Do not change what the test checks ». If the agent "
      "changed it, the green result means nothing."),
     ("Try it in the browser",
      "npm run dev, click both links, use the back button: the tests do not cover everything."),

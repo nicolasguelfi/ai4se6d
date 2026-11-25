@@ -77,7 +77,8 @@ _NOTES = [
     ("REFACTOR — Fowler's definition",
      "« Refactoring: a change made to the internal structure of software to make it easier to understand and "
      "cheaper to modify without changing its observable behavior » (Martin Fowler, Refactoring). So: improve the "
-     "design — remove duplication, extract a function, rename — same behaviour, the tests stay green. Not « clean "
+     "design — remove duplication, extract a function, rename — same behaviour, the tests stay green. A rename of a name the test uses is made in the test too: "
+     "what the test checks does not change. Not « clean "
      "up » in the sense of adding or fixing features."),
     ("Who does what",
      "RED: you + agent — the agent drafts the test, you review it: it is your spec. GREEN: the agent writes the "

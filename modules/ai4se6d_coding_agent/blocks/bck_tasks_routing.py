@@ -28,7 +28,7 @@ _ROUTING_GREEN = """\
 Make it pass with react-router (NOT react-router-dom): export `routes`
 from src/App.tsx (Layout with nav Links + Outlet; "/" Dashboard,
 "/add" AddExpense); App keeps createBrowserRouter(routes).
-One file per page in src/pages/. Do not modify the test."""
+One file per page in src/pages/. Do not change what the test checks."""
 
 _NOTES = [
     ("Trainer action",
@@ -42,7 +42,7 @@ _NOTES = [
      "links, and a second test starts directly at /add."),
     ("The GREEN prompt",
      "Precise constraints the agent would not guess: react-router, NOT react-router-dom; routes exported from "
-     "src/App.tsx; one file per page in src/pages/; « Do not modify the test »."),
+     "src/App.tsx; one file per page in src/pages/; « Do not change what the test checks »."),
     ("Why export routes",
      "The test can then mount the same routes in a memory router, while the app keeps createBrowserRouter."),
     ("Link",
@@ -57,7 +57,7 @@ _NOTES = [
      "« react-router (NOT react-router-dom) » = the package to import from. « export `routes` » = make the page "
      "list importable by the test. Layout = the shared frame with the nav Links and an Outlet (the place where "
      "the current page is drawn). « / » shows Dashboard, « /add » shows AddExpense. createBrowserRouter = the "
-     "real router of the running app. « One file per page in src/pages/ »; « Do not modify the test »."),
+     "real router of the running app. « One file per page in src/pages/ »; « Do not change what the test checks »."),
     ("Words — /, /add, routes",
      "/ and /add are paths in the address bar: http://localhost:5173/ and http://localhost:5173/add. routes = the"
      " list that tells which page to show for which path."),

@@ -17,28 +17,28 @@ _CODE_ZOOM = 82  # code readable in the room; tuned by measure so the slide fill
 
 _RED = """\
 @docs/plan.md Take the task marked [next]. This step writes its test only.
-Write a failing test for its Accept: line, in tests/, and an empty shell
-of the code the test calls (exists, returns nothing yet), so the test
-fails on its expected value, not on a missing file.
+Write a failing test for its Accept: line, in tests/, and an empty shell of the
+code the test calls (exists, returns nothing yet), so the test fails on its
+expected value, not on a missing file. Test what the user sees, not internal names.
 Do not implement the task. Run npm run test:run and show the failure."""
 
 _GREEN = """\
-Implement the minimal code that makes the new test in tests/ pass,
-for the task marked [next]. Do not modify the test file.
-Run npm run test:run."""
+Implement the minimal code that makes the new test in tests/ pass, for the task
+marked [next]. Do not change what the test checks. Run npm run test:run."""
 
 _REFACTOR = """\
-@docs/plan.md Improve the design of the code of the task marked [next],
-same behaviour: e.g. extract a function, rename, remove duplication.
-Do not touch the test. Run npm run test:run."""
+@docs/plan.md Improve the design of the code of the task marked [next], same
+behaviour: e.g. extract a function, rename, remove duplication. Do not change what
+the test checks; if you rename something the test uses, rename it in the test too.
+Run npm run test:run."""
 
 _NOTES = [
     ("Why « Take the task », not « Build »",
      "The first line only picks the task; the second says this step is the test only — an opening « build » would "
      "read as « write the code »."),
     ("REFACTOR prompt",
-     "Same behaviour, better structure: extract a function, rename, remove duplication; the test is not touched "
-     "and stays green. Nothing to improve is a valid result: then no refactor: commit."),
+     "Same behaviour, better structure: extract a function, rename, remove duplication; what the test checks does not "
+     "change (a name renamed in the code is renamed in the test too) and it stays green. Nothing to improve is a valid result: then no refactor: commit."),
     ("Trainer action",
      "Read and comment — nothing to type. Show the three prompts and the review between RED and GREEN; learners copy "
      "them in the 11:45 exercise on task 1 of their plan."),
@@ -47,9 +47,9 @@ _NOTES = [
      "reviewed the test, then REFACTOR (same behaviour, better structure)."),
     ("RED prompt",
      "Points at the plan (@docs/plan.md, only the task marked [next]), asks for the failing test of its Accept: "
-     "line in tests/ with an empty shell of the code, forbids the implementation, and asks to run the tests and show the failure."),
+     "line in tests/ with an empty shell of the code, asks to test what the user sees, forbids the implementation, and asks to run the tests and show the failure."),
     ("GREEN prompt",
-     "Minimal code that makes the test file pass; the test file must not be modified."),
+     "Minimal code that makes the test file pass; what the test checks must not change."),
     ("Between the two",
      "Your review of the test — the golden rule. Skip it and the test only mirrors the code."),
     ("Detail",
@@ -60,12 +60,13 @@ _NOTES = [
      "morning) and « This step writes its test only » says what to do now. « Write a failing test for its Accept: "
      "line, in tests/ » = the acceptance criteria of that task become a test that must fail now. « and an empty "
      "shell of the code the test calls … not on a missing file » = the function or component exists but returns "
-     "nothing, so red comes from the expected value, not from « cannot find module ». « Do not implement the "
-     "task » forbids the code. « Run npm run test:run and show the failure » makes the agent prove the test is "
+     "nothing, so red comes from the expected value, not from « cannot find module ». « Test what the user sees, not internal "
+     "names » = the test looks at the screen (texts, buttons, labels), so renaming code later does not break it. "
+     "« Do not implement the task » forbids the code. « Run npm run test:run and show the failure » makes the agent prove the test is "
      "red."),
     ("Prompt — GREEN (minimal code)",
-     "« Minimal code » = just enough for the new test to pass, nothing more. « Do not modify the test file » "
-     "forbids changing the test to make it pass. « Run npm run test:run » makes the agent show the green result. "
+     "« Minimal code » = just enough for the new test to pass, nothing more. « Do not change what the test checks » "
+     "forbids weakening the test to make it pass; only you change a test, when the requirement changes. « Run npm run test:run » makes the agent show the green result. "
      "Paste it only after you have read the test."),
     ("Symbol — @docs/plan.md (in opencode)",
      "@ followed by a path adds that file to the agent's context: the agent reads its content with your message. "

@@ -25,10 +25,10 @@ _PROMPT_ZOOM = 64   # the « Or ask opencode » line: smaller than the step it r
 _NOTES = [
     ("Trainer action",
      "Learners do it — on their machine, same exercise (11:45 → 12:10), steps 4 to 7: once GREEN is committed, "
-     "they refactor, prove the test with a mutant, merge into mywork and move the plan labels."),
-    ("REFACTOR (step 4)",
-     "Third prompt of the « Three Prompts per Task » slide: same behaviour, better structure, the test is not "
-     "touched; npm run test:run stays green, then commit refactor: … . Nothing to improve is a valid result: no "
+     "they refactor if time allows, prove the test with a mutant, merge into mywork and move the plan labels."),
+    ("REFACTOR (step 4, optional)",
+     "If time allows. Slow participants skip it: say so at the debrief, it is expected. Third prompt of the « Three Prompts per Task » slide: same behaviour, better structure, what the test "
+     "checks does not change; npm run test:run stays green, then commit refactor: … . Nothing to improve is a valid result: no "
      "commit, go on."),
     ("Mutant check (step 5)",
      "Break the code on purpose (e.g. remove the check on the amount): a test must go red. Then undo the "
@@ -64,14 +64,14 @@ def build():
                                  position="left", width="50vw")
         with st_zoom(90):
             st_write(bs.timer, '11:45 → 12:10 · 25 min', tag=t.div)
-            st_write(bs.body, (bs.label, 'Then: '), 'improve the code, check that the test really catches a bug, '
+            st_write(bs.body, (bs.label, 'Then: '), 'if time allows, improve the code; check that the test really catches a bug, '
                      'and add T1 to ', (bs.cmd, 'mywork'), '.', tag=t.div)
         st_space("v", "1vh")
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under a step with a
         # terminal command, full width, the same thing as a prompt for opencode — build agent (NG, 2026-11-25)
         steps = [
-            (('Paste the REFACTOR prompt. Run ', (bs.cmd, 'npm run test:run'), ': the tests must still pass. Commit '
-              'with a message that starts with ', (bs.cmd, 'refactor:'), '. Nothing to improve? No commit, go on.'),
+            (('If time allows: paste the REFACTOR prompt. Run ', (bs.cmd, 'npm run test:run'), ': the tests must still pass. Commit '
+              'with a message that starts with ', (bs.cmd, 'refactor:'), '. Nothing to refactor is a valid result: no commit, go on.'),
              "Give me the commands to run the tests, then commit the code as 'refactor: …' if green; run them."),
             (('Mutant check: break the code on purpose; a test must fail. Then undo your change.',), None),
             (('Go back to your main line and bring T1 into it: ', (bs.cmd, 'git switch mywork'), ', then ',

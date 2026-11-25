@@ -81,6 +81,6 @@ def build():
             st_space("v", "2vh")
             st_write(
                 bs.foot,
-                'GREEN: “Implement the minimal ExpenseForm (default export) that passes tests/components/ExpenseForm.test.tsx. Do not modify the test.” Mutant: remove the parseFloat on the amount.',
+                'GREEN: “Implement the minimal ExpenseForm (default export) that passes tests/components/ExpenseForm.test.tsx. Do not change what the test checks.” Mutant: remove the parseFloat on the amount.',
                 tag=t.div,
             )

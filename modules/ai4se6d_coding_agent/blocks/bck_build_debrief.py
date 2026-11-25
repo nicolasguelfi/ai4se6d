@@ -28,6 +28,9 @@ _NOTES = [
      "the participant did: refuse, undo, re-prompt."),
     ("Question 2 — the mutant check",
      "Break the implementation on purpose: if no test fails, the test proves nothing. Ask who found such a test."),
+    ("Optional REFACTOR",
+     "Many skipped the optional REFACTOR step for lack of time: say it is expected. Their log then shows test: and "
+     "feat: only; a refactor: line is a bonus, and « nothing to refactor » was a valid result."),
     ("Why compare git logs",
      "The log shows the rhythm of the loop: a test: commit, then a feat: commit, per task. A neighbour's log "
      "makes a missing step visible at a glance."),

@@ -29,6 +29,12 @@ _NOTES = [
     ("The golden rule",
      "Never let the agent write the test AND the code without your review in between. Otherwise the test mirrors "
      "what the agent meant to write — it proves nothing."),
+    ("Reviewing the test = reviewing the names",
+     "Reading the test also validates the names of the interface (component, props, functions): now a change "
+     "costs nothing; after GREEN it means renaming the code and the test."),
+    ("When the requirement changes",
+     "You change the test first (new RED), you review it, commit test: …, then the code. Only the agent is "
+     "forbidden to change a test to make its code pass."),
     ("Link to what follows",
      "The mutant test trick checks that a test really proves something."),
 ]

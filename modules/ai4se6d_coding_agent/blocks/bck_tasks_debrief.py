@@ -17,14 +17,17 @@ bs = BlockStyles
 
 _NOTES = [
     ("Trainer action",
-     "Learners do it — they answer aloud. Debrief 14:20 → 14:30: two questions to the room, then "
+     "Learners do it — they answer aloud. Debrief 14:20 → 14:30: three questions to the room, then "
      "neighbours compare their code for the same task."),
     ("The message",
      "Ten minutes, 14:20 → 14:30, on what the agent did beyond the request and what the review checklists "
      "really caught."),
     ("Question 1",
      "Collect the cases where the agent changed a test or did more than asked — the evidence that the GREEN "
-     "prompt's « Do not modify the test » and the git diff HEAD -- tests/ check matter."),
+     "prompt's « Do not change what the test checks » and the git diff HEAD -- tests/ check matter."),
+    ("Question 3 — requirement or code?",
+     "Changing a test is legitimate when the requirement changes: you change the test first (new RED), review it, "
+     "commit test: …, then the code. Changing it to make the code pass is not: then the code is wrong."),
     ("Question 2",
      "Which checklist item caught something real: React state instead of localStorage, <a href> instead of Link, "
      "a test modified…"),
@@ -52,10 +55,11 @@ def build():
         items = [
             'Where did the agent change a test, or do more than you asked?',
             'Which review-checklist item caught something real?',
+            'Which test did you want to change, and was it the requirement or the code?',
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
-        with st_zoom(137), st_grid(cols=cols, gap="4vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(110), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
             for n, text in enumerate(items, 1):
                 with g.cell():
                     pass  # left margin
@@ -65,6 +69,6 @@ def build():
                     st_write(bs.body, text, tag=t.div)
                 with g.cell():
                     pass  # right margin
-        st_space("v", "5vh")
-        with st_zoom(137), st_block(s.project.containers.callout):
+        st_space("v", "3vh")
+        with st_zoom(110), st_block(s.project.containers.callout):
             st_write(bs.body, 'Compare with your neighbour: same task, same code? Why not?')

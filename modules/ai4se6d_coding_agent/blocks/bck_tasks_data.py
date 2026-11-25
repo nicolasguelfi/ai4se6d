@@ -28,7 +28,7 @@ _DATA_GREEN = """\
 Make it pass: Expense type; getExpenses/saveExpenses in storage.ts
 (localStorage key "calcapp-data"); Dashboard lists the expenses with
 a total; AddExpense saves, then navigates to "/" with useNavigate.
-Do not modify the test."""
+Do not change what the test checks."""
 
 _NOTES = [
     ("Trainer action",
@@ -44,7 +44,7 @@ _NOTES = [
      "the Dashboard to show the expense. localStorage is cleared before each test."),
     ("The GREEN prompt",
      "Names the files and the key (calcapp-data), the functions (getExpenses / saveExpenses), the redirect to / "
-     "with useNavigate — and « Do not modify the test »."),
+     "with useNavigate — and « Do not change what the test checks »."),
     ("The trap",
      "The agent may keep the data in React state only: the test can pass, and the expense vanishes at the first "
      "browser refresh. The review checklist of the next slide checks it."),
@@ -58,7 +58,7 @@ _NOTES = [
      "Expense type = the TypeScript description of an expense. getExpenses / saveExpenses = two functions in "
      "storage.ts that read and write the list in localStorage under the key « calcapp-data ». Dashboard lists the"
      " expenses with a total; AddExpense saves then goes back to / with useNavigate (react-router's function to "
-     "change page from code). « Do not modify the test »."),
+     "change page from code). « Do not change what the test checks »."),
     ("Words — localStorage",
      "A small storage space of the browser, per site, that survives a page refresh: text values saved under a "
      "name (the key). Visible in the browser's developer tools (F12 → Application → Local Storage)."),
