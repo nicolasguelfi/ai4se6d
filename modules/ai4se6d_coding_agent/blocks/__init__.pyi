@@ -106,7 +106,9 @@ from . import bck_tasks_data_review as bck_tasks_data_review
 from . import bck_tasks_debrief as bck_tasks_debrief
 from . import bck_tasks_ex_check as bck_tasks_ex_check
 from . import bck_tasks_ex_steps as bck_tasks_ex_steps
+from . import bck_tasks_ex_steps2 as bck_tasks_ex_steps2
 from . import bck_tasks_loop as bck_tasks_loop
+from . import bck_tasks_loop2 as bck_tasks_loop2
 from . import bck_tasks_notfinished as bck_tasks_notfinished
 from . import bck_tasks_reorient as bck_tasks_reorient
 from . import bck_tasks_routing as bck_tasks_routing

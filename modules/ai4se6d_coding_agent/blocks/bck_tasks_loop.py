@@ -11,8 +11,8 @@ class BlockStyles:
     heading = s.project.titles.heading
     body = Style.create(s.project.titles.body + s.text.wrap.hyphens, "tasks_loop_body")
     keyword = s.bold + s.project.colors.highlight
-    cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "tasks_loop_cmd")
-    foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "tasks_loop_foot")
+    cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent
+                       + Style("white-space: nowrap;", "tasks_loop_cmd_nowrap"), "tasks_loop_cmd")
     number = s.bold + s.project.colors.highlight
 bs = BlockStyles
 
@@ -22,8 +22,8 @@ _NOTES = [
      "Read and comment — nothing to type. The loop they apply to every task; they run it from 13:30 in the"
      " Part 2 exercise."),
     ("The message",
-     "Every task of the afternoon follows the same six steps — the AI-TDD loop of this morning plus a branch, "
-     "a review and a merge."),
+     "Every task of the afternoon follows the same seven steps, on two slides — the AI-TDD loop of this morning "
+     "(RED, GREEN, REFACTOR) plus a branch, a mutant check, a review and a merge."),
     ("Branch, then RED",
      "One branch per task (feat/routing). The agent writes the test only; YOU review it — it is your spec — "
      "then commit test: …"),
@@ -63,24 +63,25 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, 'Same Loop, Every Task', tag=t.div, toc_lvl='+1')
+                st_write(bs.heading, 'Same Loop, Every Task (1/2)', tag=t.div, toc_lvl='+1')
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Same Loop, Every Task", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Same Loop, Every Task (1/2)", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
 
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ('Branch: ', (bs.cmd, 'git switch -c feat/routing')),
-            ('RED: test only → ', (bs.keyword, 'you'), ' review → commit ', (bs.cmd, 'test: …')),
-            ('GREEN: minimal code, test untouched → commit ', (bs.cmd, 'feat: …')),
-            ('Mutant check → undo',),
-            ("Review the agent's code (checklists ahead)",),
-            ('Merge into ', (bs.cmd, 'mywork'), ' only when green'),
+            ('Create the branch named under the task in ', (bs.cmd, 'docs/plan.md'), ' (the line that starts with '
+             'Branch:), e.g. ', (bs.cmd, 'git switch -c feat/routing')),
+            ('RED: ask for the test only. ', (bs.keyword, 'You'), ' read it, then commit it alone (', (bs.cmd, 'test: …'),
+             ').'),
+            ('GREEN: ask for the minimal code, without changing the test. Commit it (', (bs.cmd, 'feat: …'), ').'),
+            ('REFACTOR: ask to improve the design, same behaviour; the tests must still pass. Commit it (',
+             (bs.cmd, 'refactor: …'), '). Nothing to improve? Skip this step.'),
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
-        with st_zoom(109), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(98), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
             for n, parts in enumerate(items, 1):
                 with g.cell():
                     pass  # left margin
@@ -90,6 +91,3 @@ def build():
                     st_write(bs.body, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
-        st_space("v", "3vh")
-        with st_zoom(109):
-            st_write(bs.foot, "Typical order: routing → data → UI. Follow your plan's order.", tag=t.div)

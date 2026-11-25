@@ -76,14 +76,14 @@ def build():
         with st_zoom(98):
             st_write(
                 bs.body,
-                'Two pages: ',
-                (bs.cmd, '/'),
-                ' → ',
+                'Two pages: the ',
                 (bs.keyword, 'Dashboard'),
-                ' (expenses + total), ',
-                (bs.cmd, '/add'),
-                ' → ',
+                ' at ',
+                (bs.cmd, '/'),
+                ' (the expenses and their total) and ',
                 (bs.keyword, 'Add Expense'),
+                ' at ',
+                (bs.cmd, '/add'),
                 ' (the form).',
                 tag=t.div,
             )

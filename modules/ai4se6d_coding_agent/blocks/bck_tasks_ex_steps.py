@@ -11,9 +11,9 @@ class BlockStyles:
     heading = s.project.titles.heading
     body = Style.create(s.project.titles.body + s.text.wrap.hyphens, "tasks_ex_steps_body")
     label = s.project.titles.label
-    cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "tasks_ex_steps_cmd")
+    cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent
+                       + Style("white-space: nowrap;", "tasks_ex_steps_cmd_nowrap"), "tasks_ex_steps_cmd")
     timer = Style.create(s.project.titles.stat + s.center_txt, "tasks_ex_steps_timer")
-    foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "tasks_ex_steps_foot")
     number = s.bold + s.project.colors.highlight
 bs = BlockStyles
 
@@ -69,9 +69,9 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, 'Exercise — Your Next Tasks', tag=t.div, toc_lvl='+1')
+                st_write(bs.heading, 'Exercise — Your Next Tasks (1/2)', tag=t.div, toc_lvl='+1')
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Exercise, Your Next Tasks", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Exercise, Your Next Tasks (1/2)", entries=_NOTES,
                                  position="left", width="50vw")
         with st_zoom(92):
             st_write(bs.timer, '13:30 → 14:20 · 50 min', tag=t.div)
@@ -87,17 +87,16 @@ def build():
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under each step, full
         # width, the same thing asked to opencode — build agent (NG, 2026-11-25)
         items = [
-            (('The ', (bs.cmd, '[next]'), ' task’s ', (bs.cmd, 'Branch:'), ' line, e.g. ', (bs.cmd, 'feat/routing')),
+            (('Create the branch of the task marked ', (bs.cmd, '[next]'), '. Its name is in ', (bs.cmd, 'docs/plan.md'),
+              ', on the line that starts with Branch: under that task. Example: ', (bs.cmd, 'git switch -c feat/routing')),
              "Give me the git command to create and switch to the [next] task's branch (Branch: line, "
              "@docs/plan.md); run it."),
-            (('RED → review → commit ', (bs.cmd, 'test: …')),
+            (('Paste the RED prompt. Read the test, then commit it alone, with a message that starts with ',
+              (bs.cmd, 'test:')),
              "Give me the git commands to commit only the new test as 'test: …', then run them."),
-            (('GREEN → review checklist → commit ', (bs.cmd, 'feat: …')),
+            (('Paste the GREEN prompt. Go through the review checklist, then commit the code, with a message that '
+              'starts with ', (bs.cmd, 'feat:')),
              "Give me the commands to run the tests, then commit the code as 'feat: …' if green; run them."),
-            (('Green: merge into ', (bs.cmd, 'mywork'), '; this task ', (bs.cmd, '[done]'), ', next one ',
-              (bs.cmd, '[next]')),
-             "Merge the [next] task's branch into mywork; in docs/plan.md mark it [done], the next one [next]; "
-             "commit as 'docs: update plan labels'."),
         ]
         cols = "5% 5% 85% 5%"
         for i, (parts, prompt) in enumerate(items):
@@ -116,10 +115,3 @@ def build():
             if prompt:
                 st_space("v", "0.4vh")
                 st_ask_opencode(prompt, zoom=_PROMPT_ZOOM, cols="5% 90% 5%")
-        st_space("v", "2vh")
-        with st_zoom(92):
-            st_write(
-                bs.foot,
-                "Your plan's wording is unclear? Use the prompts of the previous slides.",
-                tag=t.div,
-            )

@@ -61,15 +61,16 @@ def build():
 
         # One row per check, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ('Types in ', (bs.cmd, 'src/expense.ts'), ', no ', (bs.cmd, 'any'), '?'),
-            ('Storage really uses localStorage — not just React state?',),
-            ('Form inputs controlled (', (bs.cmd, 'value'), ' + ', (bs.cmd, 'onChange'), ')?'),
-            ('After Add, back to ', (bs.cmd, '/'), ' with ', (bs.cmd, 'useNavigate'), '?'),
+            ('Are the types in ', (bs.cmd, 'src/expense.ts'), ', with no ', (bs.cmd, 'any'), '?'),
+            ('Does the storage really use localStorage, and not only React state?',),
+            ('Is each form input « controlled »: its ', (bs.cmd, 'value'), ' comes from the state and ',
+             (bs.cmd, 'onChange'), ' updates it?'),
+            ('After Add, does the app go back to ', (bs.cmd, '/'), ' with ', (bs.cmd, 'useNavigate'), '?'),
             ('Refresh the browser: is your expense still there?',),
         ]
         cols = "5% 90% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2,))
-        with st_zoom(118), st_grid(cols=cols, gap="3.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(104), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
             for parts in items:
                 with g.cell():
                     pass  # left margin
@@ -77,8 +78,8 @@ def build():
                     st_write(bs.body, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
-        st_space("v", "4vh")
-        with st_zoom(115):
+        st_space("v", "3vh")
+        with st_zoom(104):
             st_write(
                 bs.foot,
                 'Most common slip: data kept in React state only — gone at the first refresh.',

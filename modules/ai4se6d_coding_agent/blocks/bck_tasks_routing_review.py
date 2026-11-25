@@ -66,15 +66,17 @@ def build():
 
         # One row per check, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ((bs.cmd, 'react-router'), ' in ', (bs.cmd, 'package.json'), ', no ', (bs.cmd, 'react-router-dom'), '?'),
-            ('Navigation with ', (bs.cmd, 'Link'), ', not ', (bs.cmd, '&lt;a href&gt;'), ' (no full reload)?'),
-            ('One file per page in ', (bs.cmd, 'src/pages/'), '?'),
-            ('Test untouched? ', (bs.cmd, 'git diff HEAD -- tests/'), ' shows nothing'),
-            ((bs.cmd, 'npm run dev'), ': click both links, back button works?'),
+            ('Does ', (bs.cmd, 'package.json'), ' use ', (bs.cmd, 'react-router'), ', and not ',
+             (bs.cmd, 'react-router-dom'), '?'),
+            ('Do the pages link with ', (bs.cmd, 'Link'), ' rather than ', (bs.cmd, '&lt;a href&gt;'),
+             ', so the page does not fully reload?'),
+            ('Is there one file per page in ', (bs.cmd, 'src/pages/'), '?'),
+            ('Is the test unchanged? Run ', (bs.cmd, 'git diff HEAD -- tests/'), ': it must show nothing.'),
+            ('Run ', (bs.cmd, 'npm run dev'), ': do both links work, and does the browser’s back button work?'),
         ]
         cols = "5% 90% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2,))
-        with st_zoom(108), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(96), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
             for parts in items:
                 with g.cell():
                     pass  # left margin
@@ -82,6 +84,6 @@ def build():
                     st_write(bs.body, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
-        st_space("v", "4vh")
-        with st_zoom(117):
+        st_space("v", "3vh")
+        with st_zoom(94):
             st_write(bs.foot, 'Trust, but verify — you will need this habit at 14:30.', tag=t.div)

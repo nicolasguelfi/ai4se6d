@@ -66,13 +66,13 @@ def build():
                 bs.body,
                 (bs.done_label, 'Done when: '),
                 (bs.cmd, 'docs/review.md'),
-                ' lists your findings with severities; 2+ are ',
+                ' lists your findings with their severity; at least two are ',
                 (bs.keyword, 'fixed'),
-                ' with a test; 1+ is ',
+                ', each with a test; at least one is ',
                 (bs.keyword, 'refused'),
-                ' with a reason; ',
+                ', with a reason; and ',
                 (bs.cmd, 'npm run test:run'),
-                ' green on ',
+                ' passes on the branch ',
                 (bs.cmd, 'fix/review'),
                 '.',
             )
@@ -83,10 +83,10 @@ def build():
 
         # one row per checkpoint, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         rows = [
-            ('Mid-point (15:35): ', ("triage written. Not yet? Review one task's diff only.",)),
+            ('Mid-point (15:35): ', ("your triage is written. Not yet? Review the diff of one task only.",)),
             ('If stuck: ', ('1. ', 'your tutor window', '  2. recovery tag ', (bs.cmd, 'j2-v0.1'),
                             '  3. raise your hand (review the reference code)')),
-            ('Next (15:50): ', ('README 80/20.',)),
+            ('Next (15:50): ', ('the README exercise (80/20).',)),
         ]
         cols = "5% 26% 64% 5%"
         cells = s.project.containers.rows(len(rows), cols, filled=(2, 3))

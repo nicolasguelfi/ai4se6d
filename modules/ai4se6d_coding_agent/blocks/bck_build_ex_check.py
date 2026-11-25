@@ -72,10 +72,10 @@ def build():
               ' if any) — at least two commits, e.g. ', (bs.cmd, 'test: expense with amount 0 is rejected'), ', ',
               (bs.cmd, 'feat: add expense validation'), '.')),
             ((bs.label, 'Mid-point (12:00)'), ('your RED test is committed. Not yet? Ask now.',)),
-            ((bs.label, 'Plan unclear?'), ('use the fallback prompts: ExpenseItem, then ExpenseForm.',)),
+            ((bs.label, 'Plan unclear?'), ('use the ready-made prompts of the next slides: ExpenseItem first, then ExpenseForm.',)),
             ((bs.label, 'If stuck'), ('1. ', 'your tutor window', '  2. recovery tag ', (bs.cmd, 'j2-start'),
                                       '  3. raise your hand')),
-            ((bs.label, 'Ahead?'), ('task 2 of your plan, same loop.',)),
+            ((bs.label, 'Finished early?'), ('start task 2 of your plan, with the same steps.',)),
         ]
         # under « Done when », full width, the same check as a prompt for opencode — build agent (NG, 2026-11-25)
         prompts = {0: "Give me the commands to run the tests and show the last commits, then run them."}

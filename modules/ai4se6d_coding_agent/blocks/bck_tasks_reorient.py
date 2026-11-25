@@ -15,8 +15,8 @@ class BlockStyles:
     number = s.bold + s.project.colors.highlight
 bs = BlockStyles
 
-_STEP_ZOOM = 104    # tuned by measure: content bottom <= 1000 px at 1920x1080
-_PROMPT_ZOOM = 76   # the « Or ask opencode » line: smaller than the step it replaces
+_STEP_ZOOM = 88    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 70   # the « Or ask opencode » line: smaller than the step it replaces
 
 
 _NOTES = [
@@ -75,17 +75,18 @@ def build():
         # One numbered row per check, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under check 4 (opencode
         # runs from there), the same checks asked to opencode — build agent (NG, 2026-11-25)
         items = [
-            (((bs.cmd, 'cd ~/ai4se/calcapp'), ' → ', (bs.cmd, 'git status'), ': clean, on ', (bs.cmd, 'mywork')), None),
-            (((bs.cmd, 'npm run test:run'), ' → Part 1 tests still green'), None),
-            (((bs.cmd, 'npm run dev'), ' → the app renders in the browser'), None),
-            (('Start opencode, read ', (bs.cmd, '@docs/plan.md'), ': which task is marked ', (bs.cmd, '[next]'), '?'),
+            (('Go to your project and run ', (bs.cmd, 'cd ~/ai4se/calcapp && git status'), '. It must say that you are '
+              'on the branch mywork and that there is nothing to commit.'), None),
+            (('Run ', (bs.cmd, 'npm run test:run'), '. The tests of Part 1 must still pass.'), None),
+            (('Run ', (bs.cmd, 'npm run dev'), ' and open the address it prints. The app must show in the browser.'), None),
+            (('Start opencode and ask: ', (bs.cmd, '“Read @docs/plan.md: which task is marked [next]?”')),
              "Give me the commands to check that git status is clean on mywork and that the tests pass, then run "
              "them, and tell me which task of @docs/plan.md is marked [next]."),
         ]
         cols = "5% 5% 85% 5%"
         for i, (parts, prompt) in enumerate(items):
             if i:
-                st_space("v", "2.5vh")
+                st_space("v", "1.6vh")
             cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
             with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
@@ -99,6 +100,6 @@ def build():
             if prompt:
                 st_space("v", "0.4vh")
                 st_ask_opencode(prompt, zoom=_PROMPT_ZOOM, cols="5% 90% 5%")
-        st_space("v", "5vh")
-        with st_zoom(131):
+        st_space("v", "3vh")
+        with st_zoom(110):
             st_write(bs.foot, 'One check fails and you cannot fix it in 5 minutes? Next slide.', tag=t.div)

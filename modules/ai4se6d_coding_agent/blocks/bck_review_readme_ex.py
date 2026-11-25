@@ -19,7 +19,7 @@ class BlockStyles:
     number = Style.create(s.bold + s.project.colors.highlight + s.center_txt, "review_readme_ex_num")
 bs = BlockStyles
 
-_CODE_ZOOM = 97  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 92  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _NOTES = [
     ("Trainer action",
@@ -73,11 +73,11 @@ def build():
         steps = [
             ('Run every command in it: do they all work?',),
             ('Add a ', (bs.keyword, 'Why'), ' section: 3 sentences only you could write'),
-            ('Commit on ', (bs.cmd, 'fix/review'), ': ', (bs.cmd, 'docs: README')),
+            ('Commit it on the branch ', (bs.cmd, 'fix/review'), ', with the message ', (bs.cmd, 'docs: README'), '.'),
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
-        with st_zoom(111), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(104), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
             for n, parts in enumerate(steps, 1):
                 with g.cell():
                     pass  # left margin
@@ -88,7 +88,7 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "1vh")
-        with st_zoom(111), st_block(bs.done_box):
+        with st_zoom(104), st_block(bs.done_box):
             st_write(
                 bs.body,
                 (bs.done_label, 'Done when: '),

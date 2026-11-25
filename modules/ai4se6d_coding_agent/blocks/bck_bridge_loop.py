@@ -58,11 +58,11 @@ _NOTES = [
 ]
 
 _ROWS = [
-    (('Plan → tasks in ', (bs.cmd, 'docs/plan.md')), ((bs.cmd, '/gse-plan'),)),
-    (('Test first (acceptance test), one branch per task',), ((bs.cmd, '/gse-produce'),)),
-    (('Review, triage HIGH / MEDIUM / LOW',), ((bs.cmd, '/gse-review'),)),
-    (('Fix on a branch, a failing test that exposes the finding first',), ((bs.cmd, '/gse-fix'),)),
-    (('Merge + tag ', (bs.cmd, 'v0.1')), ((bs.cmd, '/gse-deliver'),)),
+    (('Turn the plan into tasks in ', (bs.cmd, 'docs/plan.md')), ((bs.cmd, '/gse-plan'),)),
+    (('Write the acceptance test first, one branch per task',), ((bs.cmd, '/gse-produce'),)),
+    (('Review the code and rank each finding HIGH, MEDIUM or LOW',), ((bs.cmd, '/gse-review'),)),
+    (('Fix each finding on a branch, with a failing test first',), ((bs.cmd, '/gse-fix'),)),
+    (('Merge, then tag ', (bs.cmd, 'v0.1')), ((bs.cmd, '/gse-deliver'),)),
 ]
 
 
@@ -81,7 +81,7 @@ def build():
         cols = "5% 47% 43% 5%"
         cells = s.project.containers.rows(len(_ROWS) + 1, cols, filled=(2, 3))
         cells[1:3] = [s.project.containers.table_header_cell] * 2
-        with st_zoom(107), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(96), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
             for cell in ('', 'Today, by hand', 'GSE-One (Day 3)', ''):
                 with g.cell():
                     if cell:

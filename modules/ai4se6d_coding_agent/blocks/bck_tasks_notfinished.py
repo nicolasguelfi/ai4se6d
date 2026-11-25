@@ -15,7 +15,7 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "tasks_notfinished_foot")
 bs = BlockStyles
 
-_STEP_ZOOM = 95    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_STEP_ZOOM = 88    # tuned by measure: content bottom <= 1000 px at 1920x1080
 _PROMPT_ZOOM = 76   # the « Or ask opencode » line: smaller than the step it replaces
 
 
@@ -69,17 +69,17 @@ def build():
         # the same thing asked to opencode — build agent (NG, 2026-11-25)
         items = [
             (('v0.1 need not be complete to be reviewed: you review ', (bs.keyword, 'what you have')), None),
-            (('Merge what is green; leave a red branch aside',),
+            (('Merge the branches whose tests pass; leave aside a branch whose tests fail.',),
              "Give me the git commands to merge into mywork only my task branches whose tests pass, then run them."),
-            (('App broken? Catch up with ', (bs.cmd, 'j2-part1'), ', or ', (bs.cmd, 'j2-v0.1'),
-              ' to review the reference code'), None),
-            (('Then ', (bs.cmd, 'npm run test:run'), ' and ', (bs.cmd, 'npm run dev'), ' must work'),
+            (('Your app is broken? Restart from the tag ', (bs.cmd, 'j2-part1'), ' (Catch-up slide), or from ',
+              (bs.cmd, 'j2-v0.1'), ' to review the reference code.'), None),
+            (('Then ', (bs.cmd, 'npm run test:run'), ' and ', (bs.cmd, 'npm run dev'), ' must both work.'),
              "Give me the command to run the tests, then run it."),
         ]
         cols = "5% 90% 5%"
         for i, (parts, prompt) in enumerate(items):
             if i:
-                st_space("v", "2vh")
+                st_space("v", "1.4vh")
             cells = s.project.containers.rows(i + 1, cols, filled=(2,))[-3:]  # keeps the alternation
             with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
@@ -91,7 +91,7 @@ def build():
             if prompt:
                 st_space("v", "0.4vh")
                 st_ask_opencode(prompt, zoom=_PROMPT_ZOOM, cols="5% 90% 5%")
-        st_space("v", "5vh")
+        st_space("v", "3vh")
         with st_zoom(109):
             st_write(
                 bs.foot,

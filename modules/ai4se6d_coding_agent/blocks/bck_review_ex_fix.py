@@ -14,7 +14,7 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "review_ex_fix_cmd")
 bs = BlockStyles
 
-_CODE_ZOOM = 94  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 90  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 # Text left-aligned (NG, 2026-11-23: same recipes as the intro module)
 _left = Style("text-align:left;", "review_ex_fix_left")
@@ -73,14 +73,14 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Fix One Finding — Test First", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(108), st_block(_left):
+        with st_zoom(96), st_block(_left):
             st_write(
                 bs.body,
-                'Shift+Tab back to the ',
+                'Switch back to the ',
                 (bs.keyword, 'build'),
-                ' agent, on branch ',
+                ' agent (Shift+Tab), on the branch ',
                 (bs.cmd, 'fix/review'),
-                ':',
+                ', and paste:',
                 tag=t.div,
             )
             with st_zoom(_CODE_ZOOM):
@@ -89,11 +89,12 @@ def build():
             with st_list(list_type=lt.unordered, l_style=bs.body, li_style=bs.body,
                          text_align="left", item_gap=0.6) as l:
                 with l.item():
-                    st_write(bs.body, 'Read the diff: did it touch anything else?')
+                    st_write(bs.body, 'Read the diff: did the agent change anything else?')
                 with l.item():
-                    st_write(bs.body, (bs.cmd, 'npm run test:run'), ' green → commit ', (bs.cmd, 'fix: RVW-1 …'))
+                    st_write(bs.body, 'Run ', (bs.cmd, 'npm run test:run'), '. When all tests pass, commit with a message like ',
+                             (bs.cmd, 'fix: RVW-1 …'), '.')
                 with l.item():
-                    st_write(bs.body, 'In ', (bs.cmd, 'docs/review.md'), ': RVW-1 → ', (bs.keyword, 'fixed'))
+                    st_write(bs.body, 'In ', (bs.cmd, 'docs/review.md'), ', mark RVW-1 as ', (bs.keyword, 'fixed'), '.')
             st_space("v", "0.2vh")  # the test-then-commit step asked to opencode — build agent (NG, 2026-11-25)
             st_ask_opencode("Give me the commands to run the tests, then commit as 'fix: RVW-1 …' if green; run "
                             "them.", zoom=70, cols="0% 100% 0%")

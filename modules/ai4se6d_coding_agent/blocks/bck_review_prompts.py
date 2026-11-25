@@ -82,8 +82,9 @@ def build():
             st_write(
                 bs.body,
                 (bs.label, 'Effective: '),
+                'use the ',
                 (bs.keyword, 'plan'),
-                ' agent (Shift+Tab — no file edits), one file, one concern, the context:',
+                ' agent (Shift+Tab; it cannot edit files). Name one file, one concern and the context:',
                 tag=t.div,
             )
             with st_zoom(_CODE_ZOOM):

@@ -14,7 +14,7 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "tasks_data_cmd")
 bs = BlockStyles
 
-_CODE_ZOOM = 94  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 84  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 
 _DATA_RED = """\
@@ -77,12 +77,13 @@ def build():
         with st_zoom(94):
             st_write(
                 bs.body,
+                'The ',
                 (bs.cmd, 'Expense'),
-                ' type in ',
+                ' type goes in ',
                 (bs.cmd, 'src/expense.ts'),
-                ', storage in ',
+                '; saving and loading go in ',
                 (bs.cmd, 'src/storage.ts'),
-                '. localStorage is enough for v0.1.',
+                '. Keeping the data in the browser (localStorage) is enough for v0.1.',
                 tag=t.div,
             )
             st_space("v", "1vh")

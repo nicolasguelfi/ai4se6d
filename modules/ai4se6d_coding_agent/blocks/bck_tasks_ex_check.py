@@ -76,10 +76,11 @@ def build():
 
         # One row per situation (label | what to do), alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ('Mid-point (13:55): ', ('routing merged into ', (bs.cmd, 'mywork'), '. Not there? Ask now.')),
+            ('Mid-point (13:55): ', ('your routing task is merged into ', (bs.cmd, 'mywork'), '. Not yet? Ask now.')),
             ('If stuck: ', ('1. ', 'your tutor window', '  2. recovery tag ', (bs.cmd, 'j2-part1'),
                             '  3. raise your hand')),
-            ('Ahead? ', ('delete an expense (', (bs.cmd, 'onDelete'), ') — same loop.')),
+            ('Finished early? ', ('add one more task — delete an expense (the ', (bs.cmd, 'onDelete'),
+                                  ' handler) — with the same steps.')),
         ]
         cols = "5% 22% 68% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
