@@ -201,6 +201,7 @@ SHEETS = {
         "done_when": "The grid is filled for both models and the version you keep is noted in the tracking sheet.",
         "midpoint": None,
         "if_stuck": "`/models` does not show the model? Type part of its name to filter the list. "
+                    "A \"Select variant\" screen appears? Keep Default (Esc). "
                     "Then your tutor window → raise your hand.",
         "debrief": "Which model asked the better questions? Did the cheaper run lose anything that matters? "
                    "Compare the structure, not the words.",
