@@ -23,11 +23,11 @@ _PROMPT_ZOOM = 72   # the « Or ask opencode » line: smaller than the step it r
 
 # (label, what to check, the same thing asked to opencode — None when there is no command)
 _SHEET = [
-    ("Done when", "git log --oneline on mywork shows “docs: v0.1 plan”; docs/plan.md has 5-8 tasks, one [next]",
-     "Give me the git commands to show the last commits on mywork, and check that docs/plan.md has 5-8 tasks with "
-     "exactly one [next]. Then run them and show me the result."),
+    ("Done when", "git log --oneline on mywork shows “docs: v0.1 plan”; docs/plan.md has 5-8 development tasks, only T1 marked [next]",
+     "Give me the git commands to show the last commits on mywork, and check that docs/plan.md has 5-8 development "
+     "tasks with only T1 marked [next]. Then run them and show me the result."),
     ("Check", "is anything missing for the app to work end to end (wiring, entry point, assembly of the parts)? "
-     "If so, add that task", None),
+     "If so, add that development task", None),
     ("Mid-point (11:15)", "your user stories have testable acceptance criteria; you are splitting them", None),
     ("If stuck", "1. your tutor window  2. cp docs/plan-example.md docs/plan.md, adapt it  3. raise your hand",
      "Give me the command to copy docs/plan-example.md to docs/plan.md. Then run it."),
@@ -43,7 +43,7 @@ _NOTES = [
     ("The message",
      "Participants check themselves: one line tells them when they are done, the others what to do on the way."),
     ("Done when",
-     "The commit « docs: v0.1 plan » is on mywork and docs/plan.md has 5-8 tasks with exactly one [next]."),
+     "The commit « docs: v0.1 plan » is on mywork and docs/plan.md has 5-8 development tasks, only T1 marked [next]."),
     ("The check most people miss",
      "A plan of features can forget the wiring: entry point, assembly of the parts. Without that task the app "
      "never runs end to end."),
