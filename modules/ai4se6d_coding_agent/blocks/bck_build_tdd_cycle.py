@@ -12,6 +12,8 @@ class BlockStyles:
     body = Style.create(s.project.titles.body, "build_tdd_cycle_body")
     keyword = s.bold + s.project.colors.highlight
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "build_tdd_cycle_cmd")
+    wrong = Style.create(s.project.colors.muted + s.italic, "build_tdd_cycle_wrong")
+    right = Style.create(s.bold + s.project.tone_red.fg, "build_tdd_cycle_right")
     circle = Style("border-radius: 50% !important; width: 35vh; min-width: 35vh; aspect-ratio: 1 / 1; "
                    "margin: 0 auto; padding: 0 1.5vh !important;", "tdd_circle")
     step = Style.create(s.project.titles.body + s.bold + s.center_txt, "tdd_step")
@@ -54,6 +56,11 @@ _NOTES = [
      "Test-driven development in three steps, repeated for every small piece of behaviour. Each circle says the "
      "action, who does it (under the circle) and what the test shows at the end; every arrow is a run of npm run "
      "test:run."),
+    ("Red for the right reason (point 2)",
+     "Two real messages from npm run test:run. « ExpenseItem not found »: the test cannot even run, so red proves "
+     "nothing. « Expected €25.50, got nothing »: the test runs and the behaviour is missing — that red is the proof "
+     "the test checks what you want. How to get the right red: first an ExpenseItem that shows nothing yet (an "
+     "empty shell, returns null), see the live demo."),
     ("RED",
      "Write the test, plus an empty shell of the code (the function or component exists but does nothing yet), "
      "and run it: it must fail on the expected value, not because a file or function is missing. A test that "
@@ -127,8 +134,12 @@ def build():
                         st_write(bs.body, (bs.keyword, 'Where: '), 'tests live in ', (bs.cmd, 'tests/'), '; ',
                                  (bs.keyword, 'Vitest'), ' runs them; ', (bs.cmd, 'npm run test:run'), ' → ✓ / ✗')
                     with l.item():
-                        st_write(bs.body, (bs.keyword, 'Fail for the right reason: '), 'an empty shell first, so '
-                                 'the test fails on the value, not on a missing file')
+                        # wrong red vs right red: two real terminal messages (NG, 2026-11-25, option B)
+                        st_write(bs.body, (bs.keyword, 'Red for the right reason'), tag=t.div)
+                        st_write(bs.body, (bs.wrong, '✗ “ExpenseItem not found”'), ' → wrong red: nothing is checked',
+                                 tag=t.div)
+                        st_write(bs.body, (bs.right, '✗ “Expected €25.50, got nothing”'), ' → right red: the test '
+                                 'checks the behaviour', tag=t.div)
                     with l.item():
                         st_write(bs.body, (bs.keyword, 'Refactor'), ' = change the structure, not the behaviour: '
                                  'remove duplication, extract a function, rename')
