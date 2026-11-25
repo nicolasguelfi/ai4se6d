@@ -1,7 +1,8 @@
 """Slide sequence (sequence_am) — the block list for this part of the book.
 
 Owned by a single writer: add blocks here in presentation order.
-Morning of day 2 (09:00-12:15), per docs/plans/2026-11-09-007-day2-plan-b.md.
+Morning of day 2, 09:00-11:30 (welcome, git, opencode, planning workshop); the rest of the morning,
+CalcApp v0.1 part 1 (11:30-12:15), opens sequence_pm.py. Timetable: ai4se-kit syllabus hd03-day2-am.md.
 """
 import blocks
 

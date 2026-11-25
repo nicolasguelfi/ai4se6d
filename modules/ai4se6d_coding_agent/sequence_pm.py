@@ -1,4 +1,5 @@
-"""Slide sequence (sequence_pm) — Day 2 afternoon, 11:30-17:30.
+"""Slide sequence (sequence_pm) — Day 2, 11:30-17:30: CalcApp v0.1 part 1 (11:30-12:15, end of the MORNING,
+up to bck_build_lunch), then the afternoon from bck_tasks_title (13:15-17:30).
 
 Owned by a single writer: add blocks here in presentation order.
 """
