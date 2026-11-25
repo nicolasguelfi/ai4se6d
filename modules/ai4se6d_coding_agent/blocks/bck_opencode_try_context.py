@@ -50,8 +50,8 @@ _NOTES = [
      "previous chat is forgotten, your files are unchanged. Shortcut: Ctrl+X then N."),
     ("Prompt — « How are tests organised here? »",
      "Deliberately vague: no file given, so the agent explores or guesses. Note its answer to compare."),
-    ("Prompt — « From @package.json and @AGENTS.md: test command, folder, naming? »",
-     "Same question, grounded: @ attaches the two files. package.json holds the scripts (test:run = vitest run); "
+    ("Prompt — « How are tests organised here? Answer from @package.json and @AGENTS.md. »",
+     "The same question, grounded: @ attaches the two files. package.json holds the scripts (test:run = vitest run); "
      "AGENTS.md holds the layout rules (tests/ mirrors src/)."),
     ("Symbol — ! (shell mode)",
      "Typing ! at the start of an empty prompt switches opencode to shell mode: what follows runs in the terminal,"
@@ -76,8 +76,8 @@ def build():
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         steps = [
             ((bs.keyword, "/new"), " “How are tests organised here?” Note the answer"),
-            ((bs.keyword, "/new"), " “From ", (bs.keyword, "@package.json"), " and ", (bs.keyword, "@AGENTS.md"),
-             ": test command, folder, naming?”"),
+            ((bs.keyword, "/new"), " “How are tests organised here? Answer from ", (bs.keyword, "@package.json"), " and ",
+             (bs.keyword, "@AGENTS.md"), ".”"),
             ((bs.keyword, "!npm run test:run"), " — the output joins the conversation"),
             ("“Summarise the test results in two lines.”",),
         ]
