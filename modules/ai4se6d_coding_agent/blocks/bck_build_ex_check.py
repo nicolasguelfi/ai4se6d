@@ -4,7 +4,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -34,6 +34,9 @@ _NOTES = [
     ("Ahead",
      "Task 2 of the plan, same loop."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Or ask opencode",
+     "Under « Done when », the same check asked to opencode (build agent): it gives the commands, runs them and "
+     "shows the result. No prompt for the j2-start recovery: it starts from a new clone, outside opencode."),
     ("Command — npm run test:run",
      "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
      "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
@@ -72,10 +75,14 @@ def build():
                                       '  3. raise your hand')),
             ((bs.label, 'Ahead?'), ('task 2 of your plan, same loop.',)),
         ]
-        cols = "5% 22% 68% 5%"
-        cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
-        with st_zoom(95), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
-            for label, parts in items:
+        # under « Done when », full width, the same check as a prompt for opencode — build agent (NG, 2026-11-25)
+        prompts = {0: "Give me the commands to run the tests and show the last commits, then run them."}
+        cols = "4% 22% 70% 4%"
+        for i, (label, parts) in enumerate(items):
+            if i:
+                st_space("v", "1.6vh")
+            cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
+            with st_zoom(90), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
                     pass  # left margin
                 with g.cell():
@@ -84,3 +91,6 @@ def build():
                     st_write(bs.body, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
+            if i in prompts:
+                st_space("v", "0.4vh")
+                st_ask_opencode(prompts[i], zoom=74, cols="4% 92% 4%")
