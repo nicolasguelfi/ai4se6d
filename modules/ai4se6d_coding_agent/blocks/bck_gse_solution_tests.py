@@ -20,7 +20,14 @@ _NOTES = [
      "acceptance (validation) test per Given/When/Then criterion."),
     ("Production",
      "/gse-produce builds each code task on its own branch as in the demo: the acceptance test first, run and "
-     "seen failing, committed; then the code until it passes. The results are kept as evidence."),
+     "seen failing, committed; then the code until it passes. Every test run is saved as a campaign report (TCP-NNN) in "
+     "docs/sprints/sprint-NN/test-reports/, and the task's test_evidence in backlog.yaml points to it (status, "
+     "date, pass rate, coverage). That is the evidence /gse-deliver checks (GSE-One v0.93.4, spec §6.3)."),
+    ("Word — worktree",
+     "A second working folder of the same git repository, checked out on another branch: GSE-One gives each task "
+     "its own folder (.worktrees/sprint-NN-type-name) on its own branch gse/sprint-NN/type/name, so two tasks never "
+     "mix their files. Default setting git.strategy: worktree in .gse/config.yaml; branch-only = a branch without "
+     "a separate folder; none = no branch (GSE-One v0.93.4)."),
     ("Delivery is blocked",
      "While a requirement's tests have not been run and passed, delivery is blocked."),
     ("Ask the room",
@@ -48,10 +55,11 @@ def build():
         solution=[
             ((CMD, "/gse-tests"), " sets a test strategy from the requirements before any code: "
              "which levels, which acceptance tests."),
-            ((CMD, "/gse-produce"), ", for each code task: the acceptance test first, seen failing, "
-             "then the code — on its own branch, results kept as evidence."),
+            ((CMD, "/gse-produce"), ", for each code task: the acceptance test first, seen failing, then the code — "
+             "each task on its own branch and in its own folder (worktree); every test run is saved as a report in ",
+             (CMD, "docs/sprints/…/test-reports/"), "."),
             "Delivery is blocked while a requirement's tests have not been run and passed.",
         ],
         notes=_NOTES,
-        zoom=92,   # fills the slide (default 60 left the lower half empty) — NG, 2026-11-23
+        zoom=88,   # fills the slide (default 60 left the lower half empty) — NG, 2026-11-23
     )
