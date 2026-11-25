@@ -28,6 +28,11 @@ _NOTES = [
      "staged diff, commit."),
     ("The step not to skip",
      "Push back at least once: too big? not testable? The plan is yours, not the agent's."),
+    ("Trap — plan saves outside the project",
+     "Asked to save the plan (even « save it to docs/plan.md »), the plan agent writes it under ~/.opencode/plan/ "
+     "in your home folder, with a name it chooses — never in the project: plan may not edit project files. Nothing "
+     "to commit then. Tested on opencode 2.4.1 (2026-11-25). Fix: Shift+Tab → build, then « Write docs/plan.md in "
+     "the slide format. »"),
     ("Why git diff --staged",
      "A new file is untracked: git diff ignores it. git add first, then git diff --staged shows what you commit."),
     ("Link to what follows",
