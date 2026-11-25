@@ -4,7 +4,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -49,6 +49,9 @@ _NOTES = [
      "Typed in the terminal (not in opencode), in the project folder. mcp add = register an MCP server; context7 ="
      " the name you give it; --url = the address of the remote server. It writes the entry under mcp.servers in "
      "the project's opencode.json. Add --global to have it in every project instead. Check with opencode mcp list."),
+    ("Or ask opencode",
+     "Needs the build agent (plan may not edit the project). It still needs a restart: servers load at start. "
+     "Read the server address before you allow it — an agent that gives itself new tools is a real risk."),
     ("Restart opencode",
      "Quit (/exit or Ctrl+C) and run opencode again: new servers are loaded at start."),
     ("Key — Shift+Tab",
@@ -71,27 +74,36 @@ def build():
                                  position="left", width="50vw")
         st_write(bs.demo, "Demo first (3 min): plan agent, todo list, a Context7 call", tag=t.div)
 
-        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under step 1, the same
+        # thing asked to opencode — build agent; the terminal command stays the main way (NG, 2026-11-25)
         steps = [
-            ("No context7 yet? ", (bs.keyword, "opencode mcp add context7 --url https://mcp.context7.com/mcp")),
-            ("Restart opencode: the sidebar shows context7 ", (bs.keyword, "Connected"), "?"),
-            ((bs.keyword, "Shift+Tab → plan"),
-             ": “Plan a /budgets page. Use context7 for React Router 7. Tests first.”"),
-            ("Read the plan and its todo list, push back once",),
-            ((bs.keyword, "Do not build"), ": your real plan comes at 11:00"),
+            (("No context7 yet? ", (bs.keyword, "opencode mcp add context7 --url https://mcp.context7.com/mcp")),
+             "Give me the command to add the Context7 MCP server (https://mcp.context7.com/mcp) to this project, "
+             "then run it."),
+            (("Restart opencode: the sidebar shows context7 ", (bs.keyword, "Connected"), "?"), None),
+            (((bs.keyword, "Shift+Tab → plan"),
+              ": “Plan a /budgets page. Use context7 for React Router 7. Tests first.”"), None),
+            (("Read the plan and its todo list, push back once",), None),
+            (((bs.keyword, "Do not build"), ": your real plan comes at 11:00"), None),
         ]
         cols = "5% 4% 86% 5%"
-        cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
-        with st_zoom(90), st_grid(cols=cols, gap="1.2vh 0.5vw", cell_styles=cells) as g:
-            for n, parts in enumerate(steps, 1):
+        for i, (parts, prompt) in enumerate(steps):
+            if i:
+                st_space("v", "0.8vh")
+            cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
+            with st_zoom(90), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
                     pass  # left margin
                 with g.cell():
-                    st_write(bs.step + bs.number, f"{n}", tag=t.div)
+                    st_write(bs.step + bs.number, f"{i + 1}", tag=t.div)
                 with g.cell():
                     st_write(bs.step, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
+            if prompt:
+                st_space("v", "0.4vh")
+                st_ask_opencode(prompt, zoom=76, cols="5% 90% 5%", agent="build")
+        st_space("v", "1.2vh")
         with st_zoom(90), st_grid(cols="5% 90% 5%") as m:
             with m.cell():
                 pass  # left margin

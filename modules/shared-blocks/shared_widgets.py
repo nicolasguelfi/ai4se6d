@@ -42,11 +42,12 @@ def st_hover_tooltip(
     )
 
 
-def st_ask_opencode(prompt, zoom=80, cols="4% 92% 4%"):
+def st_ask_opencode(prompt, zoom=80, cols="4% 92% 4%", agent=None):
     """Full-width « Or ask opencode » line under an exercise step (NG, 2026-11-25).
 
     prompt: the request to the coding agent that gives the same commands, runs them and shows the result.
     zoom: smaller than the step it replaces; cols: margins aligned with the step grid of the slide.
+    agent: optional agent to name in the label, e.g. "build" → « Or ask opencode (build): ».
     """
     from streamtex import st_grid, st_write, st_zoom
     from custom.styles import Styles as s
@@ -54,6 +55,6 @@ def st_ask_opencode(prompt, zoom=80, cols="4% 92% 4%"):
         with g.cell():
             pass  # left margin
         with g.cell():
-            st_write(s.project.titles.ask_prompt, (s.project.titles.ask_label, "Or ask opencode:  "), f"“{prompt}”")
+            st_write(s.project.titles.ask_prompt, (s.project.titles.ask_label, f"Or ask opencode{f' ({agent})' if agent else ''}:  "), f"“{prompt}”")
         with g.cell():
             pass  # right margin
