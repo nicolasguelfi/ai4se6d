@@ -49,7 +49,7 @@ _NOTES = [
     ("The trap",
      "Thinking structure is cosmetic. For an agent it decides where new code lands and whether tests follow."),
     ("What comes next",
-     "Five habits for an AI-friendly project, then AGENTS.md: the rules the agent reads at every start."),
+     "Five habits for an AI-friendly project, then AGENTS.md: the rules the agent reads at every start, and again when it changes."),
     ("Ask the room",
      "« In your current project, where would an agent put a new validator? »"),
 ]

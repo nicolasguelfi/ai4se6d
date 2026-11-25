@@ -43,7 +43,7 @@ _NOTES = [
      "to your message, so the agent reads it."),
     ("File — AGENTS.md",
      "A plain Markdown file at the project root with the project's rules; opencode reads it at the start of every "
-     "session."),
+     "session, and again when it changes."),
 ]
 
 

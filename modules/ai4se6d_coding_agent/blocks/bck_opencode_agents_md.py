@@ -17,7 +17,7 @@ bs = BlockStyles
 _NOTES = [
     ("The message",
      "AGENTS.md is where the project's rules live for opencode: a Markdown file at the project root, read at "
-     "every start."),
+     "every start, and again when it changes."),
     ("How to get one",
      "/init drafts one from your project; you then edit it. Commit it so everyone in the team works with the same "
      "rules."),
@@ -59,7 +59,7 @@ def build():
 
         # One row per fact, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ("Markdown at the project root, read at every start",),
+            ("At the project root, read at start and when it changes",),
             ((bs.keyword, "/init"), " drafts one from your project"),
             ((bs.keyword, "Commit it"), ": same rules for everyone"),
             ("Personal: ", (bs.keyword, "~/.config/opencode/AGENTS.md")),
@@ -67,7 +67,7 @@ def build():
         ]
         cols = "5% 90% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2,))
-        with st_zoom(130), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(122), st_grid(cols=cols, gap="2.2vh 0.5vw", cell_styles=cells) as g:
             for parts in items:
                 with g.cell():
                     pass  # left margin
