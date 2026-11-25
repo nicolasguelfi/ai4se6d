@@ -10,6 +10,8 @@ class BlockStyles:
     """Plan format styles."""
     heading = s.project.titles.heading
     closing = Style.create(s.project.titles.body_accent + s.center_txt, "fmt_closing")
+    legend = Style.create(s.project.titles.body + s.center_txt, "fmt_legend")
+    label = Style.create(s.text.fonts.font_monospace + s.bold + s.project.colors.highlight, "fmt_label")
 bs = BlockStyles
 
 _CODE_ZOOM = 114  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
@@ -36,7 +38,9 @@ _NOTES = [
      "One heading per task (T1, T2, …) with a status ([next], [todo]), an Accept line with the acceptance "
      "criteria, and the Branch on which the task will be built."),
     ("The rules",
-     "5-8 tasks, each with acceptance criteria. Exactly one [next]: the task you build now."),
+     "5-8 tasks, each with acceptance criteria. The label after each title gives its state: [next] = the one task "
+     "you build now (treat exactly one at a time), [todo] = later. The brackets are just a label we chose: easy to "
+     "spot, for you and for the agent."),
     ("Link to what follows",
      "This afternoon the RED prompt starts with « @docs/plan.md Task 1 only »: the plan drives the build."),
     ("Ask the room",
@@ -63,6 +67,10 @@ def build():
         st_space("v", "2vh")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_PLAN_MD, language="markdown", line_numbers=False, font_size="34pt")
-        st_space("v", "3vh")
+        st_space("v", "1.5vh")
         with st_zoom(120):
-            st_write(bs.closing, "5-8 tasks, each with acceptance criteria. Exactly one [next].", tag=t.div)
+            st_write(bs.closing, "5-8 tasks, each with acceptance criteria.", tag=t.div)
+        # label first, then what it means (NG, 2026-11-25: « Exactly one [next] » was cryptic)
+        with st_zoom(120):
+            st_write(bs.legend, (bs.label, "[next]"), " Treat exactly one   ·   ", (bs.label, "[todo]"), " Later",
+                     tag=t.div)
