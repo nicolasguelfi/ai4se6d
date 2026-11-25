@@ -14,12 +14,12 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_agents_md_foot")
 bs = BlockStyles
 
-_CODE_ZOOM = 110  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 96  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 
 _RULES = """\
 ## Testing rules
-- Write the test file BEFORE the implementation file
+- Write the test BEFORE the implementation (an empty shell next to the test is fine)
 - Vitest + React Testing Library; tests go in tests/
 - Use fireEvent from @testing-library/react
 - Import from react-router (NOT react-router-dom)
@@ -34,7 +34,8 @@ _NOTES = [
      "opencode reads AGENTS.md in every session: the testing rules written there apply to every prompt, "
      "without repeating them."),
     ("What the rules fix",
-     "Test file before implementation; the tools of the project (Vitest + React Testing Library, tests in "
+     "Test before implementation — an empty shell next to the test is allowed, so red fails on the expected "
+     "value, not on a missing file (see the live demo); the tools of the project (Vitest + React Testing Library, tests in "
      "tests/, fireEvent, react-router not react-router-dom); never install Jest; never skip, weaken or delete "
      "a test."),
     ("Why npm run test:run",
