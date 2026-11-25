@@ -24,8 +24,8 @@ _NOTES = [
     ("RED",
      "You + agent: the agent drafts the test, you review it — it is your spec."),
     ("GREEN and REFACTOR",
-     "GREEN: the agent writes the minimal code to pass, the test is not touched. REFACTOR: you decide; the "
-     "tests stay green."),
+     "GREEN: the agent writes the minimal code to pass, the test is not touched. REFACTOR: you decide what to "
+     "improve, the agent applies it — improve the design, same behaviour, the tests stay green."),
     ("The golden rule",
      "Never let the agent write the test AND the code without your review in between. Otherwise the test mirrors "
      "what the agent meant to write — it proves nothing."),
@@ -44,7 +44,7 @@ def build():
                 st_hover_tooltip(title="Trainer notes — The Golden Rule", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "1vh")
-        with st_zoom(109):
+        with st_zoom(98):
             # header row, then one row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
             cols = "5% 22% 18% 50% 5%"
             with st_grid(cols=cols, gap="0.5vw",
@@ -59,7 +59,7 @@ def build():
             rows = [
                 ('RED', 'You + agent', ('The agent drafts the test, ', (bs.keyword, 'you'), ' review it: it is your spec')),
                 ('GREEN', 'Agent', ('Minimal code to pass. The test is not touched.',)),
-                ('REFACTOR', 'You decide', ('Clean up; the tests stay green',)),
+                ('REFACTOR', 'You decide', ('Improve the design — same behaviour, tests stay green',)),
             ]
             cells = s.project.containers.rows(len(rows), cols, filled=(2, 3, 4))
             with st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:

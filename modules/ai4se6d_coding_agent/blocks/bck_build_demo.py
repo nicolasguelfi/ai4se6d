@@ -32,8 +32,12 @@ _NOTES = [
      "fails on the expected value: red then proves the test checks the behaviour."),
     ("GREEN",
      "Ask for the minimal code, without touching the test; npm run test:run goes green."),
+    ("REFACTOR (step 5)",
+     "Prompt: « Improve the design of ExpenseItem without changing its behaviour: e.g. extract the euro "
+     "formatting into a formatAmount function. Do not touch the test. Run npm run test:run. » The tests stay "
+     "green: the structure changed, not the behaviour. Commit refactor: … ."),
     ("The proof",
-     "Break the code on purpose: a test must fail. Then two commits — test: … first, then feat: …"),
+     "Break the code on purpose: a test must fail. Then the commits — test: … first, then feat: …, then refactor: …"),
     ("Link to what follows",
      "Each step of the demo returns in the exercise on task 1 of your own plan."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
@@ -48,7 +52,7 @@ _NOTES = [
      "and build in opencode. Its name is shown under the input box."),
     ("Symbol — test: / feat: / fix: / docs: (commit messages)",
      "Not commands: the first word of a commit message (the « Conventional Commits » habit). test: = only tests, "
-     "feat: = a new feature, fix: = a bug fix, docs: = documentation. The … on the slide is your own short "
+     "feat: = a new feature, refactor: = same behaviour, better structure, fix: = a bug fix, docs: = documentation. The … on the slide is your own short "
      "description. A commit is a saved snapshot of the project, with that message."),
     ("Command — git add -A && git commit -m \"test: …\"",
      "How to make the commit. git add -A puts every change (new, modified, deleted files) in the staging area, "
@@ -76,12 +80,14 @@ def build():
             ((bs.cmd, 'npm run test:run'), ' → ', (bs.keyword, 'RED'), ' on the expected value, not a missing file'),
             ('Ask for the minimal code — ', (bs.keyword, 'do not touch the test')),
             ((bs.cmd, 'npm run test:run'), ' → ', (bs.keyword, 'GREEN')),
+            ((bs.keyword, 'REFACTOR'), ': “Improve the design, same behaviour, do not touch the test” → still ',
+             (bs.keyword, 'GREEN')),
             ('Break the code on purpose → a test must fail',),
-            ('Two commits: ', (bs.cmd, 'test: …'), ' first, then ', (bs.cmd, 'feat: …')),
+            ('Commits: ', (bs.cmd, 'test: …'), ' first, then ', (bs.cmd, 'feat: …'), ', then ', (bs.cmd, 'refactor: …')),
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
-        with st_zoom(96), st_grid(cols=cols, gap="1.4vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(84), st_grid(cols=cols, gap="1.1vh 0.5vw", cell_styles=cells) as g:
             for n, parts in enumerate(steps, 1):
                 with g.cell():
                     pass  # left margin
