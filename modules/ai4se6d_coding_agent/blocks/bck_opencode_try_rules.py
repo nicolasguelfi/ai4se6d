@@ -36,7 +36,7 @@ _NOTES = [
      "Run /init on a copy of the project and compare its draft with the starter's AGENTS.md: what did /init "
      "find on its own, what did it miss?"),
     ("The steps",
-     "Work on the mywork branch; ask which test command and folders the agent must use; add the euro rule; start "
+     "Work on the mywork branch; ask how to run the tests and where test files go; add the euro rule; start "
      "a clean session with /new and ask for formatAmount, code only; check git diff AGENTS.md and commit."),
     ("Why /new",
      "Without a new session the rule is only « in the chat »: /new proves the agent picks it up from AGENTS.md."),
@@ -57,7 +57,7 @@ _NOTES = [
      "Typed in opencode: the agent studies the project and drafts AGENTS.md. Run it on a copy so it does not "
      "overwrite the starter's file: cp -r ~/ai4se/calcapp ~/ai4se/calcapp-copy (-r = copy the whole folder), then "
      "opencode in the copy."),
-    ("Prompt — « Which test command and folders must you use? »",
+    ("Prompt — « How do I run the tests, and where do test files go? »",
      "Checks what the agent took from AGENTS.md: it should answer npm run test:run and tests/ mirroring src/."),
     ("Command — /new",
      "Typed in the opencode prompt box: starts a new, empty session (conversation). AGENTS.md is read again, the "
@@ -85,7 +85,7 @@ def build():
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         steps = [
             ((bs.keyword, "git switch mywork"), ", then ", (bs.keyword, "opencode")),
-            ("Ask: “Which test command and folders must you use?”",),
+            ("Ask opencode: “How do I run the tests, and where do test files go?”",),
             ("Add to AGENTS.md: ", (bs.keyword, "Amounts are in euros, 2 decimals: €25.50.")),
             ((bs.keyword, "/new"), ", then: “Propose formatAmount. Code only, no file.”"),
             ((bs.keyword, "git diff AGENTS.md"), ", then commit it"),
