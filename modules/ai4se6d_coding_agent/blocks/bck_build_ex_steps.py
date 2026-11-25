@@ -14,12 +14,13 @@ class BlockStyles:
     label = s.project.titles.label
     keyword = s.bold + s.project.colors.highlight
     number = s.bold + s.project.colors.highlight
-    cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "build_ex_steps_cmd")
+    cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent
+                       + Style("white-space: nowrap;", "build_ex_steps_cmd_nowrap"), "build_ex_steps_cmd")
     timer = Style.create(s.project.titles.stat + s.center_txt, "build_ex_steps_timer")
 bs = BlockStyles
 
-_STEP_ZOOM = 92    # tuned by measure: content bottom <= 1000 px at 1920x1080
-_PROMPT_ZOOM = 78   # the « Or ask opencode » line: smaller than the step it replaces
+_STEP_ZOOM = 80    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 70   # the « Or ask opencode » line: smaller than the step it replaces
 
 _NOTES = [
     ("Trainer action",
@@ -89,17 +90,20 @@ def build():
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under a step with a
         # terminal command, full width, the same thing as a prompt for opencode — build agent (NG, 2026-11-25)
         steps = [
-            (('T1’s ', (bs.keyword, 'Branch:'), ' line, e.g. ', (bs.cmd, 'git switch -c feat/expense-type')),
-             "Give me the git command to create and switch to T1's branch (Branch: line, @docs/plan.md); run it."),
-            (('RED prompt → ', (bs.keyword, 'read the test'), ' → commit ', (bs.cmd, 'test: …')),
+            (('Create the branch for T1. Its name is written in ', (bs.cmd, 'docs/plan.md'), ', on the line that '
+              'starts with ', (bs.keyword, 'Branch:'), ' under T1. Example: ', (bs.cmd, 'git switch -c feat/expense-type')),
+             "Give me the git command to create and switch to the branch named under T1 in @docs/plan.md; run it."),
+            (('Paste the RED prompt. ', (bs.keyword, 'Read the test'), ' the agent wrote. Then commit the test '
+              'alone, with a message that starts with ', (bs.cmd, 'test:')),
              "Give me the git commands to commit only the new test as 'test: …', then run them."),
-            (('GREEN prompt → ', (bs.cmd, 'npm run test:run'), ' green → commit ', (bs.cmd, 'feat: …')),
+            (('Paste the GREEN prompt. Run ', (bs.cmd, 'npm run test:run'), ' until all tests pass. Then commit the '
+              'code, with a message that starts with ', (bs.cmd, 'feat:')),
              "Give me the commands to run the tests, then commit the code as 'feat: …' if green; run them."),
         ]
         cols = "5% 5% 85% 5%"
         for i, (parts, prompt) in enumerate(steps):
             if i:
-                st_space("v", "2vh")
+                st_space("v", "1.4vh")
             cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
             with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():

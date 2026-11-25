@@ -14,13 +14,13 @@ class BlockStyles:
     label = s.project.titles.label
     keyword = s.bold + s.project.colors.highlight
     number = s.bold + s.project.colors.highlight
-    cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "build_ex_steps2_cmd")
+    cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent
+                       + Style("white-space: nowrap;", "build_ex_steps2_cmd_nowrap"), "build_ex_steps2_cmd")
     timer = Style.create(s.project.titles.stat + s.center_txt, "build_ex_steps2_timer")
-    foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_ex_steps2_foot")
 bs = BlockStyles
 
-_STEP_ZOOM = 78    # tuned by measure: content bottom <= 1000 px at 1920x1080
-_PROMPT_ZOOM = 70   # the « Or ask opencode » line: smaller than the step it replaces
+_STEP_ZOOM = 70    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 64   # the « Or ask opencode » line: smaller than the step it replaces
 
 _NOTES = [
     ("Trainer action",
@@ -64,26 +64,27 @@ def build():
                                  position="left", width="50vw")
         with st_zoom(90):
             st_write(bs.timer, '11:45 → 12:10 · 25 min', tag=t.div)
-            st_write(bs.body, (bs.label, 'Then: '), 'improve, prove the test, deliver into ', (bs.cmd, 'mywork'), '.',
-                     tag=t.div)
+            st_write(bs.body, (bs.label, 'Then: '), 'improve the code, check that the test really catches a bug, '
+                     'and add T1 to ', (bs.cmd, 'mywork'), '.', tag=t.div)
         st_space("v", "1vh")
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under a step with a
         # terminal command, full width, the same thing as a prompt for opencode — build agent (NG, 2026-11-25)
         steps = [
-            (('REFACTOR prompt → ', (bs.cmd, 'npm run test:run'), ' still green → commit ', (bs.cmd, 'refactor: …'),
-              ' (nothing to improve? no commit, go on)'),
+            (('Paste the REFACTOR prompt. Run ', (bs.cmd, 'npm run test:run'), ': the tests must still pass. Commit '
+              'with a message that starts with ', (bs.cmd, 'refactor:'), '. Nothing to improve? No commit, go on.'),
              "Give me the commands to run the tests, then commit the code as 'refactor: …' if green; run them."),
-            (('Mutant check, then undo the sabotage',), None),
-            (((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git merge feat/expense-type')),
+            (('Mutant check: break the code on purpose; a test must fail. Then undo your change.',), None),
+            (('Go back to your main line and bring T1 into it: ', (bs.cmd, 'git switch mywork'), ', then ',
+              (bs.cmd, 'git merge feat/expense-type'), ' (the name of your T1 branch).'),
              "Give me the git commands to go back to mywork and merge T1's branch into it, then run them."),
-            (('In ', (bs.cmd, 'docs/plan.md'), ': T1 ', (bs.keyword, '[done]'), ', T2 ', (bs.keyword, '[next]'),
-              ' → commit ', (bs.cmd, 'docs: T1 done')),
+            (('In ', (bs.cmd, 'docs/plan.md'), ', change the label of T1 to ', (bs.keyword, '[done]'), ' and the '
+              'label of T2 to ', (bs.keyword, '[next]'), '. Commit with the message ', (bs.cmd, 'docs: T1 done'), '.'),
              "In docs/plan.md, mark T1 [done] and T2 [next], then commit it as 'docs: T1 done'."),
         ]
         cols = "5% 5% 85% 5%"
         for i, (parts, prompt) in enumerate(steps):
             if i:
-                st_space("v", "1.5vh")
+                st_space("v", "1vh")
             cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
             with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
@@ -97,10 +98,3 @@ def build():
             if prompt:
                 st_space("v", "0.4vh")
                 st_ask_opencode(prompt, zoom=_PROMPT_ZOOM, cols="5% 90% 5%")
-        st_space("v", "1vh")
-        with st_zoom(84):
-            st_write(
-                bs.foot,
-                'mywork is your main line since this morning: every finished task is merged into it.',
-                tag=t.div,
-            )
