@@ -13,7 +13,7 @@ class BlockStyles:
     keyword = s.project.titles.keyword
 bs = BlockStyles
 
-_CODE_ZOOM = 123  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 104  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _PROMPT = """\
 I'm building CalcApp v0.1, a personal budget tracker.
@@ -34,6 +34,10 @@ _NOTES = [
     ("How the prompt works",
      "It gives the context (the v0.1 scope; AGENTS.md is already loaded by opencode, no @ needed), asks for 3 clarifying questions FIRST, then for 4-6 "
      "user stories with a title, « As a user, I want... » and testable acceptance criteria."),
+    ("User story",
+     "Agile origin (XP, then Scrum): one need seen by the user, « As a user, I want … », plus acceptance criteria "
+     "= how we check it is done. Used lightly today (no backlog, no estimates); the full notion (INVEST, backlog) "
+     "comes on day 3, GenSem."),
     ("The trap",
      "Accepting the stories as they come. Read critically and ask back: what happens on errors? fixed or free "
      "categories? which currency?"),
@@ -68,9 +72,13 @@ def build():
                                  position="left", width="50vw")
         with st_zoom(120):
             st_write(bs.body, (bs.keyword, "Shift+Tab → plan"), ", then adapt and paste:", tag=t.div)
-        st_space("v", "3vh")
+        st_space("v", "2vh")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_PROMPT, language="text", line_numbers=False, font_size="30pt")
-        st_space("v", "2vh")
-        with st_zoom(120):
+        st_space("v", "1.5vh")
+        with st_zoom(100):  # first time the word appears in the course: define it (NG, 2026-11-25)
+            st_write(bs.body, (bs.keyword, "User story"), " = one need seen by the user: “As a user, I want …” + "
+                     "acceptance criteria (how we check it is done).", tag=t.div)
+        st_space("v", "1.5vh")
+        with st_zoom(105):
             st_write(bs.body, "Read critically. Ask back: errors? fixed or free categories? currency?", tag=t.div)
