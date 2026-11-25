@@ -75,7 +75,7 @@ def build():
              "Give me the commands to run the tests, then commit the code as 'refactor: …' if green; run them."),
             (('Mutant check: break the code on purpose; a test must fail. Then undo your change.',), None),
             (('Go back to your main line and bring T1 into it: ', (bs.cmd, 'git switch mywork'), ', then ',
-              (bs.cmd, 'git merge feat/expense-type'), ' (the name of your T1 branch).'),
+              (bs.cmd, 'git merge feat/expense-type'), ' (your name may differ: use the line below).'),
              "Give me the git commands to go back to mywork and merge T1's branch into it, then run them."),
             (('In ', (bs.cmd, 'docs/plan.md'), ', change the label of T1 to ', (bs.keyword, '[done]'), ' and the '
               'label of T2 to ', (bs.keyword, '[next]'), '. Commit with the message ', (bs.cmd, 'docs: T1 done'), '.'),

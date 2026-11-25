@@ -72,12 +72,10 @@ def build():
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
             ('Create the branch named under the task in ', (bs.cmd, 'docs/plan.md'), ' (the line that starts with '
-             'Branch:), e.g. ', (bs.cmd, 'git switch -c feat/routing')),
+             'Branch:), e.g. ', (bs.cmd, 'git switch -c feat/routing'), '. Your name may differ: ask opencode “Create the branch of the [next] task in @docs/plan.md.”'),
             ('RED: ask for the test only. ', (bs.keyword, 'You'), ' read it, then commit it alone (', (bs.cmd, 'test: …'),
              ').'),
             ('GREEN: ask for the minimal code, without changing the test. Commit it (', (bs.cmd, 'feat: …'), ').'),
-            ('REFACTOR: ask to improve the design, same behaviour; the tests must still pass. Commit it (',
-             (bs.cmd, 'refactor: …'), '). Nothing to improve? Skip this step.'),
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2, 3))

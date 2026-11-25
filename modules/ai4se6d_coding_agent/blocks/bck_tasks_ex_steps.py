@@ -88,7 +88,8 @@ def build():
         # width, the same thing asked to opencode — build agent (NG, 2026-11-25)
         items = [
             (('Create the branch of the task marked ', (bs.cmd, '[next]'), '. Its name is in ', (bs.cmd, 'docs/plan.md'),
-              ', on the line that starts with Branch: under that task. Example: ', (bs.cmd, 'git switch -c feat/routing')),
+              ', on the line that starts with Branch: under that task. Example: ', (bs.cmd, 'git switch -c feat/routing'),
+              ' (your name may differ: use the line below)'),
              "Give me the git command to create and switch to the [next] task's branch (Branch: line, "
              "@docs/plan.md); run it."),
             (('Paste the RED prompt. Read the test, then commit it alone, with a message that starts with ',

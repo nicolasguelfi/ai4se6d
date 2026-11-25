@@ -24,7 +24,7 @@ _NOTES = [
     ("The message",
      "How a participant knows Part 2 is finished, where they should be at mid-time, and what to do when stuck."),
     ("Done when",
-     "Three observable facts: npm run test:run shows 4+ passing tests; the app has two pages; an added expense "
+     "Three observable facts: npm run test:run shows at least 4 passing tests; the app has two pages; an added expense "
      "survives a browser refresh."),
     ("Mid-point 13:55",
      "Routing merged into mywork. Walk around at 13:55 and ask who is not there yet — now, not at 14:20."),
@@ -62,12 +62,12 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Part 2, Am I Done?", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
-        with st_zoom(106), st_block(bs.done_box):
+        with st_zoom(98), st_block(bs.done_box):
             st_write(
                 bs.body,
                 (bs.done_label, 'Done when: '),
                 (bs.cmd, 'npm run test:run'),
-                ' shows 4+ passing tests; the app has two pages; an added expense survives a browser refresh.',
+                ' shows at least 4 passing tests; the app has two pages; an added expense survives a browser refresh.',
             )
         st_space("v", "0.6vh")  # the test check asked to opencode — build agent (NG, 2026-11-25)
         st_ask_opencode("Give me the command to run the tests and count the passing ones, then run it.", zoom=80,
@@ -84,7 +84,7 @@ def build():
         ]
         cols = "5% 22% 68% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
-        with st_zoom(104), st_grid(cols=cols, gap="3vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(104), st_grid(cols=cols, gap="2.2vh 0.5vw", cell_styles=cells) as g:
             for label, parts in items:
                 with g.cell():
                     pass  # left margin

@@ -19,8 +19,8 @@ class BlockStyles:
     timer = Style.create(s.project.titles.stat + s.center_txt, "build_ex_steps_timer")
 bs = BlockStyles
 
-_STEP_ZOOM = 80    # tuned by measure: content bottom <= 1000 px at 1920x1080
-_PROMPT_ZOOM = 70   # the « Or ask opencode » line: smaller than the step it replaces
+_STEP_ZOOM = 77    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 66   # the « Or ask opencode » line: smaller than the step it replaces
 
 _NOTES = [
     ("Trainer action",
@@ -91,7 +91,8 @@ def build():
         # terminal command, full width, the same thing as a prompt for opencode — build agent (NG, 2026-11-25)
         steps = [
             (('Create the branch for T1. Its name is written in ', (bs.cmd, 'docs/plan.md'), ', on the line that '
-              'starts with ', (bs.keyword, 'Branch:'), ' under T1. Example: ', (bs.cmd, 'git switch -c feat/expense-type')),
+              'starts with ', (bs.keyword, 'Branch:'), ' under T1. Example: ', (bs.cmd, 'git switch -c feat/expense-type'),
+              ' (your name may differ: use the line below)'),
              "Give me the git command to create and switch to the branch named under T1 in @docs/plan.md; run it."),
             (('Paste the RED prompt. ', (bs.keyword, 'Read the test'), ' the agent wrote. Then commit the test '
               'alone, with a message that starts with ', (bs.cmd, 'test:')),
@@ -103,7 +104,7 @@ def build():
         cols = "5% 5% 85% 5%"
         for i, (parts, prompt) in enumerate(steps):
             if i:
-                st_space("v", "1.4vh")
+                st_space("v", "0.9vh")
             cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
             with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():

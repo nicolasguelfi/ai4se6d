@@ -1,4 +1,4 @@
-"""Slide — The same loop for every task, part 2/2 (mutant, review, merge)."""
+"""Slide — The same loop for every task, part 2/2 (refactor, mutant, review, merge)."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -72,6 +72,8 @@ def build():
 
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
+            ('REFACTOR: ask to improve the design, same behaviour; the tests must still pass. Commit it (',
+             (bs.cmd, 'refactor: …'), '). Nothing to improve? Skip this step.'),
             ('Mutant check: break the code on purpose; a test must fail. Then undo your change.',),
             ("Review the agent's code with the checklists of the next slides.",),
             ('When all the tests pass, merge the branch into ', (bs.cmd, 'mywork'), '. In ', (bs.cmd, 'docs/plan.md'),
@@ -80,8 +82,8 @@ def build():
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
-        with st_zoom(109), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
-            for n, parts in enumerate(items, 5):
+        with st_zoom(96), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
+            for n, parts in enumerate(items, 4):
                 with g.cell():
                     pass  # left margin
                 with g.cell():
