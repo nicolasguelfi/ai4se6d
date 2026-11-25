@@ -17,7 +17,17 @@ _NOTES = [
      "the scope for you. GSE-One makes planning a step of its own."),
     ("Requirements",
      "/gse-reqs starts with a conversation, then writes requirements with testable acceptance criteria "
-     "(Given / When / Then) — what you just did by hand with the plan agent."),
+     "(Given / When / Then) — the same idea as your « Accepted when » with the plan agent, written in three "
+     "fixed parts."),
+    ("Given / When / Then — the three parts",
+     "First time in the course: define them. One acceptance criterion = one concrete scenario. Given = the "
+     "starting situation (what is already true before the action). When = the one action the user does. Then = "
+     "the result we can observe and check. Comes from Behaviour-Driven Development (BDD); each scenario becomes "
+     "one acceptance test (this afternoon, and day 4)."),
+    ("Given / When / Then — CalcApp, task 1",
+     "Given the Add page is open and no expense is saved, When I enter an amount of 0 and click Add, Then an error "
+     "message is shown and the list stays empty. A second scenario covers the valid case: Given the Add page is "
+     "open, When I enter 25.50 in Food and click Add, Then the list shows one expense of 25.50."),
     ("Plan",
      "/gse-plan turns them into a sprint of tasks, each sized in complexity points, within a budget."),
     ("Gate and backlog",
