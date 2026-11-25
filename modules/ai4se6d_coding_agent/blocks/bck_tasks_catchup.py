@@ -27,8 +27,8 @@ _NOTES = [
      "Learners do it — on their machine. Only those who failed a re-orientation check: they restart from "
      "the tag j2-part1 now."),
     ("The message",
-     "For whoever failed a re-orientation check: restart from the tag j2-part1, the end of Part 1 (first "
-     "features, tests green)."),
+     "For whoever failed a re-orientation check: restart from the tag j2-part1, the end of Part 1 (task T1 "
+     "done, tests green; its plan already marks T1 [done] and T2 [next])."),
     ("What the commands do",
      "Clone the starter into a new folder (calcapp-restart), create mywork from j2-part1, install the exact "
      "dependencies with npm ci. The old folder stays as it was."),
@@ -88,7 +88,7 @@ def build():
                 st_hover_tooltip(title="Trainer notes — Catch-up: Tag j2-part1", entries=_NOTES,
                                  position="left", width="50vw")
         with st_zoom(106):
-            st_write(bs.body, 'Restart from the end of Part 1 (first features, tests green):', tag=t.div)
+            st_write(bs.body, 'Restart from the end of Part 1 (task T1 done, tests green):', tag=t.div)
             st_space("v", "2vh")
             with st_zoom(_CODE_ZOOM):
                 st_code(s.none, code=_CATCHUP, language="bash", line_numbers=False, font_size="26pt")   # one line per command at this zoom
