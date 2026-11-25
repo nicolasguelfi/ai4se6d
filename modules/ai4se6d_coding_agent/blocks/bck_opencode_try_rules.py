@@ -37,7 +37,7 @@ _NOTES = [
      "find on its own, what did it miss?"),
     ("The steps",
      "Work on the mywork branch; ask how to run the tests and where test files go; add the euro rule; start "
-     "a clean session with /new and ask for formatAmount, code only; check git diff AGENTS.md and commit."),
+     "a clean session with /new and ask for formatAmount with the result for 25.5, no file written; check git diff AGENTS.md and commit."),
     ("Why /new",
      "Without a new session the rule is only « in the chat »: /new proves the agent picks it up from AGENTS.md."),
     ("Done when",
@@ -62,9 +62,11 @@ _NOTES = [
     ("Command — /new",
      "Typed in the opencode prompt box: starts a new, empty session (conversation). AGENTS.md is read again, the "
      "previous chat is forgotten, your files are unchanged. Shortcut: Ctrl+X then N."),
-    ("Prompt — « Propose formatAmount. Code only, no file. »",
-     "Asks for a function that formats an amount, shown in the answer only: « Code only, no file » = do not create"
-     " or edit files. With the euro rule it should give €25.50 for 25.5."),
+    ("Prompt — « Write a formatAmount function that formats an amount of money. Show the code and the result "
+     "for 25.5. Do not create or change any file. »",
+     "Asks for a function that formats an amount, shown in the answer only: nothing is written, so the only change "
+     "to commit stays AGENTS.md. « the result for 25.5 » makes the check visible: with the euro rule, read again "
+     "after /new, the answer shows €25.50."),
     ("Command — git diff AGENTS.md",
      "git diff limited to one file: only the changes in AGENTS.md. Then git add AGENTS.md && git commit -m \"docs: "
      "euro rule\"."),
@@ -87,12 +89,13 @@ def build():
             ((bs.keyword, "git switch mywork"), ", then ", (bs.keyword, "opencode")),
             ("Ask opencode: “How do I run the tests, and where do test files go?”",),
             ("Add to AGENTS.md: ", (bs.keyword, "Amounts are in euros, 2 decimals: €25.50.")),
-            ((bs.keyword, "/new"), ", then: “Propose formatAmount. Code only, no file.”"),
+            ((bs.keyword, "/new"), ", then: “Write a formatAmount function that formats an amount of money. Show the code "
+             "and the result for 25.5. Do not create or change any file.”"),
             ((bs.keyword, "git diff AGENTS.md"), ", then commit it"),
         ]
         cols = "5% 4% 86% 5%"
         cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
-        with st_zoom(98), st_grid(cols=cols, gap="1.2vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(92), st_grid(cols=cols, gap="0.8vh 0.5vw", cell_styles=cells) as g:
             for n, parts in enumerate(steps, 1):
                 with g.cell():
                     pass  # left margin
@@ -102,7 +105,7 @@ def build():
                     st_write(bs.step, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
-        with st_zoom(98), st_grid(cols="5% 90% 5%") as m:
+        with st_zoom(92), st_grid(cols="5% 90% 5%") as m:
             with m.cell():
                 pass  # left margin
             with m.cell():
