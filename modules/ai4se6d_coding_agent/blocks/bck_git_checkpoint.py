@@ -20,7 +20,8 @@ _CHECKPOINT = """\
 git add -A && git commit -m "chore: checkpoint before refactor"
 # ... let the agent work ...
 git diff          # happy? test and commit.   not happy?
-git restore .     # back to the checkpoint (uncommitted work is lost)"""
+git restore --staged --worktree .   # back to the checkpoint:
+#   every change since is lost (never-added files stay)"""
 
 
 _NOTES = [
@@ -31,12 +32,13 @@ _NOTES = [
      "Second habit: commit a checkpoint before letting the agent attempt something risky — « save the game before "
      "the boss fight »."),
     ("How",
-     "Commit the current state, let the agent work, read git diff. Happy: test and commit. Not happy: git restore . "
-     "brings back the checkpoint."),
+     "Commit the current state, let the agent work, read git diff. Happy: test and commit. Not happy: git restore "
+     "--staged --worktree . brings back the checkpoint."),
     ("When",
      "Before a big refactor, an approach you doubt, or a change across several files."),
     ("The trap",
-     "git restore . discards every uncommitted change: anything not in the checkpoint is lost."),
+     "git restore --staged --worktree . brings the index and the files back to the checkpoint: every change since "
+     "is lost; only files never added with git add stay."),
     ("Link to GSE-One",
      "GSE-One applies the same idea with a safety tag gse-backup/… before a risky operation."),
     ("Ask the room",
@@ -53,10 +55,13 @@ _NOTES = [
     ("Command — git diff",
      "After the agent worked: shows every line changed since the checkpoint (- removed, + added). q to quit the "
      "viewer."),
-    ("Command — git restore .",
-     "Throws away all uncommitted changes to tracked files in this folder and below (the dot): the files go back "
-     "to the checkpoint. No undo. Trap: new files the agent created are not removed — git status lists them as "
-     "untracked; delete them by hand (or git clean -n to list, git clean -f to delete)."),
+    ("Command — git restore --staged --worktree .",
+     "Brings everything in this folder and below (the dot) back to the last commit, the checkpoint. --staged = "
+     "empties the staging area (undoes git add); --worktree = puts the files on disk back. Both together also "
+     "remove new files that were added with git add. No undo. Why not plain git restore . : it restores the files "
+     "from the staging area, so changes already added (the agent often runs git add) stay. Trap: new files never "
+     "added stay — git status lists them as untracked; delete them by hand (or git clean -n to list, git clean -f "
+     "to delete)."),
     ("Symbol — #",
      "Starts a comment: the shell ignores the rest of the line. Not typed."),
 ]
@@ -74,11 +79,11 @@ def build():
         st_space("v", "3vh")
         with st_zoom(120):
             st_write(bs.quote, "Save the game before the boss fight.", tag=t.div)
-        st_space("v", "9vh")
+        st_space("v", "6vh")
         with st_zoom(120):
             with st_zoom(_CODE_ZOOM):
                 st_code(s.none, code=_CHECKPOINT, language="bash", line_numbers=False, font_size="24pt")
-        st_space("v", "9vh")
+        st_space("v", "6vh")
         with st_zoom(120):
             st_write(
                 bs.body, (bs.label, "Use it before: "),
