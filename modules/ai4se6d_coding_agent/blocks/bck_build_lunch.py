@@ -3,7 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -31,6 +31,9 @@ _NOTES = [
      "renders, the next task of the plan."),
     ("Ask the room",
      "« Who has uncommitted changes right now? » — fix it before leaving the room."),
+    ("Or ask opencode",
+     "Under the git status line, the same check asked to opencode (build agent): it shows the commands, runs them "
+     "and commits what is left. Accept if it asks permission."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — git status",
      "Read-only: changes nothing. Shows the branch you are on (« On branch mywork ») and what changed since the "
@@ -68,3 +71,7 @@ def build():
                     '.',
                     tag=t.div,
                 )
+            # the same check asked to opencode — build agent (NG, 2026-11-25)
+            st_space("v", 1)
+            st_ask_opencode("Give me the git commands to check that everything is committed and to commit what is "
+                            "left as 'wip: before lunch', then run them.", zoom=80, cols="8% 84% 8%")

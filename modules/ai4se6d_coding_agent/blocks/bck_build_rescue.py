@@ -33,6 +33,11 @@ _NOTES = [
      "Running opencode in the old folder afterwards: from now on, everything happens in calcapp-restart."),
     ("Link to the rest of the day",
      "Same mechanism after lunch with the tag j2-part1: a recovery tag is a safety net, not a failure."),
+    ("Or ask opencode — not here",
+     "No prompt on this slide: the rescue starts from a new clone in a new folder, and opencode works in the "
+     "folder where it was started (the broken one). Once opencode runs in calcapp-restart, it can copy back and "
+     "commit: « Give me the commands to copy docs/plan.md and AGENTS.md from ~/ai4se/calcapp into this project "
+     "and commit them as 'docs: my plan and rules', then run them. »"),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — cd ~/ai4se",
      "cd = change directory: the terminal now works inside ~/ai4se, the course folder (~ = your home folder, "
