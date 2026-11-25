@@ -47,6 +47,15 @@ _NOTES = [
     ("Command — opencode auth list",
      "Lists the providers opencode has a credential for: names only, never the key itself. Done when OpenRouter "
      "is in the list. Inside the agent, /connect does the same as auth login."),
+    ("Screen — Select variant (after choosing a model)",
+     "A variant = the same model with another reasoning setting: none = no reasoning, low = a little, high = a lot,"
+     " max = the most. More reasoning is slower and uses more tokens, so more of your OpenRouter credit. Default ="
+     " the provider's own setting. For the course: keep Default (press Esc, or Enter on Default). Later, ctrl+t "
+     "switches from one variant to the next."),
+    ("Model list — « … Free » marked OpenCode",
+     "The same model served by OpenCode Zen, not by OpenRouter: the course key is not used, it needs a Zen "
+     "account. Free for a limited time, and the data sent may be used to improve the model. For the course: "
+     "choose the line « DeepSeek V4.1 Flash · OpenRouter »."),
     ("Word — OpenRouter",
      "A service that gives access to many AI models (Claude, GPT, open models…) through one key. The trainer's key "
      "has a spending limit: whoever copies it spends that budget."),
