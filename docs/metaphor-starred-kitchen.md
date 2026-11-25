@@ -93,6 +93,8 @@ This metaphor is **shared across all 6 training days** and all modules. Each mod
 | TripAdvisor review | Bug report, public user feedback |
 | Food recall | Hotfix, rollback, incident response |
 
+> **Git inside the course uses its own picture: the photo** (« Where Your Changes Live »): files on disk = the scene, `git add` = pose the subjects, commit = a photo in the album, branch = a bookmark on a series, merge = one photo with both retouches, conflict = the same spot retouched twice. In the kitchen, that album *is* the lot traceability: every photo says what went in, when, and from which series. Keep one picture per explanation: photo for git mechanics, kitchen for the big picture.
+
 ### Growth & Capitalization
 
 | Kitchen | SE / VibeEngineering |
