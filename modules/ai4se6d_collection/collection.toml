@@ -38,10 +38,11 @@ button_label = "Open"
 project_url = "https://ai4se6d-coding-agent.streamtex.org"
 order = 4
 
-[projects.gensem]
-title = "GenSEM — Generative SE Methods"
-description = "Frameworks, evidence, and methodology for generative software engineering"
-emoji = "\U0001F4DA"
-button_label = "Open"
-project_url = "https://ai4se6d-gensem.streamtex.org"
-order = 5
+# Days 3-6 card hidden until the GenSEM module is reviewed (NG, 2026-11-25). To restore it: uncomment the 7 lines below.
+# [projects.gensem]
+# title = "GenSEM — Generative SE Methods"
+# description = "Frameworks, evidence, and methodology for generative software engineering"
+# emoji = "\U0001F4DA"
+# button_label = "Open"
+# project_url = "https://ai4se6d-gensem.streamtex.org"
+# order = 5
