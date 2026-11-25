@@ -14,7 +14,13 @@ class BlockStyles:
     step = s.project.titles.table_cell
     keyword = s.project.titles.table_label
     number = s.bold + s.project.colors.highlight
+    ask = s.project.titles.ask_label
+    prompt = s.project.titles.ask_prompt
+    prompt_cell = s.project.containers.ask_cell
 bs = BlockStyles
+
+_STEP_ZOOM = 98    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 76   # the « Or ask opencode » line: smaller than the step it replaces
 
 _NOTES = [
     ("Trainer action",
@@ -38,6 +44,10 @@ _NOTES = [
     ("Link to what follows",
      "Task 1 of this plan is the exercise of the next part: test first, on its own branch."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    ("Or ask opencode",
+     "Under steps 6 and 7, the same thing asked to opencode — the build agent, already active since step 5: it "
+     "gives the git commands first, then runs them and shows the result. Accept if it asks permission. Git "
+     "specialists can skip these lines."),
     ("Command — git switch mywork",
      "Moves to the existing branch mywork (your main line today): your files now show that branch. No -c here "
      "because the branch already exists. Git refuses if uncommitted changes would be overwritten: commit them "
@@ -73,25 +83,42 @@ def build():
                                  position="left", width="50vw")
         st_write(bs.timer, "20 min · goal: a committed plan", tag=t.div)
         st_space("v", "1vh")
-        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under a step with a
+        # terminal command, full width, the same thing as a prompt for opencode — build agent (NG, 2026-11-25)
         steps = [
-            ((bs.keyword, "git switch mywork"), ", ", (bs.keyword, "opencode"), ", ", (bs.keyword, "Shift+Tab → plan")),
-            ("Paste the elicitation prompt, answer its questions",),
-            ("“Split into 5-8 atomic tasks, tests first, with acceptance criteria.”",),
-            ("Push back at least once: too big? not testable?",),
-            ((bs.keyword, "Shift+Tab → build"), ": “Write docs/plan.md in the slide format.”"),
-            ("Edit, mark T1 ", (bs.keyword, "[next]"), ", ", (bs.keyword, "git add"), " it, ", (bs.keyword, "git diff --staged")),
-            ((bs.keyword, "git commit -m \"docs: v0.1 plan\""),),
+            (((bs.keyword, "git switch mywork"), ", ", (bs.keyword, "opencode"), ", ",
+              (bs.keyword, "Shift+Tab → plan")), None),
+            (("Paste the elicitation prompt, answer its questions",), None),
+            (("“Split into 5-8 atomic tasks, tests first, with acceptance criteria.”",), None),
+            (("Push back at least once: too big? not testable?",), None),
+            (((bs.keyword, "Shift+Tab → build"), ": “Write docs/plan.md in the slide format.”"), None),
+            (("Edit, mark T1 ", (bs.keyword, "[next]"), ", ", (bs.keyword, "git add"), " it, ",
+              (bs.keyword, "git diff --staged")),
+             "Give me the git commands to stage docs/plan.md and show what will be committed, then run them."),
+            (((bs.keyword, "git commit -m \"docs: v0.1 plan\""),),
+             "Give me the git command to commit docs/plan.md as 'docs: v0.1 plan', then run it."),
         ]
         cols = "5% 5% 85% 5%"
-        cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
-        with st_zoom(123), st_grid(cols=cols, gap="1.2vh 0.5vw", cell_styles=cells) as g:
-            for n, parts in enumerate(steps, 1):
+        for i, (parts, prompt) in enumerate(steps):
+            if i:
+                st_space("v", "1vh")
+            cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
+            with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
                     pass  # left margin
                 with g.cell():
-                    st_write(bs.step + bs.number, f"{n}", tag=t.div)
+                    st_write(bs.step + bs.number, f"{i + 1}", tag=t.div)
                 with g.cell():
                     st_write(bs.step, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
+            if prompt:
+                st_space("v", "0.4vh")
+                with st_zoom(_PROMPT_ZOOM), st_grid(cols="5% 90% 5%", gap="0",
+                                                    cell_styles=[s.none, bs.prompt_cell, s.none]) as g:
+                    with g.cell():
+                        pass  # left margin
+                    with g.cell():
+                        st_write(bs.prompt, (bs.ask, "Or ask opencode:  "), f"“{prompt}”")
+                    with g.cell():
+                        pass  # right margin
