@@ -40,8 +40,7 @@ _NOTES = [
      "Summary of git diff: one line per changed file with the number of lines added (+) and removed (-), then a "
      "total. --stat = statistics only, no content. Works on big changes too: the first thing to read."),
     ("The trap",
-     "Committing what you never looked at. After the agent worked: git add . is fine — then read git diff "
-     "--staged --stat before you commit (new files included); git restore --staged (file) takes a file back out."),
+     "git add . after the agent worked: it stages everything, including changes you never saw."),
     ("Link to the afternoon",
      "The code review session (14:30) builds on the same reflex, with the AI helping to read the diff."),
     ("Ask the room",

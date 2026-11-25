@@ -53,15 +53,13 @@ _NOTES = [
      "Scene (your files) → pose the subjects you want in the picture (git add) → click the shutter (git commit) → "
      "upload to the cloud (git push)."),
     ("Why it matters with an agent",
-     "The agent may change many files, new ones included; staging is the checkpoint: git diff --staged --stat "
-     "shows everything that will enter the history, and git restore --staged (file) takes out what should not."),
+     "The agent may change many files; staging lets you commit only the changes you have reviewed and approved."),
     ("The trap",
      "Thinking that a saved file is a committed file: until git commit, the change is not in the history."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — git add (file)",
      "Copies the current state of the file into the staging area, e.g. git add App.tsx. git add . (dot = this folder "
-     "and everything below) stages everything. After the agent worked: git add . is fine — then read git diff "
-     "--staged --stat before you commit."),
+     "and everything below) stages everything: avoid it after the agent worked."),
     ("Command — git commit",
      "Saves everything in the staging area as one commit in the local repository. Usually with -m \"message\"."),
     ("Command — git push / git pull",

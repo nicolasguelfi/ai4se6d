@@ -32,14 +32,12 @@ _NOTES = [
     ("See",
      "git status tells what changed — run it all the time; git diff shows the exact lines: it is the review tool."),
     ("Save",
-     "git add src/App.tsx (one file, e.g.) stages one file; after the agent worked, git add . stages everything, then "
-     "git diff --staged --stat shows what will go in (new files included) and git restore --staged takes a file back "
-     "out. git commit -m \"feat: ...\" takes the snapshot with a message; git log --oneline shows the timeline."),
+     "git add src/App.tsx (one file, e.g.) stages what you have reviewed; git commit -m \"feat: ...\" takes the snapshot with a message; "
+     "git log --oneline shows the timeline."),
     ("Undo",
      "git restore src/App.tsx throws an unwanted change away."),
     ("The trap",
-     "After the agent worked: git add . is fine — then read git diff --staged --stat before you commit. First "
-     "git status: no node_modules or .env in the list (otherwise fix .gitignore)."),
+     "Tip: git diff --staged --stat shows what the next commit will contain — the coding agent usually checks it for you."),
     ("Ask the room",
      "« Which of the six have you never used? »"),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
@@ -70,15 +68,8 @@ _NOTES = [
      "Starts a comment: the shell ignores everything after it on the line. The comments on the slide are "
      "explanations, you do not type them."),
     ("Symbol — . in git add .",
-     "The dot means « the current folder and everything inside »: git add . stages every change, new files "
-     "included — so read git diff --staged --stat right after."),
-    ("Command — git diff --staged",
-     "Shows what is staged, i.e. what the next commit will contain — new files included, unlike plain git diff. "
-     "--stat = one line per file with the number of lines added and removed, no content: read it first, then "
-     "git diff --staged (file) for the files that matter. Nothing is modified; q to quit the viewer."),
-    ("Command — git restore --staged (file)",
-     "Takes a file back out of the staging area: it will not be in the next commit, but it stays on the disk "
-     "with its changes. --staged = act on the staging area only. E.g. git restore --staged .env."),
+     "The dot means « the current folder and everything inside »: git add . stages every change, including the "
+     "ones you never read."),
 ]
 
 
@@ -91,11 +82,10 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Six Commands for Today", entries=_NOTES,
                                  position="left", width="50vw")
-        st_space("v", "12vh")
+        st_space("v", "10vh")
         with st_zoom(120):
             with st_zoom(_CODE_ZOOM):
                 st_code(s.none, code=_COMMANDS, language="bash", line_numbers=False, font_size="28pt")
-        st_space("v", "12vh")
+        st_space("v", "6vh")
         with st_zoom(120):
-            st_write(bs.warning, "After the agent worked: git add . is fine — then read git diff --staged --stat "
-                     "before you commit.", tag=t.div)
+            st_write(bs.warning, "Tip: git diff --staged --stat shows what the next commit will contain — the coding agent usually checks it for you.", tag=t.div)
