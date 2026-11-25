@@ -22,3 +22,6 @@ Icon?
 log.stx.txt
 *.log
 !.claude/stx.lock
+
+# Regenerable diagram exports (_diagram_export.py)
+modules/*/static/cache/
