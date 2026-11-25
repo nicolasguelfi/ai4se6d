@@ -4,7 +4,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -18,6 +18,9 @@ class BlockStyles:
     timer = Style.create(s.project.titles.stat + s.center_txt, "build_ex_steps_timer")
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_ex_steps_foot")
 bs = BlockStyles
+
+_STEP_ZOOM = 80    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 72   # the « Or ask opencode » line: smaller than the step it replaces
 
 _NOTES = [
     ("Trainer action",
@@ -63,6 +66,9 @@ _NOTES = [
      "meanwhile, git just moves it forward (« Fast-forward »). Otherwise it creates a merge commit and may open a"
      " text editor for its message: save and close it (nano: Ctrl+O, Enter, Ctrl+X; vim: Esc then :wq). « "
      "CONFLICT » = both branches changed the same lines: raise your hand."),
+    ("Or ask opencode",
+     "Under steps 1, 2, 3 and 5, the same thing asked to opencode (build agent): it gives the commands first, then "
+     "runs them and shows the result. Accept if it asks permission. Git specialists can skip these lines."),
     ("Symbol — →",
      "Only means « then » on the slide: type the two commands one after the other, not the arrow."),
 ]
@@ -88,26 +94,36 @@ def build():
                 tag=t.div,
             )
         st_space("v", "1vh")
-        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under a step with a
+        # terminal command, full width, the same thing as a prompt for opencode — build agent (NG, 2026-11-25)
         steps = [
-            ((bs.cmd, 'git switch -c feat/task-1'),),
-            ('RED prompt → ', (bs.keyword, 'read the test'), ' → commit ', (bs.cmd, 'test: …')),
-            ('GREEN prompt → ', (bs.cmd, 'npm run test:run'), ' green → commit ', (bs.cmd, 'feat: …')),
-            ('Mutant check, then undo the sabotage',),
-            ((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git merge feat/task-1')),
+            (((bs.cmd, 'git switch -c feat/task-1'),),
+             "Give me the git command to create and switch to the branch feat/task-1, then run it."),
+            (('RED prompt → ', (bs.keyword, 'read the test'), ' → commit ', (bs.cmd, 'test: …')),
+             "Give me the git commands to commit only the new test as 'test: …', then run them."),
+            (('GREEN prompt → ', (bs.cmd, 'npm run test:run'), ' green → commit ', (bs.cmd, 'feat: …')),
+             "Give me the commands to run the tests, then commit the code as 'feat: …' if green; run them."),
+            (('Mutant check, then undo the sabotage',), None),
+            (((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git merge feat/task-1')),
+             "Give me the git commands to go back to mywork and merge feat/task-1 into it, then run them."),
         ]
         cols = "5% 5% 85% 5%"
-        cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
-        with st_zoom(107), st_grid(cols=cols, gap="1.2vh 0.5vw", cell_styles=cells) as g:
-            for n, parts in enumerate(steps, 1):
+        for i, (parts, prompt) in enumerate(steps):
+            if i:
+                st_space("v", "0.8vh")
+            cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
+            with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
                     pass  # left margin
                 with g.cell():
-                    st_write(bs.body + bs.number, f"{n}", tag=t.div)
+                    st_write(bs.body + bs.number, f"{i + 1}", tag=t.div)
                 with g.cell():
                     st_write(bs.body, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
+            if prompt:
+                st_space("v", "0.4vh")
+                st_ask_opencode(prompt, zoom=_PROMPT_ZOOM, cols="5% 90% 5%")
         st_space("v", "1vh")
         with st_zoom(84):
             st_write(
