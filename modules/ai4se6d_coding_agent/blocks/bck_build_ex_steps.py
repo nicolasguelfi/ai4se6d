@@ -49,10 +49,11 @@ _NOTES = [
      "does not touch the other branches. -c = create; the branch starts from the commit you are on, so be on "
      "mywork first. The prefix before the slash is only a naming habit (feat/ = feature, fix/ = correction). « "
      "already exists »? Use git switch feat/expense-type (without -c)."),
-    ("Symbol — test: / feat: / fix: / docs: (commit messages)",
-     "Not commands: the first word of a commit message (the « Conventional Commits » habit). test: = only tests, "
-     "feat: = a new feature, fix: = a bug fix, docs: = documentation. The … on the slide is your own short "
-     "description. A commit is a saved snapshot of the project, with that message."),
+    ("Commits — why two, and their prefix",
+     "Separate commits keep the proof: the history shows the test existed (and failed) before the code. Prefix = "
+     "type of change, seen this morning (slide 16: Conventional Commits). Example for T1: test: expense with "
+     "amount 0 is rejected — feat: add expense validation. A commit is a saved snapshot of the project, with "
+     "that message."),
     ("Command — git add -A && git commit -m \"test: …\"",
      "How to make the commit. git add -A puts every change (new, modified, deleted files) in the staging area, "
      "the list of what goes into the next commit; -A = all. git commit -m \"…\" saves that snapshot; -m = the "

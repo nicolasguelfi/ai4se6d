@@ -33,11 +33,17 @@ _NOTES = [
     ("GREEN",
      "Ask for the minimal code, without touching the test; npm run test:run goes green."),
     ("REFACTOR (step 5)",
-     "Prompt: « Improve the design of ExpenseItem without changing its behaviour: e.g. extract the euro "
-     "formatting into a formatAmount function. Do not touch the test. Run npm run test:run. » The tests stay "
-     "green: the structure changed, not the behaviour. Commit refactor: … ."),
+     "Prompt: « Move the euro formatting into a named function formatAmount and call it from ExpenseItem. The "
+     "screen must not change. Do not touch the test. Run npm run test:run. » The tests stay green: the structure "
+     "changed, not the behaviour. Then commit refactor: extract formatAmount."),
+    ("REFACTOR — the code before and after",
+     "Before, inside ExpenseItem: <span>€{amount.toFixed(2)}</span>. After: function formatAmount(amount: number) "
+     "{ return `€${amount.toFixed(2)}`; } … <span>{formatAmount(amount)}</span>. Nothing is removed from the app:"
+     " the screen still shows « €25.50 », the formatting now has a name and can be reused (the list total will "
+     "need it). If the agent already wrote such a function, say so: nothing to refactor is a valid result."),
     ("The proof",
-     "Break the code on purpose: a test must fail. Then the commits — test: … first, then feat: …, then refactor: …"),
+     "Break the code on purpose: a test must fail. Then three commits: the test alone — the feature code — the "
+     "refactoring."),
     ("Link to what follows",
      "Each step of the demo returns in the exercise on task 1 of your own plan."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
@@ -50,10 +56,11 @@ _NOTES = [
     ("Key — build agent (Shift+Tab)",
      "Step 1 uses the build agent, the one that edits files and runs commands; Shift+Tab switches between plan "
      "and build in opencode. Its name is shown under the input box."),
-    ("Symbol — test: / feat: / fix: / docs: (commit messages)",
-     "Not commands: the first word of a commit message (the « Conventional Commits » habit). test: = only tests, "
-     "feat: = a new feature, refactor: = same behaviour, better structure, fix: = a bug fix, docs: = documentation. The … on the slide is your own short "
-     "description. A commit is a saved snapshot of the project, with that message."),
+    ("Commits — why three, and their prefix",
+     "Separate commits keep the proof: the history shows the test existed (and failed) before the code, and the "
+     "refactoring stays apart from the feature. Prefix = type of change, seen this morning (slide 16: Conventional "
+     "Commits). Here: test: ExpenseItem shows label and amount — feat: add ExpenseItem — refactor: extract "
+     "formatAmount. A commit is a saved snapshot of the project, with that message."),
     ("Command — git add -A && git commit -m \"test: …\"",
      "How to make the commit. git add -A puts every change (new, modified, deleted files) in the staging area, "
      "the list of what goes into the next commit; -A = all. git commit -m \"…\" saves that snapshot; -m = the "
@@ -80,10 +87,10 @@ def build():
             ((bs.cmd, 'npm run test:run'), ' → ', (bs.keyword, 'RED'), ' on the expected value, not a missing file'),
             ('Ask for the minimal code — ', (bs.keyword, 'do not touch the test')),
             ((bs.cmd, 'npm run test:run'), ' → ', (bs.keyword, 'GREEN')),
-            ((bs.keyword, 'REFACTOR'), ': “Improve the design, same behaviour, do not touch the test” → still ',
-             (bs.keyword, 'GREEN')),
+            ((bs.keyword, 'REFACTOR'), ': “Move the euro formatting into a named function formatAmount… The screen '
+             'must not change” → still ', (bs.keyword, 'GREEN')),
             ('Break the code on purpose → a test must fail',),
-            ('Commits: ', (bs.cmd, 'test: …'), ' first, then ', (bs.cmd, 'feat: …'), ', then ', (bs.cmd, 'refactor: …')),
+            ('Three commits: the test alone — the feature code — the refactoring',),
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
