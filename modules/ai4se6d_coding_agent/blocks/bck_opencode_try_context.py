@@ -35,7 +35,7 @@ _NOTES = [
     ("The demo (3 min)",
      "Ask the same question twice: vague, then with @files. Point at what changes in the answer."),
     ("The steps",
-     "/new and a vague question about tests, noted; /new and the same question from @package.json and @AGENTS.md; "
+     "/new and a vague question about tests, noted; /new and the same question from @package.json; "
      "!npm run test:run so the real output joins the conversation; a two-line summary of the results."),
     ("Why the « ! »",
      "A command run with ! puts its output in the context: the agent then reasons on the real test results, not "
@@ -50,9 +50,12 @@ _NOTES = [
      "previous chat is forgotten, your files are unchanged. Shortcut: Ctrl+X then N."),
     ("Prompt — « How are tests organised here? »",
      "Deliberately vague: no file given, so the agent explores or guesses. Note its answer to compare."),
-    ("Prompt — « How are tests organised here? Answer from @package.json and @AGENTS.md. »",
-     "The same question, grounded: @ attaches the two files. package.json holds the scripts (test:run = vitest run); "
-     "AGENTS.md holds the layout rules (tests/ mirrors src/)."),
+    ("Prompt — « How are tests organised here? Answer from @package.json. »",
+     "The same question, grounded: @ attaches the file. package.json holds the scripts (test:run = vitest run)."),
+    ("Why not @AGENTS.md",
+     "opencode loads AGENTS.md on its own at the start of every session (and again when it changes): it is in both "
+     "runs, so the layout rules (tests/ mirrors src/) are known either way. Only @package.json makes the "
+     "difference. opencode never writes AGENTS.md itself: /init, you, or the agent when you ask."),
     ("Symbol — ! (shell mode)",
      "Typing ! at the start of an empty prompt switches opencode to shell mode: what follows runs in the terminal,"
      " in the project folder, and its output stays in the session for the agent. Esc leaves shell mode without "
@@ -76,8 +79,7 @@ def build():
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         steps = [
             ((bs.keyword, "/new"), " “How are tests organised here?” Note the answer"),
-            ((bs.keyword, "/new"), " “How are tests organised here? Answer from ", (bs.keyword, "@package.json"), " and ",
-             (bs.keyword, "@AGENTS.md"), ".”"),
+            ((bs.keyword, "/new"), " “How are tests organised here? Answer from ", (bs.keyword, "@package.json"), ".”"),
             ((bs.keyword, "!npm run test:run"), " — the output joins the conversation"),
             ("“Summarise the test results in two lines.”",),
         ]

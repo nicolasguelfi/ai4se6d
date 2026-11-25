@@ -16,10 +16,11 @@ bs = BlockStyles
 _CODE_ZOOM = 123  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _PROMPT = """\
-I'm building CalcApp v0.1, a personal budget tracker (see @AGENTS.md).
+I'm building CalcApp v0.1, a personal budget tracker.
 v0.1: add an expense (amount, category, date), list expenses with a
-monthly total, two pages with navigation, data kept in localStorage.
-My extra ideas: <yours>.
+monthly total, two pages with navigation, data kept in the browser
+after closing it (localStorage, no server).
+My extra ideas: a monthly budget limit, CSV export.
 Ask me 3 clarifying questions first. Then propose 4-6 user stories:
 title, "As a user, I want...", testable acceptance criteria."""
 
@@ -31,7 +32,7 @@ _NOTES = [
      "Requirements come from a conversation, not from one shot: switch to the plan agent (Shift+Tab → plan), "
      "adapt the prompt with your own ideas, paste it."),
     ("How the prompt works",
-     "It gives the context (@AGENTS.md, the v0.1 scope), asks for 3 clarifying questions FIRST, then for 4-6 "
+     "It gives the context (the v0.1 scope; AGENTS.md is already loaded by opencode, no @ needed), asks for 3 clarifying questions FIRST, then for 4-6 "
      "user stories with a title, « As a user, I want... » and testable acceptance criteria."),
     ("The trap",
      "Accepting the stories as they come. Read critically and ask back: what happens on errors? fixed or free "
@@ -45,12 +46,14 @@ _NOTES = [
      "In opencode, hold Shift and press Tab: it switches to the next primary agent (plan → build → plan). The "
      "active agent's name is shown near the prompt box. « Shift+Tab → plan » = press it until plan is shown."),
     ("Prompt — the elicitation prompt",
-     "Lines 1-3 give the context: @AGENTS.md attaches the rules file, then the v0.1 scope. « My extra ideas: » — "
-     "replace the placeholder after it with your 2-3 ideas. « Ask me 3 clarifying questions first » = no answer "
+     "Lines 1-4 give the context: the v0.1 scope, the need in user words, the technique in brackets. No "
+     "@AGENTS.md: opencode loads AGENTS.md on its own at the start and again whenever it changes. « My extra "
+     "ideas: » — replace the two examples with your own 2-3 ideas. « Ask me 3 clarifying questions first » = no answer "
      "before your replies. Then 4-6 user stories, each with a title, « As a user, I want… » and testable "
      "acceptance criteria."),
     ("Word — localStorage",
-     "Storage inside the browser: the data survives a page reload, with no server."),
+     "Storage inside the browser, on this computer: the data survives a reload or closing the browser, with no "
+     "server. Not cookies: cookies travel to a server with every request."),
 ]
 
 
