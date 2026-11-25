@@ -3,7 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -16,6 +16,9 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "tasks_ex_steps_foot")
     number = s.bold + s.project.colors.highlight
 bs = BlockStyles
+
+_STEP_ZOOM = 74    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 68   # the « Or ask opencode » line: smaller than the step it replaces
 
 
 _NOTES = [
@@ -35,6 +38,9 @@ _NOTES = [
      "Commits that mix test and code, a branch that was never merged, a review checklist skipped."),
     ("Link",
      "The next slide says when Part 2 is done, the mid-point at 13:55, and what to do if stuck."),
+    ("Or ask opencode",
+     "Under each step, the same thing asked to opencode (build agent): it gives the commands first, then runs "
+     "them and shows the result. Accept if it asks permission. Git specialists can skip these lines."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — git switch -c feat/routing",
      "Creates a new branch named feat/routing and moves onto it. A branch is a named line of commits: work on it "
@@ -65,9 +71,9 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Exercise, Your Next Tasks", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(105):
+        with st_zoom(92):
             st_write(bs.timer, '13:30 → 14:20 · 50 min', tag=t.div)
-            st_space("v", "2vh")
+            st_space("v", "1vh")
             st_write(
                 bs.body,
                 (bs.label, 'Goal: '),
@@ -76,27 +82,37 @@ def build():
             )
         st_space("v", "2vh")
 
-        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under each step, full
+        # width, the same thing asked to opencode — build agent (NG, 2026-11-25)
         items = [
-            ('One task = one branch ', (bs.cmd, 'feat/routing')),
-            ('RED → review → commit ', (bs.cmd, 'test: …')),
-            ('GREEN → review checklist → commit ', (bs.cmd, 'feat: …')),
-            ('Merge into ', (bs.cmd, 'mywork'), ' when green, next task'),
+            (('One task = one branch ', (bs.cmd, 'feat/routing')),
+             "Give me the git command to create and switch to a branch for my task (e.g. feat/routing), then run it."),
+            (('RED → review → commit ', (bs.cmd, 'test: …')),
+             "Give me the git commands to commit only the new test as 'test: …', then run them."),
+            (('GREEN → review checklist → commit ', (bs.cmd, 'feat: …')),
+             "Give me the commands to run the tests, then commit the code as 'feat: …' if green; run them."),
+            (('Merge into ', (bs.cmd, 'mywork'), ' when green, next task'),
+             "Give me the git commands to merge my task branch into mywork, then run them."),
         ]
         cols = "5% 5% 85% 5%"
-        cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
-        with st_zoom(116), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
-            for n, parts in enumerate(items, 1):
+        for i, (parts, prompt) in enumerate(items):
+            if i:
+                st_space("v", "0.6vh")
+            cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
+            with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
                     pass  # left margin
                 with g.cell():
-                    st_write(bs.body + bs.number, f"{n}", tag=t.div)
+                    st_write(bs.body + bs.number, f"{i + 1}", tag=t.div)
                 with g.cell():
                     st_write(bs.body, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
-        st_space("v", "3vh")
-        with st_zoom(105):
+            if prompt:
+                st_space("v", "0.4vh")
+                st_ask_opencode(prompt, zoom=_PROMPT_ZOOM, cols="5% 90% 5%")
+        st_space("v", "2vh")
+        with st_zoom(92):
             st_write(
                 bs.foot,
                 "Your plan's wording is unclear? Use the prompts of the previous slides.",

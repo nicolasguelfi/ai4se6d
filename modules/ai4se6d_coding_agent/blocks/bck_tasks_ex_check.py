@@ -3,7 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -32,6 +32,9 @@ _NOTES = [
      "The tutor window first, then the recovery tag j2-part1, then a raised hand."),
     ("Ahead?",
      "Delete an expense (onDelete) with the same loop: test first, then code, then review."),
+    ("Or ask opencode",
+     "Under « Done when », the test check asked to opencode (build agent). The two pages and the refresh test stay "
+     "in the browser. No prompt for the j2-part1 recovery: it starts from a new clone."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — npm run test:run",
      "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
@@ -66,6 +69,9 @@ def build():
                 (bs.cmd, 'npm run test:run'),
                 ' shows 4+ passing tests; the app has two pages; an added expense survives a browser refresh.',
             )
+        st_space("v", "0.6vh")  # the test check asked to opencode — build agent (NG, 2026-11-25)
+        st_ask_opencode("Give me the command to run the tests and count the passing ones, then run it.", zoom=80,
+                        cols="0% 100% 0%")
         st_space("v", "3vh")
 
         # One row per situation (label | what to do), alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)

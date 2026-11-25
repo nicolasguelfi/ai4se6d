@@ -3,7 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -14,6 +14,9 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "tasks_notfinished_cmd")
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "tasks_notfinished_foot")
 bs = BlockStyles
+
+_STEP_ZOOM = 95    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 76   # the « Or ask opencode » line: smaller than the step it replaces
 
 
 _NOTES = [
@@ -30,6 +33,9 @@ _NOTES = [
     ("The tone",
      "Being behind on code must never block the learning — say it explicitly to the participants who are "
      "behind."),
+    ("Or ask opencode",
+     "Under « merge what is green » and the test check (build agent). No prompt for the catch-up tags: they start "
+     "from a new clone. npm run dev stays in a terminal: it keeps running."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — merge what is green",
      "On a branch whose tests pass: git switch mywork then git merge (branch). A red branch stays as it is: "
@@ -59,24 +65,32 @@ def build():
                                  position="left", width="50vw")
         st_space("v", "3vh")
 
-        # One row per point, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        # One row per point, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under a point with a command,
+        # the same thing asked to opencode — build agent (NG, 2026-11-25)
         items = [
-            ('v0.1 need not be complete to be reviewed: you review ', (bs.keyword, 'what you have')),
-            ('Merge what is green; leave a red branch aside',),
-            ('App broken? Catch up with ', (bs.cmd, 'j2-part1'), ', or ', (bs.cmd, 'j2-v0.1'),
-             ' to review the reference code'),
-            ('Then ', (bs.cmd, 'npm run test:run'), ' and ', (bs.cmd, 'npm run dev'), ' must work'),
+            (('v0.1 need not be complete to be reviewed: you review ', (bs.keyword, 'what you have')), None),
+            (('Merge what is green; leave a red branch aside',),
+             "Give me the git commands to merge into mywork only my task branches whose tests pass, then run them."),
+            (('App broken? Catch up with ', (bs.cmd, 'j2-part1'), ', or ', (bs.cmd, 'j2-v0.1'),
+              ' to review the reference code'), None),
+            (('Then ', (bs.cmd, 'npm run test:run'), ' and ', (bs.cmd, 'npm run dev'), ' must work'),
+             "Give me the command to run the tests, then run it."),
         ]
         cols = "5% 90% 5%"
-        cells = s.project.containers.rows(len(items), cols, filled=(2,))
-        with st_zoom(105), st_grid(cols=cols, gap="4vh 0.5vw", cell_styles=cells) as g:
-            for parts in items:
+        for i, (parts, prompt) in enumerate(items):
+            if i:
+                st_space("v", "2vh")
+            cells = s.project.containers.rows(i + 1, cols, filled=(2,))[-3:]  # keeps the alternation
+            with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
                     pass  # left margin
                 with g.cell():
                     st_write(bs.body, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
+            if prompt:
+                st_space("v", "0.4vh")
+                st_ask_opencode(prompt, zoom=_PROMPT_ZOOM, cols="5% 90% 5%")
         st_space("v", "5vh")
         with st_zoom(109):
             st_write(

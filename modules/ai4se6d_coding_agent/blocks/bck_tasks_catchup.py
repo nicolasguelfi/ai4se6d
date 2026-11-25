@@ -38,6 +38,11 @@ _NOTES = [
     ("The tone",
      "A recovery tag is a safety net, not a failure: the goal of the afternoon is the loop and the review, "
      "not finishing at all costs."),
+    ("Or ask opencode — not here",
+     "No prompt on this slide: the catch-up starts from a new clone in a new folder, and opencode works in the "
+     "folder where it was started. Once opencode runs in the new folder, it can copy back and commit: « Give me "
+     "the commands to copy docs/plan.md and AGENTS.md from ~/ai4se/calcapp into this project and commit them as "
+     "'docs: my plan and rules', then run them. »"),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — cd ~/ai4se",
      "cd = change directory: the terminal now works inside ~/ai4se, the course folder (~ = your home folder, "

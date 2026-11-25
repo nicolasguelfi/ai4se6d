@@ -3,7 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -14,6 +14,9 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "tasks_reorient_foot")
     number = s.bold + s.project.colors.highlight
 bs = BlockStyles
+
+_STEP_ZOOM = 104    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 76   # the « Or ask opencode » line: smaller than the step it replaces
 
 
 _NOTES = [
@@ -32,6 +35,9 @@ _NOTES = [
      "Not fixed in 5 minutes? The next slide restarts from the tag j2-part1."),
     ("Ask the room",
      "« Hands up when all four checks pass. » — wait for the room before moving on."),
+    ("Or ask opencode",
+     "Under check 4 only: checks 1-3 come before opencode starts. Once it runs (build agent), it can redo the git "
+     "and test checks and name the next task. npm run dev stays in a terminal: it keeps running."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — cd ~/ai4se/calcapp",
      "cd = change directory: the terminal now works in your project folder (~ = your home folder). Those who "
@@ -65,25 +71,33 @@ def build():
                                  position="left", width="50vw")
         st_space("v", "3vh")
 
-        # One numbered row per check, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        # One numbered row per check, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under check 4 (opencode
+        # runs from there), the same checks asked to opencode — build agent (NG, 2026-11-25)
         items = [
-            ((bs.cmd, 'cd ~/ai4se/calcapp'), ' → ', (bs.cmd, 'git status'), ': clean, on ', (bs.cmd, 'mywork')),
-            ((bs.cmd, 'npm run test:run'), ' → Part 1 tests still green'),
-            ((bs.cmd, 'npm run dev'), ' → the app renders in the browser'),
-            ('Start opencode, read ', (bs.cmd, '@docs/plan.md'), ': which task is next?'),
+            (((bs.cmd, 'cd ~/ai4se/calcapp'), ' → ', (bs.cmd, 'git status'), ': clean, on ', (bs.cmd, 'mywork')), None),
+            (((bs.cmd, 'npm run test:run'), ' → Part 1 tests still green'), None),
+            (((bs.cmd, 'npm run dev'), ' → the app renders in the browser'), None),
+            (('Start opencode, read ', (bs.cmd, '@docs/plan.md'), ': which task is next?'),
+             "Give me the commands to check that git status is clean on mywork and that the tests pass, then run "
+             "them, and tell me which task of @docs/plan.md is next."),
         ]
         cols = "5% 5% 85% 5%"
-        cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
-        with st_zoom(119), st_grid(cols=cols, gap="4vh 0.5vw", cell_styles=cells) as g:
-            for n, parts in enumerate(items, 1):
+        for i, (parts, prompt) in enumerate(items):
+            if i:
+                st_space("v", "2.5vh")
+            cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
+            with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
                     pass  # left margin
                 with g.cell():
-                    st_write(bs.body + bs.number, f"{n}", tag=t.div)
+                    st_write(bs.body + bs.number, f"{i + 1}", tag=t.div)
                 with g.cell():
                     st_write(bs.body, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
+            if prompt:
+                st_space("v", "0.4vh")
+                st_ask_opencode(prompt, zoom=_PROMPT_ZOOM, cols="5% 90% 5%")
         st_space("v", "5vh")
         with st_zoom(131):
             st_write(bs.foot, 'One check fails and you cannot fix it in 5 minutes? Next slide.', tag=t.div)
