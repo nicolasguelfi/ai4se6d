@@ -9,7 +9,7 @@ from shared_widgets import st_hover_tooltip
 class BlockStyles:
     """Command list styles."""
     heading = s.project.titles.heading
-    warning = Style.create(s.project.titles.body + s.project.colors.critical + s.bold + s.center_txt, "gitcmd_warn")
+    tip = Style.create(s.project.titles.body_accent + s.center_txt, "gitcmd_tip")  # neutral: a tip, not an order
 bs = BlockStyles
 
 _CODE_ZOOM = 107  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
@@ -88,4 +88,5 @@ def build():
                 st_code(s.none, code=_COMMANDS, language="bash", line_numbers=False, font_size="28pt")
         st_space("v", "6vh")
         with st_zoom(120):
-            st_write(bs.warning, "Tip: git diff --staged --stat shows what the next commit will contain — the coding agent usually checks it for you.", tag=t.div)
+            st_write(bs.tip, (s.bold, "Tip: "), "git diff --staged --stat shows what the next commit will contain — "
+                     "the coding agent usually checks it for you.", tag=t.div)
