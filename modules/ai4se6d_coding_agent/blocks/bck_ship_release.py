@@ -39,6 +39,10 @@ _NOTES = [
      "to your own repository tomorrow morning."),
     ("If stuck",
      "Tutor window first; else the recovery tag j2-v0.1, then git tag v0.1 on it; else raise your hand."),
+    ("Or ask opencode — for you and git specialists",
+     "Not on the slide: shipping is a sequence to understand, and the slide is full. In opencode (build agent): « "
+     "Give me the git commands to merge fix/review into mywork, run the tests and, if they are green, tag v0.1 and "
+     "move main to mywork. Show me each command before running it. » Check git branch -v afterwards."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — git switch mywork",
      "Moves you onto the existing branch mywork (your main line since this morning): the files in the folder "

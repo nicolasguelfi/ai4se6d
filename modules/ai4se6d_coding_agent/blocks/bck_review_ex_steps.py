@@ -4,7 +4,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -17,6 +17,9 @@ class BlockStyles:
     timer = Style.create(s.project.titles.stat + s.center_txt, "review_ex_steps_timer")
     number = Style.create(s.bold + s.project.colors.highlight + s.center_txt, "review_ex_steps_num")
 bs = BlockStyles
+
+_STEP_ZOOM = 96    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 76   # the « Or ask opencode » line: smaller than the step it replaces
 
 _NOTES = [
     ("Trainer action",
@@ -36,6 +39,9 @@ _NOTES = [
      "The fix/review branch is merged into mywork when you ship v0.1 at 16:15."),
     ("Ask the room",
      "« How many lines did you change today? Is one review pass enough for that? »"),
+    ("Or ask opencode",
+     "Under steps 1 and 4, the same thing asked to opencode — build agent (step 2 is the plan agent: switch back "
+     "with Shift+Tab before step 4). It shows the commands, then runs them. Git specialists can skip these lines."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — git switch mywork",
      "Moves you onto the existing branch mywork (your main line since this morning): the files in the folder "
@@ -81,23 +87,31 @@ def build():
             )
         st_space("v", "3vh")
 
-        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
+        # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under a step with a
+        # terminal command, the same thing asked to opencode — build agent (NG, 2026-11-25)
         steps = [
-            ((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git diff j2-start --stat')),
-            ('Shift+Tab → ', (bs.keyword, 'plan'), ' agent (no file edits): run the review prompt'),
-            ('Write the triage in ', (bs.cmd, 'docs/review.md')),
-            ((bs.cmd, 'git switch -c fix/review'), ': fix 2-3 HIGH/MEDIUM, test first'),
-            ('Refuse at least ', (bs.keyword, 'one'), ' finding, with a written reason'),
+            (((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git diff j2-start --stat')),
+             "Give me the git commands to go back to mywork and show how much changed since j2-start, then run them."),
+            (('Shift+Tab → ', (bs.keyword, 'plan'), ' agent (no file edits): run the review prompt'), None),
+            (('Write the triage in ', (bs.cmd, 'docs/review.md')), None),
+            (((bs.cmd, 'git switch -c fix/review'), ': fix 2-3 HIGH/MEDIUM, test first'),
+             "Give me the git command to create and switch to the branch fix/review, then run it."),
+            (('Refuse at least ', (bs.keyword, 'one'), ' finding, with a written reason'), None),
         ]
         cols = "5% 5% 85% 5%"
-        cells = s.project.containers.rows(len(steps), cols, filled=(2, 3))
-        with st_zoom(101), st_grid(cols=cols, gap="3vh 0.5vw", cell_styles=cells) as g:
-            for n, parts in enumerate(steps, 1):
+        for i, (parts, prompt) in enumerate(steps):
+            if i:
+                st_space("v", "1.2vh")
+            cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
+            with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
                     pass  # left margin
                 with g.cell():
-                    st_write(bs.body + bs.number, f"{n}", tag=t.div)
+                    st_write(bs.body + bs.number, f"{i + 1}", tag=t.div)
                 with g.cell():
                     st_write(bs.body, *parts, tag=t.div)
                 with g.cell():
                     pass  # right margin
+            if prompt:
+                st_space("v", "0.4vh")
+                st_ask_opencode(prompt, zoom=_PROMPT_ZOOM, cols="5% 90% 5%")

@@ -3,7 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t, ListTypes as lt
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -34,6 +34,9 @@ _NOTES = [
      "Read the diff, run npm run test:run, commit « fix: RVW-1 … », and mark RVW-1 as fixed in docs/review.md."),
     ("Ask the room",
      "« The agent's fix also touched another file. Do you keep it? »"),
+    ("Or ask opencode",
+     "Under the list, the test-then-commit step asked to opencode (build agent, already active). Reading the diff "
+     "stays yours: that is the point of the slide."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Key — Shift+Tab (in opencode)",
      "Switches the primary agent: build (edits files, runs commands) ↔ plan (explores and proposes; by default it"
@@ -69,7 +72,7 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Fix One Finding — Test First", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(115), st_block(_left):
+        with st_zoom(108), st_block(_left):
             st_write(
                 bs.body,
                 'Shift+Tab back to the ',
@@ -90,3 +93,6 @@ def build():
                     st_write(bs.body, (bs.cmd, 'npm run test:run'), ' green → commit ', (bs.cmd, 'fix: RVW-1 …'))
                 with l.item():
                     st_write(bs.body, 'In ', (bs.cmd, 'docs/review.md'), ': RVW-1 → ', (bs.keyword, 'fixed'))
+            st_space("v", "0.2vh")  # the test-then-commit step asked to opencode — build agent (NG, 2026-11-25)
+            st_ask_opencode("Give me the commands to run the tests, then commit as 'fix: RVW-1 …' if green; run "
+                            "them.", zoom=70, cols="0% 100% 0%")

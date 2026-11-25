@@ -3,7 +3,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -29,6 +29,9 @@ _NOTES = [
      "state Day 3 starts from."),
     ("Ask the room",
      "« Who does not yet have v0.1 tagged? Let us fix it before you leave. »"),
+    ("Or ask opencode",
+     "Under « Before leaving », the same checks asked to opencode (build agent): it shows the commands, runs them "
+     "and reports."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Words — issue, nicolasguelfi/gensem, label",
      "An issue is a ticket on a GitHub project: github.com/nicolasguelfi/gensem → tab Issues → New issue "
@@ -72,7 +75,7 @@ def build():
         # one row per item, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         cols = "5% 90% 5%"
         cells = s.project.containers.rows(len(_ITEMS), cols, filled=(2,))
-        with st_zoom(108), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(96), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
             for parts in _ITEMS:
                 with g.cell():
                     pass  # left margin
@@ -81,7 +84,7 @@ def build():
                 with g.cell():
                     pass  # right margin
         st_space("v", "3vh")
-        with st_zoom(108), st_block(s.project.containers.callout):
+        with st_zoom(96), st_block(s.project.containers.callout):
             st_write(
                 bs.body,
                 'Before leaving: ',
@@ -98,3 +101,6 @@ def build():
                 (bs.cmd, 'mywork'),
                 ' on the same commit.',
             )
+        st_space("v", "0.6vh")  # the same checks asked to opencode — build agent (NG, 2026-11-25)
+        st_ask_opencode("Give me the git commands to check that the tree is clean, that the tag v0.1 exists, and that "
+                        "main and mywork are on the same commit, then run them.", zoom=84, cols="0% 100% 0%")

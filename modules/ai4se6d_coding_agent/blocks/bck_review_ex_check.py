@@ -4,7 +4,7 @@
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from shared_widgets import st_hover_tooltip
+from shared_widgets import st_ask_opencode, st_hover_tooltip
 
 
 class BlockStyles:
@@ -34,6 +34,9 @@ _NOTES = [
      "reference code instead of your own."),
     ("Next",
      "15:50: README 80/20 — the agent writes the what, you write the why."),
+    ("Or ask opencode",
+     "Under « Done when », the test check asked to opencode (build agent). docs/review.md is read by you. No "
+     "prompt for the j2-v0.1 recovery: it starts from a new clone."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — npm run test:run",
      "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
@@ -73,7 +76,10 @@ def build():
                 (bs.cmd, 'fix/review'),
                 '.',
             )
-        st_space("v", "5vh")
+        st_space("v", "0.6vh")  # the test check asked to opencode — build agent (NG, 2026-11-25)
+        st_ask_opencode("Give me the commands to switch to fix/review and run the tests, then run them.", zoom=80,
+                        cols="0% 100% 0%")
+        st_space("v", "2vh")
 
         # one row per checkpoint, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         rows = [
@@ -84,7 +90,7 @@ def build():
         ]
         cols = "5% 26% 64% 5%"
         cells = s.project.containers.rows(len(rows), cols, filled=(2, 3))
-        with st_zoom(100), st_grid(cols=cols, gap="4vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(96), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
             for label, parts in rows:
                 with g.cell():
                     pass  # left margin
