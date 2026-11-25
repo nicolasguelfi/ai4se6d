@@ -29,8 +29,9 @@ _NOTES = [
      "The exercise of Part 2: 50 minutes, 13:30 → 14:20, to deliver the next tasks of the participant's plan "
      "(routing, data, UI)."),
     ("The four steps",
-     "One branch per task; RED → review → commit test: …; GREEN → review checklist → commit feat: …; merge into "
-     "mywork when green, then the next task."),
+     "One branch per task, named on the Branch: line of the task marked [next]; RED → review → commit test: …; "
+     "GREEN → review checklist → commit feat: …; merge into mywork when green; in docs/plan.md that task becomes "
+     "[done] and the following one [next] (commit docs: update plan labels), then start it."),
     ("Where the prompts are",
      "The plan gives the tasks; the previous slides give ready-made RED / GREEN prompts when the plan's wording "
      "is unclear."),
@@ -57,8 +58,9 @@ _NOTES = [
      "message, in quotes. && = run the second command only if the first succeeded. You can also ask the agent to "
      "commit, then check with git log --oneline."),
     ("Command — merge into mywork, next task",
-     "git switch mywork then git merge feat/routing; then git switch -c feat/data for the next task (each new "
-     "branch starts from mywork, which now contains the previous task)."),
+     "git switch mywork then git merge feat/routing (your branch name); then move the labels in docs/plan.md and "
+     "commit; then git switch -c with the Branch: line of the new [next] task (each new branch starts from "
+     "mywork, which now contains the previous task)."),
 ]
 
 
@@ -77,7 +79,7 @@ def build():
             st_write(
                 bs.body,
                 (bs.label, 'Goal: '),
-                "deliver your plan's next tasks (routing, data, UI), one branch each, test first.",
+                "deliver your plan's next tasks, one branch each, test first.",
                 tag=t.div,
             )
         st_space("v", "2vh")
@@ -85,14 +87,17 @@ def build():
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under each step, full
         # width, the same thing asked to opencode — build agent (NG, 2026-11-25)
         items = [
-            (('One task = one branch ', (bs.cmd, 'feat/routing')),
-             "Give me the git command to create and switch to a branch for my task (e.g. feat/routing), then run it."),
+            (('The ', (bs.cmd, '[next]'), ' task’s ', (bs.cmd, 'Branch:'), ' line, e.g. ', (bs.cmd, 'feat/routing')),
+             "Give me the git command to create and switch to the [next] task's branch (Branch: line, "
+             "@docs/plan.md); run it."),
             (('RED → review → commit ', (bs.cmd, 'test: …')),
              "Give me the git commands to commit only the new test as 'test: …', then run them."),
             (('GREEN → review checklist → commit ', (bs.cmd, 'feat: …')),
              "Give me the commands to run the tests, then commit the code as 'feat: …' if green; run them."),
-            (('Merge into ', (bs.cmd, 'mywork'), ' when green, next task'),
-             "Give me the git commands to merge my task branch into mywork, then run them."),
+            (('Green: merge into ', (bs.cmd, 'mywork'), '; this task ', (bs.cmd, '[done]'), ', next one ',
+              (bs.cmd, '[next]')),
+             "Merge the [next] task's branch into mywork; in docs/plan.md mark it [done], the next one [next]; "
+             "commit as 'docs: update plan labels'."),
         ]
         cols = "5% 5% 85% 5%"
         for i, (parts, prompt) in enumerate(items):

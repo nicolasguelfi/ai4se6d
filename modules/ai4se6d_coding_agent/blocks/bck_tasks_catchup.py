@@ -14,7 +14,7 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "tasks_catchup_foot")
 bs = BlockStyles
 
-_CODE_ZOOM = 95  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 82  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 
 _CATCHUP = """\
@@ -73,7 +73,8 @@ _NOTES = [
      " in the folder where it is started."),
     ("Trap — the tag's own plan",
      "j2-part1 already contains a docs/plan.md (the reference plan): copying yours back replaces it. Check which "
-     "of your tasks the tag already covers (git log --oneline shows its commits)."),
+     "of your tasks the tag already covers (git log --oneline shows its commits), mark them [done] in your "
+     "docs/plan.md and the first one left [next]."),
 ]
 
 
@@ -86,12 +87,12 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Catch-up: Tag j2-part1", entries=_NOTES,
                                  position="left", width="50vw")
-        with st_zoom(115):
+        with st_zoom(106):
             st_write(bs.body, 'Restart from the end of Part 1 (first features, tests green):', tag=t.div)
-            st_space("v", "3vh")
+            st_space("v", "2vh")
             with st_zoom(_CODE_ZOOM):
                 st_code(s.none, code=_CATCHUP, language="bash", line_numbers=False, font_size="26pt")   # one line per command at this zoom
-            st_space("v", "3vh")
+            st_space("v", "2vh")
             with st_list(list_type=lt.unordered, l_style=bs.body, li_style=bs.body,
                          text_align="left", item_gap=0.6) as l:
                 with l.item():
@@ -105,6 +106,7 @@ def build():
                         (bs.cmd, '~/ai4se/calcapp'),
                     )
                 with l.item():
-                    st_write(bs.body, 'Skip the tasks already done in the tag, continue with the next one')
-            st_space("v", "3vh")
+                    st_write(bs.body, 'In your docs/plan.md, mark [done] the tasks ', (bs.cmd, 'git log --oneline'),
+                             ' already shows, mark the first one left [next], continue with it')
+            st_space("v", "2vh")
             st_write(bs.foot, 'A recovery tag is a safety net, not a failure.', tag=t.div)

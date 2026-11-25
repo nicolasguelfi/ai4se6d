@@ -56,7 +56,8 @@ _NOTES = [
      "busy until Ctrl+C stops it: run it in a second terminal tab, or stop it before typing other commands."),
     ("Command — opencode, then @docs/plan.md",
      "Type opencode in the project folder (not in the terminal busy with npm run dev). In its input box, "
-     "@docs/plan.md adds the plan to the context; ask « which task is next? »."),
+     "@docs/plan.md adds the plan to the context; ask which task is marked [next] (T1 is [done] if you moved the labels "
+     "after merging it)."),
 ]
 
 
@@ -77,9 +78,9 @@ def build():
             (((bs.cmd, 'cd ~/ai4se/calcapp'), ' → ', (bs.cmd, 'git status'), ': clean, on ', (bs.cmd, 'mywork')), None),
             (((bs.cmd, 'npm run test:run'), ' → Part 1 tests still green'), None),
             (((bs.cmd, 'npm run dev'), ' → the app renders in the browser'), None),
-            (('Start opencode, read ', (bs.cmd, '@docs/plan.md'), ': which task is next?'),
+            (('Start opencode, read ', (bs.cmd, '@docs/plan.md'), ': which task is marked ', (bs.cmd, '[next]'), '?'),
              "Give me the commands to check that git status is clean on mywork and that the tests pass, then run "
-             "them, and tell me which task of @docs/plan.md is next."),
+             "them, and tell me which task of @docs/plan.md is marked [next]."),
         ]
         cols = "5% 5% 85% 5%"
         for i, (parts, prompt) in enumerate(items):

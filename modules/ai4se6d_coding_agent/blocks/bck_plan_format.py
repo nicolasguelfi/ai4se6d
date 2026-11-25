@@ -39,7 +39,7 @@ _NOTES = [
      "criteria, and the Branch on which the task will be built."),
     ("The rules",
      "5-8 tasks, each with acceptance criteria. The label after each title gives its state: [next] = the one task "
-     "you build now (treat exactly one at a time), [todo] = later. The brackets are just a label we chose: easy to "
+     "you build now (treat exactly one at a time), [todo] = later, [done] = merged into mywork (set after each merge, then the next task becomes [next]). The brackets are just a label we chose: easy to "
      "spot, for you and for the agent."),
     ("Link to what follows",
      "This afternoon the RED prompt starts with « @docs/plan.md Task 1 only »: the plan drives the build."),
@@ -48,7 +48,7 @@ _NOTES = [
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Format — docs/plan.md",
      "Markdown: # = the title, ## = one heading per task (T1, T2…). [next] = the task to build now (exactly one), "
-     "[todo] = later. Accept: = the acceptance criteria, Branch: = the branch to create for it (git switch -c "
+     "[todo] = later, [done] = merged into mywork. Accept: = the acceptance criteria, Branch: = the branch to create for it (git switch -c "
      "feat/expense-type). The sign in T1 (less-than then equals) reads « 0 or below »."),
     ("Syntax — @docs/plan.md",
      "In opencode, attaches the plan file to the prompt, so the agent reads the same plan as you."),
@@ -71,6 +71,7 @@ def build():
         with st_zoom(120):
             st_write(bs.closing, "5-8 tasks, each with acceptance criteria.", tag=t.div)
         # label first, then what it means (NG, 2026-11-25: « Exactly one [next] » was cryptic)
-        with st_zoom(120):
-            st_write(bs.legend, (bs.label, "[next]"), " Treat exactly one   ·   ", (bs.label, "[todo]"), " Later",
+        with st_zoom(100):
+            st_write(bs.legend, (bs.label, "[next]"), " Treat exactly one   ·   ", (bs.label, "[todo]"), " Later   ·   ",
+                     (bs.label, "[done]"), " Merged",
                      tag=t.div)

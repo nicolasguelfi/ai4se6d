@@ -13,11 +13,12 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_prompts_foot")
 bs = BlockStyles
 
-_CODE_ZOOM = 113  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 104  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 
 _RED = """\
-@docs/plan.md Task 1 only. Write the failing test first, in tests/.
+@docs/plan.md Build only the task marked [next].
+Write a failing test for its Accept: line, in tests/.
 Do NOT write the implementation. Run npm run test:run and show the failure."""
 
 _GREEN = """\
@@ -32,7 +33,8 @@ _NOTES = [
      "Each task takes two prompts, never one: RED (the test only), then GREEN (the code) once you have "
      "reviewed the test."),
     ("RED prompt",
-     "Points at the plan (@docs/plan.md, Task 1 only), asks for the failing test in tests/, forbids the "
+     "Points at the plan (@docs/plan.md, only the task marked [next]), asks for the failing test of its Accept: "
+     "line in tests/, forbids the "
      "implementation, and asks to run the tests and show the failure."),
     ("GREEN prompt",
      "Minimal code that makes the test file pass; the test file must not be modified."),
@@ -42,8 +44,9 @@ _NOTES = [
      "In prompts, ask for npm run test:run (one shot): npm test is watch mode (q to quit), the agent would wait."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Prompt — RED (test only)",
-     "@docs/plan.md adds your plan to the agent's context; « Task 1 only » limits it to one task. « Write the "
-     "failing test first, in tests/ » = a test that must fail now, because the code does not exist. « Do NOT "
+     "@docs/plan.md adds your plan to the agent's context; « Build only the task marked [next] » limits it to "
+     "one task (T1 this morning). « Write a failing test for its Accept: line, in tests/ » = the acceptance "
+     "criteria of that task become a test that must fail now, because the code does not exist. « Do NOT "
      "write the implementation » forbids the code. « Run npm run test:run and show the failure » makes the agent "
      "prove the test is red."),
     ("Prompt — GREEN (minimal code)",
