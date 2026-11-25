@@ -47,6 +47,13 @@ _NOTES = [
      "exercise (here the diff is one line, so they read all of it)."),
     ("If stuck",
      "Tutor window, then a fresh clone at j2-start in a new folder, then a raised hand (next slide)."),
+    ("Or ask opencode — for you and git specialists",
+     "Not on the slide on purpose: here learners type git themselves. After the clone, opencode started in "
+     "~/ai4se/calcapp (build agent) can do the rest: « Give me the commands to run the tests, then run them. » · "
+     "« Give me the git command to create and switch to the branch feat/hello, then run it. » · « Give me the git "
+     "commands to show what changed in README.md, then commit it as 'docs: say hello'; run them. » · « Give me "
+     "the git command to throw away my changes in src/App.tsx, then run it and run the tests. » It shows each "
+     "command before running it; accept if it asks permission."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — cd ~/ai4se",
      "cd = change directory: the terminal now works inside ~/ai4se, the course folder (~ = your home folder, "
