@@ -16,11 +16,10 @@ class BlockStyles:
     number = s.bold + s.project.colors.highlight
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "build_ex_steps_cmd")
     timer = Style.create(s.project.titles.stat + s.center_txt, "build_ex_steps_timer")
-    foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_ex_steps_foot")
 bs = BlockStyles
 
-_STEP_ZOOM = 66    # tuned by measure: content bottom <= 1000 px at 1920x1080
-_PROMPT_ZOOM = 62   # the « Or ask opencode » line: smaller than the step it replaces
+_STEP_ZOOM = 92    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 78   # the « Or ask opencode » line: smaller than the step it replaces
 
 _NOTES = [
     ("Trainer action",
@@ -30,11 +29,8 @@ _NOTES = [
      "25 minutes, 11:45 → 12:10: deliver the first task of docs/plan.md, test first, on its own branch."),
     ("The loop",
      "New branch, named on the Branch: line of T1 in docs/plan.md (e.g. feat/expense-type); RED prompt, read the "
-     "test, commit test: …; GREEN prompt, npm run test:run green, commit feat: …; mutant check, undo; back to "
-     "mywork and merge; in docs/plan.md T1 becomes [done] and T2 [next], commit docs: T1 done."),
-    ("Why move the labels",
-     "After lunch the first prompt asks the agent which task is marked [next]. If T1 is still [next], it answers "
-     "T1. Moving the labels keeps docs/plan.md true: [done] = merged into mywork, [next] = the one to build now."),
+     "test, commit test: …; GREEN prompt, npm run test:run green, commit feat: …; then (next slide) "
+     "REFACTOR, mutant check, merge into mywork, plan labels."),
     ("Why its own branch",
      "One task = one branch: if the task goes wrong, mywork is untouched. mywork is the main line since this "
      "morning: every finished task is merged into it."),
@@ -62,17 +58,8 @@ _NOTES = [
     ("Command — npm run test:run",
      "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
      "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
-    ("Command — git switch mywork",
-     "Moves you onto the existing branch mywork (your main line since this morning): the files in the folder "
-     "become mywork's version. Git refuses if uncommitted changes would be lost: commit first (git status shows "
-     "them)."),
-    ("Command — git merge feat/expense-type",
-     "Brings the commits of your T1 branch (here feat/expense-type) into the branch you are on (mywork). If mywork has not moved "
-     "meanwhile, git just moves it forward (« Fast-forward »). Otherwise it creates a merge commit and may open a"
-     " text editor for its message: save and close it (nano: Ctrl+O, Enter, Ctrl+X; vim: Esc then :wq). « "
-     "CONFLICT » = both branches changed the same lines: raise your hand."),
     ("Or ask opencode",
-     "Under steps 1, 2, 3, 5 and 6, the same thing asked to opencode (build agent): it gives the commands first, then "
+     "Under steps 1, 2 and 3, the same thing asked to opencode (build agent): it gives the commands first, then "
      "runs them and shows the result. Accept if it asks permission. Git specialists can skip these lines."),
     ("Symbol — →",
      "Only means « then » on the slide: type the two commands one after the other, not the arrow."),
@@ -84,9 +71,9 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, 'Exercise — Task 1 of YOUR Plan', tag=t.div, toc_lvl='+1')
+                st_write(bs.heading, 'Exercise — Task 1 of YOUR Plan (1/2)', tag=t.div, toc_lvl='+1')
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Exercise — Task 1 of YOUR Plan", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Exercise — Task 1 of YOUR Plan (1/2)", entries=_NOTES,
                                  position="left", width="50vw")
         with st_zoom(90):
             st_write(bs.timer, '11:45 → 12:10 · 25 min', tag=t.div)
@@ -108,17 +95,11 @@ def build():
              "Give me the git commands to commit only the new test as 'test: …', then run them."),
             (('GREEN prompt → ', (bs.cmd, 'npm run test:run'), ' green → commit ', (bs.cmd, 'feat: …')),
              "Give me the commands to run the tests, then commit the code as 'feat: …' if green; run them."),
-            (('Mutant check, then undo the sabotage',), None),
-            (((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git merge feat/expense-type')),
-             "Give me the git commands to go back to mywork and merge T1's branch into it, then run them."),
-            (('In ', (bs.cmd, 'docs/plan.md'), ': T1 ', (bs.keyword, '[done]'), ', T2 ', (bs.keyword, '[next]'),
-              ' → commit ', (bs.cmd, 'docs: T1 done')),
-             "In docs/plan.md, mark T1 [done] and T2 [next], then commit it as 'docs: T1 done'."),
         ]
         cols = "5% 5% 85% 5%"
         for i, (parts, prompt) in enumerate(steps):
             if i:
-                st_space("v", "0.8vh")
+                st_space("v", "2vh")
             cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
             with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
@@ -132,10 +113,3 @@ def build():
             if prompt:
                 st_space("v", "0.4vh")
                 st_ask_opencode(prompt, zoom=_PROMPT_ZOOM, cols="5% 90% 5%")
-        st_space("v", "1vh")
-        with st_zoom(84):
-            st_write(
-                bs.foot,
-                'mywork is your main line since this morning: every finished task is merged into it.',
-                tag=t.div,
-            )

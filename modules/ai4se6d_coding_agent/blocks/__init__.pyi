@@ -18,6 +18,7 @@ from . import bck_build_debrief as bck_build_debrief
 from . import bck_build_demo as bck_build_demo
 from . import bck_build_ex_check as bck_build_ex_check
 from . import bck_build_ex_steps as bck_build_ex_steps
+from . import bck_build_ex_steps2 as bck_build_ex_steps2
 from . import bck_build_fallback_form as bck_build_fallback_form
 from . import bck_build_fallback_item as bck_build_fallback_item
 from . import bck_build_golden_rule as bck_build_golden_rule

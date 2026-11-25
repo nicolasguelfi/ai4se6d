@@ -24,8 +24,8 @@ _NOTES = [
      "Participants check themselves: when they are done, where they should be at 12:00, what to do if stuck "
      "or ahead."),
     ("Done when",
-     "npm run test:run shows the new test passing, and git log --oneline shows test: before feat: — the proof "
-     "that the test came first."),
+     "npm run test:run shows the new test passing, and git log --oneline shows test: before feat: (then "
+     "refactor: if any) — at least two commits; the order is the proof that the test came first."),
     ("Mid-point (12:00)",
      "The RED test is committed. Not yet? Ask now."),
     ("Plan unclear or stuck",
@@ -68,7 +68,9 @@ def build():
         items = [
             ((bs.done_label, 'Done when'),
              ((bs.cmd, 'npm run test:run'), ' shows your new test passing, and ', (bs.cmd, 'git log --oneline'),
-              ' shows ', (bs.cmd, 'test:'), ' before ', (bs.cmd, 'feat:'), '.')),
+              ' shows ', (bs.cmd, 'test:'), ' before ', (bs.cmd, 'feat:'), ' (then ', (bs.cmd, 'refactor:'),
+              ' if any) — at least two commits, e.g. ', (bs.cmd, 'test: expense with amount 0 is rejected'), ', ',
+              (bs.cmd, 'feat: add expense validation'), '.')),
             ((bs.label, 'Mid-point (12:00)'), ('your RED test is committed. Not yet? Ask now.',)),
             ((bs.label, 'Plan unclear?'), ('use the fallback prompts: ExpenseItem, then ExpenseForm.',)),
             ((bs.label, 'If stuck'), ('1. ', 'your tutor window', '  2. recovery tag ', (bs.cmd, 'j2-start'),
@@ -80,9 +82,9 @@ def build():
         cols = "4% 22% 70% 4%"
         for i, (label, parts) in enumerate(items):
             if i:
-                st_space("v", "1.6vh")
+                st_space("v", "1.2vh")
             cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
-            with st_zoom(90), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
+            with st_zoom(80), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
                     pass  # left margin
                 with g.cell():

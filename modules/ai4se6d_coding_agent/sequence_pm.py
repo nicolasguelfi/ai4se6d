@@ -12,9 +12,10 @@ BLOCKS_PM = [
     blocks.bck_build_golden_rule,  # The AI-TDD discipline and its golden rule
     blocks.bck_build_mutant,  # The mutant test trick
     blocks.bck_build_agents_md,  # Testing rules in AGENTS.md before coding
-    blocks.bck_build_prompts,  # Two prompts per task — RED then GREEN
+    blocks.bck_build_prompts,  # Three prompts per task — RED, GREEN, REFACTOR
     blocks.bck_gse_solution_tests,  # CCSET07 — how GSE-One solves it
-    blocks.bck_build_ex_steps,  # Exercise sheet — task 1 of your own plan (goal and steps)
+    blocks.bck_build_ex_steps,  # Exercise sheet — task 1 of your own plan, 1/2 (goal, branch, RED, GREEN)
+    blocks.bck_build_ex_steps2,  # Exercise sheet — task 1 of your own plan, 2/2 (REFACTOR, mutant, merge, labels)
     blocks.bck_build_ex_check,  # Exercise sheet — task 1: done when, mid-point, if stuck
     blocks.bck_build_fallback_item,  # Fallback prompt A — ExpenseItem
     blocks.bck_build_fallback_form,  # Fallback prompt B — ExpenseForm

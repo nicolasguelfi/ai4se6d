@@ -1,4 +1,4 @@
-"""Slide — Two prompts per task — RED then GREEN."""
+"""Slide — Three prompts per task — RED, GREEN, REFACTOR (build agent)."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -7,37 +7,47 @@ from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
-    """Two prompts per task — RED then GREEN — styles."""
+    """Three prompts per task — RED, GREEN, REFACTOR — styles."""
     heading = s.project.titles.heading
     label = s.project.titles.label
-    foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_prompts_foot")
 bs = BlockStyles
 
-_CODE_ZOOM = 86  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 82  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 
 _RED = """\
-@docs/plan.md Build only the task marked [next].
-Write a failing test for its Accept: line, in tests/, plus an
-empty shell of the code (exists, does nothing yet): the test must
-fail on its expected value, not on a missing file.
-Do NOT write the implementation. Run npm run test:run, show the failure."""
+@docs/plan.md Take the task marked [next]. This step writes its test only.
+Write a failing test for its Accept: line, in tests/, and an empty shell
+of the code the test calls (exists, returns nothing yet), so the test
+fails on its expected value, not on a missing file.
+Do not implement the task. Run npm run test:run and show the failure."""
 
 _GREEN = """\
-Implement the minimal code that makes the new test in tests/ pass.
-Do not modify the test file. Run npm run test:run."""
+Implement the minimal code that makes the new test in tests/ pass,
+for the task marked [next]. Do not modify the test file.
+Run npm run test:run."""
+
+_REFACTOR = """\
+@docs/plan.md Improve the design of the code of the task marked [next],
+same behaviour: e.g. extract a function, rename, remove duplication.
+Do not touch the test. Run npm run test:run."""
 
 _NOTES = [
+    ("Why « Take the task », not « Build »",
+     "The first line only picks the task; the second says this step is the test only — an opening « build » would "
+     "read as « write the code »."),
+    ("REFACTOR prompt",
+     "Same behaviour, better structure: extract a function, rename, remove duplication; the test is not touched "
+     "and stays green. Nothing to improve is a valid result: then no refactor: commit."),
     ("Trainer action",
-     "Read and comment — nothing to type. Show the two prompts and the review between them; learners copy "
+     "Read and comment — nothing to type. Show the three prompts and the review between RED and GREEN; learners copy "
      "them in the 11:45 exercise on task 1 of their plan."),
     ("The message",
-     "Each task takes two prompts, never one: RED (the test only), then GREEN (the code) once you have "
-     "reviewed the test."),
+     "Each task takes three prompts, never one: RED (the test only), then GREEN (the code) once you have "
+     "reviewed the test, then REFACTOR (same behaviour, better structure)."),
     ("RED prompt",
      "Points at the plan (@docs/plan.md, only the task marked [next]), asks for the failing test of its Accept: "
-     "line in tests/, forbids the "
-     "implementation, and asks to run the tests and show the failure."),
+     "line in tests/ with an empty shell of the code, forbids the implementation, and asks to run the tests and show the failure."),
     ("GREEN prompt",
      "Minimal code that makes the test file pass; the test file must not be modified."),
     ("Between the two",
@@ -46,13 +56,13 @@ _NOTES = [
      "In prompts, ask for npm run test:run (one shot): npm test is watch mode (q to quit), the agent would wait."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Prompt — RED (test only)",
-     "@docs/plan.md adds your plan to the agent's context; « Build only the task marked [next] » limits it to "
-     "one task (T1 this morning). « Write a failing test for its Accept: line, in tests/ » = the acceptance "
-     "criteria of that task become a test that must fail now. « plus an empty shell … not on a missing file » = "
-     "the function or component exists but does nothing, so red comes from the expected value, not from « cannot "
-     "find module », because the code does not exist. « Do NOT "
-     "write the implementation » forbids the code. « Run npm run test:run and show the failure » makes the agent "
-     "prove the test is red."),
+     "@docs/plan.md adds your plan to the agent's context; « Take the task marked [next] » picks one task (T1 this "
+     "morning) and « This step writes its test only » says what to do now. « Write a failing test for its Accept: "
+     "line, in tests/ » = the acceptance criteria of that task become a test that must fail now. « and an empty "
+     "shell of the code the test calls … not on a missing file » = the function or component exists but returns "
+     "nothing, so red comes from the expected value, not from « cannot find module ». « Do not implement the "
+     "task » forbids the code. « Run npm run test:run and show the failure » makes the agent prove the test is "
+     "red."),
     ("Prompt — GREEN (minimal code)",
      "« Minimal code » = just enough for the new test to pass, nothing more. « Do not modify the test file » "
      "forbids changing the test to make it pass. « Run npm run test:run » makes the agent show the green result. "
@@ -72,24 +82,23 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, 'Two Prompts per Task', tag=t.div, toc_lvl='+1')
+                st_write(bs.heading, 'Three Prompts per Task (Build Agent)', tag=t.div, toc_lvl='+1')
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Two Prompts per Task", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Three Prompts per Task (Build Agent)", entries=_NOTES,
                                  position="left", width="50vw")
-        st_space("v", "2vh")
-        with st_zoom(120):
-            st_write(bs.label, '1 · RED — test + empty shell (build agent)', tag=t.div)
+        st_space("v", "1.2vh")
+        with st_zoom(86):
+            st_write(bs.label, '1 · RED — test + empty shell', tag=t.div)
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_RED, language='text', line_numbers=False, font_size="30pt")
-        st_space("v", "5vh")
-        with st_zoom(120):
+        st_space("v", "1.2vh")
+        with st_zoom(86):
             st_write(bs.label, '2 · GREEN — once you have reviewed the test', tag=t.div)
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_GREEN, language='text', line_numbers=False, font_size="30pt")
-        st_space("v", "5vh")
-        with st_zoom(120):
-            st_write(
-                bs.foot,
-                'In prompts, ask for npm run test:run (one shot): npm test is watch mode (q to quit), the agent would wait.',
-                tag=t.div,
-            )
+        st_space("v", "1.2vh")
+        with st_zoom(86):
+            st_write(bs.label, '3 · REFACTOR — same behaviour, better structure; nothing to improve is a valid result',
+                     tag=t.div)
+        with st_zoom(_CODE_ZOOM):
+            st_code(s.none, code=_REFACTOR, language='text', line_numbers=False, font_size="30pt")
