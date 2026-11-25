@@ -1,4 +1,4 @@
-"""Slide — Project structure is your first prompt (before / after)."""
+"""Slide — Project structure is your first prompt (flat / structured)."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -40,11 +40,11 @@ _NOTES = [
     ("The message",
      "Before any prompt, the agent reads your folders and file names. The project structure is the first prompt "
      "it receives."),
-    ("Before",
+    ("Flat",
      "Same request, « Add sign-up with email validation », in a flat project (app.ts, helpers.ts, stuff.ts): "
      "the agent has to guess where the route, the validation and the tests go. Anywhere is possible."),
-    ("After",
-     "With routes/, services/, validators/ and tests/ mirroring src/, the agent sees the pattern: right folder, "
+    ("Structured",
+     "With routes/, services/, validators/ and tests/ mirroring src/, the agent infers the pattern: right folder, "
      "same names, tests mirrored. docs/architecture.md and README.md tell it the rest."),
     ("The trap",
      "Thinking structure is cosmetic. For an agent it decides where new code lands and whether tests follow."),
@@ -71,12 +71,12 @@ def build():
             with g.cell():
                 pass  # left margin
             with g.cell():
-                st_write(bs.bad, "Before: it guesses", tag=t.div)
+                st_write(bs.bad, "Flat: it guesses", tag=t.div)
                 with st_zoom(_CODE_ZOOM):
                     st_code(s.none, code=_BEFORE, language="text", line_numbers=False, font_size="30pt")
                 st_write(bs.note, "Route? Validation? Tests? Anywhere.", tag=t.div)
             with g.cell():
-                st_write(bs.good, "After: it sees the pattern", tag=t.div)
+                st_write(bs.good, "Structured: it infers", tag=t.div)
                 with st_zoom(_CODE_ZOOM):
                     st_code(s.none, code=_AFTER, language="text", line_numbers=False, font_size="30pt")
                 st_write(bs.note, "Right folder, same names, tests mirrored.", tag=t.div)
