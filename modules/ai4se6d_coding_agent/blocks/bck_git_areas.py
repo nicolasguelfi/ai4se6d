@@ -30,7 +30,7 @@ class BlockStyles:
     icon = Style.create(s.project.titles.body + s.center_txt + Style("font-size: 2.2em; line-height: 1.2;", "gitareas_icon_size"),
                         "gitareas_icon")
     cmd = Style.create(s.text.fonts.font_monospace + s.bold + s.center_txt
-                       + Style("font-size: 1.5em; white-space: nowrap;", "gitareas_cmd_size"), "gitareas_cmd")
+                       + Style("font-size: 1.5em; line-height: 1.05; white-space: nowrap;", "gitareas_cmd_size"), "gitareas_cmd")
     arrow = Style.create(s.project.titles.body + s.bold + s.center_txt + Style("font-size: 4.5em; line-height: 0.9;",
                                                                               "gitareas_arrow_size"),
                          "gitareas_arrow")
@@ -103,11 +103,12 @@ def _arrow(lines):
     """lines: [(arrow, command, tone_title_style)] stacked in one column."""
     for i, (glyph, cmd, colour) in enumerate(lines):
         if i:
-            st_space("v", "1vh")
+            st_space("v", "0.5vh")
         with st_zoom(_ARROW_ZOOM):
             st_write(bs.arrow + colour, glyph, tag=t.div)
-        with st_zoom(_CMD_ZOOM):
-            st_write(bs.cmd + colour, cmd, tag=t.div)
+        with st_zoom(_CMD_ZOOM):  # « git » then the sub-command on its own line (NG, 2026-11-25)
+            for word in cmd.split(" ", 1):
+                st_write(bs.cmd + colour, word, tag=t.div)
 
 
 def build():
@@ -120,7 +121,7 @@ def build():
                                  position="left", width="50vw")
         with st_zoom(105):
             st_write(bs.sub, "How your code travels from your editor to GitHub", tag=t.div)
-        st_space("v", "3vh")
+        st_space("v", "2vh")
 
         blue = s.project.tone_blue.fg
         green = s.project.tone_green.fg
@@ -139,7 +140,7 @@ def build():
                     if i < len(arrows):
                         with g.cell():
                             _arrow(arrows[i])
-        st_space("v", "4vh")
+        st_space("v", "2vh")
         amber = s.project.tone_amber.fg
         with st_zoom(_ANALOGY_ZOOM), st_block(bs.analogy_box):
             st_write(
