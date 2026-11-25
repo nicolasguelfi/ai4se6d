@@ -14,13 +14,14 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "tasks_data_cmd")
 bs = BlockStyles
 
-_CODE_ZOOM = 101  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 94  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 
 _DATA_RED = """\
 Write a failing integration test: `routes` in a memory router at "/add",
 fill amount 42.50, category Food, description Lunch (fireEvent),
-click Add, then expect the Dashboard to contain "42.50" and "Food".
+click the form's "Add Expense" button, then expect the Dashboard to contain
+"42.50" and "Food".
 Clear localStorage before each test. Test only."""
 
 _DATA_GREEN = """\
@@ -37,7 +38,9 @@ _NOTES = [
      "The second task: the data layer — an Expense type, a small storage module on localStorage, and the two "
      "pages wired to it. localStorage is enough for v0.1."),
     ("The RED prompt",
-     "An INTEGRATION test this time: start at /add, fill the form (42.50, Food, Lunch), click Add, and expect "
+     "An INTEGRATION test this time (= several parts tested together: router, pages and storage, unlike this "
+     "morning's test of one component alone): start at /add, fill the form (42.50, Food, Lunch), click the form's "
+     "Add Expense button (not the menu link of the same name), and expect "
      "the Dashboard to show the expense. localStorage is cleared before each test."),
     ("The GREEN prompt",
      "Names the files and the key (calcapp-data), the functions (getExpenses / saveExpenses), the redirect to / "

@@ -24,7 +24,8 @@ _NOTES = [
      "Typing by hand slowed the production of bugs. An agent removes that throttle: code comes faster, and so "
      "do bugs — review matters MORE with AI, not less."),
     ("The figure",
-     "1.7× more issues per pull request in AI-co-authored code: 10.83 vs 6.45 issues per PR, on 470 open-source "
+     "1.7× more issues per pull request (a pull request = a proposed change submitted for review before it is "
+     "merged) in AI-co-authored code: 10.83 vs 6.45 issues per PR, on 470 open-source "
      "GitHub pull requests (320 AI-co-authored, 150 human-only). Security issues were up to 2.74× higher."),
     ("Read it with care",
      "A vendor study (CodeRabbit, December 2025) on a small sample, and the authorship labels are not "

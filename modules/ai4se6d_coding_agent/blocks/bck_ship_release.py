@@ -33,7 +33,7 @@ _NOTES = [
      "On mywork, merge fix/review (and any finished feat/ branch), run the tests — fix before tagging if one is "
      "red —, tag v0.1, then move main onto mywork with git switch -C main mywork."),
     ("Why main",
-     "From tomorrow, the methodology plugin treats main as the reference. Until now main held only the starter."),
+     "From tomorrow, GSE-One treats main as the reference. Until now main held only the starter."),
     ("The expected warning",
      "Git says main and origin/main have diverged. That is normal: origin is the starter. Do not pull; you push "
      "to your own repository tomorrow morning."),
@@ -113,7 +113,7 @@ def build():
             st_write(
                 bs.body,
                 (bs.label, 'Why main: '),
-                'from tomorrow, the methodology plugin treats ',
+                'from tomorrow, GSE-One treats ',
                 (bs.cmd, 'main'),
                 ' as the reference. Git says main and origin/main have diverged: normal, do not pull'
                 ' (origin is the starter); you push to your own repository tomorrow morning.',

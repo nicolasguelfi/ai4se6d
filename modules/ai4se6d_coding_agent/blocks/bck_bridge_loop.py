@@ -61,7 +61,7 @@ _ROWS = [
     (('Plan → tasks in ', (bs.cmd, 'docs/plan.md')), ((bs.cmd, '/gse-plan'),)),
     (('Test first (acceptance test), one branch per task',), ((bs.cmd, '/gse-produce'),)),
     (('Review, triage HIGH / MEDIUM / LOW',), ((bs.cmd, '/gse-review'),)),
-    (('Fix on a branch, regression test first',), ((bs.cmd, '/gse-fix'),)),
+    (('Fix on a branch, a failing test that exposes the finding first',), ((bs.cmd, '/gse-fix'),)),
     (('Merge + tag ', (bs.cmd, 'v0.1')), ((bs.cmd, '/gse-deliver'),)),
 ]
 

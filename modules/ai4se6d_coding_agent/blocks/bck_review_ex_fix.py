@@ -14,7 +14,7 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "review_ex_fix_cmd")
 bs = BlockStyles
 
-_CODE_ZOOM = 100  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 94  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 # Text left-aligned (NG, 2026-11-23: same recipes as the intro module)
 _left = Style("text-align:left;", "review_ex_fix_left")
@@ -39,11 +39,11 @@ _NOTES = [
      "stays yours: that is the point of the slide."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Key — Shift+Tab (in opencode)",
-     "Switches the primary agent: build (edits files, runs commands) ↔ plan (explores and proposes; by default it"
-     " asks before any file edit or shell command, so it does not change your project). Tab does the same in the "
+     "Switches the primary agent: build (edits files, runs commands) ↔ plan (reads and proposes; it"
+     " cannot edit your project files). Tab does the same in the "
      "other direction; with two agents both just toggle. The current agent's name is shown under the input box."),
-    ("Prompt — fix RVW-1",
-     "« Fix RVW-1 from docs/review.md » = which finding (the agent reads it in that file). « First write a "
+    ("Prompt — fix the first finding marked FIX",
+     "« Fix the first finding marked FIX in @docs/review.md » = which finding: one you decided to fix, not one you refused (@ attaches the file). « First write a "
      "failing test that exposes it and run npm run test:run (RED) » = prove the problem. « then fix the code "
      "(GREEN) ». « Change nothing else » = keep the diff small."),
     ("Command — read the diff",
@@ -58,8 +58,9 @@ _NOTES = [
 ]
 
 _FIX = """\
-Fix RVW-1 from docs/review.md. First write a failing test that exposes
-it and run npm run test:run (RED), then fix the code (GREEN).
+Fix the first finding marked FIX in @docs/review.md (e.g. RVW-1).
+First write a failing test that exposes it and run npm run test:run
+(RED), then fix the code (GREEN).
 Change nothing else."""
 
 

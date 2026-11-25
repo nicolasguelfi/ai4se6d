@@ -40,8 +40,8 @@ _NOTES = [
      "« What context does the agent need that is not in the file itself? »"),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Key — Shift+Tab (in opencode)",
-     "Switches the primary agent: build (edits files, runs commands) ↔ plan (explores and proposes; by default it"
-     " asks before any file edit or shell command, so it does not change your project). Tab does the same in the "
+     "Switches the primary agent: build (edits files, runs commands) ↔ plan (reads and proposes; it"
+     " cannot edit your project files). Tab does the same in the "
      "other direction; with two agents both just toggle. The current agent's name is shown under the input box."),
     ("Symbol — @docs/plan.md (in opencode)",
      "@ followed by a path adds that file to the agent's context: the agent reads its content with your message. "

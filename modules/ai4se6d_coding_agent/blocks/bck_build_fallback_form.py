@@ -14,7 +14,7 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_fallback_form_foot")
 bs = BlockStyles
 
-_CODE_ZOOM = 125  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 104  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 
 _FORM_RED = """\
@@ -66,7 +66,7 @@ def build():
         st_space("v", "2vh")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_FORM_RED, language='text', line_numbers=False, font_size="30pt")
-        st_space("v", "5vh")
+        st_space("v", "3vh")
         with st_zoom(120):
             st_write(
                 bs.body,
@@ -75,9 +75,9 @@ def build():
                 ' want?',
                 tag=t.div,
             )
-            st_space("v", "3vh")
+            st_space("v", "2vh")
             st_write(
                 bs.foot,
-                'GREEN: same prompt as A. Mutant: remove the parseFloat on the amount.',
+                'GREEN: “Implement the minimal ExpenseForm (default export) that passes tests/components/ExpenseForm.test.tsx. Do not modify the test.” Mutant: remove the parseFloat on the amount.',
                 tag=t.div,
             )

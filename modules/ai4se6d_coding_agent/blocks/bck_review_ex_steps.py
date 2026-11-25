@@ -18,8 +18,8 @@ class BlockStyles:
     number = Style.create(s.bold + s.project.colors.highlight + s.center_txt, "review_ex_steps_num")
 bs = BlockStyles
 
-_STEP_ZOOM = 96    # tuned by measure: content bottom <= 1000 px at 1920x1080
-_PROMPT_ZOOM = 76   # the « Or ask opencode » line: smaller than the step it replaces
+_STEP_ZOOM = 80    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 68   # the « Or ask opencode » line: smaller than the step it replaces
 
 _NOTES = [
     ("Trainer action",
@@ -52,8 +52,8 @@ _NOTES = [
      "changed file with its count of changed lines, and a total. New files never added with git add are not "
      "counted."),
     ("Key — Shift+Tab (in opencode)",
-     "Switches the primary agent: build (edits files, runs commands) ↔ plan (explores and proposes; by default it"
-     " asks before any file edit or shell command, so it does not change your project). Tab does the same in the "
+     "Switches the primary agent: build (edits files, runs commands) ↔ plan (reads and proposes; it"
+     " cannot edit your project files). Tab does the same in the "
      "other direction; with two agents both just toggle. The current agent's name is shown under the input box."),
     ("File — docs/review.md",
      "Create it in the editor (or ask the build agent after the review): one line per finding, RVW-n, severity, "
@@ -85,7 +85,7 @@ def build():
                 'review everything you changed today, triage it, fix what matters.',
                 tag=t.div,
             )
-        st_space("v", "3vh")
+        st_space("v", "2vh")
 
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under a step with a
         # terminal command, the same thing asked to opencode — build agent (NG, 2026-11-25)
@@ -93,7 +93,10 @@ def build():
             (((bs.cmd, 'git switch mywork'), ' → ', (bs.cmd, 'git diff j2-start --stat')),
              "Give me the git commands to go back to mywork and show how much changed since j2-start, then run them."),
             (('Shift+Tab → ', (bs.keyword, 'plan'), ' agent (no file edits): run the review prompt'), None),
-            (('Write the triage in ', (bs.cmd, 'docs/review.md')), None),
+            (('Write the triage in ', (bs.cmd, 'docs/review.md'), ' (your editor, or ', (bs.keyword, 'Shift+Tab → build'),
+              ')'),
+             "Write the findings above to docs/review.md, one line each: RVW-n, severity, file, problem, then my "
+             "decision FIX / DEFER / REFUSED and its reason (ask me for them)."),
             (((bs.cmd, 'git switch -c fix/review'), ': fix 2-3 HIGH/MEDIUM, test first'),
              "Give me the git command to create and switch to the branch fix/review, then run it."),
             (('Refuse at least ', (bs.keyword, 'one'), ' finding, with a written reason'), None),
@@ -101,7 +104,7 @@ def build():
         cols = "5% 5% 85% 5%"
         for i, (parts, prompt) in enumerate(steps):
             if i:
-                st_space("v", "1.2vh")
+                st_space("v", "0.8vh")
             cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
             with st_zoom(_STEP_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():

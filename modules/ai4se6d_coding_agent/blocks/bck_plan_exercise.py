@@ -98,7 +98,8 @@ def build():
         steps = [
             (((bs.keyword, "git switch mywork"), ", ", (bs.keyword, "opencode"), ", ",
               (bs.keyword, "Shift+Tab → plan")), None),
-            (("Paste the elicitation prompt, answer its questions",), None),
+            (("Paste the elicitation prompt (replace the two example ideas with yours, from paper), answer its "
+              "questions",), None),
             (("“Split the user stories into 5-8 atomic development tasks, test first, each with its acceptance "
               "criteria.”",), None),
             (("Push back at least once: too big? not testable?",), None),

@@ -25,7 +25,7 @@ _NOTES = [
     ("Question 1",
      "What did the plan agent ask or propose that you had not thought of? This is the value of eliciting first."),
     ("Question 2",
-     "Which task did you split or rewrite, and why? This is the human part of the plan."),
+     "Which user story did you split into development tasks, or which development task did you rewrite — and why? This is the human part of the plan."),
     ("With the neighbour",
      "Different plans are normal: the test is not « same tasks » but « are both testable? »."),
     ("Link to what follows",
@@ -42,15 +42,15 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Debrief — 5 min", entries=_NOTES,
                                  position="left", width="50vw")
-        st_space("v", "4vh")
+        st_space("v", "3vh")
         # One numbered row per question, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         questions = [
             "What did the plan agent ask or propose that you had not thought of?",
-            "Which task did you split or rewrite — and why?",
+            "Which user story did you split, or which development task did you rewrite — and why?",
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(questions), cols, filled=(2, 3))
-        with st_zoom(133), st_grid(cols=cols, gap="3vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(120), st_grid(cols=cols, gap="3vh 0.5vw", cell_styles=cells) as g:
             for n, q in enumerate(questions, 1):
                 with g.cell():
                     pass  # left margin
@@ -60,7 +60,7 @@ def build():
                     st_write(bs.body, q, tag=t.div)
                 with g.cell():
                     pass  # right margin
-        st_space("v", "4vh")
+        st_space("v", "2.5vh")
         with st_zoom(122):
             st_write(bs.pair, "Compare with your neighbour: different plans are normal. Are both testable?", tag=t.div)
             st_space("v", "3vh")
