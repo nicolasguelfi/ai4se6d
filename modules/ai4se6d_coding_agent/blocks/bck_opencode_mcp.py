@@ -20,11 +20,18 @@ _NOTES = [
      "MCP (Model Context Protocol) is an open standard to plug tools into the agent: opencode talks to MCP "
      "servers — docs, databases, a browser."),
     ("How it works",
-     "Each server exposes tools; the agent calls them when it needs them."),
+     "1. At start, opencode connects to each enabled MCP server and asks for its tools (name, description, "
+     "parameters). 2. With every request to the model, opencode sends that list along with the conversation and "
+     "its own tools (read, edit, shell). 3. The model chooses: instead of text it answers with a tool call (which "
+     "tool, which parameters). 4. opencode checks the permissions (asks you if the setting says so), then sends "
+     "the call to the MCP server. 5. opencode returns the result to the model, which goes on: another call or the "
+     "final answer. opencode never picks a tool itself: it controls what is offered (enabled servers, denied "
+     "tools) and what may run (permissions)."),
     ("How to add one",
      "opencode mcp add writes the server under mcp.servers in opencode.json — no hand-written JSON."),
     ("The trap",
-     "Enabling every server available. Every tool takes context space: enable few."),
+     "Enabling every server available: every tool description is sent with every request, used or not — context "
+     "space and cost. Enable few."),
     ("What comes next",
      "Context7, one MCP server that brings live library docs into the context."),
     ("Ask the room",
@@ -50,23 +57,25 @@ def build():
                 st_hover_tooltip(title="Trainer notes — MCP — Tools for the Agent", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
-        with st_zoom(110), st_grid(cols="5% 1fr auto 1fr auto 1.4fr 5%", gap="12px",
+        # the model chooses, opencode runs; MCP is the protocol between opencode and the servers, not a box
+        # (NG, 2026-11-25)
+        with st_zoom(100), st_grid(cols="4% 0.6fr auto 1.25fr auto 1.75fr 4%", gap="12px",
                                     cell_styles=s.project.containers.grid_cell_centered) as g:
             with g.cell():
                 pass  # left margin
             with g.cell():
-                with st_block(s.project.containers.table_active_cell):
-                    st_write(bs.node, "opencode")
+                with st_block(s.project.containers.table_header_cell):
+                    st_write(bs.node, "model")
             with g.cell():
                 st_write(bs.arrow, "⇄")
             with g.cell():
-                with st_block(s.project.containers.table_header_cell):
-                    st_write(bs.node, "MCP")
+                with st_block(s.project.containers.table_active_cell):
+                    st_write(bs.node, "opencode (MCP client)")
             with g.cell():
                 st_write(bs.arrow, "⇄")
             with g.cell():
                 with st_block(s.project.containers.table_normal_cell):
-                    st_write(bs.node, "servers: docs, DB, browser")
+                    st_write(bs.node, "MCP servers: docs, DB, browser")
             with g.cell():
                 pass  # right margin
         st_space("v", "4vh")
@@ -74,14 +83,15 @@ def build():
         # One row per fact, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
             ((bs.keyword, "Model Context Protocol"), ": an open standard"),
-            ("Each server exposes ", (bs.keyword, "tools"), " the agent calls when it needs them"),
+            ("Each server lists its ", (bs.keyword, "tools"), "; opencode sends their descriptions to the model, "
+             "the ", (bs.keyword, "model chooses"), " one, opencode runs it and returns the result"),
             ("Added with ", (bs.keyword, "opencode mcp add"), ": written under ", (bs.keyword, "mcp.servers"),
              " in opencode.json"),
-            ("Every tool takes context space: ", (bs.keyword, "enable few")),
+            ("Every tool description is sent with every request: ", (bs.keyword, "enable few")),
         ]
         cols = "5% 90% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2,))
-        with st_zoom(110), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(96), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
             for parts in items:
                 with g.cell():
                     pass  # left margin
