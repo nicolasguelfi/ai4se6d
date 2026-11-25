@@ -18,12 +18,11 @@ class BlockStyles:
     done_label = Style.create(s.bold + s.project.colors.success, "setup_done_label")
 bs = BlockStyles
 
-_CODE_ZOOM = 190  # st_code font_size is not applied by Pygments: zoom instead
+_CODE_ZOOM = 160  # st_code font_size is not applied by Pygments: zoom instead
 # Verified on opencode.ai/docs (V2 = latest) on 2026-11-09.
 # One box per environment, always Windows, Ubuntu, macOS last (NG, 2026-11-24: learners copy the wrong lines)
 _INSTALL = "# Windows (WSL) | Ubuntu | macOS\ncurl -fsSL https://opencode.ai/v2/install | bash"
 _ALT_NPM = "# or, any system with Node:\nnpm install -g @opencode/cli"
-_ALT_MACOS = "# or, macOS only:\nbrew install anomalyco/tap/opencode-v2"
 
 _NOTES = [
     ("Trainer action",
@@ -31,14 +30,18 @@ _NOTES = [
      "checks opencode --version prints 2.x.y; only on « command not found », exec $SHELL reloads the terminal."),
     ("The message",
      "opencode 2 is the coding agent of the week: one install command, then a version check."),
-    ("Three ways",
-     "The official install script (checked on opencode.ai/docs on 2026-11-09); on macOS, Homebrew as an "
-     "alternative; npm if you already use Node."),
+    ("Two ways",
+     "The official install script (checked on opencode.ai/docs on 2026-11-09), on every system; npm only as a "
+     "fallback if you already use Node. No Homebrew line: the tap installs 2.1.3 (not the current 2.4.1) and fails "
+     "when Apple's Command Line Tools are older than macOS 27 — seen on NG's Mac (NG, 2026-11-25)."),
     ("The trap",
      "The install script adds opencode to your PATH, but the open terminal does not see it: « command not "
-     "found » means « reload it: exec $SHELL ». Homebrew and npm installs usually work at once (see Common Errors)."),
+     "found » means « reload it: exec $SHELL ». The npm install usually works at once (see Common Errors)."),
     ("The check",
      "opencode --version prints 2.x.y (e.g. 2.2.6). A 1.x version is not the one of the course."),
+    ("Still 1.x?",
+     "An old opencode 1 in ~/.opencode/bin comes first in the PATH: run the curl command again, it updates it in "
+     "place (seen on NG's Mac: 1.17.18 → 2.4.1). Then opencode --version again."),
     ("Link to the next steps",
      "Step 3 connects your model key to opencode; step 5 (GSE-One) needs opencode 2 installed first."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
@@ -55,10 +58,6 @@ _NOTES = [
      "« global »: a command usable from any folder, not a library for one project. @opencode/cli is the official "
      "package name of opencode 2 (opencode.ai/docs). Needs Node first (step 2); a « permission denied » error means "
      "Node was installed without nvm: use the curl line instead."),
-    ("Command — brew install anomalyco/tap/opencode-v2",
-     "brew (Homebrew) is the usual installer of command-line tools on macOS. anomalyco/tap = the publisher's own "
-     "catalogue (a « tap »), opencode-v2 = the package in it. Official line from opencode.ai/docs. No Homebrew yet? "
-     "Use the curl line."),
     ("Command — exec $SHELL",
      "Replaces the current shell by a fresh copy of itself, in the same window: it re-reads its start-up file "
      "(~/.bashrc or ~/.zshrc), where the installer added opencode's folder to the PATH (the list of folders where "
@@ -86,16 +85,16 @@ def build():
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code=_INSTALL, language="bash", line_numbers=False)
         st_space("v", "2vh")
-        with st_grid(cols="1fr 1fr", gap="2vw") as g:
-            with g.cell(), st_zoom(125):
-                st_code(s.none, code=_ALT_NPM, language="bash", line_numbers=False)
-            with g.cell(), st_zoom(125):
-                st_code(s.none, code=_ALT_MACOS, language="bash", line_numbers=False)
+        with st_zoom(125):  # curl first, npm only as the fallback; no Homebrew line (NG, 2026-11-25)
+            st_code(s.none, code=_ALT_NPM, language="bash", line_numbers=False)
         st_space("v", "2vh")
-        with st_zoom(120):
+        with st_zoom(100):
             st_write(bs.body, "Check — ", (bs.warn, "« command not found »?"), " reload it: ", (bs.cmd, "exec $SHELL"), ", then:")
         with st_zoom(_CODE_ZOOM):
             st_code(s.none, code="opencode --version", language="bash", line_numbers=False)
+        with st_zoom(90):
+            st_write(bs.body, (bs.warn, "Still 1.x? "), "An old opencode 1 in ", (bs.cmd, "~/.opencode/bin"),
+                     " comes first: run the curl command above, it updates it in place.")
         st_space("v", "2vh")
-        with st_zoom(140), st_block(bs.done_box):
+        with st_zoom(115), st_block(bs.done_box):
             st_write(bs.body, (bs.done_label, "Done when: "), "it prints ", (bs.cmd, "2.x.y"), " (e.g. 2.2.6).")
