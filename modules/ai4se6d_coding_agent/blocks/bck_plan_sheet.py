@@ -13,14 +13,27 @@ class BlockStyles:
     label = s.project.titles.table_label
     text = s.project.titles.table_cell
     done = Style.create(s.project.titles.table_label + s.project.colors.success, "sheet_done")
+    ask = s.project.titles.ask_label
+    prompt = s.project.titles.ask_prompt
+    prompt_cell = s.project.containers.ask_cell
 bs = BlockStyles
 
+_SHEET_ZOOM = 80    # tuned by measure: content bottom <= 1000 px at 1920x1080
+_PROMPT_ZOOM = 72   # the « Or ask opencode » line: smaller than the step it replaces
+
+# (label, what to check, the same thing asked to opencode — None when there is no command)
 _SHEET = [
-    ("Done when", "git log --oneline on mywork shows “docs: v0.1 plan”; docs/plan.md has 5-8 tasks, one [next]"),
-    ("Check", "is anything missing for the app to work end to end (wiring, entry point, assembly of the parts)? If so, add that task"),
-    ("Mid-point (11:15)", "your user stories have testable acceptance criteria; you are splitting them"),
-    ("If stuck", "1. your tutor window  2. cp docs/plan-example.md docs/plan.md, adapt it  3. raise your hand"),
-    ("New file?", "git diff ignores untracked files: git add first, then git diff --staged"),
+    ("Done when", "git log --oneline on mywork shows “docs: v0.1 plan”; docs/plan.md has 5-8 tasks, one [next]",
+     "Give me the git commands to show the last commits on mywork, and check that docs/plan.md has 5-8 tasks with "
+     "exactly one [next]. Then run them and show me the result."),
+    ("Check", "is anything missing for the app to work end to end (wiring, entry point, assembly of the parts)? "
+     "If so, add that task", None),
+    ("Mid-point (11:15)", "your user stories have testable acceptance criteria; you are splitting them", None),
+    ("If stuck", "1. your tutor window  2. cp docs/plan-example.md docs/plan.md, adapt it  3. raise your hand",
+     "Give me the command to copy docs/plan-example.md to docs/plan.md. Then run it."),
+    ("New file?", "git diff ignores untracked files: git add first, then git diff --staged",
+     "Give me the git commands to stage docs/plan.md and show what will be committed. Then run them and show me "
+     "the result."),
 ]
 
 _NOTES = [
@@ -37,6 +50,10 @@ _NOTES = [
     ("Mid-point and rescue",
      "At 11:15 the stories should have testable criteria. Stuck: the tutor window, then docs/plan-example.md "
      "copied and adapted, then a raised hand."),
+    ("Or ask opencode",
+     "Under each line with a command, the same thing asked to opencode (build agent: the plan agent cannot write "
+     "docs/plan.md): it gives the commands first, then runs them and shows the result. opencode may ask permission "
+     "before running a command: accept. Git specialists can skip these lines."),
     ("Ask the room",
      "At the mid-point: « Hands up if your stories have testable acceptance criteria. »"),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
@@ -61,12 +78,15 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Your Plan — Check Yourself", entries=_NOTES,
                                  position="left", width="50vw")
-        st_space("v", "3vh")
-        # One row per item, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
-        cols = "5% 22% 68% 5%"
-        cells = s.project.containers.rows(len(_SHEET), cols, filled=(2, 3))
-        with st_zoom(100), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
-            for label, text in _SHEET:
+        st_space("v", "1.5vh")
+        # One row per item, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under a row with a command,
+        # full width, the same thing as a prompt for opencode (NG, 2026-11-25)
+        cols = "3% 19% 75% 3%"
+        for i, (label, text, prompt) in enumerate(_SHEET):
+            if i:
+                st_space("v", "1vh")
+            cells = s.project.containers.rows(i + 1, cols, filled=(2, 3))[-4:]  # keeps the alternation
+            with st_zoom(_SHEET_ZOOM), st_grid(cols=cols, gap="0 0.5vw", cell_styles=cells) as g:
                 with g.cell():
                     pass  # left margin
                 with g.cell():
@@ -75,3 +95,13 @@ def build():
                     st_write(bs.text, text, tag=t.div)
                 with g.cell():
                     pass  # right margin
+            if prompt:
+                st_space("v", "0.4vh")
+                with st_zoom(_PROMPT_ZOOM), st_grid(cols="3% 94% 3%", gap="0",
+                                                    cell_styles=[s.none, bs.prompt_cell, s.none]) as g:
+                    with g.cell():
+                        pass  # left margin
+                    with g.cell():
+                        st_write(bs.prompt, (bs.ask, "Or ask opencode:  "), f"“{prompt}”")
+                    with g.cell():
+                        pass  # right margin

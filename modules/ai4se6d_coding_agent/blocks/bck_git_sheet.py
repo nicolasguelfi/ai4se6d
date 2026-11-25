@@ -12,10 +12,9 @@ class BlockStyles:
     label = s.project.titles.table_label
     text = s.project.titles.table_cell
     done = Style.create(s.project.titles.table_label + s.project.colors.success, "sheet_done")
-    ask = Style.create(s.project.titles.table_label + s.project.colors.accent, "sheet_ask")
-    prompt = Style.create(s.project.titles.table_cell + Style("font-style: italic;", "sheet_italic"), "sheet_prompt")
-    prompt_cell = Style.create(s.project.containers.row_cell_left + s.project.containers.cell_primary_bg
-                               + s.project.containers.cell_pad_sm, "sheet_prompt_cell")
+    ask = s.project.titles.ask_label
+    prompt = s.project.titles.ask_prompt
+    prompt_cell = s.project.containers.ask_cell
 bs = BlockStyles
 
 _PROMPT_ZOOM = 80   # the « Or ask opencode » line: smaller than the step it replaces

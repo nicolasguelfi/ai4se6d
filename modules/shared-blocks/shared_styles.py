@@ -121,6 +121,16 @@ class TextStylesCustom:
         "table_label_active",
     )
 
+    # « Or ask opencode » line under an exercise step: the same check asked to the coding agent (NG, 2026-11-25)
+    ask_label = Style.create(
+        Text.sizes.pt36 + Text.weights.bold_weight + ColorsCustom.accent + Text.wrap.hyphens,
+        "ask_label",
+    )
+    ask_prompt = Style.create(
+        Text.sizes.pt36 + Text.wrap.hyphens + Style("font-style: italic;", "ask_italic"),
+        "ask_prompt",
+    )
+
 
 class ContainerStylesCustom:
     """Presentation containers."""
@@ -170,6 +180,8 @@ class ContainerStylesCustom:
     row_fill_2 = Style("background-color: #2A3242; padding: 0.3vh 1vw; border-radius: 0.6vw;", "row_fill_2")
     row_cell_left = Style.create(Container.layouts.vertical_center_layout + Style("text-align: left;", "txt_left_rows"),
                                  "row_cell_left")
+    # « Or ask opencode » line: full width under the step, subtle frame (NG, 2026-11-25)
+    ask_cell = Style.create(row_cell_left + cell_primary_bg + cell_pad_sm, "ask_cell")
 
     @staticmethod
     def rows(n_rows, cols, filled=(2,), fills=None, base=None):
