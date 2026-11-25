@@ -62,15 +62,15 @@ _NOTES = [
      "from the staging area, so changes already added (the agent often runs git add) stay. Trap: new files never "
      "added stay — git status lists them as untracked; delete them by hand (or git clean -n to list, git clean -f "
      "to delete)."),
-    # First tooltip where « worktree » appears: the teaching metaphor (NG via ss2-ul-gse, 2026-11-25)
-    ("Picture it — album, bookmark, table",
-     "The repository is a photo album: each commit is a complete photo of all your files. A branch is a bookmark "
-     "on the latest photo of a series; it moves forward with each commit. The worktree is your work table: the "
-     "folder where one photo is laid out so you can edit its files. Laying a photo on the table creates no photo; "
-     "only git commit adds one, to the series of the branch on that table. git restore --worktree puts the table "
-     "back as the photo; --staged undoes git add. Later (GSE-One, day 3) you will see several tables, one per task "
-     "(git worktree add .worktrees/…): the album and the bookmarks are shared, each table shows one branch, and a "
-     "bookmark sits on one table at a time. Bringing one series into another is a merge."),
+    # First tooltip where « worktree » appears: photo metaphor of « Where Your Changes Live » (NG, 2026-11-25)
+    ("Picture it — scene, photos, bookmark",
+     "Same picture as « Where Your Changes Live »: your files on disk are the scene, git add poses the subjects, "
+     "git commit clicks the shutter. Git stores only what changed; the rest is taken from the photo before. Each "
+     "photo notes the one before it, so photos form a series: your history. A branch is a bookmark on the latest "
+     "photo of a series; it moves forward with each commit. The worktree is the scene itself: setting it up "
+     "creates no photo. git restore --worktree puts the scene back as on the last photo; --staged undoes git add. "
+     "Later (GSE-One, day 3) you will see several scenes, one per task (git worktree add .worktrees/…), each with "
+     "its own branch; a bookmark sits on one scene at a time."),
     ("Symbol — #",
      "Starts a comment: the shell ignores the rest of the line. Not typed."),
 ]

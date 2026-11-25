@@ -73,6 +73,11 @@ _NOTES = [
      "Each task of the plan becomes a branch, so each change of the agent stays isolated and easy to check."),
     ("Link to the day",
      "The build this afternoon uses one branch per task of docs/plan.md."),
+    ("Picture it — merge and conflict",
+     "Two people start from the same photo and each retouches a copy. The merge makes one new photo with both "
+     "retouches. One retouched the sky, the other the face: git combines them alone. Both retouched the same spot — "
+     "one gave the person two legs, the other three: that is a conflict; git cannot choose, you do. Often both "
+     "versions are fine (a red shirt or a blue one): you pick one, or combine them."),
     ("Ask the room",
      "« What happens to your main line if the agent's attempt fails on a branch? »"),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)

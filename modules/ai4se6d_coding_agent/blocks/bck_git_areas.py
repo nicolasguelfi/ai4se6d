@@ -51,7 +51,7 @@ _NOTES = [
      "sends commits to the remote repository on GitHub; git pull brings its new commits back."),
     ("The photography analogy",
      "Scene (your files) → pose the subjects you want in the picture (git add) → click the shutter (git commit) → "
-     "upload to the cloud (git push)."),
+     "upload to the cloud (git push). Each photo notes the one before it: a series, your history."),
     ("Why it matters with an agent",
      "The agent may change many files; staging lets you commit only the changes you have reviewed and approved."),
     ("The trap",
