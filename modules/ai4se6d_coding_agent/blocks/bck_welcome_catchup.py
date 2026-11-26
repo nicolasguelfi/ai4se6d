@@ -84,10 +84,17 @@ _NOTES = [
      "course VM)."),
     ("Symbol — &&",
      "Runs the next command only if the previous one succeeded. If cd fails, nothing else runs."),
+    # Tag vs commit vs branch, and where a new branch starts (NG « ok », 2026-11-26)
+    ("Tag, commit, branch",
+     "Every commit has an identifier (e.g. 6225c63); you can start a branch from it too. A tag is a readable name "
+     "fixed on one commit: j2-part1 is 6225c63, and it never moves. A branch is a name that moves forward with each "
+     "new commit. HEAD = where you are now, usually on a branch. git checkout j2-start alone (without -b) puts you "
+     "on no branch (« detached HEAD »): commits made there belong to no branch and can be lost — hence -b mywork."),
     ("Command — git checkout -b mywork \"$TAG\"",
-     "A tag is a fixed label on one commit (a checkpoint of the course). git checkout -b mywork \"$TAG\" creates a "
-     "new branch named mywork that starts at that commit, and switches to it: -b = create the branch, mywork = its "
-     "name, \"$TAG\" = where it starts. Newer equivalent: git switch -c mywork \"$TAG\"."),
+     "Creates a new branch named mywork and switches to it. -b = create the branch, mywork = its name, \"$TAG\" = "
+     "the commit where it starts. Without \"$TAG\", the branch would start at the current commit (HEAD): right after "
+     "the clone, that is the latest commit of main, not the checkpoint you need. Newer equivalent: git switch -c "
+     "mywork \"$TAG\". git branch mywork \"$TAG\" creates the branch without switching to it."),
     ("Command — npm ci",
      "Installs the project's libraries (into node_modules/) exactly at the versions written in package-lock.json. "
      "ci = « clean install »: it first deletes any old node_modules, so everybody gets the same setup. Needed once per "
