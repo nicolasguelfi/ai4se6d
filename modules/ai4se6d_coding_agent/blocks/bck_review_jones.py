@@ -26,6 +26,24 @@ _NOTES = [
     ("The figures",
      "Defect removal efficiency, minimum / average: formal code inspection 60 % / 85 %; automated unit testing "
      "20 % / 40 %; function testing 33 % / 40 %. Capers Jones, data from more than 13,000 projects."),
+    # The three practices in plain words (NG « ok », 2026-11-27)
+    ("Formal code inspection",
+     "People read the code together without running it, following a method: set roles (author, readers, "
+     "moderator), a checklist, a meeting and a written list of the defects found. It finds logic errors, forgotten "
+     "cases and unclear or risky code that no test would reveal. In the course: reading every line the agent wrote, "
+     "or an AI review you triage."),
+    ("Unit testing (automated)",
+     "A small program checks one small part of the code (a function, a component) on its own, e.g. « formatAmount "
+     "of 25.5 gives €25.50 ». Automated: one command (npm run test:run) reruns them all in seconds after each "
+     "change. It finds errors in each brick right after writing it: the red-green of this morning's TDD."),
+    ("Function testing",
+     "Checks that a whole feature does what the user expects, using the app from the outside, as the user would, "
+     "e.g. « I add a 12 € expense \"Lunch\": it appears in the list and the total goes up ». By hand or "
+     "automated; several bricks together. It finds errors in how the bricks fit and needs that were misunderstood."),
+    ("Picture it — a car",
+     "Inspection = experts read the engine plans (« is it well designed? »). Unit test = each part is tested alone, "
+     "the brake, the spark plug (« does this part work? »). Function test = a road test (« does the car do what the "
+     "customer wants? »)."),
     ("How to read it",
      "« 85 % » means: of the defects present when the practice is applied, 85 % on average are removed by it. "
      "The practices find different defects, so they add up."),
