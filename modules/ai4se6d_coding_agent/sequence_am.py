@@ -21,6 +21,8 @@ BLOCKS_AM = [
     blocks.bck_git_concepts,
     blocks.bck_git_areas,
     blocks.bck_git_commands,
+    blocks.bck_git_three_versions,  # disk / prepared / last commit, app.ts example (NG, 2026-11-26)
+    blocks.bck_git_restore_table,   # what each git restore keeps and loses (NG, 2026-11-26)
     blocks.bck_git_review,
     blocks.bck_git_checkpoint,
     blocks.bck_git_branches,
