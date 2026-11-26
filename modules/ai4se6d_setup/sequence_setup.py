@@ -11,6 +11,7 @@ BLOCKS = [
     # ── Installation in the room (13:15, 75 min) ──
     blocks.bck_setup_install_sheet,
     blocks.bck_setup_step_terminal,
+    blocks.bck_setup_step_tools,         # 0b git and curl (NG « ok », 2026-11-26)
     blocks.bck_setup_step_opencode,
     blocks.bck_setup_step_node,
     blocks.bck_setup_step_key,

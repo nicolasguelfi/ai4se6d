@@ -19,7 +19,7 @@ class BlockStyles:
 bs = BlockStyles
 
 _STEPS = [
-    ("0", "Terminal"), ("1", "opencode 2"), ("2", "Node.js"),
+    ("0", "Terminal"), ("0b", "git, curl"), ("1", "opencode 2"), ("2", "Node.js"),
     ("3", "Model key"), ("4", "Course kit"), ("5", "GSE-One"),
     ("6", "GitHub"), ("7", "Check"), ("8", "Tutor window"),
 ]
@@ -33,7 +33,8 @@ _NOTES = [
      "Read and comment — 2 min, nothing to type yet. Present the nine steps and the 13:50 mid-point; "
      "learners start typing at step 0, on the next slide."),
     ("The message",
-     "Nine steps, 0 to 8, one slide each: follow them in order, each one ends with a « Done when » check."),
+     "Nine steps, 0 to 8, one slide each, plus 0b (git and curl: most machines already have them, the check "
+     "says so): follow them in order, each one ends with a « Done when » check."),
     ("The goal",
      "Your toolchain: a terminal, opencode 2, Node.js, your model key, the course kit, GSE-One, GitHub, a final "
      "check, and your tutor window."),
@@ -65,7 +66,7 @@ def build():
             with g.cell():
                 cols = "20% 80%"
                 cells = s.project.containers.rows(len(_STEPS), cols, filled=(1, 2))
-                with st_zoom(110), st_grid(cols=cols, gap="0.8vh 0.3vw", cell_styles=cells) as steps:
+                with st_zoom(100), st_grid(cols=cols, gap="0.6vh 0.3vw", cell_styles=cells) as steps:  # 10 rows since 0b
                     for num, name in _STEPS:
                         with steps.cell():
                             st_write(bs.step_num, num, tag=t.div)
