@@ -26,7 +26,7 @@ _NOTES = [
      "Learners type the two lines first, before the theory: the tutor gets today's notes and GSE-One moves to the "
      "course version."),
     ("Why a fix: line",
-     "On day 1 everyone cloned GSE-One v0.93.4 into ~/ai4se/gensem. The course now uses v0.93.5 (it fixes the "
+     "On day 1 everyone cloned an older GSE-One into ~/ai4se/gensem. The course now uses v0.93.5 (it fixes the "
      "cleanup at /gse:deliver). setup-learner.sh never moves an existing clone, so tutor update checks the version "
      "and prints a fix: line (rm -rf …/gensem && sh …/setup-learner.sh) with the right path, even for a learner who "
      "chose another course folder. Copy and run that line as printed."),
