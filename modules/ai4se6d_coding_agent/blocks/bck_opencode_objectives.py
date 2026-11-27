@@ -19,7 +19,7 @@ _ITEMS = [
     ("Write project rules in ", (bs.keyword, "AGENTS.md")),
     ("Feed the right context with ", (bs.keyword, "@file")),
     ((bs.keyword, "Plan"), " with the plan agent, then ", (bs.keyword, "build")),
-    ("Follow the agent’s ", (bs.keyword, "todo list")),
+    ("Check the agent’s ", (bs.keyword, "done"), " yourself (tests + diff)"),
     ("Add live docs with ", (bs.keyword, "MCP + Context7")),
 ]
 
@@ -31,8 +31,9 @@ _NOTES = [
      "repeated in every prompt."),
     ("Context",
      "@file puts the right files in front of the agent — not the whole repository."),
-    ("Plan, build, todo",
-     "The plan agent proposes without editing; the build agent then edits. The todo list shows where the agent is."),
+    ("Plan, build, check",
+     "The plan agent proposes without editing; the build agent then edits. When it says done, you check: tests "
+     "green + diff reviewed."),
     ("Live docs",
      "MCP connects the agent to tools; Context7 gives it the current documentation of a library."),
     ("Ask the room",

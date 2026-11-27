@@ -52,7 +52,7 @@ BLOCKS_AM = [
     blocks.bck_opencode_try_context,        # demo 2 + try it
     blocks.bck_opencode_plan_build,
     blocks.bck_opencode_plan_workflow,
-    blocks.bck_opencode_todo,
+    blocks.bck_opencode_done,  # was the todo list: off by default in opencode 2 (NG « ok », 2026-11-27)
     blocks.bck_opencode_mcp,
     blocks.bck_opencode_context_docs,
     blocks.bck_opencode_try_plan,           # demo 3 + try it

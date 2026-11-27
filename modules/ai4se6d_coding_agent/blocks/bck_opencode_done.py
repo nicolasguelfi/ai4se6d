@@ -1,4 +1,8 @@
-"""Slide — The agent's todo list."""
+"""Slide — The agent saying done ≠ done (was « The Todo List »; NG « ok », 2026-11-27, kit 7a28b0e).
+
+opencode 2's todo tool (todowrite) is off by default (opt-in: "experimental": {"todo": true}); neither the kit nor
+GSE-One enables it, so learners never see a todo list. What stays: watch the agent, stop it, check before commit.
+"""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -7,7 +11,7 @@ from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
-    """Todo list styles."""
+    """Agent-says-done styles."""
     heading = s.project.titles.heading
     body = s.project.titles.body
     keyword = s.project.titles.keyword
@@ -17,12 +21,15 @@ bs = BlockStyles
 
 _NOTES = [
     ("The message",
-     "On multi-step work the agent writes a todo list and ticks items as it goes: a live view of its progress."),
-    ("Three uses",
-     "See where it is in the work; stop it with Esc as soon as it drifts; check that nothing was skipped before "
-     "you commit."),
+     "On multi-step work, watch what the agent does: stop it as soon as it drifts (Esc), and check nothing was "
+     "skipped before you commit. Its « done » is a claim."),
     ("The trap",
-     "Trusting the ticks. A ticked item only means the agent believes it is done."),
+     "Trusting the agent's summary. « Done, all tests pass » only means the agent believes it: run the tests "
+     "yourself and read the diff."),
+    ("Why no todo list",
+     "In opencode 2 the todo tool is off by default (opt-in: \"experimental\": {\"todo\": true}); the course kit "
+     "does not enable it, so learners never see one. Progress is tracked in your files instead: docs/plan.md "
+     "today, the GSE-One backlog from day 3."),
     ("Definition of done",
      "Done = tests green + diff reviewed. The same rule returns in the build and review sessions this afternoon."),
     ("Ask the room",
@@ -39,19 +46,17 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, "The Todo List", tag=t.div, toc_lvl="+1")
+                st_write(bs.heading, "The Agent Saying Done ≠ Done", tag=t.div, toc_lvl="+1")
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — The Todo List", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — The Agent Saying Done ≠ Done", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
         with st_zoom(120):
-            st_write(bs.intro, "On multi-step work the agent writes a todo list and ticks items as it goes.",
-                     tag=t.div)
+            st_write(bs.intro, "On multi-step work, watch what the agent does.", tag=t.div)
         st_space("v", "3vh")
 
         # One row per use, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ((bs.keyword, "See"), " where it is in the work"),
             ((bs.keyword, "Stop"), " it as soon as it drifts (Esc)"),
             ((bs.keyword, "Check"), " nothing was skipped before you commit"),
         ]
@@ -67,4 +72,4 @@ def build():
                     pass  # right margin
         st_space("v", "5vh")
         with st_zoom(124):
-            st_write(bs.closing, "Ticked is not done. Done = tests green + diff reviewed.", tag=t.div)
+            st_write(bs.closing, "Its « done » is a claim. Done = tests green + diff reviewed.", tag=t.div)

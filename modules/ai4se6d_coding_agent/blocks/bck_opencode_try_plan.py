@@ -27,13 +27,13 @@ _SHEET = [
 
 _NOTES = [
     ("Trainer action",
-     "Learners do it — on their machine, 5 min, after your 3-min live demo (plan agent, todo list, a Context7 "
+     "Learners do it — on their machine, 5 min, after your 3-min live demo (plan agent, a Context7 "
      "call). Everyone adds Context7 and gets a plan for /budgets — no build."),
     ("The message",
-     "Plan agent, todo list and Context7 together: a plan grounded in current docs, reviewed by you, and no code "
+     "Plan agent and Context7 together: a plan grounded in current docs, reviewed by you, and no code "
      "yet."),
     ("The demo (3 min)",
-     "Plan agent, its todo list, and one Context7 call visible in the conversation."),
+     "Plan agent and one Context7 call visible in the conversation."),
     ("The steps",
      "Add context7 if it is not there yet; restart opencode and check « Connected » in the sidebar; switch to plan "
      "with Shift+Tab and ask for a /budgets page using context7 for React Router 7, tests first; read the plan and "
@@ -72,7 +72,7 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Try It (5 min) — Plan", entries=_NOTES,
                                  position="left", width="50vw")
-        st_write(bs.demo, "Demo first (3 min): plan agent, todo list, a Context7 call", tag=t.div)
+        st_write(bs.demo, "Demo first (3 min): plan agent, a Context7 call", tag=t.div)
 
         # One numbered row per step, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23); under step 1, the same
         # thing asked to opencode — build agent; the terminal command stays the main way (NG, 2026-11-25)
@@ -83,7 +83,7 @@ def build():
             (("Restart opencode: the sidebar shows context7 ", (bs.keyword, "Connected"), "?"), None),
             (((bs.keyword, "Shift+Tab → plan"),
               ": “Plan a /budgets page. Use context7 for React Router 7. Tests first.”"), None),
-            (("Read the plan and its todo list, push back once",), None),
+            (("Read the plan, push back once",), None),
             (((bs.keyword, "Do not build"), ": your real plan comes at 11:00"), None),
         ]
         cols = "5% 4% 86% 5%"

@@ -16,18 +16,14 @@ bs = BlockStyles
 
 _NOTES = [
     ("The message",
-     "Five takeaways of the opencode session, one per part: structure and rules, context, plan/build, todo list, "
+     "Five takeaways of the opencode session, one per part: structure and rules, context, plan/build, checking done, "
      "MCP."),
     ("Standing prompt",
      "Project structure and AGENTS.md are read before any prompt: write them once, benefit at every session."),
     ("Finite context",
      "@ the right files, never secrets, /new per task."),
     ("Plan, then build",
-     "Shift+Tab: plan first, build second. And a ticked todo is not done: tests + reviewed diff."),
-    # The agent's todo list vs docs/plan.md (NG « ok », 2026-11-27)
-    ("Agent's todo — not docs/plan.md",
-     "This is opencode's own list, not docs/plan.md. opencode's todo list lives inside opencode, not in your repo: "
-     "not committed, not shared. docs/plan.md is the plan you commit."),
+     "Shift+Tab: plan first, build second. And the agent saying done is not done: tests + reviewed diff."),
     ("Tools",
      "MCP adds tools; Context7 adds live docs — enable few."),
     ("Ask the room",
@@ -55,12 +51,12 @@ def build():
             ((bs.keyword, "Structure + AGENTS.md"), " = your standing prompt"),
             ((bs.keyword, "Context is finite"), ": @ the right files, no secrets, /new per task"),
             ((bs.keyword, "Shift+Tab"), ": plan first, build second"),
-            ((bs.keyword, "Agent's todo ticked ≠ done"), ": tests + reviewed diff"),
+            ((bs.keyword, "The agent saying done ≠ done"), ": tests + reviewed diff"),
             ((bs.keyword, "MCP"), " adds tools; ", (bs.keyword, "Context7"), " adds live docs"),
         ]
         cols = "5% 5% 85% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2, 3))
-        with st_zoom(117), st_grid(cols=cols, gap="4.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(117), st_grid(cols=cols, gap="3vh 0.5vw", cell_styles=cells) as g:
             for n, parts in enumerate(items, 1):
                 with g.cell():
                     pass  # left margin

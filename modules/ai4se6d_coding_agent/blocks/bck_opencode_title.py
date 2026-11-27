@@ -20,7 +20,7 @@ _NOTES = [
     ("Timing",
      "55 minutes: three short demos, each followed by 5 minutes of try-it."),
     ("What comes",
-     "A readable project structure, AGENTS.md rules, context with @file, the plan and build agents, the todo list, "
+     "A readable project structure, AGENTS.md rules, context with @file, the plan and build agents, checking the agent's « done », "
      "live docs through MCP and Context7."),
     ("Link to Git",
      "Everything the agent does from now on goes through the Git reflex just practised: status, diff, then commit."),
