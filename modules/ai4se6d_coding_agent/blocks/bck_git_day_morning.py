@@ -7,7 +7,7 @@ rules: docs: euro rule on mywork. Plan workshop: docs: v0.1 plan on mywork. Mess
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from custom.git_graph import MAIN, SIDE, cols, draw, steps
+from custom.git_graph import MAIN, SIDE, cols, draw, legend, steps
 from shared_widgets import st_hover_tooltip
 
 
@@ -25,10 +25,15 @@ _GRAPH_ZOOM = 64
 _LM = ("l", MAIN)
 _ROWS = [
     [("k", "mywork", MAIN), ("n", "start", MAIN), _LM, _LM, _LM, ("n", "docs", MAIN), _LM, ("n", "docs", MAIN)],
-    [_E, ("c", "j2-start (course tag)"), _E, _E, _E, ("c", "docs: euro rule"), _E, ("c", "docs: v0.1 plan")],
+    [_E, ("c", "j2-start (course tag)"), _E, _E, _E, ("c", "msg2"), _E, ("c", "msg3")],
     [_E, _E, ("a", "↘", SIDE), _E, _E, _E, _E, _E],
     [("k", "feat/hello", SIDE), _E, _E, ("n", "docs", SIDE), _E, _E, _E, _E],
-    [_E, _E, _E, ("c", "docs: say hello — practice, never merged"), _E, _E, _E, _E],
+    [_E, _E, _E, ("c", "msg1 — practice, never merged"), _E, _E, _E, _E],
+]
+_MSGS = [
+    ("msg1", "docs: say hello"),
+    ("msg2", "docs: euro rule"),
+    ("msg3", "docs: v0.1 plan"),
 ]
 
 _NOTES = [
@@ -60,9 +65,9 @@ _NOTES = [
 def _steps(kw):
     return [
         ("1", ("Git exercise: ", (kw, "git checkout -b mywork j2-start"), ", then ", (kw, "git switch -c feat/hello"),
-               " and commit ", (kw, "docs: say hello"), ". feat/hello stays aside.")),
-        ("2", ("Rules: ", (kw, "git switch mywork"), ", then commit ", (kw, "docs: euro rule"), " (AGENTS.md).")),
-        ("3", ("Plan: on mywork, commit ", (kw, "docs: v0.1 plan"), " (docs/plan.md). Every task branch starts here.")),
+               " and commit msg1. feat/hello stays aside.")),
+        ("2", ("Rules: ", (kw, "git switch mywork"), ", then commit msg2 (AGENTS.md).")),
+        ("3", ("Plan: on mywork, commit msg3 (docs/plan.md). Every task branch starts here.")),
     ]
 
 
@@ -76,6 +81,8 @@ def build():
                 st_hover_tooltip(title="Trainer notes — " + _TITLE, entries=_NOTES, position="left", width="50vw")
         st_space("v", "1vh")
         draw(cols(_N), _ROWS, zoom=_GRAPH_ZOOM)
-        st_space("v", "2vh")
+        st_space("v", "1vh")
+        legend(_MSGS)
+        st_space("v", "1.5vh")
         kw = bs.keyword
-        steps(_steps(kw), zoom=68)
+        steps(_steps(kw), zoom=60)

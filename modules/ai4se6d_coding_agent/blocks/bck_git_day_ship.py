@@ -8,7 +8,7 @@ After the last task: fix/review with fix: RVW-1 … (test first) and docs: READM
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from custom.git_graph import MAIN, TASK, cols, draw, steps
+from custom.git_graph import MAIN, TASK, cols, draw, legend, steps
 from shared_widgets import st_hover_tooltip
 
 
@@ -26,10 +26,16 @@ _GRAPH_ZOOM = 64
 _LT = ("l", TASK)
 _ROWS = [
     [("k", "mywork", MAIN), ("n", "docs", MAIN), _E, _E, _E, _E, _E, ("p", "v0.1 · main", MAIN)],
-    [_E, ("c", "docs: update plan labels (last task)"), _E, _E, _E, _E, _E, ("c", "and mywork: the docs: README commit")],
+    [_E, ("c", "msg1 (last task)"), _E, _E, _E, _E, _E, ("c", "and mywork: on msg3, no new commit")],
     [_E, _E, ("a", "↘", TASK), _E, _E, _E, ("a", "↗", TASK), _E],
     [("k", "fix/review", TASK), _E, _E, ("n", "fix", TASK), _LT, ("n", "docs", TASK), _E, _E],
-    [_E, _E, _E, ("c", "fix: RVW-1 … (test first)"), _E, ("c", "docs: README"), _E, _E],
+    [_E, _E, _E, ("c", "msg2 (test first)"), _E, ("c", "msg3"), _E, _E],
+]
+# Example messages, as on the exercise slides (bck_review_ex_fix, bck_review_readme_ex)
+_MSGS = [
+    ("msg1", "docs: update plan labels"),
+    ("msg2", "fix: RVW-1 corrupt JSON no longer crashes"),
+    ("msg3", "docs: README"),
 ]
 
 _NOTES = [
@@ -61,8 +67,7 @@ _NOTES = [
 
 def _steps(kw):
     return [
-        ("1", ((kw, "git switch -c fix/review"), ": commit ", (kw, "fix: RVW-1 …"), " (failing test first), then ",
-               (kw, "docs: README"), ".")),
+        ("1", ((kw, "git switch -c fix/review"), ": commit msg2 (failing test first), then msg3.")),
         ("2", ((kw, "git switch mywork"), " then ", (kw, "git merge fix/review"), ": « Fast-forward » again; tests "
                "all green.")),
         ("3", ((kw, "git tag v0.1"), " then ", (kw, "git switch -C main mywork"), ": three names, one commit — no "
@@ -80,6 +85,8 @@ def build():
                 st_hover_tooltip(title="Trainer notes — " + _TITLE, entries=_NOTES, position="left", width="50vw")
         st_space("v", "1vh")
         draw(cols(_N), _ROWS, zoom=_GRAPH_ZOOM)
-        st_space("v", "2vh")
+        st_space("v", "1vh")
+        legend(_MSGS)
+        st_space("v", "1.5vh")
         kw = bs.keyword
-        steps(_steps(kw), zoom=68)
+        steps(_steps(kw), zoom=60)

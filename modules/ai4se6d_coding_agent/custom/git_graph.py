@@ -81,3 +81,21 @@ def steps(items, zoom=78):
                 st_write(s.project.titles.table_cell, *parts)
             with g.cell():
                 pass  # right margin
+
+
+def legend(items, zoom=66):
+    """The commit messages behind the msg ids of the graph: (id, message) rows (NG, 2026-11-27: ids on the
+    graph, real example messages below it)."""
+    cols_ = "3% 8% 86% 3%"
+    cells = s.project.containers.rows(len(items), cols_, filled=(2, 3))
+    mono = Style.create(s.project.titles.table_cell + s.text.fonts.font_monospace, "gitg_msg")
+    with st_zoom(zoom), st_grid(cols=cols_, gap="0.4vh 0", cell_styles=cells) as g:
+        for ident, message in items:
+            with g.cell():
+                pass  # left margin
+            with g.cell():
+                st_write(s.project.titles.table_label, ident)
+            with g.cell():
+                st_write(mono, message)
+            with g.cell():
+                pass  # right margin

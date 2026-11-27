@@ -10,7 +10,7 @@ bck_git_main_moves).
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from custom.git_graph import MAIN, TASK, cols, draw, steps
+from custom.git_graph import MAIN, TASK, cols, draw, legend, steps
 from shared_widgets import st_hover_tooltip
 
 
@@ -21,17 +21,23 @@ class BlockStyles:
     keyword = s.project.titles.keyword
 bs = BlockStyles
 
-_N = 5  # commits drawn: plan, one task (test, feat, refactor), plan labels — the same loop for every task
+_N = 4  # commits drawn: plan, task T1 (test, feat — no refactor needed), plan labels: the same loop for every task
 _E = (".",)
 _L = ("l", TASK)
 # Columns: 0 = branch name, node i at 1 + 2i, line after node i at 2 + 2i
 _ROWS = [
-    [("k", "mywork", MAIN), ("n", "docs", MAIN)] + [_E] * 7 + [("n", "docs", MAIN)],
-    [_E, ("c", "docs: v0.1 plan")] + [_E] * 7 + [("c", "docs: update plan labels")],
-    [_E, _E, ("a", "↘", TASK)] + [_E] * 5 + [("a", "↗", TASK), _E],
-    [("k", "feat/expense-type", TASK), _E, _E, ("n", "test", TASK), _L, ("n", "feat", TASK), _L, ("n", "ref", TASK),
-     _E, _E],
-    [_E, _E, _E, ("c", "test: … (red)"), _E, ("c", "feat: … (green)"), _E, ("c", "refactor: …"), _E, _E],
+    [("k", "mywork", MAIN), ("n", "docs", MAIN)] + [_E] * 5 + [("n", "docs", MAIN)],
+    [_E, ("c", "msg1")] + [_E] * 5 + [("c", "msg4")],
+    [_E, _E, ("a", "↘", TASK)] + [_E] * 3 + [("a", "↗", TASK), _E],
+    [("k", "feat/expense-type", TASK), _E, _E, ("n", "test", TASK), _L, ("n", "feat", TASK), _E, _E],
+    [_E, _E, _E, ("c", "msg2 (red)"), _E, ("c", "msg3 (green)"), _E, _E],
+]
+# Example messages: the T1 of docs/plan-example.md (Branch: feat/expense-type), as on the exercise sheet
+_MSGS = [
+    ("msg1", "docs: v0.1 plan"),
+    ("msg2", "test: expense with amount 0 is rejected"),
+    ("msg3", "feat: add expense validation"),
+    ("msg4", "docs: update plan labels"),
 ]
 
 _NOTES = [
@@ -51,6 +57,16 @@ _NOTES = [
      "the name mywork forward to the task's last commit (« Fast-forward »): no merge commit, and the history is "
      "one straight line — plan, test, feat, refactor, labels. The next slides show the whole day, then the only "
      "case with a real merge commit (the main line moved meanwhile)."),
+    ("Fast-forward, before and after",
+     "A branch is only a name on a commit; each commit knows its parent. Before: mywork → msg1; feat/expense-type → "
+     "msg3 → msg2 → msg1. mywork is an ancestor of the branch, so there is nothing to combine: git merge just moves "
+     "the name mywork to msg3 (« fast-forward »). After: going back from mywork you pass msg3, msg2, msg1 — the "
+     "same commits, same IDs, no copy. feat/expense-type still points to msg3; git branch -d removes the name, "
+     "nothing is lost."),
+    ("No refactor commit for T1",
+     "REFACTOR is the third prompt: same behaviour, better structure. If there is nothing to improve, there is "
+     "nothing to commit — a valid result. When there is one, it is a third commit refactor: … on the branch, "
+     "before the merge."),
     ("Why commit the red test",
      "The test: commit is the proof that the test existed, and failed, before the code. It is on the task branch, "
      "never on mywork: mywork only receives finished, green tasks."),
@@ -94,14 +110,16 @@ def build():
                 st_hover_tooltip(title="Trainer notes — One Branch per Task", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "1vh")
-        draw(cols(_N), _ROWS, zoom=64)
-        st_space("v", "2vh")
+        draw(cols(_N), _ROWS, zoom=60)
+        st_space("v", "1vh")
+        legend(_MSGS)
+        st_space("v", "1.5vh")
         kw = bs.keyword
         steps([
-            ("1", ("On mywork: ", (kw, "git switch -c feat/expense-type"), " — the Branch: line of the task.")),
-            ("2", ("On the branch: commit ", (kw, "test: …"), " (red), then ", (kw, "feat: …"), " (green), then ",
-                   (kw, "refactor: …"), " if any.")),
-            ("3", ((kw, "git switch mywork"), " then ", (kw, "git merge feat/expense-type"),
-                   ": « Fast-forward », mywork jumps to the task's last commit.")),
-            ("4", ("On mywork: commit ", (kw, "docs: update plan labels"), ", then the next task from step 1.")),
-        ], zoom=68)
+            ("1", ("On mywork: ", (kw, "git switch -c feat/expense-type"), " (the Branch: line of T1), commit msg2 "
+                   "(red), then msg3 (green). Nothing to refactor: no commit.")),
+            ("2", ((kw, "git switch mywork"), " then ", (kw, "git merge feat/expense-type"), ": « Fast-forward » = "
+                   "git only moves the name mywork forward; msg2 and msg3 are now mywork's history (same commits, "
+                   "not copies).")),
+            ("3", ("On mywork: commit msg4 (T1 [done], T2 [next]), then the next task from step 1.")),
+        ], zoom=60)
