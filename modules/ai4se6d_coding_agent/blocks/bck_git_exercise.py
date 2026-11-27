@@ -15,9 +15,10 @@ class BlockStyles:
     timer = Style.create(s.project.titles.stat + s.center_txt, "git_ex_timer")
 bs = BlockStyles
 
-_CODE_ZOOM = 109  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 102  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _STEPS = """\
+~/ai4se/ai4se-kit/tutor update   # first: today's notes; then reopen the tutor window
 cd ~/ai4se
 git clone https://github.com/nicolasguelfi/calcapp-starter calcapp
 cd calcapp && git checkout -b mywork j2-start && git merge origin/main && npm ci
@@ -55,6 +56,12 @@ _NOTES = [
      "the git command to throw away my changes in src/App.tsx, then run it and run the tests. » It shows each "
      "command before running it; accept if it asks permission."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
+    # First command of day 2's first exercise: the tutor window then knows today's recipes (NG, 2026-11-27)
+    ("Command — ~/ai4se/ai4se-kit/tutor update",
+     "Runs the course kit's tutor script with « update »: it downloads the latest kit (course notes, recovery "
+     "recipes, including today's git merge origin/main) with git pull, then checks GSE-One. Then close the tutor "
+     "window (/exit or Ctrl+C) and open it again with ~/ai4se/ai4se-kit/tutor: opencode reads its notes when a "
+     "session starts. Without it, the tutor gives yesterday's recipes."),
     ("Command — cd ~/ai4se",
      "cd = change directory: the terminal now works inside ~/ai4se, the course folder (~ = your home folder, "
      "/home/student in the course VM). Every course project is cloned here, so the tutor window can read it."),
@@ -109,7 +116,7 @@ def build():
                 "commit on a branch, break, restore.",
                 tag=t.div,
             )
-        st_space("v", "7vh")
+        st_space("v", "4vh")
         with st_zoom(120):
             with st_zoom(_CODE_ZOOM):
                 st_code(s.none, code=_STEPS, language="bash", line_numbers=False, font_size="24pt")
