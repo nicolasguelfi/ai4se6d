@@ -33,7 +33,7 @@ _NOTES = [
      "One command installs the course kit in ~/ai4se: it clones the ai4se-kit repository and runs "
      "setup-learner.sh."),
     ("What you get",
-     "tutor — an AI helper prepared by the trainer (step 8); the course syllabus and the GSE-One v0.93.4 docs; "
+     "tutor — an AI helper prepared by the trainer (step 8); the course syllabus and the GSE-One v0.93.5 docs; "
      "the default model for the workshops."),
     ("Your key stays yours",
      "The kit sets a default model, never your key: the key was connected in step 3."),
@@ -58,7 +58,7 @@ _NOTES = [
     ("Symbol — &&",
      "Runs the next command only if the previous one succeeded: if the clone fails, setup-learner.sh does not run."),
     ("Command — sh ~/ai4se/ai4se-kit/setup-learner.sh",
-     "sh runs a shell script, i.e. a text file of commands. setup-learner.sh: clones GSE-One v0.93.4 into "
+     "sh runs a shell script, i.e. a text file of commands. setup-learner.sh: clones GSE-One v0.93.5 into "
      "~/ai4se/gensem (read by the tutor), writes the tutor's folder list (~/.config/ai4se/tutor-paths), adds the "
      "course default model and safety settings to opencode's settings without overwriting yours. It never reads or "
      "writes keys. Safe to run again: it only completes what is missing."),
@@ -85,7 +85,7 @@ def build():
                 with l.item():
                     st_write(bs.body, (bs.cmd, "tutor"), " — an AI helper prepared by the trainer (step 8)")
                 with l.item():
-                    st_write(bs.body, "the course syllabus and the GSE-One v0.93.4 docs")
+                    st_write(bs.body, "the course syllabus and the GSE-One v0.93.5 docs")
                 with l.item():
                     st_write(bs.body, "the default model for the workshops (never your key)")
             # Kit 2026-11-22.4: the folder holding the kit is the course folder (ss2-ul-gse, NG).

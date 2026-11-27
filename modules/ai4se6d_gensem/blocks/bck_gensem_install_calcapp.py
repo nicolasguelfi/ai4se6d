@@ -1,4 +1,4 @@
-"""Slide — Install GSE-One v0.93.4 in your CalcApp folder (exercise E11, step 1, edition 2)."""
+"""Slide — Install GSE-One v0.93.5 in your CalcApp folder (exercise E11, step 1, edition 2)."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -15,9 +15,9 @@ bs = BlockStyles
 
 _GSE = (
     "cd ~/ai4se/calcapp && git switch -c chore/gse-one main\n"
-    "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.93.4/install.sh \\\n"
-    "  | GSE_PLATFORM=opencode GSE_VERSION=v0.93.4 sh\n"
-    "git add . && git commit -m \"chore: install GSE-One v0.93.4\"\n"
+    "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.93.5/install.sh \\\n"
+    "  | GSE_PLATFORM=opencode GSE_VERSION=v0.93.5 sh\n"
+    "git add . && git commit -m \"chore: install GSE-One v0.93.5\"\n"
     "git switch main && git merge --no-ff --no-edit chore/gse-one"
 )
 

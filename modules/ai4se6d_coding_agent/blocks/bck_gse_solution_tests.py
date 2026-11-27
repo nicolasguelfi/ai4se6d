@@ -22,12 +22,12 @@ _NOTES = [
      "/gse-produce builds each code task on its own branch as in the demo: the acceptance test first, run and "
      "seen failing, committed; then the code until it passes. Every test run is saved as a campaign report (TCP-NNN) in "
      "docs/sprints/sprint-NN/test-reports/, and the task's test_evidence in backlog.yaml points to it (status, "
-     "date, pass rate, coverage). That is the evidence /gse-deliver checks (GSE-One v0.93.4, spec §6.3)."),
+     "date, pass rate, coverage). That is the evidence /gse-deliver checks (GSE-One v0.93.5, spec §6.3)."),
     ("Word — worktree",
      "A second working folder of the same git repository, checked out on another branch: GSE-One gives each task "
      "its own folder (.worktrees/sprint-NN-type-name) on its own branch gse/sprint-NN/type/name, so two tasks never "
      "mix their files. Default setting git.strategy: worktree in .gse/config.yaml; branch-only = a branch without "
-     "a separate folder; none = no branch (GSE-One v0.93.4)."),
+     "a separate folder; none = no branch (GSE-One v0.93.5)."),
     ("Delivery is blocked",
      "While a requirement's tests have not been run and passed, delivery is blocked."),
     ("Ask the room",

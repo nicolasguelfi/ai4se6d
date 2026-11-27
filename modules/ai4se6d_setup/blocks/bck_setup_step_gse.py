@@ -1,4 +1,4 @@
-"""Slide — Installation step 5: install GSE-One, pinned to v0.93.4 (after opencode)."""
+"""Slide — Installation step 5: install GSE-One, pinned to v0.93.5 (after opencode)."""
 # @guideline: maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -21,16 +21,16 @@ _CODE_ZOOM = 140  # st_code font_size is not applied by Pygments: zoom instead
 # One block (folder + pinned install), split with "\" so no line wraps on screen.
 _GSE = (
     "mkdir -p ~/ai4se/gse-check && cd ~/ai4se/gse-check\n"
-    "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.93.4/install.sh \\\n"
-    "  | GSE_PLATFORM=opencode GSE_VERSION=v0.93.4 sh"
+    "curl -fsSL https://raw.githubusercontent.com/nicolasguelfi/gensem/v0.93.5/install.sh \\\n"
+    "  | GSE_PLATFORM=opencode GSE_VERSION=v0.93.5 sh"
 )
 
 _NOTES = [
     ("Trainer action",
-     "Learners do it — on their machine. Step 5 of the installation: everyone installs GSE-One v0.93.4 in "
+     "Learners do it — on their machine. Step 5 of the installation: everyone installs GSE-One v0.93.5 in "
      "~/ai4se/gse-check; wait until cat .gse/registry prints .opencode."),
     ("The message",
-     "GSE-One is installed now, pinned to v0.93.4, so that everyone has the same version for the rest of the "
+     "GSE-One is installed now, pinned to v0.93.5, so that everyone has the same version for the rest of the "
      "course."),
     ("Why a test folder",
      "GSE-One installs into a project folder: ~/ai4se/gse-check is only there to check that the install works."),
@@ -49,13 +49,13 @@ _NOTES = [
      "cd = change directory: the terminal now works inside that folder; the install goes into the current folder. "
      "&& runs cd only if mkdir succeeded."),
     ("Command — curl -fsSL (address of install.sh)",
-     "Downloads GSE-One's install script from GitHub, at the tag v0.93.4 in its address (a tag = a fixed, named "
+     "Downloads GSE-One's install script from GitHub, at the tag v0.93.5 in its address (a tag = a fixed, named "
      "version). -f = fail on a server error, -s = silent, -S = still show errors, -L = follow redirects. The \\ at "
      "the end of the line continues the command on the next line: copy the two lines together."),
-    ("Command — | GSE_PLATFORM=opencode GSE_VERSION=v0.93.4 sh",
+    ("Command — | GSE_PLATFORM=opencode GSE_VERSION=v0.93.5 sh",
      "| hands the downloaded script to sh, which runs it. NAME=value written just before a command gives a setting "
      "to that command only: GSE_PLATFORM=opencode = install for opencode (otherwise the script looks for the agents "
-     "it finds); GSE_VERSION=v0.93.4 = this exact version (otherwise the latest). It installs into the current "
+     "it finds); GSE_VERSION=v0.93.5 = this exact version (otherwise the latest). It installs into the current "
      "project folder, nothing in the home folder."),
     ("Command — cat .gse/registry",
      "cat prints the content of a file. .gse is the folder the installer created in the project (a name starting "
@@ -70,9 +70,9 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, "5 · GSE-One v0.93.4", tag=t.div, toc_lvl="1")
+                st_write(bs.heading, "5 · GSE-One v0.93.5", tag=t.div, toc_lvl="1")
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — 5 · GSE-One v0.93.4", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — 5 · GSE-One v0.93.5", entries=_NOTES,
                                  position="left", width="50vw")
         with st_zoom(140):
             st_write(bs.caption, "Needs opencode 2 (step 1). Installs into this test folder.", tag=t.div)

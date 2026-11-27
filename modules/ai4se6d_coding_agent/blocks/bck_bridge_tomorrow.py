@@ -26,7 +26,7 @@ _NOTES = [
     ("New habit",
      "Your work goes to GitHub, pushed before each break and every evening."),
     ("Before leaving",
-     "Keep the laptop as it is: opencode, the model key, GSE-One v0.93.4 and your tutor are all needed "
+     "Keep the laptop as it is: opencode, the model key, GSE-One v0.93.5 and your tutor are all needed "
      "tomorrow morning."),
     ("Ask the room",
      "« Is anyone's setup not working right now? Tell us tonight, not tomorrow morning. »"),
@@ -74,6 +74,6 @@ def build():
         with st_zoom(127):
             st_write(
                 bs.foot,
-                'Keep your laptop as it is: opencode, model key, GSE-One v0.93.4, your tutor.',
+                'Keep your laptop as it is: opencode, model key, GSE-One v0.93.5, your tutor.',
                 tag=t.div,
             )
