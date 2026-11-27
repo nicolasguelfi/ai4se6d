@@ -14,7 +14,13 @@ BLOCKS_QUALITY = [
     blocks.bck_gensem_command_form,
     blocks.bck_gensem_t6_cmd_tests,
     blocks.bck_gensem_t6_cmd_produce,
+    # GSE-One in git, commit graphs like day 2 (NG « OK série GSE », 2026-11-27): S0-S3 with /gse:produce
+    blocks.bck_gse_git_changes,
+    blocks.bck_gse_git_sprint_open,
+    blocks.bck_gse_git_one_task,
+    blocks.bck_gse_git_parallel,
     blocks.bck_gensem_t6_cmd_review,
+    blocks.bck_gse_git_review_fix,  # S4 — with /gse:review
     blocks.bck_gensem_sheet_testing_steps,
     blocks.bck_gensem_sheet_testing_check,
     # 11:45 — CCSET13 Measuring quality (theory 10 + solution 3 + E15 12 + debrief 5)

@@ -5,6 +5,11 @@ BLOCKS_DELIVERY = [
     # 13:15 — CCSET14 (theory 12 + solution 3), E16 (60 min), debrief (15 min)
     blocks.bck_delivery_title,
     blocks.bck_delivery_merge_strategies,
+    # GSE-One in git, S5-S8 — /gse:deliver and the quick path (NG « OK série GSE », 2026-11-27)
+    blocks.bck_gse_git_deliver_tasks,
+    blocks.bck_gse_git_deliver_main,
+    blocks.bck_gse_git_cleanup,
+    blocks.bck_gse_git_quick,
     blocks.bck_delivery_release,
     blocks.bck_delivery_maintenance,
     blocks.bck_delivery_retrospective,

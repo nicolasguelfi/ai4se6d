@@ -4,6 +4,7 @@ A graph is a list of rows; every row has the same number of cells, one per grid 
 a label column, then node / line / node / line … Cells:
     ("n", text, tone)      commit (circle with a short type: test, feat, docs …)
     ("m", text)            merge commit with two parents (half blue, half green)
+    ("m", text, fill)      same, other halves: fill = "main_integ" (blue / amber) or "integ_task" (amber / green)
     ("l", tone)            line between two commits of the same branch
     ("a", glyph, tone)     arrow between rows (↘ a branch leaves, ↗ it comes back)
     ("k", name, tone)      branch name chip (first column)
@@ -19,6 +20,8 @@ MAIN = s.project.tone_blue      # mywork, the main line
 TASK = s.project.tone_green     # task branches
 SIDE = s.project.tone_purple    # practice branch, never merged
 MERGE = s.project.tone_amber    # merge commit, tags
+INTEG = s.project.tone_amber    # GSE-One: the sprint integration branch (gse/sprint-NN/integration)
+FIX = s.project.tone_red        # GSE-One: a fix branch (gse/sprint-NN/fix/rvw-NNN)
 
 
 class GraphStyles:
@@ -29,6 +32,10 @@ class GraphStyles:
                         + Style("border-radius: 50%; width: 3.2em; height: 3.2em; line-height: 3.2em; padding: 0; "
                                 "margin: 0 auto; white-space: nowrap; display: block;", "gitg_node_shape"), "gitg_node")
     merge_fill = Style("background: linear-gradient(135deg, #7AB8F5 50%, #27AE60 50%);", "gitg_merge_fill")
+    merge_fills = {
+        "main_integ": Style("background: linear-gradient(135deg, #7AB8F5 50%, #F39C12 50%);", "gitg_merge_mi"),
+        "integ_task": Style("background: linear-gradient(135deg, #F39C12 50%, #27AE60 50%);", "gitg_merge_it"),
+    }
     glyph = Style.create(s.project.titles.body + s.bold + s.center_txt + Style("line-height: 1;", "gitg_glyph_lh"),
                          "gitg_glyph")
     chip = Style.create(s.project.titles.body + s.text.fonts.font_monospace + s.bold + s.center_txt
@@ -55,7 +62,8 @@ def draw(columns, rows, zoom=80):
                     if kind == "n":
                         st_write(cell[2].dot + gs.node, cell[1], tag=t.div)
                     elif kind == "m":
-                        st_write(MERGE.dot + gs.node + gs.merge_fill, cell[1], tag=t.div)
+                        fill = gs.merge_fills[cell[2]] if len(cell) > 2 else gs.merge_fill
+                        st_write(MERGE.dot + gs.node + fill, cell[1], tag=t.div)
                     elif kind == "l":
                         st_write(cell[1].line, "", tag=t.div)
                     elif kind == "a":
@@ -83,10 +91,10 @@ def steps(items, zoom=78):
                 pass  # right margin
 
 
-def legend(items, zoom=66):
+def legend(items, zoom=66, id_width=8):
     """The commit messages behind the msg ids of the graph: (id, message) rows (NG, 2026-11-27: ids on the
-    graph, real example messages below it)."""
-    cols_ = "3% 8% 86% 3%"
+    graph, real example messages below it). id_width = width of the id column, in % (wider for TASK-001)."""
+    cols_ = f"3% {id_width}% {94 - id_width}% 3%"
     cells = s.project.containers.rows(len(items), cols_, filled=(2, 3))
     mono = Style.create(s.project.titles.table_cell + s.text.fonts.font_monospace, "gitg_msg")
     with st_zoom(zoom), st_grid(cols=cols_, gap="0.4vh 0", cell_styles=cells) as g:
