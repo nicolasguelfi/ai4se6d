@@ -26,7 +26,8 @@ cd ~/ai4se && test ! -e calcapp-old && mv calcapp calcapp-old && mv calcapp-rest
 
 _NOTES = [
     ("Trainer action",
-     "Learners do it — on their machine. Only those who failed one of the 4 checks of the previous slide: they restart from "
+     "Learners do it — on their machine. Only those who failed one of the 4 checks of the previous slide, or who want "
+     "a clean start for Part 2: they restart from "
      "the tag j2-part1 now."),
     ("The message",
      "For whoever failed one of the 4 checks after lunch: restart from the tag j2-part1, the end of Part 1 (task T1 "
@@ -97,13 +98,13 @@ def build():
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
-            with h.cell(), st_zoom(80):
-                st_write(bs.heading, 'Catch-up: Tag j2-part1', tag=t.div, toc_lvl='+1')
+            with h.cell(), st_zoom(66):  # longer title: one line
+                st_write(bs.heading, 'Checks Failing, or Want a Clean Restart?', tag=t.div, toc_lvl='+1')  # was « Catch-up: Tag j2-part1 » (NG, 2026-11-27)
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Catch-up: Tag j2-part1", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Checks Failing, or Want a Clean Restart?", entries=_NOTES,
                                  position="left", width="50vw")
         with st_zoom(106):
-            st_write(bs.body, 'Restart from the end of Part 1 (task T1 done, tests green):', tag=t.div)
+            st_write(bs.body, 'Restart from the tag j2-part1 (T1 done, tests green):', tag=t.div)
             st_space("v", "2vh")
             with st_zoom(_CODE_ZOOM):
                 st_code(s.none, code=_CATCHUP, language="bash", line_numbers=False, font_size="26pt")   # one line per command at this zoom

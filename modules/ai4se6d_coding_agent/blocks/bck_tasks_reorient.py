@@ -67,9 +67,9 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, 'Back from Lunch: 4 Checks (5 min)', tag=t.div, toc_lvl='+1')  # was « Re-orientation » (NG « ok », 2026-11-27)
+                st_write(bs.heading, '4 Checks (5 min)', tag=t.div, toc_lvl='+1')  # was « Re-orientation »; no « lunch »: the timing may move (NG, 2026-11-27)
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Back from Lunch: 4 Checks", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — 4 Checks", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
 
