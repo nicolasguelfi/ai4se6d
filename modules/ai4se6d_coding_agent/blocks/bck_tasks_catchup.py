@@ -20,7 +20,8 @@ _CODE_ZOOM = 82  # code readable in the room; tuned by measure so the slide fill
 _CATCHUP = """\
 cd ~/ai4se
 git clone https://github.com/nicolasguelfi/calcapp-starter calcapp-restart
-cd calcapp-restart && git checkout -b mywork j2-part1 && git merge --no-edit origin/main && npm ci"""
+cd calcapp-restart && git checkout -b mywork j2-part1 && git merge --no-edit origin/main && npm ci
+cd ~/ai4se && mv calcapp calcapp-old && mv calcapp-restart calcapp   # opencode closed"""
 
 _NOTES = [
     ("Trainer action",
@@ -41,7 +42,7 @@ _NOTES = [
     ("Or ask opencode — not here",
      "No prompt on this slide: the catch-up starts from a new clone in a new folder, and opencode works in the "
      "folder where it was started. Once opencode runs in the new folder, it can copy back and commit: « Give me "
-     "the commands to copy docs/plan.md and AGENTS.md from ~/ai4se/calcapp into this project and commit them as "
+     "the commands to copy docs/plan.md and AGENTS.md from ~/ai4se/calcapp-old into this project and commit them as "
      "'docs: my plan and rules', then run them. »"),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — cd ~/ai4se",
@@ -64,16 +65,22 @@ _NOTES = [
      "Adds the starter updates published after the course tags (AGENTS.md git rules, quality kit). j2-part1 is not "
      "an ancestor of the starter's main, so git makes a merge commit; --no-edit keeps its default message instead "
      "of opening an editor. Tested: no conflict. Then npm ci."),
+    # Swap the folders after a restart, so every later command (~/ai4se/calcapp) works as written (NG « ok », 2026-11-27)
+    ("Command — swap the folders",
+     "Quit opencode first (/exit or Ctrl+C). cd ~/ai4se && mv calcapp calcapp-old && mv calcapp-restart calcapp: "
+     "mv (old name) (new name) renames a folder. Your old work stays in ~/ai4se/calcapp-old; the fresh copy "
+     "becomes ~/ai4se/calcapp, so every later command of the slides works as written. Then cd ~/ai4se/calcapp && "
+     "opencode. calcapp-old already exists (second restart)? Use calcapp-old2."),
     ("Command — npm ci",
      "Installs the project's libraries (into node_modules/) exactly at the versions of package-lock.json. ci = « "
      "clean install »: it deletes any old node_modules first. Needed once per fresh clone, before npm run "
      "test:run or npm run dev."),
     ("Command — copy back plan and rules",
-     "From inside calcapp-restart: cp ~/ai4se/calcapp/docs/plan.md docs/ then cp ~/ai4se/calcapp/AGENTS.md . — cp"
+     "From inside ~/ai4se/calcapp (after the swap): cp ~/ai4se/calcapp-old/docs/plan.md docs/ then cp ~/ai4se/calcapp-old/AGENTS.md . — cp"
      " (source) (destination) copies a file; . = the current folder; an existing file of the same name is "
      "replaced without warning. Then git add docs/plan.md AGENTS.md && git commit -m \"docs: my plan and rules\"."),
     ("Command — opencode (in the new folder)",
-     "Quit the old opencode (Ctrl+C or /exit), then cd ~/ai4se/calcapp-restart and type opencode: the agent works"
+     "Quit the old opencode (Ctrl+C or /exit), then, after the swap, cd ~/ai4se/calcapp and type opencode: the agent works"
      " in the folder where it is started."),
     ("Trap — the tag's own plan",
      "j2-part1 already contains a docs/plan.md (the reference plan): copying yours back replaces it. Check which "
@@ -107,7 +114,7 @@ def build():
                         ' and ',
                         (bs.cmd, 'AGENTS.md'),
                         ' from ',
-                        (bs.cmd, '~/ai4se/calcapp'),
+                        (bs.cmd, '~/ai4se/calcapp-old'),
                     )
                 with l.item():
                     st_write(bs.body, 'In your docs/plan.md, mark [done] the tasks ', (bs.cmd, 'git log --oneline'),

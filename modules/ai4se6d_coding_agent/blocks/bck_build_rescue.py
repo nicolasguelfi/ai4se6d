@@ -30,13 +30,14 @@ _NOTES = [
      "Only the participant's own work: docs/plan.md and AGENTS.md, copied back from ~/ai4se/calcapp and "
      "committed, then step 1 of the exercise again."),
     ("The trap",
-     "Running opencode in the old folder afterwards: from now on, everything happens in calcapp-restart."),
+     "Running opencode in the old folder afterwards. Hence the swap: once renamed, the fresh copy is "
+     "~/ai4se/calcapp again and the broken one is calcapp-old."),
     ("Link to the rest of the day",
      "Same mechanism after lunch with the tag j2-part1: a recovery tag is a safety net, not a failure."),
     ("Or ask opencode — not here",
      "No prompt on this slide: the rescue starts from a new clone in a new folder, and opencode works in the "
-     "folder where it was started (the broken one). Once opencode runs in calcapp-restart, it can copy back and "
-     "commit: « Give me the commands to copy docs/plan.md and AGENTS.md from ~/ai4se/calcapp into this project "
+     "folder where it was started (the broken one). Once opencode runs in ~/ai4se/calcapp (after the swap), it can copy back and "
+     "commit: « Give me the commands to copy docs/plan.md and AGENTS.md from ~/ai4se/calcapp-old into this project "
      "and commit them as 'docs: my plan and rules', then run them. »"),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — cd ~/ai4se",
@@ -58,24 +59,30 @@ _NOTES = [
     ("Command — git merge origin/main",
      "Adds the starter updates published after the tag (AGENTS.md git rules, quality kit): j2-start is an ancestor "
      "of the starter's main, so it is a fast-forward — mywork just moves forward. Then npm ci."),
+    # Swap the folders after a restart, so every later command (~/ai4se/calcapp) works as written (NG « ok », 2026-11-27)
+    ("Command — swap the folders",
+     "Quit opencode first (/exit or Ctrl+C). cd ~/ai4se && mv calcapp calcapp-old && mv calcapp-restart calcapp: "
+     "mv (old name) (new name) renames a folder. Your old work stays in ~/ai4se/calcapp-old; the fresh copy "
+     "becomes ~/ai4se/calcapp, so every later command of the slides works as written. Then cd ~/ai4se/calcapp && "
+     "opencode. calcapp-old already exists (second restart)? Use calcapp-old2."),
     ("Command — npm ci",
      "Installs the project's libraries (into node_modules/) exactly at the versions of package-lock.json. ci = « "
      "clean install »: it deletes any old node_modules first. Needed once per fresh clone, before npm run "
      "test:run or npm run dev."),
     ("Command — copy back plan and rules",
-     "From inside calcapp-restart: cp ~/ai4se/calcapp/docs/plan.md docs/ then cp ~/ai4se/calcapp/AGENTS.md . — cp"
+     "From inside ~/ai4se/calcapp (after the swap): cp ~/ai4se/calcapp-old/docs/plan.md docs/ then cp ~/ai4se/calcapp-old/AGENTS.md . — cp"
      " (source) (destination) copies a file; . = the current folder; an existing file of the same name is "
      "replaced without warning. Then git add docs/plan.md AGENTS.md && git commit -m \"docs: my plan and rules\"."),
     ("Command — opencode (in the new folder)",
-     "Quit the old opencode (Ctrl+C or /exit), then cd ~/ai4se/calcapp-restart and type opencode: the agent works"
-     " in the folder where it is started."),
+     "After the swap: cd ~/ai4se/calcapp and type opencode — the agent works in the folder where it is started."),
 ]
 
 
 _RESCUE = """\
 cd ~/ai4se
 git clone https://github.com/nicolasguelfi/calcapp-starter calcapp-restart
-cd calcapp-restart && git checkout -b mywork j2-start && git merge origin/main && npm ci"""
+cd calcapp-restart && git checkout -b mywork j2-start && git merge origin/main && npm ci
+cd ~/ai4se && mv calcapp calcapp-old && mv calcapp-restart calcapp   # opencode closed"""
 
 
 def build():
@@ -89,10 +96,10 @@ def build():
                                  position="left", width="50vw")
         with st_zoom(116):
             st_write(bs.body, "Don't fight a broken setup: restart from the course's clean start.", tag=t.div)
-            st_space("v", "3vh")
+            st_space("v", "1.5vh")
             with st_zoom(_CODE_ZOOM):
                 st_code(s.none, code=_RESCUE, language="bash", line_numbers=False, font_size="26pt")   # one line per command at this zoom
-            st_space("v", "3vh")
+            st_space("v", "1.5vh")
             with st_list(list_type=lt.unordered, l_style=bs.body, li_style=bs.body,
                          text_align="left", item_gap=0.6) as l:
                 with l.item():
@@ -103,9 +110,9 @@ def build():
                         ' and ',
                         (bs.cmd, 'AGENTS.md'),
                         ' from ',
-                        (bs.cmd, '~/ai4se/calcapp'),
+                        (bs.cmd, '~/ai4se/calcapp-old'),
                     )
                 with l.item():
                     st_write(bs.body, 'Commit them, then restart at step 1 of the exercise')
-            st_space("v", "3vh")
-            st_write(bs.foot, 'Your old work stays in ~/ai4se/calcapp. From now on, run opencode in calcapp-restart.', tag=t.div)
+            st_space("v", "1.5vh")
+            st_write(bs.foot, 'Your old work stays in ~/ai4se/calcapp-old. Then: cd ~/ai4se/calcapp && opencode.', tag=t.div)
