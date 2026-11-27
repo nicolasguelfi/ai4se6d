@@ -1,9 +1,9 @@
 """Slide — GSE-One in git (S7): cleanup after delivery, and how to undo (NG « OK série GSE », 2026-11-27).
 
 /gse:deliver Step 0 (backup tag class 2, before each task branch is deleted), Step 5 (cleanup), Step 8 (backup tags
-older than backup_retention_days = 30 removed at the next delivery). Order drawn as corrected by ss2-ul-gse, who
-reproduced two problems of deliver.md Step 5 (2026-11-27): git branch -d refuses a branch still checked out in a
-worktree (so: worktree first), and refuses a squashed task branch (« not fully merged »). GSE-One patch proposed to NG.
+older than backup_retention_days = 30 removed at the next delivery). Order as fixed in GSE-One v0.93.5 (gensem commit
+1c026fe, 2026-11-27): git worktree remove first (git branch -d refuses a branch still open in a worktree), then -D for
+a squashed task branch (-d refuses it: « not fully merged »).
 """
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
@@ -59,9 +59,10 @@ _NOTES = [
      "still open in a folder. 3. git branch -D gse/sprint-01/feat/edit-expense — -D (forced) because a squashed task "
      "branch is not « merged » for git; the tag keeps its commits. Then git branch -d gse/sprint-01/integration "
      "(merged into main by M: -d is enough)."),
-    ("Known gap in GSE-One",
-     "deliver.md Step 5 currently lists git branch -d before git worktree remove; ss2-ul-gse reproduced both refusals "
-     "(2026-11-27) and proposed the patch. This slide shows the order that works."),
+    ("Fixed in GSE-One v0.93.5",
+     "Up to v0.93.4, deliver.md Step 5 ran git branch -d before git worktree remove, and -d after a squash: git "
+     "refused both. Corrected in v0.93.5: worktree remove, then the -deleted tag, then git branch -d after merge or "
+     "rebase, -D after squash (same for the sprint branch if it is squashed into main)."),
     ("Undo the delivery",
      "git checkout main && git reset --hard gse-backup/sprint-01-pre-main-merge: main is back on v0.1, as if the "
      "delivery never happened. reset --hard also throws away uncommitted changes of the folder: commit first."),
