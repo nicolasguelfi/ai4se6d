@@ -43,11 +43,13 @@ _DEF_TITLE_ZOOM = 200   # Commit / Branch / Merge titles (NG: twice as big)
 # One column per position: N = commit, L = line, . = empty, D/U = branch leaves / comes back
 _COLS = "2.2fr 1fr 0.55fr 1fr 0.55fr 1fr 0.55fr 1fr 0.55fr 1fr 0.55fr 1fr 0.55fr 1fr 0.55fr 1fr"
 # main line: (kind, text, label)
-_MAIN_ROW = [("tag", "mywork", ""), ("N", "c1", "j2-start"), ("L",), ("N", "c2", "plan"), ("L",),
-             ("N", "c3", "expense"), ("L",), ("L",), ("L",), ("N", "c4", "fix total"), ("L",),
-             ("N", "c5", "style"), ("L",), ("M", "M", ""), ("L",), ("N", "c8", "continue")]
-_TASK_ROW = [("tag", "feat/add-history", ""), (".",), (".",), (".",), (".",), (".",), (".",), ("N", "c6", "test: history"),
-             ("L",), ("N", "c7", "feat: history"), ("L",), ("L",), (".",), (".",), (".",), (".",)]
+# Commit labels use the prefixes of « Conventions » (NG « ok », 2026-11-27)
+_MAIN_ROW = [("tag", "mywork", ""), ("N", "c1", "j2-start"), ("L",), ("N", "c2", "docs: plan"), ("L",),
+             ("N", "c3", "feat: item"), ("L",), ("L",), ("L",), ("N", "c4", "fix: total"), ("L",), ("L",),
+             ("L",), ("M", "M", ""), ("L",), ("N", "c8", "next task")]
+# The task branch shows the whole TDD cycle: red (test:), green (feat:), refactor (refactor:)
+_TASK_ROW = [("tag", "feat/add-history", ""), (".",), (".",), (".",), (".",), (".",), (".",), ("N", "c5", "test: red"),
+             ("L",), ("N", "c6", "feat: green"), ("L",), ("N", "c7", "refactor:"), (".",), (".",), (".",), (".",)]
 # Row between the two lines: the branch leaves after c3 (column 6) and comes back into M (column 12)
 _BRANCH_ARROWS = {6: "↘", 12: "↗"}
 
@@ -59,13 +61,29 @@ _DEFS = [
 
 _NOTES = [
     ("Trainer action",
-     "Read and comment — nothing to type. Follow the green line with your finger: it leaves mywork after c3, gets two "
-     "commits, comes back at M. Learners create their own branch in the Git exercise."),
+     "Read and comment — nothing to type. Follow the green line with your finger: it leaves mywork after c3, gets three "
+     "commits (red, green, refactor), comes back at M. Learners create their own branch in the Git exercise."),
     ("The message",
      "Third habit: one branch per task. The agent never works directly on your main line."),
     ("Read the graph",
      "Blue = your main line (mywork), c1 … c8 = commits in time order. Green = the task branch feat/add-history: "
-     "c6 and c7 are made on it while mywork can still move (c4, c5). M = the merge commit: it joins both lines."),
+     "one TDD cycle, c5 test: (red), c6 feat: (green), c7 refactor:, while mywork can still move (c4). M = the "
+     "merge commit: it joins both lines. Plan, red, green, refactor are commits inside ONE branch, not branches."),
+    ("Who made c4?",
+     "The graph shows the order of the commits, not where you were: a git switch leaves no trace in the history. "
+     "Alone, one folder (day 2): during the task you found an urgent bug — git switch mywork, fix, commit c4, then "
+     "git switch feat/add-history and go on; never two branches at once in one folder. Alone, in parallel: one "
+     "folder per branch with git worktree add, one opencode session in each (GSE-One, from day 3). In a team: c4 "
+     "is a teammate's work merged into main while you worked on your branch — that is where conflicts come "
+     "from."),
+    ("When to branch — alone / in a team",
+     "Branch when one answer is yes: several commits? may fail and be thrown away? may be interrupted? will be "
+     "reviewed before you keep it? One branch = one task of the plan. Alone: the main line stays green and usable, "
+     "a failed agent attempt goes with one command (git branch -D); a tiny safe change (a typo) can be committed "
+     "directly, and the plan itself goes on the main line (docs: plan). In a team: mandatory — main is usually "
+     "protected; each branch ends in a pull request, reviewed and tested before the merge, so the branch is also "
+     "the unit of review; keep branches short-lived (one or two days) or main drifts away and conflicts grow; "
+     "even the plan goes through a branch, since the team validates it."),
     ("How",
      "git switch -c feat/add-history (name it after your task) creates the branch. It works: merge it back. It does "
      "not: delete it — nothing is lost."),
