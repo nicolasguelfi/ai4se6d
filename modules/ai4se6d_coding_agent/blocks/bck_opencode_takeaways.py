@@ -24,6 +24,10 @@ _NOTES = [
      "@ the right files, never secrets, /new per task."),
     ("Plan, then build",
      "Shift+Tab: plan first, build second. And a ticked todo is not done: tests + reviewed diff."),
+    # The agent's todo list vs docs/plan.md (NG « ok », 2026-11-27)
+    ("Agent's todo — not docs/plan.md",
+     "This is opencode's own list, not docs/plan.md. opencode's todo list lives inside opencode, not in your repo: "
+     "not committed, not shared. docs/plan.md is the plan you commit."),
     ("Tools",
      "MCP adds tools; Context7 adds live docs — enable few."),
     ("Ask the room",
@@ -51,7 +55,7 @@ def build():
             ((bs.keyword, "Structure + AGENTS.md"), " = your standing prompt"),
             ((bs.keyword, "Context is finite"), ": @ the right files, no secrets, /new per task"),
             ((bs.keyword, "Shift+Tab"), ": plan first, build second"),
-            ((bs.keyword, "Todo ticked ≠ done"), ": tests + reviewed diff"),
+            ((bs.keyword, "Agent's todo ticked ≠ done"), ": tests + reviewed diff"),
             ((bs.keyword, "MCP"), " adds tools; ", (bs.keyword, "Context7"), " adds live docs"),
         ]
         cols = "5% 5% 85% 5%"
