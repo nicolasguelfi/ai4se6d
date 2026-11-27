@@ -40,8 +40,9 @@ _NOTES = [
      "and test checks and name the next task. npm run dev stays in a terminal: it keeps running."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — cd ~/ai4se/calcapp",
-     "cd = change directory: the terminal now works in your project folder (~ = your home folder). Those who "
-     "restarted this morning use ~/ai4se/calcapp-restart instead."),
+     "cd = change directory: the terminal now works in your project folder (~ = your home folder). Same folder "
+     "for those who restarted this morning: the restart swaps the folders, so the project is ~/ai4se/calcapp "
+     "again (the old one is ~/ai4se/calcapp-old)."),
     ("Command — git status",
      "Read-only: changes nothing. Shows the branch you are on (« On branch mywork ») and what changed since the "
      "last commit: « Changes not staged » (modified, not yet added), « Changes to be committed » (added with git "
@@ -66,9 +67,9 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, 'Re-orientation (5 min)', tag=t.div, toc_lvl='+1')
+                st_write(bs.heading, 'Back from Lunch: 4 Checks (5 min)', tag=t.div, toc_lvl='+1')  # was « Re-orientation » (NG « ok », 2026-11-27)
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Re-orientation", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Back from Lunch: 4 Checks", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "3vh")
 

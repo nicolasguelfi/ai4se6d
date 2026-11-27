@@ -26,16 +26,16 @@ cd ~/ai4se && test ! -e calcapp-old && mv calcapp calcapp-old && mv calcapp-rest
 
 _NOTES = [
     ("Trainer action",
-     "Learners do it — on their machine. Only those who failed a re-orientation check: they restart from "
+     "Learners do it — on their machine. Only those who failed one of the 4 checks of the previous slide: they restart from "
      "the tag j2-part1 now."),
     ("The message",
-     "For whoever failed a re-orientation check: restart from the tag j2-part1, the end of Part 1 (task T1 "
+     "For whoever failed one of the 4 checks after lunch: restart from the tag j2-part1, the end of Part 1 (task T1 "
      "done, tests green; its plan already marks T1 [done] and T2 [next])."),
     ("What the commands do",
      "Clone the starter into a new folder (calcapp-restart), create mywork from j2-part1, install the exact "
      "dependencies with npm ci. The old folder stays as it was."),
     ("What to carry over",
-     "docs/plan.md and AGENTS.md from ~/ai4se/calcapp — the participant's own plan and rules — then skip the "
+     "docs/plan.md and AGENTS.md from ~/ai4se/calcapp-old — the participant's own plan and rules — then skip the "
      "tasks the tag already contains."),
     ("The tone",
      "A recovery tag is a safety net, not a failure: the goal of the afternoon is the loop and the review, "
