@@ -27,6 +27,10 @@ _NOTES = [
      "the call to the MCP server. 5. opencode returns the result to the model, which goes on: another call or the "
      "final answer. opencode never picks a tool itself: it controls what is offered (enabled servers, denied "
      "tools) and what may run (permissions)."),
+    # Built-in tools vs MCP (NG « ok », 2026-11-27)
+    ("git, gh and files: no MCP",
+     "git, gh and files need no MCP: the agent runs them through its built-in bash and file tools. MCP adds what "
+     "it lacks: live docs, a browser, a database."),
     ("How to add one",
      "opencode mcp add writes the server under mcp.servers in opencode.json — no hand-written JSON."),
     ("The trap",
