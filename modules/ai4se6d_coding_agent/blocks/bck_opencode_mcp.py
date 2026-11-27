@@ -31,6 +31,13 @@ _NOTES = [
     ("git, gh and files: no MCP",
      "git, gh and files need no MCP: the agent runs them through its built-in bash and file tools. MCP adds what "
      "it lacks: live docs, a browser, a database."),
+    # Where an MCP server runs (NG « ok », 2026-11-27)
+    ("Where a server runs",
+     "Two cases. Local: opencode itself starts a program on your machine (e.g. through npx) when it starts, talks to "
+     "it through its standard input and output, and stops it when opencode closes. Remote: a web service reached "
+     "over HTTP — nothing runs on your machine, opencode sends each call to its address. Context7 in this course is "
+     "remote: opencode mcp add context7 --url https://mcp.context7.com/mcp. No mcp section in opencode.json = no "
+     "server at all."),
     ("How to add one",
      "opencode mcp add writes the server under mcp.servers in opencode.json — no hand-written JSON."),
     ("The trap",
