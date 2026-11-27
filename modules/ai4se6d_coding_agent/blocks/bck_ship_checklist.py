@@ -20,8 +20,8 @@ _NOTES = [
      "A look back at the day: in one day, CalcApp v0.1 went from a starter to a tagged release, and every step "
      "was decided by you."),
     ("What is in v0.1",
-     "Two pages with navigation; adding an expense that survives a refresh; 4+ tests, each written before its "
-     "code; a review with triage, fixes and one reasoned refusal; a README with your Why; the tag v0.1."),
+     "The tasks of your plan, one branch each; every test written before its code (aligned with the kit, Part 2 "
+     "follows the learner's plan — NG « ok », 2026-11-27); a review with triage, fixes and one reasoned refusal; a README with your Why; the tag v0.1."),
     ("The point",
      "You drove, the agent typed. That is VibeEngineering: the speed of the agent, the decisions of the "
      "engineer."),
@@ -33,9 +33,8 @@ _NOTES = [
 ]
 
 _ITEMS = [
-    ('Two pages with navigation',),
-    ('Add an expense — it survives a refresh',),
-    ('4+ tests, each written ', (bs.keyword, 'before'), ' its code'),
+    ('The tasks of ', (bs.keyword, 'your'), ' plan, one branch each',),
+    ('Every test written ', (bs.keyword, 'before'), ' its code'),
     ('A review: triage, fixes, one reasoned refusal',),
     ('A README with ', (bs.keyword, 'your'), ' Why'),
     ('A tag: ', (bs.cmd, 'v0.1')),
