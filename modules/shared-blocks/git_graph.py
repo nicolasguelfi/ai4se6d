@@ -1,4 +1,4 @@
-"""Commit graphs drawn with StreamTeX grids — shared by the day-2 git graph slides (NG, 2026-11-27).
+"""Commit graphs drawn with StreamTeX grids — shared by the day-2 git graph slides (coding_agent) and the GSE-One git slides (gensem) (NG, 2026-11-27).
 
 A graph is a list of rows; every row has the same number of cells, one per grid column. Columns alternate:
 a label column, then node / line / node / line … Cells:
@@ -13,7 +13,7 @@ a label column, then node / line / node / line … Cells:
 """
 from streamtex import *
 from streamtex.enums import Tags as t
-from custom.styles import Styles as s
+from shared_styles import Styles as s
 
 MAIN = s.project.tone_blue      # mywork, the main line
 TASK = s.project.tone_green     # task branches

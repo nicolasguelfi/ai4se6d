@@ -7,7 +7,7 @@ rules: docs: euro rule on mywork. Plan workshop: docs: v0.1 plan on mywork. Mess
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from custom.git_graph import MAIN, SIDE, cols, draw, legend, steps
+from git_graph import MAIN, SIDE, cols, draw, legend, steps
 from shared_widgets import st_hover_tooltip
 
 

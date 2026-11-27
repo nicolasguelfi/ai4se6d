@@ -8,7 +8,7 @@ because uncommitted changes follow you onto the other branch (ss2-ul-gse remark,
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from custom.git_graph import MAIN, TASK, cols, draw, legend, steps
+from git_graph import MAIN, TASK, cols, draw, legend, steps
 from shared_widgets import st_hover_tooltip
 
 

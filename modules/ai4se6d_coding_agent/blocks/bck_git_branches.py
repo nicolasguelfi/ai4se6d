@@ -10,7 +10,7 @@ bck_git_main_moves).
 from streamtex import *
 from streamtex.enums import Tags as t
 from custom.styles import Styles as s
-from custom.git_graph import MAIN, TASK, cols, draw, legend, steps
+from git_graph import MAIN, TASK, cols, draw, legend, steps
 from shared_widgets import st_hover_tooltip
 
 
