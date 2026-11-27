@@ -27,7 +27,7 @@ _NOTES = [
      "Why this design, known limits, trade-offs you accepted: decisions that are not in the code. Only you "
      "know them."),
     ("Read the example",
-     "The agent states a fact (saveExpenses stores the list under calcapp-data). You state the reason: "
+     "The agent states a fact (saveExpenses stores the list under calcapp.expenses). You state the reason: "
      "localStorage on purpose, v0.1 is single-user and offline, no backend until the plan needs one."),
     ("Ask the room",
      "« Which sentence of your README could only you have written? »"),
@@ -79,7 +79,7 @@ def build():
             cells = s.project.containers.rows(2, cols, filled=(2, 3))
             with st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
                 for label, parts in [
-                    ('Agent: ', ('“saveExpenses stores the list under ', (bs.cmd, 'calcapp-data'), '.”')),
+                    ('Agent: ', ('“saveExpenses stores the list under ', (bs.cmd, 'calcapp.expenses'), '.”')),
                     ('You: ', ('“localStorage on purpose: v0.1 is single-user and offline — no backend until '
                                'the plan needs one.”',)),
                 ]:

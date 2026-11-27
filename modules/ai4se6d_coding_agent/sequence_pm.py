@@ -28,11 +28,11 @@ BLOCKS_PM = [
     blocks.bck_tasks_catchup,  # Catch-up — restart from tag j2-part1
     blocks.bck_tasks_loop,  # The same loop for every task
     blocks.bck_tasks_loop2,  # The same loop for every task, 2/2 (mutant, review, merge)
-    blocks.bck_tasks_routing,  # Task — routing and navigation (prompts)
+    blocks.bck_tasks_routing,  # Example prompts — two pages (T4 of the reference plan)
     blocks.bck_tasks_routing_review,  # Review checklist — routing
-    blocks.bck_tasks_data,  # Task — data layer (prompts)
-    blocks.bck_tasks_data_review,  # Review checklist — data layer
-    blocks.bck_tasks_ui,  # Task — minimal UI (10 minutes max)
+    blocks.bck_tasks_data,  # Example prompts — save and load (T3 of the reference plan)
+    blocks.bck_tasks_data_review,  # Review checklist — storage, form, add flow (T3, T5, T6)
+    blocks.bck_tasks_ui,  # Example prompt — styling task, only if the plan has one (10 minutes max)
     blocks.bck_tasks_ex_steps,  # Exercise sheet — next tasks of your plan (goal and steps)
     blocks.bck_tasks_ex_steps2,  # Exercise sheet — next tasks of your plan, 2/2 (REFACTOR, merge, labels)
     blocks.bck_tasks_ex_check,  # Exercise sheet — Part 2: done when, mid-point, if stuck

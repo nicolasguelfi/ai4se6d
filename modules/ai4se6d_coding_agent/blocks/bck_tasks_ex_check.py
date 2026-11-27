@@ -20,35 +20,34 @@ bs = BlockStyles
 _NOTES = [
     ("Trainer action",
      "Learners do it — on their machine. Same exercise: they check themselves against « Done when »; walk "
-     "around at 13:55 and ask who has not merged routing yet."),
+     "around at 13:55 and ask who has not merged their first Part-2 task yet."),
     ("The message",
      "How a participant knows Part 2 is finished, where they should be at mid-time, and what to do when stuck."),
     ("Done when",
-     "Three observable facts: npm run test:run shows at least 4 passing tests; the app has two pages; an added expense "
-     "survives a browser refresh."),
+     "Measured against the participant's own plan, not a fixed feature list: every task merged into mywork is "
+     "[done] in docs/plan.md, the next one is [next], and npm run test:run is green. How many tasks depends on the "
+     "plan (the reference plan reaches T4-T5 by 14:20)."),
     ("Mid-point 13:55",
-     "Routing merged into mywork. Walk around at 13:55 and ask who is not there yet — now, not at 14:20."),
+     "The first Part-2 task of the plan merged into mywork. Walk around at 13:55 and ask who is not there yet — "
+     "now, not at 14:20."),
     ("If stuck — in this order",
      "The tutor window first, then the recovery tag j2-part1, then a raised hand."),
     ("Ahead?",
-     "Delete an expense (onDelete) with the same loop: test first, then code, then review."),
+     "The next [todo] task of the plan, same loop: test first, then code, then review."),
     ("Or ask opencode",
-     "Under « Done when », the test check asked to opencode (build agent). The two pages and the refresh test stay "
-     "in the browser. No prompt for the j2-part1 recovery: it starts from a new clone."),
+     "Under « Done when », the test check asked to opencode (build agent). No prompt for the j2-part1 recovery: "
+     "it starts from a new clone."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — npm run test:run",
      "Runs all the tests once with Vitest (script « vitest run » of package.json) and gives the prompt back; "
      "green = all pass, red = at least one fails. npm test would stay in watch mode in your terminal (q quits)."),
-    ("Check — « routing merged into mywork »",
-     "git switch mywork then git log --oneline: the routing commits (test: …, feat: …) appear in the list. git "
+    ("Check — « task merged into mywork »",
+     "git switch mywork then git log --oneline: the task's commits (test: …, feat: …) appear in the list. git "
      "branch --merged lists the branches already merged into the current one."),
     ("Tag — j2-part1",
      "A tag is a fixed label on one commit — here a checkpoint of the course: j2-start (start of day 2), j2-part1"
      " (end of Part 1), j2-v0.1 (v0.1 reference). Restart from it with the catch-up commands (clone into a new "
      "folder, git checkout -b mywork j2-part1, npm ci)."),
-    ("Words — onDelete",
-     "The function ExpenseItem calls when its delete button is clicked; the « ahead » task wires it so that an "
-     "expense can be removed (and removed from localStorage)."),
 ]
 
 
@@ -67,7 +66,7 @@ def build():
                 bs.body,
                 (bs.done_label, 'Done when: '),
                 (bs.cmd, 'npm run test:run'),
-                ' shows at least 4 passing tests; the app has two pages; an added expense survives a browser refresh.',
+                ' is green; every task you merged is [done] in docs/plan.md and the next one is [next].',
             )
         st_space("v", "0.6vh")  # the test check asked to opencode — build agent (NG, 2026-11-25)
         st_ask_opencode("Give me the command to run the tests and count the passing ones, then run it.", zoom=80,
@@ -76,11 +75,10 @@ def build():
 
         # One row per situation (label | what to do), alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ('Mid-point (13:55): ', ('your routing task is merged into ', (bs.cmd, 'mywork'), '. Not yet? Ask now.')),
+            ('Mid-point (13:55): ', ('your first Part-2 task is merged into ', (bs.cmd, 'mywork'), '. Not yet? Ask now.')),
             ('If stuck: ', ('1. ', 'your tutor window', '  2. recovery tag ', (bs.cmd, 'j2-part1'),
                             '  3. raise your hand')),
-            ('Finished early? ', ('add one more task — delete an expense (the ', (bs.cmd, 'onDelete'),
-                                  ' handler) — with the same steps.')),
+            ('Finished early? ', ('take the next ', (bs.cmd, '[todo]'), ' task of your plan, with the same steps.')),
         ]
         cols = "5% 22% 68% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2, 3))

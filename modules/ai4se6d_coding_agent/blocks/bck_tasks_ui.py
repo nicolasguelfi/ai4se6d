@@ -19,17 +19,17 @@ _CODE_ZOOM = 104  # code readable in the room; tuned by measure so the slide fil
 
 _UI = """\
 Add minimal plain CSS in src/App.css: horizontal nav bar, Dashboard
-list (description, category, amount, date) with a total, labelled
+list (category, amount, date) with a total, labelled
 form fields with spacing, centred layout with a max-width.
 No animations, no CSS library. Keep all tests green."""
 
 _NOTES = [
     ("Trainer action",
-     "Read and comment — nothing to type. Show the one CSS prompt and its 10-min cap; learners run it as "
-     "the last task of the 13:30 exercise."),
+     "Read and comment — nothing to type. Show the one CSS prompt and its 10-min cap; only for learners whose "
+     "plan has a styling task (T7 « Minimal styling » in docs/plan-example.md; the reference plan has none)."),
     ("The message",
-     "The last task of Part 2, capped at 10 minutes: plain CSS so that the app is readable and functional — "
-     "not production-ready."),
+     "If your plan has a styling task: capped at 10 minutes, plain CSS so that the app is readable and "
+     "functional — not production-ready."),
     ("One prompt, no RED",
      "Pure styling has no test: here the rule is that all existing tests stay green after the change."),
     ("The prompt's limits",
@@ -39,8 +39,8 @@ _NOTES = [
      "Polishing the look for half an hour: the time box protects the review section at 14:30."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Prompt — minimal UI",
-     "Plain CSS (no framework) in one file, src/App.css: a horizontal nav bar, the Dashboard list (description, "
-     "category, amount, date) with a total, labelled form fields with spacing, a centred layout with a max-width "
+     "Plain CSS (no framework) in one file, src/App.css: a horizontal nav bar, the Dashboard list (category, "
+     "amount, date — no description field in v0.1) with a total, labelled form fields with spacing, a centred layout with a max-width "
      "(the content stops growing on wide screens). « No animations, no CSS library » forbids extras; « Keep all "
      "tests green » = run npm run test:run after the change."),
 ]
@@ -51,16 +51,16 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, 'Task: Minimal UI', tag=t.div, toc_lvl='+1')
+                st_write(bs.heading, 'Example Prompt: Styling Task', tag=t.div, toc_lvl='+1')
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Task: Minimal UI", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Example Prompt: Styling Task", entries=_NOTES,
                                  position="left", width="50vw")
         with st_zoom(116):
             st_write(bs.timer, '10 min max', tag=t.div)
             st_space("v", "2vh")
             st_write(
                 bs.body,
-                'Target: ',
+                'Only if your plan has one. Target: ',
                 (bs.keyword, 'readable and functional'),
                 ', not production-ready.',
                 tag=t.div,

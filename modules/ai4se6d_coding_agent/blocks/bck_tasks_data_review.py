@@ -1,4 +1,4 @@
-"""Slide — Review checklist — data layer."""
+"""Slide — Review checklist — storage, form and add flow (T3, T5, T6 of the reference plan; NG « ok », 2026-11-27)."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -7,7 +7,7 @@ from shared_widgets import st_hover_tooltip
 
 
 class BlockStyles:
-    """Review checklist — data layer — styles."""
+    """Review checklist — storage, form, add flow — styles."""
     heading = s.project.titles.heading
     body = Style.create(s.project.titles.body + s.text.wrap.hyphens, "tasks_data_review_body")
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "tasks_data_review_cmd")
@@ -17,10 +17,11 @@ bs = BlockStyles
 
 _NOTES = [
     ("Trainer action",
-     "Read and comment — nothing to type. Walk through the five checks; learners apply them during the "
-     "13:30 exercise (the browser refresh check is the decisive one)."),
+     "Read and comment — nothing to type. Walk through the five checks; learners apply each one when the task "
+     "it belongs to is done (the browser refresh check, after the add flow, is the decisive one)."),
     ("The message",
-     "Five checks on the agent's data layer: types, storage, form, navigation, persistence."),
+     "Five checks for three tasks of the plan: types and storage (T3), the form (T5), navigation and "
+     "persistence (T6, the add flow)."),
     ("What each check catches",
      "A type left as any; data kept in React state instead of localStorage; uncontrolled form inputs "
      "(no value + onChange); a missing redirect to / with useNavigate after Add."),
@@ -53,24 +54,24 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, "Review the Agent's Data Layer", tag=t.div, toc_lvl='+1')
+                st_write(bs.heading, "Review: Storage, Form, Add Flow", tag=t.div, toc_lvl='+1')
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Review the Agent's Data Layer", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Review: Storage, Form, Add Flow", entries=_NOTES,
                                  position="left", width="50vw")
         st_space("v", "2vh")
 
         # One row per check, alternating fills — motif L2 + fonds f1 (NG, 2026-11-23)
         items = [
-            ('Are the types in ', (bs.cmd, 'src/expense.ts'), ', with no ', (bs.cmd, 'any'), '?'),
-            ('Does the storage really use localStorage, and not only React state?',),
-            ('Is each form input « controlled »: its ', (bs.cmd, 'value'), ' comes from the state and ',
+            ('T3 — Are the types in ', (bs.cmd, 'src/expense.ts'), ', with no ', (bs.cmd, 'any'), '?'),
+            ('T3 — Does the storage really use localStorage, and not only React state?',),
+            ('T5 — Is each form input « controlled »: its ', (bs.cmd, 'value'), ' comes from the state and ',
              (bs.cmd, 'onChange'), ' updates it?'),
-            ('After Add, does the app go back to ', (bs.cmd, '/'), ' with ', (bs.cmd, 'useNavigate'), '?'),
-            ('Refresh the browser: is your expense still there?',),
+            ('T6 — After Add, does the app go back to ', (bs.cmd, '/'), ' with ', (bs.cmd, 'useNavigate'), '?'),
+            ('T6 — Refresh the browser: is your expense still there?',),
         ]
         cols = "5% 90% 5%"
         cells = s.project.containers.rows(len(items), cols, filled=(2,))
-        with st_zoom(104), st_grid(cols=cols, gap="2.5vh 0.5vw", cell_styles=cells) as g:
+        with st_zoom(104), st_grid(cols=cols, gap="2vh 0.5vw", cell_styles=cells) as g:
             for parts in items:
                 with g.cell():
                     pass  # left margin

@@ -1,4 +1,4 @@
-"""Slide — Task — data layer (prompts)."""
+"""Slide — Example prompts for the storage task (T3 of the reference plan; NG « ok », 2026-11-27)."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -18,47 +18,44 @@ _CODE_ZOOM = 84  # code readable in the room; tuned by measure so the slide fill
 
 
 _DATA_RED = """\
-Write a failing integration test: `routes` in a memory router at "/add",
-fill amount 42.50, category Food, description Lunch (fireEvent),
-click the form's "Add Expense" button, then expect the Dashboard to contain
-"42.50" and "Food".
-Clear localStorage before each test. Test only."""
+Write a failing test in tests/storage.test.ts: loadExpenses() returns
+exactly what saveExpenses() wrote, and [] for a missing key or corrupt
+JSON. In tests/setup.ts, add an afterEach that clears localStorage and
+restores mocks. Test only."""
 
 _DATA_GREEN = """\
-Make it pass: Expense type; getExpenses/saveExpenses in storage.ts
-(localStorage key "calcapp-data"); Dashboard lists the expenses with
-a total; AddExpense saves, then navigates to "/" with useNavigate.
-Do not change what the test checks."""
+Make it pass: saveExpenses / loadExpenses in src/storage.ts, one
+localStorage key "calcapp.expenses", JSON inside; reuse the Expense
+type of src/expense.ts. Do not change what the test checks."""
 
 _NOTES = [
     ("Trainer action",
-     "Read and comment — nothing to type. Show the integration-test prompts; learners use them in the "
-     "13:30 exercise, after routing."),
+     "Read and comment — nothing to type. Show the two prompts; learners use them in the 13:30 exercise when "
+     "their plan has a storage task (T3 in the reference plan)."),
     ("The message",
-     "The second task: the data layer — an Expense type, a small storage module on localStorage, and the two "
-     "pages wired to it. localStorage is enough for v0.1."),
+     "Example prompts for the storage task: a small module that saves and loads the expenses in localStorage. "
+     "The Expense type already exists (T1). The pages are wired to it later, by the form and add-flow tasks (T5, "
+     "T6). localStorage is enough for v0.1."),
     ("The RED prompt",
-     "An INTEGRATION test this time (= several parts tested together: router, pages and storage, unlike this "
-     "morning's test of one component alone): start at /add, fill the form (42.50, Food, Lunch), click the form's "
-     "Add Expense button (not the menu link of the same name), and expect "
-     "the Dashboard to show the expense. localStorage is cleared before each test."),
+     "A unit test of the storage module alone: what is saved comes back identical, and a missing key or broken "
+     "JSON gives an empty list instead of a crash. tests/setup.ts clears localStorage after each test, so tests "
+     "do not see each other's data."),
     ("The GREEN prompt",
-     "Names the files and the key (calcapp-data), the functions (getExpenses / saveExpenses), the redirect to / "
-     "with useNavigate — and « Do not change what the test checks »."),
+     "Names the file, the functions (saveExpenses / loadExpenses) and the key (calcapp.expenses, as in the "
+     "recovery tags) — and « Do not change what the test checks »."),
     ("The trap",
-     "The agent may keep the data in React state only: the test can pass, and the expense vanishes at the first "
-     "browser refresh. The review checklist of the next slide checks it."),
+     "Asking for the whole data layer at once (type, storage, pages): one big prompt, one big diff. One task = "
+     "one small piece; the add flow (T6) is where a refresh must keep the expense — the review checklist of the "
+     "next slide checks it."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Prompt — data, RED",
-     "An integration test: it mounts the app's routes in a memory router at /add, fills the form with fireEvent "
-     "(amount 42.50, category Food, description Lunch), clicks Add, and expects the Dashboard to show « 42.50 » "
-     "and « Food ». « Clear localStorage before each test » = start every test with empty storage "
-     "(localStorage.clear() in a beforeEach). « Test only »."),
+     "A test file of its own, tests/storage.test.ts: save a list, load it, compare; then load with no key, and "
+     "with the key holding broken JSON — both must give []. afterEach in tests/setup.ts runs after every test: "
+     "localStorage.clear() and vi.restoreAllMocks(). « Test only »."),
     ("Prompt — data, GREEN",
-     "Expense type = the TypeScript description of an expense. getExpenses / saveExpenses = two functions in "
-     "storage.ts that read and write the list in localStorage under the key « calcapp-data ». Dashboard lists the"
-     " expenses with a total; AddExpense saves then goes back to / with useNavigate (react-router's function to "
-     "change page from code). « Do not change what the test checks »."),
+     "saveExpenses / loadExpenses = two functions in src/storage.ts that write and read the list in localStorage "
+     "under one key, as JSON text (JSON.stringify / JSON.parse). Reusing the Expense type of T1 avoids a second, "
+     "different description of an expense. « Do not change what the test checks »."),
     ("Words — localStorage",
      "A small storage space of the browser, per site, that survives a page refresh: text values saved under a "
      "name (the key). Visible in the browser's developer tools (F12 → Application → Local Storage)."),
@@ -70,20 +67,18 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, 'Task: Data Layer', tag=t.div, toc_lvl='+1')
+                st_write(bs.heading, 'Example Prompts: Save and Load (T3)', tag=t.div, toc_lvl='+1')
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Task: Data Layer", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Example Prompts: Save and Load (T3)", entries=_NOTES,
                                  position="left", width="50vw")
         with st_zoom(94):
             st_write(
                 bs.body,
-                'The ',
-                (bs.cmd, 'Expense'),
-                ' type goes in ',
-                (bs.cmd, 'src/expense.ts'),
-                '; saving and loading go in ',
+                'If your plan has a storage task: saving and loading go in ',
                 (bs.cmd, 'src/storage.ts'),
-                '. Keeping the data in the browser (localStorage) is enough for v0.1.',
+                ', with the ',
+                (bs.cmd, 'Expense'),
+                ' type of T1. Keeping the data in the browser (localStorage) is enough for v0.1.',
                 tag=t.div,
             )
             st_space("v", "1vh")

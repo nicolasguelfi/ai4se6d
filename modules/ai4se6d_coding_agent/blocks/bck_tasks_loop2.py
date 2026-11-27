@@ -37,7 +37,7 @@ _NOTES = [
      "Skipping the review because the tests pass: green tests say the code does what the test checks, "
      "not that the code is right."),
     ("Order",
-     "Typical order routing → data → UI, but the participant's plan decides."),
+     "The participant's plan decides the order: the task marked [next] first (reference plan: money helpers, storage, two pages, form, add flow, dashboard, delete)."),
     # Command recap: every command and option of the slide, in plain words (NG, 2026-11-24)
     ("Command — git switch -c feat/routing",
      "Creates a new branch named feat/routing and moves onto it. A branch is a named line of commits: work on it "
@@ -94,5 +94,5 @@ def build():
                     pass  # right margin
         st_space("v", "3vh")
         with st_zoom(109):
-            st_write(bs.foot, "The usual order is routing, then data, then UI — but follow the order of your plan.",
+            st_write(bs.foot, "Follow the order of your plan: the task marked [next] first.",
                      tag=t.div)

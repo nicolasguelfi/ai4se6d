@@ -28,7 +28,7 @@ _NOTES = [
      "each, test first; leave this slide on screen while they work."),
     ("The message",
      "The exercise of Part 2: 50 minutes, 13:30 → 14:20, to deliver the next tasks of the participant's plan "
-     "(routing, data, UI)."),
+     "(in its own order: the task marked [next] first)."),
     ("The four steps",
      "One branch per task, named on the Branch: line of the task marked [next]; RED → review → commit test: …; "
      "GREEN → review checklist → commit feat: …; merge into mywork when green; in docs/plan.md that task becomes "

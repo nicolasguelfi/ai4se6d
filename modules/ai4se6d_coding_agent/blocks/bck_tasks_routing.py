@@ -1,4 +1,4 @@
-"""Slide — Task — routing and navigation (prompts)."""
+"""Slide — Example prompts for the two-pages task (T4 of the reference plan; NG « ok », 2026-11-27)."""
 # @guideline: minimalist-visual + maximize-viewport
 from streamtex import *
 from streamtex.enums import Tags as t
@@ -35,8 +35,9 @@ _NOTES = [
      "Read and comment — nothing to type. Show the RED and GREEN prompts; learners use them in the 13:30 "
      "exercise when their plan's wording is unclear."),
     ("The message",
-     "The first task of Part 2: two pages, / (Dashboard) and /add (Add Expense), with the two prompts of the "
-     "loop ready to copy — RED first, then GREEN."),
+     "Example prompts for the task of your plan that adds two pages, / (Dashboard) and /add (Add Expense) — T4 "
+     "« Two pages and navigation » in the reference plan, not necessarily the first task of Part 2. RED first, "
+     "then GREEN."),
     ("The RED prompt",
      "A test only, in tests/App.test.tsx: it renders the exported routes in a memory router, expects the two "
      "links, and a second test starts directly at /add."),
@@ -69,14 +70,14 @@ def build():
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, 'Task: Routing & Navigation', tag=t.div, toc_lvl='+1')
+                st_write(bs.heading, 'Example Prompts: Two Pages (T4)', tag=t.div, toc_lvl='+1')
             with h.cell():
-                st_hover_tooltip(title="Trainer notes — Task: Routing & Navigation", entries=_NOTES,
+                st_hover_tooltip(title="Trainer notes — Example Prompts: Two Pages (T4)", entries=_NOTES,
                                  position="left", width="50vw")
         with st_zoom(98):
             st_write(
                 bs.body,
-                'Two pages: the ',
+                'If your plan has a two-pages task: the ',
                 (bs.keyword, 'Dashboard'),
                 ' at ',
                 (bs.cmd, '/'),
