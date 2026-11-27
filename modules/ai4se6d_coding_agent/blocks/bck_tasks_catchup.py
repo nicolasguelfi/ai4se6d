@@ -20,7 +20,7 @@ _CODE_ZOOM = 82  # code readable in the room; tuned by measure so the slide fill
 _CATCHUP = """\
 cd ~/ai4se
 git clone https://github.com/nicolasguelfi/calcapp-starter calcapp-restart
-cd calcapp-restart && git checkout -b mywork j2-part1 && npm ci"""
+cd calcapp-restart && git checkout -b mywork j2-part1 && git merge --no-edit origin/main && npm ci"""
 
 _NOTES = [
     ("Trainer action",
@@ -60,6 +60,10 @@ _NOTES = [
      "A tag is a fixed label on one commit — here a checkpoint of the course: j2-start (start of day 2), j2-part1"
      " (end of Part 1), j2-v0.1 (v0.1 reference). -b = create a new branch, mywork = its name, j2-part1 = the "
      "commit it starts from; git then switches to it. Newer equivalent: git switch -c mywork j2-part1."),
+    ("Command — git merge --no-edit origin/main",
+     "Adds the starter updates published after the course tags (AGENTS.md git rules, quality kit). j2-part1 is not "
+     "an ancestor of the starter's main, so git makes a merge commit; --no-edit keeps its default message instead "
+     "of opening an editor. Tested: no conflict. Then npm ci."),
     ("Command — npm ci",
      "Installs the project's libraries (into node_modules/) exactly at the versions of package-lock.json. ci = « "
      "clean install »: it deletes any old node_modules first. Needed once per fresh clone, before npm run "

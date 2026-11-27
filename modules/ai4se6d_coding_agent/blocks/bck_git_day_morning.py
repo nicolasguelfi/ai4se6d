@@ -25,7 +25,7 @@ _GRAPH_ZOOM = 64
 _LM = ("l", MAIN)
 _ROWS = [
     [("k", "mywork", MAIN), ("n", "start", MAIN), _LM, _LM, _LM, ("n", "docs", MAIN), _LM, ("n", "docs", MAIN)],
-    [_E, ("c", "j2-start (course tag)"), _E, _E, _E, ("c", "msg2"), _E, ("c", "msg3")],
+    [_E, ("c", "j2-start + starter updates"), _E, _E, _E, ("c", "msg2"), _E, ("c", "msg3")],
     [_E, _E, ("a", "↘", SIDE), _E, _E, _E, _E, _E],
     [("k", "feat/hello", SIDE), _E, _E, ("n", "docs", SIDE), _E, _E, _E, _E],
     [_E, _E, _E, ("c", "msg1 — practice, never merged"), _E, _E, _E, _E],
@@ -64,7 +64,7 @@ _NOTES = [
 
 def _steps(kw):
     return [
-        ("1", ("Git exercise: ", (kw, "git checkout -b mywork j2-start"), ", then ", (kw, "git switch -c feat/hello"),
+        ("1", ("Git exercise: ", (kw, "git checkout -b mywork j2-start"), " + ", (kw, "git merge origin/main"), ", then ", (kw, "git switch -c feat/hello"),
                " and commit msg1. feat/hello stays aside.")),
         ("2", ("Rules: ", (kw, "git switch mywork"), ", then commit msg2 (AGENTS.md).")),
         ("3", ("Plan: on mywork, commit msg3 (docs/plan.md). Every task branch starts here.")),

@@ -55,6 +55,9 @@ _NOTES = [
      "A tag is a fixed label on one commit — here a checkpoint of the course: j2-start (start of day 2), j2-part1"
      " (end of Part 1), j2-v0.1 (v0.1 reference). -b = create a new branch, mywork = its name, j2-start = the "
      "commit it starts from; git then switches to it. Newer equivalent: git switch -c mywork j2-start."),
+    ("Command — git merge origin/main",
+     "Adds the starter updates published after the tag (AGENTS.md git rules, quality kit): j2-start is an ancestor "
+     "of the starter's main, so it is a fast-forward — mywork just moves forward. Then npm ci."),
     ("Command — npm ci",
      "Installs the project's libraries (into node_modules/) exactly at the versions of package-lock.json. ci = « "
      "clean install »: it deletes any old node_modules first. Needed once per fresh clone, before npm run "
@@ -72,7 +75,7 @@ _NOTES = [
 _RESCUE = """\
 cd ~/ai4se
 git clone https://github.com/nicolasguelfi/calcapp-starter calcapp-restart
-cd calcapp-restart && git checkout -b mywork j2-start && npm ci"""
+cd calcapp-restart && git checkout -b mywork j2-start && git merge origin/main && npm ci"""
 
 
 def build():

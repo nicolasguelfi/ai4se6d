@@ -20,7 +20,7 @@ _CODE_ZOOM = 109  # code readable in the room; tuned by measure so the slide fil
 _STEPS = """\
 cd ~/ai4se
 git clone https://github.com/nicolasguelfi/calcapp-starter calcapp
-cd calcapp && git checkout -b mywork j2-start && npm ci
+cd calcapp && git checkout -b mywork j2-start && git merge origin/main && npm ci
 npm run test:run            # all green?
 git switch -c feat/hello
 # change one line of README.md, then:
@@ -63,10 +63,12 @@ _NOTES = [
      "the project's address (the CalcApp starter). Second argument: the name of the folder to create inside the "
      "current folder (~/ai4se, thanks to the cd just before); it must not exist yet — if it does, git refuses: pick "
      "another name such as calcapp2 and use it in the next line."),
-    ("Command — cd calcapp && git checkout -b mywork j2-start && npm ci",
+    ("Command — cd calcapp && git checkout -b mywork j2-start && git merge origin/main && npm ci",
      "cd = change directory, into the project. && = run the next command only if the previous one succeeded. git "
      "checkout -b mywork j2-start creates the branch mywork starting at the tag j2-start (-b = create the branch) "
-     "and moves onto it. npm ci installs the libraries exactly as in package-lock.json (ci = clean install)."),
+     "and moves onto it. git merge origin/main adds the starter updates (next note). npm ci installs the "
+     "libraries exactly as in package-lock.json (ci = clean install)."),
+ 
     ("Command — npm run test:run",
      "Runs the script named test:run in package.json; in the starter it is vitest run: all tests, once, then stop."
      " Green ✓ = pass, red ✗ = fail. (npm test would start Vitest in watch mode, which keeps running: q to quit.)"),
