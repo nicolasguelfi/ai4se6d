@@ -26,6 +26,9 @@ BLOCKS_AM = [
     blocks.bck_git_review,
     blocks.bck_git_checkpoint,
     blocks.bck_git_branches,
+    blocks.bck_git_day_morning,   # day 2 in git: every commit of the morning (NG « ok », 2026-11-27)
+    blocks.bck_git_day_ship,      # day 2 in git: review branch, v0.1, main
+    blocks.bck_git_main_moves,    # the only case with a real merge commit: the main line moved
     blocks.bck_git_conventions,
     blocks.bck_gse_solution_git,  # CCSET04 — how GSE-One solves it
     blocks.bck_git_starter,       # what the clone contains (NG, 2026-11-24)
