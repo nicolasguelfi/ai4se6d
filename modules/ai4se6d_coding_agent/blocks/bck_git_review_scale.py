@@ -26,12 +26,16 @@ _TABLE_ZOOM = 88    # tuned by measure: content bottom <= 1000 px at 1920x1080
 # (size of the change, how you check it, where in the course)
 _ROWS = [
     ("A few lines, one task", ("read the whole ", (bs.cmd, "git diff")), "Today, CalcApp tasks"),
-    ("Tens of files", ("scope with ", (bs.cmd, "git diff --stat"), ", tests green, test files untouched, "
-                       "read the risky parts"), "Day 2 — tasks with tests (11:30)"),
+    # full sentences, one check each (NG « ok », 2026-11-27)
+    ("Tens of files", ("See which files changed and how much (", (bs.cmd, "git diff --stat"), "): is that what the "
+                       "task asked? Run the tests: all must pass. Check that the agent did not edit the tests to make "
+                       "them pass. Read the risky parts line by line."), "Day 2 — tasks with tests (11:30)"),
     ("Hundreds of files", ("AI review against the plan, triage HIGH / MEDIUM / LOW, read and fix the HIGH ones",),
      "Day 2 — review (14:30)"),
-    ("Thousands of files", ("automatic checks (tests, lint, types), several agents review, you review the plan, the "
-                            "tests and the risky zones",), "Days 3-6 — GSE-One"),
+    ("Thousands of files", ("Automatic checks run on every change: tests (", (bs.cmd, "npm run test:run"), "), lint (",
+                            (bs.cmd, "npm run lint"), "), type check (", (bs.cmd, "npm run build"), "). Several agents "
+                            "review the change. You review the plan, the tests and the risky parts."),
+     "Days 3-6 — GSE-One"),
 ]
 
 _NOTES = [
@@ -53,8 +57,15 @@ _NOTES = [
      "stop and ask when a task needs more than a few files."),
     ("Words",
      "Scope = which files and how many lines changed. Triage = sort the problems by severity. Lint = a tool that "
-     "flags suspicious code. Types = TypeScript's checks (npm run build). N-version review = several agents "
+     "flags suspicious or badly written code without running it (npm run lint, ESLint). Type check = TypeScript "
+     "reads all the code without running it and flags a value of the wrong kind, e.g. text where amount: number is "
+     "expected, or a field that does not exist (npm run build runs tsc first). Tests run the code; lint and type "
+     "check do not, so they also cover lines no test reaches. N-version review = several agents "
      "review the same change independently."),
+    ("Tests untouched — when",
+     "On day 2 the test: commit (red) adds the test on purpose. The check is for the next step: between the test "
+     "commit and the feat commit, the test files must not change. An agent that edits or deletes a test to get "
+     "green proves nothing (git diff --stat shows a .test.ts file in the list)."),
     ("Command — git diff --stat",
      "One line per changed file with the number of lines added (+) and removed (-), then a total; no content. "
      "--stat = statistics only. The first thing to read on any change, big or small."),
@@ -64,12 +75,13 @@ _NOTES = [
 ]
 
 
-def build():
+def render(rows, title, foot):
+    """One half of the table: the slide title, the pitch, the rows, a foot line (shared by both halves)."""
     with st_block(s.project.containers.page_fill_top):
         # title and « i » on the same line, title smaller (NG, 2026-11-23: same recipes as the intro module)
         with st_grid(cols="95% 5%", cell_styles=s.project.containers.grid_cell_centered) as h:
             with h.cell(), st_zoom(80):
-                st_write(bs.heading, "Too Big to Read Every Line?", tag=t.div, toc_lvl="+1")
+                st_write(bs.heading, title, tag=t.div, toc_lvl="+1")
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Too Big to Read Every Line?", entries=_NOTES,
                                  position="left", width="50vw")
@@ -82,13 +94,13 @@ def build():
         base = s.project.containers.row_cell_left
         hc = s.project.containers.table_header_cell
         head = [base, hc, hc, hc, base]
-        cells = head + s.project.containers.rows(len(_ROWS), cols, filled=(2, 3, 4))
+        cells = head + s.project.containers.rows(len(rows), cols, filled=(2, 3, 4))
         with st_zoom(_TABLE_ZOOM), st_grid(cols=cols, gap="1.5vh 0.5vw", cell_styles=cells) as g:
             for h in ("", "The change", "How you check it", "In this course", ""):
                 with g.cell():
                     if h:
                         st_write(bs.th, h)
-            for size, how, when in _ROWS:
+            for size, how, when in rows:
                 with g.cell():
                     pass  # left margin
                 with g.cell():
@@ -101,4 +113,11 @@ def build():
                     pass  # right margin
         st_space("v", "3vh")
         with st_zoom(105):
-            st_write(bs.note, "Keep changes small: one task, one branch — then reading stays possible.", tag=t.div)
+            st_write(bs.note, foot, tag=t.div)
+
+
+# Split in two after the rows became full sentences (NG « ok », 2026-11-27): small changes here, large ones in
+# bck_git_review_scale_large.
+def build():
+    render(_ROWS[:2], "Too Big to Read Every Line? (1/2)",
+           "Today the tasks are small: you read every line. The next slide: when the change grows.")

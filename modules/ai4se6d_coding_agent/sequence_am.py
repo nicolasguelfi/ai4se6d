@@ -36,6 +36,7 @@ BLOCKS_AM = [
     blocks.bck_git_sheet,
     blocks.bck_git_debrief,
     blocks.bck_git_review_scale,  # reading every line does not scale (NG, 2026-11-24)
+    blocks.bck_git_review_scale_large,  # (2/2) hundreds and thousands of files (NG « ok », 2026-11-27)
     # 09:50 — Driving opencode (55 min: 3 demos, each followed by 5 min of try-it)
     blocks.bck_opencode_title,
     blocks.bck_opencode_objectives,
