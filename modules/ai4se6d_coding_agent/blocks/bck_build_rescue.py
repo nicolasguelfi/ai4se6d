@@ -14,7 +14,7 @@ class BlockStyles:
     foot = Style.create(s.project.titles.caption + s.italic + s.center_txt, "build_rescue_foot")
 bs = BlockStyles
 
-_CODE_ZOOM = 94  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 88  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _NOTES = [
     ("Trainer action",
@@ -61,10 +61,13 @@ _NOTES = [
      "of the starter's main, so it is a fast-forward — mywork just moves forward. Then npm ci."),
     # Swap the folders after a restart, so every later command (~/ai4se/calcapp) works as written (NG « ok », 2026-11-27)
     ("Command — swap the folders",
-     "Quit opencode first (/exit or Ctrl+C). cd ~/ai4se && mv calcapp calcapp-old && mv calcapp-restart calcapp: "
+     "First quit opencode (/exit or Ctrl+C) and stop npm run dev (Ctrl+C in its terminal): a running dev server "
+     "would keep serving the moved folder. cd ~/ai4se && test ! -e calcapp-old && mv calcapp calcapp-old && mv "
+     "calcapp-restart calcapp: test ! -e calcapp-old = go on only if no calcapp-old exists yet. "
      "mv (old name) (new name) renames a folder. Your old work stays in ~/ai4se/calcapp-old; the fresh copy "
      "becomes ~/ai4se/calcapp, so every later command of the slides works as written. Then cd ~/ai4se/calcapp && "
-     "opencode. calcapp-old already exists (second restart)? Use calcapp-old2."),
+     "opencode. calcapp-old already exists (second restart)? The line stops before moving anything — without the test, "
+     "mv would silently put calcapp INSIDE calcapp-old: raise your hand (NG « ok », 2026-11-27)."),
     ("Command — npm ci",
      "Installs the project's libraries (into node_modules/) exactly at the versions of package-lock.json. ci = « "
      "clean install »: it deletes any old node_modules first. Needed once per fresh clone, before npm run "
@@ -82,7 +85,8 @@ _RESCUE = """\
 cd ~/ai4se
 git clone https://github.com/nicolasguelfi/calcapp-starter calcapp-restart
 cd calcapp-restart && git checkout -b mywork j2-start && git merge origin/main && npm ci
-cd ~/ai4se && mv calcapp calcapp-old && mv calcapp-restart calcapp   # opencode closed"""
+# first quit opencode and stop npm run dev, then:
+cd ~/ai4se && test ! -e calcapp-old && mv calcapp calcapp-old && mv calcapp-restart calcapp"""
 
 
 def build():
@@ -96,10 +100,10 @@ def build():
                                  position="left", width="50vw")
         with st_zoom(116):
             st_write(bs.body, "Don't fight a broken setup: restart from the course's clean start.", tag=t.div)
-            st_space("v", "1.5vh")
+            st_space("v", "0.9vh")
             with st_zoom(_CODE_ZOOM):
                 st_code(s.none, code=_RESCUE, language="bash", line_numbers=False, font_size="26pt")   # one line per command at this zoom
-            st_space("v", "1.5vh")
+            st_space("v", "0.9vh")
             with st_list(list_type=lt.unordered, l_style=bs.body, li_style=bs.body,
                          text_align="left", item_gap=0.6) as l:
                 with l.item():
@@ -114,5 +118,5 @@ def build():
                     )
                 with l.item():
                     st_write(bs.body, 'Commit them, then restart at step 1 of the exercise')
-            st_space("v", "1.5vh")
+            st_space("v", "0.9vh")
             st_write(bs.foot, 'Your old work stays in ~/ai4se/calcapp-old. Then: cd ~/ai4se/calcapp && opencode.', tag=t.div)

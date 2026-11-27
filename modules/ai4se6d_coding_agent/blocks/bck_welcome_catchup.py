@@ -16,14 +16,15 @@ class BlockStyles:
     cmd = Style.create(s.text.fonts.font_monospace + s.project.colors.accent, "catchup_cmd")
 bs = BlockStyles
 
-_CODE_ZOOM = 80  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
+_CODE_ZOOM = 76  # code readable in the room; tuned by measure so the slide fills one screen (NG, 2026-11-24)
 
 _RECOVER = """\
 cd ~/ai4se
 git clone https://github.com/nicolasguelfi/calcapp-starter calcapp-restart
 TAG=j2-start               # the tag your half-day sheet names
 cd calcapp-restart && git checkout -b mywork "$TAG" && npm ci
-cd ~/ai4se && mv calcapp calcapp-old && mv calcapp-restart calcapp   # opencode closed"""
+# first quit opencode and stop npm run dev, then:
+cd ~/ai4se && test ! -e calcapp-old && mv calcapp calcapp-old && mv calcapp-restart calcapp"""
 
 _TAGS = [
     ("j2-start", "starter: empty app, 1 test (09:15)"),
@@ -99,10 +100,13 @@ _NOTES = [
      "mywork \"$TAG\". git branch mywork \"$TAG\" creates the branch without switching to it."),
     # Swap the folders after a restart, so every later command (~/ai4se/calcapp) works as written (NG « ok », 2026-11-27)
     ("Command — swap the folders",
-     "Quit opencode first (/exit or Ctrl+C). cd ~/ai4se && mv calcapp calcapp-old && mv calcapp-restart calcapp: "
+     "First quit opencode (/exit or Ctrl+C) and stop npm run dev (Ctrl+C in its terminal): a running dev server "
+     "would keep serving the moved folder. cd ~/ai4se && test ! -e calcapp-old && mv calcapp calcapp-old && mv "
+     "calcapp-restart calcapp: test ! -e calcapp-old = go on only if no calcapp-old exists yet. "
      "mv (old name) (new name) renames a folder. Your old work stays in ~/ai4se/calcapp-old; the fresh copy "
      "becomes ~/ai4se/calcapp, so every later command of the slides works as written. Then cd ~/ai4se/calcapp && "
-     "opencode. calcapp-old already exists (second restart)? Use calcapp-old2."),
+     "opencode. calcapp-old already exists (second restart)? The line stops before moving anything — without the test, "
+     "mv would silently put calcapp INSIDE calcapp-old: raise your hand (NG « ok », 2026-11-27)."),
     ("Command — npm ci",
      "Installs the project's libraries (into node_modules/) exactly at the versions written in package-lock.json. "
      "ci = « clean install »: it first deletes any old node_modules, so everybody gets the same setup. Needed once per "
@@ -119,7 +123,7 @@ def build():
             with h.cell():
                 st_hover_tooltip(title="Trainer notes — Late or Lost? Catch Up", entries=_NOTES,
                                  position="left", width="50vw")
-        st_space("v", "1.2vh")
+        st_space("v", "0.7vh")
         with st_zoom(110):
             st_write(
                 bs.td, (bs.tl, "Ask: "),
@@ -128,11 +132,11 @@ def build():
             st_write(
                 bs.td, (bs.cmd, "~/ai4se/ai4se-kit/tutor update"), " — get today's course notes", tag=t.div,
             )
-            st_space("v", "1.2vh")
+            st_space("v", "0.7vh")
             with st_zoom(_CODE_ZOOM):
                 st_code(s.none, code=_RECOVER, language="bash", line_numbers=False, font_size="24pt")
 
-            st_space("v", "1.2vh")
+            st_space("v", "0.7vh")
             # one row per tag, alternating fills — motif L2 + fonds f1 (margins 5 %)
             cols = "5% 22% 68% 5%"
             cells = s.project.containers.rows(len(_TAGS), cols, filled=(2, 3))
@@ -146,6 +150,6 @@ def build():
                         st_write(bs.td, when)
                     with g.cell():
                         pass  # right margin
-            st_space("v", "1.2vh")
+            st_space("v", "0.7vh")
             st_write(bs.td + s.project.colors.muted, "calcapp-starter = the course project, one tag per checkpoint. "
                      "~/ai4se/calcapp stays safe.", tag=t.div)

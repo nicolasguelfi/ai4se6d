@@ -21,7 +21,8 @@ _CATCHUP = """\
 cd ~/ai4se
 git clone https://github.com/nicolasguelfi/calcapp-starter calcapp-restart
 cd calcapp-restart && git checkout -b mywork j2-part1 && git merge --no-edit origin/main && npm ci
-cd ~/ai4se && mv calcapp calcapp-old && mv calcapp-restart calcapp   # opencode closed"""
+# first quit opencode and stop npm run dev, then:
+cd ~/ai4se && test ! -e calcapp-old && mv calcapp calcapp-old && mv calcapp-restart calcapp"""
 
 _NOTES = [
     ("Trainer action",
@@ -67,10 +68,13 @@ _NOTES = [
      "of opening an editor. Tested: no conflict. Then npm ci."),
     # Swap the folders after a restart, so every later command (~/ai4se/calcapp) works as written (NG « ok », 2026-11-27)
     ("Command — swap the folders",
-     "Quit opencode first (/exit or Ctrl+C). cd ~/ai4se && mv calcapp calcapp-old && mv calcapp-restart calcapp: "
+     "First quit opencode (/exit or Ctrl+C) and stop npm run dev (Ctrl+C in its terminal): a running dev server "
+     "would keep serving the moved folder. cd ~/ai4se && test ! -e calcapp-old && mv calcapp calcapp-old && mv "
+     "calcapp-restart calcapp: test ! -e calcapp-old = go on only if no calcapp-old exists yet. "
      "mv (old name) (new name) renames a folder. Your old work stays in ~/ai4se/calcapp-old; the fresh copy "
      "becomes ~/ai4se/calcapp, so every later command of the slides works as written. Then cd ~/ai4se/calcapp && "
-     "opencode. calcapp-old already exists (second restart)? Use calcapp-old2."),
+     "opencode. calcapp-old already exists (second restart)? The line stops before moving anything — without the test, "
+     "mv would silently put calcapp INSIDE calcapp-old: raise your hand (NG « ok », 2026-11-27)."),
     ("Command — npm ci",
      "Installs the project's libraries (into node_modules/) exactly at the versions of package-lock.json. ci = « "
      "clean install »: it deletes any old node_modules first. Needed once per fresh clone, before npm run "
